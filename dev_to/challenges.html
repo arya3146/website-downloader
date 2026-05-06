@@ -1,0 +1,2091 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<title>DEV Online Hackathons and Writing Challenges - DEV Community</title>
+<link href="https://dev.to/challenges" rel="canonical"/>
+<meta content="DEV Online Hackathons and Writing Challenges — DEV Community" name="description"/>
+<meta content="software development, engineering, rails, javascript, ruby" name="keywords"/>
+<meta content="article" property="og:type">
+<meta content="https://dev.to/challenges" property="og:url">
+<meta content="DEV Online Hackathons and Writing Challenges — DEV Community" property="og:title">
+<meta content="cdn/dev-to-uploads.s3.amazonaws.com/uploads/page/social_image/586/24e1af1a-ef07-4913-9b20-25e7dc35a636.png" property="og:image"/>
+<meta content="Complete coding hackathons and writing challenges, earn DEV badges and special rewards, and share your expertise with the DEV Community!" property="og:description">
+<meta content="DEV Community" property="og:site_name"/>
+<meta content="summary_large_image" name="twitter:card"/>
+<meta content="@thepracticaldev" name="twitter:site"/>
+<meta content="DEV Online Hackathons and Writing Challenges — DEV Community" name="twitter:title"/>
+<meta content="Complete coding hackathons and writing challenges, earn DEV badges and special rewards, and share your expertise with the DEV Community!" name="twitter:description"/>
+<meta content="cdn/dev-to-uploads.s3.amazonaws.com/uploads/page/social_image/586/24e1af1a-ef07-4913-9b20-25e7dc35a636.png" name="twitter:image:src"/>
+<meta content="2026-05-06 16:07:02 UTC" name="last-updated"/>
+<meta content="false" name="user-signed-in"/>
+<meta content="1778083622" name="head-cached-at"/>
+<meta content="production" name="environment"/>
+<link href="cdn/assets.dev.to/assets/minimal-2213124ac5505ccdbf3c4eb62fd70ecda26cb75ed6de931633992a7bac437c81.css" id="main-minimal-stylesheet" media="all" rel="stylesheet"/>
+<link href="cdn/assets.dev.to/assets/views-0681ac17bf1546793c4b7ef7c615b2defec919060aefb3b9c287471e8cb77bf2.css" id="main-views-stylesheet" media="all" rel="stylesheet"/>
+<link href="cdn/assets.dev.to/assets/crayons-d2b52af1d86a9ac9a8bc215ed34ffad7a94af68f4abd1cdcae2a8c1a4385cd23.css" id="main-crayons-stylesheet" media="all" rel="stylesheet"/>
+<script defer="defer" src="cdn/assets.dev.to/assets/base-0c748bbcdc30041261c326ef2ce931fbce46c58bc3c488da881ae35c4750941d.js"></script>
+<script defer="defer" src="cdn/assets.dev.to/assets/application-0b268684912bef9b0f23defff01cb608bfc5d5e5610287725e7b686139ae32d3.js"></script>
+<script defer="defer" src="cdn/assets.dev.to/assets/baseInitializers-2f0777a6d67046056f9f42665560ce072de3801292674358ddbad6e135c1891d.js"></script>
+<script defer="defer" src="cdn/assets.dev.to/assets/baseTracking-90c1c7b9b4f617aa0f900eadaf0ccbdbc2a002f12c1e1ada7da039c823601b14.js"></script>
+<script defer="defer" src="cdn/assets.dev.to/assets/followButtons-e3595664847e9f43945a9b8a0445b32cda9a149f1f169f78b8fcc7714ccab45a.js"></script>
+<meta content="https://assets.dev.to/assets/Search-b977aea0f2d7a5818b4ebd97f7d4aba8548099f84f5db5761f8fa67be76abc54.js" name="search-script"/>
+<meta content="width=device-width, initial-scale=1.0, viewport-fit=cover" name="viewport"/>
+<link href="cdn/media2.dev.to/dynamic/image/width=32,height=,fit=scale-down,gravity=auto,format=auto/https___dev-to-uploads.s3.amazonaws.com_uploads_articles_8j7kvp660rqzt99zui8e.png" rel="icon" type="image/x-icon"/>
+<link href="cdn/media2.dev.to/dynamic/image/width=180,height=,fit=scale-down,gravity=auto,format=auto/https___dev-to-uploads.s3.amazonaws.com_uploads_articles_8j7kvp660rqzt99zui8e.png" rel="apple-touch-icon"/>
+<link href="cdn/media2.dev.to/dynamic/image/width=152,height=,fit=scale-down,gravity=auto,format=auto/https___dev-to-uploads.s3.amazonaws.com_uploads_articles_8j7kvp660rqzt99zui8e.png" rel="apple-touch-icon" sizes="152x152"/>
+<link href="cdn/media2.dev.to/dynamic/image/width=180,height=,fit=scale-down,gravity=auto,format=auto/https___dev-to-uploads.s3.amazonaws.com_uploads_articles_8j7kvp660rqzt99zui8e.png" rel="apple-touch-icon" sizes="180x180"/>
+<link href="cdn/media2.dev.to/dynamic/image/width=167,height=,fit=scale-down,gravity=auto,format=auto/https___dev-to-uploads.s3.amazonaws.com_uploads_articles_8j7kvp660rqzt99zui8e.png" rel="apple-touch-icon" sizes="167x167"/>
+<link href="cdn/media2.dev.to/dynamic/image/width=192,height=,fit=scale-down,gravity=auto,format=auto/https___dev-to-uploads.s3.amazonaws.com_uploads_articles_8j7kvp660rqzt99zui8e.png" rel="icon" sizes="192x192">
+<link href="cdn/media2.dev.to/dynamic/image/width=128,height=,fit=scale-down,gravity=auto,format=auto/https___dev-to-uploads.s3.amazonaws.com_uploads_articles_8j7kvp660rqzt99zui8e.png" rel="icon" sizes="128x128">
+<meta content="dev.to" name="apple-mobile-web-app-title"/>
+<meta content="dev.to" name="application-name"/>
+<meta content="#ffffff" media="(prefers-color-scheme: light)" name="theme-color"/>
+<meta content="#000000" media="(prefers-color-scheme: dark)" name="theme-color"/>
+<link href="https://dev.to/open-search.xml" rel="search" title="DEV Community" type="application/opensearchdescription+xml">
+<meta content="DEV Community" property="forem:name">
+<meta content="https://media2.dev.to/dynamic/image/width=512,height=,fit=scale-down,gravity=auto,format=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Farticles%2F8j7kvp660rqzt99zui8e.png" property="forem:logo">
+<meta content="dev.to" property="forem:domain">
+<style>
+/* ==========================================================================
+   THE 418 CHALLENGE: THEME-AWARE RETRO EDITION
+   ========================================================================== */
+
+.articletag-418challenge {
+  font-family: "Comic Sans MS", "Chalkboard SE", "Marker Felt", sans-serif !important;
+  cursor: crosshair !important;
+}
+
+/* Destroy modern rounded corners and add brutal borders */
+.articletag-418challenge .crayons-card,
+.articletag-418challenge .crayons-article__main,
+.articletag-418challenge .crayons-article__header {
+  border-radius: 0 !important;
+  margin-bottom: 2rem !important;
+}
+
+/* Typography specifics */
+.articletag-418challenge h1,
+.articletag-418challenge h2,
+.articletag-418challenge h3 {
+  text-transform: uppercase !important;
+}
+
+/* Fake <marquee> effect for the main article title */
+.articletag-418challenge h1.fs-3xl {
+  animation: retro-slide 5s linear infinite alternate;
+  overflow: visible;
+}
+
+/* Spin those avatars */
+.articletag-418challenge .crayons-article__header__meta img {
+  border-radius: 0 !important; 
+  animation: retro-spin 5s linear infinite;
+}
+
+/* Obnoxious tags */
+.articletag-418challenge .crayons-tag {
+  border-radius: 0 !important;
+  font-weight: 900 !important;
+  transform: rotate(-3deg);
+  display: inline-block;
+}
+.articletag-418challenge .crayons-tag:nth-child(even) {
+  transform: rotate(3deg);
+}
+
+/* --------------------------------------------------------------------------
+   2. LIGHT THEME (Windows 95 / Office 97 Vibes)
+   -------------------------------------------------------------------------- */
+body:not(.dark-theme) .articletag-418challenge {
+  background-color: #008080 !important; /* Win95 Teal Desktop */
+}
+
+body:not(.dark-theme) .articletag-418challenge .crayons-card,
+body:not(.dark-theme) .articletag-418challenge .crayons-article__main,
+body:not(.dark-theme) .articletag-418challenge .crayons-article__header {
+  background-color: #c0c0c0 !important; /* Classic dialog gray */
+  color: #000000 !important;
+  border: 4px outset #ffffff !important;
+  box-shadow: 8px 8px 0px #000000 !important;
+}
+
+body:not(.dark-theme) .articletag-418challenge h1,
+body:not(.dark-theme) .articletag-418challenge h2,
+body:not(.dark-theme) .articletag-418challenge h3 {
+  color: #ff0000 !important;
+  text-shadow: 2px 2px 0px #ffff00 !important;
+  border-bottom: 3px dashed #0000ff !important;
+}
+
+body:not(.dark-theme) .articletag-418challenge a,
+body:not(.dark-theme) .articletag-418challenge .crayons-link {
+  color: #0000ff !important; /* Standard unvisited blue */
+  text-decoration: underline !important;
+  font-weight: bold !important;
+}
+
+body:not(.dark-theme) .articletag-418challenge a:hover,
+body:not(.dark-theme) .articletag-418challenge .crayons-link:hover {
+  background-color: #ffff00 !important;
+  color: #ff0000 !important;
+}
+
+body:not(.dark-theme) .articletag-418challenge .crayons-tag {
+  background: #ffff00 !important;
+  color: #ff0000 !important;
+  border: 2px dotted #0000ff !important;
+}
+
+/* --------------------------------------------------------------------------
+   3. DARK THEME (1999 Hacker / Deep GeoCities Vibes)
+   -------------------------------------------------------------------------- */
+body.dark-theme .articletag-418challenge {
+  background-color: #000000 !important;
+  /* Dumb CSS: A scrolling, eye-bleeding neon green hacker grid with CRT scanlines */
+  background-image: 
+    linear-gradient(transparent 50%, rgba(0, 255, 0, 0.25) 50%), 
+    linear-gradient(90deg, rgba(0, 255, 0, 0.5) 1px, transparent 1px), 
+    linear-gradient(rgba(0, 255, 0, 0.5) 1px, transparent 1px) !important;
+  background-size: 100% 4px, 20px 20px, 20px 20px !important;
+  animation: retro-pan 60s linear infinite !important;
+}
+
+body.dark-theme .articletag-418challenge .crayons-card,
+body.dark-theme .articletag-418challenge .crayons-article__main,
+body.dark-theme .articletag-418challenge .crayons-article__header {
+  background-color: #111111 !important;
+  color: #00ff00 !important; /* Terminal Green */
+  border: 4px outset #555555 !important;
+  box-shadow: 8px 8px 0px #ff00ff !important; /* Hot pink shadow */
+}
+
+body.dark-theme .articletag-418challenge h1,
+body.dark-theme .articletag-418challenge h2,
+body.dark-theme .articletag-418challenge h3 {
+  color: #ff00ff !important; /* Magenta headers */
+  text-shadow: 2px 2px 0px #00ffff !important; /* Cyan shadow */
+  border-bottom: 3px dashed #00ff00 !important;
+}
+
+body.dark-theme .articletag-418challenge a,
+body.dark-theme .articletag-418challenge .crayons-link {
+  color: #00ffff !important; /* Cyan links */
+  text-decoration: underline !important;
+  font-weight: bold !important;
+}
+
+body.dark-theme .articletag-418challenge a:hover,
+body.dark-theme .articletag-418challenge .crayons-link:hover {
+  background-color: #ff00ff !important;
+  color: #ffffff !important;
+}
+
+body.dark-theme .articletag-418challenge .crayons-tag {
+  background: #000000 !important;
+  color: #00ff00 !important;
+  border: 2px dotted #ff00ff !important;
+}
+
+/* --------------------------------------------------------------------------
+   4. ANIMATIONS
+   -------------------------------------------------------------------------- */
+@keyframes retro-spin {
+  100% { transform: rotate(360deg); }
+}
+
+@keyframes retro-slide {
+  0% { transform: translateX(-2%); }
+  100% { transform: translateX(2%); }
+}
+
+@keyframes retro-pan {
+  0% { background-position: 0 0, 0 0, 0 0; }
+  /* Numbers must be multiples of the background-size (4px and 20px) to loop perfectly */
+  100% { background-position: 0 100px, 40px 40px, 40px 40px; }
+}
+
+/* --------------------------------------------------------------------------
+   5. BONUS: CAUTION TAPE REACTION BAR
+   -------------------------------------------------------------------------- */
+.articletag-418challenge .crayons-article-actions {
+  background: repeating-linear-gradient(
+    45deg,
+    #ffff00,
+    #ffff00 10px,
+    #000000 10px,
+    #000000 20px
+  ) !important;
+  border: 4px solid #ff0000 !important;
+  border-radius: 0 !important;
+}
+
+.articletag-418challenge .crayons-article-actions button {
+  background:black;
+  color: #ff00ff !important;
+}
+
+.articletag-418challenge .crayons-article-actions .crayons-reaction__count {
+    color: #ff00ff !important;
+    font-weight: bold !important;
+}
+
+.articletag-418challenge .crayons-icon:not(.crayons-icon--default) * {
+    fill: #ffff00 !important;
+}
+
+.articletag-418challenge .c-embed .crayons-btn--primary {
+  color: #00ff00 !important;
+}
+
+.articletag-418challenge .popover-billboard {
+margin-bottom: 0 !important;
+}
+
+.crayons-story__contentpreview .ltag__link--embedded {
+margin-top: 0 !important;
+}
+
+.subscription-icon {
+    max-height: 16px !important;
+    display: inline-block !important;
+}
+
+@media screen and (min-width: 950px) {
+    .event-show-layout {
+        margin-top: 24px !important;
+    }
+}
+
+@media screen and (max-width: 949px) {
+    .event-show-layout {
+        padding: 11px !important;
+    }
+}
+
+
+</style>
+</meta></meta></meta></link></link></link></meta></meta></meta></meta></head>
+<body class="sans-serif-article-body default-header" data-algolia-display="true" data-algolia-id="PRSOBFP46H" data-algolia-search-key="9aa7d31610cba78851c9b1f63776a9dd" data-community-name="DEV Community" data-cookie-banner-platform-context="off" data-cookie-banner-user-context="logged_out_only" data-deployed-at="2026-05-05T19:04:15Z" data-dynamic-url-component="bmar11" data-ga-tracking="UA-71991109-1" data-ga4-tracking-id="G-TYEM8Y3JN3" data-honeybadger-key="hbp_nqu4Y66HuEKlD6YRGssZuRQnPOjDm50J8Zkr" data-is-root-subforem="false" data-latest-commit-id="99141cc1f10837f83a0dcd05003c5e711ec877ac" data-locale="en" data-side-nav-visible="true" data-subforem-id="1" data-subscription-icon="https://assets.dev.to/assets/subscription-icon-805dfa7ac7dd660f07ed8d654877270825b07a92a03841aa99a1093bd00431b2.png" data-user-status="logged-out">
+<script>
+        if (navigator.userAgent === 'ForemWebView/1' || window.frameElement) {
+          document.body.classList.add("hidden-shell");
+        }
+          if (new Date() > new Date("2026-02-04T09:00:00-05:00")) {
+            document.body.dataset.sideNavVisible = "false";
+          } 
+      </script>
+<link href="cdn/assets.dev.to/assets/minimal-2213124ac5505ccdbf3c4eb62fd70ecda26cb75ed6de931633992a7bac437c81.css" id="secondary-minimal-stylesheet" media="all" rel="stylesheet">
+<link href="cdn/assets.dev.to/assets/views-0681ac17bf1546793c4b7ef7c615b2defec919060aefb3b9c287471e8cb77bf2.css" id="secondary-views-stylesheet" media="all" rel="stylesheet"/>
+<link href="cdn/assets.dev.to/assets/crayons-d2b52af1d86a9ac9a8bc215ed34ffad7a94af68f4abd1cdcae2a8c1a4385cd23.css" id="secondary-crayons-stylesheet" media="all" rel="stylesheet"/>
+<div id="body-styles">
+<style>
+          :root {
+            --accent-brand-lighter-rgb: 86, 105, 285;
+            --accent-brand-rgb: 64, 78, 211;
+            --accent-brand-darker-rgb: 51, 62, 169;
+          }
+        </style>
+</div>
+<div data-podcast="" id="audiocontent">
+</div>
+<div class="navigation-progress" id="navigation-progress"></div>
+<header class="crayons-header topbar print-hidden" id="topbar">
+<span id="route-change-target" tabindex="-1"></span>
+<a class="skip-content-link" href="#main-content">Skip to content</a>
+<div class="crayons-header__container">
+<span class="inline-block m:hidden">
+<button class="c-btn c-btn--icon-alone js-hamburger-trigger mx-2">
+<svg aria-labelledby="asfqx6u1pdqsopobe06j55hwhvmzlrfg" class="crayons-icon" height="24" role="img" viewbox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><title id="asfqx6u1pdqsopobe06j55hwhvmzlrfg">Navigation menu</title>
+<path d="M3 4h18v2H3V4zm0 7h18v2H3v-2zm0 7h18v2H3v-2z"></path>
+</svg>
+</button>
+</span>
+<a aria-label="DEV Community Home" class="site-logo" href="index.html">
+<img alt="DEV Community" class="site-logo__img" src="cdn/media2.dev.to/dynamic/image/quality=100/https_/dev-to-uploads.s3.amazonaws.com/uploads/logos/resized_logo_UQww2soKuUsjaOGNB38o.png" style="aspect-ratio: 10 / 8"/>
+</a>
+<div class="crayons-header--search js-search-form" id="header-search">
+<form accept-charset="UTF-8" action="/search" method="get" role="search">
+<div class="crayons-fields crayons-fields--horizontal">
+<div class="crayons-field flex-1 relative">
+<input autocomplete="off" class="crayons-header--search-input crayons-textfield js-search-input" id="nav-search" name="q" placeholder="Search..." type="text"/>
+<button aria-label="Search" class="c-btn c-btn--icon-alone absolute inset-px right-auto mt-0 py-0" type="submit">
+<svg aria-hidden="true" aria-labelledby="a1q1v7e27wg0q72ktcg0rr6e0s2kp24b" class="crayons-icon" height="24" role="img" viewbox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><title id="a1q1v7e27wg0q72ktcg0rr6e0s2kp24b">Search</title>
+<path d="M18.031 16.617l4.283 4.282-1.415 1.415-4.282-4.283A8.96 8.96 0 0111 20c-4.968 0-9-4.032-9-9s4.032-9 9-9 9 4.032 9 9a8.96 8.96 0 01-1.969 5.617zm-2.006-.742A6.977 6.977 0 0018 11c0-3.868-3.133-7-7-7-3.868 0-7 3.132-7 7 0 3.867 3.132 7 7 7a6.977 6.977 0 004.875-1.975l.15-.15z"></path>
+</svg>
+</button>
+<a class="crayons-header--search-brand-indicator" href="https://www.algolia.com/developers/?utm_source=devto&amp;utm_medium=referral" rel="noopener noreferrer" target="_blank">
+                Powered by Algolia
+                <svg aria-hidden="true" aria-labelledby="a697iblrpl8p9dq1jp9cynnqj4z4np8d" class="crayons-icon" height="24" id="Layer_1" role="img" viewbox="0 0 500 500.34" width="24" xmlns="http://www.w3.org/2000/svg"><title id="a697iblrpl8p9dq1jp9cynnqj4z4np8d">Search</title>
+<defs></defs><path class="cls-1" d="M250,0C113.38,0,2,110.16,.03,246.32c-2,138.29,110.19,252.87,248.49,253.67,42.71,.25,83.85-10.2,120.38-30.05,3.56-1.93,4.11-6.83,1.08-9.52l-23.39-20.74c-4.75-4.22-11.52-5.41-17.37-2.92-25.5,10.85-53.21,16.39-81.76,16.04-111.75-1.37-202.04-94.35-200.26-206.1,1.76-110.33,92.06-199.55,202.8-199.55h202.83V407.68l-115.08-102.25c-3.72-3.31-9.43-2.66-12.43,1.31-18.47,24.46-48.56,39.67-81.98,37.36-46.36-3.2-83.92-40.52-87.4-86.86-4.15-55.28,39.65-101.58,94.07-101.58,49.21,0,89.74,37.88,93.97,86.01,.38,4.28,2.31,8.28,5.53,11.13l29.97,26.57c3.4,3.01,8.8,1.17,9.63-3.3,2.16-11.55,2.92-23.6,2.07-35.95-4.83-70.39-61.84-127.01-132.26-131.35-80.73-4.98-148.23,58.18-150.37,137.35-2.09,77.15,61.12,143.66,138.28,145.36,32.21,.71,62.07-9.42,86.2-26.97l150.36,133.29c6.45,5.71,16.62,1.14,16.62-7.48V9.49C500,4.25,495.75,0,490.51,0H250Z"></path>
+</svg>
+</a>
+</div>
+</div>
+</form>
+</div>
+<div class="flex items-center h-100 ml-auto">
+<div class="flex" id="authentication-top-nav-actions">
+<span class="hidden m:block">
+<a class="c-link c-link--block mr-2 whitespace-nowrap ml-auto" data-no-instant="" href="enter-q7ffd52de7b.html">
+              Log in
+            </a>
+</span>
+<a class="c-cta c-cta--branded whitespace-nowrap mr-2" data-no-instant="" data-tracking-id="ca_top_nav" data-tracking-source="top_navbar" href="enter-qfc40b94913.html">
+            Create account
+          </a>
+</div>
+</div>
+</div>
+</header>
+<div class="hamburger">
+<div class="hamburger__content">
+<header class="hamburger__content__header">
+<h2 class="fs-l fw-bold flex-1 break-word lh-tight">DEV Community</h2>
+<button aria-label="Close" class="c-btn c-btn--icon-alone js-hamburger-trigger shrink-0">
+<svg aria-hidden="true" aria-labelledby="alea6sd4hlyib192di50fd5u2voueh59" class="crayons-icon c-btn__icon" height="24" role="img" viewbox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><title id="alea6sd4hlyib192di50fd5u2voueh59">Close</title><path d="M12 10.586l4.95-4.95 1.414 1.414-4.95 4.95 4.95 4.95-1.414 1.414-4.95-4.95-4.95 4.95-1.414-1.414 4.95-4.95-4.95-4.95L7.05 5.636l4.95 4.95z"></path></svg>
+</button>
+</header>
+<div class="p-2 js-navigation-links-container" id="authentication-hamburger-actions">
+</div>
+</div>
+<div class="hamburger__overlay js-hamburger-trigger"></div>
+</div>
+<div class="broadcast-wrapper" id="active-broadcast"></div>
+<div class="wrapper stories stories-show pageslug-challenges" data-current-page="stories-index" id="page-content">
+<div data-internal-nav="false" data-viewable-id="586" data-viewable-type="Page" id="page-content-inner">
+<div aria-atomic="true" aria-live="polite" class="screen-reader-only" id="page-route-change"></div>
+<script defer="defer" src="cdn/assets.dev.to/assets/homePage-140fca3fb2995712116b760d6d2cbb8afdd0b6cac2b40ca0a6561caf5ffadaab.js"></script>
+<main id="main-content">
+<link data-no-instant="" href="page/assets_stylesheets_pages" id="pages-css" rel="stylesheet"/>
+<script defer="" src="cdn/cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+<style id="transition-reset">
+  .notransition *,
+  .notransition *:before,
+  .notransition *:after {
+    transition: none !important;
+    animation: none !important;
+  }
+</style>
+<div class="twp notransition tw-text-base tw-leading-normal tw-text-black dark:tw-text-zinc-50" data-no-instant="" id="custom">
+<script>
+    // set tw dark theme when DEV dark theme detected
+    if (document.body.classList.contains('dark-theme')) {
+      document.getElementById('custom').classList.add('tw-dark')
+    }
+
+    function loadCss() {
+      const cssLink = document.getElementById('pages-css');
+      const customElement = document.getElementById('custom');
+      
+      // Hide the element initially
+      customElement.style.visibility = 'hidden';
+
+      // Check if the stylesheet is already loaded
+      if (cssLink.sheet) {
+        customElement.style.visibility = 'visible';
+        customElement.classList.remove('notransition');
+      } else {
+        // Add the load event listener
+        cssLink.addEventListener('load', function () {
+          customElement.style.visibility = 'visible';
+          customElement.classList.remove('notransition');
+        });
+
+        // Fallback to timeout
+        setTimeout(() => {
+          customElement.style.visibility = 'visible';
+          customElement.classList.remove('notransition');
+        }, 1000);
+      }
+    }
+
+    if (typeof InstantClick !== "undefined") {
+      InstantClick.on('change', () => {
+        loadCss();
+      });
+    } else {
+      loadCss();
+    }
+  </script>
+<div class="tw-bg-white dark:tw-bg-black">
+<div class="tw-container xl:tw-max-w-6xl tw-m-auto tw-p-2 md:tw-p-5">
+<header class="tw-mb-8">
+<img alt="DEV Challenges" class="tw-w-full tw-rounded-lg" height="317" src="cdn/media2.dev.to/dynamic/image/width=1300/https_/dev-to-uploads.s3.amazonaws.com/uploads/articles/oasodnteb2urktpbsnq2.png" width="984"/>
+</header>
+<section class="tw-mb-8">
+<h1 class="tw-text-black dark:tw-text-zinc-50 tw-font-bold tw-text-4xl tw-leading-relaxed">
+    Join a DEV Online Hackathon or Writing Challenge
+  </h1>
+</section>
+<section class="tw-mb-8">
+<div class="tw-bg-white dark:tw-bg-zinc-900 tw-border tw-border-zinc-300 tw-rounded-lg tw-p-6">
+<h2 class="tw-font-bold tw-text-xl tw-text-black dark:tw-text-zinc-50 tw-mb-3">What are DEV Challenges? 🧠</h2>
+<div class="tw-text-zinc-700 dark:tw-text-zinc-300">
+<p>DEV Challenges are mini Hackathons that provide a fun opportunity for you to build up experience using new tools or to publicly show off your best skills to the community, potential employers and more.</p>
+</div>
+</div>
+</section>
+<section class="tw-mb-8">
+<div class="tw-bg-white dark:tw-bg-zinc-900 tw-border tw-border-zinc-300 tw-rounded-lg tw-p-6">
+<h2 class="tw-text-black dark:tw-text-zinc-50 tw-font-bold tw-text-2xl tw-mb-6">
+      Launching Soon
+    </h2>
+<div class="tw-grid tw-grid-cols-1 md:tw-grid-cols-2 tw-gap-4">
+<a class="tw-block tw-border tw-border-zinc-300 tw-rounded-md tw-p-5 hover:tw-border-zinc-400 dark:hover:tw-border-zinc-600 tw-transition-colors tw-duration-200" href="challenges/github-2026-05-21.html">
+<div class="tw-flex tw-flex-col tw-gap-3 tw-h-full">
+<h4 class="tw-text-black dark:tw-text-zinc-50 tw-font-bold tw-text-lg">
+      GitHub Copilot Challenge
+    </h4>
+<p class="tw-text-zinc-700 dark:tw-text-zinc-300 tw-flex-grow">
+</p>
+<div class="tw-flex tw-justify-between tw-items-center tw-mt-auto">
+<div class="tw-flex tw-gap-2 tw-flex-wrap tw-items-center">
+<span class="tw-inline-flex tw-items-center tw-px-3 tw-py-1 tw-rounded-full tw-text-xs tw-font-medium tw-bg-dolphin tw-text-white">
+            Upcoming
+          </span>
+<span class="tw-inline-flex tw-items-center tw-px-3 tw-py-1 tw-rounded-full tw-text-xs tw-font-medium tw-border tw-border-zinc-300 tw-bg-white dark:tw-bg-zinc-800 tw-text-zinc-700 dark:tw-text-zinc-300">
+            Cash Prizes 🤑
+          </span>
+</div>
+<div class="tw-flex tw-items-center tw-gap-2">
+<img alt="Completion Badge" class="tw-w-7 tw-h-7 tw-object-contain" src="cdn/media2.dev.to/dynamic/image/width=60/https_/dev-to-uploads.s3.amazonaws.com/uploads/articles/pu6d90a5ap9ozb45yrjj.png" title="Completion Badge"/>
+<img alt="Winner Badge" class="tw-w-7 tw-h-7 tw-object-contain" src="cdn/media2.dev.to/dynamic/image/width=60/https_/dev-to-uploads.s3.amazonaws.com/uploads/articles/rd8b1s3r0xf3kz48q7np.png" title="Winner Badge"/>
+<span aria-hidden="true" class="tw-text-zinc-400 tw-ml-2 tw-text-lg">→</span>
+</div>
+</div>
+</div>
+</a>
+<a class="tw-block tw-border tw-border-zinc-300 tw-rounded-md tw-p-5 hover:tw-border-zinc-400 dark:hover:tw-border-zinc-600 tw-transition-colors tw-duration-200" href="challenges/google-gemma-2026-05-06.html">
+<div class="tw-flex tw-flex-col tw-gap-3 tw-h-full">
+<h4 class="tw-text-black dark:tw-text-zinc-50 tw-font-bold tw-text-lg">
+      Gemma 4 Challenge
+    </h4>
+<p class="tw-text-zinc-700 dark:tw-text-zinc-300 tw-flex-grow">
+</p>
+<div class="tw-flex tw-justify-between tw-items-center tw-mt-auto">
+<div class="tw-flex tw-gap-2 tw-flex-wrap tw-items-center">
+<span class="tw-inline-flex tw-items-center tw-px-3 tw-py-1 tw-rounded-full tw-text-xs tw-font-medium tw-bg-dolphin tw-text-white">
+            Upcoming
+          </span>
+<span class="tw-inline-flex tw-items-center tw-px-3 tw-py-1 tw-rounded-full tw-text-xs tw-font-medium tw-border tw-border-zinc-300 tw-bg-white dark:tw-bg-zinc-800 tw-text-zinc-700 dark:tw-text-zinc-300">
+            Cash Prizes 🤑
+          </span>
+</div>
+<div class="tw-flex tw-items-center tw-gap-2">
+<img alt="Gemma 4 Challenge Completion Badge" class="tw-w-7 tw-h-7 tw-object-contain" src="cdn/media2.dev.to/dynamic/image/width=60/https_/dev-to-uploads.s3.amazonaws.com/uploads/articles/emskqyan7fuee1gc3mxo.png" title="Gemma 4 Challenge Completion Badge"/>
+<img alt="Gemma 4 Challenge Winner Badge" class="tw-w-7 tw-h-7 tw-object-contain" src="cdn/media2.dev.to/dynamic/image/width=60/https_/dev-to-uploads.s3.amazonaws.com/uploads/articles/i7rycwrsclb1vegfo5qr.png" title="Gemma 4 Challenge Winner Badge"/>
+<span aria-hidden="true" class="tw-text-zinc-400 tw-ml-2 tw-text-lg">→</span>
+</div>
+</div>
+</div>
+</a>
+</div>
+</div>
+</section>
+<section class="tw-mb-8">
+<div class="tw-bg-white dark:tw-bg-zinc-900 tw-border tw-border-zinc-300 tw-rounded-lg tw-p-8">
+<h2 class="tw-font-bold tw-text-xl tw-text-black dark:tw-text-zinc-50 tw-mb-2">💎 DEV Diamond Sponsors</h2>
+<p class="tw-text-sm tw-text-zinc-600 dark:tw-text-zinc-400 tw-mb-8">
+      Thank you to our Diamond Sponsors for supporting the DEV Community
+    </p>
+<div class="tw-grid tw-grid-cols-1 md:tw-grid-cols-3 tw-gap-6">
+<div class="tw-p-4">
+<a class="tw-block hover:tw-opacity-90 tw-transition-opacity" href="https://aistudio.google.com/?utm_source=partner&amp;utm_medium=partner&amp;utm_campaign=FY25-Global-DEVpartnership-sponsorship-AIS&amp;utm_content=-&amp;utm_term=-" rel="noopener noreferrer" target="_blank">
+<img alt="Google AI - Official AI Model and Platform Partner" class="tw-w-full tw-h-auto tw-mb-3" loading="lazy" src="cdn/dev-to-uploads.s3.amazonaws.com/uploads/articles/xjlyhbdqehj3akhz166w.png"/>
+</a>
+<p class="tw-text-center tw-text-sm tw-italic tw-text-zinc-600 dark:tw-text-zinc-300">
+          Google AI is the official AI Model and Platform Partner of DEV
+        </p>
+</div>
+<div class="tw-p-4">
+<a class="tw-block hover:tw-opacity-90 tw-transition-opacity" href="https://neon.tech/?ref=devto" rel="noopener noreferrer" target="_blank">
+<img alt="Neon - Official Database Partner" class="tw-w-full tw-h-auto tw-mb-3" loading="lazy" src="cdn/dev-to-uploads.s3.amazonaws.com/uploads/articles/bnl88cil6afxzmgwrgtt.png"/>
+</a>
+<p class="tw-text-center tw-text-sm tw-italic tw-text-zinc-600 dark:tw-text-zinc-300">
+          Neon is the official database partner of DEV
+        </p>
+</div>
+<div class="tw-p-4">
+<a class="tw-block hover:tw-opacity-90 tw-transition-opacity" href="https://www.algolia.com/developers/?utm_source=devto&amp;utm_medium=referral" rel="noopener noreferrer" target="_blank">
+<img alt="Algolia - Official Search Partner" class="tw-w-full tw-h-auto tw-mb-3" loading="lazy" src="cdn/dev-to-uploads.s3.amazonaws.com/uploads/articles/v30ephnolfvnlwgwm0yz.png"/>
+</a>
+<p class="tw-text-center tw-text-sm tw-italic tw-text-zinc-600 dark:tw-text-zinc-300">
+          Algolia is the official search partner of DEV
+        </p>
+</div>
+</div>
+</div>
+</section>
+<section>
+<div class="tw-bg-white dark:tw-bg-zinc-900 tw-border tw-border-zinc-300 tw-rounded-lg tw-p-6">
+<h2 class="tw-text-black dark:tw-text-zinc-50 tw-font-bold tw-text-2xl tw-mb-4">
+      Previous Challenges
+    </h2>
+<div class="tw-grid tw-grid-cols-1 lg:tw-grid-cols-2 tw-gap-4">
+<a class="tw-block tw-border tw-border-zinc-300 tw-rounded-md tw-p-5 hover:tw-border-zinc-400 dark:hover:tw-border-zinc-600 tw-transition-colors tw-duration-200" href="challenges/google-cloud-next-2026-04-22.html">
+<div class="tw-flex tw-flex-col tw-gap-3 tw-h-full">
+<h4 class="tw-text-black dark:tw-text-zinc-50 tw-font-bold tw-text-lg">
+      Google Cloud NEXT Writing Challenge
+    </h4>
+<p class="tw-text-zinc-700 dark:tw-text-zinc-300 tw-flex-grow">
+      Tune into Google Cloud NEXT and start exploring!
+    </p>
+<div class="tw-flex tw-justify-between tw-items-center tw-mt-auto">
+<div class="tw-flex tw-gap-2 tw-flex-wrap tw-items-center">
+</div>
+<div class="tw-flex tw-items-center tw-gap-2">
+<img alt="Google Cloud NEXT Writing Challenge Completion Badge" class="tw-w-7 tw-h-7 tw-object-contain" src="cdn/media2.dev.to/dynamic/image/width=60/https_/dev-to-uploads.s3.amazonaws.com/uploads/articles/otgr5jw336sgg7l9xccd.png" title="Google Cloud NEXT Writing Challenge Completion Badge"/>
+<img alt="Google Cloud NEXT Writing Challenge Winner Badge" class="tw-w-7 tw-h-7 tw-object-contain" src="cdn/media2.dev.to/dynamic/image/width=60/https_/dev-to-uploads.s3.amazonaws.com/uploads/articles/z95xyctjoel2gxgr916b.png" title="Google Cloud NEXT Writing Challenge Winner Badge"/>
+<span aria-hidden="true" class="tw-text-zinc-400 tw-ml-2 tw-text-lg">→</span>
+</div>
+</div>
+</div>
+</a>
+<a class="tw-block tw-border tw-border-zinc-300 tw-rounded-md tw-p-5 hover:tw-border-zinc-400 dark:hover:tw-border-zinc-600 tw-transition-colors tw-duration-200" href="challenges/weekend-2026-04-16.html">
+<div class="tw-flex tw-flex-col tw-gap-3 tw-h-full">
+<h4 class="tw-text-black dark:tw-text-zinc-50 tw-font-bold tw-text-lg">
+      Weekend Challenge: Earth Day Edition
+    </h4>
+<p class="tw-text-zinc-700 dark:tw-text-zinc-300 tw-flex-grow">
+      A short-form challenge that fits into your weekend!
+    </p>
+<div class="tw-flex tw-justify-between tw-items-center tw-mt-auto">
+<div class="tw-flex tw-gap-2 tw-flex-wrap tw-items-center">
+</div>
+<div class="tw-flex tw-items-center tw-gap-2">
+<img alt="DEV Weekend Challenge Completion Badge" class="tw-w-7 tw-h-7 tw-object-contain" src="cdn/media2.dev.to/dynamic/image/width=60/https_/dev-to-uploads.s3.amazonaws.com/uploads/articles/xusepy4edy7az3yeg25n.png" title="DEV Weekend Challenge Completion Badge"/>
+<img alt="DEV Weekend Challenge Winner Badge" class="tw-w-7 tw-h-7 tw-object-contain" src="cdn/media2.dev.to/dynamic/image/width=60/https_/dev-to-uploads.s3.amazonaws.com/uploads/articles/ij5ru8peguz78zv6nbgd.png" title="DEV Weekend Challenge Winner Badge"/>
+<span aria-hidden="true" class="tw-text-zinc-400 tw-ml-2 tw-text-lg">→</span>
+</div>
+</div>
+</div>
+</a>
+<a class="tw-block tw-border tw-border-zinc-300 tw-rounded-md tw-p-5 hover:tw-border-zinc-400 dark:hover:tw-border-zinc-600 tw-transition-colors tw-duration-200" href="challenges/openclaw-2026-04-16.html">
+<div class="tw-flex tw-flex-col tw-gap-3 tw-h-full">
+<h4 class="tw-text-black dark:tw-text-zinc-50 tw-font-bold tw-text-lg">
+      OpenClaw Challenge
+    </h4>
+<p class="tw-text-zinc-700 dark:tw-text-zinc-300 tw-flex-grow">
+      Share your OpenClaw experience with the community!
+    </p>
+<div class="tw-flex tw-justify-between tw-items-center tw-mt-auto">
+<div class="tw-flex tw-gap-2 tw-flex-wrap tw-items-center">
+</div>
+<div class="tw-flex tw-items-center tw-gap-2">
+<img alt="OpenClaw Challenge Completion Badge" class="tw-w-7 tw-h-7 tw-object-contain" src="cdn/media2.dev.to/dynamic/image/width=60/https_/dev-to-uploads.s3.amazonaws.com/uploads/articles/t95olrvi5rd0ew2x5n5d.png" title="OpenClaw Challenge Completion Badge"/>
+<img alt="OpenClaw Challenge Winner Badge" class="tw-w-7 tw-h-7 tw-object-contain" src="cdn/media2.dev.to/dynamic/image/width=60/https_/dev-to-uploads.s3.amazonaws.com/uploads/articles/w2xxjaef6bnmyoh076f0.png" title="OpenClaw Challenge Winner Badge"/>
+<span aria-hidden="true" class="tw-text-zinc-400 tw-ml-2 tw-text-lg">→</span>
+</div>
+</div>
+</div>
+</a>
+<a class="tw-block tw-border tw-border-zinc-300 tw-rounded-md tw-p-5 hover:tw-border-zinc-400 dark:hover:tw-border-zinc-600 tw-transition-colors tw-duration-200" href="challenges/aprilfools-2026.html">
+<div class="tw-flex tw-flex-col tw-gap-3 tw-h-full">
+<h4 class="tw-text-black dark:tw-text-zinc-50 tw-font-bold tw-text-lg">
+      DEV April Fools Challenge
+    </h4>
+<p class="tw-text-zinc-700 dark:tw-text-zinc-300 tw-flex-grow">
+      Build something completely useless or silly!
+    </p>
+<div class="tw-flex tw-justify-between tw-items-center tw-mt-auto">
+<div class="tw-flex tw-gap-2 tw-flex-wrap tw-items-center">
+</div>
+<div class="tw-flex tw-items-center tw-gap-2">
+<img alt="Completion Badge" class="tw-w-7 tw-h-7 tw-object-contain" src="cdn/media2.dev.to/dynamic/image/width=60/https_/dev-to-uploads.s3.amazonaws.com/uploads/badge/badge_image/439/april-fools-challenge-completion.png" title="Completion Badge"/>
+<img alt="Winner Badge" class="tw-w-7 tw-h-7 tw-object-contain" src="cdn/media2.dev.to/dynamic/image/width=60/https_/dev-to-uploads.s3.amazonaws.com/uploads/badge/badge_image/438/april-fools-challenge-winner.png" title="Winner Badge"/>
+<span aria-hidden="true" class="tw-text-zinc-400 tw-ml-2 tw-text-lg">→</span>
+</div>
+</div>
+</div>
+</a>
+<a class="tw-block tw-border tw-border-zinc-300 tw-rounded-md tw-p-5 hover:tw-border-zinc-400 dark:hover:tw-border-zinc-600 tw-transition-colors tw-duration-200" href="challenges/wecoded-2026.html">
+<div class="tw-flex tw-flex-col tw-gap-3 tw-h-full">
+<h4 class="tw-text-black dark:tw-text-zinc-50 tw-font-bold tw-text-lg">
+      2026 WeCoded Challenge
+    </h4>
+<p class="tw-text-zinc-700 dark:tw-text-zinc-300 tw-flex-grow">
+      A Celebration of Gender Equity in Software Development
+    </p>
+<div class="tw-flex tw-justify-between tw-items-center tw-mt-auto">
+<div class="tw-flex tw-gap-2 tw-flex-wrap tw-items-center">
+</div>
+<div class="tw-flex tw-items-center tw-gap-2">
+<img alt="2026 WeCoded Winner Badge" class="tw-w-7 tw-h-7 tw-object-contain" src="cdn/media2.dev.to/dynamic/image/width=60/https_/dev-to-uploads.s3.amazonaws.com/uploads/articles/0qunemeki1g51sboq6gp.png" title="2026 WeCoded Winner Badge"/>
+<img alt="2026 WeCoded Completion Badge" class="tw-w-7 tw-h-7 tw-object-contain" src="cdn/media2.dev.to/dynamic/image/width=60/https_/dev-to-uploads.s3.amazonaws.com/uploads/articles/0qunemeki1g51sboq6gp.png" title="2026 WeCoded Completion Badge"/>
+<span aria-hidden="true" class="tw-text-zinc-400 tw-ml-2 tw-text-lg">→</span>
+</div>
+</div>
+</div>
+</a>
+<a class="tw-block tw-border tw-border-zinc-300 tw-rounded-md tw-p-5 hover:tw-border-zinc-400 dark:hover:tw-border-zinc-600 tw-transition-colors tw-duration-200" href="challenges/notion-2026-03-04.html">
+<div class="tw-flex tw-flex-col tw-gap-3 tw-h-full">
+<h4 class="tw-text-black dark:tw-text-zinc-50 tw-font-bold tw-text-lg">
+      Notion MCP Challenge
+    </h4>
+<p class="tw-text-zinc-700 dark:tw-text-zinc-300 tw-flex-grow">
+      Centralize your workflow!
+    </p>
+<div class="tw-flex tw-justify-between tw-items-center tw-mt-auto">
+<div class="tw-flex tw-gap-2 tw-flex-wrap tw-items-center">
+</div>
+<div class="tw-flex tw-items-center tw-gap-2">
+<img alt="Notion MCP Challenge Completion Badge" class="tw-w-7 tw-h-7 tw-object-contain" src="cdn/media2.dev.to/dynamic/image/width=60/https_/media2.dev.to/dynamic/image/width=800,height=,fit=scale-down,gravity=auto,format=auto/https___dev-to-uploads.s3.amazonaws.com_uploads_articles_7iiy574atv5a70sup6lz.png" title="Notion MCP Challenge Completion Badge"/>
+<img alt="Notion MCP Challenge Runner-Up Badge" class="tw-w-7 tw-h-7 tw-object-contain" src="cdn/media2.dev.to/dynamic/image/width=60/https_/media2.dev.to/dynamic/image/width=800,height=,fit=scale-down,gravity=auto,format=auto/https___dev-to-uploads.s3.amazonaws.com_uploads_articles_6x4d1nx1urepm8ls4i69.png" title="Notion MCP Challenge Runner-Up Badge"/>
+<span aria-hidden="true" class="tw-text-zinc-400 tw-ml-2 tw-text-lg">→</span>
+</div>
+</div>
+</div>
+</a>
+<a class="tw-block tw-border tw-border-zinc-300 tw-rounded-md tw-p-5 hover:tw-border-zinc-400 dark:hover:tw-border-zinc-600 tw-transition-colors tw-duration-200" href="challenges/weekend-2026-02-28.html">
+<div class="tw-flex tw-flex-col tw-gap-3 tw-h-full">
+<h4 class="tw-text-black dark:tw-text-zinc-50 tw-font-bold tw-text-lg">
+      Weekend Challenge: Community Edition
+    </h4>
+<p class="tw-text-zinc-700 dark:tw-text-zinc-300 tw-flex-grow">
+      A short-form challenge that fits into your weekend!
+    </p>
+<div class="tw-flex tw-justify-between tw-items-center tw-mt-auto">
+<div class="tw-flex tw-gap-2 tw-flex-wrap tw-items-center">
+</div>
+<div class="tw-flex tw-items-center tw-gap-2">
+<img alt="DEV Weekend Challenge Completion Badge" class="tw-w-7 tw-h-7 tw-object-contain" src="cdn/media2.dev.to/dynamic/image/width=60/https_/dev-to-uploads.s3.amazonaws.com/uploads/articles/xusepy4edy7az3yeg25n.png" title="DEV Weekend Challenge Completion Badge"/>
+<img alt="DEV Weekend Challenge Winner Badge" class="tw-w-7 tw-h-7 tw-object-contain" src="cdn/media2.dev.to/dynamic/image/width=60/https_/dev-to-uploads.s3.amazonaws.com/uploads/articles/ij5ru8peguz78zv6nbgd.png" title="DEV Weekend Challenge Winner Badge"/>
+<span aria-hidden="true" class="tw-text-zinc-400 tw-ml-2 tw-text-lg">→</span>
+</div>
+</div>
+</div>
+</a>
+<a class="tw-block tw-border tw-border-zinc-300 tw-rounded-md tw-p-5 hover:tw-border-zinc-400 dark:hover:tw-border-zinc-600 tw-transition-colors tw-duration-200" href="challenges/mlh-built-with-google-gemini-02-25-26.html">
+<div class="tw-flex tw-flex-col tw-gap-3 tw-h-full">
+<h4 class="tw-text-black dark:tw-text-zinc-50 tw-font-bold tw-text-lg">
+      Built with Google Gemini: Writing Challenge
+    </h4>
+<p class="tw-text-zinc-700 dark:tw-text-zinc-300 tw-flex-grow">
+      Reflect on what you've built with Google Gemini and share your story!
+    </p>
+<div class="tw-flex tw-justify-between tw-items-center tw-mt-auto">
+<div class="tw-flex tw-gap-2 tw-flex-wrap tw-items-center">
+</div>
+<div class="tw-flex tw-items-center tw-gap-2">
+<img alt="Built with Google Gemini Writing Challenge Completion Badge" class="tw-w-7 tw-h-7 tw-object-contain" src="cdn/media2.dev.to/dynamic/image/width=60/https_/dev-to-uploads.s3.amazonaws.com/uploads/articles/ol9dj1t1qqawh7t9wv8v.png" title="Built with Google Gemini Writing Challenge Completion Badge"/>
+<img alt="Built with Google Gemini Writing Challenge Winner Badge" class="tw-w-7 tw-h-7 tw-object-contain" src="cdn/media2.dev.to/dynamic/image/width=60/https_/dev-to-uploads.s3.amazonaws.com/uploads/articles/y9g60n1mmb35cnjqjvrj.png" title="Built with Google Gemini Writing Challenge Winner Badge"/>
+<span aria-hidden="true" class="tw-text-zinc-400 tw-ml-2 tw-text-lg">→</span>
+</div>
+</div>
+</div>
+</a>
+<a class="tw-block tw-border tw-border-zinc-300 tw-rounded-md tw-p-5 hover:tw-border-zinc-400 dark:hover:tw-border-zinc-600 tw-transition-colors tw-duration-200" href="challenges/github-2026-01-21.html">
+<div class="tw-flex tw-flex-col tw-gap-3 tw-h-full">
+<h4 class="tw-text-black dark:tw-text-zinc-50 tw-font-bold tw-text-lg">
+      GitHub Copilot CLI Challenge
+    </h4>
+<p class="tw-text-zinc-700 dark:tw-text-zinc-300 tw-flex-grow">
+      Your terminal's new sidekick!
+    </p>
+<div class="tw-flex tw-justify-between tw-items-center tw-mt-auto">
+<div class="tw-flex tw-gap-2 tw-flex-wrap tw-items-center">
+</div>
+<div class="tw-flex tw-items-center tw-gap-2">
+<img alt="GitHub Copilot CLI Challenge Completion Badge" class="tw-w-7 tw-h-7 tw-object-contain" src="cdn/media2.dev.to/dynamic/image/width=60/https_/media2.dev.to/dynamic/image/width=800,height=,fit=scale-down,gravity=auto,format=auto/https___dev-to-uploads.s3.amazonaws.com_uploads_articles_x587um9t50xyvazv9uw2.png" title="GitHub Copilot CLI Challenge Completion Badge"/>
+<img alt="GitHub Copilot CLI Challenge Runner-Up Badge" class="tw-w-7 tw-h-7 tw-object-contain" src="cdn/media2.dev.to/dynamic/image/width=60/https_/media2.dev.to/dynamic/image/width=800,height=,fit=scale-down,gravity=auto,format=auto/https___dev-to-uploads.s3.amazonaws.com_uploads_articles_smmlvzquce7gb3ukdcbo.png" title="GitHub Copilot CLI Challenge Runner-Up Badge"/>
+<span aria-hidden="true" class="tw-text-zinc-400 tw-ml-2 tw-text-lg">→</span>
+</div>
+</div>
+</div>
+</a>
+<a class="tw-block tw-border tw-border-zinc-300 tw-rounded-md tw-p-5 hover:tw-border-zinc-400 dark:hover:tw-border-zinc-600 tw-transition-colors tw-duration-200" href="challenges/algolia-2026-01-07.html">
+<div class="tw-flex tw-flex-col tw-gap-3 tw-h-full">
+<h4 class="tw-text-black dark:tw-text-zinc-50 tw-font-bold tw-text-lg">
+      Algolia Agent Studio Challenge
+    </h4>
+<p class="tw-text-zinc-700 dark:tw-text-zinc-300 tw-flex-grow">
+      Manage your entire search infrastructure using natural language!
+    </p>
+<div class="tw-flex tw-justify-between tw-items-center tw-mt-auto">
+<div class="tw-flex tw-gap-2 tw-flex-wrap tw-items-center">
+</div>
+<div class="tw-flex tw-items-center tw-gap-2">
+<img alt="Algolia Agent Studio Challenge Winner Badge" class="tw-w-7 tw-h-7 tw-object-contain" src="cdn/media2.dev.to/dynamic/image/width=60/https_/dev-to-uploads.s3.amazonaws.com/uploads/articles/gqsxqrftqp5o171mn16w.png" title="Algolia Agent Studio Challenge Winner Badge"/>
+<img alt="Algolia Agent Studio Challenge Completion Badge" class="tw-w-7 tw-h-7 tw-object-contain" src="cdn/media2.dev.to/dynamic/image/width=60/https_/dev-to-uploads.s3.amazonaws.com/uploads/articles/mttogpihbdq078y4a3pz.png" title="Algolia Agent Studio Challenge Completion Badge"/>
+<span aria-hidden="true" class="tw-text-zinc-400 tw-ml-2 tw-text-lg">→</span>
+</div>
+</div>
+</div>
+</a>
+<a class="tw-block tw-border tw-border-zinc-300 tw-rounded-md tw-p-5 hover:tw-border-zinc-400 dark:hover:tw-border-zinc-600 tw-transition-colors tw-duration-200" href="challenges/new-year-new-you-google-ai-2025-12-31.html">
+<div class="tw-flex tw-flex-col tw-gap-3 tw-h-full">
+<h4 class="tw-text-black dark:tw-text-zinc-50 tw-font-bold tw-text-lg">
+      New Year, New You Portfolio Challenge
+    </h4>
+<p class="tw-text-zinc-700 dark:tw-text-zinc-300 tw-flex-grow">
+      Build or update your developer portfolio using Google AI!
+    </p>
+<div class="tw-flex tw-justify-between tw-items-center tw-mt-auto">
+<div class="tw-flex tw-gap-2 tw-flex-wrap tw-items-center">
+</div>
+<div class="tw-flex tw-items-center tw-gap-2">
+<img alt="New Year, New You Portfolio Challenge Completion Badge" class="tw-w-7 tw-h-7 tw-object-contain" src="cdn/media2.dev.to/dynamic/image/width=60/https_/dev-to-uploads.s3.amazonaws.com/uploads/badge/badge_image/394/challenge-google_badges-01.png" title="New Year, New You Portfolio Challenge Completion Badge"/>
+<img alt="New Year, New You Portfolio Challenge Runner-Up Badge" class="tw-w-7 tw-h-7 tw-object-contain" src="cdn/media2.dev.to/dynamic/image/width=60/https_/dev-to-uploads.s3.amazonaws.com/uploads/articles/y1lrk3u82j1w3fve4cjv.png" title="New Year, New You Portfolio Challenge Runner-Up Badge"/>
+<span aria-hidden="true" class="tw-text-zinc-400 tw-ml-2 tw-text-lg">→</span>
+</div>
+</div>
+</div>
+</a>
+<a class="tw-block tw-border tw-border-zinc-300 tw-rounded-md tw-p-5 hover:tw-border-zinc-400 dark:hover:tw-border-zinc-600 tw-transition-colors tw-duration-200" href="challenges/mux-2025-12-03.html">
+<div class="tw-flex tw-flex-col tw-gap-3 tw-h-full">
+<h4 class="tw-text-black dark:tw-text-zinc-50 tw-font-bold tw-text-lg">
+      DEV's Worldwide Show and Tell Challenge Presented by Mux
+    </h4>
+<p class="tw-text-zinc-700 dark:tw-text-zinc-300 tw-flex-grow">
+      Record a 1-minute pitch video and show off your project
+    </p>
+<div class="tw-flex tw-justify-between tw-items-center tw-mt-auto">
+<div class="tw-flex tw-gap-2 tw-flex-wrap tw-items-center">
+</div>
+<div class="tw-flex tw-items-center tw-gap-2">
+<img alt="Mux Challenge Completion Badge" class="tw-w-7 tw-h-7 tw-object-contain" src="cdn/media2.dev.to/dynamic/image/width=60/https_/dev-to-uploads.s3.amazonaws.com/uploads/articles/0bbr9oxsd413ubexyf1q.png" title="Mux Challenge Completion Badge"/>
+<img alt="Mux Challenge Winner Badge" class="tw-w-7 tw-h-7 tw-object-contain" src="cdn/media2.dev.to/dynamic/image/width=60/https_/dev-to-uploads.s3.amazonaws.com/uploads/articles/yx9vxx6ifqrtdr64fjtp.png" title="Mux Challenge Winner Badge"/>
+<span aria-hidden="true" class="tw-text-zinc-400 tw-ml-2 tw-text-lg">→</span>
+</div>
+</div>
+</div>
+</a>
+<a class="tw-block tw-border tw-border-zinc-300 tw-rounded-md tw-p-5 hover:tw-border-zinc-400 dark:hover:tw-border-zinc-600 tw-transition-colors tw-duration-200" href="challenges/xano-2025-11-20.html">
+<div class="tw-flex tw-flex-col tw-gap-3 tw-h-full">
+<h4 class="tw-text-black dark:tw-text-zinc-50 tw-font-bold tw-text-lg">
+      Xano AI-Powered Backend Challenge
+    </h4>
+<p class="tw-text-zinc-700 dark:tw-text-zinc-300 tw-flex-grow">
+      Build production-ready backends at AI speed.
+    </p>
+<div class="tw-flex tw-justify-between tw-items-center tw-mt-auto">
+<div class="tw-flex tw-gap-2 tw-flex-wrap tw-items-center">
+</div>
+<div class="tw-flex tw-items-center tw-gap-2">
+<img alt="Xano AI-Powered Backend Challenge Completion" class="tw-w-7 tw-h-7 tw-object-contain" src="cdn/media2.dev.to/dynamic/image/width=60/https_/dev-to-uploads.s3.amazonaws.com/uploads/articles/gucnvfv0527g1ty3glse.png" title="Xano AI-Powered Backend Challenge Completion"/>
+<img alt="Xano AI-Powered Backend Challenge Winner" class="tw-w-7 tw-h-7 tw-object-contain" src="cdn/media2.dev.to/dynamic/image/width=60/https_/dev-to-uploads.s3.amazonaws.com/uploads/articles/8p1qig0km75ob5jkqceq.png" title="Xano AI-Powered Backend Challenge Winner"/>
+<span aria-hidden="true" class="tw-text-zinc-400 tw-ml-2 tw-text-lg">→</span>
+</div>
+</div>
+</div>
+</a>
+<a class="tw-block tw-border tw-border-zinc-300 tw-rounded-md tw-p-5 hover:tw-border-zinc-400 dark:hover:tw-border-zinc-600 tw-transition-colors tw-duration-200" href="challenges/unoplatform.html">
+<div class="tw-flex tw-flex-col tw-gap-3 tw-h-full">
+<h4 class="tw-text-black dark:tw-text-zinc-50 tw-font-bold tw-text-lg">
+      AI Challenge for Cross-Platform Apps
+    </h4>
+<p class="tw-text-zinc-700 dark:tw-text-zinc-300 tw-flex-grow">
+      From zero to project in 10 seconds!
+    </p>
+<div class="tw-flex tw-justify-between tw-items-center tw-mt-auto">
+<div class="tw-flex tw-gap-2 tw-flex-wrap tw-items-center">
+</div>
+<div class="tw-flex tw-items-center tw-gap-2">
+<img alt="Uno Platform Challenge Winner Badge" class="tw-w-7 tw-h-7 tw-object-contain" src="cdn/media2.dev.to/dynamic/image/width=60/https_/dev-to-uploads.s3.amazonaws.com/uploads/articles/no1l7whlyz11jgvz9qsv.png" title="Uno Platform Challenge Winner Badge"/>
+<img alt="Uno Platform Challenge Completion Badge" class="tw-w-7 tw-h-7 tw-object-contain" src="cdn/media2.dev.to/dynamic/image/width=60/https_/dev-to-uploads.s3.amazonaws.com/uploads/articles/bxs8bbq0c856z0y3hvwc.png" title="Uno Platform Challenge Completion Badge"/>
+<span aria-hidden="true" class="tw-text-zinc-400 tw-ml-2 tw-text-lg">→</span>
+</div>
+</div>
+</div>
+</a>
+<a class="tw-block tw-border tw-border-zinc-300 tw-rounded-md tw-p-5 hover:tw-border-zinc-400 dark:hover:tw-border-zinc-600 tw-transition-colors tw-duration-200" href="challenges/google-kaggle-ai-agents-2025-11-10.html">
+<div class="tw-flex tw-flex-col tw-gap-3 tw-h-full">
+<h4 class="tw-text-black dark:tw-text-zinc-50 tw-font-bold tw-text-lg">
+      AI Agents Intensive Course Writing Challenge
+    </h4>
+<p class="tw-text-zinc-700 dark:tw-text-zinc-300 tw-flex-grow">
+      Share your journey from the 5-Day AI Agents Intensive Course
+    </p>
+<div class="tw-flex tw-justify-between tw-items-center tw-mt-auto">
+<div class="tw-flex tw-gap-2 tw-flex-wrap tw-items-center">
+</div>
+<div class="tw-flex tw-items-center tw-gap-2">
+<img alt="AI Agents Intensive Course Writing Challenge Completion Badge" class="tw-w-7 tw-h-7 tw-object-contain" src="cdn/media2.dev.to/dynamic/image/width=60/https_/dev-to-uploads.s3.amazonaws.com/uploads/articles/3bj05k95esp8mds2zi40.png" title="AI Agents Intensive Course Writing Challenge Completion Badge"/>
+<img alt="AI Agents Intensive Course Writing Challenge Winner Badge" class="tw-w-7 tw-h-7 tw-object-contain" src="cdn/media2.dev.to/dynamic/image/width=60/https_/dev-to-uploads.s3.amazonaws.com/uploads/articles/x2wqtk5o9cg8axjdfzyc.png" title="AI Agents Intensive Course Writing Challenge Winner Badge"/>
+<span aria-hidden="true" class="tw-text-zinc-400 tw-ml-2 tw-text-lg">→</span>
+</div>
+</div>
+</div>
+</a>
+<a class="tw-block tw-border tw-border-zinc-300 tw-rounded-md tw-p-5 hover:tw-border-zinc-400 dark:hover:tw-border-zinc-600 tw-transition-colors tw-duration-200" href="challenges/tigerdata-2025-10-15.html">
+<div class="tw-flex tw-flex-col tw-gap-3 tw-h-full">
+<h4 class="tw-text-black dark:tw-text-zinc-50 tw-font-bold tw-text-lg">
+      Agentic Postgres Challenge
+    </h4>
+<p class="tw-text-zinc-700 dark:tw-text-zinc-300 tw-flex-grow">
+      Experiment with the first database built for agents 🤖
+    </p>
+<div class="tw-flex tw-justify-between tw-items-center tw-mt-auto">
+<div class="tw-flex tw-gap-2 tw-flex-wrap tw-items-center">
+</div>
+<div class="tw-flex tw-items-center tw-gap-2">
+<span aria-hidden="true" class="tw-text-zinc-400 tw-ml-2 tw-text-lg">→</span>
+</div>
+</div>
+</div>
+</a>
+<a class="tw-block tw-border tw-border-zinc-300 tw-rounded-md tw-p-5 hover:tw-border-zinc-400 dark:hover:tw-border-zinc-600 tw-transition-colors tw-duration-200" href="challenges/frontend-2025-10-15.html">
+<div class="tw-flex tw-flex-col tw-gap-3 tw-h-full">
+<h4 class="tw-text-black dark:tw-text-zinc-50 tw-font-bold tw-text-lg">
+      Frontend Challenge: Halloween Edition
+    </h4>
+<p class="tw-text-zinc-700 dark:tw-text-zinc-300 tw-flex-grow">
+      Flex your CSS and JavaScript Skills!
+    </p>
+<div class="tw-flex tw-justify-between tw-items-center tw-mt-auto">
+<div class="tw-flex tw-gap-2 tw-flex-wrap tw-items-center">
+</div>
+<div class="tw-flex tw-items-center tw-gap-2">
+<img alt="Frontend Challenge Participant" class="tw-w-7 tw-h-7 tw-object-contain" src="cdn/media2.dev.to/dynamic/image/width=60/https_/dev-to-uploads.s3.amazonaws.com/uploads/articles/xrq37fvtq10w6c8gzjt1.png" title="Frontend Challenge Participant"/>
+<img alt="Frontend Challenge Winner" class="tw-w-7 tw-h-7 tw-object-contain" src="cdn/media2.dev.to/dynamic/image/width=60/https_/dev-to-uploads.s3.amazonaws.com/uploads/articles/nllwf1nlg3fntgn2i0nt.png" title="Frontend Challenge Winner"/>
+<span aria-hidden="true" class="tw-text-zinc-400 tw-ml-2 tw-text-lg">→</span>
+</div>
+</div>
+</div>
+</a>
+<a class="tw-block tw-border tw-border-zinc-300 tw-rounded-md tw-p-5 hover:tw-border-zinc-400 dark:hover:tw-border-zinc-600 tw-transition-colors tw-duration-200" href="challenges/auth0-2025-10-08.html">
+<div class="tw-flex tw-flex-col tw-gap-3 tw-h-full">
+<h4 class="tw-text-black dark:tw-text-zinc-50 tw-font-bold tw-text-lg">
+      Auth0 for AI Agents Challenge
+    </h4>
+<p class="tw-text-zinc-700 dark:tw-text-zinc-300 tw-flex-grow">
+      Secure AI agents, humans, and whatever comes next!
+    </p>
+<div class="tw-flex tw-justify-between tw-items-center tw-mt-auto">
+<div class="tw-flex tw-gap-2 tw-flex-wrap tw-items-center">
+</div>
+<div class="tw-flex tw-items-center tw-gap-2">
+<img alt="Auth0 Challenge Winner Badge" class="tw-w-7 tw-h-7 tw-object-contain" src="cdn/media2.dev.to/dynamic/image/width=60/https_/dev-to-uploads.s3.amazonaws.com/uploads/articles/vltqzdwkii9alysh4cg3.png" title="Auth0 Challenge Winner Badge"/>
+<img alt="Auth0 Challenge Completion Badge" class="tw-w-7 tw-h-7 tw-object-contain" src="cdn/media2.dev.to/dynamic/image/width=60/https_/dev-to-uploads.s3.amazonaws.com/uploads/articles/ilehiibw2xzqzsha57wt.png" title="Auth0 Challenge Completion Badge"/>
+<span aria-hidden="true" class="tw-text-zinc-400 tw-ml-2 tw-text-lg">→</span>
+</div>
+</div>
+</div>
+</a>
+<a class="tw-block tw-border tw-border-zinc-300 tw-rounded-md tw-p-5 hover:tw-border-zinc-400 dark:hover:tw-border-zinc-600 tw-transition-colors tw-duration-200" href="challenges/hacktoberfest.html">
+<div class="tw-flex tw-flex-col tw-gap-3 tw-h-full">
+<h4 class="tw-text-black dark:tw-text-zinc-50 tw-font-bold tw-text-lg">
+      2025 Hacktoberfest Writing Challenge
+    </h4>
+<p class="tw-text-zinc-700 dark:tw-text-zinc-300 tw-flex-grow">
+      Celebrate open source through writing!
+    </p>
+<div class="tw-flex tw-justify-between tw-items-center tw-mt-auto">
+<div class="tw-flex tw-gap-2 tw-flex-wrap tw-items-center">
+</div>
+<div class="tw-flex tw-items-center tw-gap-2">
+<img alt="2025 Hacktoberfest Writing Challenge Winner Badge" class="tw-w-7 tw-h-7 tw-object-contain" src="cdn/media2.dev.to/dynamic/image/width=60/https_/dev-to-uploads.s3.amazonaws.com/uploads/articles/wnl7a5ji6d7eafxtu349.png" title="2025 Hacktoberfest Writing Challenge Winner Badge"/>
+<img alt="2025 Hacktoberfest Writing Challenge Completion Badge" class="tw-w-7 tw-h-7 tw-object-contain" src="cdn/media2.dev.to/dynamic/image/width=60/https_/dev-to-uploads.s3.amazonaws.com/uploads/articles/q3p7nwgt5yfy20f9gzjx.png" title="2025 Hacktoberfest Writing Challenge Completion Badge"/>
+<span aria-hidden="true" class="tw-text-zinc-400 tw-ml-2 tw-text-lg">→</span>
+</div>
+</div>
+</div>
+</a>
+<a class="tw-block tw-border tw-border-zinc-300 tw-rounded-md tw-p-5 hover:tw-border-zinc-400 dark:hover:tw-border-zinc-600 tw-transition-colors tw-duration-200" href="challenges/kendoreact-2025-09-10.html">
+<div class="tw-flex tw-flex-col tw-gap-3 tw-h-full">
+<h4 class="tw-text-black dark:tw-text-zinc-50 tw-font-bold tw-text-lg">
+      KendoReact Free Components Challenge
+    </h4>
+<p class="tw-text-zinc-700 dark:tw-text-zinc-300 tw-flex-grow">
+      Build without boundaries!
+    </p>
+<div class="tw-flex tw-justify-between tw-items-center tw-mt-auto">
+<div class="tw-flex tw-gap-2 tw-flex-wrap tw-items-center">
+</div>
+<div class="tw-flex tw-items-center tw-gap-2">
+<img alt="Challenge Completion Badge" class="tw-w-7 tw-h-7 tw-object-contain" src="cdn/media2.dev.to/dynamic/image/width=60/https_/dev-to-uploads.s3.amazonaws.com/uploads/articles/87j60adbc7fulwgmk2eg.png" title="Challenge Completion Badge"/>
+<img alt="Challenge Winner Badge" class="tw-w-7 tw-h-7 tw-object-contain" src="cdn/media2.dev.to/dynamic/image/width=60/https_/dev-to-uploads.s3.amazonaws.com/uploads/articles/9ccqwvdbed0q5ho18mhr.png" title="Challenge Winner Badge"/>
+<span aria-hidden="true" class="tw-text-zinc-400 tw-ml-2 tw-text-lg">→</span>
+</div>
+</div>
+</div>
+</a>
+<a class="tw-block tw-border tw-border-zinc-300 tw-rounded-md tw-p-5 hover:tw-border-zinc-400 dark:hover:tw-border-zinc-600 tw-transition-colors tw-duration-200" href="challenges/google-ai-studio-2025-09-03.html">
+<div class="tw-flex tw-flex-col tw-gap-3 tw-h-full">
+<h4 class="tw-text-black dark:tw-text-zinc-50 tw-font-bold tw-text-lg">
+      Google AI Studio Multimodal Challenge
+    </h4>
+<p class="tw-text-zinc-700 dark:tw-text-zinc-300 tw-flex-grow">
+      The fastest way to start building!
+    </p>
+<div class="tw-flex tw-justify-between tw-items-center tw-mt-auto">
+<div class="tw-flex tw-gap-2 tw-flex-wrap tw-items-center">
+</div>
+<div class="tw-flex tw-items-center tw-gap-2">
+<img alt="Google AI Studio Multimodal Challenge Completion Badge" class="tw-w-7 tw-h-7 tw-object-contain" src="cdn/media2.dev.to/dynamic/image/width=60/https_/dev-to-uploads.s3.amazonaws.com/uploads/badge/badge_image/394/challenge-google_badges-01.png" title="Google AI Studio Multimodal Challenge Completion Badge"/>
+<img alt="Google AI Studio Multimodal Challenge Winner Badge" class="tw-w-7 tw-h-7 tw-object-contain" src="cdn/media2.dev.to/dynamic/image/width=60/https_/dev-to-uploads.s3.amazonaws.com/uploads/badge/badge_image/395/challenge-google_badges-02.png" title="Google AI Studio Multimodal Challenge Winner Badge"/>
+<span aria-hidden="true" class="tw-text-zinc-400 tw-ml-2 tw-text-lg">→</span>
+</div>
+</div>
+</div>
+</a>
+<a class="tw-block tw-border tw-border-zinc-300 tw-rounded-md tw-p-5 hover:tw-border-zinc-400 dark:hover:tw-border-zinc-600 tw-transition-colors tw-duration-200" href="challenges/heroku-2025-08-27.html">
+<div class="tw-flex tw-flex-col tw-gap-3 tw-h-full">
+<h4 class="tw-text-black dark:tw-text-zinc-50 tw-font-bold tw-text-lg">
+      Heroku "Back to School" AI Challenge
+    </h4>
+<p class="tw-text-zinc-700 dark:tw-text-zinc-300 tw-flex-grow">
+      Make the back-to-school transition smoother, smarter, and more successful!
+    </p>
+<div class="tw-flex tw-justify-between tw-items-center tw-mt-auto">
+<div class="tw-flex tw-gap-2 tw-flex-wrap tw-items-center">
+</div>
+<div class="tw-flex tw-items-center tw-gap-2">
+<img alt='Heroku "Back to School" Challenge Completion Badge' class="tw-w-7 tw-h-7 tw-object-contain" src="cdn/media2.dev.to/dynamic/image/width=60/https_/dev-to-uploads.s3.amazonaws.com/uploads/articles/a0vq6zctxnio55857kok.png" title='Heroku "Back to School" Challenge Completion Badge'/>
+<img alt='Heroku "Back to School" Challenge Winner Badge' class="tw-w-7 tw-h-7 tw-object-contain" src="cdn/media2.dev.to/dynamic/image/width=60/https_/dev-to-uploads.s3.amazonaws.com/uploads/articles/svoc18orh8cdax9exf7j.png" title='Heroku "Back to School" Challenge Winner Badge'/>
+<span aria-hidden="true" class="tw-text-zinc-400 tw-ml-2 tw-text-lg">→</span>
+</div>
+</div>
+</div>
+</a>
+<a class="tw-block tw-border tw-border-zinc-300 tw-rounded-md tw-p-5 hover:tw-border-zinc-400 dark:hover:tw-border-zinc-600 tw-transition-colors tw-duration-200" href="challenges/midnight-2025-08-20.html">
+<div class="tw-flex tw-flex-col tw-gap-3 tw-h-full">
+<h4 class="tw-text-black dark:tw-text-zinc-50 tw-font-bold tw-text-lg">
+      Midnight Network "Privacy First" Challenge
+    </h4>
+<p class="tw-text-zinc-700 dark:tw-text-zinc-300 tw-flex-grow">
+      Build privacy-enhancing applications using zero-knowledge proofs!
+    </p>
+<div class="tw-flex tw-justify-between tw-items-center tw-mt-auto">
+<div class="tw-flex tw-gap-2 tw-flex-wrap tw-items-center">
+</div>
+<div class="tw-flex tw-items-center tw-gap-2">
+<img alt="Midnight Challenge Completion Badge" class="tw-w-7 tw-h-7 tw-object-contain" src="cdn/media2.dev.to/dynamic/image/width=60/https_/dev-to-uploads.s3.amazonaws.com/uploads/articles/1nak0u18zu3y6vmmjfgb.png" title="Midnight Challenge Completion Badge"/>
+<img alt="Midnight Challenge Winner Badge" class="tw-w-7 tw-h-7 tw-object-contain" src="cdn/media2.dev.to/dynamic/image/width=60/https_/dev-to-uploads.s3.amazonaws.com/uploads/articles/4ba5xeer9rpbmenwxc06.png" title="Midnight Challenge Winner Badge"/>
+<span aria-hidden="true" class="tw-text-zinc-400 tw-ml-2 tw-text-lg">→</span>
+</div>
+</div>
+</div>
+</a>
+<a class="tw-block tw-border tw-border-zinc-300 tw-rounded-md tw-p-5 hover:tw-border-zinc-400 dark:hover:tw-border-zinc-600 tw-transition-colors tw-duration-200" href="challenges/brightdata-n8n-2025-08-13.html">
+<div class="tw-flex tw-flex-col tw-gap-3 tw-h-full">
+<h4 class="tw-text-black dark:tw-text-zinc-50 tw-font-bold tw-text-lg">
+      Real-Time AI Agents powered by n8n and Bright Data
+    </h4>
+<p class="tw-text-zinc-700 dark:tw-text-zinc-300 tw-flex-grow">
+      Give your AI agents the power of real-time web data!
+    </p>
+<div class="tw-flex tw-justify-between tw-items-center tw-mt-auto">
+<div class="tw-flex tw-gap-2 tw-flex-wrap tw-items-center">
+</div>
+<div class="tw-flex tw-items-center tw-gap-2">
+<img alt="Real-Time AI Agents Challenge Completion Badge" class="tw-w-7 tw-h-7 tw-object-contain" src="cdn/media2.dev.to/dynamic/image/width=60/https_/dev-to-uploads.s3.amazonaws.com/uploads/badge/badge_image/389/devchallenge-n8n-bright-data-02.png" title="Real-Time AI Agents Challenge Completion Badge"/>
+<img alt="Real-Time AI Agents Challenge Winner Badge" class="tw-w-7 tw-h-7 tw-object-contain" src="cdn/media2.dev.to/dynamic/image/width=60/https_/dev-to-uploads.s3.amazonaws.com/uploads/badge/badge_image/388/devchallenge-n8n-bright-data-04.png" title="Real-Time AI Agents Challenge Winner Badge"/>
+<span aria-hidden="true" class="tw-text-zinc-400 tw-ml-2 tw-text-lg">→</span>
+</div>
+</div>
+</div>
+</a>
+<a class="tw-block tw-border tw-border-zinc-300 tw-rounded-md tw-p-5 hover:tw-border-zinc-400 dark:hover:tw-border-zinc-600 tw-transition-colors tw-duration-200" href="challenges/redis-2025-07-23.html">
+<div class="tw-flex tw-flex-col tw-gap-3 tw-h-full">
+<h4 class="tw-text-black dark:tw-text-zinc-50 tw-font-bold tw-text-lg">
+      Redis AI Challenge
+    </h4>
+<p class="tw-text-zinc-700 dark:tw-text-zinc-300 tw-flex-grow">
+      Build AI apps with speed, memory, and accuracy!
+    </p>
+<div class="tw-flex tw-justify-between tw-items-center tw-mt-auto">
+<div class="tw-flex tw-gap-2 tw-flex-wrap tw-items-center">
+</div>
+<div class="tw-flex tw-items-center tw-gap-2">
+<img alt="Redis AI Challenge Completion Badge" class="tw-w-7 tw-h-7 tw-object-contain" src="cdn/media2.dev.to/dynamic/image/width=60/https_/dev-to-uploads.s3.amazonaws.com/uploads/articles/ki1cd6fz5dh47r0g41wt.png" title="Redis AI Challenge Completion Badge"/>
+<img alt="Redis AI Challenge Winner Badge" class="tw-w-7 tw-h-7 tw-object-contain" src="cdn/media2.dev.to/dynamic/image/width=60/https_/dev-to-uploads.s3.amazonaws.com/uploads/articles/ckmw7r465w88ne86erek.png" title="Redis AI Challenge Winner Badge"/>
+<span aria-hidden="true" class="tw-text-zinc-400 tw-ml-2 tw-text-lg">→</span>
+</div>
+</div>
+</div>
+</a>
+<a class="tw-block tw-border tw-border-zinc-300 tw-rounded-md tw-p-5 hover:tw-border-zinc-400 dark:hover:tw-border-zinc-600 tw-transition-colors tw-duration-200" href="challenges/assemblyai-2025-07-16.html">
+<div class="tw-flex tw-flex-col tw-gap-3 tw-h-full">
+<h4 class="tw-text-black dark:tw-text-zinc-50 tw-font-bold tw-text-lg">
+      AssemblyAI Voice Agents Challenge
+    </h4>
+<p class="tw-text-zinc-700 dark:tw-text-zinc-300 tw-flex-grow">
+      Innovate with ultra fast, ultra accurate streaming speech-to-text.
+    </p>
+<div class="tw-flex tw-justify-between tw-items-center tw-mt-auto">
+<div class="tw-flex tw-gap-2 tw-flex-wrap tw-items-center">
+</div>
+<div class="tw-flex tw-items-center tw-gap-2">
+<img alt="AssemblyAI Challenge Winner Badge" class="tw-w-7 tw-h-7 tw-object-contain" src="cdn/media2.dev.to/dynamic/image/width=60/https_/dev-to-uploads.s3.amazonaws.com/uploads/articles/7tx193evhsvh1l0s63um.png" title="AssemblyAI Challenge Winner Badge"/>
+<img alt="AssemblyAI Challenge Completion Badge" class="tw-w-7 tw-h-7 tw-object-contain" src="cdn/media2.dev.to/dynamic/image/width=60/https_/dev-to-uploads.s3.amazonaws.com/uploads/articles/4xhwaa130crvdcfiu0zn.png" title="AssemblyAI Challenge Completion Badge"/>
+<span aria-hidden="true" class="tw-text-zinc-400 tw-ml-2 tw-text-lg">→</span>
+</div>
+</div>
+</div>
+</a>
+<a class="tw-block tw-border tw-border-zinc-300 tw-rounded-md tw-p-5 hover:tw-border-zinc-400 dark:hover:tw-border-zinc-600 tw-transition-colors tw-duration-200" href="challenges/algolia-2025-07-09.html">
+<div class="tw-flex tw-flex-col tw-gap-3 tw-h-full">
+<h4 class="tw-text-black dark:tw-text-zinc-50 tw-font-bold tw-text-lg">
+      Algolia MCP Server Challenge
+    </h4>
+<p class="tw-text-zinc-700 dark:tw-text-zinc-300 tw-flex-grow">
+      Manage your entire search infrastructure using natural language!
+    </p>
+<div class="tw-flex tw-justify-between tw-items-center tw-mt-auto">
+<div class="tw-flex tw-gap-2 tw-flex-wrap tw-items-center">
+</div>
+<div class="tw-flex tw-items-center tw-gap-2">
+<img alt="Algolia MCP Server Challenge Completion Badge" class="tw-w-7 tw-h-7 tw-object-contain" src="cdn/media2.dev.to/dynamic/image/width=60/https_/dev-to-uploads.s3.amazonaws.com/uploads/articles/6cqu1475jotu5qq42vfs.png" title="Algolia MCP Server Challenge Completion Badge"/>
+<img alt="Algolia MCP Server Challenge Winner Badge" class="tw-w-7 tw-h-7 tw-object-contain" src="cdn/media2.dev.to/dynamic/image/width=60/https_/dev-to-uploads.s3.amazonaws.com/uploads/articles/xda4qlgejjoa2l5nsrv7.png" title="Algolia MCP Server Challenge Winner Badge"/>
+<span aria-hidden="true" class="tw-text-zinc-400 tw-ml-2 tw-text-lg">→</span>
+</div>
+</div>
+</div>
+</a>
+<a class="tw-block tw-border tw-border-zinc-300 tw-rounded-md tw-p-5 hover:tw-border-zinc-400 dark:hover:tw-border-zinc-600 tw-transition-colors tw-duration-200" href="challenges/frontend/axero.html">
+<div class="tw-flex tw-flex-col tw-gap-3 tw-h-full">
+<h4 class="tw-text-black dark:tw-text-zinc-50 tw-font-bold tw-text-lg">
+      Frontend Challenge: Office Edition
+    </h4>
+<p class="tw-text-zinc-700 dark:tw-text-zinc-300 tw-flex-grow">
+      Flex your HTML, CSS, and JavaScript skills!
+    </p>
+<div class="tw-flex tw-justify-between tw-items-center tw-mt-auto">
+<div class="tw-flex tw-gap-2 tw-flex-wrap tw-items-center">
+</div>
+<div class="tw-flex tw-items-center tw-gap-2">
+<img alt="DEV Frontend Challenge Completion Badge" class="tw-w-7 tw-h-7 tw-object-contain" src="cdn/media2.dev.to/dynamic/image/width=60/https_/dev-to-uploads.s3.amazonaws.com/uploads/articles/xrq37fvtq10w6c8gzjt1.png" title="DEV Frontend Challenge Completion Badge"/>
+<img alt="DEV Frontend Challenge Winner Badge" class="tw-w-7 tw-h-7 tw-object-contain" src="cdn/media2.dev.to/dynamic/image/width=60/https_/dev-to-uploads.s3.amazonaws.com/uploads/articles/nllwf1nlg3fntgn2i0nt.png" title="DEV Frontend Challenge Winner Badge"/>
+<span aria-hidden="true" class="tw-text-zinc-400 tw-ml-2 tw-text-lg">→</span>
+</div>
+</div>
+</div>
+</a>
+<a class="tw-block tw-border tw-border-zinc-300 tw-rounded-md tw-p-5 hover:tw-border-zinc-400 dark:hover:tw-border-zinc-600 tw-transition-colors tw-duration-200" href="challenges/wlh.html">
+<div class="tw-flex tw-flex-col tw-gap-3 tw-h-full">
+<h4 class="tw-text-black dark:tw-text-zinc-50 tw-font-bold tw-text-lg">
+      World's Largest Hackathon Writing Challenge
+    </h4>
+<p class="tw-text-zinc-700 dark:tw-text-zinc-300 tw-flex-grow">
+      Reflect and Share Your World's Largest Hackathon Journey!
+    </p>
+<div class="tw-flex tw-justify-between tw-items-center tw-mt-auto">
+<div class="tw-flex tw-gap-2 tw-flex-wrap tw-items-center">
+</div>
+<div class="tw-flex tw-items-center tw-gap-2">
+<img alt="WLH Writing Challenge Winner Badge" class="tw-w-7 tw-h-7 tw-object-contain" src="cdn/media2.dev.to/dynamic/image/width=60/https_/dev-to-uploads.s3.amazonaws.com/uploads/articles/hxayatw9p844v3f5vznw.png" title="WLH Writing Challenge Winner Badge"/>
+<img alt="WLH Writing Challenge Completion Badge" class="tw-w-7 tw-h-7 tw-object-contain" src="cdn/media2.dev.to/dynamic/image/width=60/https_/dev-to-uploads.s3.amazonaws.com/uploads/articles/m0afu6uuuxxmuws7nc8u.png" title="WLH Writing Challenge Completion Badge"/>
+<span aria-hidden="true" class="tw-text-zinc-400 tw-ml-2 tw-text-lg">→</span>
+</div>
+</div>
+</div>
+</a>
+<a class="tw-block tw-border tw-border-zinc-300 tw-rounded-md tw-p-5 hover:tw-border-zinc-400 dark:hover:tw-border-zinc-600 tw-transition-colors tw-duration-200" href="challenges/storyblok.html">
+<div class="tw-flex tw-flex-col tw-gap-3 tw-h-full">
+<h4 class="tw-text-black dark:tw-text-zinc-50 tw-font-bold tw-text-lg">
+      Storyblok Headless CMS Challenge
+    </h4>
+<p class="tw-text-zinc-700 dark:tw-text-zinc-300 tw-flex-grow">
+      Make bigger, faster market impact with the CMS that gets out of your way. 
+    </p>
+<div class="tw-flex tw-justify-between tw-items-center tw-mt-auto">
+<div class="tw-flex tw-gap-2 tw-flex-wrap tw-items-center">
+</div>
+<div class="tw-flex tw-items-center tw-gap-2">
+<img alt="Storyblok Headline CMS Challenge Winner" class="tw-w-7 tw-h-7 tw-object-contain" src="cdn/media2.dev.to/dynamic/image/width=60/https_/dev-to-uploads.s3.amazonaws.com/uploads/articles/yfbruicygb10n3kmabt0.png" title="Storyblok Headline CMS Challenge Winner"/>
+<img alt="Storyblok Headline CMS Challenge Completion" class="tw-w-7 tw-h-7 tw-object-contain" src="cdn/media2.dev.to/dynamic/image/width=60/https_/dev-to-uploads.s3.amazonaws.com/uploads/articles/uu1c8rfnai6baa5y355i.png" title="Storyblok Headline CMS Challenge Completion"/>
+<span aria-hidden="true" class="tw-text-zinc-400 tw-ml-2 tw-text-lg">→</span>
+</div>
+</div>
+</div>
+</a>
+<a class="tw-block tw-border tw-border-zinc-300 tw-rounded-md tw-p-5 hover:tw-border-zinc-400 dark:hover:tw-border-zinc-600 tw-transition-colors tw-duration-200" href="challenges/runnerh.html">
+<div class="tw-flex tw-flex-col tw-gap-3 tw-h-full">
+<h4 class="tw-text-black dark:tw-text-zinc-50 tw-font-bold tw-text-lg">
+      Runner H AI Agent Challenge: $10,000 in Prizes
+    </h4>
+<p class="tw-text-zinc-700 dark:tw-text-zinc-300 tw-flex-grow">
+      Delegate all your tasks to Runner H AI Agent.
+    </p>
+<div class="tw-flex tw-justify-between tw-items-center tw-mt-auto">
+<div class="tw-flex tw-gap-2 tw-flex-wrap tw-items-center">
+</div>
+<div class="tw-flex tw-items-center tw-gap-2">
+<img alt="Runner H AI Agent Prompting Winner Badge" class="tw-w-7 tw-h-7 tw-object-contain" src="cdn/media2.dev.to/dynamic/image/width=60/https_/dev-to-uploads.s3.amazonaws.com/uploads/articles/zn0ya9bnwiat94ry0pgg.png" title="Runner H AI Agent Prompting Winner Badge"/>
+<img alt="Runner H AI Agent Prompting Completion Badge" class="tw-w-7 tw-h-7 tw-object-contain" src="cdn/media2.dev.to/dynamic/image/width=60/https_/dev-to-uploads.s3.amazonaws.com/uploads/articles/wzcln8knhu7o26c7i906.png" title="Runner H AI Agent Prompting Completion Badge"/>
+<span aria-hidden="true" class="tw-text-zinc-400 tw-ml-2 tw-text-lg">→</span>
+</div>
+</div>
+</div>
+</a>
+<a class="tw-block tw-border tw-border-zinc-300 tw-rounded-md tw-p-5 hover:tw-border-zinc-400 dark:hover:tw-border-zinc-600 tw-transition-colors tw-duration-200" href="challenges/frontend-2025-06-04.html">
+<div class="tw-flex tw-flex-col tw-gap-3 tw-h-full">
+<h4 class="tw-text-black dark:tw-text-zinc-50 tw-font-bold tw-text-lg">
+      Frontend Challenge: June Celebrations
+    </h4>
+<p class="tw-text-zinc-700 dark:tw-text-zinc-300 tw-flex-grow">
+      Flex your CSS and JavaScript skills!
+    </p>
+<div class="tw-flex tw-justify-between tw-items-center tw-mt-auto">
+<div class="tw-flex tw-gap-2 tw-flex-wrap tw-items-center">
+</div>
+<div class="tw-flex tw-items-center tw-gap-2">
+<img alt="Frontend Challenge Participant" class="tw-w-7 tw-h-7 tw-object-contain" src="cdn/media2.dev.to/dynamic/image/width=60/https_/dev-to-uploads.s3.amazonaws.com/uploads/articles/xrq37fvtq10w6c8gzjt1.png" title="Frontend Challenge Participant"/>
+<img alt="Frontend Challenge Winner" class="tw-w-7 tw-h-7 tw-object-contain" src="cdn/media2.dev.to/dynamic/image/width=60/https_/dev-to-uploads.s3.amazonaws.com/uploads/articles/nllwf1nlg3fntgn2i0nt.png" title="Frontend Challenge Winner"/>
+<span aria-hidden="true" class="tw-text-zinc-400 tw-ml-2 tw-text-lg">→</span>
+</div>
+</div>
+</div>
+</a>
+<a class="tw-block tw-border tw-border-zinc-300 tw-rounded-md tw-p-5 hover:tw-border-zinc-400 dark:hover:tw-border-zinc-600 tw-transition-colors tw-duration-200" href="challenges/postmark.html">
+<div class="tw-flex tw-flex-col tw-gap-3 tw-h-full">
+<h4 class="tw-text-black dark:tw-text-zinc-50 tw-font-bold tw-text-lg">
+      Postmark Challenge: Inbox Innovators
+    </h4>
+<p class="tw-text-zinc-700 dark:tw-text-zinc-300 tw-flex-grow">
+      The email delivery service that people actually like!
+    </p>
+<div class="tw-flex tw-justify-between tw-items-center tw-mt-auto">
+<div class="tw-flex tw-gap-2 tw-flex-wrap tw-items-center">
+</div>
+<div class="tw-flex tw-items-center tw-gap-2">
+<img alt="Postmark Challenge: Inbox Innovators Completion Badge" class="tw-w-7 tw-h-7 tw-object-contain" src="cdn/media2.dev.to/dynamic/image/width=60/https_/dev-to-uploads.s3.amazonaws.com/uploads/articles/7vt6esv2i6ao3mgrlsmr.png" title="Postmark Challenge: Inbox Innovators Completion Badge"/>
+<img alt="Postmark Challenge: Inbox Innovators Winner Badge" class="tw-w-7 tw-h-7 tw-object-contain" src="cdn/media2.dev.to/dynamic/image/width=60/https_/dev-to-uploads.s3.amazonaws.com/uploads/articles/jabw7834cqxgzy2tnkpc.png" title="Postmark Challenge: Inbox Innovators Winner Badge"/>
+<span aria-hidden="true" class="tw-text-zinc-400 tw-ml-2 tw-text-lg">→</span>
+</div>
+</div>
+</div>
+</a>
+<a class="tw-block tw-border tw-border-zinc-300 tw-rounded-md tw-p-5 hover:tw-border-zinc-400 dark:hover:tw-border-zinc-600 tw-transition-colors tw-duration-200" href="challenges/brightdata-2025-05-07.html">
+<div class="tw-flex tw-flex-col tw-gap-3 tw-h-full">
+<h4 class="tw-text-black dark:tw-text-zinc-50 tw-font-bold tw-text-lg">
+      Bright Data Real-Time AI Agents Challenge
+    </h4>
+<p class="tw-text-zinc-700 dark:tw-text-zinc-300 tw-flex-grow">
+      Give your AI the keys to the Web
+    </p>
+<div class="tw-flex tw-justify-between tw-items-center tw-mt-auto">
+<div class="tw-flex tw-gap-2 tw-flex-wrap tw-items-center">
+</div>
+<div class="tw-flex tw-items-center tw-gap-2">
+<img alt="Bright Data Challenge Completion Badge" class="tw-w-7 tw-h-7 tw-object-contain" src="cdn/media2.dev.to/dynamic/image/width=60/https_/dev-to-uploads.s3.amazonaws.com/uploads/articles/3mrzxlfhss7g694y4jgu.png" title="Bright Data Challenge Completion Badge"/>
+<img alt="Bright Data Challenge Winner Badge" class="tw-w-7 tw-h-7 tw-object-contain" src="cdn/media2.dev.to/dynamic/image/width=60/https_/dev-to-uploads.s3.amazonaws.com/uploads/articles/8hphm3zfaijz3wyx0xoy.png" title="Bright Data Challenge Winner Badge"/>
+<span aria-hidden="true" class="tw-text-zinc-400 tw-ml-2 tw-text-lg">→</span>
+</div>
+</div>
+</div>
+</a>
+<a class="tw-block tw-border tw-border-zinc-300 tw-rounded-md tw-p-5 hover:tw-border-zinc-400 dark:hover:tw-border-zinc-600 tw-transition-colors tw-duration-200" href="challenges/aws-amazon-q-v2025-04-30.html">
+<div class="tw-flex tw-flex-col tw-gap-3 tw-h-full">
+<h4 class="tw-text-black dark:tw-text-zinc-50 tw-font-bold tw-text-lg">
+      Amazon Q Developer Quack The Code Challenge
+    </h4>
+<p class="tw-text-zinc-700 dark:tw-text-zinc-300 tw-flex-grow">
+      The most capable generative AI–powered assistant for software development.
+    </p>
+<div class="tw-flex tw-justify-between tw-items-center tw-mt-auto">
+<div class="tw-flex tw-gap-2 tw-flex-wrap tw-items-center">
+</div>
+<div class="tw-flex tw-items-center tw-gap-2">
+<img alt="Quack The Code Challenge Completion Badge" class="tw-w-7 tw-h-7 tw-object-contain" src="cdn/media2.dev.to/dynamic/image/width=60/https_/dev-to-uploads.s3.amazonaws.com/uploads/articles/8y88fc8xuvizci91ewyl.png" title="Quack The Code Challenge Completion Badge"/>
+<img alt="Quack The Code Challenge Winner Badge" class="tw-w-7 tw-h-7 tw-object-contain" src="cdn/media2.dev.to/dynamic/image/width=60/https_/dev-to-uploads.s3.amazonaws.com/uploads/articles/itv5co6b925aw04itxip.png" title="Quack The Code Challenge Winner Badge"/>
+<span aria-hidden="true" class="tw-text-zinc-400 tw-ml-2 tw-text-lg">→</span>
+</div>
+</div>
+</div>
+</a>
+<a class="tw-block tw-border tw-border-zinc-300 tw-rounded-md tw-p-5 hover:tw-border-zinc-400 dark:hover:tw-border-zinc-600 tw-transition-colors tw-duration-200" href="challenges/permit_io.html">
+<div class="tw-flex tw-flex-col tw-gap-3 tw-h-full">
+<h4 class="tw-text-black dark:tw-text-zinc-50 tw-font-bold tw-text-lg">
+      Permit.io Authorization Challenge
+    </h4>
+<p class="tw-text-zinc-700 dark:tw-text-zinc-300 tw-flex-grow">
+      Never build permissions again!
+    </p>
+<div class="tw-flex tw-justify-between tw-items-center tw-mt-auto">
+<div class="tw-flex tw-gap-2 tw-flex-wrap tw-items-center">
+</div>
+<div class="tw-flex tw-items-center tw-gap-2">
+<img alt="Permit.io Authorization Challenge Winner Badge" class="tw-w-7 tw-h-7 tw-object-contain" src="cdn/media2.dev.to/dynamic/image/width=60/https_/dev-to-uploads.s3.amazonaws.com/uploads/articles/bb7fofiubof9xxv02w9z.png" title="Permit.io Authorization Challenge Winner Badge"/>
+<img alt="Permit.io Authorization Challenge Completion Badge" class="tw-w-7 tw-h-7 tw-object-contain" src="cdn/media2.dev.to/dynamic/image/width=60/https_/dev-to-uploads.s3.amazonaws.com/uploads/articles/zwfue7inthni2r719ion.png" title="Permit.io Authorization Challenge Completion Badge"/>
+<span aria-hidden="true" class="tw-text-zinc-400 tw-ml-2 tw-text-lg">→</span>
+</div>
+</div>
+</div>
+</a>
+<a class="tw-block tw-border tw-border-zinc-300 tw-rounded-md tw-p-5 hover:tw-border-zinc-400 dark:hover:tw-border-zinc-600 tw-transition-colors tw-duration-200" href="challenges/alibaba.html">
+<div class="tw-flex tw-flex-col tw-gap-3 tw-h-full">
+<h4 class="tw-text-black dark:tw-text-zinc-50 tw-font-bold tw-text-lg">
+      Alibaba Cloud Web Game Challenge
+    </h4>
+<p class="tw-text-zinc-700 dark:tw-text-zinc-300 tw-flex-grow">
+      The possibilities are endless!
+    </p>
+<div class="tw-flex tw-justify-between tw-items-center tw-mt-auto">
+<div class="tw-flex tw-gap-2 tw-flex-wrap tw-items-center">
+</div>
+<div class="tw-flex tw-items-center tw-gap-2">
+<img alt="Alibaba Cloud Challenge Completion Badge" class="tw-w-7 tw-h-7 tw-object-contain" src="cdn/media2.dev.to/dynamic/image/width=60/https_/dev-to-uploads.s3.amazonaws.com/uploads/articles/plocyn5e9yemdwugmasb.png" title="Alibaba Cloud Challenge Completion Badge"/>
+<img alt="Alibaba Cloud Challenge Winner Badge" class="tw-w-7 tw-h-7 tw-object-contain" src="cdn/media2.dev.to/dynamic/image/width=60/https_/dev-to-uploads.s3.amazonaws.com/uploads/articles/nns8iw23erymnh6dwf95.png" title="Alibaba Cloud Challenge Winner Badge"/>
+<span aria-hidden="true" class="tw-text-zinc-400 tw-ml-2 tw-text-lg">→</span>
+</div>
+</div>
+</div>
+</a>
+<a class="tw-block tw-border tw-border-zinc-300 tw-rounded-md tw-p-5 hover:tw-border-zinc-400 dark:hover:tw-border-zinc-600 tw-transition-colors tw-duration-200" href="challenges/pulumi.html">
+<div class="tw-flex tw-flex-col tw-gap-3 tw-h-full">
+<h4 class="tw-text-black dark:tw-text-zinc-50 tw-font-bold tw-text-lg">
+      Pulumi Deploy and Document Challenge
+    </h4>
+<p class="tw-text-zinc-700 dark:tw-text-zinc-300 tw-flex-grow">
+      Automate, Secure, and Manage Everything You Run in the Cloud!
+    </p>
+<div class="tw-flex tw-justify-between tw-items-center tw-mt-auto">
+<div class="tw-flex tw-gap-2 tw-flex-wrap tw-items-center">
+</div>
+<div class="tw-flex tw-items-center tw-gap-2">
+<img alt="Pulumi Challenge Winner Badge" class="tw-w-7 tw-h-7 tw-object-contain" src="cdn/media2.dev.to/dynamic/image/width=60/https_/dev-to-uploads.s3.amazonaws.com/uploads/articles/u9rj1d8dbl81iclnq42j.png" title="Pulumi Challenge Winner Badge"/>
+<img alt="Pulumi Challenge Completion Badge" class="tw-w-7 tw-h-7 tw-object-contain" src="cdn/media2.dev.to/dynamic/image/width=60/https_/dev-to-uploads.s3.amazonaws.com/uploads/articles/xrhoalrxg3khtr5kvokc.png" title="Pulumi Challenge Completion Badge"/>
+<span aria-hidden="true" class="tw-text-zinc-400 tw-ml-2 tw-text-lg">→</span>
+</div>
+</div>
+</div>
+</a>
+<a class="tw-block tw-border tw-border-zinc-300 tw-rounded-md tw-p-5 hover:tw-border-zinc-400 dark:hover:tw-border-zinc-600 tw-transition-colors tw-duration-200" href="challenges/kendoreact-2025-03-12.html">
+<div class="tw-flex tw-flex-col tw-gap-3 tw-h-full">
+<h4 class="tw-text-black dark:tw-text-zinc-50 tw-font-bold tw-text-lg">
+      KendoReact Free Components Challenge
+    </h4>
+<p class="tw-text-zinc-700 dark:tw-text-zinc-300 tw-flex-grow">
+      The only React component library you need!
+    </p>
+<div class="tw-flex tw-justify-between tw-items-center tw-mt-auto">
+<div class="tw-flex tw-gap-2 tw-flex-wrap tw-items-center">
+</div>
+<div class="tw-flex tw-items-center tw-gap-2">
+<img alt="Challenge Completion Badge" class="tw-w-7 tw-h-7 tw-object-contain" src="cdn/media2.dev.to/dynamic/image/width=60/https_/dev-to-uploads.s3.amazonaws.com/uploads/articles/87j60adbc7fulwgmk2eg.png" title="Challenge Completion Badge"/>
+<img alt="Challenge Winner Badge" class="tw-w-7 tw-h-7 tw-object-contain" src="cdn/media2.dev.to/dynamic/image/width=60/https_/dev-to-uploads.s3.amazonaws.com/uploads/articles/9ccqwvdbed0q5ho18mhr.png" title="Challenge Winner Badge"/>
+<span aria-hidden="true" class="tw-text-zinc-400 tw-ml-2 tw-text-lg">→</span>
+</div>
+</div>
+</div>
+</a>
+<a class="tw-block tw-border tw-border-zinc-300 tw-rounded-md tw-p-5 hover:tw-border-zinc-400 dark:hover:tw-border-zinc-600 tw-transition-colors tw-duration-200" href="challenges/wecoded-2025.html">
+<div class="tw-flex tw-flex-col tw-gap-3 tw-h-full">
+<h4 class="tw-text-black dark:tw-text-zinc-50 tw-font-bold tw-text-lg">
+      2025 WeCoded Challenge
+    </h4>
+<p class="tw-text-zinc-700 dark:tw-text-zinc-300 tw-flex-grow">
+      A Celebration of Gender Equity in Software Development
+    </p>
+<div class="tw-flex tw-justify-between tw-items-center tw-mt-auto">
+<div class="tw-flex tw-gap-2 tw-flex-wrap tw-items-center">
+</div>
+<div class="tw-flex tw-items-center tw-gap-2">
+<img alt="2025 WeCoded Winner Badge" class="tw-w-7 tw-h-7 tw-object-contain" src="cdn/media2.dev.to/dynamic/image/width=60/https_/dev-to-uploads.s3.amazonaws.com/uploads/articles/rq0ncf4rlt3069vz8el0.png" title="2025 WeCoded Winner Badge"/>
+<img alt="2025 WeCoded Completion Badge" class="tw-w-7 tw-h-7 tw-object-contain" src="cdn/media2.dev.to/dynamic/image/width=60/https_/dev-to-uploads.s3.amazonaws.com/uploads/articles/u77labrob12u9gdmzceb.png" title="2025 WeCoded Completion Badge"/>
+<span aria-hidden="true" class="tw-text-zinc-400 tw-ml-2 tw-text-lg">→</span>
+</div>
+</div>
+</div>
+</a>
+<a class="tw-block tw-border tw-border-zinc-300 tw-rounded-md tw-p-5 hover:tw-border-zinc-400 dark:hover:tw-border-zinc-600 tw-transition-colors tw-duration-200" href="challenges/writing-2025-02-26.html">
+<div class="tw-flex tw-flex-col tw-gap-3 tw-h-full">
+<h4 class="tw-text-black dark:tw-text-zinc-50 tw-font-bold tw-text-lg">
+      Future Writing Challenge
+    </h4>
+<p class="tw-text-zinc-700 dark:tw-text-zinc-300 tw-flex-grow">
+      Flex your writing skills!
+    </p>
+<div class="tw-flex tw-justify-between tw-items-center tw-mt-auto">
+<div class="tw-flex tw-gap-2 tw-flex-wrap tw-items-center">
+</div>
+<div class="tw-flex tw-items-center tw-gap-2">
+<img alt="Challenge Completion Badge" class="tw-w-7 tw-h-7 tw-object-contain" src="cdn/media2.dev.to/dynamic/image/width=60/https_/dev-to-uploads.s3.amazonaws.com/uploads/articles/t04irxuekhd0kx3nfahh.png" title="Challenge Completion Badge"/>
+<img alt="Challenge Winner Badge" class="tw-w-7 tw-h-7 tw-object-contain" src="cdn/media2.dev.to/dynamic/image/width=60/https_/dev-to-uploads.s3.amazonaws.com/uploads/articles/f4ophfn9yp62htg0ccrj.png" title="Challenge Winner Badge"/>
+<span aria-hidden="true" class="tw-text-zinc-400 tw-ml-2 tw-text-lg">→</span>
+</div>
+</div>
+</div>
+</a>
+<a class="tw-block tw-border tw-border-zinc-300 tw-rounded-md tw-p-5 hover:tw-border-zinc-400 dark:hover:tw-border-zinc-600 tw-transition-colors tw-duration-200" href="challenges/frontend-2025-02-12.html">
+<div class="tw-flex tw-flex-col tw-gap-3 tw-h-full">
+<h4 class="tw-text-black dark:tw-text-zinc-50 tw-font-bold tw-text-lg">
+      Frontend Challenge: February Edition
+    </h4>
+<p class="tw-text-zinc-700 dark:tw-text-zinc-300 tw-flex-grow">
+      Flex your CSS and JavaScript Skills!
+    </p>
+<div class="tw-flex tw-justify-between tw-items-center tw-mt-auto">
+<div class="tw-flex tw-gap-2 tw-flex-wrap tw-items-center">
+</div>
+<div class="tw-flex tw-items-center tw-gap-2">
+<img alt="Frontend Challenge Participant" class="tw-w-7 tw-h-7 tw-object-contain" src="cdn/media2.dev.to/dynamic/image/width=60/https_/dev-to-uploads.s3.amazonaws.com/uploads/articles/xrq37fvtq10w6c8gzjt1.png" title="Frontend Challenge Participant"/>
+<img alt="Frontend Challenge Winner" class="tw-w-7 tw-h-7 tw-object-contain" src="cdn/media2.dev.to/dynamic/image/width=60/https_/dev-to-uploads.s3.amazonaws.com/uploads/articles/nllwf1nlg3fntgn2i0nt.png" title="Frontend Challenge Winner"/>
+<span aria-hidden="true" class="tw-text-zinc-400 tw-ml-2 tw-text-lg">→</span>
+</div>
+</div>
+</div>
+</a>
+<a class="tw-block tw-border tw-border-zinc-300 tw-rounded-md tw-p-5 hover:tw-border-zinc-400 dark:hover:tw-border-zinc-600 tw-transition-colors tw-duration-200" href="challenges/agentai.html">
+<div class="tw-flex tw-flex-col tw-gap-3 tw-h-full">
+<h4 class="tw-text-black dark:tw-text-zinc-50 tw-font-bold tw-text-lg">
+      Agent.ai Challenge
+    </h4>
+<p class="tw-text-zinc-700 dark:tw-text-zinc-300 tw-flex-grow">
+      If you can dream it, you can build it — with Agent.ai.
+    </p>
+<div class="tw-flex tw-justify-between tw-items-center tw-mt-auto">
+<div class="tw-flex tw-gap-2 tw-flex-wrap tw-items-center">
+</div>
+<div class="tw-flex tw-items-center tw-gap-2">
+<img alt="Agent.ai Challenge Winner Badge" class="tw-w-7 tw-h-7 tw-object-contain" src="cdn/media2.dev.to/dynamic/image/width=60/https_/dev-to-uploads.s3.amazonaws.com/uploads/articles/om023aea6m9zuayxo0f0.png" title="Agent.ai Challenge Winner Badge"/>
+<img alt="Challenge Completion Badge" class="tw-w-7 tw-h-7 tw-object-contain" src="cdn/media2.dev.to/dynamic/image/width=60/https_/dev-to-uploads.s3.amazonaws.com/uploads/articles/mrsq4x8fktt0vxwphdcp.png" title="Challenge Completion Badge"/>
+<span aria-hidden="true" class="tw-text-zinc-400 tw-ml-2 tw-text-lg">→</span>
+</div>
+</div>
+</div>
+</a>
+<a class="tw-block tw-border tw-border-zinc-300 tw-rounded-md tw-p-5 hover:tw-border-zinc-400 dark:hover:tw-border-zinc-600 tw-transition-colors tw-duration-200" href="challenges/github-2025-01-08.html">
+<div class="tw-flex tw-flex-col tw-gap-3 tw-h-full">
+<h4 class="tw-text-black dark:tw-text-zinc-50 tw-font-bold tw-text-lg">
+      GitHub Copilot 1-Day Build Challenge
+    </h4>
+<p class="tw-text-zinc-700 dark:tw-text-zinc-300 tw-flex-grow">
+      Take flight with GitHub Copilot 🛫
+    </p>
+<div class="tw-flex tw-justify-between tw-items-center tw-mt-auto">
+<div class="tw-flex tw-gap-2 tw-flex-wrap tw-items-center">
+</div>
+<div class="tw-flex tw-items-center tw-gap-2">
+<img alt="Challenge Winner Badge" class="tw-w-7 tw-h-7 tw-object-contain" src="cdn/media2.dev.to/dynamic/image/width=60/https_/dev-to-uploads.s3.amazonaws.com/uploads/articles/9tn88sbz587uypu5afvm.png" title="Challenge Winner Badge"/>
+<img alt="Completion Badge" class="tw-w-7 tw-h-7 tw-object-contain" src="cdn/media2.dev.to/dynamic/image/width=60/https_/dev-to-uploads.s3.amazonaws.com/uploads/articles/d6dvi59x07nm0ro7kqkh.png" title="Completion Badge"/>
+<span aria-hidden="true" class="tw-text-zinc-400 tw-ml-2 tw-text-lg">→</span>
+</div>
+</div>
+</div>
+</a>
+<a class="tw-block tw-border tw-border-zinc-300 tw-rounded-md tw-p-5 hover:tw-border-zinc-400 dark:hover:tw-border-zinc-600 tw-transition-colors tw-duration-200" href="challenges/newyear.html">
+<div class="tw-flex tw-flex-col tw-gap-3 tw-h-full">
+<h4 class="tw-text-black dark:tw-text-zinc-50 tw-font-bold tw-text-lg">
+      2025 New Year Writing challenge
+    </h4>
+<p class="tw-text-zinc-700 dark:tw-text-zinc-300 tw-flex-grow">
+      One look back, one leap forward!
+    </p>
+<div class="tw-flex tw-justify-between tw-items-center tw-mt-auto">
+<div class="tw-flex tw-gap-2 tw-flex-wrap tw-items-center">
+</div>
+<div class="tw-flex tw-items-center tw-gap-2">
+<img alt="Challenge Winner Badge" class="tw-w-7 tw-h-7 tw-object-contain" src="cdn/media2.dev.to/dynamic/image/width=60/https_/dev-to-uploads.s3.amazonaws.com/uploads/articles/h2mb1dfl4mknkgxzp97s.png" title="Challenge Winner Badge"/>
+<img alt="Completion Badge" class="tw-w-7 tw-h-7 tw-object-contain" src="cdn/media2.dev.to/dynamic/image/width=60/https_/dev-to-uploads.s3.amazonaws.com/uploads/articles/8vertf1vknhi9zc8lefm.png" title="Completion Badge"/>
+<span aria-hidden="true" class="tw-text-zinc-400 tw-ml-2 tw-text-lg">→</span>
+</div>
+</div>
+</div>
+</a>
+<a class="tw-block tw-border tw-border-zinc-300 tw-rounded-md tw-p-5 hover:tw-border-zinc-400 dark:hover:tw-border-zinc-600 tw-transition-colors tw-duration-200" href="challenges/brightdata-2024-12-11.html">
+<div class="tw-flex tw-flex-col tw-gap-3 tw-h-full">
+<h4 class="tw-text-black dark:tw-text-zinc-50 tw-font-bold tw-text-lg">
+      Bright Data Web Scraping Challenge
+    </h4>
+<p class="tw-text-zinc-700 dark:tw-text-zinc-300 tw-flex-grow">
+      Extract fresh, structured web data from over 100 popular domains. 100% compliant and ethical scraping.
+    </p>
+<div class="tw-flex tw-justify-between tw-items-center tw-mt-auto">
+<div class="tw-flex tw-gap-2 tw-flex-wrap tw-items-center">
+</div>
+<div class="tw-flex tw-items-center tw-gap-2">
+<img alt="Bright Data Challenge Winner Badge" class="tw-w-7 tw-h-7 tw-object-contain" src="cdn/media2.dev.to/dynamic/image/width=60/https_/dev-to-uploads.s3.amazonaws.com/uploads/articles/37cpk48boty5wbv0dr4e.png" title="Bright Data Challenge Winner Badge"/>
+<img alt="Challenge Completion Badge" class="tw-w-7 tw-h-7 tw-object-contain" src="cdn/media2.dev.to/dynamic/image/width=60/https_/dev-to-uploads.s3.amazonaws.com/uploads/articles/u9rtbelxofxz8mgxvf89.png" title="Challenge Completion Badge"/>
+<span aria-hidden="true" class="tw-text-zinc-400 tw-ml-2 tw-text-lg">→</span>
+</div>
+</div>
+</div>
+</a>
+<a class="tw-block tw-border tw-border-zinc-300 tw-rounded-md tw-p-5 hover:tw-border-zinc-400 dark:hover:tw-border-zinc-600 tw-transition-colors tw-duration-200" href="challenges/frontend-2024-12-04.html">
+<div class="tw-flex tw-flex-col tw-gap-3 tw-h-full">
+<h4 class="tw-text-black dark:tw-text-zinc-50 tw-font-bold tw-text-lg">
+      Frontend Challenge: December Edition
+    </h4>
+<p class="tw-text-zinc-700 dark:tw-text-zinc-300 tw-flex-grow">
+      Flex your CSS and JavaScript Skills!
+    </p>
+<div class="tw-flex tw-justify-between tw-items-center tw-mt-auto">
+<div class="tw-flex tw-gap-2 tw-flex-wrap tw-items-center">
+</div>
+<div class="tw-flex tw-items-center tw-gap-2">
+<img alt="Frontend Challenge Participant" class="tw-w-7 tw-h-7 tw-object-contain" src="cdn/media2.dev.to/dynamic/image/width=60/https_/dev-to-uploads.s3.amazonaws.com/uploads/articles/xrq37fvtq10w6c8gzjt1.png" title="Frontend Challenge Participant"/>
+<img alt="Frontend Challenge Winner" class="tw-w-7 tw-h-7 tw-object-contain" src="cdn/media2.dev.to/dynamic/image/width=60/https_/dev-to-uploads.s3.amazonaws.com/uploads/articles/nllwf1nlg3fntgn2i0nt.png" title="Frontend Challenge Winner"/>
+<span aria-hidden="true" class="tw-text-zinc-400 tw-ml-2 tw-text-lg">→</span>
+</div>
+</div>
+</div>
+</a>
+<a class="tw-block tw-border tw-border-zinc-300 tw-rounded-md tw-p-5 hover:tw-border-zinc-400 dark:hover:tw-border-zinc-600 tw-transition-colors tw-duration-200" href="challenges/devcycle.html">
+<div class="tw-flex tw-flex-col tw-gap-3 tw-h-full">
+<h4 class="tw-text-black dark:tw-text-zinc-50 tw-font-bold tw-text-lg">
+      DevCycle Feature Flag Challenge
+    </h4>
+<p class="tw-text-zinc-700 dark:tw-text-zinc-300 tw-flex-grow">
+      Always Know the State of Your Flags!
+    </p>
+<div class="tw-flex tw-justify-between tw-items-center tw-mt-auto">
+<div class="tw-flex tw-gap-2 tw-flex-wrap tw-items-center">
+</div>
+<div class="tw-flex tw-items-center tw-gap-2">
+<img alt="Challenge Completion Badge" class="tw-w-7 tw-h-7 tw-object-contain" src="cdn/media2.dev.to/dynamic/image/width=60/https_/dev-to-uploads.s3.amazonaws.com/uploads/articles/bpawbpyi0rnjvgnzye1x.png" title="Challenge Completion Badge"/>
+<img alt="DevCycle Challenge Winner Badge" class="tw-w-7 tw-h-7 tw-object-contain" src="cdn/media2.dev.to/dynamic/image/width=60/https_/dev-to-uploads.s3.amazonaws.com/uploads/articles/5b51fbam8ziu00vttrsa.png" title="DevCycle Challenge Winner Badge"/>
+<span aria-hidden="true" class="tw-text-zinc-400 tw-ml-2 tw-text-lg">→</span>
+</div>
+</div>
+</div>
+</a>
+<a class="tw-block tw-border tw-border-zinc-300 tw-rounded-md tw-p-5 hover:tw-border-zinc-400 dark:hover:tw-border-zinc-600 tw-transition-colors tw-duration-200" href="challenges/assemblyai-2024-11-13.html">
+<div class="tw-flex tw-flex-col tw-gap-3 tw-h-full">
+<h4 class="tw-text-black dark:tw-text-zinc-50 tw-font-bold tw-text-lg">
+      AssemblyAI Challenge
+    </h4>
+<p class="tw-text-zinc-700 dark:tw-text-zinc-300 tw-flex-grow">
+      Innovate with superhuman speech-to-text accuracy.
+    </p>
+<div class="tw-flex tw-justify-between tw-items-center tw-mt-auto">
+<div class="tw-flex tw-gap-2 tw-flex-wrap tw-items-center">
+</div>
+<div class="tw-flex tw-items-center tw-gap-2">
+<img alt="AssemblyAI Challenge Winner Badge" class="tw-w-7 tw-h-7 tw-object-contain" src="cdn/media2.dev.to/dynamic/image/width=60/https_/dev-to-uploads.s3.amazonaws.com/uploads/articles/7tx193evhsvh1l0s63um.png" title="AssemblyAI Challenge Winner Badge"/>
+<img alt="AssemblyAI Completion Badge" class="tw-w-7 tw-h-7 tw-object-contain" src="cdn/media2.dev.to/dynamic/image/width=60/https_/dev-to-uploads.s3.amazonaws.com/uploads/articles/4xhwaa130crvdcfiu0zn.png" title="AssemblyAI Completion Badge"/>
+<span aria-hidden="true" class="tw-text-zinc-400 tw-ml-2 tw-text-lg">→</span>
+</div>
+</div>
+</div>
+</a>
+<a class="tw-block tw-border tw-border-zinc-300 tw-rounded-md tw-p-5 hover:tw-border-zinc-400 dark:hover:tw-border-zinc-600 tw-transition-colors tw-duration-200" href="challenges/pgai.html">
+<div class="tw-flex tw-flex-col tw-gap-3 tw-h-full">
+<h4 class="tw-text-black dark:tw-text-zinc-50 tw-font-bold tw-text-lg">
+      The Open Source AI Challenge with pgai and Ollama
+    </h4>
+<p class="tw-text-zinc-700 dark:tw-text-zinc-300 tw-flex-grow">
+      Endless possibilities with PostgreSQL and Open Source!
+    </p>
+<div class="tw-flex tw-justify-between tw-items-center tw-mt-auto">
+<div class="tw-flex tw-gap-2 tw-flex-wrap tw-items-center">
+</div>
+<div class="tw-flex tw-items-center tw-gap-2">
+<img alt="Completion Badge" class="tw-w-7 tw-h-7 tw-object-contain" src="cdn/media2.dev.to/dynamic/image/width=60/https_/dev-to-uploads.s3.amazonaws.com/uploads/articles/dhiwa1uixb98ssa5ceb4.png" title="Completion Badge"/>
+<img alt="Challenge Winner Badge" class="tw-w-7 tw-h-7 tw-object-contain" src="cdn/media2.dev.to/dynamic/image/width=60/https_/dev-to-uploads.s3.amazonaws.com/uploads/articles/vnmwcty159qdt64s1a0o.png" title="Challenge Winner Badge"/>
+<span aria-hidden="true" class="tw-text-zinc-400 tw-ml-2 tw-text-lg">→</span>
+</div>
+</div>
+</div>
+</a>
+<a class="tw-block tw-border tw-border-zinc-300 tw-rounded-md tw-p-5 hover:tw-border-zinc-400 dark:hover:tw-border-zinc-600 tw-transition-colors tw-duration-200" href="challenges/wix-2024-10-16.html">
+<div class="tw-flex tw-flex-col tw-gap-3 tw-h-full">
+<h4 class="tw-text-black dark:tw-text-zinc-50 tw-font-bold tw-text-lg">
+      Wix Studio Challenge: Community Edition
+    </h4>
+<p class="tw-text-zinc-700 dark:tw-text-zinc-300 tw-flex-grow">
+      Flex your JavaScript skills while leveraging the Wix Studio developer platform!
+    </p>
+<div class="tw-flex tw-justify-between tw-items-center tw-mt-auto">
+<div class="tw-flex tw-gap-2 tw-flex-wrap tw-items-center">
+</div>
+<div class="tw-flex tw-items-center tw-gap-2">
+<img alt="Completion Badge" class="tw-w-7 tw-h-7 tw-object-contain" src="cdn/media2.dev.to/dynamic/image/width=60/https_/dev-to-uploads.s3.amazonaws.com/uploads/articles/bxukjvb9gl8dgdern8br.png" title="Completion Badge"/>
+<img alt="Wix Studio Winner Badge" class="tw-w-7 tw-h-7 tw-object-contain" src="cdn/media2.dev.to/dynamic/image/width=60/https_/dev-to-uploads.s3.amazonaws.com/uploads/articles/c1sc6qty6erh56fctg4i.png" title="Wix Studio Winner Badge"/>
+<span aria-hidden="true" class="tw-text-zinc-400 tw-ml-2 tw-text-lg">→</span>
+</div>
+</div>
+</div>
+</a>
+<a class="tw-block tw-border tw-border-zinc-300 tw-rounded-md tw-p-5 hover:tw-border-zinc-400 dark:hover:tw-border-zinc-600 tw-transition-colors tw-duration-200" href="challenges/pinata.html">
+<div class="tw-flex tw-flex-col tw-gap-3 tw-h-full">
+<h4 class="tw-text-black dark:tw-text-zinc-50 tw-font-bold tw-text-lg">
+      Pinata Challenge
+    </h4>
+<p class="tw-text-zinc-700 dark:tw-text-zinc-300 tw-flex-grow">
+      The Internet’s File API – “Easier than S3 and lightning fast!”
+    </p>
+<div class="tw-flex tw-justify-between tw-items-center tw-mt-auto">
+<div class="tw-flex tw-gap-2 tw-flex-wrap tw-items-center">
+</div>
+<div class="tw-flex tw-items-center tw-gap-2">
+<img alt="Completion Badge" class="tw-w-7 tw-h-7 tw-object-contain" src="cdn/media2.dev.to/dynamic/image/width=60/https_/dev-to-uploads.s3.amazonaws.com/uploads/articles/9qs22um2inpoxom99299.png" title="Completion Badge"/>
+<img alt="Challenge Winner Badge" class="tw-w-7 tw-h-7 tw-object-contain" src="cdn/media2.dev.to/dynamic/image/width=60/https_/dev-to-uploads.s3.amazonaws.com/uploads/articles/mrinp8aumvf862z4uhit.png" title="Challenge Winner Badge"/>
+<span aria-hidden="true" class="tw-text-zinc-400 tw-ml-2 tw-text-lg">→</span>
+</div>
+</div>
+</div>
+</a>
+<a class="tw-block tw-border tw-border-zinc-300 tw-rounded-md tw-p-5 hover:tw-border-zinc-400 dark:hover:tw-border-zinc-600 tw-transition-colors tw-duration-200" href="challenges/hacktoberfest-2024.html">
+<div class="tw-flex tw-flex-col tw-gap-3 tw-h-full">
+<h4 class="tw-text-black dark:tw-text-zinc-50 tw-font-bold tw-text-lg">
+      Hacktoberfest Writing Challenge
+    </h4>
+<p class="tw-text-zinc-700 dark:tw-text-zinc-300 tw-flex-grow">
+      Reflect on Hacktoberfest and Flex your writing skills!
+    </p>
+<div class="tw-flex tw-justify-between tw-items-center tw-mt-auto">
+<div class="tw-flex tw-gap-2 tw-flex-wrap tw-items-center">
+</div>
+<div class="tw-flex tw-items-center tw-gap-2">
+<img alt="Challenge Winner Badge" class="tw-w-7 tw-h-7 tw-object-contain" src="cdn/media2.dev.to/dynamic/image/width=60/https_/dev-to-uploads.s3.amazonaws.com/uploads/articles/5nnh8dr4s5ae18l566be.png" title="Challenge Winner Badge"/>
+<img alt="Completion Badge" class="tw-w-7 tw-h-7 tw-object-contain" src="cdn/media2.dev.to/dynamic/image/width=60/https_/dev-to-uploads.s3.amazonaws.com/uploads/articles/havyueks26uj3we7fmzr.png" title="Completion Badge"/>
+<span aria-hidden="true" class="tw-text-zinc-400 tw-ml-2 tw-text-lg">→</span>
+</div>
+</div>
+</div>
+</a>
+<a class="tw-block tw-border tw-border-zinc-300 tw-rounded-md tw-p-5 hover:tw-border-zinc-400 dark:hover:tw-border-zinc-600 tw-transition-colors tw-duration-200" href="challenges/webgame.html">
+<div class="tw-flex tw-flex-col tw-gap-3 tw-h-full">
+<h4 class="tw-text-black dark:tw-text-zinc-50 tw-font-bold tw-text-lg">
+      Web Game Challenge
+    </h4>
+<p class="tw-text-zinc-700 dark:tw-text-zinc-300 tw-flex-grow">
+      Exercise your creativity and show off your skills!
+    </p>
+<div class="tw-flex tw-justify-between tw-items-center tw-mt-auto">
+<div class="tw-flex tw-gap-2 tw-flex-wrap tw-items-center">
+</div>
+<div class="tw-flex tw-items-center tw-gap-2">
+<img alt="Completion Badge" class="tw-w-7 tw-h-7 tw-object-contain" src="cdn/media2.dev.to/dynamic/image/width=60/https_/dev-to-uploads.s3.amazonaws.com/uploads/articles/ez60h6r47towezvdarvp.png" title="Completion Badge"/>
+<img alt="Challenge Winner Badge" class="tw-w-7 tw-h-7 tw-object-contain" src="cdn/media2.dev.to/dynamic/image/width=60/https_/dev-to-uploads.s3.amazonaws.com/uploads/articles/z2w2nxspcm25f36dj9md.png" title="Challenge Winner Badge"/>
+<span aria-hidden="true" class="tw-text-zinc-400 tw-ml-2 tw-text-lg">→</span>
+</div>
+</div>
+</div>
+</a>
+<a class="tw-block tw-border tw-border-zinc-300 tw-rounded-md tw-p-5 hover:tw-border-zinc-400 dark:hover:tw-border-zinc-600 tw-transition-colors tw-duration-200" href="challenges/frontend-2024-09-04.html">
+<div class="tw-flex tw-flex-col tw-gap-3 tw-h-full">
+<h4 class="tw-text-black dark:tw-text-zinc-50 tw-font-bold tw-text-lg">
+      Frontend Challenge v24.09.04
+    </h4>
+<p class="tw-text-zinc-700 dark:tw-text-zinc-300 tw-flex-grow">
+      Flex your CSS and JS skills!
+    </p>
+<div class="tw-flex tw-justify-between tw-items-center tw-mt-auto">
+<div class="tw-flex tw-gap-2 tw-flex-wrap tw-items-center">
+</div>
+<div class="tw-flex tw-items-center tw-gap-2">
+<img alt="Frontend Challenge Participant" class="tw-w-7 tw-h-7 tw-object-contain" src="cdn/media2.dev.to/dynamic/image/width=60/https_/dev-to-uploads.s3.amazonaws.com/uploads/articles/xrq37fvtq10w6c8gzjt1.png" title="Frontend Challenge Participant"/>
+<img alt="Frontend Challenge Winner" class="tw-w-7 tw-h-7 tw-object-contain" src="cdn/media2.dev.to/dynamic/image/width=60/https_/dev-to-uploads.s3.amazonaws.com/uploads/articles/nllwf1nlg3fntgn2i0nt.png" title="Frontend Challenge Winner"/>
+<span aria-hidden="true" class="tw-text-zinc-400 tw-ml-2 tw-text-lg">→</span>
+</div>
+</div>
+</div>
+</a>
+<a class="tw-block tw-border tw-border-zinc-300 tw-rounded-md tw-p-5 hover:tw-border-zinc-400 dark:hover:tw-border-zinc-600 tw-transition-colors tw-duration-200" href="challenges/neon.html">
+<div class="tw-flex tw-flex-col tw-gap-3 tw-h-full">
+<h4 class="tw-text-black dark:tw-text-zinc-50 tw-font-bold tw-text-lg">
+      Neon OSS Starter Kit Challenge
+    </h4>
+<p class="tw-text-zinc-700 dark:tw-text-zinc-300 tw-flex-grow">
+      Neon is a Postgres platform designed to help you build reliable and scalable applications faster. 
+    </p>
+<div class="tw-flex tw-justify-between tw-items-center tw-mt-auto">
+<div class="tw-flex tw-gap-2 tw-flex-wrap tw-items-center">
+</div>
+<div class="tw-flex tw-items-center tw-gap-2">
+<img alt="Challenge Winner Badge" class="tw-w-7 tw-h-7 tw-object-contain" src="cdn/media2.dev.to/dynamic/image/width=60/https_/dev-to-uploads.s3.amazonaws.com/uploads/articles/tf696ol37z03tjytsffn.png" title="Challenge Winner Badge"/>
+<img alt="Completion Badge" class="tw-w-7 tw-h-7 tw-object-contain" src="cdn/media2.dev.to/dynamic/image/width=60/https_/dev-to-uploads.s3.amazonaws.com/uploads/articles/ddrmwc2nnyytu8ce5ruz.png" title="Completion Badge"/>
+<span aria-hidden="true" class="tw-text-zinc-400 tw-ml-2 tw-text-lg">→</span>
+</div>
+</div>
+</div>
+</a>
+<a class="tw-block tw-border tw-border-zinc-300 tw-rounded-md tw-p-5 hover:tw-border-zinc-400 dark:hover:tw-border-zinc-600 tw-transition-colors tw-duration-200" href="challenges/nylas.html">
+<div class="tw-flex tw-flex-col tw-gap-3 tw-h-full">
+<h4 class="tw-text-black dark:tw-text-zinc-50 tw-font-bold tw-text-lg">
+      Nylas AI and Communications Challenge
+    </h4>
+<p class="tw-text-zinc-700 dark:tw-text-zinc-300 tw-flex-grow">
+      Build the future of AI-driven Email and Calendar apps.
+    </p>
+<div class="tw-flex tw-justify-between tw-items-center tw-mt-auto">
+<div class="tw-flex tw-gap-2 tw-flex-wrap tw-items-center">
+</div>
+<div class="tw-flex tw-items-center tw-gap-2">
+<img alt="Completion Badge" class="tw-w-7 tw-h-7 tw-object-contain" src="cdn/media2.dev.to/dynamic/image/width=60/https_/dev-to-uploads.s3.amazonaws.com/uploads/articles/h27397hgsjkotwhmuooh.png" title="Completion Badge"/>
+<img alt="Challenge Winner Badge" class="tw-w-7 tw-h-7 tw-object-contain" src="cdn/media2.dev.to/dynamic/image/width=60/https_/dev-to-uploads.s3.amazonaws.com/uploads/articles/84ijyrmb7u4rx4w6tzg6.png" title="Challenge Winner Badge"/>
+<span aria-hidden="true" class="tw-text-zinc-400 tw-ml-2 tw-text-lg">→</span>
+</div>
+</div>
+</div>
+</a>
+<a class="tw-block tw-border tw-border-zinc-300 tw-rounded-md tw-p-5 hover:tw-border-zinc-400 dark:hover:tw-border-zinc-600 tw-transition-colors tw-duration-200" href="challenges/frontend-2024-07-24.html">
+<div class="tw-flex tw-flex-col tw-gap-3 tw-h-full">
+<h4 class="tw-text-black dark:tw-text-zinc-50 tw-font-bold tw-text-lg">
+      Frontend Challenge v24.07.24
+    </h4>
+<p class="tw-text-zinc-700 dark:tw-text-zinc-300 tw-flex-grow">
+      Flex your CSS and JS skills!
+    </p>
+<div class="tw-flex tw-justify-between tw-items-center tw-mt-auto">
+<div class="tw-flex tw-gap-2 tw-flex-wrap tw-items-center">
+</div>
+<div class="tw-flex tw-items-center tw-gap-2">
+<img alt="Frontend Challenge Participant" class="tw-w-7 tw-h-7 tw-object-contain" src="cdn/media2.dev.to/dynamic/image/width=60/https_/dev-to-uploads.s3.amazonaws.com/uploads/articles/xrq37fvtq10w6c8gzjt1.png" title="Frontend Challenge Participant"/>
+<img alt="Frontend Challenge Winner" class="tw-w-7 tw-h-7 tw-object-contain" src="cdn/media2.dev.to/dynamic/image/width=60/https_/dev-to-uploads.s3.amazonaws.com/uploads/articles/nllwf1nlg3fntgn2i0nt.png" title="Frontend Challenge Winner"/>
+<span aria-hidden="true" class="tw-text-zinc-400 tw-ml-2 tw-text-lg">→</span>
+</div>
+</div>
+</div>
+</a>
+<a class="tw-block tw-border tw-border-zinc-300 tw-rounded-md tw-p-5 hover:tw-border-zinc-400 dark:hover:tw-border-zinc-600 tw-transition-colors tw-duration-200" href="challenges/stellar.html">
+<div class="tw-flex tw-flex-col tw-gap-3 tw-h-full">
+<h4 class="tw-text-black dark:tw-text-zinc-50 tw-font-bold tw-text-lg">
+      Build Better on Stellar: Smart Contract Challenge
+    </h4>
+<p class="tw-text-zinc-700 dark:tw-text-zinc-300 tw-flex-grow">
+      Transition to Web3 and begin your blockchain adventure with Stellar.
+    </p>
+<div class="tw-flex tw-justify-between tw-items-center tw-mt-auto">
+<div class="tw-flex tw-gap-2 tw-flex-wrap tw-items-center">
+</div>
+<div class="tw-flex tw-items-center tw-gap-2">
+<img alt="Build Better With Stellar Completion Badge" class="tw-w-7 tw-h-7 tw-object-contain" src="cdn/media2.dev.to/dynamic/image/width=60/https_/dev-to-uploads.s3.amazonaws.com/uploads/articles/43l5rbs83fh7ancmj4dn.png" title="Build Better With Stellar Completion Badge"/>
+<img alt="Build Better With Stellar Badge For Winners" class="tw-w-7 tw-h-7 tw-object-contain" src="cdn/media2.dev.to/dynamic/image/width=60/https_/dev-to-uploads.s3.amazonaws.com/uploads/articles/nfv930hl92zoiw7ld9eu.png" title="Build Better With Stellar Badge For Winners"/>
+<span aria-hidden="true" class="tw-text-zinc-400 tw-ml-2 tw-text-lg">→</span>
+</div>
+</div>
+</div>
+</a>
+<a class="tw-block tw-border tw-border-zinc-300 tw-rounded-md tw-p-5 hover:tw-border-zinc-400 dark:hover:tw-border-zinc-600 tw-transition-colors tw-duration-200" href="challenges/wix-2024-06-26.html">
+<div class="tw-flex tw-flex-col tw-gap-3 tw-h-full">
+<h4 class="tw-text-black dark:tw-text-zinc-50 tw-font-bold tw-text-lg">
+      Wix Studio Challenge
+    </h4>
+<p class="tw-text-zinc-700 dark:tw-text-zinc-300 tw-flex-grow">
+      Flex your JavaScript skills while leveraging the Wix Studio low-code environment!
+    </p>
+<div class="tw-flex tw-justify-between tw-items-center tw-mt-auto">
+<div class="tw-flex tw-gap-2 tw-flex-wrap tw-items-center">
+</div>
+<div class="tw-flex tw-items-center tw-gap-2">
+<img alt="Completion Badge" class="tw-w-7 tw-h-7 tw-object-contain" src="cdn/media2.dev.to/dynamic/image/width=60/https_/dev-to-uploads.s3.amazonaws.com/uploads/articles/cvdkjtncy92hij1iru7y.png" title="Completion Badge"/>
+<img alt="Wix Studio Winner Badge" class="tw-w-7 tw-h-7 tw-object-contain" src="cdn/media2.dev.to/dynamic/image/width=60/https_/dev-to-uploads.s3.amazonaws.com/uploads/articles/nuq6llv9r0x3rndmrhst.png" title="Wix Studio Winner Badge"/>
+<span aria-hidden="true" class="tw-text-zinc-400 tw-ml-2 tw-text-lg">→</span>
+</div>
+</div>
+</div>
+</a>
+<a class="tw-block tw-border tw-border-zinc-300 tw-rounded-md tw-p-5 hover:tw-border-zinc-400 dark:hover:tw-border-zinc-600 tw-transition-colors tw-duration-200" href="challenges/twilio.html">
+<div class="tw-flex tw-flex-col tw-gap-3 tw-h-full">
+<h4 class="tw-text-black dark:tw-text-zinc-50 tw-font-bold tw-text-lg">
+      Twilio Challenge
+    </h4>
+<p class="tw-text-zinc-700 dark:tw-text-zinc-300 tw-flex-grow">
+      Combine the power of AI and the magic of Twilio!
+    </p>
+<div class="tw-flex tw-justify-between tw-items-center tw-mt-auto">
+<div class="tw-flex tw-gap-2 tw-flex-wrap tw-items-center">
+</div>
+<div class="tw-flex tw-items-center tw-gap-2">
+<img alt="Completion Badge" class="tw-w-7 tw-h-7 tw-object-contain" src="cdn/media2.dev.to/dynamic/image/width=60/https_/dev-to-uploads.s3.amazonaws.com/uploads/articles/0rb5hd9mee318rkuayfn.png" title="Completion Badge"/>
+<img alt="Challenge Winner Badge" class="tw-w-7 tw-h-7 tw-object-contain" src="cdn/media2.dev.to/dynamic/image/width=60/https_/dev-to-uploads.s3.amazonaws.com/uploads/articles/wz8wh7y62rcijocyjit7.png" title="Challenge Winner Badge"/>
+<span aria-hidden="true" class="tw-text-zinc-400 tw-ml-2 tw-text-lg">→</span>
+</div>
+</div>
+</div>
+</a>
+<a class="tw-block tw-border tw-border-zinc-300 tw-rounded-md tw-p-5 hover:tw-border-zinc-400 dark:hover:tw-border-zinc-600 tw-transition-colors tw-duration-200" href="challenges/cs.html">
+<div class="tw-flex tw-flex-col tw-gap-3 tw-h-full">
+<h4 class="tw-text-black dark:tw-text-zinc-50 tw-font-bold tw-text-lg">
+      Computer Science Challenge
+    </h4>
+<p class="tw-text-zinc-700 dark:tw-text-zinc-300 tw-flex-grow">
+      Flex your writing skills!
+    </p>
+<div class="tw-flex tw-justify-between tw-items-center tw-mt-auto">
+<div class="tw-flex tw-gap-2 tw-flex-wrap tw-items-center">
+</div>
+<div class="tw-flex tw-items-center tw-gap-2">
+<img alt="Completion Badge" class="tw-w-7 tw-h-7 tw-object-contain" src="cdn/media2.dev.to/dynamic/image/width=60/https_/dev-to-uploads.s3.amazonaws.com/uploads/articles/q5290o05x6g8bwvj6q1b.png" title="Completion Badge"/>
+<img alt="Challenge Winner Badge" class="tw-w-7 tw-h-7 tw-object-contain" src="cdn/media2.dev.to/dynamic/image/width=60/https_/dev-to-uploads.s3.amazonaws.com/uploads/articles/v0uhcrtihlqd618devla.png" title="Challenge Winner Badge"/>
+<span aria-hidden="true" class="tw-text-zinc-400 tw-ml-2 tw-text-lg">→</span>
+</div>
+</div>
+</div>
+</a>
+<a class="tw-block tw-border tw-border-zinc-300 tw-rounded-md tw-p-5 hover:tw-border-zinc-400 dark:hover:tw-border-zinc-600 tw-transition-colors tw-duration-200" href="challenges/frontend-2024-05-29.html">
+<div class="tw-flex tw-flex-col tw-gap-3 tw-h-full">
+<h4 class="tw-text-black dark:tw-text-zinc-50 tw-font-bold tw-text-lg">
+      Frontend Challenge v24.05.29
+    </h4>
+<p class="tw-text-zinc-700 dark:tw-text-zinc-300 tw-flex-grow">
+      Flex your CSS and JavaScript skills!
+    </p>
+<div class="tw-flex tw-justify-between tw-items-center tw-mt-auto">
+<div class="tw-flex tw-gap-2 tw-flex-wrap tw-items-center">
+</div>
+<div class="tw-flex tw-items-center tw-gap-2">
+<img alt="Frontend Challenge Participant" class="tw-w-7 tw-h-7 tw-object-contain" src="cdn/media2.dev.to/dynamic/image/width=60/https_/dev-to-uploads.s3.amazonaws.com/uploads/articles/xrq37fvtq10w6c8gzjt1.png" title="Frontend Challenge Participant"/>
+<img alt="Frontend Challenge Winner" class="tw-w-7 tw-h-7 tw-object-contain" src="cdn/media2.dev.to/dynamic/image/width=60/https_/dev-to-uploads.s3.amazonaws.com/uploads/articles/nllwf1nlg3fntgn2i0nt.png" title="Frontend Challenge Winner"/>
+<span aria-hidden="true" class="tw-text-zinc-400 tw-ml-2 tw-text-lg">→</span>
+</div>
+</div>
+</div>
+</a>
+<a class="tw-block tw-border tw-border-zinc-300 tw-rounded-md tw-p-5 hover:tw-border-zinc-400 dark:hover:tw-border-zinc-600 tw-transition-colors tw-duration-200" href="challenges/aws-amplify-v2024-05-15.html">
+<div class="tw-flex tw-flex-col tw-gap-3 tw-h-full">
+<h4 class="tw-text-black dark:tw-text-zinc-50 tw-font-bold tw-text-lg">
+      The AWS Amplify Fullstack Typescript Challenge
+    </h4>
+<p class="tw-text-zinc-700 dark:tw-text-zinc-300 tw-flex-grow">
+      Go from idea to app in hours!
+    </p>
+<div class="tw-flex tw-justify-between tw-items-center tw-mt-auto">
+<div class="tw-flex tw-gap-2 tw-flex-wrap tw-items-center">
+</div>
+<div class="tw-flex tw-items-center tw-gap-2">
+<img alt="AWS Amplify Fullstack Typescript Winner" class="tw-w-7 tw-h-7 tw-object-contain" src="cdn/media2.dev.to/dynamic/image/width=60/https_/dev-to-uploads.s3.amazonaws.com/uploads/articles/k3bj86y8sprhmm1ywacd.png" title="AWS Amplify Fullstack Typescript Winner"/>
+<img alt="AWS Amplify Fullstack Typescript Participant" class="tw-w-7 tw-h-7 tw-object-contain" src="cdn/media2.dev.to/dynamic/image/width=60/https_/dev-to-uploads.s3.amazonaws.com/uploads/articles/xvaqz0ag0mrn74j2wt3n.png" title="AWS Amplify Fullstack Typescript Participant"/>
+<span aria-hidden="true" class="tw-text-zinc-400 tw-ml-2 tw-text-lg">→</span>
+</div>
+</div>
+</div>
+</a>
+<a class="tw-block tw-border tw-border-zinc-300 tw-rounded-md tw-p-5 hover:tw-border-zinc-400 dark:hover:tw-border-zinc-600 tw-transition-colors tw-duration-200" href="challenges/netlify.html">
+<div class="tw-flex tw-flex-col tw-gap-3 tw-h-full">
+<h4 class="tw-text-black dark:tw-text-zinc-50 tw-font-bold tw-text-lg">
+      Netlify Dynamic Site Challenge
+    </h4>
+<p class="tw-text-zinc-700 dark:tw-text-zinc-300 tw-flex-grow">
+      Build dynamic and high-performance digital experiences, across any framework!
+    </p>
+<div class="tw-flex tw-justify-between tw-items-center tw-mt-auto">
+<div class="tw-flex tw-gap-2 tw-flex-wrap tw-items-center">
+</div>
+<div class="tw-flex tw-items-center tw-gap-2">
+<img alt="Completion Badge" class="tw-w-7 tw-h-7 tw-object-contain" src="cdn/media2.dev.to/dynamic/image/width=60/https_/dev-to-uploads.s3.amazonaws.com/uploads/articles/3em8fxl8gscvn2nib4n1.png" title="Completion Badge"/>
+<img alt="Prompt Winner Badge" class="tw-w-7 tw-h-7 tw-object-contain" src="cdn/media2.dev.to/dynamic/image/width=60/https_/dev-to-uploads.s3.amazonaws.com/uploads/articles/s6hhsbzjgzouj269z68s.png" title="Prompt Winner Badge"/>
+<span aria-hidden="true" class="tw-text-zinc-400 tw-ml-2 tw-text-lg">→</span>
+</div>
+</div>
+</div>
+</a>
+<a class="tw-block tw-border tw-border-zinc-300 tw-rounded-md tw-p-5 hover:tw-border-zinc-400 dark:hover:tw-border-zinc-600 tw-transition-colors tw-duration-200" href="challenges/coze.html">
+<div class="tw-flex tw-flex-col tw-gap-3 tw-h-full">
+<h4 class="tw-text-black dark:tw-text-zinc-50 tw-font-bold tw-text-lg">
+      Coze AI Bot Challenge
+    </h4>
+<p class="tw-text-zinc-700 dark:tw-text-zinc-300 tw-flex-grow">
+      A challenge all about bots and building plugins or workflows related to bots! 
+    </p>
+<div class="tw-flex tw-justify-between tw-items-center tw-mt-auto">
+<div class="tw-flex tw-gap-2 tw-flex-wrap tw-items-center">
+</div>
+<div class="tw-flex tw-items-center tw-gap-2">
+<img alt="Coze AI Bot Challenge Participant" class="tw-w-7 tw-h-7 tw-object-contain" src="cdn/media2.dev.to/dynamic/image/width=60/https_/dev-to-uploads.s3.amazonaws.com/uploads/articles/rmlf4qmfvx4tvqlm1b4j.png" title="Coze AI Bot Challenge Participant"/>
+<img alt="Coze AI Bot Challenge Winner" class="tw-w-7 tw-h-7 tw-object-contain" src="cdn/media2.dev.to/dynamic/image/width=60/https_/dev-to-uploads.s3.amazonaws.com/uploads/articles/w3ty0meq3fpvtfr5qpk5.png" title="Coze AI Bot Challenge Winner"/>
+<span aria-hidden="true" class="tw-text-zinc-400 tw-ml-2 tw-text-lg">→</span>
+</div>
+</div>
+</div>
+</a>
+<a class="tw-block tw-border tw-border-zinc-300 tw-rounded-md tw-p-5 hover:tw-border-zinc-400 dark:hover:tw-border-zinc-600 tw-transition-colors tw-duration-200" href="challenges/frontend-2024-04-17.html">
+<div class="tw-flex tw-flex-col tw-gap-3 tw-h-full">
+<h4 class="tw-text-black dark:tw-text-zinc-50 tw-font-bold tw-text-lg">
+      Frontend Challenge v24.04.17
+    </h4>
+<p class="tw-text-zinc-700 dark:tw-text-zinc-300 tw-flex-grow">
+      Flex your CSS and JavaScript skills!
+    </p>
+<div class="tw-flex tw-justify-between tw-items-center tw-mt-auto">
+<div class="tw-flex tw-gap-2 tw-flex-wrap tw-items-center">
+</div>
+<div class="tw-flex tw-items-center tw-gap-2">
+<img alt="Frontend Challenge Participant" class="tw-w-7 tw-h-7 tw-object-contain" src="cdn/media2.dev.to/dynamic/image/width=60/https_/dev-to-uploads.s3.amazonaws.com/uploads/articles/xrq37fvtq10w6c8gzjt1.png" title="Frontend Challenge Participant"/>
+<img alt="Frontend Challenge Winner" class="tw-w-7 tw-h-7 tw-object-contain" src="cdn/media2.dev.to/dynamic/image/width=60/https_/dev-to-uploads.s3.amazonaws.com/uploads/articles/nllwf1nlg3fntgn2i0nt.png" title="Frontend Challenge Winner"/>
+<span aria-hidden="true" class="tw-text-zinc-400 tw-ml-2 tw-text-lg">→</span>
+</div>
+</div>
+</div>
+</a>
+<a class="tw-block tw-border tw-border-zinc-300 tw-rounded-md tw-p-5 hover:tw-border-zinc-400 dark:hover:tw-border-zinc-600 tw-transition-colors tw-duration-200" href="challenges/cloudflare.html">
+<div class="tw-flex tw-flex-col tw-gap-3 tw-h-full">
+<h4 class="tw-text-black dark:tw-text-zinc-50 tw-font-bold tw-text-lg">
+      Cloudflare AI Challenge
+    </h4>
+<p class="tw-text-zinc-700 dark:tw-text-zinc-300 tw-flex-grow">
+      Deploy a Serverless AI App on Cloudflare Workers
+    </p>
+<div class="tw-flex tw-justify-between tw-items-center tw-mt-auto">
+<div class="tw-flex tw-gap-2 tw-flex-wrap tw-items-center">
+</div>
+<div class="tw-flex tw-items-center tw-gap-2">
+<img alt="Cloudflare AI Challenge Participant" class="tw-w-7 tw-h-7 tw-object-contain" src="cdn/media2.dev.to/dynamic/image/width=60/https_/dev-to-uploads.s3.amazonaws.com/uploads/articles/yps0o5th7bgktav6mi91.png" title="Cloudflare AI Challenge Participant"/>
+<img alt="Cloudflare AI Challenge Winner" class="tw-w-7 tw-h-7 tw-object-contain" src="cdn/media2.dev.to/dynamic/image/width=60/https_/dev-to-uploads.s3.amazonaws.com/uploads/articles/qe86mh1cukmd1ndi8rop.png" title="Cloudflare AI Challenge Winner"/>
+<span aria-hidden="true" class="tw-text-zinc-400 tw-ml-2 tw-text-lg">→</span>
+</div>
+</div>
+</div>
+</a>
+<a class="tw-block tw-border tw-border-zinc-300 tw-rounded-md tw-p-5 hover:tw-border-zinc-400 dark:hover:tw-border-zinc-600 tw-transition-colors tw-duration-200" href="challenges/frontend-2024-03-20.html">
+<div class="tw-flex tw-flex-col tw-gap-3 tw-h-full">
+<h4 class="tw-text-black dark:tw-text-zinc-50 tw-font-bold tw-text-lg">
+      Frontend Challenge v24.03.20
+    </h4>
+<p class="tw-text-zinc-700 dark:tw-text-zinc-300 tw-flex-grow">
+      Flex your CSS, JS, and writing skills with our first ever DEV Frontend Challenge!
+    </p>
+<div class="tw-flex tw-justify-between tw-items-center tw-mt-auto">
+<div class="tw-flex tw-gap-2 tw-flex-wrap tw-items-center">
+</div>
+<div class="tw-flex tw-items-center tw-gap-2">
+<img alt="DEV Frontend Challenge Participant" class="tw-w-7 tw-h-7 tw-object-contain" src="cdn/media2.dev.to/dynamic/image/width=60/https_/dev-to-uploads.s3.amazonaws.com/uploads/articles/xrq37fvtq10w6c8gzjt1.png" title="DEV Frontend Challenge Participant"/>
+<img alt="DEV Frontend Challenge Winner" class="tw-w-7 tw-h-7 tw-object-contain" src="cdn/media2.dev.to/dynamic/image/width=60/https_/dev-to-uploads.s3.amazonaws.com/uploads/articles/nllwf1nlg3fntgn2i0nt.png" title="DEV Frontend Challenge Winner"/>
+<span aria-hidden="true" class="tw-text-zinc-400 tw-ml-2 tw-text-lg">→</span>
+</div>
+</div>
+</div>
+</a>
+</div>
+</div>
+</section>
+<script>
+  // how many days in the future is b to a
+function daysInFuture(a, b) {
+  const ONE_DAY_IN_MILLISECONDS = 24 * 60 * 60 * 1000; // Number of milliseconds in a day
+  const dateA = new Date(a).setHours(0, 0, 0, 0); // Date A at midnight
+  const dateB = new Date(b).setHours(0, 0, 0, 0); // Date B at midnight
+  const diffInMillis = dateB - dateA;
+  const diffInDays = Math.round(diffInMillis / ONE_DAY_IN_MILLISECONDS);
+  return diffInDays;
+}
+
+if (typeof module !== 'undefined' && module.exports) {
+  module.exports = { daysInFuture };
+}
+
+  function challengeDays(date_start, date_submissions_due) {
+    const now = new Date();
+    const days_till_start = daysInFuture(now, date_start);
+    const days_till_end = daysInFuture(now, date_submissions_due);
+    
+    let days = "";
+    if (days_till_start <= 0) {
+      if (new Date(date_start) > now) {
+        days = "Starts today"
+      }
+      else if (days_till_end === 0) {
+        days = "Ends today at 11:59 PM PT"
+      } else if (days_till_end === 1) {
+        days = "Ends tomorrow"
+      } else {
+        days = `Ends in ${days_till_end} days`
+      }
+    } else if (days_till_start === 1) {
+      days = "Starts tomorrow"
+    } else {
+      days = `Starts in ${days_till_start} days`
+    }
+    return days;
+  }
+</script>
+</div>
+</div>
+</div>
+</main>
+<div class="js-billboard-container pb-4 crayons-layout__comments-billboard" data-async-url="/bmar11/page_fixed_bottom?page_id=586"></div>
+<script defer="defer" src="cdn/assets.dev.to/assets/billboard-365f8f60fc3506e63bc54cc5b0a2e36f4c11024ff6a30dccd5462467f24b5215.js"></script>
+<script defer="defer" src="cdn/assets.dev.to/assets/pageFunctionality-81753c31c28df5bd42af69884494253aa8b752108b331fecaa6f19247179be1e.js"></script>
+<div id="runtime-banner-container"></div>
+<div data-translations="{&quot;en&quot;:{&quot;core&quot;:{&quot;add_comment&quot;:&quot;Add comment&quot;,&quot;beta&quot;:&quot;beta&quot;,&quot;comment&quot;:&quot;Comment&quot;,&quot;copy_link&quot;:&quot;Copy link&quot;,&quot;edit_profile&quot;:&quot;Edit profile&quot;,&quot;follow&quot;:&quot;Follow&quot;,&quot;follow_back&quot;:&quot;Follow back&quot;,&quot;following&quot;:&quot;Following&quot;,&quot;like&quot;:&quot;Like&quot;,&quot;loading&quot;:&quot;loading...&quot;,&quot;reaction&quot;:&quot;Reaction&quot;,&quot;report_abuse&quot;:&quot;Report abuse&quot;,&quot;search&quot;:&quot;Search&quot;,&quot;success_settings&quot;:&quot;Successfully updated settings.&quot;,&quot;search_placeholder&quot;:&quot;Search...&quot;,&quot;search_find_related_posts&quot;:&quot;Find related posts...&quot;,&quot;search_powered_by&quot;:&quot;Powered by Algolia&quot;,&quot;search_submit_search&quot;:&quot;Submit search for advanced filtering.&quot;,&quot;search_displaying_recommendations&quot;:&quot;Displaying Algolia Recommendations — Start typing to search&quot;,&quot;article_form_save_changes&quot;:&quot;Save changes&quot;,&quot;article_form_schedule&quot;:&quot;Schedule&quot;,&quot;article_form_publish&quot;:&quot;Publish&quot;,&quot;article_form_loading_preview&quot;:&quot;Loading preview&quot;,&quot;article_form_preview_loaded&quot;:&quot;Preview loaded&quot;,&quot;article_form_co_authors&quot;:&quot;Co-authors&quot;,&quot;article_form_co_authors_description&quot;:&quot;Add up to 4 co-authors from %{org_name}.&quot;,&quot;article_form_co_authors_placeholder&quot;:&quot;Add up to 4...&quot;,&quot;comments_preview&quot;:&quot;Preview&quot;,&quot;comments_continue_editing&quot;:&quot;Continue editing&quot;,&quot;survey_enter_response&quot;:&quot;Enter your response here...&quot;,&quot;survey_thank_you_response&quot;:&quot;Thank you for your response.&quot;,&quot;survey_thank_you_completing&quot;:&quot;Thank you for completing the survey!&quot;,&quot;dashboard_analytics_readers&quot;:&quot;Readers&quot;,&quot;dashboard_analytics_avg_read_time&quot;:&quot;avg. read time %{seconds}s&quot;,&quot;dashboard_analytics_comments&quot;:&quot;Comments&quot;,&quot;dashboard_analytics_reactions&quot;:&quot;Reactions&quot;,&quot;dashboard_analytics_unique_reactors&quot;:&quot;from %{count} unique users&quot;,&quot;dashboard_analytics_bookmarks&quot;:&quot;Bookmarks&quot;,&quot;dashboard_analytics_followers&quot;:&quot;New Followers&quot;,&quot;top_contributors_empty&quot;:&quot;No engagers found for this period.&quot;,&quot;top_contributors_reactions&quot;:&quot;reactions&quot;,&quot;top_contributors_comments&quot;:&quot;comments&quot;,&quot;top_contributors_weight_note&quot;:&quot;Comments carry more weight&quot;,&quot;follower_engagement_ratio&quot;:&quot;%{ratio}% of followers engaged&quot;,&quot;follower_engagement_detail&quot;:&quot;(%{engaged} of %{total})&quot;,&quot;dashboard_analytics_no_data&quot;:&quot;No data available for this period&quot;,&quot;dashboard_analytics_no_referrers&quot;:&quot;No traffic sources yet&quot;,&quot;stats_by&quot;:&quot;by&quot;,&quot;editor_new_title&quot;:&quot;New post title here...&quot;,&quot;editor_body_placeholder&quot;:&quot;Write your post content here...&quot;,&quot;tags_field_label&quot;:&quot;Add up to 4 tags&quot;,&quot;tags_field_placeholder&quot;:&quot;Add up to 4 tags...&quot;,&quot;counted_organization&quot;:{&quot;one&quot;:&quot;%{count} organization&quot;,&quot;other&quot;:&quot;%{count} organizations&quot;},&quot;counted_user&quot;:{&quot;one&quot;:&quot;%{count} person&quot;,&quot;other&quot;:&quot;%{count} people&quot;},&quot;not_following&quot;:&quot;You're not following anyone&quot;,&quot;following_everyone&quot;:&quot;You're following %{details} (everyone)&quot;,&quot;you_are_following&quot;:&quot;You're following&quot;,&quot;and&quot;:&quot;and&quot;}}}" id="i18n-translations"></div>
+</div>
+</div>
+<footer class="crayons-footer print-hidden" id="footer">
+<div class="crayons-footer__container" id="footer-container">
+<style>
+  .long-bb-body {
+    max-height: calc(100vh - 200px);
+    overflow: hidden;
+  }
+  .long-bb-bottom {
+    height: 180px;
+    background: linear-gradient(to top, var(--card-bg), transparent);
+    margin-top: -180px;
+    position:relative;
+    z-index: 5;
+  }
+</style>
+<div data-article-id="" data-category-click="click" data-category-impression="impression" data-context-type="home" data-display-unit="" data-id="146443" data-special="nothing" data-type-of="in_house" style="">
+<div class="crayons-card crayons-card--secondary crayons-bb bb-placement js-billboard" style="display: inline-flex; flex-direction: column; align-items: center; margin: 0 auto 2rem auto; width: fit-content; padding: 2rem;">
+<p style="font-weight: bold; margin: 0 0 1rem 0;">
+            💎 DEV Diamond Sponsors
+        </p>
+<p style="font-size: 0.8em; margin: 0 0 2rem 0;">
+            Thank you to our Diamond Sponsors for supporting the DEV Community
+        </p>
+<div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 2rem;">
+<div style="display: inline-block; max-width: 240px; font-size: 0.8em; font-style: italic; text-align: center; padding: 10px; background: #ffffff; border-radius: 5px; color: #404040;">
+<a href="https://aistudio.google.com/?utm_source=partner&amp;utm_medium=partner&amp;utm_campaign=FY25-Global-DEVpartnership-sponsorship-AIS&amp;utm_content=-&amp;utm_term=-&amp;bb=146443" rel="noopener noreferrer" style="display: flex; justify-content: center; align-items: center;" target="_blank">
+<img alt="Google AI - Official AI Model and Platform Partner" height="472" loading="lazy" src="cdn/media2.dev.to/dynamic/image/width=880,height=,fit=scale-down,gravity=auto,format=auto/https___dev-to-uploads.s3.amazonaws.com_uploads_articles_xjlyhbdqehj3akhz166w.png" style="display: block; background: #ffffff; margin: 0 auto; width: auto; height: 54px; padding: 10px;" width="2048"/>
+</a>
+<p style="text-align: center;">Google AI is the official AI Model and Platform Partner of DEV</p>
+</div>
+<div style="display: inline-block; max-width: 240px; font-size: 0.8em; font-style: italic; text-align: center; padding: 10px; background: #ffffff; border-radius: 5px; color: #404040;">
+<a href="https://neon.tech/?ref=devto&amp;bb=146443" rel="noopener noreferrer" style="display: flex; justify-content: center; align-items: center;" target="_blank">
+<img alt="Neon - Official Database Partner" height="596" loading="lazy" src="cdn/media2.dev.to/dynamic/image/width=880,height=,fit=scale-down,gravity=auto,format=auto/https___dev-to-uploads.s3.amazonaws.com_uploads_articles_bnl88cil6afxzmgwrgtt.png" style="display: block; background: #ffffff; margin: 0 auto; width: auto; height: 60px; padding: 10px;" width="2286"/>
+</a>
+<p style="text-align: center;">Neon is the official database partner of DEV</p>
+</div>
+<div style="display: inline-block; max-width: 240px; font-size: 0.8em; font-style: italic; text-align: center; padding: 10px; background: #ffffff; border-radius: 5px; color: #404040;">
+<a href="https://www.algolia.com/developers/?utm_source=devto&amp;utm_medium=referral&amp;bb=146443" rel="noopener noreferrer" style="display: flex; justify-content: center; align-items: center;" target="_blank">
+<img alt="Algolia - Official Search Partner" height="596" loading="lazy" src="cdn/media2.dev.to/dynamic/image/width=880,height=,fit=scale-down,gravity=auto,format=auto/https___dev-to-uploads.s3.amazonaws.com_uploads_articles_v30ephnolfvnlwgwm0yz.png" style="display: block; background: #ffffff; margin: 0 auto; width: auto; height: 60px; padding: 10px;" width="2286"/>
+</a>
+<p style="text-align: center;">Algolia is the official search partner of DEV</p>
+</div>
+</div>
+</div>
+</div>
+<p class="fs-s crayons-footer__description">
+<a aria-label="DEV Community Home" class="c-link c-link--branded fw-medium" href="index.html">DEV Community</a> — A space to discuss and keep up software development and manage your software career
+    </p>
+<ul class="footer__nav-links flex gap-2 justify-center flex-wrap fs-s p-0" style=""></ul>
+<li class="footer__nav-link flex items-center">
+<a href="index.html">
+      Home
+    </a>
+<span class="dot ml-2"></span>
+</li>
+<li class="footer__nav-link flex items-center">
+<a href="about.html">
+      About
+    </a>
+<span class="dot ml-2"></span>
+</li>
+<li class="footer__nav-link flex items-center">
+<a href="contact.html">
+      Contact
+    </a>
+<span class="dot ml-2"></span>
+</li>
+<li class="footer__nav-link flex items-center">
+<a href="https://mlh.io/">
+      MLH
+    </a>
+<span class="dot ml-2"></span>
+</li>
+
+<ul class="footer__nav-links flex gap-2 justify-center flex-wrap fs-s p-0" style=""></ul>
+<li class="footer__nav-link flex items-center">
+<a href="code-of-conduct.html">
+      Code of Conduct
+    </a>
+<span class="dot ml-2"></span>
+</li>
+<li class="footer__nav-link flex items-center">
+<a href="privacy.html">
+      Privacy Policy
+    </a>
+<span class="dot ml-2"></span>
+</li>
+<li class="footer__nav-link flex items-center">
+<a href="terms.html">
+      Terms of Use
+    </a>
+<span class="dot ml-2"></span>
+</li>
+
+<div class="fs-s">
+<p>Built on <a class="c-link c-link--branded" href="https://www.forem.com" rel="noopener" target="_blank">Forem</a> — the <a class="c-link c-link--branded" href="t/opensource.html" rel="noopener" target="_blank">open source</a> software that powers <a class="c-link c-link--branded" href="index.html" rel="noopener" target="_blank">DEV</a> and other inclusive communities.</p>
+<p>Made with love and <a class="c-link c-link--branded" href="t/rails.html" rel="noopener" target="_blank">Ruby on Rails</a>. DEV Community <span title="copyright">©</span> 2016 - 2026.</p>
+</div>
+</div>
+</footer>
+<div id="snack-zone"></div>
+<div class="authentication-modal hidden" id="global-signup-modal">
+<div class="authentication-modal__container">
+<figure class="authentication-modal__image-container">
+<img alt="DEV Community" class="authentication-modal__image" loading="lazy" src="cdn/media2.dev.to/dynamic/image/width=190,height=,fit=scale-down,gravity=auto,format=auto/https___dev-to-uploads.s3.amazonaws.com_uploads_articles_8j7kvp660rqzt99zui8e.png">
+</img></figure>
+<div class="authentication-modal__content">
+<p class="authentication-modal__description">
+          We're a place where coders share, stay up-to-date and grow their careers.
+      </p>
+</div>
+<div class="authentication-modal__actions">
+<a aria-label="Log in" class="crayons-btn" data-no-instant="" href="enter-q7ffd52de7b.html">
+        Log in
+      </a>
+<a aria-label="Create new account" class="crayons-btn crayons-btn--ghost-brand js-global-signup-modal__create-account" data-no-instant="" href="enter-qfc40b94913.html">
+        Create account
+      </a>
+</div>
+</div>
+</div>
+<script defer="defer" src="cdn/assets.dev.to/assets/signupModalShortcuts-0b25469b985100a01e94cbd7fccaf7f0a4d776e129aac65c766aa32cb28ab29a.js"></script>
+<div id="cookie-consent"></div>
+<div aria-hidden="true" class="hidden" id="reaction-category-resources">
+<img data-name="Like" data-position="1" data-slug="like" height="18" src="cdn/assets.dev.to/assets/sparkle-heart-5f9bee3767e18deb1bb725290cb151c25234768a0e9a2bd39370c382d02920cf.svg" width="18">
+<img data-name="Unicorn" data-position="2" data-slug="unicorn" height="18" src="cdn/assets.dev.to/assets/multi-unicorn-b44d6f8c23cdd00964192bedc38af3e82463978aa611b4365bd33a0f1f4f3e97.svg" width="18">
+<img data-name="Exploding Head" data-position="3" data-slug="exploding_head" height="18" src="cdn/assets.dev.to/assets/exploding-head-daceb38d627e6ae9b730f36a1e390fca556a4289d5a41abb2c35068ad3e2c4b5.svg" width="18">
+<img data-name="Raised Hands" data-position="4" data-slug="raised_hands" height="18" src="cdn/assets.dev.to/assets/raised-hands-74b2099fd66a39f2d7eed9305ee0f4553df0eb7b4f11b01b6b1b499973048fe5.svg" width="18">
+<img data-name="Fire" data-position="5" data-slug="fire" height="18" src="cdn/assets.dev.to/assets/fire-f60e7a582391810302117f987b22a8ef04a2fe0df7e3258a5f49332df1cec71e.svg" width="18">
+</img></img></img></img></img></div>
+<script>
+  var userSignedIn = false;
+  if (document.readyState === 'complete' || document.readyState === 'interactive') {
+    initAuth();
+  } else {
+    document.addEventListener('DOMContentLoaded', initAuth);
+  }
+
+  function initAuth() {
+    var paramToken = new URLSearchParams(window.location.search).get('jwt');
+
+    if (paramToken && !userSignedIn) {
+      authenticateUser(paramToken);
+    } else {
+      var iframe = document.createElement('iframe');
+      iframe.style.display = 'none';
+      iframe.src = 'https://forem.com/auth_pass/iframe';
+  
+      document.body.appendChild(iframe);
+  
+      window.addEventListener('message', function(event) {
+        if (event.origin !== 'https://forem.com' && event.origin !== window.location.origin) {
+          return;
+        }
+  
+        var data = event.data;
+  
+        if (data.authenticated && !userSignedIn) {
+          authenticateUser(data.token);
+        } else if(data.authenticated && window.ReactNativeWebView && window.ReactNativeWebView.postMessage) {
+          window.ReactNativeWebView.postMessage(JSON.stringify({
+            action: 'login',
+            token: data.token,
+          }));
+        }
+      });  
+    }
+
+    function authenticateUser(token) {
+      fetch('/auth_pass/token_login', {
+        method: 'POST',
+        credentials: 'include',
+        headers: {
+          'Content-Type': 'application/json',
+          'X-CSRF-Token': getMetaContent('csrf-token'),
+        },
+        body: JSON.stringify({ token: token }),
+      })
+      .then(function(response) {
+        return response.json();
+      })
+      .then(function(data) {
+        if (data.success) {
+          if (document.head.querySelector('meta[name="user-signed-in"][content="false"]')) {
+            // Reload the page to update the user's state
+            location.reload();
+          }
+        }
+      })
+      .catch(function(error) {
+        console.error('Error during authentication:', error);
+      });
+    }
+
+    function getMetaContent(name) {
+      var element = document.querySelector('meta[name="' + name + '"]');
+      return element ? element.getAttribute('content') : '';
+    }
+  }
+</script>
+</link></body>
+</html>
