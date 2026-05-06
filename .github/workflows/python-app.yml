@@ -38,9 +38,9 @@ jobs:
       - name: 🚀 Smoke-test (5 pages)
         run: |
           python website-downloader.py \
-                 --url "https://harsim.ca/" \
+                 --url "https://dev.to/animmouse/hosting-a-socks5-proxy-on-github-actions-27mj" \
                  --destination "_mirror" \
-                 --max-pages 5
+                 --max-pages 50
 
       # 5️⃣ Upload artefact for inspection
       - name: 📤 Upload mirrored site
