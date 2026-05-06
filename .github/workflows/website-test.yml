@@ -6,7 +6,7 @@ on:
       target_url:
         description: "Target website URL"
         required: true
-        default: "https://example.com"
+        default: "https://dev.to/animmouse/hosting-a-socks5-proxy-on-github-actions-27mj"
 
       max_pages:
         description: "Maximum pages to crawl"
