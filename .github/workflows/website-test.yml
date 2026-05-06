@@ -158,13 +158,24 @@ jobs:
 
           echo "_Workflow completed successfully._" >> $GITHUB_STEP_SUMMARY
 
+      - name: Create and Populate Directory
+        run: |
+          # ۱. ساخت پوشه‌ی مورد نظر
+          mkdir -p dist
+ 
+          # ۲. کپی کردن فایل‌های سایت به داخل پوشه‌ی dist
+          # فرض کن فایل‌های نهایی سایتت توی پوشه‌ی 'build' هستن
+          cp -r */ dist/
 
+          # یا اگر می‌خوای فایل‌های خاصی رو کپی کنی:
+          # cp index.html dist/
+          # cp style.css dist/
 
       - name: Commit and Push to Repository
         run: |
           git config --global user.name "GitHub Action"
           git config --global user.email "action@github.com"
-          git add */
+          git add dist/
           git commit -m "Update mirrored site files" || echo "No changes to commit"
           git push
 
