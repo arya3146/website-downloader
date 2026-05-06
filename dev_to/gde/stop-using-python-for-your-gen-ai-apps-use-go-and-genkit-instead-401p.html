@@ -1,0 +1,1940 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<title>Stop Using Python for Your Gen AI Apps, Use Go and Genkit Instead - DEV Community</title>
+<link as="fetch" crossorigin="same-origin" href="../reactions-qc6d54d44c7" rel="preload"/>
+<link href="https://xavidop.me/genkit/2026-05-04-stop-using-python-genai-use-genkit-go/" rel="canonical">
+<meta content='Introduction   For the last few years, every Gen AI tutorial, framework, and "hello world"... Tagged with ai, programming, go.' name="description"/>
+<meta content="ai, programming, go, software, coding, development, engineering, inclusive, community" name="keywords"/>
+<meta content="article" property="og:type">
+<meta content="https://dev.to/gde/stop-using-python-for-your-gen-ai-apps-use-go-and-genkit-instead-401p" property="og:url">
+<meta content="Stop Using Python for Your Gen AI Apps, Use Go and Genkit Instead" property="og:title">
+<meta content='Introduction   For the last few years, every Gen AI tutorial, framework, and "hello world"...' property="og:description"/>
+<meta content="DEV Community" property="og:site_name"/>
+<meta content="@thepracticaldev" name="twitter:site"/>
+<meta content="@Xavidop" name="twitter:creator"/>
+<meta content="Stop Using Python for Your Gen AI Apps, Use Go and Genkit Instead" name="twitter:title"/>
+<meta content='Introduction   For the last few years, every Gen AI tutorial, framework, and "hello world"...' name="twitter:description"/>
+<meta content="summary_large_image" name="twitter:card"/>
+<meta content="on" name="twitter:widgets:new-embed-design"/>
+<meta content="max-snippet:-1, max-image-preview:large, max-video-preview:-1" name="robots"/>
+<meta content="../cdn/media2.dev.to/dynamic/image/width=1200,height=627,fit=cover,gravity=auto,format=auto/https___dev-to-uploads.s3.amazonaws.com_uploads_articles_yzj28eemdmc5uz36p9x0.png" property="og:image">
+<meta content="../cdn/media2.dev.to/dynamic/image/width=1200,height=627,fit=cover,gravity=auto,format=auto/https___dev-to-uploads.s3.amazonaws.com_uploads_articles_yzj28eemdmc5uz36p9x0.png" name="twitter:image:src"/>
+<meta content="2026-05-06 16:29:07 UTC" name="last-updated"/>
+<meta content="false" name="user-signed-in"/>
+<meta content="1778084947" name="head-cached-at"/>
+<meta content="production" name="environment"/>
+<link href="../cdn/assets.dev.to/assets/minimal-2213124ac5505ccdbf3c4eb62fd70ecda26cb75ed6de931633992a7bac437c81.css" id="main-minimal-stylesheet" media="all" rel="stylesheet"/>
+<link href="../cdn/assets.dev.to/assets/views-0681ac17bf1546793c4b7ef7c615b2defec919060aefb3b9c287471e8cb77bf2.css" id="main-views-stylesheet" media="all" rel="stylesheet"/>
+<link href="../cdn/assets.dev.to/assets/crayons-d2b52af1d86a9ac9a8bc215ed34ffad7a94af68f4abd1cdcae2a8c1a4385cd23.css" id="main-crayons-stylesheet" media="all" rel="stylesheet"/>
+<script defer="defer" src="../cdn/assets.dev.to/assets/base-0c748bbcdc30041261c326ef2ce931fbce46c58bc3c488da881ae35c4750941d.js"></script>
+<script defer="defer" src="../cdn/assets.dev.to/assets/application-0b268684912bef9b0f23defff01cb608bfc5d5e5610287725e7b686139ae32d3.js"></script>
+<script defer="defer" src="../cdn/assets.dev.to/assets/baseInitializers-2f0777a6d67046056f9f42665560ce072de3801292674358ddbad6e135c1891d.js"></script>
+<script defer="defer" src="../cdn/assets.dev.to/assets/baseTracking-90c1c7b9b4f617aa0f900eadaf0ccbdbc2a002f12c1e1ada7da039c823601b14.js"></script>
+<script defer="defer" src="../cdn/assets.dev.to/assets/followButtons-e3595664847e9f43945a9b8a0445b32cda9a149f1f169f78b8fcc7714ccab45a.js"></script>
+<meta content="https://assets.dev.to/assets/Search-b977aea0f2d7a5818b4ebd97f7d4aba8548099f84f5db5761f8fa67be76abc54.js" name="search-script"/>
+<meta content="width=device-width, initial-scale=1.0, viewport-fit=cover" name="viewport"/>
+<link href="../cdn/media2.dev.to/dynamic/image/width=32,height=,fit=scale-down,gravity=auto,format=auto/https___dev-to-uploads.s3.amazonaws.com_uploads_articles_8j7kvp660rqzt99zui8e.png" rel="icon" type="image/x-icon"/>
+<link href="../cdn/media2.dev.to/dynamic/image/width=180,height=,fit=scale-down,gravity=auto,format=auto/https___dev-to-uploads.s3.amazonaws.com_uploads_articles_8j7kvp660rqzt99zui8e.png" rel="apple-touch-icon"/>
+<link href="../cdn/media2.dev.to/dynamic/image/width=152,height=,fit=scale-down,gravity=auto,format=auto/https___dev-to-uploads.s3.amazonaws.com_uploads_articles_8j7kvp660rqzt99zui8e.png" rel="apple-touch-icon" sizes="152x152"/>
+<link href="../cdn/media2.dev.to/dynamic/image/width=180,height=,fit=scale-down,gravity=auto,format=auto/https___dev-to-uploads.s3.amazonaws.com_uploads_articles_8j7kvp660rqzt99zui8e.png" rel="apple-touch-icon" sizes="180x180"/>
+<link href="../cdn/media2.dev.to/dynamic/image/width=167,height=,fit=scale-down,gravity=auto,format=auto/https___dev-to-uploads.s3.amazonaws.com_uploads_articles_8j7kvp660rqzt99zui8e.png" rel="apple-touch-icon" sizes="167x167"/>
+<link href="../cdn/media2.dev.to/dynamic/image/width=192,height=,fit=scale-down,gravity=auto,format=auto/https___dev-to-uploads.s3.amazonaws.com_uploads_articles_8j7kvp660rqzt99zui8e.png" rel="icon" sizes="192x192">
+<link href="../cdn/media2.dev.to/dynamic/image/width=128,height=,fit=scale-down,gravity=auto,format=auto/https___dev-to-uploads.s3.amazonaws.com_uploads_articles_8j7kvp660rqzt99zui8e.png" rel="icon" sizes="128x128">
+<meta content="dev.to" name="apple-mobile-web-app-title"/>
+<meta content="dev.to" name="application-name"/>
+<meta content="#ffffff" media="(prefers-color-scheme: light)" name="theme-color"/>
+<meta content="#000000" media="(prefers-color-scheme: dark)" name="theme-color"/>
+<link href="https://dev.to/open-search.xml" rel="search" title="DEV Community" type="application/opensearchdescription+xml">
+<meta content="DEV Community" property="forem:name">
+<meta content="https://media2.dev.to/dynamic/image/width=512,height=,fit=scale-down,gravity=auto,format=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Farticles%2F8j7kvp660rqzt99zui8e.png" property="forem:logo">
+<meta content="dev.to" property="forem:domain">
+<style>
+/* ==========================================================================
+   THE 418 CHALLENGE: THEME-AWARE RETRO EDITION
+   ========================================================================== */
+
+.articletag-418challenge {
+  font-family: "Comic Sans MS", "Chalkboard SE", "Marker Felt", sans-serif !important;
+  cursor: crosshair !important;
+}
+
+/* Destroy modern rounded corners and add brutal borders */
+.articletag-418challenge .crayons-card,
+.articletag-418challenge .crayons-article__main,
+.articletag-418challenge .crayons-article__header {
+  border-radius: 0 !important;
+  margin-bottom: 2rem !important;
+}
+
+/* Typography specifics */
+.articletag-418challenge h1,
+.articletag-418challenge h2,
+.articletag-418challenge h3 {
+  text-transform: uppercase !important;
+}
+
+/* Fake <marquee> effect for the main article title */
+.articletag-418challenge h1.fs-3xl {
+  animation: retro-slide 5s linear infinite alternate;
+  overflow: visible;
+}
+
+/* Spin those avatars */
+.articletag-418challenge .crayons-article__header__meta img {
+  border-radius: 0 !important; 
+  animation: retro-spin 5s linear infinite;
+}
+
+/* Obnoxious tags */
+.articletag-418challenge .crayons-tag {
+  border-radius: 0 !important;
+  font-weight: 900 !important;
+  transform: rotate(-3deg);
+  display: inline-block;
+}
+.articletag-418challenge .crayons-tag:nth-child(even) {
+  transform: rotate(3deg);
+}
+
+/* --------------------------------------------------------------------------
+   2. LIGHT THEME (Windows 95 / Office 97 Vibes)
+   -------------------------------------------------------------------------- */
+body:not(.dark-theme) .articletag-418challenge {
+  background-color: #008080 !important; /* Win95 Teal Desktop */
+}
+
+body:not(.dark-theme) .articletag-418challenge .crayons-card,
+body:not(.dark-theme) .articletag-418challenge .crayons-article__main,
+body:not(.dark-theme) .articletag-418challenge .crayons-article__header {
+  background-color: #c0c0c0 !important; /* Classic dialog gray */
+  color: #000000 !important;
+  border: 4px outset #ffffff !important;
+  box-shadow: 8px 8px 0px #000000 !important;
+}
+
+body:not(.dark-theme) .articletag-418challenge h1,
+body:not(.dark-theme) .articletag-418challenge h2,
+body:not(.dark-theme) .articletag-418challenge h3 {
+  color: #ff0000 !important;
+  text-shadow: 2px 2px 0px #ffff00 !important;
+  border-bottom: 3px dashed #0000ff !important;
+}
+
+body:not(.dark-theme) .articletag-418challenge a,
+body:not(.dark-theme) .articletag-418challenge .crayons-link {
+  color: #0000ff !important; /* Standard unvisited blue */
+  text-decoration: underline !important;
+  font-weight: bold !important;
+}
+
+body:not(.dark-theme) .articletag-418challenge a:hover,
+body:not(.dark-theme) .articletag-418challenge .crayons-link:hover {
+  background-color: #ffff00 !important;
+  color: #ff0000 !important;
+}
+
+body:not(.dark-theme) .articletag-418challenge .crayons-tag {
+  background: #ffff00 !important;
+  color: #ff0000 !important;
+  border: 2px dotted #0000ff !important;
+}
+
+/* --------------------------------------------------------------------------
+   3. DARK THEME (1999 Hacker / Deep GeoCities Vibes)
+   -------------------------------------------------------------------------- */
+body.dark-theme .articletag-418challenge {
+  background-color: #000000 !important;
+  /* Dumb CSS: A scrolling, eye-bleeding neon green hacker grid with CRT scanlines */
+  background-image: 
+    linear-gradient(transparent 50%, rgba(0, 255, 0, 0.25) 50%), 
+    linear-gradient(90deg, rgba(0, 255, 0, 0.5) 1px, transparent 1px), 
+    linear-gradient(rgba(0, 255, 0, 0.5) 1px, transparent 1px) !important;
+  background-size: 100% 4px, 20px 20px, 20px 20px !important;
+  animation: retro-pan 60s linear infinite !important;
+}
+
+body.dark-theme .articletag-418challenge .crayons-card,
+body.dark-theme .articletag-418challenge .crayons-article__main,
+body.dark-theme .articletag-418challenge .crayons-article__header {
+  background-color: #111111 !important;
+  color: #00ff00 !important; /* Terminal Green */
+  border: 4px outset #555555 !important;
+  box-shadow: 8px 8px 0px #ff00ff !important; /* Hot pink shadow */
+}
+
+body.dark-theme .articletag-418challenge h1,
+body.dark-theme .articletag-418challenge h2,
+body.dark-theme .articletag-418challenge h3 {
+  color: #ff00ff !important; /* Magenta headers */
+  text-shadow: 2px 2px 0px #00ffff !important; /* Cyan shadow */
+  border-bottom: 3px dashed #00ff00 !important;
+}
+
+body.dark-theme .articletag-418challenge a,
+body.dark-theme .articletag-418challenge .crayons-link {
+  color: #00ffff !important; /* Cyan links */
+  text-decoration: underline !important;
+  font-weight: bold !important;
+}
+
+body.dark-theme .articletag-418challenge a:hover,
+body.dark-theme .articletag-418challenge .crayons-link:hover {
+  background-color: #ff00ff !important;
+  color: #ffffff !important;
+}
+
+body.dark-theme .articletag-418challenge .crayons-tag {
+  background: #000000 !important;
+  color: #00ff00 !important;
+  border: 2px dotted #ff00ff !important;
+}
+
+/* --------------------------------------------------------------------------
+   4. ANIMATIONS
+   -------------------------------------------------------------------------- */
+@keyframes retro-spin {
+  100% { transform: rotate(360deg); }
+}
+
+@keyframes retro-slide {
+  0% { transform: translateX(-2%); }
+  100% { transform: translateX(2%); }
+}
+
+@keyframes retro-pan {
+  0% { background-position: 0 0, 0 0, 0 0; }
+  /* Numbers must be multiples of the background-size (4px and 20px) to loop perfectly */
+  100% { background-position: 0 100px, 40px 40px, 40px 40px; }
+}
+
+/* --------------------------------------------------------------------------
+   5. BONUS: CAUTION TAPE REACTION BAR
+   -------------------------------------------------------------------------- */
+.articletag-418challenge .crayons-article-actions {
+  background: repeating-linear-gradient(
+    45deg,
+    #ffff00,
+    #ffff00 10px,
+    #000000 10px,
+    #000000 20px
+  ) !important;
+  border: 4px solid #ff0000 !important;
+  border-radius: 0 !important;
+}
+
+.articletag-418challenge .crayons-article-actions button {
+  background:black;
+  color: #ff00ff !important;
+}
+
+.articletag-418challenge .crayons-article-actions .crayons-reaction__count {
+    color: #ff00ff !important;
+    font-weight: bold !important;
+}
+
+.articletag-418challenge .crayons-icon:not(.crayons-icon--default) * {
+    fill: #ffff00 !important;
+}
+
+.articletag-418challenge .c-embed .crayons-btn--primary {
+  color: #00ff00 !important;
+}
+
+.articletag-418challenge .popover-billboard {
+margin-bottom: 0 !important;
+}
+
+.crayons-story__contentpreview .ltag__link--embedded {
+margin-top: 0 !important;
+}
+
+.subscription-icon {
+    max-height: 16px !important;
+    display: inline-block !important;
+}
+
+@media screen and (min-width: 950px) {
+    .event-show-layout {
+        margin-top: 24px !important;
+    }
+}
+
+@media screen and (max-width: 949px) {
+    .event-show-layout {
+        padding: 11px !important;
+    }
+}
+
+
+</style>
+</meta></meta></meta></link></link></link></meta></meta></meta></meta></link></head>
+<body class="sans-serif-article-body default-header" data-algolia-display="true" data-algolia-id="PRSOBFP46H" data-algolia-search-key="9aa7d31610cba78851c9b1f63776a9dd" data-community-name="DEV Community" data-cookie-banner-platform-context="off" data-cookie-banner-user-context="logged_out_only" data-deployed-at="2026-05-05T19:04:15Z" data-dynamic-url-component="bmar11" data-ga-tracking="UA-71991109-1" data-ga4-tracking-id="G-TYEM8Y3JN3" data-honeybadger-key="hbp_nqu4Y66HuEKlD6YRGssZuRQnPOjDm50J8Zkr" data-is-root-subforem="false" data-latest-commit-id="99141cc1f10837f83a0dcd05003c5e711ec877ac" data-locale="en" data-side-nav-visible="true" data-subforem-id="1" data-subscription-icon="https://assets.dev.to/assets/subscription-icon-805dfa7ac7dd660f07ed8d654877270825b07a92a03841aa99a1093bd00431b2.png" data-user-status="logged-out">
+<script>
+        if (navigator.userAgent === 'ForemWebView/1' || window.frameElement) {
+          document.body.classList.add("hidden-shell");
+        }
+          if (new Date() > new Date("2026-02-04T09:00:00-05:00")) {
+            document.body.dataset.sideNavVisible = "false";
+          } 
+      </script>
+<link href="../cdn/assets.dev.to/assets/minimal-2213124ac5505ccdbf3c4eb62fd70ecda26cb75ed6de931633992a7bac437c81.css" id="secondary-minimal-stylesheet" media="all" rel="stylesheet">
+<link href="../cdn/assets.dev.to/assets/views-0681ac17bf1546793c4b7ef7c615b2defec919060aefb3b9c287471e8cb77bf2.css" id="secondary-views-stylesheet" media="all" rel="stylesheet"/>
+<link href="../cdn/assets.dev.to/assets/crayons-d2b52af1d86a9ac9a8bc215ed34ffad7a94af68f4abd1cdcae2a8c1a4385cd23.css" id="secondary-crayons-stylesheet" media="all" rel="stylesheet"/>
+<div id="body-styles">
+<style>
+          :root {
+            --accent-brand-lighter-rgb: 86, 105, 285;
+            --accent-brand-rgb: 64, 78, 211;
+            --accent-brand-darker-rgb: 51, 62, 169;
+          }
+        </style>
+</div>
+<div data-podcast="" id="audiocontent">
+</div>
+<div class="navigation-progress" id="navigation-progress"></div>
+<header class="crayons-header topbar print-hidden" id="topbar">
+<span id="route-change-target" tabindex="-1"></span>
+<a class="skip-content-link" href="#main-content">Skip to content</a>
+<div class="crayons-header__container">
+<span class="inline-block m:hidden">
+<button class="c-btn c-btn--icon-alone js-hamburger-trigger mx-2">
+<svg aria-labelledby="ahvu1gdbc9q9pvlbw8l22jhnv1c84vjm" class="crayons-icon" height="24" role="img" viewbox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><title id="ahvu1gdbc9q9pvlbw8l22jhnv1c84vjm">Navigation menu</title>
+<path d="M3 4h18v2H3V4zm0 7h18v2H3v-2zm0 7h18v2H3v-2z"></path>
+</svg>
+</button>
+</span>
+<a aria-label="DEV Community Home" class="site-logo" href="../index.html">
+<img alt="DEV Community" class="site-logo__img" src="../cdn/media2.dev.to/dynamic/image/quality=100/https_/dev-to-uploads.s3.amazonaws.com/uploads/logos/resized_logo_UQww2soKuUsjaOGNB38o.png" style="aspect-ratio: 10 / 8"/>
+</a>
+<div class="crayons-header--search js-search-form" id="header-search">
+<form accept-charset="UTF-8" action="/search" method="get" role="search">
+<div class="crayons-fields crayons-fields--horizontal">
+<div class="crayons-field flex-1 relative">
+<input autocomplete="off" class="crayons-header--search-input crayons-textfield js-search-input" id="nav-search" name="q" placeholder="Find related posts..." type="text"/>
+<button aria-label="Search" class="c-btn c-btn--icon-alone absolute inset-px right-auto mt-0 py-0" type="submit">
+<svg aria-hidden="true" aria-labelledby="a9mjojgynly622vv3zfwqnrql7q1q8gv" class="crayons-icon" height="24" role="img" viewbox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><title id="a9mjojgynly622vv3zfwqnrql7q1q8gv">Search</title>
+<path d="M18.031 16.617l4.283 4.282-1.415 1.415-4.282-4.283A8.96 8.96 0 0111 20c-4.968 0-9-4.032-9-9s4.032-9 9-9 9 4.032 9 9a8.96 8.96 0 01-1.969 5.617zm-2.006-.742A6.977 6.977 0 0018 11c0-3.868-3.133-7-7-7-3.868 0-7 3.132-7 7 0 3.867 3.132 7 7 7a6.977 6.977 0 004.875-1.975l.15-.15z"></path>
+</svg>
+</button>
+<a class="crayons-header--search-brand-indicator" href="https://www.algolia.com/developers/?utm_source=devto&amp;utm_medium=referral" rel="noopener noreferrer" target="_blank">
+                Powered by Algolia
+                <svg aria-hidden="true" aria-labelledby="ae8br3fecmpngak5eh9vtdq6z3tkuo68" class="crayons-icon" height="24" id="Layer_1" role="img" viewbox="0 0 500 500.34" width="24" xmlns="http://www.w3.org/2000/svg"><title id="ae8br3fecmpngak5eh9vtdq6z3tkuo68">Search</title>
+<defs></defs><path class="cls-1" d="M250,0C113.38,0,2,110.16,.03,246.32c-2,138.29,110.19,252.87,248.49,253.67,42.71,.25,83.85-10.2,120.38-30.05,3.56-1.93,4.11-6.83,1.08-9.52l-23.39-20.74c-4.75-4.22-11.52-5.41-17.37-2.92-25.5,10.85-53.21,16.39-81.76,16.04-111.75-1.37-202.04-94.35-200.26-206.1,1.76-110.33,92.06-199.55,202.8-199.55h202.83V407.68l-115.08-102.25c-3.72-3.31-9.43-2.66-12.43,1.31-18.47,24.46-48.56,39.67-81.98,37.36-46.36-3.2-83.92-40.52-87.4-86.86-4.15-55.28,39.65-101.58,94.07-101.58,49.21,0,89.74,37.88,93.97,86.01,.38,4.28,2.31,8.28,5.53,11.13l29.97,26.57c3.4,3.01,8.8,1.17,9.63-3.3,2.16-11.55,2.92-23.6,2.07-35.95-4.83-70.39-61.84-127.01-132.26-131.35-80.73-4.98-148.23,58.18-150.37,137.35-2.09,77.15,61.12,143.66,138.28,145.36,32.21,.71,62.07-9.42,86.2-26.97l150.36,133.29c6.45,5.71,16.62,1.14,16.62-7.48V9.49C500,4.25,495.75,0,490.51,0H250Z"></path>
+</svg>
+</a>
+</div>
+</div>
+</form>
+</div>
+<div class="flex items-center h-100 ml-auto">
+<div class="flex" id="authentication-top-nav-actions">
+<span class="hidden m:block">
+<a class="c-link c-link--block mr-2 whitespace-nowrap ml-auto" data-no-instant="" href="../enter-q7ffd52de7b.html">
+              Log in
+            </a>
+</span>
+<a class="c-cta c-cta--branded whitespace-nowrap mr-2" data-no-instant="" data-tracking-id="ca_top_nav" data-tracking-source="top_navbar" href="../enter-qfc40b94913.html">
+            Create account
+          </a>
+</div>
+</div>
+</div>
+</header>
+<div class="hamburger">
+<div class="hamburger__content">
+<header class="hamburger__content__header">
+<h2 class="fs-l fw-bold flex-1 break-word lh-tight">DEV Community</h2>
+<button aria-label="Close" class="c-btn c-btn--icon-alone js-hamburger-trigger shrink-0">
+<svg aria-hidden="true" aria-labelledby="ahxxmouf4ztzcmxtxp1bbj8lhrkhqdvn" class="crayons-icon c-btn__icon" height="24" role="img" viewbox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><title id="ahxxmouf4ztzcmxtxp1bbj8lhrkhqdvn">Close</title><path d="M12 10.586l4.95-4.95 1.414 1.414-4.95 4.95 4.95 4.95-1.414 1.414-4.95-4.95-4.95 4.95-1.414-1.414 4.95-4.95-4.95-4.95L7.05 5.636l4.95 4.95z"></path></svg>
+</button>
+</header>
+<div class="p-2 js-navigation-links-container" id="authentication-hamburger-actions">
+</div>
+</div>
+<div class="hamburger__overlay js-hamburger-trigger"></div>
+</div>
+<div class="broadcast-wrapper" id="active-broadcast"></div>
+<div class="wrapper stories stories-show articletag-ai articletag-programming articletag-go articleuser-345388 articleorg-11939" data-current-page="stories-show" id="page-content">
+<div data-internal-nav="false" data-viewable-id="3618261" data-viewable-type="Article" id="page-content-inner">
+<div aria-atomic="true" aria-live="polite" class="screen-reader-only" id="page-route-change"></div>
+<style>
+  .html-variant-wrapper { display: none}
+</style>
+<script defer="" src="../cdn/unpkg.com/@webcomponents/webcomponentsjs@2.2.10/webcomponents-loader.js"></script>
+<script defer="defer" src="../cdn/assets.dev.to/assets/webShare-0686f0b9ac40589694ef6ae6a6202c44119bc781c254f6cf6d52d8a008461156.js"></script>
+<script defer="defer" src="../cdn/assets.dev.to/assets/articlePage-ed23d70916aed9a7fec41f94e64aac17438d3210c1bb1d6fceace80f15445213.js"></script>
+<script defer="defer" src="../cdn/assets.dev.to/assets/commentDropdowns-7a28d130e5b78d38b30a9495a964003a66bd64fa455fc70b766d69cf06b9ba24.js"></script>
+<script type="application/ld+json">
+    {"@context":"http://schema.org","@type":"Article","mainEntityOfPage":{"@type":"WebPage","@id":"https://dev.to/gde/stop-using-python-for-your-gen-ai-apps-use-go-and-genkit-instead-401p"},"url":"https://dev.to/gde/stop-using-python-for-your-gen-ai-apps-use-go-and-genkit-instead-401p","image":["https://media2.dev.to/dynamic/image/width=1080,height=1080,fit=cover,gravity=auto,format=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Farticles%2Fyzj28eemdmc5uz36p9x0.png","https://media2.dev.to/dynamic/image/width=1280,height=720,fit=cover,gravity=auto,format=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Farticles%2Fyzj28eemdmc5uz36p9x0.png","https://media2.dev.to/dynamic/image/width=1600,height=900,fit=cover,gravity=auto,format=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Farticles%2Fyzj28eemdmc5uz36p9x0.png"],"publisher":{"@context":"http://schema.org","@type":"Organization","name":"DEV Community","logo":{"@context":"http://schema.org","@type":"ImageObject","url":"https://media2.dev.to/dynamic/image/width=192,height=,fit=scale-down,gravity=auto,format=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Farticles%2F8j7kvp660rqzt99zui8e.png","width":"192","height":"192"}},"headline":"Stop Using Python for Your Gen AI Apps, Use Go and Genkit Instead","author":{"@context":"http://schema.org","@type":"Person","url":"https://dev.to/xavidop","name":"Xavier Portilla Edo"},"datePublished":"2026-05-06T03:54:40Z","dateModified":"2026-05-06T03:54:40Z","mainEntity":{"@type":"DiscussionForumPosting","@id":"#article-discussion-3618261","headline":"Stop Using Python for Your Gen AI Apps, Use Go and Genkit Instead","text":"\u003ch2\u003e\n  \u003ca name=\"introduction\" href=\"#introduction\"\u003e\n  \u003c/a\u003e\n  Introduction\n\u003c/h2\u003e\n\n\u003cp\u003eFor the last few years, every Gen AI tutorial, framework, and \"hello world\" has assumed one thing: that you are writing Python. It made sense at the start. The research community lives in Python, the model providers ship Python SDKs first, and the notebook culture is hard to beat for prototyping. But there is a quiet, important shift happening in 2026: the teams actually shipping AI features at scale are increasingly moving their \u003cstrong\u003eproduction\u003c/strong\u003e Gen AI workloads off Python, and onto languages built for services.\u003c/p\u003e\n\n\u003cp\u003eGo is at the center of that shift. And \u003cstrong\u003e\u003ca href=\"https://genkit.dev/docs/go/get-started/\" target=\"_blank\" rel=\"noopener noreferrer\"\u003eGenkit Go\u003c/a\u003e\u003c/strong\u003e, the Go flavor of Google's open-source Gen AI framework, is the cleanest path I have seen to build production-ready AI services in Go: typed flows, structured output, built-in HTTP serving, observability, and a Developer UI, all from a single binary.\u003c/p\u003e\n\n\u003cp\u003eThis article is two things at once. First, an honest argument about why Python is a poor fit for production Gen AI services. Second, a hands-on getting-started with Genkit Go so you can replace that Python microservice this week.\u003c/p\u003e\n\n\u003ch2\u003e\n  \u003ca name=\"why-python-hurts-in-production-gen-ai\" href=\"#why-python-hurts-in-production-gen-ai\"\u003e\n  \u003c/a\u003e\n  Why Python Hurts in Production Gen AI\n\u003c/h2\u003e\n\n\u003cp\u003ePython is great for research and prototyping. But Gen AI applications are not really \"AI code\", they are mostly \u003cstrong\u003eI/O-heavy network services\u003c/strong\u003e that happen to call a model. And that is exactly where Python struggles.\u003c/p\u003e\n\n\u003ch3\u003e\n  \u003ca name=\"concurrency-is-a-constant-fight\" href=\"#concurrency-is-a-constant-fight\"\u003e\n  \u003c/a\u003e\n  Concurrency is a constant fight\n\u003c/h3\u003e\n\n\u003cp\u003eGen AI workloads are dominated by long, concurrent network calls: streaming completions, tool calls, embedding requests, vector DB lookups, MCP servers. Go's goroutines and channels were literally designed for this. In Python you have a choice between three uncomfortable options: threads (limited by the GIL), \u003ccode\u003easyncio\u003c/code\u003e (which infects your entire codebase and breaks the moment one library is sync), or multiprocessing (heavy, awkward, and unfriendly to shared state). None of them feel native. All of them leak through your abstractions.\u003c/p\u003e\n\n\u003ch3\u003e\n  \u003ca name=\"cold-starts-and-memory-footprint\" href=\"#cold-starts-and-memory-footprint\"\u003e\n  \u003c/a\u003e\n  Cold starts and memory footprint\n\u003c/h3\u003e\n\n\u003cp\u003eA Python AI service typically pulls in \u003ccode\u003epydantic\u003c/code\u003e, \u003ccode\u003ehttpx\u003c/code\u003e, an SDK or two, and a tokenizer. You are easily looking at 200, 400 MB of resident memory and several seconds of cold start before you serve a single request. A Go binary doing the same job is one statically linked file, tens of MB of RAM, and starts in milliseconds. On Cloud Run, Lambda, Azure Functions, or any autoscaling platform, this difference is not a micro-optimization, it is the difference between a service that scales to zero gracefully and one that does not.\u003c/p\u003e\n\n\u003ch3\u003e\n  \u003ca name=\"dependency-hell-is-worse-for-ai\" href=\"#dependency-hell-is-worse-for-ai\"\u003e\n  \u003c/a\u003e\n  Dependency hell is worse for AI\n\u003c/h3\u003e\n\n\u003cp\u003e\u003ccode\u003epip\u003c/code\u003e, \u003ccode\u003epoetry\u003c/code\u003e, \u003ccode\u003euv\u003c/code\u003e, \u003ccode\u003econda\u003c/code\u003e, \u003ccode\u003evenv\u003c/code\u003e, \u003ccode\u003erequirements.txt\u003c/code\u003e, \u003ccode\u003epyproject.toml\u003c/code\u003e. Pin a Torch version, break a transitive dep. Upgrade an SDK, break Pydantic v1 vs v2. Every Python AI repo I have inherited has spent at least a day fixing the environment before running a single prompt. Go's module system, with a single \u003ccode\u003ego.mod\u003c/code\u003e and \u003ccode\u003ego.sum\u003c/code\u003e, is boring, reproducible, and just works.\u003c/p\u003e\n\n\u003ch3\u003e\n  \u003ca name=\"types-are-optional-and-it-shows\" href=\"#types-are-optional-and-it-shows\"\u003e\n  \u003c/a\u003e\n  Types are optional, and it shows\n\u003c/h3\u003e\n\n\u003cp\u003eStructured output, tool calling, and MCP all rely on \u003cstrong\u003eschemas\u003c/strong\u003e. In Python, the schema lives in Pydantic models, in docstrings, in comments, and sometimes in your head. In Go, the schema \u003cstrong\u003eis\u003c/strong\u003e the struct. The compiler enforces it. Genkit picks it up automatically via JSON schema tags. You cannot ship a flow whose input does not match what the model returns, because it will not compile.\u003c/p\u003e\n\n\u003ch3\u003e\n  \u003ca name=\"deployment-is-a-packaging-exercise\" href=\"#deployment-is-a-packaging-exercise\"\u003e\n  \u003c/a\u003e\n  Deployment is a packaging exercise\n\u003c/h3\u003e\n\n\u003cp\u003ePython deployments are Dockerfiles full of system packages, base images that drift, and \"works on my machine\" surprises. Go deploys as a single static binary. \u003ccode\u003eFROM scratch\u003c/code\u003e, copy the binary, done. For AI services that need to run on Cloud Run, on Kubernetes, on the edge, or as a sidecar, that is a massive operational win.\u003c/p\u003e\n\n\u003ch3\u003e\n  \u003ca name=\"the-performance-ceiling-is-real\" href=\"#the-performance-ceiling-is-real\"\u003e\n  \u003c/a\u003e\n  The performance ceiling is real\n\u003c/h3\u003e\n\n\u003cp\u003eYes, the heavy lifting happens on the model provider's GPUs. But your service still has to parse tokens off a streaming response, fan out tool calls, merge results, enforce timeouts, and push telemetry, \u003cstrong\u003eper request, at concurrency\u003c/strong\u003e. Go does that work an order of magnitude more efficiently than CPython, and without you having to think about it.\u003c/p\u003e\n\n\u003cblockquote\u003e\n\u003cp\u003eNone of this means Python is wrong for \u003cstrong\u003eresearch\u003c/strong\u003e. It means Python is the wrong default for the \u003cstrong\u003eservice\u003c/strong\u003e that exposes that research to your users.\u003c/p\u003e\n\u003c/blockquote\u003e\n\n\u003ch2\u003e\n  \u003ca name=\"go-is-the-best-language-for-agentic-coders\" href=\"#go-is-the-best-language-for-agentic-coders\"\u003e\n  \u003c/a\u003e\n  Go Is the Best Language for Agentic Coders\n\u003c/h2\u003e\n\n\u003cp\u003eThere is one more reason to pick Go in 2026 that did not really exist two years ago: \u003cstrong\u003eagentic coders\u003c/strong\u003e. Tools like Claude Code, Cursor's agent mode, GitHub Copilot's agent, Gemini Code Assist, Codex, Aider, and the growing ecosystem of autonomous coding agents are now a real part of how software gets written. And it turns out that \u003cstrong\u003eGo is the language they thrive in\u003c/strong\u003e.\u003c/p\u003e\n\n\u003cp\u003eWhy? It comes down to three properties of the language that align almost perfectly with how an LLM-based agent reasons about code:\u003c/p\u003e\n\n\u003ch3\u003e\n  \u003ca name=\"strong-static-typing-closes-the-feedback-loop\" href=\"#strong-static-typing-closes-the-feedback-loop\"\u003e\n  \u003c/a\u003e\n  Strong, static typing closes the feedback loop\n\u003c/h3\u003e\n\n\u003cp\u003eAgentic coders work in a tight loop: write code, compile, read the error, fix, repeat. Go's compiler is fast, strict, and brutally honest. When an agent generates a wrong call, the compiler tells it exactly what is wrong and where, in seconds. In Python, the same mistake might only surface at runtime, three layers deep, with a stack trace that requires the agent to spend tokens reasoning about dynamic behavior. Strong typing turns \"guess and pray\" into \"verify and continue\".\u003c/p\u003e\n\n\u003ch3\u003e\n  \u003ca name=\"there-is-usually-one-obvious-way-to-do-something\" href=\"#there-is-usually-one-obvious-way-to-do-something\"\u003e\n  \u003c/a\u003e\n  There is usually one obvious way to do something\n\u003c/h3\u003e\n\n\u003cp\u003ePython has at least four HTTP clients, three async paradigms, two type systems, and an opinion war about every major design decision. An agent has to choose, and choices cost tokens and increase the chance of going off the rails. Go is famously opinionated: one formatter (\u003ccode\u003egofmt\u003c/code\u003e), one module system, one idiomatic way to handle errors, one standard layout. Less surface area means less ambiguity, which means \u003cstrong\u003eless token consumption and more correct code per iteration\u003c/strong\u003e.\u003c/p\u003e\n\n\u003ch3\u003e\n  \u003ca name=\"tooling-is-built-for-machines-not-just-humans\" href=\"#tooling-is-built-for-machines-not-just-humans\"\u003e\n  \u003c/a\u003e\n  Tooling is built for machines, not just humans\n\u003c/h3\u003e\n\n\u003cp\u003e\u003ccode\u003ego build\u003c/code\u003e, \u003ccode\u003ego test\u003c/code\u003e, \u003ccode\u003ego vet\u003c/code\u003e, \u003ccode\u003egopls\u003c/code\u003e, and \u003ccode\u003estaticcheck\u003c/code\u003e produce structured, parseable output. Agents can read it directly without heuristics. Combine that with \u003ccode\u003ego doc\u003c/code\u003e and the standard library being uniformly documented, and you give an agent a self-describing environment it can navigate without hallucinating.\u003c/p\u003e\n\n\u003ch3\u003e\n  \u003ca name=\"and-then-genkit-go-takes-it-one-level-further\" href=\"#and-then-genkit-go-takes-it-one-level-further\"\u003e\n  \u003c/a\u003e\n  And then Genkit Go takes it one level further\n\u003c/h3\u003e\n\n\u003cp\u003eGenkit Go leans into the same properties:\u003c/p\u003e\n\n\u003cul\u003e\n\u003cli\u003eFlow inputs and outputs are \u003cstrong\u003eGo structs\u003c/strong\u003e, the schema is the type. An agent generating a new flow knows exactly what shape the data has, because the compiler will reject anything else.\u003c/li\u003e\n\u003cli\u003eThe API surface is small and consistent: \u003ccode\u003egenkit.Init\u003c/code\u003e, \u003ccode\u003egenkit.DefineFlow\u003c/code\u003e, \u003ccode\u003egenkit.DefineTool\u003c/code\u003e, \u003ccode\u003egenkit.GenerateData\u003c/code\u003e, \u003ccode\u003egenkit.Handler\u003c/code\u003e. There is one obvious way to define a flow, one obvious way to expose it, one obvious way to call a model.\u003c/li\u003e\n\u003cli\u003eTool definitions are typed end-to-end, so an agent writing a new tool gets compile-time guarantees that its signature matches what the runtime expects.\u003c/li\u003e\n\u003c/ul\u003e\n\n\u003cp\u003eThe net effect is that an agentic coder pointed at a Genkit Go codebase will produce \u003cstrong\u003emore correct code, in fewer iterations, with fewer tokens\u003c/strong\u003e than the same agent pointed at an equivalent Python codebase. In a world where you are increasingly going to be the reviewer of agent-generated code rather than the author, that compounds fast.\u003c/p\u003e\n\n\u003ch2\u003e\n  \u003ca name=\"why-genkit-go-specifically\" href=\"#why-genkit-go-specifically\"\u003e\n  \u003c/a\u003e\n  Why Genkit Go Specifically\n\u003c/h2\u003e\n\n\u003cp\u003eIf you accept the premise that Go is the better runtime for Gen AI services, the next question is: which framework? You can absolutely call the Gemini, OpenAI, or Anthropic SDKs directly from Go. But you will quickly end up rebuilding the same primitives every Genkit user already has for free.\u003c/p\u003e\n\n\u003cp\u003eHere is what Genkit Go gives you out of the box, and what you would otherwise have to write yourself:\u003c/p\u003e\n\n\u003cp\u003e| Feature | Without Genkit | With Genkit Go |\u003cbr\u003e\n||||\u003cbr\u003e\n| Call a model | Hand-rolled HTTP client per provider, manual JSON, manual streaming | \u003ccode\u003egenkit.Generate(...)\u003c/code\u003e, one call, multi-provider |\u003cbr\u003e\n| Structured output | Parse raw JSON, custom unmarshaling, validate by hand | \u003ccode\u003egenkit.GenerateData[MyStruct]\u003c/code\u003e, typed Go struct returned |\u003cbr\u003e\n| Expose as an API | \u003ccode\u003enet/http\u003c/code\u003e boilerplate per endpoint, request/response wiring | \u003ccode\u003egenkit.Handler(flow)\u003c/code\u003e, auto HTTP endpoint |\u003cbr\u003e\n| Tool calling | Parse function call payloads, dispatch, re-submit | \u003ccode\u003egenkit.DefineTool(...)\u003c/code\u003e, automatic execution loop |\u003cbr\u003e\n| Observability | Wire OpenTelemetry, define spans, ship metrics | Built-in tracing, metrics, latency, zero config |\u003cbr\u003e\n| Local dev | \u003ccode\u003ecurl\u003c/code\u003e, Postman, manual harnesses | \u003cstrong\u003eGenkit Developer UI\u003c/strong\u003e, visual flow runner, traces, prompt playground |\u003cbr\u003e\n| Multi-provider | Different SDKs, different auth, different schemas | Unified plugin interface (Google AI, Vertex, OpenAI, Anthropic, Bedrock, Azure, Ollama, ...) |\u003c/p\u003e\n\n\u003cp\u003eIt is the same philosophy as \u003ca href=\"https://dev.to%20post_url%20genkit/2026-02-10-genkit-java-101%20\"\u003eGenkit Java\u003c/a\u003e and the JavaScript flavor I covered in \u003ca href=\"https://dev.to%20post_url%20genkit/2026-04-16-top-jsts-genai-frameworks-2026%20\"\u003emy 2026 JS/TS Gen AI frameworks comparison\u003c/a\u003e: a thin, opinionated, cloud-agnostic layer that turns \"AI logic\" into a \u003cstrong\u003etyped function\u003c/strong\u003e you can call, test, deploy, and observe.\u003c/p\u003e\n\u003ch2\u003e\n  \u003ca name=\"what-we-are-going-to-build\" href=\"#what-we-are-going-to-build\"\u003e\n  \u003c/a\u003e\n  What We Are Going to Build\n\u003c/h2\u003e\n\n\u003cp\u003eA Go service exposing a single AI flow that generates a structured \u003cstrong\u003erecipe\u003c/strong\u003e from a main ingredient and optional dietary restrictions. It will:\u003c/p\u003e\n\n\u003cul\u003e\n\u003cli\u003eAccept a typed \u003ccode\u003eRecipeInput\u003c/code\u003e as input.\u003c/li\u003e\n\u003cli\u003eCall \u003cstrong\u003eGemini 3 Pro\u003c/strong\u003e via the Google AI plugin.\u003c/li\u003e\n\u003cli\u003eReturn a strongly-typed \u003ccode\u003eRecipe\u003c/code\u003e struct (no manual JSON parsing).\u003c/li\u003e\n\u003cli\u003eBe served as an HTTP endpoint on \u003ccode\u003e:3400\u003c/code\u003e.\u003c/li\u003e\n\u003cli\u003eBe testable visually in the \u003cstrong\u003eGenkit Developer UI\u003c/strong\u003e.\u003c/li\u003e\n\u003c/ul\u003e\n\n\u003cp\u003eAll in \u003cstrong\u003ea single \u003ccode\u003emain.go\u003c/code\u003e file\u003c/strong\u003e. No web framework. No code generation. Just Go.\u003c/p\u003e\n\u003ch2\u003e\n  \u003ca name=\"prerequisites\" href=\"#prerequisites\"\u003e\n  \u003c/a\u003e\n  Prerequisites\n\u003c/h2\u003e\n\n\u003cul\u003e\n\u003cli\u003e\n\u003cstrong\u003eGo 1.24+\u003c/strong\u003e (\u003ca href=\"https://go.dev/doc/install\" target=\"_blank\" rel=\"noopener noreferrer\"\u003einstall\u003c/a\u003e)\u003c/li\u003e\n\u003cli\u003e\n\u003cstrong\u003eNode.js 18+\u003c/strong\u003e (only required for the Genkit CLI / Developer UI)\u003c/li\u003e\n\u003cli\u003eA \u003cstrong\u003eGoogle GenAI API key\u003c/strong\u003e (free, no credit card, from \u003ca href=\"https://aistudio.google.com/apikey\" target=\"_blank\" rel=\"noopener noreferrer\"\u003eGoogle AI Studio\u003c/a\u003e)\u003c/li\u003e\n\u003c/ul\u003e\n\u003ch3\u003e\n  \u003ca name=\"install-the-genkit-cli\" href=\"#install-the-genkit-cli\"\u003e\n  \u003c/a\u003e\n  Install the Genkit CLI\n\u003c/h3\u003e\n\n\u003cp\u003eThe Genkit CLI is your local companion for running and inspecting flows in the Developer UI:\u003cbr\u003e\n\u003c/p\u003e\n\n\u003cdiv class=\"highlight js-code-highlight\"\u003e\n\u003cpre class=\"highlight shell\"\u003e\u003ccode\u003ecurl \u003cspan class=\"nt\"\u003e-sL\u003c/span\u003e cli.genkit.dev | bash\n\u003c/code\u003e\u003c/pre\u003e\n\u003cdiv class=\"highlight__panel js-actions-panel\"\u003e\n\u003cdiv class=\"highlight__panel-action js-fullscreen-code-action\"\u003e\n    \u003csvg xmlns=\"http://www.w3.org/2000/svg\" width=\"20px\" height=\"20px\" viewbox=\"0 0 24 24\" class=\"highlight-action crayons-icon highlight-action--fullscreen-on\"\u003e\u003ctitle\u003eEnter fullscreen mode\u003c/title\u003e\n    \u003cpath d=\"M16 3h6v6h-2V5h-4V3zM2 3h6v2H4v4H2V3zm18 16v-4h2v6h-6v-2h4zM4 19h4v2H2v-6h2v4z\"\u003e\u003c/path\u003e\n\u003c/svg\u003e\n\n    \u003csvg xmlns=\"http://www.w3.org/2000/svg\" width=\"20px\" height=\"20px\" viewbox=\"0 0 24 24\" class=\"highlight-action crayons-icon highlight-action--fullscreen-off\"\u003e\u003ctitle\u003eExit fullscreen mode\u003c/title\u003e\n    \u003cpath d=\"M18 7h4v2h-6V3h2v4zM8 9H2V7h4V3h2v6zm10 8v4h-2v-6h6v2h-4zM8 15v6H6v-4H2v-2h6z\"\u003e\u003c/path\u003e\n\u003c/svg\u003e\n\n\u003c/div\u003e\n\u003c/div\u003e\n\u003c/div\u003e\n\n\n\n\u003cp\u003eVerify it:\u003cbr\u003e\n\u003c/p\u003e\n\n\u003cdiv class=\"highlight js-code-highlight\"\u003e\n\u003cpre class=\"highlight shell\"\u003e\u003ccode\u003egenkit \u003cspan class=\"nt\"\u003e--version\u003c/span\u003e\n\u003c/code\u003e\u003c/pre\u003e\n\u003cdiv class=\"highlight__panel js-actions-panel\"\u003e\n\u003cdiv class=\"highlight__panel-action js-fullscreen-code-action\"\u003e\n    \u003csvg xmlns=\"http://www.w3.org/2000/svg\" width=\"20px\" height=\"20px\" viewbox=\"0 0 24 24\" class=\"highlight-action crayons-icon highlight-action--fullscreen-on\"\u003e\u003ctitle\u003eEnter fullscreen mode\u003c/title\u003e\n    \u003cpath d=\"M16 3h6v6h-2V5h-4V3zM2 3h6v2H4v4H2V3zm18 16v-4h2v6h-6v-2h4zM4 19h4v2H2v-6h2v4z\"\u003e\u003c/path\u003e\n\u003c/svg\u003e\n\n    \u003csvg xmlns=\"http://www.w3.org/2000/svg\" width=\"20px\" height=\"20px\" viewbox=\"0 0 24 24\" class=\"highlight-action crayons-icon highlight-action--fullscreen-off\"\u003e\u003ctitle\u003eExit fullscreen mode\u003c/title\u003e\n    \u003cpath d=\"M18 7h4v2h-6V3h2v4zM8 9H2V7h4V3h2v6zm10 8v4h-2v-6h6v2h-4zM8 15v6H6v-4H2v-2h6z\"\u003e\u003c/path\u003e\n\u003c/svg\u003e\n\n\u003c/div\u003e\n\u003c/div\u003e\n\u003c/div\u003e\n\n\n\n\u003ch2\u003e\n  \u003ca name=\"set-up-the-project\" href=\"#set-up-the-project\"\u003e\n  \u003c/a\u003e\n  Set Up the Project\n\u003c/h2\u003e\n\n\u003cp\u003eCreate a fresh module:\u003cbr\u003e\n\u003c/p\u003e\n\n\u003cdiv class=\"highlight js-code-highlight\"\u003e\n\u003cpre class=\"highlight shell\"\u003e\u003ccode\u003e\u003cspan class=\"nb\"\u003emkdir \u003c/span\u003egenkit-go-recipes \u003cspan class=\"o\"\u003e\u0026amp;\u0026amp;\u003c/span\u003e \u003cspan class=\"nb\"\u003ecd \u003c/span\u003egenkit-go-recipes\ngo mod init example/genkit-go-recipes\n\u003c/code\u003e\u003c/pre\u003e\n\u003cdiv class=\"highlight__panel js-actions-panel\"\u003e\n\u003cdiv class=\"highlight__panel-action js-fullscreen-code-action\"\u003e\n    \u003csvg xmlns=\"http://www.w3.org/2000/svg\" width=\"20px\" height=\"20px\" viewbox=\"0 0 24 24\" class=\"highlight-action crayons-icon highlight-action--fullscreen-on\"\u003e\u003ctitle\u003eEnter fullscreen mode\u003c/title\u003e\n    \u003cpath d=\"M16 3h6v6h-2V5h-4V3zM2 3h6v2H4v4H2V3zm18 16v-4h2v6h-6v-2h4zM4 19h4v2H2v-6h2v4z\"\u003e\u003c/path\u003e\n\u003c/svg\u003e\n\n    \u003csvg xmlns=\"http://www.w3.org/2000/svg\" width=\"20px\" height=\"20px\" viewbox=\"0 0 24 24\" class=\"highlight-action crayons-icon highlight-action--fullscreen-off\"\u003e\u003ctitle\u003eExit fullscreen mode\u003c/title\u003e\n    \u003cpath d=\"M18 7h4v2h-6V3h2v4zM8 9H2V7h4V3h2v6zm10 8v4h-2v-6h6v2h-4zM8 15v6H6v-4H2v-2h6z\"\u003e\u003c/path\u003e\n\u003c/svg\u003e\n\n\u003c/div\u003e\n\u003c/div\u003e\n\u003c/div\u003e\n\n\n\n\u003cp\u003eInstall the Genkit Go package:\u003cbr\u003e\n\u003c/p\u003e\n\n\u003cdiv class=\"highlight js-code-highlight\"\u003e\n\u003cpre class=\"highlight shell\"\u003e\u003ccode\u003ego get github.com/firebase/genkit/go\n\u003c/code\u003e\u003c/pre\u003e\n\u003cdiv class=\"highlight__panel js-actions-panel\"\u003e\n\u003cdiv class=\"highlight__panel-action js-fullscreen-code-action\"\u003e\n    \u003csvg xmlns=\"http://www.w3.org/2000/svg\" width=\"20px\" height=\"20px\" viewbox=\"0 0 24 24\" class=\"highlight-action crayons-icon highlight-action--fullscreen-on\"\u003e\u003ctitle\u003eEnter fullscreen mode\u003c/title\u003e\n    \u003cpath d=\"M16 3h6v6h-2V5h-4V3zM2 3h6v2H4v4H2V3zm18 16v-4h2v6h-6v-2h4zM4 19h4v2H2v-6h2v4z\"\u003e\u003c/path\u003e\n\u003c/svg\u003e\n\n    \u003csvg xmlns=\"http://www.w3.org/2000/svg\" width=\"20px\" height=\"20px\" viewbox=\"0 0 24 24\" class=\"highlight-action crayons-icon highlight-action--fullscreen-off\"\u003e\u003ctitle\u003eExit fullscreen mode\u003c/title\u003e\n    \u003cpath d=\"M18 7h4v2h-6V3h2v4zM8 9H2V7h4V3h2v6zm10 8v4h-2v-6h6v2h-4zM8 15v6H6v-4H2v-2h6z\"\u003e\u003c/path\u003e\n\u003c/svg\u003e\n\n\u003c/div\u003e\n\u003c/div\u003e\n\u003c/div\u003e\n\n\n\n\u003cp\u003eSet your API key:\u003cbr\u003e\n\u003c/p\u003e\n\n\u003cdiv class=\"highlight js-code-highlight\"\u003e\n\u003cpre class=\"highlight shell\"\u003e\u003ccode\u003e\u003cspan class=\"nb\"\u003eexport \u003c/span\u003e\u003cspan class=\"nv\"\u003eGEMINI_API_KEY\u003c/span\u003e\u003cspan class=\"o\"\u003e=\u003c/span\u003e\u0026lt;your API key\u0026gt;\n\u003c/code\u003e\u003c/pre\u003e\n\u003cdiv class=\"highlight__panel js-actions-panel\"\u003e\n\u003cdiv class=\"highlight__panel-action js-fullscreen-code-action\"\u003e\n    \u003csvg xmlns=\"http://www.w3.org/2000/svg\" width=\"20px\" height=\"20px\" viewbox=\"0 0 24 24\" class=\"highlight-action crayons-icon highlight-action--fullscreen-on\"\u003e\u003ctitle\u003eEnter fullscreen mode\u003c/title\u003e\n    \u003cpath d=\"M16 3h6v6h-2V5h-4V3zM2 3h6v2H4v4H2V3zm18 16v-4h2v6h-6v-2h4zM4 19h4v2H2v-6h2v4z\"\u003e\u003c/path\u003e\n\u003c/svg\u003e\n\n    \u003csvg xmlns=\"http://www.w3.org/2000/svg\" width=\"20px\" height=\"20px\" viewbox=\"0 0 24 24\" class=\"highlight-action crayons-icon highlight-action--fullscreen-off\"\u003e\u003ctitle\u003eExit fullscreen mode\u003c/title\u003e\n    \u003cpath d=\"M18 7h4v2h-6V3h2v4zM8 9H2V7h4V3h2v6zm10 8v4h-2v-6h6v2h-4zM8 15v6H6v-4H2v-2h6z\"\u003e\u003c/path\u003e\n\u003c/svg\u003e\n\n\u003c/div\u003e\n\u003c/div\u003e\n\u003c/div\u003e\n\n\n\n\u003ch2\u003e\n  \u003ca name=\"the-code-a-single-raw-maingo-endraw-\" href=\"#the-code-a-single-raw-maingo-endraw-\"\u003e\n  \u003c/a\u003e\n  The Code: a Single \u003ccode\u003emain.go\u003c/code\u003e\n\u003c/h2\u003e\n\n\u003cp\u003eCreate \u003ccode\u003emain.go\u003c/code\u003e with the following content. This is the entire service.\u003cbr\u003e\n\u003c/p\u003e\n\n\u003cdiv class=\"highlight js-code-highlight\"\u003e\n\u003cpre class=\"highlight go\"\u003e\u003ccode\u003e\u003cspan class=\"k\"\u003epackage\u003c/span\u003e \u003cspan class=\"n\"\u003emain\u003c/span\u003e\n\n\u003cspan class=\"k\"\u003eimport\u003c/span\u003e \u003cspan class=\"p\"\u003e(\u003c/span\u003e\n    \u003cspan class=\"s\"\u003e\"context\"\u003c/span\u003e\n    \u003cspan class=\"s\"\u003e\"encoding/json\"\u003c/span\u003e\n    \u003cspan class=\"s\"\u003e\"fmt\"\u003c/span\u003e\n    \u003cspan class=\"s\"\u003e\"log\"\u003c/span\u003e\n    \u003cspan class=\"s\"\u003e\"net/http\"\u003c/span\u003e\n\n    \u003cspan class=\"s\"\u003e\"github.com/firebase/genkit/go/ai\"\u003c/span\u003e\n    \u003cspan class=\"s\"\u003e\"github.com/firebase/genkit/go/genkit\"\u003c/span\u003e\n    \u003cspan class=\"s\"\u003e\"github.com/firebase/genkit/go/plugins/googlegenai\"\u003c/span\u003e\n    \u003cspan class=\"s\"\u003e\"github.com/firebase/genkit/go/plugins/server\"\u003c/span\u003e\n\u003cspan class=\"p\"\u003e)\u003c/span\u003e\n\n\u003cspan class=\"c\"\u003e// Input schema, picked up automatically by Genkit and the Dev UI.\u003c/span\u003e\n\u003cspan class=\"k\"\u003etype\u003c/span\u003e \u003cspan class=\"n\"\u003eRecipeInput\u003c/span\u003e \u003cspan class=\"k\"\u003estruct\u003c/span\u003e \u003cspan class=\"p\"\u003e{\u003c/span\u003e\n    \u003cspan class=\"n\"\u003eIngredient\u003c/span\u003e          \u003cspan class=\"kt\"\u003estring\u003c/span\u003e \u003cspan class=\"s\"\u003e`json:\"ingredient\" jsonschema:\"description=Main ingredient or cuisine type\"`\u003c/span\u003e\n    \u003cspan class=\"n\"\u003eDietaryRestrictions\u003c/span\u003e \u003cspan class=\"kt\"\u003estring\u003c/span\u003e \u003cspan class=\"s\"\u003e`json:\"dietaryRestrictions,omitempty\" jsonschema:\"description=Any dietary restrictions\"`\u003c/span\u003e\n\u003cspan class=\"p\"\u003e}\u003c/span\u003e\n\n\u003cspan class=\"c\"\u003e// Output schema, returned directly by the model as a typed Go struct.\u003c/span\u003e\n\u003cspan class=\"k\"\u003etype\u003c/span\u003e \u003cspan class=\"n\"\u003eRecipe\u003c/span\u003e \u003cspan class=\"k\"\u003estruct\u003c/span\u003e \u003cspan class=\"p\"\u003e{\u003c/span\u003e\n    \u003cspan class=\"n\"\u003eTitle\u003c/span\u003e        \u003cspan class=\"kt\"\u003estring\u003c/span\u003e   \u003cspan class=\"s\"\u003e`json:\"title\"`\u003c/span\u003e\n    \u003cspan class=\"n\"\u003eDescription\u003c/span\u003e  \u003cspan class=\"kt\"\u003estring\u003c/span\u003e   \u003cspan class=\"s\"\u003e`json:\"description\"`\u003c/span\u003e\n    \u003cspan class=\"n\"\u003ePrepTime\u003c/span\u003e     \u003cspan class=\"kt\"\u003estring\u003c/span\u003e   \u003cspan class=\"s\"\u003e`json:\"prepTime\"`\u003c/span\u003e\n    \u003cspan class=\"n\"\u003eCookTime\u003c/span\u003e     \u003cspan class=\"kt\"\u003estring\u003c/span\u003e   \u003cspan class=\"s\"\u003e`json:\"cookTime\"`\u003c/span\u003e\n    \u003cspan class=\"n\"\u003eServings\u003c/span\u003e     \u003cspan class=\"kt\"\u003eint\u003c/span\u003e      \u003cspan class=\"s\"\u003e`json:\"servings\"`\u003c/span\u003e\n    \u003cspan class=\"n\"\u003eIngredients\u003c/span\u003e  \u003cspan class=\"p\"\u003e[]\u003c/span\u003e\u003cspan class=\"kt\"\u003estring\u003c/span\u003e \u003cspan class=\"s\"\u003e`json:\"ingredients\"`\u003c/span\u003e\n    \u003cspan class=\"n\"\u003eInstructions\u003c/span\u003e \u003cspan class=\"p\"\u003e[]\u003c/span\u003e\u003cspan class=\"kt\"\u003estring\u003c/span\u003e \u003cspan class=\"s\"\u003e`json:\"instructions\"`\u003c/span\u003e\n    \u003cspan class=\"n\"\u003eTips\u003c/span\u003e         \u003cspan class=\"p\"\u003e[]\u003c/span\u003e\u003cspan class=\"kt\"\u003estring\u003c/span\u003e \u003cspan class=\"s\"\u003e`json:\"tips,omitempty\"`\u003c/span\u003e\n\u003cspan class=\"p\"\u003e}\u003c/span\u003e\n\n\u003cspan class=\"k\"\u003efunc\u003c/span\u003e \u003cspan class=\"n\"\u003emain\u003c/span\u003e\u003cspan class=\"p\"\u003e()\u003c/span\u003e \u003cspan class=\"p\"\u003e{\u003c/span\u003e\n    \u003cspan class=\"n\"\u003ectx\u003c/span\u003e \u003cspan class=\"o\"\u003e:=\u003c/span\u003e \u003cspan class=\"n\"\u003econtext\u003c/span\u003e\u003cspan class=\"o\"\u003e.\u003c/span\u003e\u003cspan class=\"n\"\u003eBackground\u003c/span\u003e\u003cspan class=\"p\"\u003e()\u003c/span\u003e\n\n    \u003cspan class=\"c\"\u003e// Initialize Genkit with the Google AI plugin and a default model.\u003c/span\u003e\n    \u003cspan class=\"n\"\u003eg\u003c/span\u003e \u003cspan class=\"o\"\u003e:=\u003c/span\u003e \u003cspan class=\"n\"\u003egenkit\u003c/span\u003e\u003cspan class=\"o\"\u003e.\u003c/span\u003e\u003cspan class=\"n\"\u003eInit\u003c/span\u003e\u003cspan class=\"p\"\u003e(\u003c/span\u003e\u003cspan class=\"n\"\u003ectx\u003c/span\u003e\u003cspan class=\"p\"\u003e,\u003c/span\u003e\n        \u003cspan class=\"n\"\u003egenkit\u003c/span\u003e\u003cspan class=\"o\"\u003e.\u003c/span\u003e\u003cspan class=\"n\"\u003eWithPlugins\u003c/span\u003e\u003cspan class=\"p\"\u003e(\u003c/span\u003e\u003cspan class=\"o\"\u003e\u0026amp;\u003c/span\u003e\u003cspan class=\"n\"\u003egooglegenai\u003c/span\u003e\u003cspan class=\"o\"\u003e.\u003c/span\u003e\u003cspan class=\"n\"\u003eGoogleAI\u003c/span\u003e\u003cspan class=\"p\"\u003e{}),\u003c/span\u003e\n        \u003cspan class=\"n\"\u003egenkit\u003c/span\u003e\u003cspan class=\"o\"\u003e.\u003c/span\u003e\u003cspan class=\"n\"\u003eWithDefaultModel\u003c/span\u003e\u003cspan class=\"p\"\u003e(\u003c/span\u003e\u003cspan class=\"s\"\u003e\"googleai/gemini-3-pro\"\u003c/span\u003e\u003cspan class=\"p\"\u003e),\u003c/span\u003e\n    \u003cspan class=\"p\"\u003e)\u003c/span\u003e\n\n    \u003cspan class=\"c\"\u003e// Define a typed flow: (RecipeInput) -\u0026gt; (Recipe, error)\u003c/span\u003e\n    \u003cspan class=\"n\"\u003erecipeGeneratorFlow\u003c/span\u003e \u003cspan class=\"o\"\u003e:=\u003c/span\u003e \u003cspan class=\"n\"\u003egenkit\u003c/span\u003e\u003cspan class=\"o\"\u003e.\u003c/span\u003e\u003cspan class=\"n\"\u003eDefineFlow\u003c/span\u003e\u003cspan class=\"p\"\u003e(\u003c/span\u003e\u003cspan class=\"n\"\u003eg\u003c/span\u003e\u003cspan class=\"p\"\u003e,\u003c/span\u003e \u003cspan class=\"s\"\u003e\"recipeGeneratorFlow\"\u003c/span\u003e\u003cspan class=\"p\"\u003e,\u003c/span\u003e\n        \u003cspan class=\"k\"\u003efunc\u003c/span\u003e\u003cspan class=\"p\"\u003e(\u003c/span\u003e\u003cspan class=\"n\"\u003ectx\u003c/span\u003e \u003cspan class=\"n\"\u003econtext\u003c/span\u003e\u003cspan class=\"o\"\u003e.\u003c/span\u003e\u003cspan class=\"n\"\u003eContext\u003c/span\u003e\u003cspan class=\"p\"\u003e,\u003c/span\u003e \u003cspan class=\"n\"\u003einput\u003c/span\u003e \u003cspan class=\"o\"\u003e*\u003c/span\u003e\u003cspan class=\"n\"\u003eRecipeInput\u003c/span\u003e\u003cspan class=\"p\"\u003e)\u003c/span\u003e \u003cspan class=\"p\"\u003e(\u003c/span\u003e\u003cspan class=\"o\"\u003e*\u003c/span\u003e\u003cspan class=\"n\"\u003eRecipe\u003c/span\u003e\u003cspan class=\"p\"\u003e,\u003c/span\u003e \u003cspan class=\"kt\"\u003eerror\u003c/span\u003e\u003cspan class=\"p\"\u003e)\u003c/span\u003e \u003cspan class=\"p\"\u003e{\u003c/span\u003e\n            \u003cspan class=\"n\"\u003edietary\u003c/span\u003e \u003cspan class=\"o\"\u003e:=\u003c/span\u003e \u003cspan class=\"n\"\u003einput\u003c/span\u003e\u003cspan class=\"o\"\u003e.\u003c/span\u003e\u003cspan class=\"n\"\u003eDietaryRestrictions\u003c/span\u003e\n            \u003cspan class=\"k\"\u003eif\u003c/span\u003e \u003cspan class=\"n\"\u003edietary\u003c/span\u003e \u003cspan class=\"o\"\u003e==\u003c/span\u003e \u003cspan class=\"s\"\u003e\"\"\u003c/span\u003e \u003cspan class=\"p\"\u003e{\u003c/span\u003e\n                \u003cspan class=\"n\"\u003edietary\u003c/span\u003e \u003cspan class=\"o\"\u003e=\u003c/span\u003e \u003cspan class=\"s\"\u003e\"none\"\u003c/span\u003e\n            \u003cspan class=\"p\"\u003e}\u003c/span\u003e\n\n            \u003cspan class=\"n\"\u003eprompt\u003c/span\u003e \u003cspan class=\"o\"\u003e:=\u003c/span\u003e \u003cspan class=\"n\"\u003efmt\u003c/span\u003e\u003cspan class=\"o\"\u003e.\u003c/span\u003e\u003cspan class=\"n\"\u003eSprintf\u003c/span\u003e\u003cspan class=\"p\"\u003e(\u003c/span\u003e\u003cspan class=\"s\"\u003e`Create a recipe with the following requirements:\n                Main ingredient: %s\n                Dietary restrictions: %s`\u003c/span\u003e\u003cspan class=\"p\"\u003e,\u003c/span\u003e \u003cspan class=\"n\"\u003einput\u003c/span\u003e\u003cspan class=\"o\"\u003e.\u003c/span\u003e\u003cspan class=\"n\"\u003eIngredient\u003c/span\u003e\u003cspan class=\"p\"\u003e,\u003c/span\u003e \u003cspan class=\"n\"\u003edietary\u003c/span\u003e\u003cspan class=\"p\"\u003e)\u003c/span\u003e\n\n            \u003cspan class=\"c\"\u003e// Structured generation: Gemini returns a Recipe directly.\u003c/span\u003e\n            \u003cspan class=\"n\"\u003erecipe\u003c/span\u003e\u003cspan class=\"p\"\u003e,\u003c/span\u003e \u003cspan class=\"n\"\u003e_\u003c/span\u003e\u003cspan class=\"p\"\u003e,\u003c/span\u003e \u003cspan class=\"n\"\u003eerr\u003c/span\u003e \u003cspan class=\"o\"\u003e:=\u003c/span\u003e \u003cspan class=\"n\"\u003egenkit\u003c/span\u003e\u003cspan class=\"o\"\u003e.\u003c/span\u003e\u003cspan class=\"n\"\u003eGenerateData\u003c/span\u003e\u003cspan class=\"p\"\u003e[\u003c/span\u003e\u003cspan class=\"n\"\u003eRecipe\u003c/span\u003e\u003cspan class=\"p\"\u003e](\u003c/span\u003e\u003cspan class=\"n\"\u003ectx\u003c/span\u003e\u003cspan class=\"p\"\u003e,\u003c/span\u003e \u003cspan class=\"n\"\u003eg\u003c/span\u003e\u003cspan class=\"p\"\u003e,\u003c/span\u003e\n                \u003cspan class=\"n\"\u003eai\u003c/span\u003e\u003cspan class=\"o\"\u003e.\u003c/span\u003e\u003cspan class=\"n\"\u003eWithPrompt\u003c/span\u003e\u003cspan class=\"p\"\u003e(\u003c/span\u003e\u003cspan class=\"n\"\u003eprompt\u003c/span\u003e\u003cspan class=\"p\"\u003e),\u003c/span\u003e\n            \u003cspan class=\"p\"\u003e)\u003c/span\u003e\n            \u003cspan class=\"k\"\u003eif\u003c/span\u003e \u003cspan class=\"n\"\u003eerr\u003c/span\u003e \u003cspan class=\"o\"\u003e!=\u003c/span\u003e \u003cspan class=\"no\"\u003enil\u003c/span\u003e \u003cspan class=\"p\"\u003e{\u003c/span\u003e\n                \u003cspan class=\"k\"\u003ereturn\u003c/span\u003e \u003cspan class=\"no\"\u003enil\u003c/span\u003e\u003cspan class=\"p\"\u003e,\u003c/span\u003e \u003cspan class=\"n\"\u003efmt\u003c/span\u003e\u003cspan class=\"o\"\u003e.\u003c/span\u003e\u003cspan class=\"n\"\u003eErrorf\u003c/span\u003e\u003cspan class=\"p\"\u003e(\u003c/span\u003e\u003cspan class=\"s\"\u003e\"failed to generate recipe: %w\"\u003c/span\u003e\u003cspan class=\"p\"\u003e,\u003c/span\u003e \u003cspan class=\"n\"\u003eerr\u003c/span\u003e\u003cspan class=\"p\"\u003e)\u003c/span\u003e\n            \u003cspan class=\"p\"\u003e}\u003c/span\u003e\n            \u003cspan class=\"k\"\u003ereturn\u003c/span\u003e \u003cspan class=\"n\"\u003erecipe\u003c/span\u003e\u003cspan class=\"p\"\u003e,\u003c/span\u003e \u003cspan class=\"no\"\u003enil\u003c/span\u003e\n        \u003cspan class=\"p\"\u003e},\u003c/span\u003e\n    \u003cspan class=\"p\"\u003e)\u003c/span\u003e\n\n    \u003cspan class=\"c\"\u003e// Smoke-test the flow once at boot.\u003c/span\u003e\n    \u003cspan class=\"n\"\u003erecipe\u003c/span\u003e\u003cspan class=\"p\"\u003e,\u003c/span\u003e \u003cspan class=\"n\"\u003eerr\u003c/span\u003e \u003cspan class=\"o\"\u003e:=\u003c/span\u003e \u003cspan class=\"n\"\u003erecipeGeneratorFlow\u003c/span\u003e\u003cspan class=\"o\"\u003e.\u003c/span\u003e\u003cspan class=\"n\"\u003eRun\u003c/span\u003e\u003cspan class=\"p\"\u003e(\u003c/span\u003e\u003cspan class=\"n\"\u003ectx\u003c/span\u003e\u003cspan class=\"p\"\u003e,\u003c/span\u003e \u003cspan class=\"o\"\u003e\u0026amp;\u003c/span\u003e\u003cspan class=\"n\"\u003eRecipeInput\u003c/span\u003e\u003cspan class=\"p\"\u003e{\u003c/span\u003e\n        \u003cspan class=\"n\"\u003eIngredient\u003c/span\u003e\u003cspan class=\"o\"\u003e:\u003c/span\u003e          \u003cspan class=\"s\"\u003e\"avocado\"\u003c/span\u003e\u003cspan class=\"p\"\u003e,\u003c/span\u003e\n        \u003cspan class=\"n\"\u003eDietaryRestrictions\u003c/span\u003e\u003cspan class=\"o\"\u003e:\u003c/span\u003e \u003cspan class=\"s\"\u003e\"vegetarian\"\u003c/span\u003e\u003cspan class=\"p\"\u003e,\u003c/span\u003e\n    \u003cspan class=\"p\"\u003e})\u003c/span\u003e\n    \u003cspan class=\"k\"\u003eif\u003c/span\u003e \u003cspan class=\"n\"\u003eerr\u003c/span\u003e \u003cspan class=\"o\"\u003e!=\u003c/span\u003e \u003cspan class=\"no\"\u003enil\u003c/span\u003e \u003cspan class=\"p\"\u003e{\u003c/span\u003e\n        \u003cspan class=\"n\"\u003elog\u003c/span\u003e\u003cspan class=\"o\"\u003e.\u003c/span\u003e\u003cspan class=\"n\"\u003eFatalf\u003c/span\u003e\u003cspan class=\"p\"\u003e(\u003c/span\u003e\u003cspan class=\"s\"\u003e\"could not generate recipe: %v\"\u003c/span\u003e\u003cspan class=\"p\"\u003e,\u003c/span\u003e \u003cspan class=\"n\"\u003eerr\u003c/span\u003e\u003cspan class=\"p\"\u003e)\u003c/span\u003e\n    \u003cspan class=\"p\"\u003e}\u003c/span\u003e\n    \u003cspan class=\"n\"\u003eout\u003c/span\u003e\u003cspan class=\"p\"\u003e,\u003c/span\u003e \u003cspan class=\"n\"\u003e_\u003c/span\u003e \u003cspan class=\"o\"\u003e:=\u003c/span\u003e \u003cspan class=\"n\"\u003ejson\u003c/span\u003e\u003cspan class=\"o\"\u003e.\u003c/span\u003e\u003cspan class=\"n\"\u003eMarshalIndent\u003c/span\u003e\u003cspan class=\"p\"\u003e(\u003c/span\u003e\u003cspan class=\"n\"\u003erecipe\u003c/span\u003e\u003cspan class=\"p\"\u003e,\u003c/span\u003e \u003cspan class=\"s\"\u003e\"\"\u003c/span\u003e\u003cspan class=\"p\"\u003e,\u003c/span\u003e \u003cspan class=\"s\"\u003e\"  \"\u003c/span\u003e\u003cspan class=\"p\"\u003e)\u003c/span\u003e\n    \u003cspan class=\"n\"\u003efmt\u003c/span\u003e\u003cspan class=\"o\"\u003e.\u003c/span\u003e\u003cspan class=\"n\"\u003ePrintln\u003c/span\u003e\u003cspan class=\"p\"\u003e(\u003c/span\u003e\u003cspan class=\"s\"\u003e\"Sample recipe generated:\"\u003c/span\u003e\u003cspan class=\"p\"\u003e)\u003c/span\u003e\n    \u003cspan class=\"n\"\u003efmt\u003c/span\u003e\u003cspan class=\"o\"\u003e.\u003c/span\u003e\u003cspan class=\"n\"\u003ePrintln\u003c/span\u003e\u003cspan class=\"p\"\u003e(\u003c/span\u003e\u003cspan class=\"kt\"\u003estring\u003c/span\u003e\u003cspan class=\"p\"\u003e(\u003c/span\u003e\u003cspan class=\"n\"\u003eout\u003c/span\u003e\u003cspan class=\"p\"\u003e))\u003c/span\u003e\n\n    \u003cspan class=\"c\"\u003e// Expose the flow as an HTTP endpoint.\u003c/span\u003e\n    \u003cspan class=\"n\"\u003emux\u003c/span\u003e \u003cspan class=\"o\"\u003e:=\u003c/span\u003e \u003cspan class=\"n\"\u003ehttp\u003c/span\u003e\u003cspan class=\"o\"\u003e.\u003c/span\u003e\u003cspan class=\"n\"\u003eNewServeMux\u003c/span\u003e\u003cspan class=\"p\"\u003e()\u003c/span\u003e\n    \u003cspan class=\"n\"\u003emux\u003c/span\u003e\u003cspan class=\"o\"\u003e.\u003c/span\u003e\u003cspan class=\"n\"\u003eHandleFunc\u003c/span\u003e\u003cspan class=\"p\"\u003e(\u003c/span\u003e\u003cspan class=\"s\"\u003e\"POST /recipeGeneratorFlow\"\u003c/span\u003e\u003cspan class=\"p\"\u003e,\u003c/span\u003e \u003cspan class=\"n\"\u003egenkit\u003c/span\u003e\u003cspan class=\"o\"\u003e.\u003c/span\u003e\u003cspan class=\"n\"\u003eHandler\u003c/span\u003e\u003cspan class=\"p\"\u003e(\u003c/span\u003e\u003cspan class=\"n\"\u003erecipeGeneratorFlow\u003c/span\u003e\u003cspan class=\"p\"\u003e))\u003c/span\u003e\n\n    \u003cspan class=\"n\"\u003elog\u003c/span\u003e\u003cspan class=\"o\"\u003e.\u003c/span\u003e\u003cspan class=\"n\"\u003ePrintln\u003c/span\u003e\u003cspan class=\"p\"\u003e(\u003c/span\u003e\u003cspan class=\"s\"\u003e\"Starting server on http://localhost:3400\"\u003c/span\u003e\u003cspan class=\"p\"\u003e)\u003c/span\u003e\n    \u003cspan class=\"n\"\u003elog\u003c/span\u003e\u003cspan class=\"o\"\u003e.\u003c/span\u003e\u003cspan class=\"n\"\u003ePrintln\u003c/span\u003e\u003cspan class=\"p\"\u003e(\u003c/span\u003e\u003cspan class=\"s\"\u003e\"Flow available at: POST http://localhost:3400/recipeGeneratorFlow\"\u003c/span\u003e\u003cspan class=\"p\"\u003e)\u003c/span\u003e\n    \u003cspan class=\"n\"\u003elog\u003c/span\u003e\u003cspan class=\"o\"\u003e.\u003c/span\u003e\u003cspan class=\"n\"\u003eFatal\u003c/span\u003e\u003cspan class=\"p\"\u003e(\u003c/span\u003e\u003cspan class=\"n\"\u003eserver\u003c/span\u003e\u003cspan class=\"o\"\u003e.\u003c/span\u003e\u003cspan class=\"n\"\u003eStart\u003c/span\u003e\u003cspan class=\"p\"\u003e(\u003c/span\u003e\u003cspan class=\"n\"\u003ectx\u003c/span\u003e\u003cspan class=\"p\"\u003e,\u003c/span\u003e \u003cspan class=\"s\"\u003e\"127.0.0.1:3400\"\u003c/span\u003e\u003cspan class=\"p\"\u003e,\u003c/span\u003e \u003cspan class=\"n\"\u003emux\u003c/span\u003e\u003cspan class=\"p\"\u003e))\u003c/span\u003e\n\u003cspan class=\"p\"\u003e}\u003c/span\u003e\n\u003c/code\u003e\u003c/pre\u003e\n\u003cdiv class=\"highlight__panel js-actions-panel\"\u003e\n\u003cdiv class=\"highlight__panel-action js-fullscreen-code-action\"\u003e\n    \u003csvg xmlns=\"http://www.w3.org/2000/svg\" width=\"20px\" height=\"20px\" viewbox=\"0 0 24 24\" class=\"highlight-action crayons-icon highlight-action--fullscreen-on\"\u003e\u003ctitle\u003eEnter fullscreen mode\u003c/title\u003e\n    \u003cpath d=\"M16 3h6v6h-2V5h-4V3zM2 3h6v2H4v4H2V3zm18 16v-4h2v6h-6v-2h4zM4 19h4v2H2v-6h2v4z\"\u003e\u003c/path\u003e\n\u003c/svg\u003e\n\n    \u003csvg xmlns=\"http://www.w3.org/2000/svg\" width=\"20px\" height=\"20px\" viewbox=\"0 0 24 24\" class=\"highlight-action crayons-icon highlight-action--fullscreen-off\"\u003e\u003ctitle\u003eExit fullscreen mode\u003c/title\u003e\n    \u003cpath d=\"M18 7h4v2h-6V3h2v4zM8 9H2V7h4V3h2v6zm10 8v4h-2v-6h6v2h-4zM8 15v6H6v-4H2v-2h6z\"\u003e\u003c/path\u003e\n\u003c/svg\u003e\n\n\u003c/div\u003e\n\u003c/div\u003e\n\u003c/div\u003e\n\n\n\n\u003cp\u003eTake a moment to count what is \u003cstrong\u003enot\u003c/strong\u003e in this file:\u003c/p\u003e\n\n\u003cul\u003e\n\u003cli\u003eNo web framework.\u003c/li\u003e\n\u003cli\u003eNo JSON parsing of the model output.\u003c/li\u003e\n\u003cli\u003eNo manual OpenTelemetry setup.\u003c/li\u003e\n\u003cli\u003eNo request/response DTO duplication.\u003c/li\u003e\n\u003cli\u003eNo Dockerfile yet (we will not need much).\u003c/li\u003e\n\u003c/ul\u003e\n\n\u003cp\u003eThe struct \u003cstrong\u003eis\u003c/strong\u003e the contract. The flow \u003cstrong\u003eis\u003c/strong\u003e the endpoint. The compiler enforces both.\u003c/p\u003e\n\n\u003ch2\u003e\n  \u003ca name=\"run-it\" href=\"#run-it\"\u003e\n  \u003c/a\u003e\n  Run It\n\u003c/h2\u003e\n\n\n\n\u003cdiv class=\"highlight js-code-highlight\"\u003e\n\u003cpre class=\"highlight shell\"\u003e\u003ccode\u003ego run \u003cspan class=\"nb\"\u003e.\u003c/span\u003e\n\u003c/code\u003e\u003c/pre\u003e\n\u003cdiv class=\"highlight__panel js-actions-panel\"\u003e\n\u003cdiv class=\"highlight__panel-action js-fullscreen-code-action\"\u003e\n    \u003csvg xmlns=\"http://www.w3.org/2000/svg\" width=\"20px\" height=\"20px\" viewbox=\"0 0 24 24\" class=\"highlight-action crayons-icon highlight-action--fullscreen-on\"\u003e\u003ctitle\u003eEnter fullscreen mode\u003c/title\u003e\n    \u003cpath d=\"M16 3h6v6h-2V5h-4V3zM2 3h6v2H4v4H2V3zm18 16v-4h2v6h-6v-2h4zM4 19h4v2H2v-6h2v4z\"\u003e\u003c/path\u003e\n\u003c/svg\u003e\n\n    \u003csvg xmlns=\"http://www.w3.org/2000/svg\" width=\"20px\" height=\"20px\" viewbox=\"0 0 24 24\" class=\"highlight-action crayons-icon highlight-action--fullscreen-off\"\u003e\u003ctitle\u003eExit fullscreen mode\u003c/title\u003e\n    \u003cpath d=\"M18 7h4v2h-6V3h2v4zM8 9H2V7h4V3h2v6zm10 8v4h-2v-6h6v2h-4zM8 15v6H6v-4H2v-2h6z\"\u003e\u003c/path\u003e\n\u003c/svg\u003e\n\n\u003c/div\u003e\n\u003c/div\u003e\n\u003c/div\u003e\n\n\n\n\u003cp\u003eYou should see a structured recipe printed as JSON, then the server logging that it is listening on \u003ccode\u003e:3400\u003c/code\u003e.\u003c/p\u003e\n\n\u003cp\u003eIn another terminal, hit it with \u003ccode\u003ecurl\u003c/code\u003e:\u003cbr\u003e\n\u003c/p\u003e\n\n\u003cdiv class=\"highlight js-code-highlight\"\u003e\n\u003cpre class=\"highlight shell\"\u003e\u003ccode\u003ecurl \u003cspan class=\"nt\"\u003e-X\u003c/span\u003e POST \u003cspan class=\"s2\"\u003e\"http://localhost:3400/recipeGeneratorFlow\"\u003c/span\u003e \u003cspan class=\"se\"\u003e\\\u003c/span\u003e\n  \u003cspan class=\"nt\"\u003e-H\u003c/span\u003e \u003cspan class=\"s2\"\u003e\"Content-Type: application/json\"\u003c/span\u003e \u003cspan class=\"se\"\u003e\\\u003c/span\u003e\n  \u003cspan class=\"nt\"\u003e-d\u003c/span\u003e \u003cspan class=\"s1\"\u003e'{\"data\": {\"ingredient\": \"tomato\", \"dietaryRestrictions\": \"vegan\"}}'\u003c/span\u003e\n\u003c/code\u003e\u003c/pre\u003e\n\u003cdiv class=\"highlight__panel js-actions-panel\"\u003e\n\u003cdiv class=\"highlight__panel-action js-fullscreen-code-action\"\u003e\n    \u003csvg xmlns=\"http://www.w3.org/2000/svg\" width=\"20px\" height=\"20px\" viewbox=\"0 0 24 24\" class=\"highlight-action crayons-icon highlight-action--fullscreen-on\"\u003e\u003ctitle\u003eEnter fullscreen mode\u003c/title\u003e\n    \u003cpath d=\"M16 3h6v6h-2V5h-4V3zM2 3h6v2H4v4H2V3zm18 16v-4h2v6h-6v-2h4zM4 19h4v2H2v-6h2v4z\"\u003e\u003c/path\u003e\n\u003c/svg\u003e\n\n    \u003csvg xmlns=\"http://www.w3.org/2000/svg\" width=\"20px\" height=\"20px\" viewbox=\"0 0 24 24\" class=\"highlight-action crayons-icon highlight-action--fullscreen-off\"\u003e\u003ctitle\u003eExit fullscreen mode\u003c/title\u003e\n    \u003cpath d=\"M18 7h4v2h-6V3h2v4zM8 9H2V7h4V3h2v6zm10 8v4h-2v-6h6v2h-4zM8 15v6H6v-4H2v-2h6z\"\u003e\u003c/path\u003e\n\u003c/svg\u003e\n\n\u003c/div\u003e\n\u003c/div\u003e\n\u003c/div\u003e\n\n\n\n\u003cp\u003eYou will get back a fully structured JSON recipe. That is it, you have a production-shaped Gen AI microservice in one file.\u003c/p\u003e\n\n\u003ch2\u003e\n  \u003ca name=\"test-it-visually-with-the-developer-ui\" href=\"#test-it-visually-with-the-developer-ui\"\u003e\n  \u003c/a\u003e\n  Test It Visually with the Developer UI\n\u003c/h2\u003e\n\n\u003cp\u003eThe Genkit Developer UI is one of the strongest reasons to adopt Genkit, regardless of language. It gives you a local web app to run flows, inspect traces, tweak prompts, and debug tool calls.\u003c/p\u003e\n\n\u003cp\u003eFrom the project root:\u003cbr\u003e\n\u003c/p\u003e\n\n\u003cdiv class=\"highlight js-code-highlight\"\u003e\n\u003cpre class=\"highlight shell\"\u003e\u003ccode\u003egenkit start \u003cspan class=\"nt\"\u003e--\u003c/span\u003e go run \u003cspan class=\"nb\"\u003e.\u003c/span\u003e\n\u003c/code\u003e\u003c/pre\u003e\n\u003cdiv class=\"highlight__panel js-actions-panel\"\u003e\n\u003cdiv class=\"highlight__panel-action js-fullscreen-code-action\"\u003e\n    \u003csvg xmlns=\"http://www.w3.org/2000/svg\" width=\"20px\" height=\"20px\" viewbox=\"0 0 24 24\" class=\"highlight-action crayons-icon highlight-action--fullscreen-on\"\u003e\u003ctitle\u003eEnter fullscreen mode\u003c/title\u003e\n    \u003cpath d=\"M16 3h6v6h-2V5h-4V3zM2 3h6v2H4v4H2V3zm18 16v-4h2v6h-6v-2h4zM4 19h4v2H2v-6h2v4z\"\u003e\u003c/path\u003e\n\u003c/svg\u003e\n\n    \u003csvg xmlns=\"http://www.w3.org/2000/svg\" width=\"20px\" height=\"20px\" viewbox=\"0 0 24 24\" class=\"highlight-action crayons-icon highlight-action--fullscreen-off\"\u003e\u003ctitle\u003eExit fullscreen mode\u003c/title\u003e\n    \u003cpath d=\"M18 7h4v2h-6V3h2v4zM8 9H2V7h4V3h2v6zm10 8v4h-2v-6h6v2h-4zM8 15v6H6v-4H2v-2h6z\"\u003e\u003c/path\u003e\n\u003c/svg\u003e\n\n\u003c/div\u003e\n\u003c/div\u003e\n\u003c/div\u003e\n\n\n\n\u003cp\u003eOpen \u003ca href=\"http://localhost:4000\" target=\"_blank\" rel=\"noopener noreferrer\"\u003ehttp://localhost:4000\u003c/a\u003e, pick \u003ccode\u003erecipeGeneratorFlow\u003c/code\u003e, paste:\u003cbr\u003e\n\u003c/p\u003e\n\n\u003cdiv class=\"highlight js-code-highlight\"\u003e\n\u003cpre class=\"highlight json\"\u003e\u003ccode\u003e\u003cspan class=\"p\"\u003e{\u003c/span\u003e\u003cspan class=\"w\"\u003e\n  \u003c/span\u003e\u003cspan class=\"nl\"\u003e\"ingredient\"\u003c/span\u003e\u003cspan class=\"p\"\u003e:\u003c/span\u003e\u003cspan class=\"w\"\u003e \u003c/span\u003e\u003cspan class=\"s2\"\u003e\"avocado\"\u003c/span\u003e\u003cspan class=\"p\"\u003e,\u003c/span\u003e\u003cspan class=\"w\"\u003e\n  \u003c/span\u003e\u003cspan class=\"nl\"\u003e\"dietaryRestrictions\"\u003c/span\u003e\u003cspan class=\"p\"\u003e:\u003c/span\u003e\u003cspan class=\"w\"\u003e \u003c/span\u003e\u003cspan class=\"s2\"\u003e\"vegetarian\"\u003c/span\u003e\u003cspan class=\"w\"\u003e\n\u003c/span\u003e\u003cspan class=\"p\"\u003e}\u003c/span\u003e\u003cspan class=\"w\"\u003e\n\u003c/span\u003e\u003c/code\u003e\u003c/pre\u003e\n\u003cdiv class=\"highlight__panel js-actions-panel\"\u003e\n\u003cdiv class=\"highlight__panel-action js-fullscreen-code-action\"\u003e\n    \u003csvg xmlns=\"http://www.w3.org/2000/svg\" width=\"20px\" height=\"20px\" viewbox=\"0 0 24 24\" class=\"highlight-action crayons-icon highlight-action--fullscreen-on\"\u003e\u003ctitle\u003eEnter fullscreen mode\u003c/title\u003e\n    \u003cpath d=\"M16 3h6v6h-2V5h-4V3zM2 3h6v2H4v4H2V3zm18 16v-4h2v6h-6v-2h4zM4 19h4v2H2v-6h2v4z\"\u003e\u003c/path\u003e\n\u003c/svg\u003e\n\n    \u003csvg xmlns=\"http://www.w3.org/2000/svg\" width=\"20px\" height=\"20px\" viewbox=\"0 0 24 24\" class=\"highlight-action crayons-icon highlight-action--fullscreen-off\"\u003e\u003ctitle\u003eExit fullscreen mode\u003c/title\u003e\n    \u003cpath d=\"M18 7h4v2h-6V3h2v4zM8 9H2V7h4V3h2v6zm10 8v4h-2v-6h6v2h-4zM8 15v6H6v-4H2v-2h6z\"\u003e\u003c/path\u003e\n\u003c/svg\u003e\n\n\u003c/div\u003e\n\u003c/div\u003e\n\u003c/div\u003e\n\n\n\n\u003cp\u003eClick \u003cstrong\u003eRun\u003c/strong\u003e. You will see the typed output and a full trace of the model call: tokens, latency, prompt, response. This is the kind of inner loop Python frameworks are still catching up on.\u003c/p\u003e\n\n\u003ch2\u003e\n  \u003ca name=\"deploying-it\" href=\"#deploying-it\"\u003e\n  \u003c/a\u003e\n  Deploying It\n\u003c/h2\u003e\n\n\u003cp\u003eBecause it is Go, deployment is almost anticlimactic. A minimal \u003ccode\u003eDockerfile\u003c/code\u003e:\u003cbr\u003e\n\u003c/p\u003e\n\n\u003cdiv class=\"highlight js-code-highlight\"\u003e\n\u003cpre class=\"highlight docker\"\u003e\u003ccode\u003e\u003cspan class=\"k\"\u003eFROM\u003c/span\u003e\u003cspan class=\"w\"\u003e \u003c/span\u003e\u003cspan class=\"s\"\u003egolang:1.24\u003c/span\u003e\u003cspan class=\"w\"\u003e \u003c/span\u003e\u003cspan class=\"k\"\u003eAS\u003c/span\u003e\u003cspan class=\"w\"\u003e \u003c/span\u003e\u003cspan class=\"s\"\u003ebuild\u003c/span\u003e\n\u003cspan class=\"k\"\u003eWORKDIR\u003c/span\u003e\u003cspan class=\"s\"\u003e /src\u003c/span\u003e\n\u003cspan class=\"k\"\u003eCOPY\u003c/span\u003e\u003cspan class=\"s\"\u003e . .\u003c/span\u003e\n\u003cspan class=\"k\"\u003eRUN \u003c/span\u003e\u003cspan class=\"nv\"\u003eCGO_ENABLED\u003c/span\u003e\u003cspan class=\"o\"\u003e=\u003c/span\u003e0 go build \u003cspan class=\"nt\"\u003e-o\u003c/span\u003e /out/server .\n\n\u003cspan class=\"k\"\u003eFROM\u003c/span\u003e\u003cspan class=\"s\"\u003e gcr.io/distroless/static\u003c/span\u003e\n\u003cspan class=\"k\"\u003eCOPY\u003c/span\u003e\u003cspan class=\"s\"\u003e --from=build /out/server /server\u003c/span\u003e\n\u003cspan class=\"k\"\u003eENV\u003c/span\u003e\u003cspan class=\"s\"\u003e PORT=3400\u003c/span\u003e\n\u003cspan class=\"k\"\u003eEXPOSE\u003c/span\u003e\u003cspan class=\"s\"\u003e 3400\u003c/span\u003e\n\u003cspan class=\"k\"\u003eENTRYPOINT\u003c/span\u003e\u003cspan class=\"s\"\u003e [\"/server\"]\u003c/span\u003e\n\u003c/code\u003e\u003c/pre\u003e\n\u003cdiv class=\"highlight__panel js-actions-panel\"\u003e\n\u003cdiv class=\"highlight__panel-action js-fullscreen-code-action\"\u003e\n    \u003csvg xmlns=\"http://www.w3.org/2000/svg\" width=\"20px\" height=\"20px\" viewbox=\"0 0 24 24\" class=\"highlight-action crayons-icon highlight-action--fullscreen-on\"\u003e\u003ctitle\u003eEnter fullscreen mode\u003c/title\u003e\n    \u003cpath d=\"M16 3h6v6h-2V5h-4V3zM2 3h6v2H4v4H2V3zm18 16v-4h2v6h-6v-2h4zM4 19h4v2H2v-6h2v4z\"\u003e\u003c/path\u003e\n\u003c/svg\u003e\n\n    \u003csvg xmlns=\"http://www.w3.org/2000/svg\" width=\"20px\" height=\"20px\" viewbox=\"0 0 24 24\" class=\"highlight-action crayons-icon highlight-action--fullscreen-off\"\u003e\u003ctitle\u003eExit fullscreen mode\u003c/title\u003e\n    \u003cpath d=\"M18 7h4v2h-6V3h2v4zM8 9H2V7h4V3h2v6zm10 8v4h-2v-6h6v2h-4zM8 15v6H6v-4H2v-2h6z\"\u003e\u003c/path\u003e\n\u003c/svg\u003e\n\n\u003c/div\u003e\n\u003c/div\u003e\n\u003c/div\u003e\n\n\n\n\u003cp\u003eThat is your entire production image. Deploy it to \u003cstrong\u003eCloud Run\u003c/strong\u003e, \u003cstrong\u003eCloud Run Jobs\u003c/strong\u003e, \u003cstrong\u003eKubernetes\u003c/strong\u003e, \u003cstrong\u003eAWS Lambda\u003c/strong\u003e (via container image), \u003cstrong\u003eAzure Container Apps\u003c/strong\u003e, or any platform that runs containers. No Python runtime to vendor. No \u003ccode\u003epip install\u003c/code\u003e at build time. No virtual environment. Just a binary.\u003c/p\u003e\n\n\u003cp\u003eIf you want to see the same pattern applied to other clouds and languages, I have already covered:\u003c/p\u003e\n\n\u003cul\u003e\n\u003cli\u003e\u003ca href=\"https://dev.to%20post_url%20genkit/2026-03-20-genkit-aws-lambda-bedrock%20\"\u003eGenkit + AWS Lambda + Bedrock\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"https://dev.to%20post_url%20genkit/2026-03-20-genkit-azure-function-ai-foundry%20\"\u003eGenkit + Azure Functions + AI Foundry\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"https://dev.to%20post_url%20genkit/2026-02-10-genkit-java-101%20\"\u003eGenkit Java 101\u003c/a\u003e\u003c/li\u003e\n\u003c/ul\u003e\n\n\u003cp\u003eGenkit Go fits the same mold, with the smallest runtime footprint of all of them.\u003c/p\u003e\n\n\u003ch2\u003e\n  \u003ca name=\"but-what-about\" href=\"#but-what-about\"\u003e\n  \u003c/a\u003e\n  \"But What About...\"\n\u003c/h2\u003e\n\n\u003cp\u003eA few honest objections worth addressing.\u003c/p\u003e\n\n\u003cul\u003e\n\u003cli\u003e\n\u003cstrong\u003e\"All the cool research libraries are in Python.\"\u003c/strong\u003e True. Keep them in Python, behind a small Python service that does only the research-y bit. Put your \u003cstrong\u003eproduct surface\u003c/strong\u003e (the part your users actually call) in Go. That separation is healthy.\u003c/li\u003e\n\u003cli\u003e\n\u003cstrong\u003e\"My team only knows Python.\"\u003c/strong\u003e Go is famously the easiest \"real\" backend language to learn. A Python developer can be productive in Go in days, and Genkit's API surface is small enough that the learning curve is mostly Go itself, not the framework.\u003c/li\u003e\n\u003cli\u003e\n\u003cstrong\u003e\"What about LangChain / LlamaIndex features?\"\u003c/strong\u003e Most of what those frameworks give you (flows, tools, RAG, prompts, evaluation, observability) Genkit Go gives you too, with a fraction of the surface area and without the abstraction tax. See my \u003ca href=\"https://dev.to%20post_url%20genkit/2026-04-16-top-jsts-genai-frameworks-2026%20\"\u003e2026 frameworks comparison\u003c/a\u003e for the long version.\u003c/li\u003e\n\u003cli\u003e\n\u003cstrong\u003e\"Is Genkit Go production-ready?\"\u003c/strong\u003e It powers Gen AI features at Google and a growing list of companies. The Go SDK shares the same core philosophy and plugin model as the JS and Java SDKs. It is stable enough to bet on, and the iteration speed is high.\u003c/li\u003e\n\u003c/ul\u003e\n\n\u003ch2\u003e\n  \u003ca name=\"wrapping-up\" href=\"#wrapping-up\"\u003e\n  \u003c/a\u003e\n  Wrapping Up\n\u003c/h2\u003e\n\n\u003cp\u003ePython earned its place as the language of AI \u003cstrong\u003eresearch\u003c/strong\u003e. It did not earn its place as the language of AI \u003cstrong\u003eservices\u003c/strong\u003e. Those are different problems with different constraints, and the constraints of production services, concurrency, footprint, deployment, types, observability, all favor Go.\u003c/p\u003e\n\n\u003cp\u003eGenkit Go is the framework that finally makes that switch painless. You get a typed, observable, multi-provider Gen AI service in one file, one binary, and one deploy. If you are still maintaining a Python microservice whose only job is to call an LLM and return structured JSON, you are paying a tax you do not need to pay.\u003c/p\u003e\n\n\u003cp\u003eTry it on your next flow. Replace one Python service. See how much smaller the resulting system is, in code, in memory, and in operational surface area.\u003c/p\u003e\n\n\u003ch2\u003e\n  \u003ca name=\"references\" href=\"#references\"\u003e\n  \u003c/a\u003e\n  References\n\u003c/h2\u003e\n\n\u003cul\u003e\n\u003cli\u003e\u003ca href=\"https://genkit.dev/docs/go/get-started/\" target=\"_blank\" rel=\"noopener noreferrer\"\u003eGenkit Go, Get Started\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"https://genkit.dev/docs/go/flows/\" target=\"_blank\" rel=\"noopener noreferrer\"\u003eGenkit Go, Flows\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"https://genkit.dev/docs/go/tool-calling/\" target=\"_blank\" rel=\"noopener noreferrer\"\u003eGenkit Go, Tool Calling\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"https://genkit.dev/docs/go/deployment/cloud-run/\" target=\"_blank\" rel=\"noopener noreferrer\"\u003eGenkit Go, Deployment on Cloud Run\u003c/a\u003e\u003c/li\u003e\n\u003cli\u003e\u003ca href=\"https://github.com/firebase/genkit\" target=\"_blank\" rel=\"noopener noreferrer\"\u003eGenkit GitHub\u003c/a\u003e\u003c/li\u003e\n\u003c/ul\u003e\n\n\u003cp\u003e\u003ca href=\"https://media2.dev.to/dynamic/image/width=800%2Cheight=%2Cfit=scale-down%2Cgravity=auto%2Cformat=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Farticles%2F26d7w5adb0372b1y8pet.png\" class=\"article-body-image-wrapper\"\u003e\u003cimg src=\"https://media2.dev.to/dynamic/image/width=800%2Cheight=%2Cfit=scale-down%2Cgravity=auto%2Cformat=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Farticles%2F26d7w5adb0372b1y8pet.png\" alt=\" \" loading=\"lazy\" width=\"800\" height=\"436\"\u003e\u003c/a\u003e\u003c/p\u003e\n\n","author":{"@type":"Person","name":"Xavier Portilla Edo","url":"https://dev.to/xavidop"},"datePublished":"2026-05-06T03:54:40Z","dateModified":"2026-05-06T03:54:40Z","url":"https://dev.to/gde/stop-using-python-for-your-gen-ai-apps-use-go-and-genkit-instead-401p","interactionStatistic":[{"@type":"InteractionCounter","interactionType":"https://schema.org/CommentAction","userInteractionCount":3},{"@type":"InteractionCounter","interactionType":"https://schema.org/LikeAction","userInteractionCount":12}],"comment":[{"@type":"Comment","@id":"#comment-1505962","text":"\u003cp\u003eI just believe it won't matter in this case, since most of the agentic decisions will depend on network calls. I think it's better to use what you know and try to optimize the use of models instead of programming language. \u003c/p\u003e\n\n\u003cp\u003eUnless you reach a crazy scale it doesn't even matter\u003c/p\u003e\n\n","author":{"@type":"Person","name":"Devashish Rana","url":"https://dev.to/dev786"},"datePublished":"2026-05-06T10:48:03Z","dateModified":"2026-05-06T10:48:03Z","url":"https://dev.to/dev786/comment/37hjg","interactionStatistic":[{"@type":"InteractionCounter","interactionType":"https://schema.org/LikeAction","userInteractionCount":0}],"comment":[{"@type":"Comment","@id":"#comment-1506152","text":"\u003cp\u003eYou're not countering any of the author's arguments that explain why Go is a better choice (for production deployments) - \"I just believe\" is not really a strong reason ...\u003c/p\u003e\n\n","author":{"@type":"Person","name":"leob","url":"https://dev.to/leob"},"datePublished":"2026-05-06T16:06:20Z","dateModified":"2026-05-06T16:07:06Z","url":"https://dev.to/leob/comment/37i0o","interactionStatistic":[{"@type":"InteractionCounter","interactionType":"https://schema.org/LikeAction","userInteractionCount":1}],"parentItem":{"@type":"Comment","@id":"#comment-1505962"}}]}]}}
+  </script>
+<div class="crayons-layout crayons-layout--3-cols crayons-layout--article">
+<aside aria-label="Article actions" class="crayons-layout__sidebar-left">
+<script>
+  if (/Twitter for (iPhone|iPad|Android)/i.test(navigator.userAgent)) {
+    document.documentElement.classList.add('is-twitter-in-app');
+  }
+</script>
+<div class="crayons-article-actions print-hidden">
+<div class="crayons-article-actions__inner">
+<div class="reaction-drawer__outer hoverdown" style="">
+<button aria-label="reaction-drawer-trigger" aria-pressed="false" class="hoverdown-trigger crayons-reaction pseudo-reaction crayons-tooltip__activator relative" id="reaction-drawer-trigger">
+<span class="crayons-reaction__icon crayons-reaction__icon--borderless crayons-reaction--like crayons-reaction__icon--inactive" style="width: 40px; height: 40px">
+<svg aria-hidden="true" class="crayons-icon" fill="none" height="24" role="img" viewbox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+<g clip-path="url(#clip0_988_3276)">
+<path d="M19 14V17H22V19H18.999L19 22H17L16.999 19H14V17H17V14H19ZM20.243 4.75698C22.505 7.02498 22.583 10.637 20.479 12.992L19.059 11.574C20.39 10.05 20.32 7.65998 18.827 6.16998C17.324 4.67098 14.907 4.60698 13.337 6.01698L12.002 7.21498L10.666 6.01798C9.09103 4.60598 6.67503 4.66798 5.17203 6.17198C3.68203 7.66198 3.60703 10.047 4.98003 11.623L13.412 20.069L12 21.485L3.52003 12.993C1.41603 10.637 1.49503 7.01898 3.75603 4.75698C6.02103 2.49298 9.64403 2.41698 12 4.52898C14.349 2.41998 17.979 2.48998 20.242 4.75698H20.243Z" fill="#525252"></path>
+</g>
+<defs>
+<clippath id="clip0_988_3276">
+<rect fill="white" height="24" width="24"></rect>
+</clippath>
+</defs>
+</svg>
+</span>
+<span class="crayons-reaction__icon crayons-reaction__icon--borderless crayons-reaction__icon--active" style="width: 40px; height: 40px">
+<img aria_hidden="true" height="24" src="../cdn/assets.dev.to/assets/heart-plus-active-9ea3b22f2bc311281db911d416166c5f430636e76b15cd5df6b3b841d830eefa.svg" width="24">
+</img></span>
+<span class="crayons-reaction__count" id="reaction_total_count">
+<span class="bg-base-40 opacity-25 p-2 inline-block radius-default"></span>
+</span>
+<span class="crayons-tooltip__content">
+        Add reaction
+      </span>
+</button>
+<div aria-expanded="false" class="reaction-drawer">
+<div class="reaction-drawer__container">
+<button aria-label="Like" aria-pressed="false" class="crayons-reaction crayons-tooltip__activator relative pt-2 pr-2 pb-1 pl-2" data-category="like" id="reaction-butt-like" name="Like">
+<span class="crayons-reaction__icon crayons-reaction__icon--inactive p-0">
+<img aria_hidden="true" height="32" src="../cdn/assets.dev.to/assets/sparkle-heart-5f9bee3767e18deb1bb725290cb151c25234768a0e9a2bd39370c382d02920cf.svg" width="32"/>
+</span>
+<span class="crayons-reaction__count" id="reaction-number-like"><span class="bg-base-40 opacity-25 p-2 inline-block radius-default"></span></span>
+<span class="crayons-tooltip__content" data-testid="tooltip">
+      Like
+    </span>
+</button>
+<button aria-label="Unicorn" aria-pressed="false" class="crayons-reaction crayons-tooltip__activator relative pt-2 pr-2 pb-1 pl-2" data-category="unicorn" id="reaction-butt-unicorn" name="Unicorn">
+<span class="crayons-reaction__icon crayons-reaction__icon--inactive p-0">
+<img aria_hidden="true" height="32" src="../cdn/assets.dev.to/assets/multi-unicorn-b44d6f8c23cdd00964192bedc38af3e82463978aa611b4365bd33a0f1f4f3e97.svg" width="32"/>
+</span>
+<span class="crayons-reaction__count" id="reaction-number-unicorn"><span class="bg-base-40 opacity-25 p-2 inline-block radius-default"></span></span>
+<span class="crayons-tooltip__content" data-testid="tooltip">
+      Unicorn
+    </span>
+</button>
+<button aria-label="Exploding Head" aria-pressed="false" class="crayons-reaction crayons-tooltip__activator relative pt-2 pr-2 pb-1 pl-2" data-category="exploding_head" id="reaction-butt-exploding_head" name="Exploding Head">
+<span class="crayons-reaction__icon crayons-reaction__icon--inactive p-0">
+<img aria_hidden="true" height="32" src="../cdn/assets.dev.to/assets/exploding-head-daceb38d627e6ae9b730f36a1e390fca556a4289d5a41abb2c35068ad3e2c4b5.svg" width="32"/>
+</span>
+<span class="crayons-reaction__count" id="reaction-number-exploding_head"><span class="bg-base-40 opacity-25 p-2 inline-block radius-default"></span></span>
+<span class="crayons-tooltip__content" data-testid="tooltip">
+      Exploding Head
+    </span>
+</button>
+<button aria-label="Raised Hands" aria-pressed="false" class="crayons-reaction crayons-tooltip__activator relative pt-2 pr-2 pb-1 pl-2" data-category="raised_hands" id="reaction-butt-raised_hands" name="Raised Hands">
+<span class="crayons-reaction__icon crayons-reaction__icon--inactive p-0">
+<img aria_hidden="true" height="32" src="../cdn/assets.dev.to/assets/raised-hands-74b2099fd66a39f2d7eed9305ee0f4553df0eb7b4f11b01b6b1b499973048fe5.svg" width="32"/>
+</span>
+<span class="crayons-reaction__count" id="reaction-number-raised_hands"><span class="bg-base-40 opacity-25 p-2 inline-block radius-default"></span></span>
+<span class="crayons-tooltip__content" data-testid="tooltip">
+      Raised Hands
+    </span>
+</button>
+<button aria-label="Fire" aria-pressed="false" class="crayons-reaction crayons-tooltip__activator relative pt-2 pr-2 pb-1 pl-2" data-category="fire" id="reaction-butt-fire" name="Fire">
+<span class="crayons-reaction__icon crayons-reaction__icon--inactive p-0">
+<img aria_hidden="true" height="32" src="../cdn/assets.dev.to/assets/fire-f60e7a582391810302117f987b22a8ef04a2fe0df7e3258a5f49332df1cec71e.svg" width="32"/>
+</span>
+<span class="crayons-reaction__count" id="reaction-number-fire"><span class="bg-base-40 opacity-25 p-2 inline-block radius-default"></span></span>
+<span class="crayons-tooltip__content" data-testid="tooltip">
+      Fire
+    </span>
+</button>
+</div>
+</div>
+</div>
+<button aria-label="Jump to Comments" aria-pressed="false" class="crayons-reaction crayons-reaction--comment crayons-tooltip__activator relative" data-category="comment" id="reaction-butt-comment">
+<span class="crayons-reaction__icon crayons-reaction__icon--borderless crayons-reaction__icon--inactive">
+<svg aria-hidden="true" class="crayons-icon" height="24" role="img" viewbox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+<path d="M10 3h4a8 8 0 010 16v3.5c-5-2-12-5-12-11.5a8 8 0 018-8zm2 14h2a6 6 0 000-12h-4a6 6 0 00-6 6c0 3.61 2.462 5.966 8 8.48V17z"></path>
+</svg>
+</span>
+<span class="crayons-reaction__count" data-count="3" id="reaction-number-comment">
+<span class="bg-base-40 opacity-25 p-2 inline-block radius-default"></span>
+</span>
+<span class="crayons-tooltip__content" data-testid="tooltip">
+      Jump to Comments
+    </span>
+</button>
+<button aria-label="Add to reading list" aria-pressed="false" class="crayons-reaction crayons-reaction--readinglist crayons-tooltip__activator relative" data-category="readinglist" id="reaction-butt-readinglist">
+<span class="crayons-reaction__icon crayons-reaction__icon--borderless crayons-reaction__icon--inactive">
+<svg aria-hidden="true" class="crayons-icon" height="24" role="img" viewbox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+<path d="M5 2h14a1 1 0 011 1v19.143a.5.5 0 01-.766.424L12 18.03l-7.234 4.536A.5.5 0 014 22.143V3a1 1 0 011-1zm13 2H6v15.432l6-3.761 6 3.761V4z"></path>
+</svg>
+</span>
+<span class="crayons-reaction__count" id="reaction-number-readinglist"><span class="bg-base-40 opacity-25 p-2 inline-block radius-default"></span></span>
+<span class="crayons-tooltip__content" data-testid="tooltip">
+      Save
+    </span>
+</button>
+<button aria-label="Boost" aria-pressed="false" class="crayons-reaction crayons-reaction--boost crayons-tooltip__activator relative" id="reaction-butt-boost">
+<span class="crayons-reaction__icon crayons-reaction__icon--borderless crayons-reaction__icon--inactive">
+<svg aria-hidden="true" class="crayons-icon" fill="currentColor" height="24" role="img" viewbox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+<path d="M6 4H21C21.5523 4 22 4.44772 22 5V12H20V6H6V9L1 5L6 1V4ZM18 20H3C2.44772 20 2 19.5523 2 19V12H4V18H18V15L23 19L18 23V20Z" transform="translate(24,0) scale(-1,1)"></path>
+</svg>
+</span>
+<span class="crayons-tooltip__content" data-testid="tooltip">
+      Boost
+    </span>
+</button>
+<div class="only-sidebar-menu-item">
+<div class="print-hidden trusted-visible-block align-center" id="mod-actions-menu-btn-area">
+</div>
+</div>
+<div class="align-center m:relative">
+<button aria-controls="article-show-more-dropdown" aria-expanded="false" aria-haspopup="true" aria-label="Share post options" class="dropbtn crayons-btn crayons-btn--ghost-dimmed crayons-btn--icon-rounded" id="article-show-more-button">
+<svg aria-hidden="true" aria-labelledby="ahfcs9uui5nt6lp6938skd1c1ws6e6v0" class="crayons-icon dropdown-icon" height="24" role="img" width="24" xmlns="http://www.w3.org/2000/svg"><title id="ahfcs9uui5nt6lp6938skd1c1ws6e6v0">More...</title><path clip-rule="evenodd" d="M7 12a2 2 0 11-4 0 2 2 0 014 0zm7 0a2 2 0 11-4 0 2 2 0 014 0zm5 2a2 2 0 100-4 2 2 0 000 4z" fill-rule="evenodd"></path></svg>
+</button>
+<div class="crayons-dropdown side-bar left-2 right-2 m:right-auto m:left-100 s:left-auto mb-1 m:mb-0 top-unset bottom-100 m:top-0 m:bottom-unset" id="article-show-more-dropdown">
+<div>
+<button class="flex justify-between crayons-link crayons-link--block w-100 bg-transparent border-0" data-posturl="https://dev.to/gde/stop-using-python-for-your-gen-ai-apps-use-go-and-genkit-instead-401p" id="copy-post-url-button">
+<span class="fw-bold">Copy link</span>
+<svg aria-hidden="true" aria-labelledby="aqd7o1u5eyaf3twjordgr8v1qsz1r3c5" class="crayons-icon mx-2 shrink-0" height="24" id="article-copy-icon" role="img" viewbox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><title id="aqd7o1u5eyaf3twjordgr8v1qsz1r3c5">Copy link</title>
+<path d="M7 6V3a1 1 0 011-1h12a1 1 0 011 1v14a1 1 0 01-1 1h-3v3c0 .552-.45 1-1.007 1H4.007A1 1 0 013 21l.003-14c0-.552.45-1 1.007-1H7zm2 0h8v10h2V4H9v2zm-2 5v2h6v-2H7zm0 4v2h6v-2H7z"></path>
+</svg>
+</button>
+<div aria-live="polite" class="crayons-notice crayons-notice--success my-2 p-1" hidden="" id="article-copy-link-announcer">Copied to Clipboard</div>
+</div>
+<div class="Desktop-only">
+<a class="crayons-link crayons-link--block" href="https://twitter.com/intent/tweet?text=%22Stop%20Using%20Python%20for%20Your%20Gen%20AI%20Apps%2C%20Use%20Go%20and%20Genkit%20Instead%22%20by%20%40Xavidop%20%23DEVCommunity%20https%3A%2F%2Fdev.to%2Fgde%2Fstop-using-python-for-your-gen-ai-apps-use-go-and-genkit-instead-401p" rel="noopener" target="_blank">
+              Share to X
+            </a>
+<a class="crayons-link crayons-link--block" href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3A%2F%2Fdev.to%2Fgde%2Fstop-using-python-for-your-gen-ai-apps-use-go-and-genkit-instead-401p&amp;title=Stop%20Using%20Python%20for%20Your%20Gen%20AI%20Apps%2C%20Use%20Go%20and%20Genkit%20Instead&amp;summary=Introduction%20%20%20For%20the%20last%20few%20years%2C%20every%20Gen%20AI%20tutorial%2C%20framework%2C%20and%20%22hello%20world%22...&amp;source=DEV%20Community" rel="noopener" target="_blank">
+              Share to LinkedIn
+            </a>
+<a class="crayons-link crayons-link--block" href="https://www.facebook.com/sharer.php?u=https%3A%2F%2Fdev.to%2Fgde%2Fstop-using-python-for-your-gen-ai-apps-use-go-and-genkit-instead-401p" rel="noopener" target="_blank">
+              Share to Facebook
+            </a>
+<a class="crayons-link crayons-link--block" href="https://s2f.kytta.dev/?text=https%3A%2F%2Fdev.to%2Fgde%2Fstop-using-python-for-your-gen-ai-apps-use-go-and-genkit-instead-401p" rel="noopener" target="_blank">
+              Share to Mastodon
+            </a>
+</div>
+<web-share-wrapper sharetext='Introduction   For the last few years, every Gen AI tutorial, framework, and "hello world"...' sharetitle="Stop Using Python for Your Gen AI Apps, Use Go and Genkit Instead" shareurl="https://dev.to/gde/stop-using-python-for-your-gen-ai-apps-use-go-and-genkit-instead-401p" template="web-share-button">
+</web-share-wrapper>
+<template id="web-share-button">
+<a class="dropdown-link-row crayons-link crayons-link--block" href="#">Share Post via...</a>
+</template>
+<a class="crayons-link crayons-link--block" href="../report-abuse.html" id="ReportButtonAuthor">Report Abuse</a>
+</div>
+</div>
+</div>
+</div>
+</aside>
+<main class="crayons-layout__content grid gap-4" id="main-content">
+<div class="article-wrapper">
+<article class="crayons-card crayons-article mb-4" data-article-id="3618261" data-article-slug="stop-using-python-for-your-gen-ai-apps-use-go-and-genkit-instead-401p" data-author-id="345388" data-author-name="Xavier Portilla Edo" data-author-username="gde" data-co-author-ids="" data-path="/gde/stop-using-python-for-your-gen-ai-apps-use-go-and-genkit-instead-401p" data-pin-path="/stories/feed/pinned_article" data-pinned-article-id="" data-published="true" data-scheduled="false" id="article-show-container" lang="en">
+<script>
+            try {
+              if(localStorage) {
+                let currentUser = localStorage.getItem('current_user');
+
+                if (currentUser) {
+                  currentUser = JSON.parse(currentUser);
+                  if (currentUser.id === 345388) {
+                    document.getElementById('article-show-container').classList.add('current-user-is-article-author');
+                  }
+                }
+              }
+            } catch (e) {
+              console.error(e);
+            }
+          </script>
+<header class="crayons-article__header" id="main-title">
+<div class="crayons-article__header__meta">
+<div class="flex s:items-start flex-col s:flex-row">
+<div class="crayons-article__actions mb-4 s:mb-0 s:order-last" id="action-space"></div>
+<div class="flex flex-1 mb-5 items-start">
+<div class="relative">
+<a href="../gde.html"><img alt="Google Developer Experts profile image" class="radius-default align-middle" height="40" src="../cdn/media2.dev.to/dynamic/image/width=50,height=50,fit=cover,gravity=auto,format=auto/https___dev-to-uploads.s3.amazonaws.com_uploads_organization_profile_image_11939_e3080d5b-ecde-42a8-b08-9e982b347ccb.png" width="40"/></a>
+<a class="absolute -right-2 -bottom-2 radius-full border border-solid border-2 border-base-inverted inline-flex" href="../xavidop.html">
+<img alt="Xavier Portilla Edo" class="radius-full align-middle" height="24" src="../cdn/media2.dev.to/dynamic/image/width=50,height=50,fit=cover,gravity=auto,format=auto/https___dev-to-uploads.s3.amazonaws.com_uploads_user_profile_image_345388_a5c27e16-e7f9-414d-ab47-b0002881fb39.jpeg" width="24">
+</img></a>
+</div>
+<div class="pl-3 flex-1">
+<a class="crayons-link fw-bold" href="../xavidop.html">Xavier Portilla Edo</a>
+<span class="color-base-60"> for </span><a class="crayons-link" href="../gde.html">Google Developer Experts</a>
+<p class="fs-xs color-base-60">
+                        Posted on <time class="date-no-year" datetime="2026-05-06T03:54:40Z">May 6</time>
+
+
+                        • Originally published at <a href="https://xavidop.me/genkit/2026-05-04-stop-using-python-genai-use-genkit-go/" style="color:#1395b8">xavidop.me</a>
+</p>
+</div>
+</div>
+</div>
+<div class="multiple_reactions_engagement">
+<button aria-label="Like" class="reaction_engagement_like hidden crayons-reaction crayons-reaction--like" data-category="like" type="button"><span class="crayons-reaction__icon crayons-reaction__icon--inactive p-1"><img height="24" src="../cdn/assets.dev.to/assets/sparkle-heart-5f9bee3767e18deb1bb725290cb151c25234768a0e9a2bd39370c382d02920cf.svg" width="24"/></span>
+<span class="crayons-reaction__count" id="reaction_engagement_like_count"> </span>
+</button> <button aria-label="Unicorn" class="reaction_engagement_unicorn hidden crayons-reaction crayons-reaction--unicorn" data-category="unicorn" type="button"><span class="crayons-reaction__icon crayons-reaction__icon--inactive p-1"><img height="24" src="../cdn/assets.dev.to/assets/multi-unicorn-b44d6f8c23cdd00964192bedc38af3e82463978aa611b4365bd33a0f1f4f3e97.svg" width="24"/></span>
+<span class="crayons-reaction__count" id="reaction_engagement_unicorn_count"> </span>
+</button> <button aria-label="Exploding Head" class="reaction_engagement_exploding_head hidden crayons-reaction crayons-reaction--exploding_head" data-category="exploding_head" type="button"><span class="crayons-reaction__icon crayons-reaction__icon--inactive p-1"><img height="24" src="../cdn/assets.dev.to/assets/exploding-head-daceb38d627e6ae9b730f36a1e390fca556a4289d5a41abb2c35068ad3e2c4b5.svg" width="24"/></span>
+<span class="crayons-reaction__count" id="reaction_engagement_exploding_head_count"> </span>
+</button> <button aria-label="Raised Hands" class="reaction_engagement_raised_hands hidden crayons-reaction crayons-reaction--raised_hands" data-category="raised_hands" type="button"><span class="crayons-reaction__icon crayons-reaction__icon--inactive p-1"><img height="24" src="../cdn/assets.dev.to/assets/raised-hands-74b2099fd66a39f2d7eed9305ee0f4553df0eb7b4f11b01b6b1b499973048fe5.svg" width="24"/></span>
+<span class="crayons-reaction__count" id="reaction_engagement_raised_hands_count"> </span>
+</button> <button aria-label="Fire" class="reaction_engagement_fire hidden crayons-reaction crayons-reaction--fire" data-category="fire" type="button"><span class="crayons-reaction__icon crayons-reaction__icon--inactive p-1"><img height="24" src="../cdn/assets.dev.to/assets/fire-f60e7a582391810302117f987b22a8ef04a2fe0df7e3258a5f49332df1cec71e.svg" width="24"/></span>
+<span class="crayons-reaction__count" id="reaction_engagement_fire_count"> </span>
+</button>
+</div>
+<h1 class="fs-3xl m:fs-4xl l:fs-5xl fw-bold s:fw-heavy lh-tight mb-2 long">
+                Stop Using Python for Your Gen AI Apps, Use Go and Genkit Instead
+              </h1>
+<div class="spec__tags flex flex-wrap">
+<a class="crayons-tag" href="../t/go.html" style="
+        --tag-bg: rgba(41, 190, 176, 0.10);
+        --tag-prefix: #29BEB0;
+        --tag-bg-hover: rgba(41, 190, 176, 0.10);
+        --tag-prefix-hover: #29BEB0;
+      "><span class="crayons-tag__prefix">#</span>go</a>
+<a class="crayons-tag" href="../t/ai.html" style="
+        --tag-bg: rgba(23, 253, 26, 0.10);
+        --tag-prefix: #17fd1a;
+        --tag-bg-hover: rgba(23, 253, 26, 0.10);
+        --tag-prefix-hover: #17fd1a;
+      "><span class="crayons-tag__prefix">#</span>ai</a>
+<a class="crayons-tag" href="../t/programming.html" style="
+        --tag-bg: rgba(137, 6, 6, 0.10);
+        --tag-prefix: #890606;
+        --tag-bg-hover: rgba(137, 6, 6, 0.10);
+        --tag-prefix-hover: #890606;
+      "><span class="crayons-tag__prefix">#</span>programming</a>
+</div>
+</div>
+</header>
+<div class="crayons-article__main">
+<div class="crayons-article__body text-styles spec__body" data-article-id="3618261" id="article-body">
+<h2>
+<a href="#introduction" name="introduction">
+</a>
+  Introduction
+</h2>
+<p>For the last few years, every Gen AI tutorial, framework, and "hello world" has assumed one thing: that you are writing Python. It made sense at the start. The research community lives in Python, the model providers ship Python SDKs first, and the notebook culture is hard to beat for prototyping. But there is a quiet, important shift happening in 2026: the teams actually shipping AI features at scale are increasingly moving their <strong>production</strong> Gen AI workloads off Python, and onto languages built for services.</p>
+<p>Go is at the center of that shift. And <strong><a href="https://genkit.dev/docs/go/get-started/" rel="noopener noreferrer" target="_blank">Genkit Go</a></strong>, the Go flavor of Google's open-source Gen AI framework, is the cleanest path I have seen to build production-ready AI services in Go: typed flows, structured output, built-in HTTP serving, observability, and a Developer UI, all from a single binary.</p>
+<p>This article is two things at once. First, an honest argument about why Python is a poor fit for production Gen AI services. Second, a hands-on getting-started with Genkit Go so you can replace that Python microservice this week.</p>
+<h2>
+<a href="#why-python-hurts-in-production-gen-ai" name="why-python-hurts-in-production-gen-ai">
+</a>
+  Why Python Hurts in Production Gen AI
+</h2>
+<p>Python is great for research and prototyping. But Gen AI applications are not really "AI code", they are mostly <strong>I/O-heavy network services</strong> that happen to call a model. And that is exactly where Python struggles.</p>
+<h3>
+<a href="#concurrency-is-a-constant-fight" name="concurrency-is-a-constant-fight">
+</a>
+  Concurrency is a constant fight
+</h3>
+<p>Gen AI workloads are dominated by long, concurrent network calls: streaming completions, tool calls, embedding requests, vector DB lookups, MCP servers. Go's goroutines and channels were literally designed for this. In Python you have a choice between three uncomfortable options: threads (limited by the GIL), <code>asyncio</code> (which infects your entire codebase and breaks the moment one library is sync), or multiprocessing (heavy, awkward, and unfriendly to shared state). None of them feel native. All of them leak through your abstractions.</p>
+<h3>
+<a href="#cold-starts-and-memory-footprint" name="cold-starts-and-memory-footprint">
+</a>
+  Cold starts and memory footprint
+</h3>
+<p>A Python AI service typically pulls in <code>pydantic</code>, <code>httpx</code>, an SDK or two, and a tokenizer. You are easily looking at 200, 400 MB of resident memory and several seconds of cold start before you serve a single request. A Go binary doing the same job is one statically linked file, tens of MB of RAM, and starts in milliseconds. On Cloud Run, Lambda, Azure Functions, or any autoscaling platform, this difference is not a micro-optimization, it is the difference between a service that scales to zero gracefully and one that does not.</p>
+<h3>
+<a href="#dependency-hell-is-worse-for-ai" name="dependency-hell-is-worse-for-ai">
+</a>
+  Dependency hell is worse for AI
+</h3>
+<p><code>pip</code>, <code>poetry</code>, <code>uv</code>, <code>conda</code>, <code>venv</code>, <code>requirements.txt</code>, <code>pyproject.toml</code>. Pin a Torch version, break a transitive dep. Upgrade an SDK, break Pydantic v1 vs v2. Every Python AI repo I have inherited has spent at least a day fixing the environment before running a single prompt. Go's module system, with a single <code>go.mod</code> and <code>go.sum</code>, is boring, reproducible, and just works.</p>
+<h3>
+<a href="#types-are-optional-and-it-shows" name="types-are-optional-and-it-shows">
+</a>
+  Types are optional, and it shows
+</h3>
+<p>Structured output, tool calling, and MCP all rely on <strong>schemas</strong>. In Python, the schema lives in Pydantic models, in docstrings, in comments, and sometimes in your head. In Go, the schema <strong>is</strong> the struct. The compiler enforces it. Genkit picks it up automatically via JSON schema tags. You cannot ship a flow whose input does not match what the model returns, because it will not compile.</p>
+<h3>
+<a href="#deployment-is-a-packaging-exercise" name="deployment-is-a-packaging-exercise">
+</a>
+  Deployment is a packaging exercise
+</h3>
+<p>Python deployments are Dockerfiles full of system packages, base images that drift, and "works on my machine" surprises. Go deploys as a single static binary. <code>FROM scratch</code>, copy the binary, done. For AI services that need to run on Cloud Run, on Kubernetes, on the edge, or as a sidecar, that is a massive operational win.</p>
+<h3>
+<a href="#the-performance-ceiling-is-real" name="the-performance-ceiling-is-real">
+</a>
+  The performance ceiling is real
+</h3>
+<p>Yes, the heavy lifting happens on the model provider's GPUs. But your service still has to parse tokens off a streaming response, fan out tool calls, merge results, enforce timeouts, and push telemetry, <strong>per request, at concurrency</strong>. Go does that work an order of magnitude more efficiently than CPython, and without you having to think about it.</p>
+<blockquote>
+<p>None of this means Python is wrong for <strong>research</strong>. It means Python is the wrong default for the <strong>service</strong> that exposes that research to your users.</p>
+</blockquote>
+<h2>
+<a href="#go-is-the-best-language-for-agentic-coders" name="go-is-the-best-language-for-agentic-coders">
+</a>
+  Go Is the Best Language for Agentic Coders
+</h2>
+<p>There is one more reason to pick Go in 2026 that did not really exist two years ago: <strong>agentic coders</strong>. Tools like Claude Code, Cursor's agent mode, GitHub Copilot's agent, Gemini Code Assist, Codex, Aider, and the growing ecosystem of autonomous coding agents are now a real part of how software gets written. And it turns out that <strong>Go is the language they thrive in</strong>.</p>
+<p>Why? It comes down to three properties of the language that align almost perfectly with how an LLM-based agent reasons about code:</p>
+<h3>
+<a href="#strong-static-typing-closes-the-feedback-loop" name="strong-static-typing-closes-the-feedback-loop">
+</a>
+  Strong, static typing closes the feedback loop
+</h3>
+<p>Agentic coders work in a tight loop: write code, compile, read the error, fix, repeat. Go's compiler is fast, strict, and brutally honest. When an agent generates a wrong call, the compiler tells it exactly what is wrong and where, in seconds. In Python, the same mistake might only surface at runtime, three layers deep, with a stack trace that requires the agent to spend tokens reasoning about dynamic behavior. Strong typing turns "guess and pray" into "verify and continue".</p>
+<h3>
+<a href="#there-is-usually-one-obvious-way-to-do-something" name="there-is-usually-one-obvious-way-to-do-something">
+</a>
+  There is usually one obvious way to do something
+</h3>
+<p>Python has at least four HTTP clients, three async paradigms, two type systems, and an opinion war about every major design decision. An agent has to choose, and choices cost tokens and increase the chance of going off the rails. Go is famously opinionated: one formatter (<code>gofmt</code>), one module system, one idiomatic way to handle errors, one standard layout. Less surface area means less ambiguity, which means <strong>less token consumption and more correct code per iteration</strong>.</p>
+<h3>
+<a href="#tooling-is-built-for-machines-not-just-humans" name="tooling-is-built-for-machines-not-just-humans">
+</a>
+  Tooling is built for machines, not just humans
+</h3>
+<p><code>go build</code>, <code>go test</code>, <code>go vet</code>, <code>gopls</code>, and <code>staticcheck</code> produce structured, parseable output. Agents can read it directly without heuristics. Combine that with <code>go doc</code> and the standard library being uniformly documented, and you give an agent a self-describing environment it can navigate without hallucinating.</p>
+<h3>
+<a href="#and-then-genkit-go-takes-it-one-level-further" name="and-then-genkit-go-takes-it-one-level-further">
+</a>
+  And then Genkit Go takes it one level further
+</h3>
+<p>Genkit Go leans into the same properties:</p>
+<ul>
+<li>Flow inputs and outputs are <strong>Go structs</strong>, the schema is the type. An agent generating a new flow knows exactly what shape the data has, because the compiler will reject anything else.</li>
+<li>The API surface is small and consistent: <code>genkit.Init</code>, <code>genkit.DefineFlow</code>, <code>genkit.DefineTool</code>, <code>genkit.GenerateData</code>, <code>genkit.Handler</code>. There is one obvious way to define a flow, one obvious way to expose it, one obvious way to call a model.</li>
+<li>Tool definitions are typed end-to-end, so an agent writing a new tool gets compile-time guarantees that its signature matches what the runtime expects.</li>
+</ul>
+<p>The net effect is that an agentic coder pointed at a Genkit Go codebase will produce <strong>more correct code, in fewer iterations, with fewer tokens</strong> than the same agent pointed at an equivalent Python codebase. In a world where you are increasingly going to be the reviewer of agent-generated code rather than the author, that compounds fast.</p>
+<h2>
+<a href="#why-genkit-go-specifically" name="why-genkit-go-specifically">
+</a>
+  Why Genkit Go Specifically
+</h2>
+<p>If you accept the premise that Go is the better runtime for Gen AI services, the next question is: which framework? You can absolutely call the Gemini, OpenAI, or Anthropic SDKs directly from Go. But you will quickly end up rebuilding the same primitives every Genkit user already has for free.</p>
+<p>Here is what Genkit Go gives you out of the box, and what you would otherwise have to write yourself:</p>
+<p>| Feature | Without Genkit | With Genkit Go |<br/>
+||||<br/>
+| Call a model | Hand-rolled HTTP client per provider, manual JSON, manual streaming | <code>genkit.Generate(...)</code>, one call, multi-provider |<br/>
+| Structured output | Parse raw JSON, custom unmarshaling, validate by hand | <code>genkit.GenerateData[MyStruct]</code>, typed Go struct returned |<br/>
+| Expose as an API | <code>net/http</code> boilerplate per endpoint, request/response wiring | <code>genkit.Handler(flow)</code>, auto HTTP endpoint |<br/>
+| Tool calling | Parse function call payloads, dispatch, re-submit | <code>genkit.DefineTool(...)</code>, automatic execution loop |<br/>
+| Observability | Wire OpenTelemetry, define spans, ship metrics | Built-in tracing, metrics, latency, zero config |<br/>
+| Local dev | <code>curl</code>, Postman, manual harnesses | <strong>Genkit Developer UI</strong>, visual flow runner, traces, prompt playground |<br/>
+| Multi-provider | Different SDKs, different auth, different schemas | Unified plugin interface (Google AI, Vertex, OpenAI, Anthropic, Bedrock, Azure, Ollama, ...) |</p>
+<p>It is the same philosophy as <a href="https://dev.to%20post_url%20genkit/2026-02-10-genkit-java-101%20">Genkit Java</a> and the JavaScript flavor I covered in <a href="https://dev.to%20post_url%20genkit/2026-04-16-top-jsts-genai-frameworks-2026%20">my 2026 JS/TS Gen AI frameworks comparison</a>: a thin, opinionated, cloud-agnostic layer that turns "AI logic" into a <strong>typed function</strong> you can call, test, deploy, and observe.</p>
+<h2>
+<a href="#what-we-are-going-to-build" name="what-we-are-going-to-build">
+</a>
+  What We Are Going to Build
+</h2>
+<p>A Go service exposing a single AI flow that generates a structured <strong>recipe</strong> from a main ingredient and optional dietary restrictions. It will:</p>
+<ul>
+<li>Accept a typed <code>RecipeInput</code> as input.</li>
+<li>Call <strong>Gemini 3 Pro</strong> via the Google AI plugin.</li>
+<li>Return a strongly-typed <code>Recipe</code> struct (no manual JSON parsing).</li>
+<li>Be served as an HTTP endpoint on <code>:3400</code>.</li>
+<li>Be testable visually in the <strong>Genkit Developer UI</strong>.</li>
+</ul>
+<p>All in <strong>a single <code>main.go</code> file</strong>. No web framework. No code generation. Just Go.</p>
+<h2>
+<a href="#prerequisites" name="prerequisites">
+</a>
+  Prerequisites
+</h2>
+<ul>
+<li>
+<strong>Go 1.24+</strong> (<a href="https://go.dev/doc/install" rel="noopener noreferrer" target="_blank">install</a>)</li>
+<li>
+<strong>Node.js 18+</strong> (only required for the Genkit CLI / Developer UI)</li>
+<li>A <strong>Google GenAI API key</strong> (free, no credit card, from <a href="https://aistudio.google.com/apikey" rel="noopener noreferrer" target="_blank">Google AI Studio</a>)</li>
+</ul>
+<h3>
+<a href="#install-the-genkit-cli" name="install-the-genkit-cli">
+</a>
+  Install the Genkit CLI
+</h3>
+<p>The Genkit CLI is your local companion for running and inspecting flows in the Developer UI:<br/>
+</p>
+<div class="highlight js-code-highlight">
+<pre class="highlight shell"><code>curl <span class="nt">-sL</span> cli.genkit.dev | bash
+</code></pre>
+<div class="highlight__panel js-actions-panel">
+<div class="highlight__panel-action js-fullscreen-code-action">
+<svg class="highlight-action crayons-icon highlight-action--fullscreen-on" height="20px" viewbox="0 0 24 24" width="20px" xmlns="http://www.w3.org/2000/svg"><title>Enter fullscreen mode</title>
+<path d="M16 3h6v6h-2V5h-4V3zM2 3h6v2H4v4H2V3zm18 16v-4h2v6h-6v-2h4zM4 19h4v2H2v-6h2v4z"></path>
+</svg>
+<svg class="highlight-action crayons-icon highlight-action--fullscreen-off" height="20px" viewbox="0 0 24 24" width="20px" xmlns="http://www.w3.org/2000/svg"><title>Exit fullscreen mode</title>
+<path d="M18 7h4v2h-6V3h2v4zM8 9H2V7h4V3h2v6zm10 8v4h-2v-6h6v2h-4zM8 15v6H6v-4H2v-2h6z"></path>
+</svg>
+</div>
+</div>
+</div>
+<p>Verify it:<br/>
+</p>
+<div class="highlight js-code-highlight">
+<pre class="highlight shell"><code>genkit <span class="nt">--version</span>
+</code></pre>
+<div class="highlight__panel js-actions-panel">
+<div class="highlight__panel-action js-fullscreen-code-action">
+<svg class="highlight-action crayons-icon highlight-action--fullscreen-on" height="20px" viewbox="0 0 24 24" width="20px" xmlns="http://www.w3.org/2000/svg"><title>Enter fullscreen mode</title>
+<path d="M16 3h6v6h-2V5h-4V3zM2 3h6v2H4v4H2V3zm18 16v-4h2v6h-6v-2h4zM4 19h4v2H2v-6h2v4z"></path>
+</svg>
+<svg class="highlight-action crayons-icon highlight-action--fullscreen-off" height="20px" viewbox="0 0 24 24" width="20px" xmlns="http://www.w3.org/2000/svg"><title>Exit fullscreen mode</title>
+<path d="M18 7h4v2h-6V3h2v4zM8 9H2V7h4V3h2v6zm10 8v4h-2v-6h6v2h-4zM8 15v6H6v-4H2v-2h6z"></path>
+</svg>
+</div>
+</div>
+</div>
+<h2>
+<a href="#set-up-the-project" name="set-up-the-project">
+</a>
+  Set Up the Project
+</h2>
+<p>Create a fresh module:<br/>
+</p>
+<div class="highlight js-code-highlight">
+<pre class="highlight shell"><code><span class="nb">mkdir </span>genkit-go-recipes <span class="o">&amp;&amp;</span> <span class="nb">cd </span>genkit-go-recipes
+go mod init example/genkit-go-recipes
+</code></pre>
+<div class="highlight__panel js-actions-panel">
+<div class="highlight__panel-action js-fullscreen-code-action">
+<svg class="highlight-action crayons-icon highlight-action--fullscreen-on" height="20px" viewbox="0 0 24 24" width="20px" xmlns="http://www.w3.org/2000/svg"><title>Enter fullscreen mode</title>
+<path d="M16 3h6v6h-2V5h-4V3zM2 3h6v2H4v4H2V3zm18 16v-4h2v6h-6v-2h4zM4 19h4v2H2v-6h2v4z"></path>
+</svg>
+<svg class="highlight-action crayons-icon highlight-action--fullscreen-off" height="20px" viewbox="0 0 24 24" width="20px" xmlns="http://www.w3.org/2000/svg"><title>Exit fullscreen mode</title>
+<path d="M18 7h4v2h-6V3h2v4zM8 9H2V7h4V3h2v6zm10 8v4h-2v-6h6v2h-4zM8 15v6H6v-4H2v-2h6z"></path>
+</svg>
+</div>
+</div>
+</div>
+<p>Install the Genkit Go package:<br/>
+</p>
+<div class="highlight js-code-highlight">
+<pre class="highlight shell"><code>go get github.com/firebase/genkit/go
+</code></pre>
+<div class="highlight__panel js-actions-panel">
+<div class="highlight__panel-action js-fullscreen-code-action">
+<svg class="highlight-action crayons-icon highlight-action--fullscreen-on" height="20px" viewbox="0 0 24 24" width="20px" xmlns="http://www.w3.org/2000/svg"><title>Enter fullscreen mode</title>
+<path d="M16 3h6v6h-2V5h-4V3zM2 3h6v2H4v4H2V3zm18 16v-4h2v6h-6v-2h4zM4 19h4v2H2v-6h2v4z"></path>
+</svg>
+<svg class="highlight-action crayons-icon highlight-action--fullscreen-off" height="20px" viewbox="0 0 24 24" width="20px" xmlns="http://www.w3.org/2000/svg"><title>Exit fullscreen mode</title>
+<path d="M18 7h4v2h-6V3h2v4zM8 9H2V7h4V3h2v6zm10 8v4h-2v-6h6v2h-4zM8 15v6H6v-4H2v-2h6z"></path>
+</svg>
+</div>
+</div>
+</div>
+<p>Set your API key:<br/>
+</p>
+<div class="highlight js-code-highlight">
+<pre class="highlight shell"><code><span class="nb">export </span><span class="nv">GEMINI_API_KEY</span><span class="o">=</span>&lt;your API key&gt;
+</code></pre>
+<div class="highlight__panel js-actions-panel">
+<div class="highlight__panel-action js-fullscreen-code-action">
+<svg class="highlight-action crayons-icon highlight-action--fullscreen-on" height="20px" viewbox="0 0 24 24" width="20px" xmlns="http://www.w3.org/2000/svg"><title>Enter fullscreen mode</title>
+<path d="M16 3h6v6h-2V5h-4V3zM2 3h6v2H4v4H2V3zm18 16v-4h2v6h-6v-2h4zM4 19h4v2H2v-6h2v4z"></path>
+</svg>
+<svg class="highlight-action crayons-icon highlight-action--fullscreen-off" height="20px" viewbox="0 0 24 24" width="20px" xmlns="http://www.w3.org/2000/svg"><title>Exit fullscreen mode</title>
+<path d="M18 7h4v2h-6V3h2v4zM8 9H2V7h4V3h2v6zm10 8v4h-2v-6h6v2h-4zM8 15v6H6v-4H2v-2h6z"></path>
+</svg>
+</div>
+</div>
+</div>
+<h2>
+<a href="#the-code-a-single-raw-maingo-endraw-" name="the-code-a-single-raw-maingo-endraw-">
+</a>
+  The Code: a Single <code>main.go</code>
+</h2>
+<p>Create <code>main.go</code> with the following content. This is the entire service.<br/>
+</p>
+<div class="highlight js-code-highlight">
+<pre class="highlight go"><code><span class="k">package</span> <span class="n">main</span>
+
+<span class="k">import</span> <span class="p">(</span>
+    <span class="s">"context"</span>
+    <span class="s">"encoding/json"</span>
+    <span class="s">"fmt"</span>
+    <span class="s">"log"</span>
+    <span class="s">"net/http"</span>
+
+    <span class="s">"github.com/firebase/genkit/go/ai"</span>
+    <span class="s">"github.com/firebase/genkit/go/genkit"</span>
+    <span class="s">"github.com/firebase/genkit/go/plugins/googlegenai"</span>
+    <span class="s">"github.com/firebase/genkit/go/plugins/server"</span>
+<span class="p">)</span>
+
+<span class="c">// Input schema, picked up automatically by Genkit and the Dev UI.</span>
+<span class="k">type</span> <span class="n">RecipeInput</span> <span class="k">struct</span> <span class="p">{</span>
+    <span class="n">Ingredient</span>          <span class="kt">string</span> <span class="s">`json:"ingredient" jsonschema:"description=Main ingredient or cuisine type"`</span>
+    <span class="n">DietaryRestrictions</span> <span class="kt">string</span> <span class="s">`json:"dietaryRestrictions,omitempty" jsonschema:"description=Any dietary restrictions"`</span>
+<span class="p">}</span>
+
+<span class="c">// Output schema, returned directly by the model as a typed Go struct.</span>
+<span class="k">type</span> <span class="n">Recipe</span> <span class="k">struct</span> <span class="p">{</span>
+    <span class="n">Title</span>        <span class="kt">string</span>   <span class="s">`json:"title"`</span>
+    <span class="n">Description</span>  <span class="kt">string</span>   <span class="s">`json:"description"`</span>
+    <span class="n">PrepTime</span>     <span class="kt">string</span>   <span class="s">`json:"prepTime"`</span>
+    <span class="n">CookTime</span>     <span class="kt">string</span>   <span class="s">`json:"cookTime"`</span>
+    <span class="n">Servings</span>     <span class="kt">int</span>      <span class="s">`json:"servings"`</span>
+    <span class="n">Ingredients</span>  <span class="p">[]</span><span class="kt">string</span> <span class="s">`json:"ingredients"`</span>
+    <span class="n">Instructions</span> <span class="p">[]</span><span class="kt">string</span> <span class="s">`json:"instructions"`</span>
+    <span class="n">Tips</span>         <span class="p">[]</span><span class="kt">string</span> <span class="s">`json:"tips,omitempty"`</span>
+<span class="p">}</span>
+
+<span class="k">func</span> <span class="n">main</span><span class="p">()</span> <span class="p">{</span>
+    <span class="n">ctx</span> <span class="o">:=</span> <span class="n">context</span><span class="o">.</span><span class="n">Background</span><span class="p">()</span>
+
+    <span class="c">// Initialize Genkit with the Google AI plugin and a default model.</span>
+    <span class="n">g</span> <span class="o">:=</span> <span class="n">genkit</span><span class="o">.</span><span class="n">Init</span><span class="p">(</span><span class="n">ctx</span><span class="p">,</span>
+        <span class="n">genkit</span><span class="o">.</span><span class="n">WithPlugins</span><span class="p">(</span><span class="o">&amp;</span><span class="n">googlegenai</span><span class="o">.</span><span class="n">GoogleAI</span><span class="p">{}),</span>
+        <span class="n">genkit</span><span class="o">.</span><span class="n">WithDefaultModel</span><span class="p">(</span><span class="s">"googleai/gemini-3-pro"</span><span class="p">),</span>
+    <span class="p">)</span>
+
+    <span class="c">// Define a typed flow: (RecipeInput) -&gt; (Recipe, error)</span>
+    <span class="n">recipeGeneratorFlow</span> <span class="o">:=</span> <span class="n">genkit</span><span class="o">.</span><span class="n">DefineFlow</span><span class="p">(</span><span class="n">g</span><span class="p">,</span> <span class="s">"recipeGeneratorFlow"</span><span class="p">,</span>
+        <span class="k">func</span><span class="p">(</span><span class="n">ctx</span> <span class="n">context</span><span class="o">.</span><span class="n">Context</span><span class="p">,</span> <span class="n">input</span> <span class="o">*</span><span class="n">RecipeInput</span><span class="p">)</span> <span class="p">(</span><span class="o">*</span><span class="n">Recipe</span><span class="p">,</span> <span class="kt">error</span><span class="p">)</span> <span class="p">{</span>
+            <span class="n">dietary</span> <span class="o">:=</span> <span class="n">input</span><span class="o">.</span><span class="n">DietaryRestrictions</span>
+            <span class="k">if</span> <span class="n">dietary</span> <span class="o">==</span> <span class="s">""</span> <span class="p">{</span>
+                <span class="n">dietary</span> <span class="o">=</span> <span class="s">"none"</span>
+            <span class="p">}</span>
+
+            <span class="n">prompt</span> <span class="o">:=</span> <span class="n">fmt</span><span class="o">.</span><span class="n">Sprintf</span><span class="p">(</span><span class="s">`Create a recipe with the following requirements:
+                Main ingredient: %s
+                Dietary restrictions: %s`</span><span class="p">,</span> <span class="n">input</span><span class="o">.</span><span class="n">Ingredient</span><span class="p">,</span> <span class="n">dietary</span><span class="p">)</span>
+
+            <span class="c">// Structured generation: Gemini returns a Recipe directly.</span>
+            <span class="n">recipe</span><span class="p">,</span> <span class="n">_</span><span class="p">,</span> <span class="n">err</span> <span class="o">:=</span> <span class="n">genkit</span><span class="o">.</span><span class="n">GenerateData</span><span class="p">[</span><span class="n">Recipe</span><span class="p">](</span><span class="n">ctx</span><span class="p">,</span> <span class="n">g</span><span class="p">,</span>
+                <span class="n">ai</span><span class="o">.</span><span class="n">WithPrompt</span><span class="p">(</span><span class="n">prompt</span><span class="p">),</span>
+            <span class="p">)</span>
+            <span class="k">if</span> <span class="n">err</span> <span class="o">!=</span> <span class="no">nil</span> <span class="p">{</span>
+                <span class="k">return</span> <span class="no">nil</span><span class="p">,</span> <span class="n">fmt</span><span class="o">.</span><span class="n">Errorf</span><span class="p">(</span><span class="s">"failed to generate recipe: %w"</span><span class="p">,</span> <span class="n">err</span><span class="p">)</span>
+            <span class="p">}</span>
+            <span class="k">return</span> <span class="n">recipe</span><span class="p">,</span> <span class="no">nil</span>
+        <span class="p">},</span>
+    <span class="p">)</span>
+
+    <span class="c">// Smoke-test the flow once at boot.</span>
+    <span class="n">recipe</span><span class="p">,</span> <span class="n">err</span> <span class="o">:=</span> <span class="n">recipeGeneratorFlow</span><span class="o">.</span><span class="n">Run</span><span class="p">(</span><span class="n">ctx</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">RecipeInput</span><span class="p">{</span>
+        <span class="n">Ingredient</span><span class="o">:</span>          <span class="s">"avocado"</span><span class="p">,</span>
+        <span class="n">DietaryRestrictions</span><span class="o">:</span> <span class="s">"vegetarian"</span><span class="p">,</span>
+    <span class="p">})</span>
+    <span class="k">if</span> <span class="n">err</span> <span class="o">!=</span> <span class="no">nil</span> <span class="p">{</span>
+        <span class="n">log</span><span class="o">.</span><span class="n">Fatalf</span><span class="p">(</span><span class="s">"could not generate recipe: %v"</span><span class="p">,</span> <span class="n">err</span><span class="p">)</span>
+    <span class="p">}</span>
+    <span class="n">out</span><span class="p">,</span> <span class="n">_</span> <span class="o">:=</span> <span class="n">json</span><span class="o">.</span><span class="n">MarshalIndent</span><span class="p">(</span><span class="n">recipe</span><span class="p">,</span> <span class="s">""</span><span class="p">,</span> <span class="s">"  "</span><span class="p">)</span>
+    <span class="n">fmt</span><span class="o">.</span><span class="n">Println</span><span class="p">(</span><span class="s">"Sample recipe generated:"</span><span class="p">)</span>
+    <span class="n">fmt</span><span class="o">.</span><span class="n">Println</span><span class="p">(</span><span class="kt">string</span><span class="p">(</span><span class="n">out</span><span class="p">))</span>
+
+    <span class="c">// Expose the flow as an HTTP endpoint.</span>
+    <span class="n">mux</span> <span class="o">:=</span> <span class="n">http</span><span class="o">.</span><span class="n">NewServeMux</span><span class="p">()</span>
+    <span class="n">mux</span><span class="o">.</span><span class="n">HandleFunc</span><span class="p">(</span><span class="s">"POST /recipeGeneratorFlow"</span><span class="p">,</span> <span class="n">genkit</span><span class="o">.</span><span class="n">Handler</span><span class="p">(</span><span class="n">recipeGeneratorFlow</span><span class="p">))</span>
+
+    <span class="n">log</span><span class="o">.</span><span class="n">Println</span><span class="p">(</span><span class="s">"Starting server on http://localhost:3400"</span><span class="p">)</span>
+    <span class="n">log</span><span class="o">.</span><span class="n">Println</span><span class="p">(</span><span class="s">"Flow available at: POST http://localhost:3400/recipeGeneratorFlow"</span><span class="p">)</span>
+    <span class="n">log</span><span class="o">.</span><span class="n">Fatal</span><span class="p">(</span><span class="n">server</span><span class="o">.</span><span class="n">Start</span><span class="p">(</span><span class="n">ctx</span><span class="p">,</span> <span class="s">"127.0.0.1:3400"</span><span class="p">,</span> <span class="n">mux</span><span class="p">))</span>
+<span class="p">}</span>
+</code></pre>
+<div class="highlight__panel js-actions-panel">
+<div class="highlight__panel-action js-fullscreen-code-action">
+<svg class="highlight-action crayons-icon highlight-action--fullscreen-on" height="20px" viewbox="0 0 24 24" width="20px" xmlns="http://www.w3.org/2000/svg"><title>Enter fullscreen mode</title>
+<path d="M16 3h6v6h-2V5h-4V3zM2 3h6v2H4v4H2V3zm18 16v-4h2v6h-6v-2h4zM4 19h4v2H2v-6h2v4z"></path>
+</svg>
+<svg class="highlight-action crayons-icon highlight-action--fullscreen-off" height="20px" viewbox="0 0 24 24" width="20px" xmlns="http://www.w3.org/2000/svg"><title>Exit fullscreen mode</title>
+<path d="M18 7h4v2h-6V3h2v4zM8 9H2V7h4V3h2v6zm10 8v4h-2v-6h6v2h-4zM8 15v6H6v-4H2v-2h6z"></path>
+</svg>
+</div>
+</div>
+</div>
+<p>Take a moment to count what is <strong>not</strong> in this file:</p>
+<ul>
+<li>No web framework.</li>
+<li>No JSON parsing of the model output.</li>
+<li>No manual OpenTelemetry setup.</li>
+<li>No request/response DTO duplication.</li>
+<li>No Dockerfile yet (we will not need much).</li>
+</ul>
+<p>The struct <strong>is</strong> the contract. The flow <strong>is</strong> the endpoint. The compiler enforces both.</p>
+<h2>
+<a href="#run-it" name="run-it">
+</a>
+  Run It
+</h2>
+<div class="highlight js-code-highlight">
+<pre class="highlight shell"><code>go run <span class="nb">.</span>
+</code></pre>
+<div class="highlight__panel js-actions-panel">
+<div class="highlight__panel-action js-fullscreen-code-action">
+<svg class="highlight-action crayons-icon highlight-action--fullscreen-on" height="20px" viewbox="0 0 24 24" width="20px" xmlns="http://www.w3.org/2000/svg"><title>Enter fullscreen mode</title>
+<path d="M16 3h6v6h-2V5h-4V3zM2 3h6v2H4v4H2V3zm18 16v-4h2v6h-6v-2h4zM4 19h4v2H2v-6h2v4z"></path>
+</svg>
+<svg class="highlight-action crayons-icon highlight-action--fullscreen-off" height="20px" viewbox="0 0 24 24" width="20px" xmlns="http://www.w3.org/2000/svg"><title>Exit fullscreen mode</title>
+<path d="M18 7h4v2h-6V3h2v4zM8 9H2V7h4V3h2v6zm10 8v4h-2v-6h6v2h-4zM8 15v6H6v-4H2v-2h6z"></path>
+</svg>
+</div>
+</div>
+</div>
+<p>You should see a structured recipe printed as JSON, then the server logging that it is listening on <code>:3400</code>.</p>
+<p>In another terminal, hit it with <code>curl</code>:<br/>
+</p>
+<div class="highlight js-code-highlight">
+<pre class="highlight shell"><code>curl <span class="nt">-X</span> POST <span class="s2">"http://localhost:3400/recipeGeneratorFlow"</span> <span class="se">\</span>
+  <span class="nt">-H</span> <span class="s2">"Content-Type: application/json"</span> <span class="se">\</span>
+  <span class="nt">-d</span> <span class="s1">'{"data": {"ingredient": "tomato", "dietaryRestrictions": "vegan"}}'</span>
+</code></pre>
+<div class="highlight__panel js-actions-panel">
+<div class="highlight__panel-action js-fullscreen-code-action">
+<svg class="highlight-action crayons-icon highlight-action--fullscreen-on" height="20px" viewbox="0 0 24 24" width="20px" xmlns="http://www.w3.org/2000/svg"><title>Enter fullscreen mode</title>
+<path d="M16 3h6v6h-2V5h-4V3zM2 3h6v2H4v4H2V3zm18 16v-4h2v6h-6v-2h4zM4 19h4v2H2v-6h2v4z"></path>
+</svg>
+<svg class="highlight-action crayons-icon highlight-action--fullscreen-off" height="20px" viewbox="0 0 24 24" width="20px" xmlns="http://www.w3.org/2000/svg"><title>Exit fullscreen mode</title>
+<path d="M18 7h4v2h-6V3h2v4zM8 9H2V7h4V3h2v6zm10 8v4h-2v-6h6v2h-4zM8 15v6H6v-4H2v-2h6z"></path>
+</svg>
+</div>
+</div>
+</div>
+<p>You will get back a fully structured JSON recipe. That is it, you have a production-shaped Gen AI microservice in one file.</p>
+<h2>
+<a href="#test-it-visually-with-the-developer-ui" name="test-it-visually-with-the-developer-ui">
+</a>
+  Test It Visually with the Developer UI
+</h2>
+<p>The Genkit Developer UI is one of the strongest reasons to adopt Genkit, regardless of language. It gives you a local web app to run flows, inspect traces, tweak prompts, and debug tool calls.</p>
+<p>From the project root:<br/>
+</p>
+<div class="highlight js-code-highlight">
+<pre class="highlight shell"><code>genkit start <span class="nt">--</span> go run <span class="nb">.</span>
+</code></pre>
+<div class="highlight__panel js-actions-panel">
+<div class="highlight__panel-action js-fullscreen-code-action">
+<svg class="highlight-action crayons-icon highlight-action--fullscreen-on" height="20px" viewbox="0 0 24 24" width="20px" xmlns="http://www.w3.org/2000/svg"><title>Enter fullscreen mode</title>
+<path d="M16 3h6v6h-2V5h-4V3zM2 3h6v2H4v4H2V3zm18 16v-4h2v6h-6v-2h4zM4 19h4v2H2v-6h2v4z"></path>
+</svg>
+<svg class="highlight-action crayons-icon highlight-action--fullscreen-off" height="20px" viewbox="0 0 24 24" width="20px" xmlns="http://www.w3.org/2000/svg"><title>Exit fullscreen mode</title>
+<path d="M18 7h4v2h-6V3h2v4zM8 9H2V7h4V3h2v6zm10 8v4h-2v-6h6v2h-4zM8 15v6H6v-4H2v-2h6z"></path>
+</svg>
+</div>
+</div>
+</div>
+<p>Open <a href="http://localhost:4000" rel="noopener noreferrer" target="_blank">http://localhost:4000</a>, pick <code>recipeGeneratorFlow</code>, paste:<br/>
+</p>
+<div class="highlight js-code-highlight">
+<pre class="highlight json"><code><span class="p">{</span><span class="w">
+  </span><span class="nl">"ingredient"</span><span class="p">:</span><span class="w"> </span><span class="s2">"avocado"</span><span class="p">,</span><span class="w">
+  </span><span class="nl">"dietaryRestrictions"</span><span class="p">:</span><span class="w"> </span><span class="s2">"vegetarian"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<div class="highlight__panel js-actions-panel">
+<div class="highlight__panel-action js-fullscreen-code-action">
+<svg class="highlight-action crayons-icon highlight-action--fullscreen-on" height="20px" viewbox="0 0 24 24" width="20px" xmlns="http://www.w3.org/2000/svg"><title>Enter fullscreen mode</title>
+<path d="M16 3h6v6h-2V5h-4V3zM2 3h6v2H4v4H2V3zm18 16v-4h2v6h-6v-2h4zM4 19h4v2H2v-6h2v4z"></path>
+</svg>
+<svg class="highlight-action crayons-icon highlight-action--fullscreen-off" height="20px" viewbox="0 0 24 24" width="20px" xmlns="http://www.w3.org/2000/svg"><title>Exit fullscreen mode</title>
+<path d="M18 7h4v2h-6V3h2v4zM8 9H2V7h4V3h2v6zm10 8v4h-2v-6h6v2h-4zM8 15v6H6v-4H2v-2h6z"></path>
+</svg>
+</div>
+</div>
+</div>
+<p>Click <strong>Run</strong>. You will see the typed output and a full trace of the model call: tokens, latency, prompt, response. This is the kind of inner loop Python frameworks are still catching up on.</p>
+<h2>
+<a href="#deploying-it" name="deploying-it">
+</a>
+  Deploying It
+</h2>
+<p>Because it is Go, deployment is almost anticlimactic. A minimal <code>Dockerfile</code>:<br/>
+</p>
+<div class="highlight js-code-highlight">
+<pre class="highlight docker"><code><span class="k">FROM</span><span class="w"> </span><span class="s">golang:1.24</span><span class="w"> </span><span class="k">AS</span><span class="w"> </span><span class="s">build</span>
+<span class="k">WORKDIR</span><span class="s"> /src</span>
+<span class="k">COPY</span><span class="s"> . .</span>
+<span class="k">RUN </span><span class="nv">CGO_ENABLED</span><span class="o">=</span>0 go build <span class="nt">-o</span> /out/server .
+
+<span class="k">FROM</span><span class="s"> gcr.io/distroless/static</span>
+<span class="k">COPY</span><span class="s"> --from=build /out/server /server</span>
+<span class="k">ENV</span><span class="s"> PORT=3400</span>
+<span class="k">EXPOSE</span><span class="s"> 3400</span>
+<span class="k">ENTRYPOINT</span><span class="s"> ["/server"]</span>
+</code></pre>
+<div class="highlight__panel js-actions-panel">
+<div class="highlight__panel-action js-fullscreen-code-action">
+<svg class="highlight-action crayons-icon highlight-action--fullscreen-on" height="20px" viewbox="0 0 24 24" width="20px" xmlns="http://www.w3.org/2000/svg"><title>Enter fullscreen mode</title>
+<path d="M16 3h6v6h-2V5h-4V3zM2 3h6v2H4v4H2V3zm18 16v-4h2v6h-6v-2h4zM4 19h4v2H2v-6h2v4z"></path>
+</svg>
+<svg class="highlight-action crayons-icon highlight-action--fullscreen-off" height="20px" viewbox="0 0 24 24" width="20px" xmlns="http://www.w3.org/2000/svg"><title>Exit fullscreen mode</title>
+<path d="M18 7h4v2h-6V3h2v4zM8 9H2V7h4V3h2v6zm10 8v4h-2v-6h6v2h-4zM8 15v6H6v-4H2v-2h6z"></path>
+</svg>
+</div>
+</div>
+</div>
+<p>That is your entire production image. Deploy it to <strong>Cloud Run</strong>, <strong>Cloud Run Jobs</strong>, <strong>Kubernetes</strong>, <strong>AWS Lambda</strong> (via container image), <strong>Azure Container Apps</strong>, or any platform that runs containers. No Python runtime to vendor. No <code>pip install</code> at build time. No virtual environment. Just a binary.</p>
+<p>If you want to see the same pattern applied to other clouds and languages, I have already covered:</p>
+<ul>
+<li><a href="https://dev.to%20post_url%20genkit/2026-03-20-genkit-aws-lambda-bedrock%20">Genkit + AWS Lambda + Bedrock</a></li>
+<li><a href="https://dev.to%20post_url%20genkit/2026-03-20-genkit-azure-function-ai-foundry%20">Genkit + Azure Functions + AI Foundry</a></li>
+<li><a href="https://dev.to%20post_url%20genkit/2026-02-10-genkit-java-101%20">Genkit Java 101</a></li>
+</ul>
+<p>Genkit Go fits the same mold, with the smallest runtime footprint of all of them.</p>
+<h2>
+<a href="#but-what-about" name="but-what-about">
+</a>
+  "But What About..."
+</h2>
+<p>A few honest objections worth addressing.</p>
+<ul>
+<li>
+<strong>"All the cool research libraries are in Python."</strong> True. Keep them in Python, behind a small Python service that does only the research-y bit. Put your <strong>product surface</strong> (the part your users actually call) in Go. That separation is healthy.</li>
+<li>
+<strong>"My team only knows Python."</strong> Go is famously the easiest "real" backend language to learn. A Python developer can be productive in Go in days, and Genkit's API surface is small enough that the learning curve is mostly Go itself, not the framework.</li>
+<li>
+<strong>"What about LangChain / LlamaIndex features?"</strong> Most of what those frameworks give you (flows, tools, RAG, prompts, evaluation, observability) Genkit Go gives you too, with a fraction of the surface area and without the abstraction tax. See my <a href="https://dev.to%20post_url%20genkit/2026-04-16-top-jsts-genai-frameworks-2026%20">2026 frameworks comparison</a> for the long version.</li>
+<li>
+<strong>"Is Genkit Go production-ready?"</strong> It powers Gen AI features at Google and a growing list of companies. The Go SDK shares the same core philosophy and plugin model as the JS and Java SDKs. It is stable enough to bet on, and the iteration speed is high.</li>
+</ul>
+<h2>
+<a href="#wrapping-up" name="wrapping-up">
+</a>
+  Wrapping Up
+</h2>
+<p>Python earned its place as the language of AI <strong>research</strong>. It did not earn its place as the language of AI <strong>services</strong>. Those are different problems with different constraints, and the constraints of production services, concurrency, footprint, deployment, types, observability, all favor Go.</p>
+<p>Genkit Go is the framework that finally makes that switch painless. You get a typed, observable, multi-provider Gen AI service in one file, one binary, and one deploy. If you are still maintaining a Python microservice whose only job is to call an LLM and return structured JSON, you are paying a tax you do not need to pay.</p>
+<p>Try it on your next flow. Replace one Python service. See how much smaller the resulting system is, in code, in memory, and in operational surface area.</p>
+<h2>
+<a href="#references" name="references">
+</a>
+  References
+</h2>
+<ul>
+<li><a href="https://genkit.dev/docs/go/get-started/" rel="noopener noreferrer" target="_blank">Genkit Go, Get Started</a></li>
+<li><a href="https://genkit.dev/docs/go/flows/" rel="noopener noreferrer" target="_blank">Genkit Go, Flows</a></li>
+<li><a href="https://genkit.dev/docs/go/tool-calling/" rel="noopener noreferrer" target="_blank">Genkit Go, Tool Calling</a></li>
+<li><a href="https://genkit.dev/docs/go/deployment/cloud-run/" rel="noopener noreferrer" target="_blank">Genkit Go, Deployment on Cloud Run</a></li>
+<li><a href="https://github.com/firebase/genkit" rel="noopener noreferrer" target="_blank">Genkit GitHub</a></li>
+</ul>
+<p><a class="article-body-image-wrapper" href="https://media2.dev.to/dynamic/image/width=800%2Cheight=%2Cfit=scale-down%2Cgravity=auto%2Cformat=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Farticles%2F26d7w5adb0372b1y8pet.png"><img alt=" " height="436" loading="lazy" src="../cdn/media2.dev.to/dynamic/image/width=800,height=,fit=scale-down,gravity=auto,format=auto/https___dev-to-uploads.s3.amazonaws.com_uploads_articles_26d7w5adb0372b1y8pet.png" width="800"/></a></p>
+</div>
+<div class="below-post-bb body-billboard-container" data-async-url="/gde/stop-using-python-for-your-gen-ai-apps-use-go-and-genkit-instead-401p/bmar11/post_body_bottom"></div>
+</div>
+<section class="text-padding mb-4 border-t-1 border-0 border-solid border-base-10" data-follow-button-container="true" data-updated-at="2026-05-06 16:29:07 UTC" id="comments">
+<header class="relative flex justify-between items-center mb-6">
+<div class="flex items-center">
+<h2 class="crayons-subtitle-1">
+          Top comments <span class="js-comments-count" data-comments-count="3">(3)</span>
+</h2>
+</div>
+<div class="print-hidden" id="comment-subscription">
+<div class="crayons-btn-group">
+<span class="crayons-btn crayons-btn--outlined">Subscribe</span>
+</div>
+</div>
+</header>
+<div id="billboard_delay_trigger"></div>
+<div data-commentable-id="3618261" data-commentable-type="Article" data-has-recent-comment-activity="true" data-testid="comments-container" id="comments-container">
+<div class="hidden" id="response-templates-data"></div>
+<form accept-charset="UTF-8" action="/comments" class="comment-form print-hidden" id="new_comment" method="post"><input autocomplete="off" name="utf8" type="hidden" value="✓"/>
+<input id="new_comment_authenticity_token" name="authenticity_token" type="hidden" value="NOTHING"/>
+<input autocomplete="off" id="comment_commentable_id" name="comment[commentable_id]" type="hidden" value="3618261">
+<input autocomplete="off" id="comment_commentable_type" name="comment[commentable_type]" type="hidden" value="Article"/>
+<span class="crayons-avatar m:crayons-avatar--l mr-2 shrink-0">
+<img alt="pic" class="crayons-avatar__image overflow-hidden" height="32" id="comment-primary-user-profile--avatar" loading="lazy" src="../cdn/media2.dev.to/dynamic/image/width=256,height=,fit=scale-down,gravity=auto,format=auto/https___dev-to-uploads.s3.amazonaws.com_uploads_articles_8j7kvp660rqzt99zui8e.png" width="32">
+</img></span>
+<div class="comment-form__inner">
+<div class="comment-form__field" data-tracking-name="comment_form_textfield">
+<textarea aria-label="Add a comment to the discussion" class="crayons-textfield comment-textarea crayons-textfield--ghost" id="text-area" name="comment[body_markdown]" onfocus="handleFocus(event)" oninput="handleChange(event)" onkeydown="handleKeyDown(event)" onkeyup="handleKeyUp(event)" placeholder="Add to the discussion" required="required">
+</textarea>
+</div>
+<div class="response-templates-container crayons-card crayons-card--secondary p-4 mb-4 comment-form__templates fs-base hidden">
+<header class="mb-3">
+<button class="crayons-btn personal-template-button active" data-form-id="new_comment" data-target-type="personal" type="button">Personal</button>
+<button class="crayons-btn moderator-template-button hidden" data-form-id="new_comment" data-target-type="moderator" type="button">Trusted User</button>
+</header>
+<div class="personal-responses-container">
+</div>
+<div class="moderator-responses-container hidden">
+</div>
+<a href="../settings/response-templates.html" rel="noopener nofollow" target="_blank">
+        Create template
+      </a>
+<p>Templates let you quickly answer FAQs or store snippets for re-use.</p>
+</div>
+<div class="comment-form__preview text-styles text-styles--secondary" id="preview-div"></div>
+<div class="comment-form__buttons mb-4">
+<button class="crayons-btn mr-2 js-btn-enable" data-tracking-name="comment_submit_button" disabled="" onclick="validateField(event)" type="submit">Submit</button>
+<button class="preview-toggle crayons-btn crayons-btn--secondary comment-action-preview js-btn-enable mr-2" data-tracking-name="comment_preview_button" disabled="" type="button">Preview</button>
+<a class="dismiss-edit-comment crayons-btn crayons-btn--ghost js-btn-dismiss hidden" href="../404.html">Dismiss</a>
+</div>
+</div>
+<div class="code-of-conduct" id="toggle-code-of-conduct-checkbox"></div>
+</input></form>
+<div class="comments" id="comment-trees-container">
+<details class="comment-wrapper js-comment-wrapper comment-wrapper--deep-0 root" open="">
+<summary aria-label="Toggle this comment (and replies)" data-tracking-name="expand_comment_toggle">
+<span class="m:mx-1 inline-block align-middle">
+<svg aria-labelledby="a17tk89fk17lfakxi4kszi4gs5b3anlh" class="crayons-icon expanded" height="24" role="img" viewbox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><title id="a17tk89fk17lfakxi4kszi4gs5b3anlh">Collapse</title>
+<path d="M12 10.677L8 6.935 9 6l3 2.807L15 6l1 .935-4 3.742zm0 4.517L9 18l-1-.935 4-3.742 4 3.742-1 .934-3-2.805z"></path>
+</svg>
+<svg aria-labelledby="a2q1awfx2enli069tyuxjhexpzvrhsdr" class="crayons-icon collapsed" height="24" role="img" viewbox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><title id="a2q1awfx2enli069tyuxjhexpzvrhsdr">Expand</title>
+<path d="M12 18l-4-3.771 1-.943 3 2.829 3-2.829 1 .943L12 18zm0-10.115l-3 2.829-1-.943L12 6l4 3.771-1 .942-3-2.828z"></path>
+</svg>
+</span>
+<span class="js-collapse-comment-content inline-block align-middle"></span>
+</summary>
+<div class="comment single-comment-node root comment--deep-0" data-comment-author-id="385000" data-comment-id="1505962" data-content-user-id="385000" data-path="/gde/stop-using-python-for-your-gen-ai-apps-use-go-and-genkit-instead-401p/comments/37hjg" id="comment-node-1505962">
+<a name="comment-37hjg" style="position: absolute; top: -8px;"> </a>
+<div class="comment__inner">
+<a class="shrink-0 crayons-avatar m:crayons-avatar--l mt-4 m:mt-3" href="../dev786.html">
+<img alt="dev786 profile image" class="crayons-avatar__image" height="32" loading="lazy" src="../cdn/media2.dev.to/dynamic/image/width=50,height=50,fit=cover,gravity=auto,format=auto/https___dev-to-uploads.s3.amazonaws.com_uploads_user_profile_image_385000_a742ff88-74f7-4e95-a3a7-52cfec993546.jpeg" width="32"/>
+</a>
+<div class="inner-comment comment__details">
+<div class="comment__content crayons-card">
+<div class="comment__header">
+<a class="crayons-link crayons-link--secondary flex items-center fw-medium m:hidden" href="../dev786.html">
+<span class="js-comment-username">
+      Devashish Rana
+    </span>
+</a>
+<div class="profile-preview-card relative mb-4 s:mb-0 fw-medium hidden m:block">
+<button aria-controls="comment-profile-preview-content-1505962" aria-label="Devashish Rana profile details" class="profile-preview-card__trigger p-1 -my-1 -ml-1 crayons-btn crayons-btn--ghost" id="comment-profile-preview-trigger-1505962">
+      Devashish Rana
+      
+    </button>
+<div class="profile-preview-card__content p-4 pt-0 branded-7 crayons-dropdown" data-repositioning-dropdown="true" data-testid="profile-preview-card" id="comment-profile-preview-content-1505962" style="--card-color: #160533; border-top-color: var(--card-color);">
+<div class="gap-4 grid">
+<div class="-mt-4">
+<a class="flex" href="../dev786.html">
+<span class="crayons-avatar crayons-avatar--xl mr-2 shrink-0">
+<img alt="" class="crayons-avatar__image" loading="lazy" src="../cdn/media2.dev.to/dynamic/image/width=90,height=90,fit=cover,gravity=auto,format=auto/https___dev-to-uploads.s3.amazonaws.com_uploads_user_profile_image_385000_a742ff88-74f7-4e95-a3a7-52cfec993546.jpeg"/>
+</span>
+<span class="crayons-link crayons-subtitle-2 mt-5">
+      Devashish Rana
+      
+    </span>
+</a>
+</div>
+<div class="print-hidden">
+<button aria-label="Follow user: Devashish Rana" aria-pressed="false" class="crayons-btn follow-action-button whitespace-nowrap w-100 follow-user" data-info='{"className":"User","style":"","id":385000,"name":"Devashish Rana"}' name="button" type="button">Follow</button>
+</div>
+<div class="color-base-70">
+    I am a software Engineer and an artificial intelligence enthusiast
+  </div>
+<div class="user-metadata-details">
+<ul class="user-metadata-details-inner">
+<li>
+<div class="key">
+            Location
+          </div>
+<div class="value">
+             New Delhi, India
+          </div>
+</li>
+<li>
+<div class="key">
+              Work
+            </div>
+<div class="value">
+              Software Engineer at Symphony talent
+            </div>
+</li>
+<li>
+<div class="key">
+          Joined
+        </div>
+<div class="value">
+<time class="date" datetime="2020-05-12T19:52:56Z">May 12, 2020</time>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<span class="color-base-30 px-2 m:pl-0" role="presentation">•</span>
+<a class="comment-date crayons-link crayons-link--secondary fs-s" href="stop-using-python-for-your-gen-ai-apps-use-go-and-genkit-instead-401p.html">
+<time class="date-no-year" datetime="2026-05-06T10:48:03Z">
+    May 6
+  </time>
+</a>
+<div class="comment__dropdown" data-tracking-name="comment_dropdown">
+<button aria-controls="comment-dropdown-1505962" aria-expanded="false" aria-haspopup="true" aria-label="Toggle dropdown menu" class="dropbtn comment__dropdown-trigger crayons-btn crayons-btn--s crayons-btn--ghost crayons-btn--icon" id="comment-dropdown-trigger-1505962">
+<svg aria-labelledby="a5otr8g0e0m59lq0cg8t392gz5q2dmnt" class="crayons-icon pointer-events-none" height="24" role="img" viewbox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><title id="a5otr8g0e0m59lq0cg8t392gz5q2dmnt">Dropdown menu</title>
+<path clip-rule="evenodd" d="M8.25 12a1.5 1.5 0 11-3 0 1.5 1.5 0 013 0zm5.25 0a1.5 1.5 0 11-3 0 1.5 1.5 0 013 0zm3.75 1.5a1.5 1.5 0 100-3 1.5 1.5 0 000 3z" fill-rule="evenodd"></path>
+</svg>
+</button>
+<div class="crayons-dropdown right-1 s:right-0 s:left-auto fs-base dropdown" id="comment-dropdown-1505962">
+<ul class="m-0">
+<li><a aria-label="Copy link to Devashish Rana's comment" class="crayons-link crayons-link--block permalink-copybtn" data-no-instant="" href="stop-using-python-for-your-gen-ai-apps-use-go-and-genkit-instead-401p.html">Copy link</a></li>
+<li aria-label="Go to Devashish Rana's comment settings" class="comment-actions hidden" data-action="settings-button" data-path="https://dev.to/dev786/comment/37hjg/settings" data-user-id="385000"></li>
+<li class="comment-actions hidden" data-action="hide-button" data-commentable-user-id="345388" data-user-id="385000">
+<button aria-label="Hide Devashish Rana's comment" class="flex justify-between crayons-link crayons-link--block w-100 bg-transparent border-0 hide-comment" data-comment-id="1505962" data-comment-url="https://dev.to/dev786/comment/37hjg" data-hide-type="hide">
+                Hide
+              </button>
+</li>
+<li aria-label="Moderate Devashish Rana's comment" class="mod-actions hidden mod-actions-comment-button" data-path="https://dev.to/dev786/comment/37hjg/mod"></li>
+<li aria-label="Report Devashish Rana's comment as abusive or violating our code of conduct and/or terms and conditions" class="report-abuse-link-wrapper" data-path="/report-abuse?url=https://dev.to/dev786/comment/37hjg"></li>
+<li class="current-user-actions"></li>
+</ul>
+</div>
+</div>
+</div>
+<div class="comment__body text-styles text-styles--secondary body">
+<p>I just believe it won't matter in this case, since most of the agentic decisions will depend on network calls. I think it's better to use what you know and try to optimize the use of models instead of programming language. </p>
+<p>Unless you reach a crazy scale it doesn't even matter</p>
+</div>
+</div>
+<script>
+</script>
+<footer class="comment__footer print-hidden">
+<button aria-label="like" class="crayons-tooltip__activator relative crayons-btn crayons-btn--ghost crayons-btn--icon crayons-btn--s mr-1 reaction-like inline-flex reaction-button" data-comment-id="1505962" data-tracking-name="comment_heart_button" id="button-for-comment-1505962">
+<svg aria-labelledby="a60nrjrvcktfmljs99nx8p6h22ta9y8" class="crayons-icon reaction-icon not-reacted" height="24" role="img" width="24" xmlns="http://www.w3.org/2000/svg"><title id="a60nrjrvcktfmljs99nx8p6h22ta9y8">Like comment: </title><path d="M18.884 12.595l.01.011L12 19.5l-6.894-6.894.01-.01A4.875 4.875 0 0112 5.73a4.875 4.875 0 016.884 6.865zM6.431 7.037a3.375 3.375 0 000 4.773L12 17.38l5.569-5.569a3.375 3.375 0 10-4.773-4.773L9.613 10.22l-1.06-1.062 2.371-2.372a3.375 3.375 0 00-4.492.25v.001z"></path></svg>
+<svg aria-labelledby="aaj6vbsv4ni8tijgirk3py162lv15o7u" class="crayons-icon crayons-icon reaction-icon--like reaction-icon reacted" height="24" role="img" viewbox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><title id="aaj6vbsv4ni8tijgirk3py162lv15o7u">Like comment: </title>
+<path d="M5.116 12.595a4.875 4.875 0 015.56-7.68h-.002L7.493 8.098l1.06 1.061 3.181-3.182a4.875 4.875 0 016.895 6.894L12 19.5l-6.894-6.894.01-.01z"></path>
+</svg>
+<span class="reactions-count"></span><span class="reactions-label hidden m:inline-block"></span>
+<span class="crayons-tooltip__content" data-testid="tooltip">
+      Like
+    </span>
+</button>
+<button class="actions crayons-btn crayons-btn--ghost crayons-btn--s crayons-btn--icon-left toggle-reply-form mr-1 inline-flex" data-comment-id="1505962" data-path="/gde/stop-using-python-for-your-gen-ai-apps-use-go-and-genkit-instead-401p/comments/37hjg" data-testid="reply-button-1505962" data-tracking-name="comment_reply_button" rel="nofollow">
+<svg aria-labelledby="ar1weireixn8g1r2ln8vvz43dledn3ho" class="crayons-icon reaction-icon not-reacted" height="24" role="img" width="24" xmlns="http://www.w3.org/2000/svg"><title id="ar1weireixn8g1r2ln8vvz43dledn3ho">Comment button</title><path d="M10.5 5h3a6 6 0 110 12v2.625c-3.75-1.5-9-3.75-9-8.625a6 6 0 016-6zM12 15.5h1.5a4.501 4.501 0 001.722-8.657A4.5 4.5 0 0013.5 6.5h-3A4.5 4.5 0 006 11c0 2.707 1.846 4.475 6 6.36V15.5z"></path></svg>
+<span class="hidden m:inline-block">Reply</span>
+</button>
+</footer>
+</div>
+</div>
+<details class="comment-wrapper js-comment-wrapper comment-wrapper--deep-1 child" open="">
+<summary aria-label="Toggle this comment (and replies)" data-tracking-name="expand_comment_toggle">
+<span class="mx-0 inline-block align-middle">
+<svg aria-labelledby="a5n3r12jn7wgbna2cex597u5ub6c9bgd" class="crayons-icon expanded" height="24" role="img" viewbox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><title id="a5n3r12jn7wgbna2cex597u5ub6c9bgd">Collapse</title>
+<path d="M12 10.677L8 6.935 9 6l3 2.807L15 6l1 .935-4 3.742zm0 4.517L9 18l-1-.935 4-3.742 4 3.742-1 .934-3-2.805z"></path>
+</svg>
+<svg aria-labelledby="a9rxxy19rbkel9o62kejw2nw1inblbm5" class="crayons-icon collapsed" height="24" role="img" viewbox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><title id="a9rxxy19rbkel9o62kejw2nw1inblbm5">Expand</title>
+<path d="M12 18l-4-3.771 1-.943 3 2.829 3-2.829 1 .943L12 18zm0-10.115l-3 2.829-1-.943L12 6l4 3.771-1 .942-3-2.828z"></path>
+</svg>
+</span>
+<span class="js-collapse-comment-content inline-block align-middle"></span>
+</summary>
+<div class="comment single-comment-node child comment--deep-1" data-comment-author-id="28704" data-comment-id="1506152" data-content-user-id="28704" data-path="/gde/stop-using-python-for-your-gen-ai-apps-use-go-and-genkit-instead-401p/comments/37i0o" id="comment-node-1506152">
+<a name="comment-37i0o" style="position: absolute; top: -8px;"> </a>
+<div class="comment__inner">
+<a class="shrink-0 crayons-avatar mt-4" href="../leob.html">
+<img alt="leob profile image" class="crayons-avatar__image" height="32" loading="lazy" src="../cdn/media2.dev.to/dynamic/image/width=50,height=50,fit=cover,gravity=auto,format=auto/https___dev-to-uploads.s3.amazonaws.com_uploads_user_profile_image_28704_616e76ac-2a61-4758-8dcd-da819cec4c85.jpg" width="32"/>
+</a>
+<div class="inner-comment comment__details">
+<div class="comment__content crayons-card">
+<div class="comment__header">
+<a class="crayons-link crayons-link--secondary flex items-center fw-medium m:hidden" href="../leob.html">
+<span class="js-comment-username">
+      leob
+    </span>
+</a>
+<div class="profile-preview-card relative mb-4 s:mb-0 fw-medium hidden m:block">
+<button aria-controls="comment-profile-preview-content-1506152" aria-label="leob profile details" class="profile-preview-card__trigger p-1 -my-1 -ml-1 crayons-btn crayons-btn--ghost" id="comment-profile-preview-trigger-1506152">
+      leob
+      
+    </button>
+<div class="profile-preview-card__content p-4 pt-0 branded-7 crayons-dropdown" data-repositioning-dropdown="true" data-testid="profile-preview-card" id="comment-profile-preview-content-1506152" style="--card-color: #002a9e; border-top-color: var(--card-color);">
+<div class="gap-4 grid">
+<div class="-mt-4">
+<a class="flex" href="../leob.html">
+<span class="crayons-avatar crayons-avatar--xl mr-2 shrink-0">
+<img alt="" class="crayons-avatar__image" loading="lazy" src="../cdn/media2.dev.to/dynamic/image/width=90,height=90,fit=cover,gravity=auto,format=auto/https___dev-to-uploads.s3.amazonaws.com_uploads_user_profile_image_28704_616e76ac-2a61-4758-8dcd-da819cec4c85.jpg"/>
+</span>
+<span class="crayons-link crayons-subtitle-2 mt-5">
+      leob
+      
+    </span>
+</a>
+</div>
+<div class="print-hidden">
+<button aria-label="Follow user: leob" aria-pressed="false" class="crayons-btn follow-action-button whitespace-nowrap w-100 follow-user" data-info='{"className":"User","style":"","id":28704,"name":"leob"}' name="button" type="button">Follow</button>
+</div>
+<div class="user-metadata-details">
+<ul class="user-metadata-details-inner">
+<li>
+<div class="key">
+              Pronouns
+            </div>
+<div class="value">
+              he/him
+            </div>
+</li>
+<li>
+<div class="key">
+          Joined
+        </div>
+<div class="value">
+<time class="date" datetime="2017-08-04T01:13:01Z">Aug 4, 2017</time>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<span class="color-base-30 px-2 m:pl-0" role="presentation">•</span>
+<a class="comment-date crayons-link crayons-link--secondary fs-s" href="stop-using-python-for-your-gen-ai-apps-use-go-and-genkit-instead-401p.html">
+<time class="date-no-year" datetime="2026-05-06T16:06:20Z">
+    May 6
+  </time>
+<span class="hidden m:inline-block">• Edited on <time class="date-no-year" datetime="2026-05-06T16:07:06Z">May 6</time></span>
+<span class="m:hidden">• Edited</span>
+</a>
+<div class="comment__dropdown" data-tracking-name="comment_dropdown">
+<button aria-controls="comment-dropdown-1506152" aria-expanded="false" aria-haspopup="true" aria-label="Toggle dropdown menu" class="dropbtn comment__dropdown-trigger crayons-btn crayons-btn--s crayons-btn--ghost crayons-btn--icon" id="comment-dropdown-trigger-1506152">
+<svg aria-labelledby="asjnkoi36h9cqty76tm0pq1nq2ynwhzw" class="crayons-icon pointer-events-none" height="24" role="img" viewbox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><title id="asjnkoi36h9cqty76tm0pq1nq2ynwhzw">Dropdown menu</title>
+<path clip-rule="evenodd" d="M8.25 12a1.5 1.5 0 11-3 0 1.5 1.5 0 013 0zm5.25 0a1.5 1.5 0 11-3 0 1.5 1.5 0 013 0zm3.75 1.5a1.5 1.5 0 100-3 1.5 1.5 0 000 3z" fill-rule="evenodd"></path>
+</svg>
+</button>
+<div class="crayons-dropdown right-1 s:right-0 s:left-auto fs-base dropdown" id="comment-dropdown-1506152">
+<ul class="m-0">
+<li><a aria-label="Copy link to leob's comment" class="crayons-link crayons-link--block permalink-copybtn" data-no-instant="" href="stop-using-python-for-your-gen-ai-apps-use-go-and-genkit-instead-401p.html">Copy link</a></li>
+<li aria-label="Go to leob's comment settings" class="comment-actions hidden" data-action="settings-button" data-path="https://dev.to/leob/comment/37i0o/settings" data-user-id="28704"></li>
+<li class="comment-actions hidden" data-action="hide-button" data-commentable-user-id="345388" data-user-id="28704">
+<button aria-label="Hide leob's comment" class="flex justify-between crayons-link crayons-link--block w-100 bg-transparent border-0 hide-comment" data-comment-id="1506152" data-comment-url="https://dev.to/leob/comment/37i0o" data-hide-type="hide">
+                Hide
+              </button>
+</li>
+<li aria-label="Moderate leob's comment" class="mod-actions hidden mod-actions-comment-button" data-path="https://dev.to/leob/comment/37i0o/mod"></li>
+<li aria-label="Report leob's comment as abusive or violating our code of conduct and/or terms and conditions" class="report-abuse-link-wrapper" data-path="/report-abuse?url=https://dev.to/leob/comment/37i0o"></li>
+<li class="current-user-actions"></li>
+</ul>
+</div>
+</div>
+</div>
+<div class="comment__body text-styles text-styles--secondary body">
+<p>You're not countering any of the author's arguments that explain why Go is a better choice (for production deployments) - "I just believe" is not really a strong reason ...</p>
+</div>
+</div>
+<script>
+</script>
+<footer class="comment__footer print-hidden">
+<button aria-label="like" class="crayons-tooltip__activator relative crayons-btn crayons-btn--ghost crayons-btn--icon-left crayons-btn--s mr-1 reaction-like inline-flex reaction-button" data-comment-id="1506152" data-tracking-name="comment_heart_button" id="button-for-comment-1506152">
+<svg aria-labelledby="aft72bkfnesfc5a5v17pgak2pxiczx30" class="crayons-icon reaction-icon not-reacted" height="24" role="img" width="24" xmlns="http://www.w3.org/2000/svg"><title id="aft72bkfnesfc5a5v17pgak2pxiczx30">Like comment: </title><path d="M18.884 12.595l.01.011L12 19.5l-6.894-6.894.01-.01A4.875 4.875 0 0112 5.73a4.875 4.875 0 016.884 6.865zM6.431 7.037a3.375 3.375 0 000 4.773L12 17.38l5.569-5.569a3.375 3.375 0 10-4.773-4.773L9.613 10.22l-1.06-1.062 2.371-2.372a3.375 3.375 0 00-4.492.25v.001z"></path></svg>
+<svg aria-labelledby="a8jmbno7dm2xh7s2uavfms18z10qd1ka" class="crayons-icon crayons-icon reaction-icon--like reaction-icon reacted" height="24" role="img" viewbox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><title id="a8jmbno7dm2xh7s2uavfms18z10qd1ka">Like comment: </title>
+<path d="M5.116 12.595a4.875 4.875 0 015.56-7.68h-.002L7.493 8.098l1.06 1.061 3.181-3.182a4.875 4.875 0 016.895 6.894L12 19.5l-6.894-6.894.01-.01z"></path>
+</svg>
+<span class="reactions-count">1</span><span class="reactions-label hidden m:inline-block"> like</span>
+<span class="crayons-tooltip__content" data-testid="tooltip">
+      Like
+    </span>
+</button>
+<button class="actions crayons-btn crayons-btn--ghost crayons-btn--s crayons-btn--icon-left toggle-reply-form mr-1 inline-flex" data-comment-id="1506152" data-path="/gde/stop-using-python-for-your-gen-ai-apps-use-go-and-genkit-instead-401p/comments/37i0o" data-testid="reply-button-1506152" data-tracking-name="comment_reply_button" rel="nofollow">
+<svg aria-labelledby="akklquxcgr1kaw9bkofhuvru91vym8ml" class="crayons-icon reaction-icon not-reacted" height="24" role="img" width="24" xmlns="http://www.w3.org/2000/svg"><title id="akklquxcgr1kaw9bkofhuvru91vym8ml">Comment button</title><path d="M10.5 5h3a6 6 0 110 12v2.625c-3.75-1.5-9-3.75-9-8.625a6 6 0 016-6zM12 15.5h1.5a4.501 4.501 0 001.722-8.657A4.5 4.5 0 0013.5 6.5h-3A4.5 4.5 0 006 11c0 2.707 1.846 4.475 6 6.36V15.5z"></path></svg>
+<span class="hidden m:inline-block">Reply</span>
+</button>
+</footer>
+</div>
+</div>
+<details class="comment-wrapper js-comment-wrapper comment-wrapper--deep-2 child" open="">
+<summary aria-label="Toggle this comment (and replies)" data-tracking-name="expand_comment_toggle">
+<span class="mx-0 inline-block align-middle">
+<svg aria-labelledby="a4w3251xq3agi4upbb7ks3czmaixlxaj" class="crayons-icon expanded" height="24" role="img" viewbox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><title id="a4w3251xq3agi4upbb7ks3czmaixlxaj">Collapse</title>
+<path d="M12 10.677L8 6.935 9 6l3 2.807L15 6l1 .935-4 3.742zm0 4.517L9 18l-1-.935 4-3.742 4 3.742-1 .934-3-2.805z"></path>
+</svg>
+<svg aria-labelledby="akfxft0fx95b1reyhakr7wzuwdd7tzum" class="crayons-icon collapsed" height="24" role="img" viewbox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><title id="akfxft0fx95b1reyhakr7wzuwdd7tzum">Expand</title>
+<path d="M12 18l-4-3.771 1-.943 3 2.829 3-2.829 1 .943L12 18zm0-10.115l-3 2.829-1-.943L12 6l4 3.771-1 .942-3-2.828z"></path>
+</svg>
+</span>
+<span class="js-collapse-comment-content inline-block align-middle"></span>
+</summary>
+<div class="comment single-comment-node child comment--deep-2" data-comment-author-id="385000" data-comment-id="1506165" data-content-user-id="385000" data-path="/gde/stop-using-python-for-your-gen-ai-apps-use-go-and-genkit-instead-401p/comments/37i1b" id="comment-node-1506165">
+<a name="comment-37i1b" style="position: absolute; top: -8px;"> </a>
+<div class="comment__inner">
+<a class="shrink-0 crayons-avatar mt-4" href="../dev786.html">
+<img alt="dev786 profile image" class="crayons-avatar__image" height="32" loading="lazy" src="../cdn/media2.dev.to/dynamic/image/width=50,height=50,fit=cover,gravity=auto,format=auto/https___dev-to-uploads.s3.amazonaws.com_uploads_user_profile_image_385000_a742ff88-74f7-4e95-a3a7-52cfec993546.jpeg" width="32"/>
+</a>
+<div class="inner-comment comment__details">
+<div class="comment__content crayons-card">
+<div class="comment__header">
+<a class="crayons-link crayons-link--secondary flex items-center fw-medium m:hidden" href="../dev786.html">
+<span class="js-comment-username">
+      Devashish Rana
+    </span>
+</a>
+<div class="profile-preview-card relative mb-4 s:mb-0 fw-medium hidden m:block">
+<button aria-controls="comment-profile-preview-content-1506165" aria-label="Devashish Rana profile details" class="profile-preview-card__trigger p-1 -my-1 -ml-1 crayons-btn crayons-btn--ghost" id="comment-profile-preview-trigger-1506165">
+      Devashish Rana
+      
+    </button>
+<div class="profile-preview-card__content p-4 pt-0 branded-7 crayons-dropdown" data-repositioning-dropdown="true" data-testid="profile-preview-card" id="comment-profile-preview-content-1506165" style="--card-color: #160533; border-top-color: var(--card-color);">
+<div class="gap-4 grid">
+<div class="-mt-4">
+<a class="flex" href="../dev786.html">
+<span class="crayons-avatar crayons-avatar--xl mr-2 shrink-0">
+<img alt="" class="crayons-avatar__image" loading="lazy" src="../cdn/media2.dev.to/dynamic/image/width=90,height=90,fit=cover,gravity=auto,format=auto/https___dev-to-uploads.s3.amazonaws.com_uploads_user_profile_image_385000_a742ff88-74f7-4e95-a3a7-52cfec993546.jpeg"/>
+</span>
+<span class="crayons-link crayons-subtitle-2 mt-5">
+      Devashish Rana
+      
+    </span>
+</a>
+</div>
+<div class="print-hidden">
+<button aria-label="Follow user: Devashish Rana" aria-pressed="false" class="crayons-btn follow-action-button whitespace-nowrap w-100 follow-user" data-info='{"className":"User","style":"","id":385000,"name":"Devashish Rana"}' name="button" type="button">Follow</button>
+</div>
+<div class="color-base-70">
+    I am a software Engineer and an artificial intelligence enthusiast
+  </div>
+<div class="user-metadata-details">
+<ul class="user-metadata-details-inner">
+<li>
+<div class="key">
+            Location
+          </div>
+<div class="value">
+             New Delhi, India
+          </div>
+</li>
+<li>
+<div class="key">
+              Work
+            </div>
+<div class="value">
+              Software Engineer at Symphony talent
+            </div>
+</li>
+<li>
+<div class="key">
+          Joined
+        </div>
+<div class="value">
+<time class="date" datetime="2020-05-12T19:52:56Z">May 12, 2020</time>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<span class="color-base-30 px-2 m:pl-0" role="presentation">•</span>
+<a class="comment-date crayons-link crayons-link--secondary fs-s" href="stop-using-python-for-your-gen-ai-apps-use-go-and-genkit-instead-401p.html">
+<time class="date-no-year" datetime="2026-05-06T16:26:01Z">
+    May 6
+  </time>
+</a>
+<div class="comment__dropdown" data-tracking-name="comment_dropdown">
+<button aria-controls="comment-dropdown-1506165" aria-expanded="false" aria-haspopup="true" aria-label="Toggle dropdown menu" class="dropbtn comment__dropdown-trigger crayons-btn crayons-btn--s crayons-btn--ghost crayons-btn--icon" id="comment-dropdown-trigger-1506165">
+<svg aria-labelledby="abppwan5rsih81izynz9soyfsv8z6fyz" class="crayons-icon pointer-events-none" height="24" role="img" viewbox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><title id="abppwan5rsih81izynz9soyfsv8z6fyz">Dropdown menu</title>
+<path clip-rule="evenodd" d="M8.25 12a1.5 1.5 0 11-3 0 1.5 1.5 0 013 0zm5.25 0a1.5 1.5 0 11-3 0 1.5 1.5 0 013 0zm3.75 1.5a1.5 1.5 0 100-3 1.5 1.5 0 000 3z" fill-rule="evenodd"></path>
+</svg>
+</button>
+<div class="crayons-dropdown right-1 s:right-0 s:left-auto fs-base dropdown" id="comment-dropdown-1506165">
+<ul class="m-0">
+<li><a aria-label="Copy link to Devashish Rana's comment" class="crayons-link crayons-link--block permalink-copybtn" data-no-instant="" href="stop-using-python-for-your-gen-ai-apps-use-go-and-genkit-instead-401p.html">Copy link</a></li>
+<li aria-label="Go to Devashish Rana's comment settings" class="comment-actions hidden" data-action="settings-button" data-path="https://dev.to/dev786/comment/37i1b/settings" data-user-id="385000"></li>
+<li class="comment-actions hidden" data-action="hide-button" data-commentable-user-id="345388" data-user-id="385000">
+<button aria-label="Hide Devashish Rana's comment" class="flex justify-between crayons-link crayons-link--block w-100 bg-transparent border-0 hide-comment" data-comment-id="1506165" data-comment-url="https://dev.to/dev786/comment/37i1b" data-hide-type="hide">
+                Hide
+              </button>
+</li>
+<li aria-label="Moderate Devashish Rana's comment" class="mod-actions hidden mod-actions-comment-button" data-path="https://dev.to/dev786/comment/37i1b/mod"></li>
+<li aria-label="Report Devashish Rana's comment as abusive or violating our code of conduct and/or terms and conditions" class="report-abuse-link-wrapper" data-path="/report-abuse?url=https://dev.to/dev786/comment/37i1b"></li>
+<li class="current-user-actions"></li>
+</ul>
+</div>
+</div>
+</div>
+<div class="comment__body text-styles text-styles--secondary body">
+<p>I am neither countering nor disregarding. I am building in this domain from past 4 years, all I can say is, programming languages are the last thing we need to think about while building an application cz all the so called AI app do is "Call an API"</p>
+<p>Anyways I do appreciate what is shared though.</p>
+</div>
+</div>
+<script>
+</script>
+<footer class="comment__footer print-hidden">
+<button aria-label="like" class="crayons-tooltip__activator relative crayons-btn crayons-btn--ghost crayons-btn--icon-left crayons-btn--s mr-1 reaction-like inline-flex reaction-button" data-comment-id="1506165" data-tracking-name="comment_heart_button" id="button-for-comment-1506165">
+<svg aria-labelledby="a1vr0xxk5t3yg0er6pj3zi1ugy3jkr4o" class="crayons-icon reaction-icon not-reacted" height="24" role="img" width="24" xmlns="http://www.w3.org/2000/svg"><title id="a1vr0xxk5t3yg0er6pj3zi1ugy3jkr4o">Like comment: </title><path d="M18.884 12.595l.01.011L12 19.5l-6.894-6.894.01-.01A4.875 4.875 0 0112 5.73a4.875 4.875 0 016.884 6.865zM6.431 7.037a3.375 3.375 0 000 4.773L12 17.38l5.569-5.569a3.375 3.375 0 10-4.773-4.773L9.613 10.22l-1.06-1.062 2.371-2.372a3.375 3.375 0 00-4.492.25v.001z"></path></svg>
+<svg aria-labelledby="abysydokdb69i377qreg415zjlpr7soh" class="crayons-icon crayons-icon reaction-icon--like reaction-icon reacted" height="24" role="img" viewbox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><title id="abysydokdb69i377qreg415zjlpr7soh">Like comment: </title>
+<path d="M5.116 12.595a4.875 4.875 0 015.56-7.68h-.002L7.493 8.098l1.06 1.061 3.181-3.182a4.875 4.875 0 016.895 6.894L12 19.5l-6.894-6.894.01-.01z"></path>
+</svg>
+<span class="reactions-count">1</span><span class="reactions-label hidden m:inline-block"> like</span>
+<span class="crayons-tooltip__content" data-testid="tooltip">
+      Like
+    </span>
+</button>
+<button class="actions crayons-btn crayons-btn--ghost crayons-btn--s crayons-btn--icon-left toggle-reply-form mr-1 inline-flex" data-comment-id="1506165" data-path="/gde/stop-using-python-for-your-gen-ai-apps-use-go-and-genkit-instead-401p/comments/37i1b" data-testid="reply-button-1506165" data-tracking-name="comment_reply_button" rel="nofollow">
+<svg aria-labelledby="ad71buk0kqlt1dc2wxt9affwiltehtw1" class="crayons-icon reaction-icon not-reacted" height="24" role="img" width="24" xmlns="http://www.w3.org/2000/svg"><title id="ad71buk0kqlt1dc2wxt9affwiltehtw1">Comment button</title><path d="M10.5 5h3a6 6 0 110 12v2.625c-3.75-1.5-9-3.75-9-8.625a6 6 0 016-6zM12 15.5h1.5a4.501 4.501 0 001.722-8.657A4.5 4.5 0 0013.5 6.5h-3A4.5 4.5 0 006 11c0 2.707 1.846 4.475 6 6.36V15.5z"></path></svg>
+<span class="hidden m:inline-block">Reply</span>
+</button>
+</footer>
+</div>
+</div>
+</div>
+</details>
+</div>
+</details>
+</div>
+</details>
+</div>
+</div>
+<div class="align-center">
+<nav aria-label="Conduct controls" class="fs-s align-center block">
+<a class="crayons-link crayons-link--secondary" href="../code-of-conduct.html">Code of Conduct</a>
+<span class="opacity-25 px-2" role="presentation">•</span>
+<a class="crayons-link crayons-link--secondary" href="../report-abuse.html">Report abuse</a>
+</nav>
+</div>
+</section>
+<div class="hidden" id="hide-comments-modal">
+<form accept-charset="UTF-8" action="/comments/hide" class="hide-comments-modal__form" data-remote="true" data-type="json" id="hide-comments-modal__form" method="post"><input autocomplete="off" name="utf8" type="hidden" value="✓"/><input autocomplete="off" name="_method" type="hidden" value="patch"/><input autocomplete="off" name="authenticity_token" type="hidden" value="yB27s0-7vfXgse9lermXHq7WP-DlM2wQL2oxe9-J-HVl1lWUST_uXUgmwqhyuCnGY5JUQvUobg5AngruTXMV0Q"/>
+<div class="hide-comments-modal__content">
+<p class="pb-2">
+        Are you sure you want to hide this comment? It will become hidden in your post, but will still be visible via the comment's <a href="#" id="hide-comments-modal__comment-permalink">permalink</a>.
+      </p>
+<label class="crayons-field crayons-field--checkbox my-2">
+<input autocomplete="off" name="hide_children" type="hidden" value="0"/><input class="hide_children crayons-checkbox" id="hide_children" name="hide_children" type="checkbox" value="1"/>
+<p class="crayons-field__label">Hide child comments as well</p>
+</label>
+<p class="pb-4 pt-2">
+<button class="crayons-btn" type="submit">
+          Confirm
+        </button>
+</p>
+</div>
+</form> <p class="fs-s color-base-60">For further actions, you may consider blocking this person and/or <a href="../report-abuse.html" id="hide-comments-modal__report-link">reporting abuse</a></p>
+</div>
+</article>
+<div class="pb-4 crayons-layout__comments-billboard">
+<div class="new-bb-container pb-4 crayons-layout__comments-billboard" data-async-url="/gde/stop-using-python-for-your-gen-ai-apps-use-go-and-genkit-instead-401p/bmar11/post_comments"></div>
+</div>
+<!-- Bottom content skipped via SKIP_BOTTOM_CONTENT config -->
+</div>
+</main>
+<aside aria-label="Author details" class="crayons-layout__sidebar-right">
+<div class="crayons-article-sticky grid gap-4 pb-4 break-word" id="article-show-primary-sticky-nav">
+<div class="crayons-card crayons-card--secondary branded-7 p-4 pt-0 gap-4 grid" style="border-top-color: #2e9449;">
+<div class="-mt-4">
+<a class="flex" href="../gde.html">
+<span class="crayons-logo crayons-logo--xl mr-2 shrink-0">
+<img alt="" class="crayons-logo__image" loading="lazy" src="../cdn/media2.dev.to/dynamic/image/width=90,height=90,fit=cover,gravity=auto,format=auto/https___dev-to-uploads.s3.amazonaws.com_uploads_organization_profile_image_11939_e3080d5b-ecde-42a8-b08-9e982b347ccb.png"/>
+</span>
+<span class="crayons-link crayons-subtitle-2 mt-5">
+      Google Developer Experts
+      
+    </span>
+</a>
+</div>
+<div class="print-hidden">
+<button aria-label="Follow organization: Google Developer Experts" aria-pressed="false" class="crayons-btn follow-action-button whitespace-nowrap w-100" data-info='{"className":"Organization","style":"","id":11939,"name":"Google Developer Experts"}' name="button" type="button">Follow</button>
+</div>
+<div>
+<p>Join a global network of more than 1,000 professionals. Meet experienced Google technology experts, influencers, and thought leaders. Explore the community, get advice, and network.</p>
+</div>
+<div>
+<a class="crayons-btn crayons-btn--outlined w-100" href="https://developers.google.com/community/experts">
+        Become an Expert
+      </a>
+</div>
+</div>
+<div class="crayons-card crayons-card--secondary">
+<header class="crayons-card__header">
+<h3 class="crayons-subtitle-2">
+            More from <a href="../gde.html">Google Developer Experts</a>
+</h3>
+</header>
+<div>
+<a class="crayons-link crayons-link--contentful" href="a-developers-guide-to-understanding-agent-skills-implementing-progressive-disclosure-in-google-164f.html">
+              A Developer's Guide to Understanding Agent Skills: Implementing Progressive Disclosure in Google Apps Script
+              <div class="crayons-link__secondary -ml-1">
+<span class="mr-1"><span class="opacity-50">#</span>ai</span>
+<span class="mr-1"><span class="opacity-50">#</span>agents</span>
+<span class="mr-1"><span class="opacity-50">#</span>gemini</span>
+<span class="mr-1"><span class="opacity-50">#</span>googleappsscript</span>
+</div>
+</a>
+<a class="crayons-link crayons-link--contentful" href="google-cloud-next-26-recap-4-live-report-from-the-two-keynotes-34nb.html">
+              [Google Cloud Next '26 Recap #4] Live Report from the Two Keynotes
+              <div class="crayons-link__secondary -ml-1">
+<span class="mr-1"><span class="opacity-50">#</span>googlecloud</span>
+<span class="mr-1"><span class="opacity-50">#</span>gemini</span>
+<span class="mr-1"><span class="opacity-50">#</span>claude</span>
+<span class="mr-1"><span class="opacity-50">#</span>ai</span>
+</div>
+</a>
+<a class="crayons-link crayons-link--contentful" href="top-javascripttypescript-gen-ai-frameworks-for-2026-a-hands-on-comparisondescription-1g7.html">
+              Top JavaScript/TypeScript Gen AI Frameworks for 2026: A Hands-On Comparison" description
+              <div class="crayons-link__secondary -ml-1">
+<span class="mr-1"><span class="opacity-50">#</span>ai</span>
+<span class="mr-1"><span class="opacity-50">#</span>genkit</span>
+<span class="mr-1"><span class="opacity-50">#</span>genai</span>
+<span class="mr-1"><span class="opacity-50">#</span>programming</span>
+</div>
+</a>
+</div>
+</div>
+</div>
+<div class="crayons-article-sticky grid gap-4 break-word sidebar-bb" data-async-url="/gde/stop-using-python-for-your-gen-ai-apps-use-go-and-genkit-instead-401p/bmar11/post_sidebar"></div>
+</aside>
+</div>
+<div class="mod-actions-menu print-hidden"></div>
+<div class="unpublish-post-modal-container hidden" data-testid="unpublish-post-modal-container"></div>
+<div class="fullscreen-code js-fullscreen-code"></div>
+<script defer="defer" src="../cdn/assets.dev.to/assets/billboard-365f8f60fc3506e63bc54cc5b0a2e36f4c11024ff6a30dccd5462467f24b5215.js"></script>
+<script defer="defer" src="../cdn/assets.dev.to/assets/localizeArticleDates-70147c5c6bfe350b42e020ebb2a3dd37419d83978982b5a67b6389119bf162ac.js"></script>
+<script defer="defer" src="../cdn/assets.dev.to/assets/articleReactions-1f2220b03b8ee48f0e9196d07b123ad5c5d942328819c33728eab4a4ff83150b.js"></script>
+<script>
+    function activateRunkitTags() {
+  if (!areAnyRunkitTagsPresent())
+    return
+
+  var checkRunkit = setInterval(function() {
+    try {
+      dynamicallyLoadRunkitLibrary()
+
+      if (typeof(RunKit) === 'undefined') {
+        return
+      }
+
+      replaceTagContentsWithRunkitWidget()
+      clearInterval(checkRunkit);
+    } catch(e) {
+      console.error(e);
+      clearInterval(checkRunkit);
+    }
+  }, 200);
+}
+
+function isRunkitTagAlreadyActive(runkitTag) {
+  return runkitTag.querySelector("iframe") !== null;
+};
+
+function areAnyRunkitTagsPresent() {
+  var presentRunkitTags = document.getElementsByClassName("runkit-element");
+
+  return presentRunkitTags.length > 0
+}
+
+function replaceTagContentsWithRunkitWidget() {
+  var targets = document.getElementsByClassName("runkit-element");
+  for (var i = 0; i < targets.length; i++) {
+    if (isRunkitTagAlreadyActive(targets[i])) {
+      continue;
+    }
+
+    var wrapperContent = targets[i].textContent;
+    if (/^(<iframe src)/.test(wrapperContent) === false) {
+      if (targets[i].children.length > 0) {
+        var preamble = targets[i].children[0].textContent;
+        var content = targets[i].children[1].textContent;
+        targets[i].innerHTML = "";
+        var notebook = RunKit.createNotebook({
+          element: targets[i],
+          source: content,
+          preamble: preamble
+        });
+      }
+    }
+  }
+};
+
+function dynamicallyLoadRunkitLibrary() {
+  if (typeof(dynamicallyLoadScript) === "undefined")
+    return
+
+  dynamicallyLoadScript("//embed.runkit.com")
+}
+
+activateRunkitTags();
+
+  </script>
+<div class="js-billboard-container pb-4 crayons-layout__comments-billboard" data-async-url="/gde/stop-using-python-for-your-gen-ai-apps-use-go-and-genkit-instead-401p/bmar11/post_fixed_bottom"></div>
+<div id="runtime-banner-container"></div>
+<div data-translations="{&quot;en&quot;:{&quot;core&quot;:{&quot;add_comment&quot;:&quot;Add comment&quot;,&quot;beta&quot;:&quot;beta&quot;,&quot;comment&quot;:&quot;Comment&quot;,&quot;copy_link&quot;:&quot;Copy link&quot;,&quot;edit_profile&quot;:&quot;Edit profile&quot;,&quot;follow&quot;:&quot;Follow&quot;,&quot;follow_back&quot;:&quot;Follow back&quot;,&quot;following&quot;:&quot;Following&quot;,&quot;like&quot;:&quot;Like&quot;,&quot;loading&quot;:&quot;loading...&quot;,&quot;reaction&quot;:&quot;Reaction&quot;,&quot;report_abuse&quot;:&quot;Report abuse&quot;,&quot;search&quot;:&quot;Search&quot;,&quot;success_settings&quot;:&quot;Successfully updated settings.&quot;,&quot;search_placeholder&quot;:&quot;Search...&quot;,&quot;search_find_related_posts&quot;:&quot;Find related posts...&quot;,&quot;search_powered_by&quot;:&quot;Powered by Algolia&quot;,&quot;search_submit_search&quot;:&quot;Submit search for advanced filtering.&quot;,&quot;search_displaying_recommendations&quot;:&quot;Displaying Algolia Recommendations — Start typing to search&quot;,&quot;article_form_save_changes&quot;:&quot;Save changes&quot;,&quot;article_form_schedule&quot;:&quot;Schedule&quot;,&quot;article_form_publish&quot;:&quot;Publish&quot;,&quot;article_form_loading_preview&quot;:&quot;Loading preview&quot;,&quot;article_form_preview_loaded&quot;:&quot;Preview loaded&quot;,&quot;article_form_co_authors&quot;:&quot;Co-authors&quot;,&quot;article_form_co_authors_description&quot;:&quot;Add up to 4 co-authors from %{org_name}.&quot;,&quot;article_form_co_authors_placeholder&quot;:&quot;Add up to 4...&quot;,&quot;comments_preview&quot;:&quot;Preview&quot;,&quot;comments_continue_editing&quot;:&quot;Continue editing&quot;,&quot;survey_enter_response&quot;:&quot;Enter your response here...&quot;,&quot;survey_thank_you_response&quot;:&quot;Thank you for your response.&quot;,&quot;survey_thank_you_completing&quot;:&quot;Thank you for completing the survey!&quot;,&quot;dashboard_analytics_readers&quot;:&quot;Readers&quot;,&quot;dashboard_analytics_avg_read_time&quot;:&quot;avg. read time %{seconds}s&quot;,&quot;dashboard_analytics_comments&quot;:&quot;Comments&quot;,&quot;dashboard_analytics_reactions&quot;:&quot;Reactions&quot;,&quot;dashboard_analytics_unique_reactors&quot;:&quot;from %{count} unique users&quot;,&quot;dashboard_analytics_bookmarks&quot;:&quot;Bookmarks&quot;,&quot;dashboard_analytics_followers&quot;:&quot;New Followers&quot;,&quot;top_contributors_empty&quot;:&quot;No engagers found for this period.&quot;,&quot;top_contributors_reactions&quot;:&quot;reactions&quot;,&quot;top_contributors_comments&quot;:&quot;comments&quot;,&quot;top_contributors_weight_note&quot;:&quot;Comments carry more weight&quot;,&quot;follower_engagement_ratio&quot;:&quot;%{ratio}% of followers engaged&quot;,&quot;follower_engagement_detail&quot;:&quot;(%{engaged} of %{total})&quot;,&quot;dashboard_analytics_no_data&quot;:&quot;No data available for this period&quot;,&quot;dashboard_analytics_no_referrers&quot;:&quot;No traffic sources yet&quot;,&quot;stats_by&quot;:&quot;by&quot;,&quot;editor_new_title&quot;:&quot;New post title here...&quot;,&quot;editor_body_placeholder&quot;:&quot;Write your post content here...&quot;,&quot;tags_field_label&quot;:&quot;Add up to 4 tags&quot;,&quot;tags_field_placeholder&quot;:&quot;Add up to 4 tags...&quot;,&quot;counted_organization&quot;:{&quot;one&quot;:&quot;%{count} organization&quot;,&quot;other&quot;:&quot;%{count} organizations&quot;},&quot;counted_user&quot;:{&quot;one&quot;:&quot;%{count} person&quot;,&quot;other&quot;:&quot;%{count} people&quot;},&quot;not_following&quot;:&quot;You're not following anyone&quot;,&quot;following_everyone&quot;:&quot;You're following %{details} (everyone)&quot;,&quot;you_are_following&quot;:&quot;You're following&quot;,&quot;and&quot;:&quot;and&quot;}}}" id="i18n-translations"></div>
+</div>
+</div>
+<footer class="crayons-footer print-hidden" id="footer">
+<div class="crayons-footer__container" id="footer-container">
+<style>
+  .long-bb-body {
+    max-height: calc(100vh - 200px);
+    overflow: hidden;
+  }
+  .long-bb-bottom {
+    height: 180px;
+    background: linear-gradient(to top, var(--card-bg), transparent);
+    margin-top: -180px;
+    position:relative;
+    z-index: 5;
+  }
+</style>
+<div data-article-id="" data-category-click="click" data-category-impression="impression" data-context-type="home" data-display-unit="" data-id="146443" data-special="nothing" data-type-of="in_house" style="">
+<div class="crayons-card crayons-card--secondary crayons-bb bb-placement js-billboard" style="display: inline-flex; flex-direction: column; align-items: center; margin: 0 auto 2rem auto; width: fit-content; padding: 2rem;">
+<p style="font-weight: bold; margin: 0 0 1rem 0;">
+            💎 DEV Diamond Sponsors
+        </p>
+<p style="font-size: 0.8em; margin: 0 0 2rem 0;">
+            Thank you to our Diamond Sponsors for supporting the DEV Community
+        </p>
+<div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 2rem;">
+<div style="display: inline-block; max-width: 240px; font-size: 0.8em; font-style: italic; text-align: center; padding: 10px; background: #ffffff; border-radius: 5px; color: #404040;">
+<a href="https://aistudio.google.com/?utm_source=partner&amp;utm_medium=partner&amp;utm_campaign=FY25-Global-DEVpartnership-sponsorship-AIS&amp;utm_content=-&amp;utm_term=-&amp;bb=146443" rel="noopener noreferrer" style="display: flex; justify-content: center; align-items: center;" target="_blank">
+<img alt="Google AI - Official AI Model and Platform Partner" height="472" loading="lazy" src="../cdn/media2.dev.to/dynamic/image/width=880,height=,fit=scale-down,gravity=auto,format=auto/https___dev-to-uploads.s3.amazonaws.com_uploads_articles_xjlyhbdqehj3akhz166w.png" style="display: block; background: #ffffff; margin: 0 auto; width: auto; height: 54px; padding: 10px;" width="2048"/>
+</a>
+<p style="text-align: center;">Google AI is the official AI Model and Platform Partner of DEV</p>
+</div>
+<div style="display: inline-block; max-width: 240px; font-size: 0.8em; font-style: italic; text-align: center; padding: 10px; background: #ffffff; border-radius: 5px; color: #404040;">
+<a href="https://neon.tech/?ref=devto&amp;bb=146443" rel="noopener noreferrer" style="display: flex; justify-content: center; align-items: center;" target="_blank">
+<img alt="Neon - Official Database Partner" height="596" loading="lazy" src="../cdn/media2.dev.to/dynamic/image/width=880,height=,fit=scale-down,gravity=auto,format=auto/https___dev-to-uploads.s3.amazonaws.com_uploads_articles_bnl88cil6afxzmgwrgtt.png" style="display: block; background: #ffffff; margin: 0 auto; width: auto; height: 60px; padding: 10px;" width="2286"/>
+</a>
+<p style="text-align: center;">Neon is the official database partner of DEV</p>
+</div>
+<div style="display: inline-block; max-width: 240px; font-size: 0.8em; font-style: italic; text-align: center; padding: 10px; background: #ffffff; border-radius: 5px; color: #404040;">
+<a href="https://www.algolia.com/developers/?utm_source=devto&amp;utm_medium=referral&amp;bb=146443" rel="noopener noreferrer" style="display: flex; justify-content: center; align-items: center;" target="_blank">
+<img alt="Algolia - Official Search Partner" height="596" loading="lazy" src="../cdn/media2.dev.to/dynamic/image/width=880,height=,fit=scale-down,gravity=auto,format=auto/https___dev-to-uploads.s3.amazonaws.com_uploads_articles_v30ephnolfvnlwgwm0yz.png" style="display: block; background: #ffffff; margin: 0 auto; width: auto; height: 60px; padding: 10px;" width="2286"/>
+</a>
+<p style="text-align: center;">Algolia is the official search partner of DEV</p>
+</div>
+</div>
+</div>
+</div>
+<p class="fs-s crayons-footer__description">
+<a aria-label="DEV Community Home" class="c-link c-link--branded fw-medium" href="../index.html">DEV Community</a> — A space to discuss and keep up software development and manage your software career
+    </p>
+<ul class="footer__nav-links flex gap-2 justify-center flex-wrap fs-s p-0" style=""></ul>
+<li class="footer__nav-link flex items-center">
+<a href="../index.html">
+      Home
+    </a>
+<span class="dot ml-2"></span>
+</li>
+<li class="footer__nav-link flex items-center">
+<a href="../about.html">
+      About
+    </a>
+<span class="dot ml-2"></span>
+</li>
+<li class="footer__nav-link flex items-center">
+<a href="../contact.html">
+      Contact
+    </a>
+<span class="dot ml-2"></span>
+</li>
+<li class="footer__nav-link flex items-center">
+<a href="https://mlh.io/">
+      MLH
+    </a>
+<span class="dot ml-2"></span>
+</li>
+
+<ul class="footer__nav-links flex gap-2 justify-center flex-wrap fs-s p-0" style=""></ul>
+<li class="footer__nav-link flex items-center">
+<a href="../code-of-conduct.html">
+      Code of Conduct
+    </a>
+<span class="dot ml-2"></span>
+</li>
+<li class="footer__nav-link flex items-center">
+<a href="../privacy.html">
+      Privacy Policy
+    </a>
+<span class="dot ml-2"></span>
+</li>
+<li class="footer__nav-link flex items-center">
+<a href="../terms.html">
+      Terms of Use
+    </a>
+<span class="dot ml-2"></span>
+</li>
+
+<div class="fs-s">
+<p>Built on <a class="c-link c-link--branded" href="https://www.forem.com" rel="noopener" target="_blank">Forem</a> — the <a class="c-link c-link--branded" href="../t/opensource.html" rel="noopener" target="_blank">open source</a> software that powers <a class="c-link c-link--branded" href="../index.html" rel="noopener" target="_blank">DEV</a> and other inclusive communities.</p>
+<p>Made with love and <a class="c-link c-link--branded" href="../t/rails.html" rel="noopener" target="_blank">Ruby on Rails</a>. DEV Community <span title="copyright">©</span> 2016 - 2026.</p>
+</div>
+</div>
+</footer>
+<div id="snack-zone"></div>
+<div class="authentication-modal hidden" id="global-signup-modal">
+<div class="authentication-modal__container">
+<figure class="authentication-modal__image-container">
+<img alt="DEV Community" class="authentication-modal__image" loading="lazy" src="../cdn/media2.dev.to/dynamic/image/width=190,height=,fit=scale-down,gravity=auto,format=auto/https___dev-to-uploads.s3.amazonaws.com_uploads_articles_8j7kvp660rqzt99zui8e.png">
+</img></figure>
+<div class="authentication-modal__content">
+<p class="authentication-modal__description">
+          We're a place where coders share, stay up-to-date and grow their careers.
+      </p>
+</div>
+<div class="authentication-modal__actions">
+<a aria-label="Log in" class="crayons-btn" data-no-instant="" href="../enter-q7ffd52de7b.html">
+        Log in
+      </a>
+<a aria-label="Create new account" class="crayons-btn crayons-btn--ghost-brand js-global-signup-modal__create-account" data-no-instant="" href="../enter-qfc40b94913.html">
+        Create account
+      </a>
+</div>
+</div>
+</div>
+<script defer="defer" src="../cdn/assets.dev.to/assets/signupModalShortcuts-0b25469b985100a01e94cbd7fccaf7f0a4d776e129aac65c766aa32cb28ab29a.js"></script>
+<div id="cookie-consent"></div>
+<div aria-hidden="true" class="hidden" id="reaction-category-resources">
+<img data-name="Like" data-position="1" data-slug="like" height="18" src="../cdn/assets.dev.to/assets/sparkle-heart-5f9bee3767e18deb1bb725290cb151c25234768a0e9a2bd39370c382d02920cf.svg" width="18">
+<img data-name="Unicorn" data-position="2" data-slug="unicorn" height="18" src="../cdn/assets.dev.to/assets/multi-unicorn-b44d6f8c23cdd00964192bedc38af3e82463978aa611b4365bd33a0f1f4f3e97.svg" width="18">
+<img data-name="Exploding Head" data-position="3" data-slug="exploding_head" height="18" src="../cdn/assets.dev.to/assets/exploding-head-daceb38d627e6ae9b730f36a1e390fca556a4289d5a41abb2c35068ad3e2c4b5.svg" width="18"/>
+<img data-name="Raised Hands" data-position="4" data-slug="raised_hands" height="18" src="../cdn/assets.dev.to/assets/raised-hands-74b2099fd66a39f2d7eed9305ee0f4553df0eb7b4f11b01b6b1b499973048fe5.svg" width="18"/>
+<img data-name="Fire" data-position="5" data-slug="fire" height="18" src="../cdn/assets.dev.to/assets/fire-f60e7a582391810302117f987b22a8ef04a2fe0df7e3258a5f49332df1cec71e.svg" width="18"/>
+</img></img></div>
+<script>
+  var userSignedIn = false;
+  if (document.readyState === 'complete' || document.readyState === 'interactive') {
+    initAuth();
+  } else {
+    document.addEventListener('DOMContentLoaded', initAuth);
+  }
+
+  function initAuth() {
+    var paramToken = new URLSearchParams(window.location.search).get('jwt');
+
+    if (paramToken && !userSignedIn) {
+      authenticateUser(paramToken);
+    } else {
+      var iframe = document.createElement('iframe');
+      iframe.style.display = 'none';
+      iframe.src = 'https://forem.com/auth_pass/iframe';
+  
+      document.body.appendChild(iframe);
+  
+      window.addEventListener('message', function(event) {
+        if (event.origin !== 'https://forem.com' && event.origin !== window.location.origin) {
+          return;
+        }
+  
+        var data = event.data;
+  
+        if (data.authenticated && !userSignedIn) {
+          authenticateUser(data.token);
+        } else if(data.authenticated && window.ReactNativeWebView && window.ReactNativeWebView.postMessage) {
+          window.ReactNativeWebView.postMessage(JSON.stringify({
+            action: 'login',
+            token: data.token,
+          }));
+        }
+      });  
+    }
+
+    function authenticateUser(token) {
+      fetch('/auth_pass/token_login', {
+        method: 'POST',
+        credentials: 'include',
+        headers: {
+          'Content-Type': 'application/json',
+          'X-CSRF-Token': getMetaContent('csrf-token'),
+        },
+        body: JSON.stringify({ token: token }),
+      })
+      .then(function(response) {
+        return response.json();
+      })
+      .then(function(data) {
+        if (data.success) {
+          if (document.head.querySelector('meta[name="user-signed-in"][content="false"]')) {
+            // Reload the page to update the user's state
+            location.reload();
+          }
+        }
+      })
+      .catch(function(error) {
+        console.error('Error during authentication:', error);
+      });
+    }
+
+    function getMetaContent(name) {
+      var element = document.querySelector('meta[name="' + name + '"]');
+      return element ? element.getAttribute('content') : '';
+    }
+  }
+</script>
+</link></body>
+</html>

@@ -1,0 +1,2317 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<title>Game Dev - DEV Community</title>
+<link href="https://dev.to/t/gamedev" rel="canonical"/>
+<meta content="gamedev content on DEV Community" name="description"/>
+<meta content="software development, engineering, gamedev" name="keywords"/>
+<meta content="website" property="og:type">
+<meta content="https://dev.to/t/gamedev" property="og:url">
+<meta content="Game Dev" property="og:title">
+<meta content="Game Dev content on DEV Community" property="og:description"/>
+<meta content="DEV Community" property="og:site_name"/>
+<meta content="@thepracticaldev" name="twitter:site"/>
+<meta content="@Game Dev" name="twitter:creator"/>
+<meta content="Game Dev" name="twitter:title"/>
+<meta content="Game Dev content on DEV Community" name="twitter:description"/>
+<meta content="summary_large_image" name="twitter:card"/>
+<meta content="../cdn/dev-to-uploads.s3.amazonaws.com/uploads/articles/3otvb2z646ytpt1hl2rv.jpg" property="og:image"/>
+<meta content="../cdn/dev-to-uploads.s3.amazonaws.com/uploads/articles/3otvb2z646ytpt1hl2rv.jpg" name="twitter:image:src"/>
+<meta content="2026-05-06 07:33:38 UTC" name="last-updated"/>
+<meta content="false" name="user-signed-in"/>
+<meta content="1778052818" name="head-cached-at"/>
+<meta content="production" name="environment"/>
+<link href="../cdn/assets.dev.to/assets/minimal-2213124ac5505ccdbf3c4eb62fd70ecda26cb75ed6de931633992a7bac437c81.css" id="main-minimal-stylesheet" media="all" rel="stylesheet"/>
+<link href="../cdn/assets.dev.to/assets/views-0681ac17bf1546793c4b7ef7c615b2defec919060aefb3b9c287471e8cb77bf2.css" id="main-views-stylesheet" media="all" rel="stylesheet"/>
+<link href="../cdn/assets.dev.to/assets/crayons-d2b52af1d86a9ac9a8bc215ed34ffad7a94af68f4abd1cdcae2a8c1a4385cd23.css" id="main-crayons-stylesheet" media="all" rel="stylesheet"/>
+<script defer="defer" src="../cdn/assets.dev.to/assets/base-0c748bbcdc30041261c326ef2ce931fbce46c58bc3c488da881ae35c4750941d.js"></script>
+<script defer="defer" src="../cdn/assets.dev.to/assets/application-0b268684912bef9b0f23defff01cb608bfc5d5e5610287725e7b686139ae32d3.js"></script>
+<script defer="defer" src="../cdn/assets.dev.to/assets/baseInitializers-2f0777a6d67046056f9f42665560ce072de3801292674358ddbad6e135c1891d.js"></script>
+<script defer="defer" src="../cdn/assets.dev.to/assets/baseTracking-90c1c7b9b4f617aa0f900eadaf0ccbdbc2a002f12c1e1ada7da039c823601b14.js"></script>
+<script defer="defer" src="../cdn/assets.dev.to/assets/followButtons-e3595664847e9f43945a9b8a0445b32cda9a149f1f169f78b8fcc7714ccab45a.js"></script>
+<meta content="https://assets.dev.to/assets/Search-b977aea0f2d7a5818b4ebd97f7d4aba8548099f84f5db5761f8fa67be76abc54.js" name="search-script"/>
+<meta content="width=device-width, initial-scale=1.0, viewport-fit=cover" name="viewport"/>
+<link href="../cdn/media2.dev.to/dynamic/image/width=32,height=,fit=scale-down,gravity=auto,format=auto/https___dev-to-uploads.s3.amazonaws.com_uploads_articles_8j7kvp660rqzt99zui8e.png" rel="icon" type="image/x-icon"/>
+<link href="../cdn/media2.dev.to/dynamic/image/width=180,height=,fit=scale-down,gravity=auto,format=auto/https___dev-to-uploads.s3.amazonaws.com_uploads_articles_8j7kvp660rqzt99zui8e.png" rel="apple-touch-icon"/>
+<link href="../cdn/media2.dev.to/dynamic/image/width=152,height=,fit=scale-down,gravity=auto,format=auto/https___dev-to-uploads.s3.amazonaws.com_uploads_articles_8j7kvp660rqzt99zui8e.png" rel="apple-touch-icon" sizes="152x152"/>
+<link href="../cdn/media2.dev.to/dynamic/image/width=180,height=,fit=scale-down,gravity=auto,format=auto/https___dev-to-uploads.s3.amazonaws.com_uploads_articles_8j7kvp660rqzt99zui8e.png" rel="apple-touch-icon" sizes="180x180"/>
+<link href="../cdn/media2.dev.to/dynamic/image/width=167,height=,fit=scale-down,gravity=auto,format=auto/https___dev-to-uploads.s3.amazonaws.com_uploads_articles_8j7kvp660rqzt99zui8e.png" rel="apple-touch-icon" sizes="167x167"/>
+<link href="../cdn/media2.dev.to/dynamic/image/width=192,height=,fit=scale-down,gravity=auto,format=auto/https___dev-to-uploads.s3.amazonaws.com_uploads_articles_8j7kvp660rqzt99zui8e.png" rel="icon" sizes="192x192">
+<link href="../cdn/media2.dev.to/dynamic/image/width=128,height=,fit=scale-down,gravity=auto,format=auto/https___dev-to-uploads.s3.amazonaws.com_uploads_articles_8j7kvp660rqzt99zui8e.png" rel="icon" sizes="128x128">
+<meta content="dev.to" name="apple-mobile-web-app-title"/>
+<meta content="dev.to" name="application-name"/>
+<meta content="#ffffff" media="(prefers-color-scheme: light)" name="theme-color"/>
+<meta content="#000000" media="(prefers-color-scheme: dark)" name="theme-color"/>
+<link href="https://dev.to/open-search.xml" rel="search" title="DEV Community" type="application/opensearchdescription+xml">
+<meta content="DEV Community" property="forem:name">
+<meta content="https://media2.dev.to/dynamic/image/width=512,height=,fit=scale-down,gravity=auto,format=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Farticles%2F8j7kvp660rqzt99zui8e.png" property="forem:logo">
+<meta content="dev.to" property="forem:domain">
+<style>
+/* ==========================================================================
+   THE 418 CHALLENGE: THEME-AWARE RETRO EDITION
+   ========================================================================== */
+
+.articletag-418challenge {
+  font-family: "Comic Sans MS", "Chalkboard SE", "Marker Felt", sans-serif !important;
+  cursor: crosshair !important;
+}
+
+/* Destroy modern rounded corners and add brutal borders */
+.articletag-418challenge .crayons-card,
+.articletag-418challenge .crayons-article__main,
+.articletag-418challenge .crayons-article__header {
+  border-radius: 0 !important;
+  margin-bottom: 2rem !important;
+}
+
+/* Typography specifics */
+.articletag-418challenge h1,
+.articletag-418challenge h2,
+.articletag-418challenge h3 {
+  text-transform: uppercase !important;
+}
+
+/* Fake <marquee> effect for the main article title */
+.articletag-418challenge h1.fs-3xl {
+  animation: retro-slide 5s linear infinite alternate;
+  overflow: visible;
+}
+
+/* Spin those avatars */
+.articletag-418challenge .crayons-article__header__meta img {
+  border-radius: 0 !important; 
+  animation: retro-spin 5s linear infinite;
+}
+
+/* Obnoxious tags */
+.articletag-418challenge .crayons-tag {
+  border-radius: 0 !important;
+  font-weight: 900 !important;
+  transform: rotate(-3deg);
+  display: inline-block;
+}
+.articletag-418challenge .crayons-tag:nth-child(even) {
+  transform: rotate(3deg);
+}
+
+/* --------------------------------------------------------------------------
+   2. LIGHT THEME (Windows 95 / Office 97 Vibes)
+   -------------------------------------------------------------------------- */
+body:not(.dark-theme) .articletag-418challenge {
+  background-color: #008080 !important; /* Win95 Teal Desktop */
+}
+
+body:not(.dark-theme) .articletag-418challenge .crayons-card,
+body:not(.dark-theme) .articletag-418challenge .crayons-article__main,
+body:not(.dark-theme) .articletag-418challenge .crayons-article__header {
+  background-color: #c0c0c0 !important; /* Classic dialog gray */
+  color: #000000 !important;
+  border: 4px outset #ffffff !important;
+  box-shadow: 8px 8px 0px #000000 !important;
+}
+
+body:not(.dark-theme) .articletag-418challenge h1,
+body:not(.dark-theme) .articletag-418challenge h2,
+body:not(.dark-theme) .articletag-418challenge h3 {
+  color: #ff0000 !important;
+  text-shadow: 2px 2px 0px #ffff00 !important;
+  border-bottom: 3px dashed #0000ff !important;
+}
+
+body:not(.dark-theme) .articletag-418challenge a,
+body:not(.dark-theme) .articletag-418challenge .crayons-link {
+  color: #0000ff !important; /* Standard unvisited blue */
+  text-decoration: underline !important;
+  font-weight: bold !important;
+}
+
+body:not(.dark-theme) .articletag-418challenge a:hover,
+body:not(.dark-theme) .articletag-418challenge .crayons-link:hover {
+  background-color: #ffff00 !important;
+  color: #ff0000 !important;
+}
+
+body:not(.dark-theme) .articletag-418challenge .crayons-tag {
+  background: #ffff00 !important;
+  color: #ff0000 !important;
+  border: 2px dotted #0000ff !important;
+}
+
+/* --------------------------------------------------------------------------
+   3. DARK THEME (1999 Hacker / Deep GeoCities Vibes)
+   -------------------------------------------------------------------------- */
+body.dark-theme .articletag-418challenge {
+  background-color: #000000 !important;
+  /* Dumb CSS: A scrolling, eye-bleeding neon green hacker grid with CRT scanlines */
+  background-image: 
+    linear-gradient(transparent 50%, rgba(0, 255, 0, 0.25) 50%), 
+    linear-gradient(90deg, rgba(0, 255, 0, 0.5) 1px, transparent 1px), 
+    linear-gradient(rgba(0, 255, 0, 0.5) 1px, transparent 1px) !important;
+  background-size: 100% 4px, 20px 20px, 20px 20px !important;
+  animation: retro-pan 60s linear infinite !important;
+}
+
+body.dark-theme .articletag-418challenge .crayons-card,
+body.dark-theme .articletag-418challenge .crayons-article__main,
+body.dark-theme .articletag-418challenge .crayons-article__header {
+  background-color: #111111 !important;
+  color: #00ff00 !important; /* Terminal Green */
+  border: 4px outset #555555 !important;
+  box-shadow: 8px 8px 0px #ff00ff !important; /* Hot pink shadow */
+}
+
+body.dark-theme .articletag-418challenge h1,
+body.dark-theme .articletag-418challenge h2,
+body.dark-theme .articletag-418challenge h3 {
+  color: #ff00ff !important; /* Magenta headers */
+  text-shadow: 2px 2px 0px #00ffff !important; /* Cyan shadow */
+  border-bottom: 3px dashed #00ff00 !important;
+}
+
+body.dark-theme .articletag-418challenge a,
+body.dark-theme .articletag-418challenge .crayons-link {
+  color: #00ffff !important; /* Cyan links */
+  text-decoration: underline !important;
+  font-weight: bold !important;
+}
+
+body.dark-theme .articletag-418challenge a:hover,
+body.dark-theme .articletag-418challenge .crayons-link:hover {
+  background-color: #ff00ff !important;
+  color: #ffffff !important;
+}
+
+body.dark-theme .articletag-418challenge .crayons-tag {
+  background: #000000 !important;
+  color: #00ff00 !important;
+  border: 2px dotted #ff00ff !important;
+}
+
+/* --------------------------------------------------------------------------
+   4. ANIMATIONS
+   -------------------------------------------------------------------------- */
+@keyframes retro-spin {
+  100% { transform: rotate(360deg); }
+}
+
+@keyframes retro-slide {
+  0% { transform: translateX(-2%); }
+  100% { transform: translateX(2%); }
+}
+
+@keyframes retro-pan {
+  0% { background-position: 0 0, 0 0, 0 0; }
+  /* Numbers must be multiples of the background-size (4px and 20px) to loop perfectly */
+  100% { background-position: 0 100px, 40px 40px, 40px 40px; }
+}
+
+/* --------------------------------------------------------------------------
+   5. BONUS: CAUTION TAPE REACTION BAR
+   -------------------------------------------------------------------------- */
+.articletag-418challenge .crayons-article-actions {
+  background: repeating-linear-gradient(
+    45deg,
+    #ffff00,
+    #ffff00 10px,
+    #000000 10px,
+    #000000 20px
+  ) !important;
+  border: 4px solid #ff0000 !important;
+  border-radius: 0 !important;
+}
+
+.articletag-418challenge .crayons-article-actions button {
+  background:black;
+  color: #ff00ff !important;
+}
+
+.articletag-418challenge .crayons-article-actions .crayons-reaction__count {
+    color: #ff00ff !important;
+    font-weight: bold !important;
+}
+
+.articletag-418challenge .crayons-icon:not(.crayons-icon--default) * {
+    fill: #ffff00 !important;
+}
+
+.articletag-418challenge .c-embed .crayons-btn--primary {
+  color: #00ff00 !important;
+}
+
+.articletag-418challenge .popover-billboard {
+margin-bottom: 0 !important;
+}
+
+.crayons-story__contentpreview .ltag__link--embedded {
+margin-top: 0 !important;
+}
+
+.subscription-icon {
+    max-height: 16px !important;
+    display: inline-block !important;
+}
+
+@media screen and (min-width: 950px) {
+    .event-show-layout {
+        margin-top: 24px !important;
+    }
+}
+
+@media screen and (max-width: 949px) {
+    .event-show-layout {
+        padding: 11px !important;
+    }
+}
+
+
+</style>
+</meta></meta></meta></link></link></link></meta></meta></meta></head>
+<body class="sans-serif-article-body default-header" data-algolia-display="true" data-algolia-id="PRSOBFP46H" data-algolia-search-key="9aa7d31610cba78851c9b1f63776a9dd" data-community-name="DEV Community" data-cookie-banner-platform-context="off" data-cookie-banner-user-context="logged_out_only" data-deployed-at="2026-05-05T19:04:15Z" data-dynamic-url-component="bmar11" data-ga-tracking="UA-71991109-1" data-ga4-tracking-id="G-TYEM8Y3JN3" data-honeybadger-key="hbp_nqu4Y66HuEKlD6YRGssZuRQnPOjDm50J8Zkr" data-is-root-subforem="false" data-latest-commit-id="99141cc1f10837f83a0dcd05003c5e711ec877ac" data-locale="en" data-side-nav-visible="true" data-subforem-id="1" data-subscription-icon="https://assets.dev.to/assets/subscription-icon-805dfa7ac7dd660f07ed8d654877270825b07a92a03841aa99a1093bd00431b2.png" data-user-status="logged-out">
+<script>
+        if (navigator.userAgent === 'ForemWebView/1' || window.frameElement) {
+          document.body.classList.add("hidden-shell");
+        }
+          if (new Date() > new Date("2026-02-04T09:00:00-05:00")) {
+            document.body.dataset.sideNavVisible = "false";
+          } 
+      </script>
+<link href="../cdn/assets.dev.to/assets/minimal-2213124ac5505ccdbf3c4eb62fd70ecda26cb75ed6de931633992a7bac437c81.css" id="secondary-minimal-stylesheet" media="all" rel="stylesheet">
+<link href="../cdn/assets.dev.to/assets/views-0681ac17bf1546793c4b7ef7c615b2defec919060aefb3b9c287471e8cb77bf2.css" id="secondary-views-stylesheet" media="all" rel="stylesheet"/>
+<link href="../cdn/assets.dev.to/assets/crayons-d2b52af1d86a9ac9a8bc215ed34ffad7a94af68f4abd1cdcae2a8c1a4385cd23.css" id="secondary-crayons-stylesheet" media="all" rel="stylesheet"/>
+<div id="body-styles">
+<style>
+          :root {
+            --accent-brand-lighter-rgb: 86, 105, 285;
+            --accent-brand-rgb: 64, 78, 211;
+            --accent-brand-darker-rgb: 51, 62, 169;
+          }
+        </style>
+</div>
+<div data-podcast="" id="audiocontent">
+</div>
+<div class="navigation-progress" id="navigation-progress"></div>
+<header class="crayons-header topbar print-hidden" id="topbar">
+<span id="route-change-target" tabindex="-1"></span>
+<a class="skip-content-link" href="#main-content">Skip to content</a>
+<div class="crayons-header__container">
+<span class="inline-block m:hidden">
+<button class="c-btn c-btn--icon-alone js-hamburger-trigger mx-2">
+<svg aria-labelledby="a544brtr4ziwhs1yjjivagbbmv7zqjl2" class="crayons-icon" height="24" role="img" viewbox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><title id="a544brtr4ziwhs1yjjivagbbmv7zqjl2">Navigation menu</title>
+<path d="M3 4h18v2H3V4zm0 7h18v2H3v-2zm0 7h18v2H3v-2z"></path>
+</svg>
+</button>
+</span>
+<a aria-label="DEV Community Home" class="site-logo" href="../index.html">
+<img alt="DEV Community" class="site-logo__img" src="../cdn/media2.dev.to/dynamic/image/quality=100/https_/dev-to-uploads.s3.amazonaws.com/uploads/logos/resized_logo_UQww2soKuUsjaOGNB38o.png" style="aspect-ratio: 10 / 8"/>
+</a>
+<div class="crayons-header--search js-search-form" id="header-search">
+<form accept-charset="UTF-8" action="/search" method="get" role="search">
+<div class="crayons-fields crayons-fields--horizontal">
+<div class="crayons-field flex-1 relative">
+<input autocomplete="off" class="crayons-header--search-input crayons-textfield js-search-input" id="nav-search" name="q" placeholder="Search..." type="text"/>
+<button aria-label="Search" class="c-btn c-btn--icon-alone absolute inset-px right-auto mt-0 py-0" type="submit">
+<svg aria-hidden="true" aria-labelledby="a83avfipv1crep4y806pn9uafrkjcb03" class="crayons-icon" height="24" role="img" viewbox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><title id="a83avfipv1crep4y806pn9uafrkjcb03">Search</title>
+<path d="M18.031 16.617l4.283 4.282-1.415 1.415-4.282-4.283A8.96 8.96 0 0111 20c-4.968 0-9-4.032-9-9s4.032-9 9-9 9 4.032 9 9a8.96 8.96 0 01-1.969 5.617zm-2.006-.742A6.977 6.977 0 0018 11c0-3.868-3.133-7-7-7-3.868 0-7 3.132-7 7 0 3.867 3.132 7 7 7a6.977 6.977 0 004.875-1.975l.15-.15z"></path>
+</svg>
+</button>
+<a class="crayons-header--search-brand-indicator" href="https://www.algolia.com/developers/?utm_source=devto&amp;utm_medium=referral" rel="noopener noreferrer" target="_blank">
+                Powered by Algolia
+                <svg aria-hidden="true" aria-labelledby="a2lvxk40i26v1p2n5e9uqrfqyh1v0xyu" class="crayons-icon" height="24" id="Layer_1" role="img" viewbox="0 0 500 500.34" width="24" xmlns="http://www.w3.org/2000/svg"><title id="a2lvxk40i26v1p2n5e9uqrfqyh1v0xyu">Search</title>
+<defs></defs><path class="cls-1" d="M250,0C113.38,0,2,110.16,.03,246.32c-2,138.29,110.19,252.87,248.49,253.67,42.71,.25,83.85-10.2,120.38-30.05,3.56-1.93,4.11-6.83,1.08-9.52l-23.39-20.74c-4.75-4.22-11.52-5.41-17.37-2.92-25.5,10.85-53.21,16.39-81.76,16.04-111.75-1.37-202.04-94.35-200.26-206.1,1.76-110.33,92.06-199.55,202.8-199.55h202.83V407.68l-115.08-102.25c-3.72-3.31-9.43-2.66-12.43,1.31-18.47,24.46-48.56,39.67-81.98,37.36-46.36-3.2-83.92-40.52-87.4-86.86-4.15-55.28,39.65-101.58,94.07-101.58,49.21,0,89.74,37.88,93.97,86.01,.38,4.28,2.31,8.28,5.53,11.13l29.97,26.57c3.4,3.01,8.8,1.17,9.63-3.3,2.16-11.55,2.92-23.6,2.07-35.95-4.83-70.39-61.84-127.01-132.26-131.35-80.73-4.98-148.23,58.18-150.37,137.35-2.09,77.15,61.12,143.66,138.28,145.36,32.21,.71,62.07-9.42,86.2-26.97l150.36,133.29c6.45,5.71,16.62,1.14,16.62-7.48V9.49C500,4.25,495.75,0,490.51,0H250Z"></path>
+</svg>
+</a>
+</div>
+</div>
+</form>
+</div>
+<div class="flex items-center h-100 ml-auto">
+<div class="flex" id="authentication-top-nav-actions">
+<span class="hidden m:block">
+<a class="c-link c-link--block mr-2 whitespace-nowrap ml-auto" data-no-instant="" href="../enter-q7ffd52de7b.html">
+              Log in
+            </a>
+</span>
+<a class="c-cta c-cta--branded whitespace-nowrap mr-2" data-no-instant="" data-tracking-id="ca_top_nav" data-tracking-source="top_navbar" href="../enter-qfc40b94913.html">
+            Create account
+          </a>
+</div>
+</div>
+</div>
+</header>
+<div class="hamburger">
+<div class="hamburger__content">
+<header class="hamburger__content__header">
+<h2 class="fs-l fw-bold flex-1 break-word lh-tight">DEV Community</h2>
+<button aria-label="Close" class="c-btn c-btn--icon-alone js-hamburger-trigger shrink-0">
+<svg aria-hidden="true" aria-labelledby="abue6g6kxwweg7nbv3luj0v32y7oiht4" class="crayons-icon c-btn__icon" height="24" role="img" viewbox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><title id="abue6g6kxwweg7nbv3luj0v32y7oiht4">Close</title><path d="M12 10.586l4.95-4.95 1.414 1.414-4.95 4.95 4.95 4.95-1.414 1.414-4.95-4.95-4.95 4.95-1.414-1.414 4.95-4.95-4.95-4.95L7.05 5.636l4.95 4.95z"></path></svg>
+</button>
+</header>
+<div class="p-2 js-navigation-links-container" id="authentication-hamburger-actions">
+</div>
+</div>
+<div class="hamburger__overlay js-hamburger-trigger"></div>
+</div>
+<div class="broadcast-wrapper" id="active-broadcast"></div>
+<div class="wrapper tagged_articles tagged_articles-index" data-current-page="tagged_articles-index" id="page-content">
+<div data-internal-nav="false" data-viewable-id="" data-viewable-type="" id="page-content-inner">
+<div aria-atomic="true" aria-live="polite" class="screen-reader-only" id="page-route-change"></div>
+<div class="crayons-layout js-tag-card" data-tag-id="338" data-tag-name="gamedev" id="tag-338">
+<header class="crayons-card branded-4 p-4 l:p-6 spec__tag-header" style="border-top-color: #3384d9 ">
+<div class="flex">
+<div class="flex flex-col w-100 justify-center">
+<div class="flex justify-between items-center">
+<h1 class="crayons-title">
+              Game Dev
+          </h1>
+<div class="mt-auto flex items-end justify-between" id="tag-buttons-338">
+<div class="flex gap-2">
+<button aria-label="Follow tag: gamedev" class="c-btn c-btn--primary js-follow-tag-button">
+                  Follow
+                </button>
+<button aria-label="Hide tag: gamedev" class="c-btn js-hide-tag-button">
+                  Hide
+                </button>
+</div>
+</div>
+</div>
+<p class="max-w-100 m:max-w-75 pt-2 s:pt-4">
+            👾 👾 👾
+          </p>
+</div>
+</div>
+</header>
+</div>
+<div class="home sub-home" data-articles-since="" data-disable-infinite-scroll="true" data-feed="base-feed" data-params='{"tag":"gamedev","sort_by":"hotness_score","sort_direction":"desc"}' data-requires-approval="false" data-tag="gamedev" data-which="" id="index-container">
+<div class="sidebar-wrapper sidebar-wrapper-left" id="sidebar-wrapper-left">
+<div class="sidebar-bg" id="sidebar-bg-left"></div>
+<aside class="side-bar fs-s">
+<div class="widget js-policy-article-create">
+<a class="crayons-btn crayons-btn--s" href="../new/gamedev.html">
+            Create Post
+          </a>
+</div> <div class="widget">
+<header>
+<h4 class="fs-base fw-medium">submission guidelines</h4>
+</header>
+<div class="widget-body fs-s">
+<p>Write! Just keep it clean and civil!</p>
+</div>
+</div>
+<div class="widget">
+<header>
+<h4 class="fs-base fw-medium">about #gamedev</h4>
+</header>
+<div class="widget-body fs-s">
+<p>From GameMaker Studio to Unity, RPG Maker to 6502 assembly - this is your stop for all things related to game development! However, please make sure that your post is about DEVELOPING A GAME, or TOOLS THAT DEVELOPERS CAN USE, but please make sure they are tools MADE for developers, not just tools like twitter. That can go in topics like #socialmedia.</p>
+</div>
+</div>
+<div class="sidebar-data">
+<hr/>
+<div class="olderposts-header fs-base fw-medium">Older #gamedev posts</div>
+<div class="olderposts-links">
+<span class="olderposts-pagenumber">1</span>
+</div>
+</div>
+</aside>
+</div>
+<main class="articles-list" data-follow-button-container="true" id="main-content">
+<header class="flex items-center p-2 m:p-0 m:pb-2" id="on-page-nav-controls">
+<h1 class="screen-reader-only">Posts</h1>
+<button aria-label="nav-button-left" class="crayons-btn crayons-btn--ghost crayons-btn--icon mr-2 inline-block m:hidden mb-auto" id="on-page-nav-butt-left" type="button">
+<div class="crayons-icon nav-icon">
+<svg aria-labelledby="ad1bgeyswb672xgjw395gtwt2u2lph94" class="crayons-icon" height="24" role="img" viewbox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><title id="ad1bgeyswb672xgjw395gtwt2u2lph94">Left menu</title>
+<path d="M3 4h18v2H3V4zm0 7h18v2H3v-2zm0 7h18v2H3v-2z"></path>
+</svg>
+</div>
+</button>
+<div class="flex-1 flex items-center justify-between">
+<div aria-live="polite" class="crayons-notice w-100">👋 <a href="../enter-q7ffd52de7b.html">Sign in</a> for the ability to sort posts by <strong>relevant</strong>, <strong>latest</strong>, or <strong>top</strong>.</div>
+</div>
+<button aria-label="nav-button-right" class="crayons-btn crayons-btn--ghost crayons-btn--icon ml-2 inline-block l:hidden mb-auto" id="on-page-nav-butt-right" type="button">
+<div class="crayons-icon nav-icon">
+<svg aria-labelledby="agmwc0iwfc6tfdwalxmko6n7yx5iizs9" class="crayons-icon" height="24" role="img" viewbox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><title id="agmwc0iwfc6tfdwalxmko6n7yx5iizs9">Right menu</title>
+<path d="M3 4h18v2H3V4zm0 7h18v2H3v-2zm0 7h18v2H3v-2z"></path>
+</svg>
+</div>
+</button>
+</header>
+<div class="substories" id="substories">
+<div class="crayons-story" data-content-user-id="1033" data-feed-content-id="3613763">
+<a aria-labelledby="article-link-3613763" class="crayons-story__hidden-navigation-link" href="../petarov/7-coder-words-i-built-a-pwa-word-puzzle-for-coders-and-nerds-3oh5.html">7 Coder Words: I built a PWA Word Puzzle for Coders and Nerds</a>
+<div class="crayons-story__body crayons-story__body-full_post">
+<div class="crayons-story__top">
+<div class="crayons-story__meta">
+<div class="crayons-story__author-pic">
+<a class="crayons-avatar crayons-avatar--l" href="../petarov.html">
+<img alt="petarov profile" class="crayons-avatar__image" loading="lazy" src="../cdn/media2.dev.to/dynamic/image/width=90,height=90,fit=cover,gravity=auto,format=auto/https___dev-to-uploads.s3.amazonaws.com_uploads_user_profile_image_1033_f38e2f5d-b900-4e05-af1f-40875bcb1369.jpg">
+</img></a>
+</div>
+<div>
+<div>
+<a class="crayons-story__secondary fw-medium m:hidden" href="../petarov.html">
+              Petar Petrov
+            </a>
+<div class="profile-preview-card relative mb-4 s:mb-0 fw-medium hidden m:inline-block">
+<button aria-controls="story-author-preview-content-3613763" aria-label="Petar Petrov profile details" class="profile-preview-card__trigger fs-s p-1 -ml-1 -my-2 crayons-btn crayons-btn--ghost" id="story-author-preview-trigger-3613763">
+                Petar Petrov
+                
+              </button>
+<div class="profile-preview-card__content crayons-dropdown branded-7 p-4 pt-0" data-repositioning-dropdown="true" data-testid="profile-preview-card" id="story-author-preview-content-3613763" style="border-top-color: var(--card-color);">
+<div class="gap-4 grid">
+<div class="-mt-4">
+<a class="flex" href="../petarov.html">
+<span class="crayons-avatar crayons-avatar--xl mr-2 shrink-0">
+<img alt="" class="crayons-avatar__image" loading="lazy" src="../cdn/media2.dev.to/dynamic/image/width=90,height=90,fit=cover,gravity=auto,format=auto/https___dev-to-uploads.s3.amazonaws.com_uploads_user_profile_image_1033_f38e2f5d-b900-4e05-af1f-40875bcb1369.jpg"/>
+</span>
+<span class="crayons-link crayons-subtitle-2 mt-5">Petar Petrov</span>
+</a>
+</div>
+<div class="print-hidden">
+<button class="crayons-btn follow-action-button whitespace-nowrap follow-user w-100" data-info='{"style":"full","id":1033,"className":"User","name":"Petar Petrov"}'>
+                      Follow
+                    </button>
+</div>
+<div class="author-preview-metadata-container" data-author-id="1033"></div>
+</div>
+</div>
+</div>
+</div>
+<a class="crayons-story__tertiary fs-xs" href="../petarov/7-coder-words-i-built-a-pwa-word-puzzle-for-coders-and-nerds-3oh5.html"><time datetime="2026-05-05T09:05:23Z">May 5</time><span class="time-ago-indicator-initial-placeholder" data-seconds="1777971923"></span></a>
+</div>
+</div>
+</div>
+<div class="crayons-story__indention">
+<h2 class="crayons-story__title crayons-story__title-full_post">
+<a data-preload-image="https://media2.dev.to/dynamic/image/width=1000,height=420,fit=cover,gravity=auto,format=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Farticles%2Fizyn6oop1abbn6oyggye.png" href="../petarov/7-coder-words-i-built-a-pwa-word-puzzle-for-coders-and-nerds-3oh5.html" id="article-link-3613763">
+          7 Coder Words: I built a PWA Word Puzzle for Coders and Nerds
+        </a>
+</h2>
+<div class="crayons-story__tags">
+<a class="crayons-tag crayons-tag--monochrome" href="gamedev.html" style="
+        --tag-bg: rgba(51, 132, 217, 0.10);
+        --tag-prefix: #3384d9;
+        --tag-bg-hover: rgba(51, 132, 217, 0.10);
+        --tag-prefix-hover: #3384d9;
+      "><span class="crayons-tag__prefix">#</span>gamedev</a>
+<a class="crayons-tag crayons-tag--monochrome" href="webdev.html" style="
+        --tag-bg: rgba(86, 39, 101, 0.10);
+        --tag-prefix: #562765;
+        --tag-bg-hover: rgba(86, 39, 101, 0.10);
+        --tag-prefix-hover: #562765;
+      "><span class="crayons-tag__prefix">#</span>webdev</a>
+<a class="crayons-tag crayons-tag--monochrome" href="pwa.html" style="
+        --tag-bg: rgba(53, 76, 199, 0.10);
+        --tag-prefix: #354cc7;
+        --tag-bg-hover: rgba(53, 76, 199, 0.10);
+        --tag-prefix-hover: #354cc7;
+      "><span class="crayons-tag__prefix">#</span>pwa</a>
+<a class="crayons-tag crayons-tag--monochrome" href="fun.html" style="
+        --tag-bg: rgba(64, 78, 211, 0.10);
+        --tag-prefix: #404ED3;
+        --tag-bg-hover: rgba(64, 78, 211, 0.10);
+        --tag-prefix-hover: #404ED3;
+      "><span class="crayons-tag__prefix">#</span>fun</a>
+</div>
+<div class="crayons-story__bottom">
+<div class="crayons-story__details">
+<a aria-label="Add a comment to post - 7 Coder Words: I built a PWA Word Puzzle for Coders and Nerds" class="crayons-btn crayons-btn--s crayons-btn--ghost crayons-btn--icon-left" data-reactable-id="3613763" data-reaction-count="" href="../petarov/7-coder-words-i-built-a-pwa-word-puzzle-for-coders-and-nerds-3oh5.html">
+<div class="multiple_reactions_aggregate">
+<span class="multiple_reactions_icons_container" dir="rtl">
+<span class="crayons_icon_container">
+<img height="18" src="../cdn/assets.dev.to/assets/sparkle-heart-5f9bee3767e18deb1bb725290cb151c25234768a0e9a2bd39370c382d02920cf.svg" width="18"/>
+</span>
+</span>
+<span class="aggregate_reactions_counter">2<span class="hidden s:inline"> reactions</span></span>
+</div>
+</a>
+<a aria-label="Add a comment to post - 7 Coder Words: I built a PWA Word Puzzle for Coders and Nerds" class="crayons-btn crayons-btn--s crayons-btn--ghost crayons-btn--icon-left flex items-center" href="../petarov/7-coder-words-i-built-a-pwa-word-puzzle-for-coders-and-nerds-3oh5.html">
+<svg aria-labelledby="a4anlf8yghllohwgrgdksyzlatn3b5qt" class="crayons-icon" height="24" role="img" width="24" xmlns="http://www.w3.org/2000/svg"><title id="a4anlf8yghllohwgrgdksyzlatn3b5qt">Comments</title><path d="M10.5 5h3a6 6 0 110 12v2.625c-3.75-1.5-9-3.75-9-8.625a6 6 0 016-6zM12 15.5h1.5a4.501 4.501 0 001.722-8.657A4.5 4.5 0 0013.5 6.5h-3A4.5 4.5 0 006 11c0 2.707 1.846 4.475 6 6.36V15.5z"></path></svg>
+<span class="hidden s:inline">Add Comment</span>
+</a>
+</div>
+<div class="crayons-story__save">
+<small class="crayons-story__tertiary fs-xs mr-2">
+            4 min read
+          </small>
+<button aria-label="Save post 7 Coder Words: I built a PWA Word Puzzle for Coders and Nerds to reading list" class="c-btn c-btn--icon-alone bookmark-button" data-article-author-id="1033" data-reactable-id="3613763" id="article-save-button-3613763" title="Save post 7 Coder Words: I built a PWA Word Puzzle for Coders and Nerds to reading list" type="button">
+<span class="bm-initial">
+<svg aria-hidden="true" height="24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M6.75 4.5h10.5a.75.75 0 01.75.75v14.357a.375.375 0 01-.575.318L12 16.523l-5.426 3.401A.375.375 0 016 19.607V5.25a.75.75 0 01.75-.75zM16.5 6h-9v11.574l4.5-2.82 4.5 2.82V6z"></path></svg>
+</span>
+<span class="bm-success">
+<svg aria-hidden="true" height="24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M6.75 4.5h10.5a.75.75 0 01.75.75v14.357a.375.375 0 01-.575.318L12 16.523l-5.426 3.401A.375.375 0 016 19.607V5.25a.75.75 0 01.75-.75z"></path></svg>
+</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="crayons-story" data-content-user-id="3155632" data-feed-content-id="3615559">
+<a aria-labelledby="article-link-3615559" class="crayons-story__hidden-navigation-link" href="../mohamed-riham/working-on-azirah-dont-let-her-see-you-lessons-from-my-game-development-journey-5aae.html">Working on Azirah: Don’t Let Her See You: Lessons from My Game Development Journey</a>
+<div class="crayons-story__body crayons-story__body-full_post">
+<div class="crayons-story__top">
+<div class="crayons-story__meta">
+<div class="crayons-story__author-pic">
+<a class="crayons-avatar crayons-avatar--l" href="../mohamed-riham.html">
+<img alt="mohamed-riham profile" class="crayons-avatar__image" loading="lazy" src="../cdn/media2.dev.to/dynamic/image/width=90,height=90,fit=cover,gravity=auto,format=auto/https___dev-to-uploads.s3.amazonaws.com_uploads_user_profile_image_3155632_4a77451f-0934-4f86-bfa5-8fba4245a695.png"/>
+</a>
+</div>
+<div>
+<div>
+<a class="crayons-story__secondary fw-medium m:hidden" href="../mohamed-riham.html">
+              Mohamed Riham
+            </a>
+<div class="profile-preview-card relative mb-4 s:mb-0 fw-medium hidden m:inline-block">
+<button aria-controls="story-author-preview-content-3615559" aria-label="Mohamed Riham profile details" class="profile-preview-card__trigger fs-s p-1 -ml-1 -my-2 crayons-btn crayons-btn--ghost" id="story-author-preview-trigger-3615559">
+                Mohamed Riham
+                
+              </button>
+<div class="profile-preview-card__content crayons-dropdown branded-7 p-4 pt-0" data-repositioning-dropdown="true" data-testid="profile-preview-card" id="story-author-preview-content-3615559" style="border-top-color: var(--card-color);">
+<div class="gap-4 grid">
+<div class="-mt-4">
+<a class="flex" href="../mohamed-riham.html">
+<span class="crayons-avatar crayons-avatar--xl mr-2 shrink-0">
+<img alt="" class="crayons-avatar__image" loading="lazy" src="../cdn/media2.dev.to/dynamic/image/width=90,height=90,fit=cover,gravity=auto,format=auto/https___dev-to-uploads.s3.amazonaws.com_uploads_user_profile_image_3155632_4a77451f-0934-4f86-bfa5-8fba4245a695.png"/>
+</span>
+<span class="crayons-link crayons-subtitle-2 mt-5">Mohamed Riham</span>
+</a>
+</div>
+<div class="print-hidden">
+<button class="crayons-btn follow-action-button whitespace-nowrap follow-user w-100" data-info='{"style":"full","id":3155632,"className":"User","name":"Mohamed Riham"}'>
+                      Follow
+                    </button>
+</div>
+<div class="author-preview-metadata-container" data-author-id="3155632"></div>
+</div>
+</div>
+</div>
+</div>
+<a class="crayons-story__tertiary fs-xs" href="../mohamed-riham/working-on-azirah-dont-let-her-see-you-lessons-from-my-game-development-journey-5aae.html"><time datetime="2026-05-05T13:08:56Z">May 5</time><span class="time-ago-indicator-initial-placeholder" data-seconds="1777986536"></span></a>
+</div>
+</div>
+</div>
+<div class="crayons-story__indention">
+<h2 class="crayons-story__title crayons-story__title-full_post">
+<a data-preload-image="https://media2.dev.to/dynamic/image/width=1000,height=420,fit=cover,gravity=auto,format=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Farticles%2F8an1edksu0dewb78v37h.png" href="../mohamed-riham/working-on-azirah-dont-let-her-see-you-lessons-from-my-game-development-journey-5aae.html" id="article-link-3615559">
+          Working on Azirah: Don’t Let Her See You: Lessons from My Game Development Journey
+        </a>
+</h2>
+<div class="crayons-story__tags">
+<a class="crayons-tag crayons-tag--monochrome" href="gamedev.html" style="
+        --tag-bg: rgba(51, 132, 217, 0.10);
+        --tag-prefix: #3384d9;
+        --tag-bg-hover: rgba(51, 132, 217, 0.10);
+        --tag-prefix-hover: #3384d9;
+      "><span class="crayons-tag__prefix">#</span>gamedev</a>
+<a class="crayons-tag crayons-tag--monochrome" href="csharp.html" style="
+        --tag-bg: rgba(7, 205, 0, 0.10);
+        --tag-prefix: #07CD00;
+        --tag-bg-hover: rgba(7, 205, 0, 0.10);
+        --tag-prefix-hover: #07CD00;
+      "><span class="crayons-tag__prefix">#</span>csharp</a>
+<a class="crayons-tag crayons-tag--monochrome" href="unity3d.html" style="
+        --tag-bg: rgba(0, 0, 0, 0.10);
+        --tag-prefix: #000000;
+        --tag-bg-hover: rgba(0, 0, 0, 0.10);
+        --tag-prefix-hover: #000000;
+      "><span class="crayons-tag__prefix">#</span>unity3d</a>
+<a class="crayons-tag crayons-tag--monochrome" href="indiedev.html" style="
+        --tag-bg: rgba(64, 78, 211, 0.10);
+        --tag-prefix: #404ED3;
+        --tag-bg-hover: rgba(64, 78, 211, 0.10);
+        --tag-prefix-hover: #404ED3;
+      "><span class="crayons-tag__prefix">#</span>indiedev</a>
+</div>
+<div class="crayons-story__bottom">
+<div class="crayons-story__details">
+<a aria-label="Add a comment to post - Working on Azirah: Don’t Let Her See You: Lessons from My Game Development Journey" class="crayons-btn crayons-btn--s crayons-btn--ghost crayons-btn--icon-left" data-reactable-id="3615559" data-reaction-count="" href="../mohamed-riham/working-on-azirah-dont-let-her-see-you-lessons-from-my-game-development-journey-5aae.html">
+<div class="multiple_reactions_aggregate">
+<span class="multiple_reactions_icons_container" dir="rtl">
+<span class="crayons_icon_container">
+<img height="18" src="../cdn/assets.dev.to/assets/raised-hands-74b2099fd66a39f2d7eed9305ee0f4553df0eb7b4f11b01b6b1b499973048fe5.svg" width="18"/>
+</span>
+<span class="crayons_icon_container">
+<img height="18" src="../cdn/assets.dev.to/assets/exploding-head-daceb38d627e6ae9b730f36a1e390fca556a4289d5a41abb2c35068ad3e2c4b5.svg" width="18"/>
+</span>
+<span class="crayons_icon_container">
+<img height="18" src="../cdn/assets.dev.to/assets/sparkle-heart-5f9bee3767e18deb1bb725290cb151c25234768a0e9a2bd39370c382d02920cf.svg" width="18"/>
+</span>
+</span>
+<span class="aggregate_reactions_counter">24<span class="hidden s:inline"> reactions</span></span>
+</div>
+</a>
+<a aria-label="Add a comment to post - Working on Azirah: Don’t Let Her See You: Lessons from My Game Development Journey" class="crayons-btn crayons-btn--s crayons-btn--ghost crayons-btn--icon-left flex items-center" href="../mohamed-riham/working-on-azirah-dont-let-her-see-you-lessons-from-my-game-development-journey-5aae.html">
+<svg aria-labelledby="atvjn0ar9hxs0wd6e78spq8xolnhvq5k" class="crayons-icon" height="24" role="img" width="24" xmlns="http://www.w3.org/2000/svg"><title id="atvjn0ar9hxs0wd6e78spq8xolnhvq5k">Comments</title><path d="M10.5 5h3a6 6 0 110 12v2.625c-3.75-1.5-9-3.75-9-8.625a6 6 0 016-6zM12 15.5h1.5a4.501 4.501 0 001.722-8.657A4.5 4.5 0 0013.5 6.5h-3A4.5 4.5 0 006 11c0 2.707 1.846 4.475 6 6.36V15.5z"></path></svg>
+
+              2<span class="hidden s:inline"> comments</span>
+</a>
+</div>
+<div class="crayons-story__save">
+<small class="crayons-story__tertiary fs-xs mr-2">
+            1 min read
+          </small>
+<button aria-label="Save post Working on Azirah: Don’t Let Her See You: Lessons from My Game Development Journey to reading list" class="c-btn c-btn--icon-alone bookmark-button" data-article-author-id="3155632" data-reactable-id="3615559" id="article-save-button-3615559" title="Save post Working on Azirah: Don’t Let Her See You: Lessons from My Game Development Journey to reading list" type="button">
+<span class="bm-initial">
+<svg aria-hidden="true" height="24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M6.75 4.5h10.5a.75.75 0 01.75.75v14.357a.375.375 0 01-.575.318L12 16.523l-5.426 3.401A.375.375 0 016 19.607V5.25a.75.75 0 01.75-.75zM16.5 6h-9v11.574l4.5-2.82 4.5 2.82V6z"></path></svg>
+</span>
+<span class="bm-success">
+<svg aria-hidden="true" height="24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M6.75 4.5h10.5a.75.75 0 01.75.75v14.357a.375.375 0 01-.575.318L12 16.523l-5.426 3.401A.375.375 0 016 19.607V5.25a.75.75 0 01.75-.75z"></path></svg>
+</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="crayons-story" data-content-user-id="493613" data-feed-content-id="3589133">
+<a aria-labelledby="article-link-3589133" class="crayons-story__hidden-navigation-link" href="../aws-heroes/i-built-a-minecraft-mod-where-every-sword-is-an-aws-service-heres-how-we-coded-it-with-ai-4epc.html">I Built a Minecraft Mod Where Every Sword is an AWS Service — Here's How We Coded It with AI</a>
+<div class="crayons-story__body crayons-story__body-full_post">
+<div class="crayons-story__top">
+<div class="crayons-story__meta">
+<div class="crayons-story__author-pic">
+<a class="crayons-logo crayons-logo--l" href="../aws-heroes.html">
+<img alt="AWS Heroes logo" class="crayons-logo__image" loading="lazy" src="../cdn/media2.dev.to/dynamic/image/width=90,height=90,fit=cover,gravity=auto,format=auto/https___dev-to-uploads.s3.amazonaws.com_uploads_organization_profile_image_2491_f0c1a659-c959-42cd-bb12-cd25909dd9db.png"/>
+</a>
+<a class="crayons-avatar crayons-avatar--s absolute -right-2 -bottom-2 border-solid border-2 border-base-inverted" href="../ccortezb.html">
+<img alt="ccortezb profile" class="crayons-avatar__image" loading="lazy" src="../cdn/media2.dev.to/dynamic/image/width=90,height=90,fit=cover,gravity=auto,format=auto/https___dev-to-uploads.s3.amazonaws.com_uploads_user_profile_image_493613_e7110737-077b-4e9e-9745-3c998b0f4b31.jpg"/>
+</a>
+</div>
+<div>
+<div>
+<a class="crayons-story__secondary fw-medium m:hidden" href="../ccortezb.html">
+              Carlos Cortez 🇵🇪 [AWS Hero]
+            </a>
+<div class="profile-preview-card relative mb-4 s:mb-0 fw-medium hidden m:inline-block">
+<button aria-controls="story-author-preview-content-3589133" aria-label="Carlos Cortez 🇵🇪 [AWS Hero] profile details" class="profile-preview-card__trigger fs-s p-1 -ml-1 -my-2 crayons-btn crayons-btn--ghost" id="story-author-preview-trigger-3589133">
+                Carlos Cortez 🇵🇪 [AWS Hero]
+                
+              </button>
+<div class="profile-preview-card__content crayons-dropdown branded-7 p-4 pt-0" data-repositioning-dropdown="true" data-testid="profile-preview-card" id="story-author-preview-content-3589133" style="border-top-color: var(--card-color);">
+<div class="gap-4 grid">
+<div class="-mt-4">
+<a class="flex" href="../ccortezb.html">
+<span class="crayons-avatar crayons-avatar--xl mr-2 shrink-0">
+<img alt="" class="crayons-avatar__image" loading="lazy" src="../cdn/media2.dev.to/dynamic/image/width=90,height=90,fit=cover,gravity=auto,format=auto/https___dev-to-uploads.s3.amazonaws.com_uploads_user_profile_image_493613_e7110737-077b-4e9e-9745-3c998b0f4b31.jpg"/>
+</span>
+<span class="crayons-link crayons-subtitle-2 mt-5">Carlos Cortez 🇵🇪 [AWS Hero]</span>
+</a>
+</div>
+<div class="print-hidden">
+<button class="crayons-btn follow-action-button whitespace-nowrap follow-user w-100" data-info='{"style":"full","id":493613,"className":"User","name":"Carlos Cortez 🇵🇪 [AWS Hero]"}'>
+                      Follow
+                    </button>
+</div>
+<div class="author-preview-metadata-container" data-author-id="493613"></div>
+</div>
+</div>
+</div>
+<span>
+<span class="crayons-story__tertiary fw-normal"> for </span><a class="crayons-story__secondary fw-medium" href="../aws-heroes.html">AWS Heroes</a>
+</span>
+</div>
+<a class="crayons-story__tertiary fs-xs" href="../aws-heroes/i-built-a-minecraft-mod-where-every-sword-is-an-aws-service-heres-how-we-coded-it-with-ai-4epc.html"><time datetime="2026-05-05T01:43:58Z">May 5</time><span class="time-ago-indicator-initial-placeholder" data-seconds="1777945438"></span></a>
+</div>
+</div>
+</div>
+<div class="crayons-story__indention">
+<h2 class="crayons-story__title crayons-story__title-full_post">
+<a data-preload-image="https://media2.dev.to/dynamic/image/width=1000,height=420,fit=cover,gravity=auto,format=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Farticles%2Fxqdduz3ruywd668sqhku.png" href="../aws-heroes/i-built-a-minecraft-mod-where-every-sword-is-an-aws-service-heres-how-we-coded-it-with-ai-4epc.html" id="article-link-3589133">
+          I Built a Minecraft Mod Where Every Sword is an AWS Service — Here's How We Coded It with AI
+        </a>
+</h2>
+<div class="crayons-story__tags">
+<a class="crayons-tag crayons-tag--filled" href="showdev.html" style="
+        --tag-bg: rgba(9, 27, 71, 0.10);
+        --tag-prefix: #091b47;
+        --tag-bg-hover: rgba(9, 27, 71, 0.10);
+        --tag-prefix-hover: #091b47;
+      "><span class="crayons-tag__prefix">#</span>showdev</a>
+<a class="crayons-tag crayons-tag--monochrome" href="ai.html" style="
+        --tag-bg: rgba(23, 253, 26, 0.10);
+        --tag-prefix: #17fd1a;
+        --tag-bg-hover: rgba(23, 253, 26, 0.10);
+        --tag-prefix-hover: #17fd1a;
+      "><span class="crayons-tag__prefix">#</span>ai</a>
+<a class="crayons-tag crayons-tag--monochrome" href="aws.html" style="
+        --tag-bg: rgba(33, 43, 58, 0.10);
+        --tag-prefix: #212b3a;
+        --tag-bg-hover: rgba(33, 43, 58, 0.10);
+        --tag-prefix-hover: #212b3a;
+      "><span class="crayons-tag__prefix">#</span>aws</a>
+<a class="crayons-tag crayons-tag--monochrome" href="gamedev.html" style="
+        --tag-bg: rgba(51, 132, 217, 0.10);
+        --tag-prefix: #3384d9;
+        --tag-bg-hover: rgba(51, 132, 217, 0.10);
+        --tag-prefix-hover: #3384d9;
+      "><span class="crayons-tag__prefix">#</span>gamedev</a>
+</div>
+<div class="crayons-story__bottom">
+<div class="crayons-story__details">
+<a aria-label="Add a comment to post - I Built a Minecraft Mod Where Every Sword is an AWS Service — Here's How We Coded It with AI" class="crayons-btn crayons-btn--s crayons-btn--ghost crayons-btn--icon-left" data-reactable-id="3589133" data-reaction-count="" href="../aws-heroes/i-built-a-minecraft-mod-where-every-sword-is-an-aws-service-heres-how-we-coded-it-with-ai-4epc.html">
+<div class="multiple_reactions_aggregate">
+<span class="multiple_reactions_icons_container" dir="rtl">
+<span class="crayons_icon_container">
+<img height="18" src="../cdn/assets.dev.to/assets/multi-unicorn-b44d6f8c23cdd00964192bedc38af3e82463978aa611b4365bd33a0f1f4f3e97.svg" width="18"/>
+</span>
+<span class="crayons_icon_container">
+<img height="18" src="../cdn/assets.dev.to/assets/sparkle-heart-5f9bee3767e18deb1bb725290cb151c25234768a0e9a2bd39370c382d02920cf.svg" width="18"/>
+</span>
+</span>
+<span class="aggregate_reactions_counter">4<span class="hidden s:inline"> reactions</span></span>
+</div>
+</a>
+<a aria-label="Add a comment to post - I Built a Minecraft Mod Where Every Sword is an AWS Service — Here's How We Coded It with AI" class="crayons-btn crayons-btn--s crayons-btn--ghost crayons-btn--icon-left flex items-center" href="../aws-heroes/i-built-a-minecraft-mod-where-every-sword-is-an-aws-service-heres-how-we-coded-it-with-ai-4epc.html">
+<svg aria-labelledby="aqpsnfsgz679d9296vqylag0gku691a9" class="crayons-icon" height="24" role="img" width="24" xmlns="http://www.w3.org/2000/svg"><title id="aqpsnfsgz679d9296vqylag0gku691a9">Comments</title><path d="M10.5 5h3a6 6 0 110 12v2.625c-3.75-1.5-9-3.75-9-8.625a6 6 0 016-6zM12 15.5h1.5a4.501 4.501 0 001.722-8.657A4.5 4.5 0 0013.5 6.5h-3A4.5 4.5 0 006 11c0 2.707 1.846 4.475 6 6.36V15.5z"></path></svg>
+
+              1<span class="hidden s:inline"> comment</span>
+</a>
+</div>
+<div class="crayons-story__save">
+<small class="crayons-story__tertiary fs-xs mr-2">
+            14 min read
+          </small>
+<button aria-label="Save post I Built a Minecraft Mod Where Every Sword is an AWS Service — Here's How We Coded It with AI to reading list" class="c-btn c-btn--icon-alone bookmark-button" data-article-author-id="493613" data-reactable-id="3589133" id="article-save-button-3589133" title="Save post I Built a Minecraft Mod Where Every Sword is an AWS Service — Here's How We Coded It with AI to reading list" type="button">
+<span class="bm-initial">
+<svg aria-hidden="true" height="24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M6.75 4.5h10.5a.75.75 0 01.75.75v14.357a.375.375 0 01-.575.318L12 16.523l-5.426 3.401A.375.375 0 016 19.607V5.25a.75.75 0 01.75-.75zM16.5 6h-9v11.574l4.5-2.82 4.5 2.82V6z"></path></svg>
+</span>
+<span class="bm-success">
+<svg aria-hidden="true" height="24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M6.75 4.5h10.5a.75.75 0 01.75.75v14.357a.375.375 0 01-.575.318L12 16.523l-5.426 3.401A.375.375 0 016 19.607V5.25a.75.75 0 01.75-.75z"></path></svg>
+</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="crayons-story" data-content-user-id="3912638" data-feed-content-id="3617810">
+<a aria-labelledby="article-link-3617810" class="crayons-story__hidden-navigation-link" href="../abrazos_programacion/de-la-grilla-a-la-pantalla-como-centrar-y-alinear-sprites-con-aritmetica-basica-1nbc.html">De la Grilla a la Pantalla: Cómo Centrar y Alinear Sprites con Aritmética Básica.</a>
+<div class="crayons-story__body crayons-story__body-full_post">
+<div class="crayons-story__top">
+<div class="crayons-story__meta">
+<div class="crayons-story__author-pic">
+<a class="crayons-avatar crayons-avatar--l" href="../abrazos_programacion.html">
+<img alt="abrazos_programacion profile" class="crayons-avatar__image" loading="lazy" src="../cdn/media2.dev.to/dynamic/image/width=90,height=90,fit=cover,gravity=auto,format=auto/https___dev-to-uploads.s3.amazonaws.com_uploads_user_profile_image_3912638_e5c4d7f8-fb6a-4eb6-ab41-b94d734d4ae8.jpg"/>
+</a>
+</div>
+<div>
+<div>
+<a class="crayons-story__secondary fw-medium m:hidden" href="../abrazos_programacion.html">
+              Lily
+            </a>
+<div class="profile-preview-card relative mb-4 s:mb-0 fw-medium hidden m:inline-block">
+<button aria-controls="story-author-preview-content-3617810" aria-label="Lily profile details" class="profile-preview-card__trigger fs-s p-1 -ml-1 -my-2 crayons-btn crayons-btn--ghost" id="story-author-preview-trigger-3617810">
+                Lily
+                
+              </button>
+<div class="profile-preview-card__content crayons-dropdown branded-7 p-4 pt-0" data-repositioning-dropdown="true" data-testid="profile-preview-card" id="story-author-preview-content-3617810" style="border-top-color: var(--card-color);">
+<div class="gap-4 grid">
+<div class="-mt-4">
+<a class="flex" href="../abrazos_programacion.html">
+<span class="crayons-avatar crayons-avatar--xl mr-2 shrink-0">
+<img alt="" class="crayons-avatar__image" loading="lazy" src="../cdn/media2.dev.to/dynamic/image/width=90,height=90,fit=cover,gravity=auto,format=auto/https___dev-to-uploads.s3.amazonaws.com_uploads_user_profile_image_3912638_e5c4d7f8-fb6a-4eb6-ab41-b94d734d4ae8.jpg"/>
+</span>
+<span class="crayons-link crayons-subtitle-2 mt-5">Lily</span>
+</a>
+</div>
+<div class="print-hidden">
+<button class="crayons-btn follow-action-button whitespace-nowrap follow-user w-100" data-info='{"style":"full","id":3912638,"className":"User","name":"Lily"}'>
+                      Follow
+                    </button>
+</div>
+<div class="author-preview-metadata-container" data-author-id="3912638"></div>
+</div>
+</div>
+</div>
+</div>
+<a class="crayons-story__tertiary fs-xs" href="../abrazos_programacion/de-la-grilla-a-la-pantalla-como-centrar-y-alinear-sprites-con-aritmetica-basica-1nbc.html"><time datetime="2026-05-06T01:32:38Z">May 6</time><span class="time-ago-indicator-initial-placeholder" data-seconds="1778031158"></span></a>
+</div>
+</div>
+</div>
+<div class="crayons-story__indention">
+<h2 class="crayons-story__title crayons-story__title-full_post">
+<a data-preload-image="https://media2.dev.to/dynamic/image/width=1000,height=420,fit=cover,gravity=auto,format=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Farticles%2Fhjwsc8pwz0r2r2e1xrqn.jpeg" href="../abrazos_programacion/de-la-grilla-a-la-pantalla-como-centrar-y-alinear-sprites-con-aritmetica-basica-1nbc.html" id="article-link-3617810">
+          De la Grilla a la Pantalla: Cómo Centrar y Alinear Sprites con Aritmética Básica.
+        </a>
+</h2>
+<div class="crayons-story__tags">
+<a class="crayons-tag crayons-tag--monochrome" href="renpy.html" style="
+        --tag-bg: rgba(64, 78, 211, 0.10);
+        --tag-prefix: #404ED3;
+        --tag-bg-hover: rgba(64, 78, 211, 0.10);
+        --tag-prefix-hover: #404ED3;
+      "><span class="crayons-tag__prefix">#</span>renpy</a>
+<a class="crayons-tag crayons-tag--monochrome" href="python.html" style="
+        --tag-bg: rgba(30, 56, 187, 0.10);
+        --tag-prefix: #1E38BB;
+        --tag-bg-hover: rgba(30, 56, 187, 0.10);
+        --tag-prefix-hover: #1E38BB;
+      "><span class="crayons-tag__prefix">#</span>python</a>
+<a class="crayons-tag crayons-tag--monochrome" href="gamedev.html" style="
+        --tag-bg: rgba(51, 132, 217, 0.10);
+        --tag-prefix: #3384d9;
+        --tag-bg-hover: rgba(51, 132, 217, 0.10);
+        --tag-prefix-hover: #3384d9;
+      "><span class="crayons-tag__prefix">#</span>gamedev</a>
+<a class="crayons-tag crayons-tag--monochrome" href="tutorial.html" style="
+        --tag-bg: rgba(254, 255, 165, 0.10);
+        --tag-prefix: #FEFFA5;
+        --tag-bg-hover: rgba(254, 255, 165, 0.10);
+        --tag-prefix-hover: #FEFFA5;
+      "><span class="crayons-tag__prefix">#</span>tutorial</a>
+</div>
+<div class="crayons-story__bottom">
+<div class="crayons-story__details">
+<a aria-label="Add a comment to post - De la Grilla a la Pantalla: Cómo Centrar y Alinear Sprites con Aritmética Básica." class="crayons-btn crayons-btn--s crayons-btn--ghost crayons-btn--icon-left flex items-center" href="../abrazos_programacion/de-la-grilla-a-la-pantalla-como-centrar-y-alinear-sprites-con-aritmetica-basica-1nbc.html">
+<svg aria-labelledby="af5uazyd7nj63qoba2eddi9k2km7v92d" class="crayons-icon" height="24" role="img" width="24" xmlns="http://www.w3.org/2000/svg"><title id="af5uazyd7nj63qoba2eddi9k2km7v92d">Comments</title><path d="M10.5 5h3a6 6 0 110 12v2.625c-3.75-1.5-9-3.75-9-8.625a6 6 0 016-6zM12 15.5h1.5a4.501 4.501 0 001.722-8.657A4.5 4.5 0 0013.5 6.5h-3A4.5 4.5 0 006 11c0 2.707 1.846 4.475 6 6.36V15.5z"></path></svg>
+<span class="hidden s:inline">Add Comment</span>
+</a>
+</div>
+<div class="crayons-story__save">
+<small class="crayons-story__tertiary fs-xs mr-2">
+            3 min read
+          </small>
+<button aria-label="Save post De la Grilla a la Pantalla: Cómo Centrar y Alinear Sprites con Aritmética Básica. to reading list" class="c-btn c-btn--icon-alone bookmark-button" data-article-author-id="3912638" data-reactable-id="3617810" id="article-save-button-3617810" title="Save post De la Grilla a la Pantalla: Cómo Centrar y Alinear Sprites con Aritmética Básica. to reading list" type="button">
+<span class="bm-initial">
+<svg aria-hidden="true" height="24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M6.75 4.5h10.5a.75.75 0 01.75.75v14.357a.375.375 0 01-.575.318L12 16.523l-5.426 3.401A.375.375 0 016 19.607V5.25a.75.75 0 01.75-.75zM16.5 6h-9v11.574l4.5-2.82 4.5 2.82V6z"></path></svg>
+</span>
+<span class="bm-success">
+<svg aria-hidden="true" height="24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M6.75 4.5h10.5a.75.75 0 01.75.75v14.357a.375.375 0 01-.575.318L12 16.523l-5.426 3.401A.375.375 0 016 19.607V5.25a.75.75 0 01.75-.75z"></path></svg>
+</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="crayons-story" data-content-user-id="3912638" data-feed-content-id="3617837">
+<a aria-labelledby="article-link-3617837" class="crayons-story__hidden-navigation-link" href="../abrazos_programacion/de-la-idea-al-pixel-como-implementar-el-acotamiento-de-camara-usando-min-y-max-en-python-3boa.html">De la Idea al Píxel: Cómo Implementar el Acotamiento de Cámara Usando Min y Max en Python</a>
+<div class="crayons-story__body crayons-story__body-full_post">
+<div class="crayons-story__top">
+<div class="crayons-story__meta">
+<div class="crayons-story__author-pic">
+<a class="crayons-avatar crayons-avatar--l" href="../abrazos_programacion.html">
+<img alt="abrazos_programacion profile" class="crayons-avatar__image" loading="lazy" src="../cdn/media2.dev.to/dynamic/image/width=90,height=90,fit=cover,gravity=auto,format=auto/https___dev-to-uploads.s3.amazonaws.com_uploads_user_profile_image_3912638_e5c4d7f8-fb6a-4eb6-ab41-b94d734d4ae8.jpg"/>
+</a>
+</div>
+<div>
+<div>
+<a class="crayons-story__secondary fw-medium m:hidden" href="../abrazos_programacion.html">
+              Lily
+            </a>
+<div class="profile-preview-card relative mb-4 s:mb-0 fw-medium hidden m:inline-block">
+<button aria-controls="story-author-preview-content-3617837" aria-label="Lily profile details" class="profile-preview-card__trigger fs-s p-1 -ml-1 -my-2 crayons-btn crayons-btn--ghost" id="story-author-preview-trigger-3617837">
+                Lily
+                
+              </button>
+<div class="profile-preview-card__content crayons-dropdown branded-7 p-4 pt-0" data-repositioning-dropdown="true" data-testid="profile-preview-card" id="story-author-preview-content-3617837" style="border-top-color: var(--card-color);">
+<div class="gap-4 grid">
+<div class="-mt-4">
+<a class="flex" href="../abrazos_programacion.html">
+<span class="crayons-avatar crayons-avatar--xl mr-2 shrink-0">
+<img alt="" class="crayons-avatar__image" loading="lazy" src="../cdn/media2.dev.to/dynamic/image/width=90,height=90,fit=cover,gravity=auto,format=auto/https___dev-to-uploads.s3.amazonaws.com_uploads_user_profile_image_3912638_e5c4d7f8-fb6a-4eb6-ab41-b94d734d4ae8.jpg"/>
+</span>
+<span class="crayons-link crayons-subtitle-2 mt-5">Lily</span>
+</a>
+</div>
+<div class="print-hidden">
+<button class="crayons-btn follow-action-button whitespace-nowrap follow-user w-100" data-info='{"style":"full","id":3912638,"className":"User","name":"Lily"}'>
+                      Follow
+                    </button>
+</div>
+<div class="author-preview-metadata-container" data-author-id="3912638"></div>
+</div>
+</div>
+</div>
+</div>
+<a class="crayons-story__tertiary fs-xs" href="../abrazos_programacion/de-la-idea-al-pixel-como-implementar-el-acotamiento-de-camara-usando-min-y-max-en-python-3boa.html"><time datetime="2026-05-06T01:46:24Z">May 6</time><span class="time-ago-indicator-initial-placeholder" data-seconds="1778031984"></span></a>
+</div>
+</div>
+</div>
+<div class="crayons-story__indention">
+<h2 class="crayons-story__title crayons-story__title-full_post">
+<a data-preload-image="https://media2.dev.to/dynamic/image/width=1000,height=420,fit=cover,gravity=auto,format=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Farticles%2Fvvk8xxlp0mgx9ll0qaor.jpeg" href="../abrazos_programacion/de-la-idea-al-pixel-como-implementar-el-acotamiento-de-camara-usando-min-y-max-en-python-3boa.html" id="article-link-3617837">
+          De la Idea al Píxel: Cómo Implementar el Acotamiento de Cámara Usando Min y Max en Python
+        </a>
+</h2>
+<div class="crayons-story__tags">
+<a class="crayons-tag crayons-tag--monochrome" href="renpy.html" style="
+        --tag-bg: rgba(64, 78, 211, 0.10);
+        --tag-prefix: #404ED3;
+        --tag-bg-hover: rgba(64, 78, 211, 0.10);
+        --tag-prefix-hover: #404ED3;
+      "><span class="crayons-tag__prefix">#</span>renpy</a>
+<a class="crayons-tag crayons-tag--monochrome" href="gamedev.html" style="
+        --tag-bg: rgba(51, 132, 217, 0.10);
+        --tag-prefix: #3384d9;
+        --tag-bg-hover: rgba(51, 132, 217, 0.10);
+        --tag-prefix-hover: #3384d9;
+      "><span class="crayons-tag__prefix">#</span>gamedev</a>
+<a class="crayons-tag crayons-tag--monochrome" href="python.html" style="
+        --tag-bg: rgba(30, 56, 187, 0.10);
+        --tag-prefix: #1E38BB;
+        --tag-bg-hover: rgba(30, 56, 187, 0.10);
+        --tag-prefix-hover: #1E38BB;
+      "><span class="crayons-tag__prefix">#</span>python</a>
+<a class="crayons-tag crayons-tag--monochrome" href="tutorial.html" style="
+        --tag-bg: rgba(254, 255, 165, 0.10);
+        --tag-prefix: #FEFFA5;
+        --tag-bg-hover: rgba(254, 255, 165, 0.10);
+        --tag-prefix-hover: #FEFFA5;
+      "><span class="crayons-tag__prefix">#</span>tutorial</a>
+</div>
+<div class="crayons-story__bottom">
+<div class="crayons-story__details">
+<a aria-label="Add a comment to post - De la Idea al Píxel: Cómo Implementar el Acotamiento de Cámara Usando Min y Max en Python" class="crayons-btn crayons-btn--s crayons-btn--ghost crayons-btn--icon-left flex items-center" href="../abrazos_programacion/de-la-idea-al-pixel-como-implementar-el-acotamiento-de-camara-usando-min-y-max-en-python-3boa.html">
+<svg aria-labelledby="a9asaw8ozl2cue7bpm1yl67qmn7j3tci" class="crayons-icon" height="24" role="img" width="24" xmlns="http://www.w3.org/2000/svg"><title id="a9asaw8ozl2cue7bpm1yl67qmn7j3tci">Comments</title><path d="M10.5 5h3a6 6 0 110 12v2.625c-3.75-1.5-9-3.75-9-8.625a6 6 0 016-6zM12 15.5h1.5a4.501 4.501 0 001.722-8.657A4.5 4.5 0 0013.5 6.5h-3A4.5 4.5 0 006 11c0 2.707 1.846 4.475 6 6.36V15.5z"></path></svg>
+<span class="hidden s:inline">Add Comment</span>
+</a>
+</div>
+<div class="crayons-story__save">
+<small class="crayons-story__tertiary fs-xs mr-2">
+            2 min read
+          </small>
+<button aria-label="Save post De la Idea al Píxel: Cómo Implementar el Acotamiento de Cámara Usando Min y Max en Python to reading list" class="c-btn c-btn--icon-alone bookmark-button" data-article-author-id="3912638" data-reactable-id="3617837" id="article-save-button-3617837" title="Save post De la Idea al Píxel: Cómo Implementar el Acotamiento de Cámara Usando Min y Max en Python to reading list" type="button">
+<span class="bm-initial">
+<svg aria-hidden="true" height="24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M6.75 4.5h10.5a.75.75 0 01.75.75v14.357a.375.375 0 01-.575.318L12 16.523l-5.426 3.401A.375.375 0 016 19.607V5.25a.75.75 0 01.75-.75zM16.5 6h-9v11.574l4.5-2.82 4.5 2.82V6z"></path></svg>
+</span>
+<span class="bm-success">
+<svg aria-hidden="true" height="24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M6.75 4.5h10.5a.75.75 0 01.75.75v14.357a.375.375 0 01-.575.318L12 16.523l-5.426 3.401A.375.375 0 016 19.607V5.25a.75.75 0 01.75-.75z"></path></svg>
+</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="crayons-story" data-content-user-id="3905688" data-feed-content-id="3605073">
+<a aria-labelledby="article-link-3605073" class="crayons-story__hidden-navigation-link" href="../mainr/how-ive-optimized-chunk-generation-in-my-minecraft-clone-i78.html">How I've optimized chunk generation in my Minecraft clone</a>
+<div class="crayons-story__body crayons-story__body-full_post">
+<div class="crayons-story__top">
+<div class="crayons-story__meta">
+<div class="crayons-story__author-pic">
+<a class="crayons-avatar crayons-avatar--l" href="../mainr.html">
+<img alt="mainr profile" class="crayons-avatar__image" loading="lazy" src="../cdn/media2.dev.to/dynamic/image/width=90,height=90,fit=cover,gravity=auto,format=auto/https___dev-to-uploads.s3.amazonaws.com_uploads_user_profile_image_3905688_8639b1e9-e522-45d0-bda4-910693e4e58e.png"/>
+</a>
+</div>
+<div>
+<div>
+<a class="crayons-story__secondary fw-medium m:hidden" href="../mainr.html">
+              Romain
+            </a>
+<div class="profile-preview-card relative mb-4 s:mb-0 fw-medium hidden m:inline-block">
+<button aria-controls="story-author-preview-content-3605073" aria-label="Romain profile details" class="profile-preview-card__trigger fs-s p-1 -ml-1 -my-2 crayons-btn crayons-btn--ghost" id="story-author-preview-trigger-3605073">
+                Romain
+                
+              </button>
+<div class="profile-preview-card__content crayons-dropdown branded-7 p-4 pt-0" data-repositioning-dropdown="true" data-testid="profile-preview-card" id="story-author-preview-content-3605073" style="border-top-color: var(--card-color);">
+<div class="gap-4 grid">
+<div class="-mt-4">
+<a class="flex" href="../mainr.html">
+<span class="crayons-avatar crayons-avatar--xl mr-2 shrink-0">
+<img alt="" class="crayons-avatar__image" loading="lazy" src="../cdn/media2.dev.to/dynamic/image/width=90,height=90,fit=cover,gravity=auto,format=auto/https___dev-to-uploads.s3.amazonaws.com_uploads_user_profile_image_3905688_8639b1e9-e522-45d0-bda4-910693e4e58e.png"/>
+</span>
+<span class="crayons-link crayons-subtitle-2 mt-5">Romain</span>
+</a>
+</div>
+<div class="print-hidden">
+<button class="crayons-btn follow-action-button whitespace-nowrap follow-user w-100" data-info='{"style":"full","id":3905688,"className":"User","name":"Romain"}'>
+                      Follow
+                    </button>
+</div>
+<div class="author-preview-metadata-container" data-author-id="3905688"></div>
+</div>
+</div>
+</div>
+</div>
+<a class="crayons-story__tertiary fs-xs" href="../mainr/how-ive-optimized-chunk-generation-in-my-minecraft-clone-i78.html"><time datetime="2026-05-05T21:08:44Z">May 5</time><span class="time-ago-indicator-initial-placeholder" data-seconds="1778015324"></span></a>
+</div>
+</div>
+</div>
+<div class="crayons-story__indention">
+<h2 class="crayons-story__title crayons-story__title-full_post">
+<a data-preload-image="https://media2.dev.to/dynamic/image/width=1000,height=420,fit=cover,gravity=auto,format=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Farticles%2Fnfg0v4boiyf29w6yso31.png" href="../mainr/how-ive-optimized-chunk-generation-in-my-minecraft-clone-i78.html" id="article-link-3605073">
+          How I've optimized chunk generation in my Minecraft clone
+        </a>
+</h2>
+<div class="crayons-story__tags">
+<a class="crayons-tag crayons-tag--monochrome" href="cpp.html" style="
+        --tag-bg: rgba(1, 71, 132, 0.10);
+        --tag-prefix: #014784;
+        --tag-bg-hover: rgba(1, 71, 132, 0.10);
+        --tag-prefix-hover: #014784;
+      "><span class="crayons-tag__prefix">#</span>cpp</a>
+<a class="crayons-tag crayons-tag--monochrome" href="gamedev.html" style="
+        --tag-bg: rgba(51, 132, 217, 0.10);
+        --tag-prefix: #3384d9;
+        --tag-bg-hover: rgba(51, 132, 217, 0.10);
+        --tag-prefix-hover: #3384d9;
+      "><span class="crayons-tag__prefix">#</span>gamedev</a>
+<a class="crayons-tag crayons-tag--monochrome" href="programming.html" style="
+        --tag-bg: rgba(137, 6, 6, 0.10);
+        --tag-prefix: #890606;
+        --tag-bg-hover: rgba(137, 6, 6, 0.10);
+        --tag-prefix-hover: #890606;
+      "><span class="crayons-tag__prefix">#</span>programming</a>
+</div>
+<div class="crayons-story__bottom">
+<div class="crayons-story__details">
+<a aria-label="Add a comment to post - How I've optimized chunk generation in my Minecraft clone" class="crayons-btn crayons-btn--s crayons-btn--ghost crayons-btn--icon-left flex items-center" href="../mainr/how-ive-optimized-chunk-generation-in-my-minecraft-clone-i78.html">
+<svg aria-labelledby="arptllw8gm4zu6jhaw50rxzskblt6z1z" class="crayons-icon" height="24" role="img" width="24" xmlns="http://www.w3.org/2000/svg"><title id="arptllw8gm4zu6jhaw50rxzskblt6z1z">Comments</title><path d="M10.5 5h3a6 6 0 110 12v2.625c-3.75-1.5-9-3.75-9-8.625a6 6 0 016-6zM12 15.5h1.5a4.501 4.501 0 001.722-8.657A4.5 4.5 0 0013.5 6.5h-3A4.5 4.5 0 006 11c0 2.707 1.846 4.475 6 6.36V15.5z"></path></svg>
+<span class="hidden s:inline">Add Comment</span>
+</a>
+</div>
+<div class="crayons-story__save">
+<small class="crayons-story__tertiary fs-xs mr-2">
+            5 min read
+          </small>
+<button aria-label="Save post How I've optimized chunk generation in my Minecraft clone to reading list" class="c-btn c-btn--icon-alone bookmark-button" data-article-author-id="3905688" data-reactable-id="3605073" id="article-save-button-3605073" title="Save post How I've optimized chunk generation in my Minecraft clone to reading list" type="button">
+<span class="bm-initial">
+<svg aria-hidden="true" height="24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M6.75 4.5h10.5a.75.75 0 01.75.75v14.357a.375.375 0 01-.575.318L12 16.523l-5.426 3.401A.375.375 0 016 19.607V5.25a.75.75 0 01.75-.75zM16.5 6h-9v11.574l4.5-2.82 4.5 2.82V6z"></path></svg>
+</span>
+<span class="bm-success">
+<svg aria-hidden="true" height="24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M6.75 4.5h10.5a.75.75 0 01.75.75v14.357a.375.375 0 01-.575.318L12 16.523l-5.426 3.401A.375.375 0 016 19.607V5.25a.75.75 0 01.75-.75z"></path></svg>
+</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="crayons-story" data-content-user-id="3914230" data-feed-content-id="3616029">
+<a aria-labelledby="article-link-3616029" class="crayons-story__hidden-navigation-link" href="../briancampbell8_d3cb5665e2/multi-agent-forensics-rescuing-sas-zombie-assault-td-from-the-flash-graveyard-1nog.html">Multi-Agent Forensics: Rescuing SAS Zombie Assault TD from the Flash Graveyard</a>
+<div class="crayons-story__body crayons-story__body-full_post">
+<div class="crayons-story__top">
+<div class="crayons-story__meta">
+<div class="crayons-story__author-pic">
+<a class="crayons-avatar crayons-avatar--l" href="../briancampbell8_d3cb5665e2.html">
+<img alt="briancampbell8_d3cb5665e2 profile" class="crayons-avatar__image" loading="lazy" src="../cdn/media2.dev.to/dynamic/image/width=90,height=90,fit=cover,gravity=auto,format=auto/https___dev-to-uploads.s3.amazonaws.com_uploads_user_profile_image_3914230_9ae7e3d8-ff45-467c-a60b-fc0fed640884.png"/>
+</a>
+</div>
+<div>
+<div>
+<a class="crayons-story__secondary fw-medium m:hidden" href="../briancampbell8_d3cb5665e2.html">
+              briancampbell8
+            </a>
+<div class="profile-preview-card relative mb-4 s:mb-0 fw-medium hidden m:inline-block">
+<button aria-controls="story-author-preview-content-3616029" aria-label="briancampbell8 profile details" class="profile-preview-card__trigger fs-s p-1 -ml-1 -my-2 crayons-btn crayons-btn--ghost" id="story-author-preview-trigger-3616029">
+                briancampbell8
+                
+              </button>
+<div class="profile-preview-card__content crayons-dropdown branded-7 p-4 pt-0" data-repositioning-dropdown="true" data-testid="profile-preview-card" id="story-author-preview-content-3616029" style="border-top-color: var(--card-color);">
+<div class="gap-4 grid">
+<div class="-mt-4">
+<a class="flex" href="../briancampbell8_d3cb5665e2.html">
+<span class="crayons-avatar crayons-avatar--xl mr-2 shrink-0">
+<img alt="" class="crayons-avatar__image" loading="lazy" src="../cdn/media2.dev.to/dynamic/image/width=90,height=90,fit=cover,gravity=auto,format=auto/https___dev-to-uploads.s3.amazonaws.com_uploads_user_profile_image_3914230_9ae7e3d8-ff45-467c-a60b-fc0fed640884.png"/>
+</span>
+<span class="crayons-link crayons-subtitle-2 mt-5">briancampbell8</span>
+</a>
+</div>
+<div class="print-hidden">
+<button class="crayons-btn follow-action-button whitespace-nowrap follow-user w-100" data-info='{"style":"full","id":3914230,"className":"User","name":"briancampbell8"}'>
+                      Follow
+                    </button>
+</div>
+<div class="author-preview-metadata-container" data-author-id="3914230"></div>
+</div>
+</div>
+</div>
+</div>
+<a class="crayons-story__tertiary fs-xs" href="../briancampbell8_d3cb5665e2/multi-agent-forensics-rescuing-sas-zombie-assault-td-from-the-flash-graveyard-1nog.html"><time datetime="2026-05-05T14:56:21Z">May 5</time><span class="time-ago-indicator-initial-placeholder" data-seconds="1777992981"></span></a>
+</div>
+</div>
+</div>
+<div class="crayons-story__indention">
+<h2 class="crayons-story__title crayons-story__title-full_post">
+<a data-preload-image="https://media2.dev.to/dynamic/image/width=1000,height=420,fit=cover,gravity=auto,format=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Farticles%2Frhktqiswi9c5nqqkry4j.png" href="../briancampbell8_d3cb5665e2/multi-agent-forensics-rescuing-sas-zombie-assault-td-from-the-flash-graveyard-1nog.html" id="article-link-3616029">
+          Multi-Agent Forensics: Rescuing SAS Zombie Assault TD from the Flash Graveyard
+        </a>
+</h2>
+<div class="crayons-story__tags">
+<a class="crayons-tag crayons-tag--monochrome" href="gamedev.html" style="
+        --tag-bg: rgba(51, 132, 217, 0.10);
+        --tag-prefix: #3384d9;
+        --tag-bg-hover: rgba(51, 132, 217, 0.10);
+        --tag-prefix-hover: #3384d9;
+      "><span class="crayons-tag__prefix">#</span>gamedev</a>
+<a class="crayons-tag crayons-tag--monochrome" href="ai.html" style="
+        --tag-bg: rgba(23, 253, 26, 0.10);
+        --tag-prefix: #17fd1a;
+        --tag-bg-hover: rgba(23, 253, 26, 0.10);
+        --tag-prefix-hover: #17fd1a;
+      "><span class="crayons-tag__prefix">#</span>ai</a>
+<a class="crayons-tag crayons-tag--monochrome" href="csharp.html" style="
+        --tag-bg: rgba(7, 205, 0, 0.10);
+        --tag-prefix: #07CD00;
+        --tag-bg-hover: rgba(7, 205, 0, 0.10);
+        --tag-prefix-hover: #07CD00;
+      "><span class="crayons-tag__prefix">#</span>csharp</a>
+<a class="crayons-tag crayons-tag--monochrome" href="programming.html" style="
+        --tag-bg: rgba(137, 6, 6, 0.10);
+        --tag-prefix: #890606;
+        --tag-bg-hover: rgba(137, 6, 6, 0.10);
+        --tag-prefix-hover: #890606;
+      "><span class="crayons-tag__prefix">#</span>programming</a>
+</div>
+<div class="crayons-story__bottom">
+<div class="crayons-story__details">
+<a aria-label="Add a comment to post - Multi-Agent Forensics: Rescuing SAS Zombie Assault TD from the Flash Graveyard" class="crayons-btn crayons-btn--s crayons-btn--ghost crayons-btn--icon-left flex items-center" href="../briancampbell8_d3cb5665e2/multi-agent-forensics-rescuing-sas-zombie-assault-td-from-the-flash-graveyard-1nog.html">
+<svg aria-labelledby="anoqd0z626a4erf5h5c5wfnhmbk8xh65" class="crayons-icon" height="24" role="img" width="24" xmlns="http://www.w3.org/2000/svg"><title id="anoqd0z626a4erf5h5c5wfnhmbk8xh65">Comments</title><path d="M10.5 5h3a6 6 0 110 12v2.625c-3.75-1.5-9-3.75-9-8.625a6 6 0 016-6zM12 15.5h1.5a4.501 4.501 0 001.722-8.657A4.5 4.5 0 0013.5 6.5h-3A4.5 4.5 0 006 11c0 2.707 1.846 4.475 6 6.36V15.5z"></path></svg>
+<span class="hidden s:inline">Add Comment</span>
+</a>
+</div>
+<div class="crayons-story__save">
+<small class="crayons-story__tertiary fs-xs mr-2">
+            3 min read
+          </small>
+<button aria-label="Save post Multi-Agent Forensics: Rescuing SAS Zombie Assault TD from the Flash Graveyard to reading list" class="c-btn c-btn--icon-alone bookmark-button" data-article-author-id="3914230" data-reactable-id="3616029" id="article-save-button-3616029" title="Save post Multi-Agent Forensics: Rescuing SAS Zombie Assault TD from the Flash Graveyard to reading list" type="button">
+<span class="bm-initial">
+<svg aria-hidden="true" height="24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M6.75 4.5h10.5a.75.75 0 01.75.75v14.357a.375.375 0 01-.575.318L12 16.523l-5.426 3.401A.375.375 0 016 19.607V5.25a.75.75 0 01.75-.75zM16.5 6h-9v11.574l4.5-2.82 4.5 2.82V6z"></path></svg>
+</span>
+<span class="bm-success">
+<svg aria-hidden="true" height="24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M6.75 4.5h10.5a.75.75 0 01.75.75v14.357a.375.375 0 01-.575.318L12 16.523l-5.426 3.401A.375.375 0 016 19.607V5.25a.75.75 0 01.75-.75z"></path></svg>
+</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="crayons-story" data-content-user-id="3911936" data-feed-content-id="3616672">
+<a aria-labelledby="article-link-3616672" class="crayons-story__hidden-navigation-link" href="../meteostudios/setting-up-discord-rich-presence-for-fivem-servers-qbox-qbcore-and-custom-servers-5a0o.html">Setting Up Discord Rich Presence for FiveM Servers: QBox, QBCore, and Custom servers</a>
+<div class="crayons-story__body crayons-story__body-full_post">
+<div class="crayons-story__top">
+<div class="crayons-story__meta">
+<div class="crayons-story__author-pic">
+<a class="crayons-avatar crayons-avatar--l" href="../meteostudios.html">
+<img alt="meteostudios profile" class="crayons-avatar__image" loading="lazy" src="../cdn/media2.dev.to/dynamic/image/width=90,height=90,fit=cover,gravity=auto,format=auto/https___dev-to-uploads.s3.amazonaws.com_uploads_user_profile_image_3911936_059ed96d-ce14-462c-ab0e-1b2910071a99.png"/>
+</a>
+</div>
+<div>
+<div>
+<a class="crayons-story__secondary fw-medium m:hidden" href="../meteostudios.html">
+              Meteo Studios
+            </a>
+<div class="profile-preview-card relative mb-4 s:mb-0 fw-medium hidden m:inline-block">
+<button aria-controls="story-author-preview-content-3616672" aria-label="Meteo Studios profile details" class="profile-preview-card__trigger fs-s p-1 -ml-1 -my-2 crayons-btn crayons-btn--ghost" id="story-author-preview-trigger-3616672">
+                Meteo Studios
+                
+              </button>
+<div class="profile-preview-card__content crayons-dropdown branded-7 p-4 pt-0" data-repositioning-dropdown="true" data-testid="profile-preview-card" id="story-author-preview-content-3616672" style="border-top-color: var(--card-color);">
+<div class="gap-4 grid">
+<div class="-mt-4">
+<a class="flex" href="../meteostudios.html">
+<span class="crayons-avatar crayons-avatar--xl mr-2 shrink-0">
+<img alt="" class="crayons-avatar__image" loading="lazy" src="../cdn/media2.dev.to/dynamic/image/width=90,height=90,fit=cover,gravity=auto,format=auto/https___dev-to-uploads.s3.amazonaws.com_uploads_user_profile_image_3911936_059ed96d-ce14-462c-ab0e-1b2910071a99.png"/>
+</span>
+<span class="crayons-link crayons-subtitle-2 mt-5">Meteo Studios</span>
+</a>
+</div>
+<div class="print-hidden">
+<button class="crayons-btn follow-action-button whitespace-nowrap follow-user w-100" data-info='{"style":"full","id":3911936,"className":"User","name":"Meteo Studios"}'>
+                      Follow
+                    </button>
+</div>
+<div class="author-preview-metadata-container" data-author-id="3911936"></div>
+</div>
+</div>
+</div>
+</div>
+<a class="crayons-story__tertiary fs-xs" href="../meteostudios/setting-up-discord-rich-presence-for-fivem-servers-qbox-qbcore-and-custom-servers-5a0o.html"><time datetime="2026-05-05T17:47:28Z">May 5</time><span class="time-ago-indicator-initial-placeholder" data-seconds="1778003248"></span></a>
+</div>
+</div>
+</div>
+<div class="crayons-story__indention">
+<h2 class="crayons-story__title crayons-story__title-full_post">
+<a data-preload-image="" href="../meteostudios/setting-up-discord-rich-presence-for-fivem-servers-qbox-qbcore-and-custom-servers-5a0o.html" id="article-link-3616672">
+          Setting Up Discord Rich Presence for FiveM Servers: QBox, QBCore, and Custom servers
+        </a>
+</h2>
+<div class="crayons-story__tags">
+<a class="crayons-tag crayons-tag--monochrome" href="api.html" style="
+        --tag-bg: rgba(151, 37, 234, 0.10);
+        --tag-prefix: #9725ea;
+        --tag-bg-hover: rgba(151, 37, 234, 0.10);
+        --tag-prefix-hover: #9725ea;
+      "><span class="crayons-tag__prefix">#</span>api</a>
+<a class="crayons-tag crayons-tag--monochrome" href="beginners.html" style="
+        --tag-bg: rgba(0, 131, 53, 0.10);
+        --tag-prefix: #008335;
+        --tag-bg-hover: rgba(0, 131, 53, 0.10);
+        --tag-prefix-hover: #008335;
+      "><span class="crayons-tag__prefix">#</span>beginners</a>
+<a class="crayons-tag crayons-tag--monochrome" href="gamedev.html" style="
+        --tag-bg: rgba(51, 132, 217, 0.10);
+        --tag-prefix: #3384d9;
+        --tag-bg-hover: rgba(51, 132, 217, 0.10);
+        --tag-prefix-hover: #3384d9;
+      "><span class="crayons-tag__prefix">#</span>gamedev</a>
+<a class="crayons-tag crayons-tag--monochrome" href="tutorial.html" style="
+        --tag-bg: rgba(254, 255, 165, 0.10);
+        --tag-prefix: #FEFFA5;
+        --tag-bg-hover: rgba(254, 255, 165, 0.10);
+        --tag-prefix-hover: #FEFFA5;
+      "><span class="crayons-tag__prefix">#</span>tutorial</a>
+</div>
+<div class="crayons-story__bottom">
+<div class="crayons-story__details">
+<a aria-label="Add a comment to post - Setting Up Discord Rich Presence for FiveM Servers: QBox, QBCore, and Custom servers" class="crayons-btn crayons-btn--s crayons-btn--ghost crayons-btn--icon-left flex items-center" href="../meteostudios/setting-up-discord-rich-presence-for-fivem-servers-qbox-qbcore-and-custom-servers-5a0o.html">
+<svg aria-labelledby="acaelvq2wruz528z82l3e7i0giqwn5ip" class="crayons-icon" height="24" role="img" width="24" xmlns="http://www.w3.org/2000/svg"><title id="acaelvq2wruz528z82l3e7i0giqwn5ip">Comments</title><path d="M10.5 5h3a6 6 0 110 12v2.625c-3.75-1.5-9-3.75-9-8.625a6 6 0 016-6zM12 15.5h1.5a4.501 4.501 0 001.722-8.657A4.5 4.5 0 0013.5 6.5h-3A4.5 4.5 0 006 11c0 2.707 1.846 4.475 6 6.36V15.5z"></path></svg>
+<span class="hidden s:inline">Add Comment</span>
+</a>
+</div>
+<div class="crayons-story__save">
+<small class="crayons-story__tertiary fs-xs mr-2">
+            3 min read
+          </small>
+<button aria-label="Save post Setting Up Discord Rich Presence for FiveM Servers: QBox, QBCore, and Custom servers to reading list" class="c-btn c-btn--icon-alone bookmark-button" data-article-author-id="3911936" data-reactable-id="3616672" id="article-save-button-3616672" title="Save post Setting Up Discord Rich Presence for FiveM Servers: QBox, QBCore, and Custom servers to reading list" type="button">
+<span class="bm-initial">
+<svg aria-hidden="true" height="24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M6.75 4.5h10.5a.75.75 0 01.75.75v14.357a.375.375 0 01-.575.318L12 16.523l-5.426 3.401A.375.375 0 016 19.607V5.25a.75.75 0 01.75-.75zM16.5 6h-9v11.574l4.5-2.82 4.5 2.82V6z"></path></svg>
+</span>
+<span class="bm-success">
+<svg aria-hidden="true" height="24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M6.75 4.5h10.5a.75.75 0 01.75.75v14.357a.375.375 0 01-.575.318L12 16.523l-5.426 3.401A.375.375 0 016 19.607V5.25a.75.75 0 01.75-.75z"></path></svg>
+</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="crayons-story" data-content-user-id="3759146" data-feed-content-id="3608618">
+<a aria-labelledby="article-link-3608618" class="crayons-story__hidden-navigation-link" href="../oceanviewgames/legacy-flash-to-modern-html5-a-developers-migration-guide-4ik0.html">Legacy Flash to Modern HTML5: A Developer's Migration Guide</a>
+<div class="crayons-story__body crayons-story__body-full_post">
+<div class="crayons-story__top">
+<div class="crayons-story__meta">
+<div class="crayons-story__author-pic">
+<a class="crayons-avatar crayons-avatar--l" href="../oceanviewgames.html">
+<img alt="oceanviewgames profile" class="crayons-avatar__image" loading="lazy" src="../cdn/media2.dev.to/dynamic/image/width=90,height=90,fit=cover,gravity=auto,format=auto/https___dev-to-uploads.s3.amazonaws.com_uploads_user_profile_image_3759146_acc6c0f9-e878-495b-a792-b9528c850c0e.png"/>
+</a>
+</div>
+<div>
+<div>
+<a class="crayons-story__secondary fw-medium m:hidden" href="../oceanviewgames.html">
+              Ocean View Games
+            </a>
+<div class="profile-preview-card relative mb-4 s:mb-0 fw-medium hidden m:inline-block">
+<button aria-controls="story-author-preview-content-3608618" aria-label="Ocean View Games profile details" class="profile-preview-card__trigger fs-s p-1 -ml-1 -my-2 crayons-btn crayons-btn--ghost" id="story-author-preview-trigger-3608618">
+                Ocean View Games
+                
+              </button>
+<div class="profile-preview-card__content crayons-dropdown branded-7 p-4 pt-0" data-repositioning-dropdown="true" data-testid="profile-preview-card" id="story-author-preview-content-3608618" style="border-top-color: var(--card-color);">
+<div class="gap-4 grid">
+<div class="-mt-4">
+<a class="flex" href="../oceanviewgames.html">
+<span class="crayons-avatar crayons-avatar--xl mr-2 shrink-0">
+<img alt="" class="crayons-avatar__image" loading="lazy" src="../cdn/media2.dev.to/dynamic/image/width=90,height=90,fit=cover,gravity=auto,format=auto/https___dev-to-uploads.s3.amazonaws.com_uploads_user_profile_image_3759146_acc6c0f9-e878-495b-a792-b9528c850c0e.png"/>
+</span>
+<span class="crayons-link crayons-subtitle-2 mt-5">Ocean View Games</span>
+</a>
+</div>
+<div class="print-hidden">
+<button class="crayons-btn follow-action-button whitespace-nowrap follow-user w-100" data-info='{"style":"full","id":3759146,"className":"User","name":"Ocean View Games"}'>
+                      Follow
+                    </button>
+</div>
+<div class="author-preview-metadata-container" data-author-id="3759146"></div>
+</div>
+</div>
+</div>
+</div>
+<a class="crayons-story__tertiary fs-xs" href="../oceanviewgames/legacy-flash-to-modern-html5-a-developers-migration-guide-4ik0.html"><time datetime="2026-05-05T19:46:07Z">May 5</time><span class="time-ago-indicator-initial-placeholder" data-seconds="1778010367"></span></a>
+</div>
+</div>
+</div>
+<div class="crayons-story__indention">
+<h2 class="crayons-story__title crayons-story__title-full_post">
+<a data-preload-image="" href="../oceanviewgames/legacy-flash-to-modern-html5-a-developers-migration-guide-4ik0.html" id="article-link-3608618">
+          Legacy Flash to Modern HTML5: A Developer's Migration Guide
+        </a>
+</h2>
+<div class="crayons-story__tags">
+<a class="crayons-tag crayons-tag--monochrome" href="gamedev.html" style="
+        --tag-bg: rgba(51, 132, 217, 0.10);
+        --tag-prefix: #3384d9;
+        --tag-bg-hover: rgba(51, 132, 217, 0.10);
+        --tag-prefix-hover: #3384d9;
+      "><span class="crayons-tag__prefix">#</span>gamedev</a>
+<a class="crayons-tag crayons-tag--monochrome" href="unity3d.html" style="
+        --tag-bg: rgba(0, 0, 0, 0.10);
+        --tag-prefix: #000000;
+        --tag-bg-hover: rgba(0, 0, 0, 0.10);
+        --tag-prefix-hover: #000000;
+      "><span class="crayons-tag__prefix">#</span>unity3d</a>
+<a class="crayons-tag crayons-tag--monochrome" href="programming.html" style="
+        --tag-bg: rgba(137, 6, 6, 0.10);
+        --tag-prefix: #890606;
+        --tag-bg-hover: rgba(137, 6, 6, 0.10);
+        --tag-prefix-hover: #890606;
+      "><span class="crayons-tag__prefix">#</span>programming</a>
+</div>
+<div class="crayons-story__bottom">
+<div class="crayons-story__details">
+<a aria-label="Add a comment to post - Legacy Flash to Modern HTML5: A Developer's Migration Guide" class="crayons-btn crayons-btn--s crayons-btn--ghost crayons-btn--icon-left flex items-center" href="../oceanviewgames/legacy-flash-to-modern-html5-a-developers-migration-guide-4ik0.html">
+<svg aria-labelledby="aslxfsn07wy96lc16nw277im5xfuzpj7" class="crayons-icon" height="24" role="img" width="24" xmlns="http://www.w3.org/2000/svg"><title id="aslxfsn07wy96lc16nw277im5xfuzpj7">Comments</title><path d="M10.5 5h3a6 6 0 110 12v2.625c-3.75-1.5-9-3.75-9-8.625a6 6 0 016-6zM12 15.5h1.5a4.501 4.501 0 001.722-8.657A4.5 4.5 0 0013.5 6.5h-3A4.5 4.5 0 006 11c0 2.707 1.846 4.475 6 6.36V15.5z"></path></svg>
+<span class="hidden s:inline">Add Comment</span>
+</a>
+</div>
+<div class="crayons-story__save">
+<small class="crayons-story__tertiary fs-xs mr-2">
+            6 min read
+          </small>
+<button aria-label="Save post Legacy Flash to Modern HTML5: A Developer's Migration Guide to reading list" class="c-btn c-btn--icon-alone bookmark-button" data-article-author-id="3759146" data-reactable-id="3608618" id="article-save-button-3608618" title="Save post Legacy Flash to Modern HTML5: A Developer's Migration Guide to reading list" type="button">
+<span class="bm-initial">
+<svg aria-hidden="true" height="24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M6.75 4.5h10.5a.75.75 0 01.75.75v14.357a.375.375 0 01-.575.318L12 16.523l-5.426 3.401A.375.375 0 016 19.607V5.25a.75.75 0 01.75-.75zM16.5 6h-9v11.574l4.5-2.82 4.5 2.82V6z"></path></svg>
+</span>
+<span class="bm-success">
+<svg aria-hidden="true" height="24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M6.75 4.5h10.5a.75.75 0 01.75.75v14.357a.375.375 0 01-.575.318L12 16.523l-5.426 3.401A.375.375 0 016 19.607V5.25a.75.75 0 01.75-.75z"></path></svg>
+</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="crayons-story" data-content-user-id="1042404" data-feed-content-id="3614915">
+<a aria-labelledby="article-link-3614915" class="crayons-story__hidden-navigation-link" href="../paulnonatomic/editorial-engineering-2onk.html">Editorial Engineering</a>
+<div class="crayons-story__body crayons-story__body-full_post">
+<div class="crayons-story__top">
+<div class="crayons-story__meta">
+<div class="crayons-story__author-pic">
+<a class="crayons-avatar crayons-avatar--l" href="../paulnonatomic.html">
+<img alt="paulnonatomic profile" class="crayons-avatar__image" loading="lazy" src="../cdn/media2.dev.to/dynamic/image/width=90,height=90,fit=cover,gravity=auto,format=auto/https___dev-to-uploads.s3.amazonaws.com_uploads_user_profile_image_1042404_ecfbcd46-99c3-4b2a-b5f5-f43f8ccf2520.jpg"/>
+</a>
+</div>
+<div>
+<div>
+<a class="crayons-story__secondary fw-medium m:hidden" href="../paulnonatomic.html">
+              Paul Stamp
+            </a>
+<div class="profile-preview-card relative mb-4 s:mb-0 fw-medium hidden m:inline-block">
+<button aria-controls="story-author-preview-content-3614915" aria-label="Paul Stamp profile details" class="profile-preview-card__trigger fs-s p-1 -ml-1 -my-2 crayons-btn crayons-btn--ghost" id="story-author-preview-trigger-3614915">
+                Paul Stamp
+                
+              </button>
+<div class="profile-preview-card__content crayons-dropdown branded-7 p-4 pt-0" data-repositioning-dropdown="true" data-testid="profile-preview-card" id="story-author-preview-content-3614915" style="border-top-color: var(--card-color);">
+<div class="gap-4 grid">
+<div class="-mt-4">
+<a class="flex" href="../paulnonatomic.html">
+<span class="crayons-avatar crayons-avatar--xl mr-2 shrink-0">
+<img alt="" class="crayons-avatar__image" loading="lazy" src="../cdn/media2.dev.to/dynamic/image/width=90,height=90,fit=cover,gravity=auto,format=auto/https___dev-to-uploads.s3.amazonaws.com_uploads_user_profile_image_1042404_ecfbcd46-99c3-4b2a-b5f5-f43f8ccf2520.jpg"/>
+</span>
+<span class="crayons-link crayons-subtitle-2 mt-5">Paul Stamp</span>
+</a>
+</div>
+<div class="print-hidden">
+<button class="crayons-btn follow-action-button whitespace-nowrap follow-user w-100" data-info='{"style":"full","id":1042404,"className":"User","name":"Paul Stamp"}'>
+                      Follow
+                    </button>
+</div>
+<div class="author-preview-metadata-container" data-author-id="1042404"></div>
+</div>
+</div>
+</div>
+</div>
+<a class="crayons-story__tertiary fs-xs" href="../paulnonatomic/editorial-engineering-2onk.html"><time datetime="2026-05-05T11:22:46Z">May 5</time><span class="time-ago-indicator-initial-placeholder" data-seconds="1777980166"></span></a>
+</div>
+</div>
+</div>
+<div class="crayons-story__indention">
+<h2 class="crayons-story__title crayons-story__title-full_post">
+<a data-preload-image="https://media2.dev.to/dynamic/image/width=1000,height=420,fit=cover,gravity=auto,format=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Farticles%2Fn6og37q4mb5rhvc9ssa8.png" href="../paulnonatomic/editorial-engineering-2onk.html" id="article-link-3614915">
+          Editorial Engineering
+        </a>
+</h2>
+<div class="crayons-story__tags">
+<a class="crayons-tag crayons-tag--monochrome" href="ai.html" style="
+        --tag-bg: rgba(23, 253, 26, 0.10);
+        --tag-prefix: #17fd1a;
+        --tag-bg-hover: rgba(23, 253, 26, 0.10);
+        --tag-prefix-hover: #17fd1a;
+      "><span class="crayons-tag__prefix">#</span>ai</a>
+<a class="crayons-tag crayons-tag--monochrome" href="softwareengineering.html" style="
+        --tag-bg: rgba(64, 78, 211, 0.10);
+        --tag-prefix: #404ED3;
+        --tag-bg-hover: rgba(64, 78, 211, 0.10);
+        --tag-prefix-hover: #404ED3;
+      "><span class="crayons-tag__prefix">#</span>softwareengineering</a>
+<a class="crayons-tag crayons-tag--monochrome" href="gamedev.html" style="
+        --tag-bg: rgba(51, 132, 217, 0.10);
+        --tag-prefix: #3384d9;
+        --tag-bg-hover: rgba(51, 132, 217, 0.10);
+        --tag-prefix-hover: #3384d9;
+      "><span class="crayons-tag__prefix">#</span>gamedev</a>
+<a class="crayons-tag crayons-tag--monochrome" href="programming.html" style="
+        --tag-bg: rgba(137, 6, 6, 0.10);
+        --tag-prefix: #890606;
+        --tag-bg-hover: rgba(137, 6, 6, 0.10);
+        --tag-prefix-hover: #890606;
+      "><span class="crayons-tag__prefix">#</span>programming</a>
+</div>
+<div class="crayons-story__bottom">
+<div class="crayons-story__details">
+<a aria-label="Add a comment to post - Editorial Engineering" class="crayons-btn crayons-btn--s crayons-btn--ghost crayons-btn--icon-left flex items-center" href="../paulnonatomic/editorial-engineering-2onk.html">
+<svg aria-labelledby="a3e8b4pxlgfe8mj7qpr16sxxpc1zt2oh" class="crayons-icon" height="24" role="img" width="24" xmlns="http://www.w3.org/2000/svg"><title id="a3e8b4pxlgfe8mj7qpr16sxxpc1zt2oh">Comments</title><path d="M10.5 5h3a6 6 0 110 12v2.625c-3.75-1.5-9-3.75-9-8.625a6 6 0 016-6zM12 15.5h1.5a4.501 4.501 0 001.722-8.657A4.5 4.5 0 0013.5 6.5h-3A4.5 4.5 0 006 11c0 2.707 1.846 4.475 6 6.36V15.5z"></path></svg>
+<span class="hidden s:inline">Add Comment</span>
+</a>
+</div>
+<div class="crayons-story__save">
+<small class="crayons-story__tertiary fs-xs mr-2">
+            7 min read
+          </small>
+<button aria-label="Save post Editorial Engineering to reading list" class="c-btn c-btn--icon-alone bookmark-button" data-article-author-id="1042404" data-reactable-id="3614915" id="article-save-button-3614915" title="Save post Editorial Engineering to reading list" type="button">
+<span class="bm-initial">
+<svg aria-hidden="true" height="24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M6.75 4.5h10.5a.75.75 0 01.75.75v14.357a.375.375 0 01-.575.318L12 16.523l-5.426 3.401A.375.375 0 016 19.607V5.25a.75.75 0 01.75-.75zM16.5 6h-9v11.574l4.5-2.82 4.5 2.82V6z"></path></svg>
+</span>
+<span class="bm-success">
+<svg aria-hidden="true" height="24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M6.75 4.5h10.5a.75.75 0 01.75.75v14.357a.375.375 0 01-.575.318L12 16.523l-5.426 3.401A.375.375 0 016 19.607V5.25a.75.75 0 01.75-.75z"></path></svg>
+</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="crayons-story" data-content-user-id="3913525" data-feed-content-id="3613711">
+<a aria-labelledby="article-link-3613711" class="crayons-story__hidden-navigation-link" href="../lora_henley_dekh/why-most-igaming-platforms-have-slow-withdrawals-and-how-we-architected-around-it-2ghf.html">Why Most iGaming Platforms Have Slow Withdrawals (And How We Architected Around It)</a>
+<div class="crayons-story__body crayons-story__body-full_post">
+<div class="crayons-story__top">
+<div class="crayons-story__meta">
+<div class="crayons-story__author-pic">
+<a class="crayons-avatar crayons-avatar--l" href="../lora_henley_dekh.html">
+<img alt="lora_henley_dekh profile" class="crayons-avatar__image" loading="lazy" src="../cdn/media2.dev.to/dynamic/image/width=90,height=90,fit=cover,gravity=auto,format=auto/https___dev-to-uploads.s3.amazonaws.com_uploads_user_profile_image_3913525_53694270-f7b8-47a0-9504-941996e07c79.jpg"/>
+</a>
+</div>
+<div>
+<div>
+<a class="crayons-story__secondary fw-medium m:hidden" href="../lora_henley_dekh.html">
+              Lora Henley
+            </a>
+<div class="profile-preview-card relative mb-4 s:mb-0 fw-medium hidden m:inline-block">
+<button aria-controls="story-author-preview-content-3613711" aria-label="Lora Henley profile details" class="profile-preview-card__trigger fs-s p-1 -ml-1 -my-2 crayons-btn crayons-btn--ghost" id="story-author-preview-trigger-3613711">
+                Lora Henley
+                
+              </button>
+<div class="profile-preview-card__content crayons-dropdown branded-7 p-4 pt-0" data-repositioning-dropdown="true" data-testid="profile-preview-card" id="story-author-preview-content-3613711" style="border-top-color: var(--card-color);">
+<div class="gap-4 grid">
+<div class="-mt-4">
+<a class="flex" href="../lora_henley_dekh.html">
+<span class="crayons-avatar crayons-avatar--xl mr-2 shrink-0">
+<img alt="" class="crayons-avatar__image" loading="lazy" src="../cdn/media2.dev.to/dynamic/image/width=90,height=90,fit=cover,gravity=auto,format=auto/https___dev-to-uploads.s3.amazonaws.com_uploads_user_profile_image_3913525_53694270-f7b8-47a0-9504-941996e07c79.jpg"/>
+</span>
+<span class="crayons-link crayons-subtitle-2 mt-5">Lora Henley</span>
+</a>
+</div>
+<div class="print-hidden">
+<button class="crayons-btn follow-action-button whitespace-nowrap follow-user w-100" data-info='{"style":"full","id":3913525,"className":"User","name":"Lora Henley"}'>
+                      Follow
+                    </button>
+</div>
+<div class="author-preview-metadata-container" data-author-id="3913525"></div>
+</div>
+</div>
+</div>
+</div>
+<a class="crayons-story__tertiary fs-xs" href="../lora_henley_dekh/why-most-igaming-platforms-have-slow-withdrawals-and-how-we-architected-around-it-2ghf.html"><time datetime="2026-05-05T08:44:48Z">May 5</time><span class="time-ago-indicator-initial-placeholder" data-seconds="1777970688"></span></a>
+</div>
+</div>
+</div>
+<div class="crayons-story__indention">
+<h2 class="crayons-story__title crayons-story__title-full_post">
+<a data-preload-image="https://media2.dev.to/dynamic/image/width=1000,height=420,fit=cover,gravity=auto,format=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Farticles%2Fic3aju6d68jyzf5yap6q.png" href="../lora_henley_dekh/why-most-igaming-platforms-have-slow-withdrawals-and-how-we-architected-around-it-2ghf.html" id="article-link-3613711">
+          Why Most iGaming Platforms Have Slow Withdrawals (And How We Architected Around It)
+        </a>
+</h2>
+<div class="crayons-story__tags">
+<a class="crayons-tag crayons-tag--monochrome" href="gamedev.html" style="
+        --tag-bg: rgba(51, 132, 217, 0.10);
+        --tag-prefix: #3384d9;
+        --tag-bg-hover: rgba(51, 132, 217, 0.10);
+        --tag-prefix-hover: #3384d9;
+      "><span class="crayons-tag__prefix">#</span>gamedev</a>
+<a class="crayons-tag crayons-tag--monochrome" href="backend.html" style="
+        --tag-bg: rgba(64, 78, 211, 0.10);
+        --tag-prefix: #404ED3;
+        --tag-bg-hover: rgba(64, 78, 211, 0.10);
+        --tag-prefix-hover: #404ED3;
+      "><span class="crayons-tag__prefix">#</span>backend</a>
+<a class="crayons-tag crayons-tag--monochrome" href="architecture.html" style="
+        --tag-bg: rgba(235, 223, 55, 0.10);
+        --tag-prefix: #ebdf37;
+        --tag-bg-hover: rgba(235, 223, 55, 0.10);
+        --tag-prefix-hover: #ebdf37;
+      "><span class="crayons-tag__prefix">#</span>architecture</a>
+<a class="crayons-tag crayons-tag--monochrome" href="fintech.html" style="
+        --tag-bg: rgba(64, 78, 211, 0.10);
+        --tag-prefix: #404ED3;
+        --tag-bg-hover: rgba(64, 78, 211, 0.10);
+        --tag-prefix-hover: #404ED3;
+      "><span class="crayons-tag__prefix">#</span>fintech</a>
+</div>
+<div class="crayons-story__bottom">
+<div class="crayons-story__details">
+<a aria-label="Add a comment to post - Why Most iGaming Platforms Have Slow Withdrawals (And How We Architected Around It)" class="crayons-btn crayons-btn--s crayons-btn--ghost crayons-btn--icon-left flex items-center" href="../lora_henley_dekh/why-most-igaming-platforms-have-slow-withdrawals-and-how-we-architected-around-it-2ghf.html">
+<svg aria-labelledby="a4yrwuqu2qoy30v5usleeq9bao2xhdf5" class="crayons-icon" height="24" role="img" width="24" xmlns="http://www.w3.org/2000/svg"><title id="a4yrwuqu2qoy30v5usleeq9bao2xhdf5">Comments</title><path d="M10.5 5h3a6 6 0 110 12v2.625c-3.75-1.5-9-3.75-9-8.625a6 6 0 016-6zM12 15.5h1.5a4.501 4.501 0 001.722-8.657A4.5 4.5 0 0013.5 6.5h-3A4.5 4.5 0 006 11c0 2.707 1.846 4.475 6 6.36V15.5z"></path></svg>
+<span class="hidden s:inline">Add Comment</span>
+</a>
+</div>
+<div class="crayons-story__save">
+<small class="crayons-story__tertiary fs-xs mr-2">
+            6 min read
+          </small>
+<button aria-label="Save post Why Most iGaming Platforms Have Slow Withdrawals (And How We Architected Around It) to reading list" class="c-btn c-btn--icon-alone bookmark-button" data-article-author-id="3913525" data-reactable-id="3613711" id="article-save-button-3613711" title="Save post Why Most iGaming Platforms Have Slow Withdrawals (And How We Architected Around It) to reading list" type="button">
+<span class="bm-initial">
+<svg aria-hidden="true" height="24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M6.75 4.5h10.5a.75.75 0 01.75.75v14.357a.375.375 0 01-.575.318L12 16.523l-5.426 3.401A.375.375 0 016 19.607V5.25a.75.75 0 01.75-.75zM16.5 6h-9v11.574l4.5-2.82 4.5 2.82V6z"></path></svg>
+</span>
+<span class="bm-success">
+<svg aria-hidden="true" height="24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M6.75 4.5h10.5a.75.75 0 01.75.75v14.357a.375.375 0 01-.575.318L12 16.523l-5.426 3.401A.375.375 0 016 19.607V5.25a.75.75 0 01.75-.75z"></path></svg>
+</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="crayons-story" data-content-user-id="1622068" data-feed-content-id="3616807">
+<a aria-labelledby="article-link-3616807" class="crayons-story__hidden-navigation-link" href="../grap/looking-for-feedback-on-a-real-time-decision-overlay-for-league-of-legends-442f.html">Looking for feedback on a real-time decision overlay for League of Legends</a>
+<div class="crayons-story__body crayons-story__body-full_post">
+<div class="crayons-story__top">
+<div class="crayons-story__meta">
+<div class="crayons-story__author-pic">
+<a class="crayons-avatar crayons-avatar--l" href="../grap.html">
+<img alt="grap profile" class="crayons-avatar__image" loading="lazy" src="../cdn/media2.dev.to/dynamic/image/width=90,height=90,fit=cover,gravity=auto,format=auto/https___dev-to-uploads.s3.amazonaws.com_uploads_user_profile_image_1622068_709bf2f9-74f0-4f8f-9570-a36b29e51196.png"/>
+</a>
+</div>
+<div>
+<div>
+<a class="crayons-story__secondary fw-medium m:hidden" href="../grap.html">
+              Damian Konarski
+            </a>
+<div class="profile-preview-card relative mb-4 s:mb-0 fw-medium hidden m:inline-block">
+<button aria-controls="story-author-preview-content-3616807" aria-label="Damian Konarski profile details" class="profile-preview-card__trigger fs-s p-1 -ml-1 -my-2 crayons-btn crayons-btn--ghost" id="story-author-preview-trigger-3616807">
+                Damian Konarski
+                
+              </button>
+<div class="profile-preview-card__content crayons-dropdown branded-7 p-4 pt-0" data-repositioning-dropdown="true" data-testid="profile-preview-card" id="story-author-preview-content-3616807" style="border-top-color: var(--card-color);">
+<div class="gap-4 grid">
+<div class="-mt-4">
+<a class="flex" href="../grap.html">
+<span class="crayons-avatar crayons-avatar--xl mr-2 shrink-0">
+<img alt="" class="crayons-avatar__image" loading="lazy" src="../cdn/media2.dev.to/dynamic/image/width=90,height=90,fit=cover,gravity=auto,format=auto/https___dev-to-uploads.s3.amazonaws.com_uploads_user_profile_image_1622068_709bf2f9-74f0-4f8f-9570-a36b29e51196.png"/>
+</span>
+<span class="crayons-link crayons-subtitle-2 mt-5">Damian Konarski</span>
+</a>
+</div>
+<div class="print-hidden">
+<button class="crayons-btn follow-action-button whitespace-nowrap follow-user w-100" data-info='{"style":"full","id":1622068,"className":"User","name":"Damian Konarski"}'>
+                      Follow
+                    </button>
+</div>
+<div class="author-preview-metadata-container" data-author-id="1622068"></div>
+</div>
+</div>
+</div>
+</div>
+<a class="crayons-story__tertiary fs-xs" href="../grap/looking-for-feedback-on-a-real-time-decision-overlay-for-league-of-legends-442f.html"><time datetime="2026-05-05T18:29:35Z">May 5</time><span class="time-ago-indicator-initial-placeholder" data-seconds="1778005775"></span></a>
+</div>
+</div>
+</div>
+<div class="crayons-story__indention">
+<h2 class="crayons-story__title crayons-story__title-full_post">
+<a data-preload-image="" href="../grap/looking-for-feedback-on-a-real-time-decision-overlay-for-league-of-legends-442f.html" id="article-link-3616807">
+          Looking for feedback on a real-time decision overlay for League of Legends
+        </a>
+</h2>
+<div class="crayons-story__tags">
+<a class="crayons-tag crayons-tag--filled" href="showdev.html" style="
+        --tag-bg: rgba(9, 27, 71, 0.10);
+        --tag-prefix: #091b47;
+        --tag-bg-hover: rgba(9, 27, 71, 0.10);
+        --tag-prefix-hover: #091b47;
+      "><span class="crayons-tag__prefix">#</span>showdev</a>
+<a class="crayons-tag crayons-tag--monochrome" href="gamedev.html" style="
+        --tag-bg: rgba(51, 132, 217, 0.10);
+        --tag-prefix: #3384d9;
+        --tag-bg-hover: rgba(51, 132, 217, 0.10);
+        --tag-prefix-hover: #3384d9;
+      "><span class="crayons-tag__prefix">#</span>gamedev</a>
+<a class="crayons-tag crayons-tag--monochrome" href="python.html" style="
+        --tag-bg: rgba(30, 56, 187, 0.10);
+        --tag-prefix: #1E38BB;
+        --tag-bg-hover: rgba(30, 56, 187, 0.10);
+        --tag-prefix-hover: #1E38BB;
+      "><span class="crayons-tag__prefix">#</span>python</a>
+<a class="crayons-tag crayons-tag--monochrome" href="sideprojects.html" style="
+        --tag-bg: rgba(64, 78, 211, 0.10);
+        --tag-prefix: #404ED3;
+        --tag-bg-hover: rgba(64, 78, 211, 0.10);
+        --tag-prefix-hover: #404ED3;
+      "><span class="crayons-tag__prefix">#</span>sideprojects</a>
+</div>
+<div class="crayons-story__bottom">
+<div class="crayons-story__details">
+<a aria-label="Add a comment to post - Looking for feedback on a real-time decision overlay for League of Legends" class="crayons-btn crayons-btn--s crayons-btn--ghost crayons-btn--icon-left flex items-center" href="../grap/looking-for-feedback-on-a-real-time-decision-overlay-for-league-of-legends-442f.html">
+<svg aria-labelledby="a3oobr71nlf6go8v0mht87p1lhs1q5u1" class="crayons-icon" height="24" role="img" width="24" xmlns="http://www.w3.org/2000/svg"><title id="a3oobr71nlf6go8v0mht87p1lhs1q5u1">Comments</title><path d="M10.5 5h3a6 6 0 110 12v2.625c-3.75-1.5-9-3.75-9-8.625a6 6 0 016-6zM12 15.5h1.5a4.501 4.501 0 001.722-8.657A4.5 4.5 0 0013.5 6.5h-3A4.5 4.5 0 006 11c0 2.707 1.846 4.475 6 6.36V15.5z"></path></svg>
+<span class="hidden s:inline">Add Comment</span>
+</a>
+</div>
+<div class="crayons-story__save">
+<small class="crayons-story__tertiary fs-xs mr-2">
+            1 min read
+          </small>
+<button aria-label="Save post Looking for feedback on a real-time decision overlay for League of Legends to reading list" class="c-btn c-btn--icon-alone bookmark-button" data-article-author-id="1622068" data-reactable-id="3616807" id="article-save-button-3616807" title="Save post Looking for feedback on a real-time decision overlay for League of Legends to reading list" type="button">
+<span class="bm-initial">
+<svg aria-hidden="true" height="24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M6.75 4.5h10.5a.75.75 0 01.75.75v14.357a.375.375 0 01-.575.318L12 16.523l-5.426 3.401A.375.375 0 016 19.607V5.25a.75.75 0 01.75-.75zM16.5 6h-9v11.574l4.5-2.82 4.5 2.82V6z"></path></svg>
+</span>
+<span class="bm-success">
+<svg aria-hidden="true" height="24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M6.75 4.5h10.5a.75.75 0 01.75.75v14.357a.375.375 0 01-.575.318L12 16.523l-5.426 3.401A.375.375 0 016 19.607V5.25a.75.75 0 01.75-.75z"></path></svg>
+</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="crayons-story" data-content-user-id="227660" data-feed-content-id="3613346">
+<a aria-labelledby="article-link-3613346" class="crayons-story__hidden-navigation-link" href="../mattvb91/realistic-ragdoll-physics-in-threejs-1pko.html">Realistic Ragdoll Physics in Three.js</a>
+<div class="crayons-story__body crayons-story__body-full_post">
+<div class="crayons-story__top">
+<div class="crayons-story__meta">
+<div class="crayons-story__author-pic">
+<a class="crayons-avatar crayons-avatar--l" href="../mattvb91.html">
+<img alt="mattvb91 profile" class="crayons-avatar__image" loading="lazy" src="../cdn/media2.dev.to/dynamic/image/width=90,height=90,fit=cover,gravity=auto,format=auto/https___dev-to-uploads.s3.amazonaws.com_uploads_user_profile_image_227660_8a0415cd-4fda-40f8-85c4-ac4f921f4d01.jpeg"/>
+</a>
+</div>
+<div>
+<div>
+<a class="crayons-story__secondary fw-medium m:hidden" href="../mattvb91.html">
+              Matthias von Bargen
+            </a>
+<div class="profile-preview-card relative mb-4 s:mb-0 fw-medium hidden m:inline-block">
+<button aria-controls="story-author-preview-content-3613346" aria-label="Matthias von Bargen profile details" class="profile-preview-card__trigger fs-s p-1 -ml-1 -my-2 crayons-btn crayons-btn--ghost" id="story-author-preview-trigger-3613346">
+                Matthias von Bargen
+                
+              </button>
+<div class="profile-preview-card__content crayons-dropdown branded-7 p-4 pt-0" data-repositioning-dropdown="true" data-testid="profile-preview-card" id="story-author-preview-content-3613346" style="border-top-color: var(--card-color);">
+<div class="gap-4 grid">
+<div class="-mt-4">
+<a class="flex" href="../mattvb91.html">
+<span class="crayons-avatar crayons-avatar--xl mr-2 shrink-0">
+<img alt="" class="crayons-avatar__image" loading="lazy" src="../cdn/media2.dev.to/dynamic/image/width=90,height=90,fit=cover,gravity=auto,format=auto/https___dev-to-uploads.s3.amazonaws.com_uploads_user_profile_image_227660_8a0415cd-4fda-40f8-85c4-ac4f921f4d01.jpeg"/>
+</span>
+<span class="crayons-link crayons-subtitle-2 mt-5">Matthias von Bargen</span>
+</a>
+</div>
+<div class="print-hidden">
+<button class="crayons-btn follow-action-button whitespace-nowrap follow-user w-100" data-info='{"style":"full","id":227660,"className":"User","name":"Matthias von Bargen"}'>
+                      Follow
+                    </button>
+</div>
+<div class="author-preview-metadata-container" data-author-id="227660"></div>
+</div>
+</div>
+</div>
+</div>
+<a class="crayons-story__tertiary fs-xs" href="../mattvb91/realistic-ragdoll-physics-in-threejs-1pko.html"><time datetime="2026-05-05T07:41:59Z">May 5</time><span class="time-ago-indicator-initial-placeholder" data-seconds="1777966919"></span></a>
+</div>
+</div>
+</div>
+<div class="crayons-story__indention">
+<h2 class="crayons-story__title crayons-story__title-full_post">
+<a data-preload-image="https://media2.dev.to/dynamic/image/width=1000,height=420,fit=cover,gravity=auto,format=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Farticles%2Fn6p06pmwaz8wtevlxwxu.gif" href="../mattvb91/realistic-ragdoll-physics-in-threejs-1pko.html" id="article-link-3613346">
+          Realistic Ragdoll Physics in Three.js
+        </a>
+</h2>
+<div class="crayons-story__tags">
+<a class="crayons-tag crayons-tag--monochrome" href="threejs.html" style="
+        --tag-bg: rgba(64, 78, 211, 0.10);
+        --tag-prefix: #404ED3;
+        --tag-bg-hover: rgba(64, 78, 211, 0.10);
+        --tag-prefix-hover: #404ED3;
+      "><span class="crayons-tag__prefix">#</span>threejs</a>
+<a class="crayons-tag crayons-tag--monochrome" href="javascript.html" style="
+        --tag-bg: rgba(247, 223, 30, 0.10);
+        --tag-prefix: #f7df1e;
+        --tag-bg-hover: rgba(247, 223, 30, 0.10);
+        --tag-prefix-hover: #f7df1e;
+      "><span class="crayons-tag__prefix">#</span>javascript</a>
+<a class="crayons-tag crayons-tag--monochrome" href="webdev.html" style="
+        --tag-bg: rgba(86, 39, 101, 0.10);
+        --tag-prefix: #562765;
+        --tag-bg-hover: rgba(86, 39, 101, 0.10);
+        --tag-prefix-hover: #562765;
+      "><span class="crayons-tag__prefix">#</span>webdev</a>
+<a class="crayons-tag crayons-tag--monochrome" href="gamedev.html" style="
+        --tag-bg: rgba(51, 132, 217, 0.10);
+        --tag-prefix: #3384d9;
+        --tag-bg-hover: rgba(51, 132, 217, 0.10);
+        --tag-prefix-hover: #3384d9;
+      "><span class="crayons-tag__prefix">#</span>gamedev</a>
+</div>
+<div class="crayons-story__bottom">
+<div class="crayons-story__details">
+<a aria-label="Add a comment to post - Realistic Ragdoll Physics in Three.js" class="crayons-btn crayons-btn--s crayons-btn--ghost crayons-btn--icon-left" data-reactable-id="3613346" data-reaction-count="" href="../mattvb91/realistic-ragdoll-physics-in-threejs-1pko.html">
+<div class="multiple_reactions_aggregate">
+<span class="multiple_reactions_icons_container" dir="rtl">
+<span class="crayons_icon_container">
+<img height="18" src="../cdn/assets.dev.to/assets/exploding-head-daceb38d627e6ae9b730f36a1e390fca556a4289d5a41abb2c35068ad3e2c4b5.svg" width="18"/>
+</span>
+<span class="crayons_icon_container">
+<img height="18" src="../cdn/assets.dev.to/assets/multi-unicorn-b44d6f8c23cdd00964192bedc38af3e82463978aa611b4365bd33a0f1f4f3e97.svg" width="18"/>
+</span>
+<span class="crayons_icon_container">
+<img height="18" src="../cdn/assets.dev.to/assets/sparkle-heart-5f9bee3767e18deb1bb725290cb151c25234768a0e9a2bd39370c382d02920cf.svg" width="18"/>
+</span>
+</span>
+<span class="aggregate_reactions_counter">7<span class="hidden s:inline"> reactions</span></span>
+</div>
+</a>
+<a aria-label="Add a comment to post - Realistic Ragdoll Physics in Three.js" class="crayons-btn crayons-btn--s crayons-btn--ghost crayons-btn--icon-left flex items-center" href="../mattvb91/realistic-ragdoll-physics-in-threejs-1pko.html">
+<svg aria-labelledby="alnu6otyhrnk4uc8vh8841jnik92i80z" class="crayons-icon" height="24" role="img" width="24" xmlns="http://www.w3.org/2000/svg"><title id="alnu6otyhrnk4uc8vh8841jnik92i80z">Comments</title><path d="M10.5 5h3a6 6 0 110 12v2.625c-3.75-1.5-9-3.75-9-8.625a6 6 0 016-6zM12 15.5h1.5a4.501 4.501 0 001.722-8.657A4.5 4.5 0 0013.5 6.5h-3A4.5 4.5 0 006 11c0 2.707 1.846 4.475 6 6.36V15.5z"></path></svg>
+<span class="hidden s:inline">Add Comment</span>
+</a>
+</div>
+<div class="crayons-story__save">
+<small class="crayons-story__tertiary fs-xs mr-2">
+            3 min read
+          </small>
+<button aria-label="Save post Realistic Ragdoll Physics in Three.js to reading list" class="c-btn c-btn--icon-alone bookmark-button" data-article-author-id="227660" data-reactable-id="3613346" id="article-save-button-3613346" title="Save post Realistic Ragdoll Physics in Three.js to reading list" type="button">
+<span class="bm-initial">
+<svg aria-hidden="true" height="24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M6.75 4.5h10.5a.75.75 0 01.75.75v14.357a.375.375 0 01-.575.318L12 16.523l-5.426 3.401A.375.375 0 016 19.607V5.25a.75.75 0 01.75-.75zM16.5 6h-9v11.574l4.5-2.82 4.5 2.82V6z"></path></svg>
+</span>
+<span class="bm-success">
+<svg aria-hidden="true" height="24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M6.75 4.5h10.5a.75.75 0 01.75.75v14.357a.375.375 0 01-.575.318L12 16.523l-5.426 3.401A.375.375 0 016 19.607V5.25a.75.75 0 01.75-.75z"></path></svg>
+</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="crayons-story" data-content-user-id="3851848" data-feed-content-id="3617121">
+<a aria-labelledby="article-link-3617121" class="crayons-story__hidden-navigation-link" href="../james_schneider_cfb02d713/when-a-digital-horse-runs-the-fairness-problem-behind-ai-games-on-blockchain-5ee2.html">When a Digital Horse Runs: The Fairness Problem Behind AI Games on Blockchain</a>
+<div class="crayons-story__body crayons-story__body-full_post">
+<div class="crayons-story__top">
+<div class="crayons-story__meta">
+<div class="crayons-story__author-pic">
+<a class="crayons-avatar crayons-avatar--l" href="../james_schneider_cfb02d713.html">
+<img alt="james_schneider_cfb02d713 profile" class="crayons-avatar__image" loading="lazy" src="../cdn/media2.dev.to/dynamic/image/width=90,height=90,fit=cover,gravity=auto,format=auto/https___dev-to-uploads.s3.amazonaws.com_uploads_user_profile_image_3851848_13198407-ecc5-4111-a85f-a656de95cae8.png"/>
+</a>
+</div>
+<div>
+<div>
+<a class="crayons-story__secondary fw-medium m:hidden" href="../james_schneider_cfb02d713.html">
+              James Schneider
+            </a>
+<div class="profile-preview-card relative mb-4 s:mb-0 fw-medium hidden m:inline-block">
+<button aria-controls="story-author-preview-content-3617121" aria-label="James Schneider profile details" class="profile-preview-card__trigger fs-s p-1 -ml-1 -my-2 crayons-btn crayons-btn--ghost" id="story-author-preview-trigger-3617121">
+                James Schneider
+                
+              </button>
+<div class="profile-preview-card__content crayons-dropdown branded-7 p-4 pt-0" data-repositioning-dropdown="true" data-testid="profile-preview-card" id="story-author-preview-content-3617121" style="border-top-color: var(--card-color);">
+<div class="gap-4 grid">
+<div class="-mt-4">
+<a class="flex" href="../james_schneider_cfb02d713.html">
+<span class="crayons-avatar crayons-avatar--xl mr-2 shrink-0">
+<img alt="" class="crayons-avatar__image" loading="lazy" src="../cdn/media2.dev.to/dynamic/image/width=90,height=90,fit=cover,gravity=auto,format=auto/https___dev-to-uploads.s3.amazonaws.com_uploads_user_profile_image_3851848_13198407-ecc5-4111-a85f-a656de95cae8.png"/>
+</span>
+<span class="crayons-link crayons-subtitle-2 mt-5">James Schneider</span>
+</a>
+</div>
+<div class="print-hidden">
+<button class="crayons-btn follow-action-button whitespace-nowrap follow-user w-100" data-info='{"style":"full","id":3851848,"className":"User","name":"James Schneider"}'>
+                      Follow
+                    </button>
+</div>
+<div class="author-preview-metadata-container" data-author-id="3851848"></div>
+</div>
+</div>
+</div>
+</div>
+<a class="crayons-story__tertiary fs-xs" href="../james_schneider_cfb02d713/when-a-digital-horse-runs-the-fairness-problem-behind-ai-games-on-blockchain-5ee2.html"><time datetime="2026-05-05T20:12:04Z">May 5</time><span class="time-ago-indicator-initial-placeholder" data-seconds="1778011924"></span></a>
+</div>
+</div>
+</div>
+<div class="crayons-story__indention">
+<h2 class="crayons-story__title crayons-story__title-full_post">
+<a data-preload-image="https://media2.dev.to/dynamic/image/width=1000,height=420,fit=cover,gravity=auto,format=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Farticles%2F777xhdhsl1eektsale0t.png" href="../james_schneider_cfb02d713/when-a-digital-horse-runs-the-fairness-problem-behind-ai-games-on-blockchain-5ee2.html" id="article-link-3617121">
+          When a Digital Horse Runs: The Fairness Problem Behind AI Games on Blockchain
+        </a>
+</h2>
+<div class="crayons-story__tags">
+<a class="crayons-tag crayons-tag--monochrome" href="ai.html" style="
+        --tag-bg: rgba(23, 253, 26, 0.10);
+        --tag-prefix: #17fd1a;
+        --tag-bg-hover: rgba(23, 253, 26, 0.10);
+        --tag-prefix-hover: #17fd1a;
+      "><span class="crayons-tag__prefix">#</span>ai</a>
+<a class="crayons-tag crayons-tag--monochrome" href="blockchain.html" style="
+        --tag-bg: rgba(17, 58, 98, 0.10);
+        --tag-prefix: #113a62;
+        --tag-bg-hover: rgba(17, 58, 98, 0.10);
+        --tag-prefix-hover: #113a62;
+      "><span class="crayons-tag__prefix">#</span>blockchain</a>
+<a class="crayons-tag crayons-tag--monochrome" href="gamedev.html" style="
+        --tag-bg: rgba(51, 132, 217, 0.10);
+        --tag-prefix: #3384d9;
+        --tag-bg-hover: rgba(51, 132, 217, 0.10);
+        --tag-prefix-hover: #3384d9;
+      "><span class="crayons-tag__prefix">#</span>gamedev</a>
+<a class="crayons-tag crayons-tag--monochrome" href="web3.html" style="
+        --tag-bg: rgba(0, 255, 220, 0.10);
+        --tag-prefix: #00ffdc;
+        --tag-bg-hover: rgba(0, 255, 220, 0.10);
+        --tag-prefix-hover: #00ffdc;
+      "><span class="crayons-tag__prefix">#</span>web3</a>
+</div>
+<div class="crayons-story__bottom">
+<div class="crayons-story__details">
+<a aria-label="Add a comment to post - When a Digital Horse Runs: The Fairness Problem Behind AI Games on Blockchain" class="crayons-btn crayons-btn--s crayons-btn--ghost crayons-btn--icon-left" data-reactable-id="3617121" data-reaction-count="" href="../james_schneider_cfb02d713/when-a-digital-horse-runs-the-fairness-problem-behind-ai-games-on-blockchain-5ee2.html">
+<div class="multiple_reactions_aggregate">
+<span class="multiple_reactions_icons_container" dir="rtl">
+<span class="crayons_icon_container">
+<img height="18" src="../cdn/assets.dev.to/assets/exploding-head-daceb38d627e6ae9b730f36a1e390fca556a4289d5a41abb2c35068ad3e2c4b5.svg" width="18"/>
+</span>
+<span class="crayons_icon_container">
+<img height="18" src="../cdn/assets.dev.to/assets/multi-unicorn-b44d6f8c23cdd00964192bedc38af3e82463978aa611b4365bd33a0f1f4f3e97.svg" width="18"/>
+</span>
+<span class="crayons_icon_container">
+<img height="18" src="../cdn/assets.dev.to/assets/sparkle-heart-5f9bee3767e18deb1bb725290cb151c25234768a0e9a2bd39370c382d02920cf.svg" width="18"/>
+</span>
+</span>
+<span class="aggregate_reactions_counter">15<span class="hidden s:inline"> reactions</span></span>
+</div>
+</a>
+<a aria-label="Add a comment to post - When a Digital Horse Runs: The Fairness Problem Behind AI Games on Blockchain" class="crayons-btn crayons-btn--s crayons-btn--ghost crayons-btn--icon-left flex items-center" href="../james_schneider_cfb02d713/when-a-digital-horse-runs-the-fairness-problem-behind-ai-games-on-blockchain-5ee2.html">
+<svg aria-labelledby="a6bzionzpe2uii4gc9scjm6dwdy9eewk" class="crayons-icon" height="24" role="img" width="24" xmlns="http://www.w3.org/2000/svg"><title id="a6bzionzpe2uii4gc9scjm6dwdy9eewk">Comments</title><path d="M10.5 5h3a6 6 0 110 12v2.625c-3.75-1.5-9-3.75-9-8.625a6 6 0 016-6zM12 15.5h1.5a4.501 4.501 0 001.722-8.657A4.5 4.5 0 0013.5 6.5h-3A4.5 4.5 0 006 11c0 2.707 1.846 4.475 6 6.36V15.5z"></path></svg>
+
+              2<span class="hidden s:inline"> comments</span>
+</a>
+</div>
+<div class="crayons-story__save">
+<small class="crayons-story__tertiary fs-xs mr-2">
+            6 min read
+          </small>
+<button aria-label="Save post When a Digital Horse Runs: The Fairness Problem Behind AI Games on Blockchain to reading list" class="c-btn c-btn--icon-alone bookmark-button" data-article-author-id="3851848" data-reactable-id="3617121" id="article-save-button-3617121" title="Save post When a Digital Horse Runs: The Fairness Problem Behind AI Games on Blockchain to reading list" type="button">
+<span class="bm-initial">
+<svg aria-hidden="true" height="24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M6.75 4.5h10.5a.75.75 0 01.75.75v14.357a.375.375 0 01-.575.318L12 16.523l-5.426 3.401A.375.375 0 016 19.607V5.25a.75.75 0 01.75-.75zM16.5 6h-9v11.574l4.5-2.82 4.5 2.82V6z"></path></svg>
+</span>
+<span class="bm-success">
+<svg aria-hidden="true" height="24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M6.75 4.5h10.5a.75.75 0 01.75.75v14.357a.375.375 0 01-.575.318L12 16.523l-5.426 3.401A.375.375 0 016 19.607V5.25a.75.75 0 01.75-.75z"></path></svg>
+</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="crayons-story" data-content-user-id="3825540" data-feed-content-id="3609314">
+<a aria-labelledby="article-link-3609314" class="crayons-story__hidden-navigation-link" href="../tackk3/saved-by-the-logs-and-the-human-who-read-them-4gop.html">Saved by the Logs (And the Human Who Read Them)</a>
+<div class="crayons-story__body crayons-story__body-full_post">
+<div class="crayons-story__top">
+<div class="crayons-story__meta">
+<div class="crayons-story__author-pic">
+<a class="crayons-avatar crayons-avatar--l" href="../tackk3.html">
+<img alt="tackk3 profile" class="crayons-avatar__image" loading="lazy" src="../cdn/media2.dev.to/dynamic/image/width=90,height=90,fit=cover,gravity=auto,format=auto/https___dev-to-uploads.s3.amazonaws.com_uploads_user_profile_image_3825540_79b947b0-030a-4f05-a397-2ed6c830bf3a.jpeg"/>
+</a>
+</div>
+<div>
+<div>
+<a class="crayons-story__secondary fw-medium m:hidden" href="../tackk3.html">
+              Tack k
+            </a>
+<div class="profile-preview-card relative mb-4 s:mb-0 fw-medium hidden m:inline-block">
+<button aria-controls="story-author-preview-content-3609314" aria-label="Tack k profile details" class="profile-preview-card__trigger fs-s p-1 -ml-1 -my-2 crayons-btn crayons-btn--ghost" id="story-author-preview-trigger-3609314">
+                Tack k
+                
+              </button>
+<div class="profile-preview-card__content crayons-dropdown branded-7 p-4 pt-0" data-repositioning-dropdown="true" data-testid="profile-preview-card" id="story-author-preview-content-3609314" style="border-top-color: var(--card-color);">
+<div class="gap-4 grid">
+<div class="-mt-4">
+<a class="flex" href="../tackk3.html">
+<span class="crayons-avatar crayons-avatar--xl mr-2 shrink-0">
+<img alt="" class="crayons-avatar__image" loading="lazy" src="../cdn/media2.dev.to/dynamic/image/width=90,height=90,fit=cover,gravity=auto,format=auto/https___dev-to-uploads.s3.amazonaws.com_uploads_user_profile_image_3825540_79b947b0-030a-4f05-a397-2ed6c830bf3a.jpeg"/>
+</span>
+<span class="crayons-link crayons-subtitle-2 mt-5">Tack k</span>
+</a>
+</div>
+<div class="print-hidden">
+<button class="crayons-btn follow-action-button whitespace-nowrap follow-user w-100" data-info='{"style":"full","id":3825540,"className":"User","name":"Tack k"}'>
+                      Follow
+                    </button>
+</div>
+<div class="author-preview-metadata-container" data-author-id="3825540"></div>
+</div>
+</div>
+</div>
+</div>
+<a class="crayons-story__tertiary fs-xs" href="../tackk3/saved-by-the-logs-and-the-human-who-read-them-4gop.html"><time datetime="2026-05-04T13:48:12Z">May 4</time><span class="time-ago-indicator-initial-placeholder" data-seconds="1777902492"></span></a>
+</div>
+</div>
+</div>
+<div class="crayons-story__indention">
+<h2 class="crayons-story__title crayons-story__title-full_post">
+<a data-preload-image="" href="../tackk3/saved-by-the-logs-and-the-human-who-read-them-4gop.html" id="article-link-3609314">
+          Saved by the Logs (And the Human Who Read Them)
+        </a>
+</h2>
+<div class="crayons-story__tags">
+<a class="crayons-tag crayons-tag--monochrome" href="gamedev.html" style="
+        --tag-bg: rgba(51, 132, 217, 0.10);
+        --tag-prefix: #3384d9;
+        --tag-bg-hover: rgba(51, 132, 217, 0.10);
+        --tag-prefix-hover: #3384d9;
+      "><span class="crayons-tag__prefix">#</span>gamedev</a>
+<a class="crayons-tag crayons-tag--monochrome" href="lua.html" style="
+        --tag-bg: rgba(64, 78, 211, 0.10);
+        --tag-prefix: #404ED3;
+        --tag-bg-hover: rgba(64, 78, 211, 0.10);
+        --tag-prefix-hover: #404ED3;
+      "><span class="crayons-tag__prefix">#</span>lua</a>
+<a class="crayons-tag crayons-tag--monochrome" href="debugging.html" style="
+        --tag-bg: rgba(64, 78, 211, 0.10);
+        --tag-prefix: #404ED3;
+        --tag-bg-hover: rgba(64, 78, 211, 0.10);
+        --tag-prefix-hover: #404ED3;
+      "><span class="crayons-tag__prefix">#</span>debugging</a>
+<a class="crayons-tag crayons-tag--monochrome" href="ai.html" style="
+        --tag-bg: rgba(23, 253, 26, 0.10);
+        --tag-prefix: #17fd1a;
+        --tag-bg-hover: rgba(23, 253, 26, 0.10);
+        --tag-prefix-hover: #17fd1a;
+      "><span class="crayons-tag__prefix">#</span>ai</a>
+</div>
+<div class="crayons-story__bottom">
+<div class="crayons-story__details">
+<a aria-label="Add a comment to post - Saved by the Logs (And the Human Who Read Them)" class="crayons-btn crayons-btn--s crayons-btn--ghost crayons-btn--icon-left flex items-center" href="../tackk3/saved-by-the-logs-and-the-human-who-read-them-4gop.html">
+<svg aria-labelledby="an2e91gztv79cjn5vsg7h9l1myfkofpp" class="crayons-icon" height="24" role="img" width="24" xmlns="http://www.w3.org/2000/svg"><title id="an2e91gztv79cjn5vsg7h9l1myfkofpp">Comments</title><path d="M10.5 5h3a6 6 0 110 12v2.625c-3.75-1.5-9-3.75-9-8.625a6 6 0 016-6zM12 15.5h1.5a4.501 4.501 0 001.722-8.657A4.5 4.5 0 0013.5 6.5h-3A4.5 4.5 0 006 11c0 2.707 1.846 4.475 6 6.36V15.5z"></path></svg>
+<span class="hidden s:inline">Add Comment</span>
+</a>
+</div>
+<div class="crayons-story__save">
+<small class="crayons-story__tertiary fs-xs mr-2">
+            8 min read
+          </small>
+<button aria-label="Save post Saved by the Logs (And the Human Who Read Them) to reading list" class="c-btn c-btn--icon-alone bookmark-button" data-article-author-id="3825540" data-reactable-id="3609314" id="article-save-button-3609314" title="Save post Saved by the Logs (And the Human Who Read Them) to reading list" type="button">
+<span class="bm-initial">
+<svg aria-hidden="true" height="24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M6.75 4.5h10.5a.75.75 0 01.75.75v14.357a.375.375 0 01-.575.318L12 16.523l-5.426 3.401A.375.375 0 016 19.607V5.25a.75.75 0 01.75-.75zM16.5 6h-9v11.574l4.5-2.82 4.5 2.82V6z"></path></svg>
+</span>
+<span class="bm-success">
+<svg aria-hidden="true" height="24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M6.75 4.5h10.5a.75.75 0 01.75.75v14.357a.375.375 0 01-.575.318L12 16.523l-5.426 3.401A.375.375 0 016 19.607V5.25a.75.75 0 01.75-.75z"></path></svg>
+</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="placeholder-div"></div>
+<div class="single-article-small-pic" id="article-index-hidden-div" style="display:none"></div>
+</div>
+<div aria-live="polite" class="crayons-notice mt-4">
+        👋 <a href="../enter-q7ffd52de7b.html">Sign in</a> for the ability to sort posts by <strong>relevant</strong>, <strong>latest</strong>, or <strong>top</strong>.
+      </div>
+</main>
+<div class="sidebar-wrapper sidebar-wrapper-right" id="sidebar-wrapper-right">
+<div class="sidebar-bg" id="sidebar-bg-right"></div>
+<aside class="side-bar sidebar-additional showing fs-s" id="sidebar-additional">
+<div class="widget">
+<header>
+<h4 class="fs-base fw-medium">trending guides/resources</h4>
+</header>
+<div class="widget-body fs-s">
+<div class="widget-link-list">
+<a class="crayons-link crayons-link--contentful" href="../colton_willey_ef3d8727ae9/how-i-taught-claude-to-see-inside-unreal-engine-23a9.html">
+  How I taught Claude to see inside Unreal Engine
+</a>
+<a class="crayons-link crayons-link--contentful" href="../linou518/godot-vs-unity-in-2026-which-engine-should-indie-developers-choose-50g4.html">
+  Godot vs Unity in 2026: Which Engine Should Indie Developers Choose?
+</a>
+<a class="crayons-link crayons-link--contentful" href="../hitjethva/we-tested-12-cpus-for-game-server-hosting-heres-what-actually-performs-best-4ae.html">
+  We Tested 12 CPUs for Game Server Hosting - Here’s What Actually Performs Best
+</a>
+<a class="crayons-link crayons-link--contentful" href="../austin_amento_860aebb9f55/prompt-architecture-for-a-reliable-ai-dungeon-master-d99.html">
+  Prompt Architecture for a Reliable AI Dungeon Master
+</a>
+<a class="crayons-link crayons-link--contentful" href="../tomokat/my-recent-honest-thoughts-with-google-antigravity-ig1.html">
+  My recent honest thoughts with Google Antigravity
+</a>
+<a class="crayons-link crayons-link--contentful" href="../abagames/i-kept-enjoying-game-programming-and-ended-up-with-500-homemade-games-2j4g.html">
+  I Kept Enjoying Game Programming—and Ended Up with 500 Homemade Games
+</a>
+<a class="crayons-link crayons-link--contentful" href="../pvsdev/game-part-11-c-game-engines-and-architectures-bif.html">
+  Game++. Part 1.1: C++, game engines, and architectures
+</a>
+<a class="crayons-link crayons-link--contentful" href="../douglasmakey/from-nostalgia-to-code-building-a-mu-online-server-in-rust-391h.html">
+  From Nostalgia to Code - Building a MU Online Server in Rust
+</a>
+<a class="crayons-link crayons-link--contentful" href="../kenjidev9662/practical-workflow-for-ai-pixel-art-gemini-2d-animation-experiment-21le.html">
+  Practical Workflow for AI Pixel Art: Gemini 2D Animation Experiment
+</a>
+<a class="crayons-link crayons-link--contentful" href="../mistyhx/why-ai-writes-better-game-code-in-godot-than-in-unity-10hf.html">
+  Why AI Writes Better Game Code in Godot Than in Unity
+</a>
+<a class="crayons-link crayons-link--contentful" href="../salvo10f/i-gave-an-ai-agent-one-prompt-and-it-built-a-living-city-in-godot-4-3mlm.html">
+  I gave an AI agent one prompt and it built a living city in Godot 4
+</a>
+<a class="crayons-link crayons-link--contentful" href="../embernoglow/i-created-my-first-game-and-decided-to-leave-gamedev-o9n.html">
+  I created my first game and decided to leave GameDev
+</a>
+<a class="crayons-link crayons-link--contentful" href="../9zemian5/gamemaker-setup-with-typescript-and-vs-code-65d.html">
+  GameMaker setup with Typescript and VS Code
+</a>
+<a class="crayons-link crayons-link--contentful" href="../pvsdev/sbox-game-engine-inspecting-grains-of-sand-1fak.html">
+  S&amp;Box game engine: Inspecting grains of sand
+</a>
+<a class="crayons-link crayons-link--contentful" href="../idevgames/how-to-upload-host-and-embed-an-html5-game-complete-guide-for-indie-devs-1m56.html">
+  How to Upload, Host, and Embed an HTML5 Game (Complete Guide for Indie Devs)
+</a>
+<a class="crayons-link crayons-link--contentful" href="../shinigami92/from-8-seconds-per-frame-to-real-time-3d-fractals-in-the-browser-4b26.html">
+  From 8 Seconds per Frame to Real-Time 3D Fractals in the Browser
+</a>
+<a class="crayons-link crayons-link--contentful" href="../adbhut/light-and-shadow-settings-unreal-engine-298p.html">
+  Unreal Shadows: The Hidden Cascade Trap
+</a>
+<a class="crayons-link crayons-link--contentful" href="../wynandpieters/weve-seen-this-movie-before-3719.html">
+  We've Seen This Movie Before
+</a>
+<a class="crayons-link crayons-link--contentful" href="../ziva/warum-godot-2026-die-beste-engine-fur-ki-gestutzte-spieleentwicklung-ist-1b52.html">
+  Warum Godot 2026 die beste Engine für KI-gestützte Spieleentwicklung ist
+</a>
+<a class="crayons-link crayons-link--contentful" href="../nyaomaru/i-built-a-run-away-from-work-browser-game-with-react-and-typescript-44ol.html">
+  I Built a “Run Away From Work” Browser Game with React and TypeScript
+</a>
+<a class="crayons-link crayons-link--contentful" href="../dinesh_04/what-beginners-get-wrong-about-substrate-materials-31oa.html">
+  What Beginners Get Wrong About Substrate Materials
+</a>
+<a class="crayons-link crayons-link--contentful" href="../raseiri/we-crammed-a-24gb-ai-3d-generation-pipeline-into-a-completely-offline-desktop-app-and-the-demo-is-12i5.html">
+  We crammed a 24GB AI 3D-generation pipeline into a completely offline desktop app (and the Demo i...
+</a>
+<a class="crayons-link crayons-link--contentful" href="../attiliohimeki/agentic-coding-with-cursor-5p1.html">
+  Agentic Coding with Cursor
+</a>
+<a class="crayons-link crayons-link--contentful" href="../arty_prof/steamworks-ffi-node-a-steamworks-sdk-library-for-javascript-game-frameworks-15h1.html">
+  steamworks-ffi-node: A Steamworks SDK Library for JavaScript Game Frameworks
+</a>
+<a class="crayons-link crayons-link--contentful" href="../as1as/i-started-building-a-roguelike-rpg-powered-by-on-device-ai-2-1pg2.html">
+  I Started Building a Roguelike RPG — Powered by On-Device AI #2
+</a>
+</div>
+</div>
+</div>
+</aside>
+</div>
+</div>
+<script defer="defer" src="../cdn/assets.dev.to/assets/storiesList-b9c50cbd898a3a64258a3a49db1c531651b0a4a11937be35ed4651111802b5b5.js"></script>
+<script defer="defer" src="../cdn/assets.dev.to/assets/tagFollows-07a4928c795d6d74427628f275723d9c29def9bb2706cc45ccbb95c0054465fe.js"></script>
+<script defer="defer" src="../cdn/assets.dev.to/assets/feedPreviewCards-8d16b0b656456a28c0a290f756cf6e21e19833111c4796f48c631bfea8323d51.js"></script>
+<script defer="defer" src="../cdn/assets.dev.to/assets/hideBookmarkButtons-a5d5527593e7fcba1cba72db457b57f49f94bf2266c62db454b2c8a00e751d33.js"></script>
+<script defer="defer" src="../cdn/assets.dev.to/assets/drawerSliders-823098a874684cfb50f32368b8dd1c7854954b83a588b8b6cfaef1e8fd30d858.js"></script>
+<script defer="defer" src="../cdn/assets.dev.to/assets/localizeArticleDates-70147c5c6bfe350b42e020ebb2a3dd37419d83978982b5a67b6389119bf162ac.js"></script>
+<div id="runtime-banner-container"></div>
+<div data-translations="{&quot;en&quot;:{&quot;core&quot;:{&quot;add_comment&quot;:&quot;Add comment&quot;,&quot;beta&quot;:&quot;beta&quot;,&quot;comment&quot;:&quot;Comment&quot;,&quot;copy_link&quot;:&quot;Copy link&quot;,&quot;edit_profile&quot;:&quot;Edit profile&quot;,&quot;follow&quot;:&quot;Follow&quot;,&quot;follow_back&quot;:&quot;Follow back&quot;,&quot;following&quot;:&quot;Following&quot;,&quot;like&quot;:&quot;Like&quot;,&quot;loading&quot;:&quot;loading...&quot;,&quot;reaction&quot;:&quot;Reaction&quot;,&quot;report_abuse&quot;:&quot;Report abuse&quot;,&quot;search&quot;:&quot;Search&quot;,&quot;success_settings&quot;:&quot;Successfully updated settings.&quot;,&quot;search_placeholder&quot;:&quot;Search...&quot;,&quot;search_find_related_posts&quot;:&quot;Find related posts...&quot;,&quot;search_powered_by&quot;:&quot;Powered by Algolia&quot;,&quot;search_submit_search&quot;:&quot;Submit search for advanced filtering.&quot;,&quot;search_displaying_recommendations&quot;:&quot;Displaying Algolia Recommendations — Start typing to search&quot;,&quot;article_form_save_changes&quot;:&quot;Save changes&quot;,&quot;article_form_schedule&quot;:&quot;Schedule&quot;,&quot;article_form_publish&quot;:&quot;Publish&quot;,&quot;article_form_loading_preview&quot;:&quot;Loading preview&quot;,&quot;article_form_preview_loaded&quot;:&quot;Preview loaded&quot;,&quot;article_form_co_authors&quot;:&quot;Co-authors&quot;,&quot;article_form_co_authors_description&quot;:&quot;Add up to 4 co-authors from %{org_name}.&quot;,&quot;article_form_co_authors_placeholder&quot;:&quot;Add up to 4...&quot;,&quot;comments_preview&quot;:&quot;Preview&quot;,&quot;comments_continue_editing&quot;:&quot;Continue editing&quot;,&quot;survey_enter_response&quot;:&quot;Enter your response here...&quot;,&quot;survey_thank_you_response&quot;:&quot;Thank you for your response.&quot;,&quot;survey_thank_you_completing&quot;:&quot;Thank you for completing the survey!&quot;,&quot;dashboard_analytics_readers&quot;:&quot;Readers&quot;,&quot;dashboard_analytics_avg_read_time&quot;:&quot;avg. read time %{seconds}s&quot;,&quot;dashboard_analytics_comments&quot;:&quot;Comments&quot;,&quot;dashboard_analytics_reactions&quot;:&quot;Reactions&quot;,&quot;dashboard_analytics_unique_reactors&quot;:&quot;from %{count} unique users&quot;,&quot;dashboard_analytics_bookmarks&quot;:&quot;Bookmarks&quot;,&quot;dashboard_analytics_followers&quot;:&quot;New Followers&quot;,&quot;top_contributors_empty&quot;:&quot;No engagers found for this period.&quot;,&quot;top_contributors_reactions&quot;:&quot;reactions&quot;,&quot;top_contributors_comments&quot;:&quot;comments&quot;,&quot;top_contributors_weight_note&quot;:&quot;Comments carry more weight&quot;,&quot;follower_engagement_ratio&quot;:&quot;%{ratio}% of followers engaged&quot;,&quot;follower_engagement_detail&quot;:&quot;(%{engaged} of %{total})&quot;,&quot;dashboard_analytics_no_data&quot;:&quot;No data available for this period&quot;,&quot;dashboard_analytics_no_referrers&quot;:&quot;No traffic sources yet&quot;,&quot;stats_by&quot;:&quot;by&quot;,&quot;editor_new_title&quot;:&quot;New post title here...&quot;,&quot;editor_body_placeholder&quot;:&quot;Write your post content here...&quot;,&quot;tags_field_label&quot;:&quot;Add up to 4 tags&quot;,&quot;tags_field_placeholder&quot;:&quot;Add up to 4 tags...&quot;,&quot;counted_organization&quot;:{&quot;one&quot;:&quot;%{count} organization&quot;,&quot;other&quot;:&quot;%{count} organizations&quot;},&quot;counted_user&quot;:{&quot;one&quot;:&quot;%{count} person&quot;,&quot;other&quot;:&quot;%{count} people&quot;},&quot;not_following&quot;:&quot;You're not following anyone&quot;,&quot;following_everyone&quot;:&quot;You're following %{details} (everyone)&quot;,&quot;you_are_following&quot;:&quot;You're following&quot;,&quot;and&quot;:&quot;and&quot;}}}" id="i18n-translations"></div>
+</div>
+</div>
+<footer class="crayons-footer print-hidden" id="footer">
+<div class="crayons-footer__container" id="footer-container">
+<style>
+  .long-bb-body {
+    max-height: calc(100vh - 200px);
+    overflow: hidden;
+  }
+  .long-bb-bottom {
+    height: 180px;
+    background: linear-gradient(to top, var(--card-bg), transparent);
+    margin-top: -180px;
+    position:relative;
+    z-index: 5;
+  }
+</style>
+<div data-article-id="" data-category-click="click" data-category-impression="impression" data-context-type="home" data-display-unit="" data-id="146443" data-special="nothing" data-type-of="in_house" style="">
+<div class="crayons-card crayons-card--secondary crayons-bb bb-placement js-billboard" style="display: inline-flex; flex-direction: column; align-items: center; margin: 0 auto 2rem auto; width: fit-content; padding: 2rem;">
+<p style="font-weight: bold; margin: 0 0 1rem 0;">
+            💎 DEV Diamond Sponsors
+        </p>
+<p style="font-size: 0.8em; margin: 0 0 2rem 0;">
+            Thank you to our Diamond Sponsors for supporting the DEV Community
+        </p>
+<div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 2rem;">
+<div style="display: inline-block; max-width: 240px; font-size: 0.8em; font-style: italic; text-align: center; padding: 10px; background: #ffffff; border-radius: 5px; color: #404040;">
+<a href="https://aistudio.google.com/?utm_source=partner&amp;utm_medium=partner&amp;utm_campaign=FY25-Global-DEVpartnership-sponsorship-AIS&amp;utm_content=-&amp;utm_term=-&amp;bb=146443" rel="noopener noreferrer" style="display: flex; justify-content: center; align-items: center;" target="_blank">
+<img alt="Google AI - Official AI Model and Platform Partner" height="472" loading="lazy" src="../cdn/media2.dev.to/dynamic/image/width=880,height=,fit=scale-down,gravity=auto,format=auto/https___dev-to-uploads.s3.amazonaws.com_uploads_articles_xjlyhbdqehj3akhz166w.png" style="display: block; background: #ffffff; margin: 0 auto; width: auto; height: 54px; padding: 10px;" width="2048"/>
+</a>
+<p style="text-align: center;">Google AI is the official AI Model and Platform Partner of DEV</p>
+</div>
+<div style="display: inline-block; max-width: 240px; font-size: 0.8em; font-style: italic; text-align: center; padding: 10px; background: #ffffff; border-radius: 5px; color: #404040;">
+<a href="https://neon.tech/?ref=devto&amp;bb=146443" rel="noopener noreferrer" style="display: flex; justify-content: center; align-items: center;" target="_blank">
+<img alt="Neon - Official Database Partner" height="596" loading="lazy" src="../cdn/media2.dev.to/dynamic/image/width=880,height=,fit=scale-down,gravity=auto,format=auto/https___dev-to-uploads.s3.amazonaws.com_uploads_articles_bnl88cil6afxzmgwrgtt.png" style="display: block; background: #ffffff; margin: 0 auto; width: auto; height: 60px; padding: 10px;" width="2286"/>
+</a>
+<p style="text-align: center;">Neon is the official database partner of DEV</p>
+</div>
+<div style="display: inline-block; max-width: 240px; font-size: 0.8em; font-style: italic; text-align: center; padding: 10px; background: #ffffff; border-radius: 5px; color: #404040;">
+<a href="https://www.algolia.com/developers/?utm_source=devto&amp;utm_medium=referral&amp;bb=146443" rel="noopener noreferrer" style="display: flex; justify-content: center; align-items: center;" target="_blank">
+<img alt="Algolia - Official Search Partner" height="596" loading="lazy" src="../cdn/media2.dev.to/dynamic/image/width=880,height=,fit=scale-down,gravity=auto,format=auto/https___dev-to-uploads.s3.amazonaws.com_uploads_articles_v30ephnolfvnlwgwm0yz.png" style="display: block; background: #ffffff; margin: 0 auto; width: auto; height: 60px; padding: 10px;" width="2286"/>
+</a>
+<p style="text-align: center;">Algolia is the official search partner of DEV</p>
+</div>
+</div>
+</div>
+</div>
+<p class="fs-s crayons-footer__description">
+<a aria-label="DEV Community Home" class="c-link c-link--branded fw-medium" href="../index.html">DEV Community</a> — A space to discuss and keep up software development and manage your software career
+    </p>
+<ul class="footer__nav-links flex gap-2 justify-center flex-wrap fs-s p-0" style=""></ul>
+<li class="footer__nav-link flex items-center">
+<a href="../index.html">
+      Home
+    </a>
+<span class="dot ml-2"></span>
+</li>
+<li class="footer__nav-link flex items-center">
+<a href="../about.html">
+      About
+    </a>
+<span class="dot ml-2"></span>
+</li>
+<li class="footer__nav-link flex items-center">
+<a href="../contact.html">
+      Contact
+    </a>
+<span class="dot ml-2"></span>
+</li>
+<li class="footer__nav-link flex items-center">
+<a href="https://mlh.io/">
+      MLH
+    </a>
+<span class="dot ml-2"></span>
+</li>
+
+<ul class="footer__nav-links flex gap-2 justify-center flex-wrap fs-s p-0" style=""></ul>
+<li class="footer__nav-link flex items-center">
+<a href="../code-of-conduct.html">
+      Code of Conduct
+    </a>
+<span class="dot ml-2"></span>
+</li>
+<li class="footer__nav-link flex items-center">
+<a href="../privacy.html">
+      Privacy Policy
+    </a>
+<span class="dot ml-2"></span>
+</li>
+<li class="footer__nav-link flex items-center">
+<a href="../terms.html">
+      Terms of Use
+    </a>
+<span class="dot ml-2"></span>
+</li>
+
+<div class="fs-s">
+<p>Built on <a class="c-link c-link--branded" href="https://www.forem.com" rel="noopener" target="_blank">Forem</a> — the <a class="c-link c-link--branded" href="opensource.html" rel="noopener" target="_blank">open source</a> software that powers <a class="c-link c-link--branded" href="../index.html" rel="noopener" target="_blank">DEV</a> and other inclusive communities.</p>
+<p>Made with love and <a class="c-link c-link--branded" href="rails.html" rel="noopener" target="_blank">Ruby on Rails</a>. DEV Community <span title="copyright">©</span> 2016 - 2026.</p>
+</div>
+</div>
+</footer>
+<div id="snack-zone"></div>
+<div class="authentication-modal hidden" id="global-signup-modal">
+<div class="authentication-modal__container">
+<figure class="authentication-modal__image-container">
+<img alt="DEV Community" class="authentication-modal__image" loading="lazy" src="../cdn/media2.dev.to/dynamic/image/width=190,height=,fit=scale-down,gravity=auto,format=auto/https___dev-to-uploads.s3.amazonaws.com_uploads_articles_8j7kvp660rqzt99zui8e.png">
+</img></figure>
+<div class="authentication-modal__content">
+<p class="authentication-modal__description">
+          We're a place where coders share, stay up-to-date and grow their careers.
+      </p>
+</div>
+<div class="authentication-modal__actions">
+<a aria-label="Log in" class="crayons-btn" data-no-instant="" href="../enter-q7ffd52de7b.html">
+        Log in
+      </a>
+<a aria-label="Create new account" class="crayons-btn crayons-btn--ghost-brand js-global-signup-modal__create-account" data-no-instant="" href="../enter-qfc40b94913.html">
+        Create account
+      </a>
+</div>
+</div>
+</div>
+<script defer="defer" src="../cdn/assets.dev.to/assets/signupModalShortcuts-0b25469b985100a01e94cbd7fccaf7f0a4d776e129aac65c766aa32cb28ab29a.js"></script>
+<div id="cookie-consent"></div>
+<div aria-hidden="true" class="hidden" id="reaction-category-resources">
+<img data-name="Like" data-position="1" data-slug="like" height="18" src="../cdn/assets.dev.to/assets/sparkle-heart-5f9bee3767e18deb1bb725290cb151c25234768a0e9a2bd39370c382d02920cf.svg" width="18">
+<img data-name="Unicorn" data-position="2" data-slug="unicorn" height="18" src="../cdn/assets.dev.to/assets/multi-unicorn-b44d6f8c23cdd00964192bedc38af3e82463978aa611b4365bd33a0f1f4f3e97.svg" width="18">
+<img data-name="Exploding Head" data-position="3" data-slug="exploding_head" height="18" src="../cdn/assets.dev.to/assets/exploding-head-daceb38d627e6ae9b730f36a1e390fca556a4289d5a41abb2c35068ad3e2c4b5.svg" width="18"/>
+<img data-name="Raised Hands" data-position="4" data-slug="raised_hands" height="18" src="../cdn/assets.dev.to/assets/raised-hands-74b2099fd66a39f2d7eed9305ee0f4553df0eb7b4f11b01b6b1b499973048fe5.svg" width="18"/>
+<img data-name="Fire" data-position="5" data-slug="fire" height="18" src="../cdn/assets.dev.to/assets/fire-f60e7a582391810302117f987b22a8ef04a2fe0df7e3258a5f49332df1cec71e.svg" width="18"/>
+</img></img></div>
+<script>
+  var userSignedIn = false;
+  if (document.readyState === 'complete' || document.readyState === 'interactive') {
+    initAuth();
+  } else {
+    document.addEventListener('DOMContentLoaded', initAuth);
+  }
+
+  function initAuth() {
+    var paramToken = new URLSearchParams(window.location.search).get('jwt');
+
+    if (paramToken && !userSignedIn) {
+      authenticateUser(paramToken);
+    } else {
+      var iframe = document.createElement('iframe');
+      iframe.style.display = 'none';
+      iframe.src = 'https://forem.com/auth_pass/iframe';
+  
+      document.body.appendChild(iframe);
+  
+      window.addEventListener('message', function(event) {
+        if (event.origin !== 'https://forem.com' && event.origin !== window.location.origin) {
+          return;
+        }
+  
+        var data = event.data;
+  
+        if (data.authenticated && !userSignedIn) {
+          authenticateUser(data.token);
+        } else if(data.authenticated && window.ReactNativeWebView && window.ReactNativeWebView.postMessage) {
+          window.ReactNativeWebView.postMessage(JSON.stringify({
+            action: 'login',
+            token: data.token,
+          }));
+        }
+      });  
+    }
+
+    function authenticateUser(token) {
+      fetch('/auth_pass/token_login', {
+        method: 'POST',
+        credentials: 'include',
+        headers: {
+          'Content-Type': 'application/json',
+          'X-CSRF-Token': getMetaContent('csrf-token'),
+        },
+        body: JSON.stringify({ token: token }),
+      })
+      .then(function(response) {
+        return response.json();
+      })
+      .then(function(data) {
+        if (data.success) {
+          if (document.head.querySelector('meta[name="user-signed-in"][content="false"]')) {
+            // Reload the page to update the user's state
+            location.reload();
+          }
+        }
+      })
+      .catch(function(error) {
+        console.error('Error during authentication:', error);
+      });
+    }
+
+    function getMetaContent(name) {
+      var element = document.querySelector('meta[name="' + name + '"]');
+      return element ? element.getAttribute('content') : '';
+    }
+  }
+</script>
+</link></body>
+</html>

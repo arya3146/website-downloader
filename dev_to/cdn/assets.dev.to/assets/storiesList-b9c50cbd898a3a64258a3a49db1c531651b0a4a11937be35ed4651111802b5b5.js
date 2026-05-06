@@ -1,0 +1,1 @@
+window.dispatchEvent(new CustomEvent("syncSearchForms",{detail:{querystring:location.search}}));

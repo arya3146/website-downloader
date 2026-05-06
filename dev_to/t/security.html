@@ -1,0 +1,2284 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<title>Security - DEV Community</title>
+<link href="https://dev.to/t/security" rel="canonical"/>
+<meta content="security content on DEV Community" name="description"/>
+<meta content="software development, engineering, security" name="keywords"/>
+<meta content="website" property="og:type">
+<meta content="https://dev.to/t/security" property="og:url">
+<meta content="Security" property="og:title">
+<meta content="Security content on DEV Community" property="og:description"/>
+<meta content="DEV Community" property="og:site_name"/>
+<meta content="@thepracticaldev" name="twitter:site"/>
+<meta content="@Security" name="twitter:creator"/>
+<meta content="Security" name="twitter:title"/>
+<meta content="Security content on DEV Community" name="twitter:description"/>
+<meta content="summary_large_image" name="twitter:card"/>
+<meta content="../cdn/dev-to-uploads.s3.amazonaws.com/uploads/articles/3otvb2z646ytpt1hl2rv.jpg" property="og:image"/>
+<meta content="../cdn/dev-to-uploads.s3.amazonaws.com/uploads/articles/3otvb2z646ytpt1hl2rv.jpg" name="twitter:image:src"/>
+<meta content="2026-05-06 07:21:44 UTC" name="last-updated"/>
+<meta content="false" name="user-signed-in"/>
+<meta content="1778052104" name="head-cached-at"/>
+<meta content="production" name="environment"/>
+<link href="../cdn/assets.dev.to/assets/minimal-2213124ac5505ccdbf3c4eb62fd70ecda26cb75ed6de931633992a7bac437c81.css" id="main-minimal-stylesheet" media="all" rel="stylesheet"/>
+<link href="../cdn/assets.dev.to/assets/views-0681ac17bf1546793c4b7ef7c615b2defec919060aefb3b9c287471e8cb77bf2.css" id="main-views-stylesheet" media="all" rel="stylesheet"/>
+<link href="../cdn/assets.dev.to/assets/crayons-d2b52af1d86a9ac9a8bc215ed34ffad7a94af68f4abd1cdcae2a8c1a4385cd23.css" id="main-crayons-stylesheet" media="all" rel="stylesheet"/>
+<script defer="defer" src="../cdn/assets.dev.to/assets/base-0c748bbcdc30041261c326ef2ce931fbce46c58bc3c488da881ae35c4750941d.js"></script>
+<script defer="defer" src="../cdn/assets.dev.to/assets/application-0b268684912bef9b0f23defff01cb608bfc5d5e5610287725e7b686139ae32d3.js"></script>
+<script defer="defer" src="../cdn/assets.dev.to/assets/baseInitializers-2f0777a6d67046056f9f42665560ce072de3801292674358ddbad6e135c1891d.js"></script>
+<script defer="defer" src="../cdn/assets.dev.to/assets/baseTracking-90c1c7b9b4f617aa0f900eadaf0ccbdbc2a002f12c1e1ada7da039c823601b14.js"></script>
+<script defer="defer" src="../cdn/assets.dev.to/assets/followButtons-e3595664847e9f43945a9b8a0445b32cda9a149f1f169f78b8fcc7714ccab45a.js"></script>
+<meta content="https://assets.dev.to/assets/Search-b977aea0f2d7a5818b4ebd97f7d4aba8548099f84f5db5761f8fa67be76abc54.js" name="search-script"/>
+<meta content="width=device-width, initial-scale=1.0, viewport-fit=cover" name="viewport"/>
+<link href="../cdn/media2.dev.to/dynamic/image/width=32,height=,fit=scale-down,gravity=auto,format=auto/https___dev-to-uploads.s3.amazonaws.com_uploads_articles_8j7kvp660rqzt99zui8e.png" rel="icon" type="image/x-icon"/>
+<link href="../cdn/media2.dev.to/dynamic/image/width=180,height=,fit=scale-down,gravity=auto,format=auto/https___dev-to-uploads.s3.amazonaws.com_uploads_articles_8j7kvp660rqzt99zui8e.png" rel="apple-touch-icon"/>
+<link href="../cdn/media2.dev.to/dynamic/image/width=152,height=,fit=scale-down,gravity=auto,format=auto/https___dev-to-uploads.s3.amazonaws.com_uploads_articles_8j7kvp660rqzt99zui8e.png" rel="apple-touch-icon" sizes="152x152"/>
+<link href="../cdn/media2.dev.to/dynamic/image/width=180,height=,fit=scale-down,gravity=auto,format=auto/https___dev-to-uploads.s3.amazonaws.com_uploads_articles_8j7kvp660rqzt99zui8e.png" rel="apple-touch-icon" sizes="180x180"/>
+<link href="../cdn/media2.dev.to/dynamic/image/width=167,height=,fit=scale-down,gravity=auto,format=auto/https___dev-to-uploads.s3.amazonaws.com_uploads_articles_8j7kvp660rqzt99zui8e.png" rel="apple-touch-icon" sizes="167x167"/>
+<link href="../cdn/media2.dev.to/dynamic/image/width=192,height=,fit=scale-down,gravity=auto,format=auto/https___dev-to-uploads.s3.amazonaws.com_uploads_articles_8j7kvp660rqzt99zui8e.png" rel="icon" sizes="192x192">
+<link href="../cdn/media2.dev.to/dynamic/image/width=128,height=,fit=scale-down,gravity=auto,format=auto/https___dev-to-uploads.s3.amazonaws.com_uploads_articles_8j7kvp660rqzt99zui8e.png" rel="icon" sizes="128x128">
+<meta content="dev.to" name="apple-mobile-web-app-title"/>
+<meta content="dev.to" name="application-name"/>
+<meta content="#ffffff" media="(prefers-color-scheme: light)" name="theme-color"/>
+<meta content="#000000" media="(prefers-color-scheme: dark)" name="theme-color"/>
+<link href="https://dev.to/open-search.xml" rel="search" title="DEV Community" type="application/opensearchdescription+xml">
+<meta content="DEV Community" property="forem:name">
+<meta content="https://media2.dev.to/dynamic/image/width=512,height=,fit=scale-down,gravity=auto,format=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Farticles%2F8j7kvp660rqzt99zui8e.png" property="forem:logo">
+<meta content="dev.to" property="forem:domain">
+<style>
+/* ==========================================================================
+   THE 418 CHALLENGE: THEME-AWARE RETRO EDITION
+   ========================================================================== */
+
+.articletag-418challenge {
+  font-family: "Comic Sans MS", "Chalkboard SE", "Marker Felt", sans-serif !important;
+  cursor: crosshair !important;
+}
+
+/* Destroy modern rounded corners and add brutal borders */
+.articletag-418challenge .crayons-card,
+.articletag-418challenge .crayons-article__main,
+.articletag-418challenge .crayons-article__header {
+  border-radius: 0 !important;
+  margin-bottom: 2rem !important;
+}
+
+/* Typography specifics */
+.articletag-418challenge h1,
+.articletag-418challenge h2,
+.articletag-418challenge h3 {
+  text-transform: uppercase !important;
+}
+
+/* Fake <marquee> effect for the main article title */
+.articletag-418challenge h1.fs-3xl {
+  animation: retro-slide 5s linear infinite alternate;
+  overflow: visible;
+}
+
+/* Spin those avatars */
+.articletag-418challenge .crayons-article__header__meta img {
+  border-radius: 0 !important; 
+  animation: retro-spin 5s linear infinite;
+}
+
+/* Obnoxious tags */
+.articletag-418challenge .crayons-tag {
+  border-radius: 0 !important;
+  font-weight: 900 !important;
+  transform: rotate(-3deg);
+  display: inline-block;
+}
+.articletag-418challenge .crayons-tag:nth-child(even) {
+  transform: rotate(3deg);
+}
+
+/* --------------------------------------------------------------------------
+   2. LIGHT THEME (Windows 95 / Office 97 Vibes)
+   -------------------------------------------------------------------------- */
+body:not(.dark-theme) .articletag-418challenge {
+  background-color: #008080 !important; /* Win95 Teal Desktop */
+}
+
+body:not(.dark-theme) .articletag-418challenge .crayons-card,
+body:not(.dark-theme) .articletag-418challenge .crayons-article__main,
+body:not(.dark-theme) .articletag-418challenge .crayons-article__header {
+  background-color: #c0c0c0 !important; /* Classic dialog gray */
+  color: #000000 !important;
+  border: 4px outset #ffffff !important;
+  box-shadow: 8px 8px 0px #000000 !important;
+}
+
+body:not(.dark-theme) .articletag-418challenge h1,
+body:not(.dark-theme) .articletag-418challenge h2,
+body:not(.dark-theme) .articletag-418challenge h3 {
+  color: #ff0000 !important;
+  text-shadow: 2px 2px 0px #ffff00 !important;
+  border-bottom: 3px dashed #0000ff !important;
+}
+
+body:not(.dark-theme) .articletag-418challenge a,
+body:not(.dark-theme) .articletag-418challenge .crayons-link {
+  color: #0000ff !important; /* Standard unvisited blue */
+  text-decoration: underline !important;
+  font-weight: bold !important;
+}
+
+body:not(.dark-theme) .articletag-418challenge a:hover,
+body:not(.dark-theme) .articletag-418challenge .crayons-link:hover {
+  background-color: #ffff00 !important;
+  color: #ff0000 !important;
+}
+
+body:not(.dark-theme) .articletag-418challenge .crayons-tag {
+  background: #ffff00 !important;
+  color: #ff0000 !important;
+  border: 2px dotted #0000ff !important;
+}
+
+/* --------------------------------------------------------------------------
+   3. DARK THEME (1999 Hacker / Deep GeoCities Vibes)
+   -------------------------------------------------------------------------- */
+body.dark-theme .articletag-418challenge {
+  background-color: #000000 !important;
+  /* Dumb CSS: A scrolling, eye-bleeding neon green hacker grid with CRT scanlines */
+  background-image: 
+    linear-gradient(transparent 50%, rgba(0, 255, 0, 0.25) 50%), 
+    linear-gradient(90deg, rgba(0, 255, 0, 0.5) 1px, transparent 1px), 
+    linear-gradient(rgba(0, 255, 0, 0.5) 1px, transparent 1px) !important;
+  background-size: 100% 4px, 20px 20px, 20px 20px !important;
+  animation: retro-pan 60s linear infinite !important;
+}
+
+body.dark-theme .articletag-418challenge .crayons-card,
+body.dark-theme .articletag-418challenge .crayons-article__main,
+body.dark-theme .articletag-418challenge .crayons-article__header {
+  background-color: #111111 !important;
+  color: #00ff00 !important; /* Terminal Green */
+  border: 4px outset #555555 !important;
+  box-shadow: 8px 8px 0px #ff00ff !important; /* Hot pink shadow */
+}
+
+body.dark-theme .articletag-418challenge h1,
+body.dark-theme .articletag-418challenge h2,
+body.dark-theme .articletag-418challenge h3 {
+  color: #ff00ff !important; /* Magenta headers */
+  text-shadow: 2px 2px 0px #00ffff !important; /* Cyan shadow */
+  border-bottom: 3px dashed #00ff00 !important;
+}
+
+body.dark-theme .articletag-418challenge a,
+body.dark-theme .articletag-418challenge .crayons-link {
+  color: #00ffff !important; /* Cyan links */
+  text-decoration: underline !important;
+  font-weight: bold !important;
+}
+
+body.dark-theme .articletag-418challenge a:hover,
+body.dark-theme .articletag-418challenge .crayons-link:hover {
+  background-color: #ff00ff !important;
+  color: #ffffff !important;
+}
+
+body.dark-theme .articletag-418challenge .crayons-tag {
+  background: #000000 !important;
+  color: #00ff00 !important;
+  border: 2px dotted #ff00ff !important;
+}
+
+/* --------------------------------------------------------------------------
+   4. ANIMATIONS
+   -------------------------------------------------------------------------- */
+@keyframes retro-spin {
+  100% { transform: rotate(360deg); }
+}
+
+@keyframes retro-slide {
+  0% { transform: translateX(-2%); }
+  100% { transform: translateX(2%); }
+}
+
+@keyframes retro-pan {
+  0% { background-position: 0 0, 0 0, 0 0; }
+  /* Numbers must be multiples of the background-size (4px and 20px) to loop perfectly */
+  100% { background-position: 0 100px, 40px 40px, 40px 40px; }
+}
+
+/* --------------------------------------------------------------------------
+   5. BONUS: CAUTION TAPE REACTION BAR
+   -------------------------------------------------------------------------- */
+.articletag-418challenge .crayons-article-actions {
+  background: repeating-linear-gradient(
+    45deg,
+    #ffff00,
+    #ffff00 10px,
+    #000000 10px,
+    #000000 20px
+  ) !important;
+  border: 4px solid #ff0000 !important;
+  border-radius: 0 !important;
+}
+
+.articletag-418challenge .crayons-article-actions button {
+  background:black;
+  color: #ff00ff !important;
+}
+
+.articletag-418challenge .crayons-article-actions .crayons-reaction__count {
+    color: #ff00ff !important;
+    font-weight: bold !important;
+}
+
+.articletag-418challenge .crayons-icon:not(.crayons-icon--default) * {
+    fill: #ffff00 !important;
+}
+
+.articletag-418challenge .c-embed .crayons-btn--primary {
+  color: #00ff00 !important;
+}
+
+.articletag-418challenge .popover-billboard {
+margin-bottom: 0 !important;
+}
+
+.crayons-story__contentpreview .ltag__link--embedded {
+margin-top: 0 !important;
+}
+
+.subscription-icon {
+    max-height: 16px !important;
+    display: inline-block !important;
+}
+
+@media screen and (min-width: 950px) {
+    .event-show-layout {
+        margin-top: 24px !important;
+    }
+}
+
+@media screen and (max-width: 949px) {
+    .event-show-layout {
+        padding: 11px !important;
+    }
+}
+
+
+</style>
+</meta></meta></meta></link></link></link></meta></meta></meta></head>
+<body class="sans-serif-article-body default-header" data-algolia-display="true" data-algolia-id="PRSOBFP46H" data-algolia-search-key="9aa7d31610cba78851c9b1f63776a9dd" data-community-name="DEV Community" data-cookie-banner-platform-context="off" data-cookie-banner-user-context="logged_out_only" data-deployed-at="2026-05-05T19:04:15Z" data-dynamic-url-component="bmar11" data-ga-tracking="UA-71991109-1" data-ga4-tracking-id="G-TYEM8Y3JN3" data-honeybadger-key="hbp_nqu4Y66HuEKlD6YRGssZuRQnPOjDm50J8Zkr" data-is-root-subforem="false" data-latest-commit-id="99141cc1f10837f83a0dcd05003c5e711ec877ac" data-locale="en" data-side-nav-visible="true" data-subforem-id="1" data-subscription-icon="https://assets.dev.to/assets/subscription-icon-805dfa7ac7dd660f07ed8d654877270825b07a92a03841aa99a1093bd00431b2.png" data-user-status="logged-out">
+<script>
+        if (navigator.userAgent === 'ForemWebView/1' || window.frameElement) {
+          document.body.classList.add("hidden-shell");
+        }
+          if (new Date() > new Date("2026-02-04T09:00:00-05:00")) {
+            document.body.dataset.sideNavVisible = "false";
+          } 
+      </script>
+<link href="../cdn/assets.dev.to/assets/minimal-2213124ac5505ccdbf3c4eb62fd70ecda26cb75ed6de931633992a7bac437c81.css" id="secondary-minimal-stylesheet" media="all" rel="stylesheet">
+<link href="../cdn/assets.dev.to/assets/views-0681ac17bf1546793c4b7ef7c615b2defec919060aefb3b9c287471e8cb77bf2.css" id="secondary-views-stylesheet" media="all" rel="stylesheet"/>
+<link href="../cdn/assets.dev.to/assets/crayons-d2b52af1d86a9ac9a8bc215ed34ffad7a94af68f4abd1cdcae2a8c1a4385cd23.css" id="secondary-crayons-stylesheet" media="all" rel="stylesheet"/>
+<div id="body-styles">
+<style>
+          :root {
+            --accent-brand-lighter-rgb: 86, 105, 285;
+            --accent-brand-rgb: 64, 78, 211;
+            --accent-brand-darker-rgb: 51, 62, 169;
+          }
+        </style>
+</div>
+<div data-podcast="" id="audiocontent">
+</div>
+<div class="navigation-progress" id="navigation-progress"></div>
+<header class="crayons-header topbar print-hidden" id="topbar">
+<span id="route-change-target" tabindex="-1"></span>
+<a class="skip-content-link" href="#main-content">Skip to content</a>
+<div class="crayons-header__container">
+<span class="inline-block m:hidden">
+<button class="c-btn c-btn--icon-alone js-hamburger-trigger mx-2">
+<svg aria-labelledby="acbdog2gzlx9qyglnyts1hqo8uvqikc5" class="crayons-icon" height="24" role="img" viewbox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><title id="acbdog2gzlx9qyglnyts1hqo8uvqikc5">Navigation menu</title>
+<path d="M3 4h18v2H3V4zm0 7h18v2H3v-2zm0 7h18v2H3v-2z"></path>
+</svg>
+</button>
+</span>
+<a aria-label="DEV Community Home" class="site-logo" href="../index.html">
+<img alt="DEV Community" class="site-logo__img" src="../cdn/media2.dev.to/dynamic/image/quality=100/https_/dev-to-uploads.s3.amazonaws.com/uploads/logos/resized_logo_UQww2soKuUsjaOGNB38o.png" style="aspect-ratio: 10 / 8"/>
+</a>
+<div class="crayons-header--search js-search-form" id="header-search">
+<form accept-charset="UTF-8" action="/search" method="get" role="search">
+<div class="crayons-fields crayons-fields--horizontal">
+<div class="crayons-field flex-1 relative">
+<input autocomplete="off" class="crayons-header--search-input crayons-textfield js-search-input" id="nav-search" name="q" placeholder="Search..." type="text"/>
+<button aria-label="Search" class="c-btn c-btn--icon-alone absolute inset-px right-auto mt-0 py-0" type="submit">
+<svg aria-hidden="true" aria-labelledby="a5w05221gor07jlb6ln28wp113hiqhjf" class="crayons-icon" height="24" role="img" viewbox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><title id="a5w05221gor07jlb6ln28wp113hiqhjf">Search</title>
+<path d="M18.031 16.617l4.283 4.282-1.415 1.415-4.282-4.283A8.96 8.96 0 0111 20c-4.968 0-9-4.032-9-9s4.032-9 9-9 9 4.032 9 9a8.96 8.96 0 01-1.969 5.617zm-2.006-.742A6.977 6.977 0 0018 11c0-3.868-3.133-7-7-7-3.868 0-7 3.132-7 7 0 3.867 3.132 7 7 7a6.977 6.977 0 004.875-1.975l.15-.15z"></path>
+</svg>
+</button>
+<a class="crayons-header--search-brand-indicator" href="https://www.algolia.com/developers/?utm_source=devto&amp;utm_medium=referral" rel="noopener noreferrer" target="_blank">
+                Powered by Algolia
+                <svg aria-hidden="true" aria-labelledby="a5mhx8bui7sogjska3tnsy1bmcl6dasu" class="crayons-icon" height="24" id="Layer_1" role="img" viewbox="0 0 500 500.34" width="24" xmlns="http://www.w3.org/2000/svg"><title id="a5mhx8bui7sogjska3tnsy1bmcl6dasu">Search</title>
+<defs></defs><path class="cls-1" d="M250,0C113.38,0,2,110.16,.03,246.32c-2,138.29,110.19,252.87,248.49,253.67,42.71,.25,83.85-10.2,120.38-30.05,3.56-1.93,4.11-6.83,1.08-9.52l-23.39-20.74c-4.75-4.22-11.52-5.41-17.37-2.92-25.5,10.85-53.21,16.39-81.76,16.04-111.75-1.37-202.04-94.35-200.26-206.1,1.76-110.33,92.06-199.55,202.8-199.55h202.83V407.68l-115.08-102.25c-3.72-3.31-9.43-2.66-12.43,1.31-18.47,24.46-48.56,39.67-81.98,37.36-46.36-3.2-83.92-40.52-87.4-86.86-4.15-55.28,39.65-101.58,94.07-101.58,49.21,0,89.74,37.88,93.97,86.01,.38,4.28,2.31,8.28,5.53,11.13l29.97,26.57c3.4,3.01,8.8,1.17,9.63-3.3,2.16-11.55,2.92-23.6,2.07-35.95-4.83-70.39-61.84-127.01-132.26-131.35-80.73-4.98-148.23,58.18-150.37,137.35-2.09,77.15,61.12,143.66,138.28,145.36,32.21,.71,62.07-9.42,86.2-26.97l150.36,133.29c6.45,5.71,16.62,1.14,16.62-7.48V9.49C500,4.25,495.75,0,490.51,0H250Z"></path>
+</svg>
+</a>
+</div>
+</div>
+</form>
+</div>
+<div class="flex items-center h-100 ml-auto">
+<div class="flex" id="authentication-top-nav-actions">
+<span class="hidden m:block">
+<a class="c-link c-link--block mr-2 whitespace-nowrap ml-auto" data-no-instant="" href="../enter-q7ffd52de7b.html">
+              Log in
+            </a>
+</span>
+<a class="c-cta c-cta--branded whitespace-nowrap mr-2" data-no-instant="" data-tracking-id="ca_top_nav" data-tracking-source="top_navbar" href="../enter-qfc40b94913.html">
+            Create account
+          </a>
+</div>
+</div>
+</div>
+</header>
+<div class="hamburger">
+<div class="hamburger__content">
+<header class="hamburger__content__header">
+<h2 class="fs-l fw-bold flex-1 break-word lh-tight">DEV Community</h2>
+<button aria-label="Close" class="c-btn c-btn--icon-alone js-hamburger-trigger shrink-0">
+<svg aria-hidden="true" aria-labelledby="a7xfwj9mm9ud025ehykvg5jt6329l2bi" class="crayons-icon c-btn__icon" height="24" role="img" viewbox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><title id="a7xfwj9mm9ud025ehykvg5jt6329l2bi">Close</title><path d="M12 10.586l4.95-4.95 1.414 1.414-4.95 4.95 4.95 4.95-1.414 1.414-4.95-4.95-4.95 4.95-1.414-1.414 4.95-4.95-4.95-4.95L7.05 5.636l4.95 4.95z"></path></svg>
+</button>
+</header>
+<div class="p-2 js-navigation-links-container" id="authentication-hamburger-actions">
+</div>
+</div>
+<div class="hamburger__overlay js-hamburger-trigger"></div>
+</div>
+<div class="broadcast-wrapper" id="active-broadcast"></div>
+<div class="wrapper tagged_articles tagged_articles-index" data-current-page="tagged_articles-index" id="page-content">
+<div data-internal-nav="false" data-viewable-id="" data-viewable-type="" id="page-content-inner">
+<div aria-atomic="true" aria-live="polite" class="screen-reader-only" id="page-route-change"></div>
+<div class="crayons-layout js-tag-card" data-tag-id="56" data-tag-name="security" id="tag-56">
+<header class="crayons-card branded-4 p-4 l:p-6 spec__tag-header" style="border-top-color: #1bac80 ">
+<div class="flex">
+<div class="flex flex-col w-100 justify-center">
+<div class="flex justify-between items-center">
+<h1 class="crayons-title">
+              Security
+          </h1>
+<div class="mt-auto flex items-end justify-between" id="tag-buttons-56">
+<div class="flex gap-2">
+<button aria-label="Follow tag: security" class="c-btn c-btn--primary js-follow-tag-button">
+                  Follow
+                </button>
+<button aria-label="Hide tag: security" class="c-btn js-hide-tag-button">
+                  Hide
+                </button>
+</div>
+</div>
+</div>
+<p class="max-w-100 m:max-w-75 pt-2 s:pt-4">
+            Hopefully not just an afterthought!
+          </p>
+</div>
+</div>
+</header>
+</div>
+<div class="home sub-home" data-articles-since="" data-disable-infinite-scroll="true" data-feed="base-feed" data-params='{"tag":"security","sort_by":"hotness_score","sort_direction":"desc"}' data-requires-approval="false" data-tag="security" data-which="" id="index-container">
+<div class="sidebar-wrapper sidebar-wrapper-left" id="sidebar-wrapper-left">
+<div class="sidebar-bg" id="sidebar-bg-left"></div>
+<aside class="side-bar fs-s">
+<div class="widget js-policy-article-create">
+<a class="crayons-btn crayons-btn--s" href="../new/security.html">
+            Create Post
+          </a>
+</div> <div class="widget">
+<header>
+<h4 class="fs-base fw-medium">submission guidelines</h4>
+</header>
+<div class="widget-body fs-s">
+<p>Write as you are pleased, be mindful and keep it civil.</p>
+</div>
+</div>
+<div class="sidebar-data">
+<hr/>
+<div class="olderposts-header fs-base fw-medium">Older #security posts</div>
+<div class="olderposts-links">
+<span class="olderposts-pagenumber">1</span>
+<a class="olderposts-pagenumber" href="security/page/2.html">2</a>
+<a class="olderposts-pagenumber" href="security/page/3.html">3</a>
+<a class="olderposts-pagenumber" href="security/page/4.html">4</a>
+<a class="olderposts-pagenumber" href="security/page/5.html">5</a>
+<a class="olderposts-pagenumber" href="security/page/6.html">6</a>
+<a class="olderposts-pagenumber" href="security/page/7.html">7</a>
+<a class="olderposts-pagenumber" href="security/page/8.html">8</a>
+<a class="olderposts-pagenumber" href="security/page/9.html">9</a>
+<div>
+                …<a class="olderposts-pagenumber" href="security/page/75.html">75</a>
+                …<a class="olderposts-pagenumber" href="security/page/1418.html">1418</a>
+</div>
+</div>
+</div>
+</aside>
+</div>
+<main class="articles-list" data-follow-button-container="true" id="main-content">
+<header class="flex items-center p-2 m:p-0 m:pb-2" id="on-page-nav-controls">
+<h1 class="screen-reader-only">Posts</h1>
+<button aria-label="nav-button-left" class="crayons-btn crayons-btn--ghost crayons-btn--icon mr-2 inline-block m:hidden mb-auto" id="on-page-nav-butt-left" type="button">
+<div class="crayons-icon nav-icon">
+<svg aria-labelledby="ajyyw7h9shbe16mkiqkyivlp8rn8prwz" class="crayons-icon" height="24" role="img" viewbox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><title id="ajyyw7h9shbe16mkiqkyivlp8rn8prwz">Left menu</title>
+<path d="M3 4h18v2H3V4zm0 7h18v2H3v-2zm0 7h18v2H3v-2z"></path>
+</svg>
+</div>
+</button>
+<div class="flex-1 flex items-center justify-between">
+<div aria-live="polite" class="crayons-notice w-100">👋 <a href="../enter-q7ffd52de7b.html">Sign in</a> for the ability to sort posts by <strong>relevant</strong>, <strong>latest</strong>, or <strong>top</strong>.</div>
+</div>
+<button aria-label="nav-button-right" class="crayons-btn crayons-btn--ghost crayons-btn--icon ml-2 inline-block l:hidden mb-auto" id="on-page-nav-butt-right" type="button">
+<div class="crayons-icon nav-icon">
+<svg aria-labelledby="a1ezgeu60syyxn55dgmnnyy2hadd8dxn" class="crayons-icon" height="24" role="img" viewbox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><title id="a1ezgeu60syyxn55dgmnnyy2hadd8dxn">Right menu</title>
+<path d="M3 4h18v2H3V4zm0 7h18v2H3v-2zm0 7h18v2H3v-2z"></path>
+</svg>
+</div>
+</button>
+</header>
+<div class="substories" id="substories">
+<div class="crayons-story" data-content-user-id="2336072" data-feed-content-id="3614794">
+<a aria-labelledby="article-link-3614794" class="crayons-story__hidden-navigation-link" href="../hariharen/building-scync-why-i-wrote-a-zero-knowledge-secrets-manager-for-us-developers-15kc.html">Building Scync: Why I made a Zero-Knowledge Secrets Manager for us, Developers.</a>
+<div class="crayons-story__body crayons-story__body-full_post">
+<div class="crayons-story__top">
+<div class="crayons-story__meta">
+<div class="crayons-story__author-pic">
+<a class="crayons-avatar crayons-avatar--l" href="../hariharen.html">
+<img alt="hariharen profile" class="crayons-avatar__image" loading="lazy" src="../cdn/media2.dev.to/dynamic/image/width=90,height=90,fit=cover,gravity=auto,format=auto/https___dev-to-uploads.s3.amazonaws.com_uploads_user_profile_image_2336072_8cfdc070-00ba-4a2b-b4ba-e8847c7d9836.jpg">
+</img></a>
+</div>
+<div>
+<div>
+<a class="crayons-story__secondary fw-medium m:hidden" href="../hariharen.html">
+              Hariharen S.S
+            </a>
+<div class="profile-preview-card relative mb-4 s:mb-0 fw-medium hidden m:inline-block">
+<button aria-controls="story-author-preview-content-3614794" aria-label="Hariharen S.S profile details" class="profile-preview-card__trigger fs-s p-1 -ml-1 -my-2 crayons-btn crayons-btn--ghost" id="story-author-preview-trigger-3614794">
+                Hariharen S.S
+                
+              </button>
+<div class="profile-preview-card__content crayons-dropdown branded-7 p-4 pt-0" data-repositioning-dropdown="true" data-testid="profile-preview-card" id="story-author-preview-content-3614794" style="border-top-color: var(--card-color);">
+<div class="gap-4 grid">
+<div class="-mt-4">
+<a class="flex" href="../hariharen.html">
+<span class="crayons-avatar crayons-avatar--xl mr-2 shrink-0">
+<img alt="" class="crayons-avatar__image" loading="lazy" src="../cdn/media2.dev.to/dynamic/image/width=90,height=90,fit=cover,gravity=auto,format=auto/https___dev-to-uploads.s3.amazonaws.com_uploads_user_profile_image_2336072_8cfdc070-00ba-4a2b-b4ba-e8847c7d9836.jpg"/>
+</span>
+<span class="crayons-link crayons-subtitle-2 mt-5">Hariharen S.S</span>
+</a>
+</div>
+<div class="print-hidden">
+<button class="crayons-btn follow-action-button whitespace-nowrap follow-user w-100" data-info='{"style":"full","id":2336072,"className":"User","name":"Hariharen S.S"}'>
+                      Follow
+                    </button>
+</div>
+<div class="author-preview-metadata-container" data-author-id="2336072"></div>
+</div>
+</div>
+</div>
+</div>
+<a class="crayons-story__tertiary fs-xs" href="../hariharen/building-scync-why-i-wrote-a-zero-knowledge-secrets-manager-for-us-developers-15kc.html"><time datetime="2026-05-05T11:12:55Z">May 5</time><span class="time-ago-indicator-initial-placeholder" data-seconds="1777979575"></span></a>
+</div>
+</div>
+</div>
+<div class="crayons-story__indention">
+<h2 class="crayons-story__title crayons-story__title-full_post">
+<a data-preload-image="https://media2.dev.to/dynamic/image/width=1000,height=420,fit=cover,gravity=auto,format=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Farticles%2Fpfwjfte4ragserwvc17z.png" href="../hariharen/building-scync-why-i-wrote-a-zero-knowledge-secrets-manager-for-us-developers-15kc.html" id="article-link-3614794">
+          Building Scync: Why I made a Zero-Knowledge Secrets Manager for us, Developers.
+        </a>
+</h2>
+<div class="crayons-story__tags">
+<a class="crayons-tag crayons-tag--monochrome" href="opensource.html" style="
+        --tag-bg: rgba(38, 190, 0, 0.10);
+        --tag-prefix: #26BE00;
+        --tag-bg-hover: rgba(38, 190, 0, 0.10);
+        --tag-prefix-hover: #26BE00;
+      "><span class="crayons-tag__prefix">#</span>opensource</a>
+<a class="crayons-tag crayons-tag--monochrome" href="security.html" style="
+        --tag-bg: rgba(27, 172, 128, 0.10);
+        --tag-prefix: #1bac80;
+        --tag-bg-hover: rgba(27, 172, 128, 0.10);
+        --tag-prefix-hover: #1bac80;
+      "><span class="crayons-tag__prefix">#</span>security</a>
+<a class="crayons-tag crayons-tag--monochrome" href="webdev.html" style="
+        --tag-bg: rgba(86, 39, 101, 0.10);
+        --tag-prefix: #562765;
+        --tag-bg-hover: rgba(86, 39, 101, 0.10);
+        --tag-prefix-hover: #562765;
+      "><span class="crayons-tag__prefix">#</span>webdev</a>
+<a class="crayons-tag crayons-tag--monochrome" href="tooling.html" style="
+        --tag-bg: rgba(193, 216, 47, 0.10);
+        --tag-prefix: #c1d82f;
+        --tag-bg-hover: rgba(193, 216, 47, 0.10);
+        --tag-prefix-hover: #c1d82f;
+      "><span class="crayons-tag__prefix">#</span>tooling</a>
+</div>
+<div class="crayons-story__bottom">
+<div class="crayons-story__details">
+<a aria-label="Add a comment to post - Building Scync: Why I made a Zero-Knowledge Secrets Manager for us, Developers." class="crayons-btn crayons-btn--s crayons-btn--ghost crayons-btn--icon-left" data-reactable-id="3614794" data-reaction-count="" href="../hariharen/building-scync-why-i-wrote-a-zero-knowledge-secrets-manager-for-us-developers-15kc.html">
+<div class="multiple_reactions_aggregate">
+<span class="multiple_reactions_icons_container" dir="rtl">
+<span class="crayons_icon_container">
+<img height="18" src="../cdn/assets.dev.to/assets/multi-unicorn-b44d6f8c23cdd00964192bedc38af3e82463978aa611b4365bd33a0f1f4f3e97.svg" width="18"/>
+</span>
+<span class="crayons_icon_container">
+<img height="18" src="../cdn/assets.dev.to/assets/exploding-head-daceb38d627e6ae9b730f36a1e390fca556a4289d5a41abb2c35068ad3e2c4b5.svg" width="18"/>
+</span>
+<span class="crayons_icon_container">
+<img height="18" src="../cdn/assets.dev.to/assets/sparkle-heart-5f9bee3767e18deb1bb725290cb151c25234768a0e9a2bd39370c382d02920cf.svg" width="18"/>
+</span>
+</span>
+<span class="aggregate_reactions_counter">8<span class="hidden s:inline"> reactions</span></span>
+</div>
+</a>
+<a aria-label="Add a comment to post - Building Scync: Why I made a Zero-Knowledge Secrets Manager for us, Developers." class="crayons-btn crayons-btn--s crayons-btn--ghost crayons-btn--icon-left flex items-center" href="../hariharen/building-scync-why-i-wrote-a-zero-knowledge-secrets-manager-for-us-developers-15kc.html">
+<svg aria-labelledby="akrysxpg99f67flmxf2ki6880p125vmb" class="crayons-icon" height="24" role="img" width="24" xmlns="http://www.w3.org/2000/svg"><title id="akrysxpg99f67flmxf2ki6880p125vmb">Comments</title><path d="M10.5 5h3a6 6 0 110 12v2.625c-3.75-1.5-9-3.75-9-8.625a6 6 0 016-6zM12 15.5h1.5a4.501 4.501 0 001.722-8.657A4.5 4.5 0 0013.5 6.5h-3A4.5 4.5 0 006 11c0 2.707 1.846 4.475 6 6.36V15.5z"></path></svg>
+<span class="hidden s:inline">Add Comment</span>
+</a>
+</div>
+<div class="crayons-story__save">
+<small class="crayons-story__tertiary fs-xs mr-2">
+            7 min read
+          </small>
+<button aria-label="Save post Building Scync: Why I made a Zero-Knowledge Secrets Manager for us, Developers. to reading list" class="c-btn c-btn--icon-alone bookmark-button" data-article-author-id="2336072" data-reactable-id="3614794" id="article-save-button-3614794" title="Save post Building Scync: Why I made a Zero-Knowledge Secrets Manager for us, Developers. to reading list" type="button">
+<span class="bm-initial">
+<svg aria-hidden="true" height="24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M6.75 4.5h10.5a.75.75 0 01.75.75v14.357a.375.375 0 01-.575.318L12 16.523l-5.426 3.401A.375.375 0 016 19.607V5.25a.75.75 0 01.75-.75zM16.5 6h-9v11.574l4.5-2.82 4.5 2.82V6z"></path></svg>
+</span>
+<span class="bm-success">
+<svg aria-hidden="true" height="24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M6.75 4.5h10.5a.75.75 0 01.75.75v14.357a.375.375 0 01-.575.318L12 16.523l-5.426 3.401A.375.375 0 016 19.607V5.25a.75.75 0 01.75-.75z"></path></svg>
+</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="crayons-story" data-content-user-id="3866520" data-feed-content-id="3617232">
+<a aria-labelledby="article-link-3617232" class="crayons-story__hidden-navigation-link" href="../desty2k/paker-load-encrypted-python-packages-from-memory-eaj.html">paker: load encrypted Python packages from memory</a>
+<div class="crayons-story__body crayons-story__body-full_post">
+<div class="crayons-story__top">
+<div class="crayons-story__meta">
+<div class="crayons-story__author-pic">
+<a class="crayons-avatar crayons-avatar--l" href="../desty2k.html">
+<img alt="desty2k profile" class="crayons-avatar__image" loading="lazy" src="../cdn/media2.dev.to/dynamic/image/width=90,height=90,fit=cover,gravity=auto,format=auto/https___dev-to-uploads.s3.amazonaws.com_uploads_user_profile_image_3866520_3ad33efb-4ece-434a-97e5-e9cecc7cc9fd.png"/>
+</a>
+</div>
+<div>
+<div>
+<a class="crayons-story__secondary fw-medium m:hidden" href="../desty2k.html">
+              Wojciech Wentland
+            </a>
+<div class="profile-preview-card relative mb-4 s:mb-0 fw-medium hidden m:inline-block">
+<button aria-controls="story-author-preview-content-3617232" aria-label="Wojciech Wentland profile details" class="profile-preview-card__trigger fs-s p-1 -ml-1 -my-2 crayons-btn crayons-btn--ghost" id="story-author-preview-trigger-3617232">
+                Wojciech Wentland
+                
+              </button>
+<div class="profile-preview-card__content crayons-dropdown branded-7 p-4 pt-0" data-repositioning-dropdown="true" data-testid="profile-preview-card" id="story-author-preview-content-3617232" style="border-top-color: var(--card-color);">
+<div class="gap-4 grid">
+<div class="-mt-4">
+<a class="flex" href="../desty2k.html">
+<span class="crayons-avatar crayons-avatar--xl mr-2 shrink-0">
+<img alt="" class="crayons-avatar__image" loading="lazy" src="../cdn/media2.dev.to/dynamic/image/width=90,height=90,fit=cover,gravity=auto,format=auto/https___dev-to-uploads.s3.amazonaws.com_uploads_user_profile_image_3866520_3ad33efb-4ece-434a-97e5-e9cecc7cc9fd.png"/>
+</span>
+<span class="crayons-link crayons-subtitle-2 mt-5">Wojciech Wentland</span>
+</a>
+</div>
+<div class="print-hidden">
+<button class="crayons-btn follow-action-button whitespace-nowrap follow-user w-100" data-info='{"style":"full","id":3866520,"className":"User","name":"Wojciech Wentland"}'>
+                      Follow
+                    </button>
+</div>
+<div class="author-preview-metadata-container" data-author-id="3866520"></div>
+</div>
+</div>
+</div>
+</div>
+<a class="crayons-story__tertiary fs-xs" href="../desty2k/paker-load-encrypted-python-packages-from-memory-eaj.html"><time datetime="2026-05-06T06:15:00Z">May 6</time><span class="time-ago-indicator-initial-placeholder" data-seconds="1778048100"></span></a>
+</div>
+</div>
+</div>
+<div class="crayons-story__indention">
+<h2 class="crayons-story__title crayons-story__title-full_post">
+<a data-preload-image="https://media2.dev.to/dynamic/image/width=1000,height=420,fit=cover,gravity=auto,format=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Farticles%2Fab7uuuu2q78gcj3026k4.png" href="../desty2k/paker-load-encrypted-python-packages-from-memory-eaj.html" id="article-link-3617232">
+          paker: load encrypted Python packages from memory
+        </a>
+</h2>
+<div class="crayons-story__tags">
+<a class="crayons-tag crayons-tag--monochrome" href="python.html" style="
+        --tag-bg: rgba(30, 56, 187, 0.10);
+        --tag-prefix: #1E38BB;
+        --tag-bg-hover: rgba(30, 56, 187, 0.10);
+        --tag-prefix-hover: #1E38BB;
+      "><span class="crayons-tag__prefix">#</span>python</a>
+<a class="crayons-tag crayons-tag--monochrome" href="security.html" style="
+        --tag-bg: rgba(27, 172, 128, 0.10);
+        --tag-prefix: #1bac80;
+        --tag-bg-hover: rgba(27, 172, 128, 0.10);
+        --tag-prefix-hover: #1bac80;
+      "><span class="crayons-tag__prefix">#</span>security</a>
+<a class="crayons-tag crayons-tag--monochrome" href="opensource.html" style="
+        --tag-bg: rgba(38, 190, 0, 0.10);
+        --tag-prefix: #26BE00;
+        --tag-bg-hover: rgba(38, 190, 0, 0.10);
+        --tag-prefix-hover: #26BE00;
+      "><span class="crayons-tag__prefix">#</span>opensource</a>
+<a class="crayons-tag crayons-tag--monochrome" href="programming.html" style="
+        --tag-bg: rgba(137, 6, 6, 0.10);
+        --tag-prefix: #890606;
+        --tag-bg-hover: rgba(137, 6, 6, 0.10);
+        --tag-prefix-hover: #890606;
+      "><span class="crayons-tag__prefix">#</span>programming</a>
+</div>
+<div class="crayons-story__bottom">
+<div class="crayons-story__details">
+<a aria-label="Add a comment to post - paker: load encrypted Python packages from memory" class="crayons-btn crayons-btn--s crayons-btn--ghost crayons-btn--icon-left flex items-center" href="../desty2k/paker-load-encrypted-python-packages-from-memory-eaj.html">
+<svg aria-labelledby="afhxftw4mfjxa9l7blo1fbb24g2j8ne4" class="crayons-icon" height="24" role="img" width="24" xmlns="http://www.w3.org/2000/svg"><title id="afhxftw4mfjxa9l7blo1fbb24g2j8ne4">Comments</title><path d="M10.5 5h3a6 6 0 110 12v2.625c-3.75-1.5-9-3.75-9-8.625a6 6 0 016-6zM12 15.5h1.5a4.501 4.501 0 001.722-8.657A4.5 4.5 0 0013.5 6.5h-3A4.5 4.5 0 006 11c0 2.707 1.846 4.475 6 6.36V15.5z"></path></svg>
+<span class="hidden s:inline">Add Comment</span>
+</a>
+</div>
+<div class="crayons-story__save">
+<small class="crayons-story__tertiary fs-xs mr-2">
+            2 min read
+          </small>
+<button aria-label="Save post paker: load encrypted Python packages from memory to reading list" class="c-btn c-btn--icon-alone bookmark-button" data-article-author-id="3866520" data-reactable-id="3617232" id="article-save-button-3617232" title="Save post paker: load encrypted Python packages from memory to reading list" type="button">
+<span class="bm-initial">
+<svg aria-hidden="true" height="24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M6.75 4.5h10.5a.75.75 0 01.75.75v14.357a.375.375 0 01-.575.318L12 16.523l-5.426 3.401A.375.375 0 016 19.607V5.25a.75.75 0 01.75-.75zM16.5 6h-9v11.574l4.5-2.82 4.5 2.82V6z"></path></svg>
+</span>
+<span class="bm-success">
+<svg aria-hidden="true" height="24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M6.75 4.5h10.5a.75.75 0 01.75.75v14.357a.375.375 0 01-.575.318L12 16.523l-5.426 3.401A.375.375 0 016 19.607V5.25a.75.75 0 01.75-.75z"></path></svg>
+</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="crayons-story" data-content-user-id="3834499" data-feed-content-id="3618302">
+<a aria-labelledby="article-link-3618302" class="crayons-story__hidden-navigation-link" href="../flarecanary/github-app-installation-tokens-are-getting-longer-in-may-2026-your-varchar40-column-is-about-to-2886.html">GitHub App installation tokens are getting longer in May 2026 — your VARCHAR(40) column is about to silently truncate them</a>
+<div class="crayons-story__body crayons-story__body-full_post">
+<div class="crayons-story__top">
+<div class="crayons-story__meta">
+<div class="crayons-story__author-pic">
+<a class="crayons-avatar crayons-avatar--l" href="../flarecanary.html">
+<img alt="flarecanary profile" class="crayons-avatar__image" loading="lazy" src="../cdn/media2.dev.to/dynamic/image/width=90,height=90,fit=cover,gravity=auto,format=auto/https___dev-to-uploads.s3.amazonaws.com_uploads_user_profile_image_3834499_8c191c74-2040-4cd1-beaa-4ca99b664ca9.png"/>
+</a>
+</div>
+<div>
+<div>
+<a class="crayons-story__secondary fw-medium m:hidden" href="../flarecanary.html">
+              FlareCanary
+            </a>
+<div class="profile-preview-card relative mb-4 s:mb-0 fw-medium hidden m:inline-block">
+<button aria-controls="story-author-preview-content-3618302" aria-label="FlareCanary profile details" class="profile-preview-card__trigger fs-s p-1 -ml-1 -my-2 crayons-btn crayons-btn--ghost" id="story-author-preview-trigger-3618302">
+                FlareCanary
+                
+              </button>
+<div class="profile-preview-card__content crayons-dropdown branded-7 p-4 pt-0" data-repositioning-dropdown="true" data-testid="profile-preview-card" id="story-author-preview-content-3618302" style="border-top-color: var(--card-color);">
+<div class="gap-4 grid">
+<div class="-mt-4">
+<a class="flex" href="../flarecanary.html">
+<span class="crayons-avatar crayons-avatar--xl mr-2 shrink-0">
+<img alt="" class="crayons-avatar__image" loading="lazy" src="../cdn/media2.dev.to/dynamic/image/width=90,height=90,fit=cover,gravity=auto,format=auto/https___dev-to-uploads.s3.amazonaws.com_uploads_user_profile_image_3834499_8c191c74-2040-4cd1-beaa-4ca99b664ca9.png"/>
+</span>
+<span class="crayons-link crayons-subtitle-2 mt-5">FlareCanary</span>
+</a>
+</div>
+<div class="print-hidden">
+<button class="crayons-btn follow-action-button whitespace-nowrap follow-user w-100" data-info='{"style":"full","id":3834499,"className":"User","name":"FlareCanary"}'>
+                      Follow
+                    </button>
+</div>
+<div class="author-preview-metadata-container" data-author-id="3834499"></div>
+</div>
+</div>
+</div>
+</div>
+<a class="crayons-story__tertiary fs-xs" href="../flarecanary/github-app-installation-tokens-are-getting-longer-in-may-2026-your-varchar40-column-is-about-to-2886.html"><time datetime="2026-05-06T04:03:54Z">May 6</time><span class="time-ago-indicator-initial-placeholder" data-seconds="1778040234"></span></a>
+</div>
+</div>
+</div>
+<div class="crayons-story__indention">
+<h2 class="crayons-story__title crayons-story__title-full_post">
+<a data-preload-image="" href="../flarecanary/github-app-installation-tokens-are-getting-longer-in-may-2026-your-varchar40-column-is-about-to-2886.html" id="article-link-3618302">
+          GitHub App installation tokens are getting longer in May 2026 — your VARCHAR(40) column is about to silently truncate them
+        </a>
+</h2>
+<div class="crayons-story__tags">
+<a class="crayons-tag crayons-tag--monochrome" href="github.html" style="
+        --tag-bg: rgba(0, 0, 0, 0.10);
+        --tag-prefix: #000000;
+        --tag-bg-hover: rgba(0, 0, 0, 0.10);
+        --tag-prefix-hover: #000000;
+      "><span class="crayons-tag__prefix">#</span>github</a>
+<a class="crayons-tag crayons-tag--monochrome" href="api.html" style="
+        --tag-bg: rgba(151, 37, 234, 0.10);
+        --tag-prefix: #9725ea;
+        --tag-bg-hover: rgba(151, 37, 234, 0.10);
+        --tag-prefix-hover: #9725ea;
+      "><span class="crayons-tag__prefix">#</span>api</a>
+<a class="crayons-tag crayons-tag--monochrome" href="devops.html" style="
+        --tag-bg: rgba(6, 181, 0, 0.10);
+        --tag-prefix: #06B500;
+        --tag-bg-hover: rgba(6, 181, 0, 0.10);
+        --tag-prefix-hover: #06B500;
+      "><span class="crayons-tag__prefix">#</span>devops</a>
+<a class="crayons-tag crayons-tag--monochrome" href="security.html" style="
+        --tag-bg: rgba(27, 172, 128, 0.10);
+        --tag-prefix: #1bac80;
+        --tag-bg-hover: rgba(27, 172, 128, 0.10);
+        --tag-prefix-hover: #1bac80;
+      "><span class="crayons-tag__prefix">#</span>security</a>
+</div>
+<div class="crayons-story__bottom">
+<div class="crayons-story__details">
+<a aria-label="Add a comment to post - GitHub App installation tokens are getting longer in May 2026 — your VARCHAR(40) column is about to silently truncate them" class="crayons-btn crayons-btn--s crayons-btn--ghost crayons-btn--icon-left flex items-center" href="../flarecanary/github-app-installation-tokens-are-getting-longer-in-may-2026-your-varchar40-column-is-about-to-2886.html">
+<svg aria-labelledby="anu24ubmxrbulw7rtxtmx2hw0picfwe" class="crayons-icon" height="24" role="img" width="24" xmlns="http://www.w3.org/2000/svg"><title id="anu24ubmxrbulw7rtxtmx2hw0picfwe">Comments</title><path d="M10.5 5h3a6 6 0 110 12v2.625c-3.75-1.5-9-3.75-9-8.625a6 6 0 016-6zM12 15.5h1.5a4.501 4.501 0 001.722-8.657A4.5 4.5 0 0013.5 6.5h-3A4.5 4.5 0 006 11c0 2.707 1.846 4.475 6 6.36V15.5z"></path></svg>
+<span class="hidden s:inline">Add Comment</span>
+</a>
+</div>
+<div class="crayons-story__save">
+<small class="crayons-story__tertiary fs-xs mr-2">
+            7 min read
+          </small>
+<button aria-label="Save post GitHub App installation tokens are getting longer in May 2026 — your VARCHAR(40) column is about to silently truncate them to reading list" class="c-btn c-btn--icon-alone bookmark-button" data-article-author-id="3834499" data-reactable-id="3618302" id="article-save-button-3618302" title="Save post GitHub App installation tokens are getting longer in May 2026 — your VARCHAR(40) column is about to silently truncate them to reading list" type="button">
+<span class="bm-initial">
+<svg aria-hidden="true" height="24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M6.75 4.5h10.5a.75.75 0 01.75.75v14.357a.375.375 0 01-.575.318L12 16.523l-5.426 3.401A.375.375 0 016 19.607V5.25a.75.75 0 01.75-.75zM16.5 6h-9v11.574l4.5-2.82 4.5 2.82V6z"></path></svg>
+</span>
+<span class="bm-success">
+<svg aria-hidden="true" height="24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M6.75 4.5h10.5a.75.75 0 01.75.75v14.357a.375.375 0 01-.575.318L12 16.523l-5.426 3.401A.375.375 0 016 19.607V5.25a.75.75 0 01.75-.75z"></path></svg>
+</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="crayons-story" data-content-user-id="3897796" data-feed-content-id="3618260">
+<a aria-labelledby="article-link-3618260" class="crayons-story__hidden-navigation-link" href="../saikumarjee/scaling-full-stack-applications-in-high-compliance-environments-fja.html">Scaling Full-Stack Applications in High-Compliance Environments</a>
+<div class="crayons-story__body crayons-story__body-full_post">
+<div class="crayons-story__top">
+<div class="crayons-story__meta">
+<div class="crayons-story__author-pic">
+<a class="crayons-avatar crayons-avatar--l" href="../saikumarjee.html">
+<img alt="saikumarjee profile" class="crayons-avatar__image" loading="lazy" src="../cdn/media2.dev.to/dynamic/image/width=90,height=90,fit=cover,gravity=auto,format=auto/https___dev-to-uploads.s3.amazonaws.com_uploads_user_profile_image_3897796_6c383315-f933-4bae-a9c8-496c53ce9801.png"/>
+</a>
+</div>
+<div>
+<div>
+<a class="crayons-story__secondary fw-medium m:hidden" href="../saikumarjee.html">
+              Sai Kumar Jee
+            </a>
+<div class="profile-preview-card relative mb-4 s:mb-0 fw-medium hidden m:inline-block">
+<button aria-controls="story-author-preview-content-3618260" aria-label="Sai Kumar Jee profile details" class="profile-preview-card__trigger fs-s p-1 -ml-1 -my-2 crayons-btn crayons-btn--ghost" id="story-author-preview-trigger-3618260">
+                Sai Kumar Jee
+                
+              </button>
+<div class="profile-preview-card__content crayons-dropdown branded-7 p-4 pt-0" data-repositioning-dropdown="true" data-testid="profile-preview-card" id="story-author-preview-content-3618260" style="border-top-color: var(--card-color);">
+<div class="gap-4 grid">
+<div class="-mt-4">
+<a class="flex" href="../saikumarjee.html">
+<span class="crayons-avatar crayons-avatar--xl mr-2 shrink-0">
+<img alt="" class="crayons-avatar__image" loading="lazy" src="../cdn/media2.dev.to/dynamic/image/width=90,height=90,fit=cover,gravity=auto,format=auto/https___dev-to-uploads.s3.amazonaws.com_uploads_user_profile_image_3897796_6c383315-f933-4bae-a9c8-496c53ce9801.png"/>
+</span>
+<span class="crayons-link crayons-subtitle-2 mt-5">Sai Kumar Jee</span>
+</a>
+</div>
+<div class="print-hidden">
+<button class="crayons-btn follow-action-button whitespace-nowrap follow-user w-100" data-info='{"style":"full","id":3897796,"className":"User","name":"Sai Kumar Jee"}'>
+                      Follow
+                    </button>
+</div>
+<div class="author-preview-metadata-container" data-author-id="3897796"></div>
+</div>
+</div>
+</div>
+</div>
+<a class="crayons-story__tertiary fs-xs" href="../saikumarjee/scaling-full-stack-applications-in-high-compliance-environments-fja.html"><time datetime="2026-05-06T03:54:40Z">May 6</time><span class="time-ago-indicator-initial-placeholder" data-seconds="1778039680"></span></a>
+</div>
+</div>
+</div>
+<div class="crayons-story__indention">
+<h2 class="crayons-story__title crayons-story__title-full_post">
+<a data-preload-image="" href="../saikumarjee/scaling-full-stack-applications-in-high-compliance-environments-fja.html" id="article-link-3618260">
+          Scaling Full-Stack Applications in High-Compliance Environments
+        </a>
+</h2>
+<div class="crayons-story__tags">
+<a class="crayons-tag crayons-tag--monochrome" href="architecture.html" style="
+        --tag-bg: rgba(235, 223, 55, 0.10);
+        --tag-prefix: #ebdf37;
+        --tag-bg-hover: rgba(235, 223, 55, 0.10);
+        --tag-prefix-hover: #ebdf37;
+      "><span class="crayons-tag__prefix">#</span>architecture</a>
+<a class="crayons-tag crayons-tag--monochrome" href="healthcare.html" style="
+        --tag-bg: rgba(64, 78, 211, 0.10);
+        --tag-prefix: #404ED3;
+        --tag-bg-hover: rgba(64, 78, 211, 0.10);
+        --tag-prefix-hover: #404ED3;
+      "><span class="crayons-tag__prefix">#</span>healthcare</a>
+<a class="crayons-tag crayons-tag--monochrome" href="security.html" style="
+        --tag-bg: rgba(27, 172, 128, 0.10);
+        --tag-prefix: #1bac80;
+        --tag-bg-hover: rgba(27, 172, 128, 0.10);
+        --tag-prefix-hover: #1bac80;
+      "><span class="crayons-tag__prefix">#</span>security</a>
+<a class="crayons-tag crayons-tag--monochrome" href="webdev.html" style="
+        --tag-bg: rgba(86, 39, 101, 0.10);
+        --tag-prefix: #562765;
+        --tag-bg-hover: rgba(86, 39, 101, 0.10);
+        --tag-prefix-hover: #562765;
+      "><span class="crayons-tag__prefix">#</span>webdev</a>
+</div>
+<div class="crayons-story__bottom">
+<div class="crayons-story__details">
+<a aria-label="Add a comment to post - Scaling Full-Stack Applications in High-Compliance Environments" class="crayons-btn crayons-btn--s crayons-btn--ghost crayons-btn--icon-left flex items-center" href="../saikumarjee/scaling-full-stack-applications-in-high-compliance-environments-fja.html">
+<svg aria-labelledby="aps4erwcuikegbwodai7co8g64bd4irf" class="crayons-icon" height="24" role="img" width="24" xmlns="http://www.w3.org/2000/svg"><title id="aps4erwcuikegbwodai7co8g64bd4irf">Comments</title><path d="M10.5 5h3a6 6 0 110 12v2.625c-3.75-1.5-9-3.75-9-8.625a6 6 0 016-6zM12 15.5h1.5a4.501 4.501 0 001.722-8.657A4.5 4.5 0 0013.5 6.5h-3A4.5 4.5 0 006 11c0 2.707 1.846 4.475 6 6.36V15.5z"></path></svg>
+<span class="hidden s:inline">Add Comment</span>
+</a>
+</div>
+<div class="crayons-story__save">
+<small class="crayons-story__tertiary fs-xs mr-2">
+            10 min read
+          </small>
+<button aria-label="Save post Scaling Full-Stack Applications in High-Compliance Environments to reading list" class="c-btn c-btn--icon-alone bookmark-button" data-article-author-id="3897796" data-reactable-id="3618260" id="article-save-button-3618260" title="Save post Scaling Full-Stack Applications in High-Compliance Environments to reading list" type="button">
+<span class="bm-initial">
+<svg aria-hidden="true" height="24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M6.75 4.5h10.5a.75.75 0 01.75.75v14.357a.375.375 0 01-.575.318L12 16.523l-5.426 3.401A.375.375 0 016 19.607V5.25a.75.75 0 01.75-.75zM16.5 6h-9v11.574l4.5-2.82 4.5 2.82V6z"></path></svg>
+</span>
+<span class="bm-success">
+<svg aria-hidden="true" height="24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M6.75 4.5h10.5a.75.75 0 01.75.75v14.357a.375.375 0 01-.575.318L12 16.523l-5.426 3.401A.375.375 0 016 19.607V5.25a.75.75 0 01.75-.75z"></path></svg>
+</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="crayons-story" data-content-user-id="2661743" data-feed-content-id="3618196">
+<a aria-labelledby="article-link-3618196" class="crayons-story__hidden-navigation-link" href="../ramasankar_molleti_f7f80d/anthropic-just-killed-the-api-key-a-deep-dive-into-workload-identity-federation-for-claude-4chj.html">Anthropic Just Killed the API Key: A Deep Dive into Workload Identity Federation for Claude</a>
+<div class="crayons-story__body crayons-story__body-full_post">
+<div class="crayons-story__top">
+<div class="crayons-story__meta">
+<div class="crayons-story__author-pic">
+<a class="crayons-avatar crayons-avatar--l" href="../ramasankar_molleti_f7f80d.html">
+<img alt="ramasankar_molleti_f7f80d profile" class="crayons-avatar__image" loading="lazy" src="../cdn/media2.dev.to/dynamic/image/width=90,height=90,fit=cover,gravity=auto,format=auto/https___dev-to-uploads.s3.amazonaws.com_uploads_user_profile_image_2661743_15059d3b-47e1-4d5f-93ee-2006386880a7.jpg"/>
+</a>
+</div>
+<div>
+<div>
+<a class="crayons-story__secondary fw-medium m:hidden" href="../ramasankar_molleti_f7f80d.html">
+              Ramasankar Molleti
+            </a>
+<div class="profile-preview-card relative mb-4 s:mb-0 fw-medium hidden m:inline-block">
+<button aria-controls="story-author-preview-content-3618196" aria-label="Ramasankar Molleti profile details" class="profile-preview-card__trigger fs-s p-1 -ml-1 -my-2 crayons-btn crayons-btn--ghost" id="story-author-preview-trigger-3618196">
+                Ramasankar Molleti
+                
+              </button>
+<div class="profile-preview-card__content crayons-dropdown branded-7 p-4 pt-0" data-repositioning-dropdown="true" data-testid="profile-preview-card" id="story-author-preview-content-3618196" style="border-top-color: var(--card-color);">
+<div class="gap-4 grid">
+<div class="-mt-4">
+<a class="flex" href="../ramasankar_molleti_f7f80d.html">
+<span class="crayons-avatar crayons-avatar--xl mr-2 shrink-0">
+<img alt="" class="crayons-avatar__image" loading="lazy" src="../cdn/media2.dev.to/dynamic/image/width=90,height=90,fit=cover,gravity=auto,format=auto/https___dev-to-uploads.s3.amazonaws.com_uploads_user_profile_image_2661743_15059d3b-47e1-4d5f-93ee-2006386880a7.jpg"/>
+</span>
+<span class="crayons-link crayons-subtitle-2 mt-5">Ramasankar Molleti</span>
+</a>
+</div>
+<div class="print-hidden">
+<button class="crayons-btn follow-action-button whitespace-nowrap follow-user w-100" data-info='{"style":"full","id":2661743,"className":"User","name":"Ramasankar Molleti"}'>
+                      Follow
+                    </button>
+</div>
+<div class="author-preview-metadata-container" data-author-id="2661743"></div>
+</div>
+</div>
+</div>
+</div>
+<a class="crayons-story__tertiary fs-xs" href="../ramasankar_molleti_f7f80d/anthropic-just-killed-the-api-key-a-deep-dive-into-workload-identity-federation-for-claude-4chj.html"><time datetime="2026-05-06T03:30:40Z">May 6</time><span class="time-ago-indicator-initial-placeholder" data-seconds="1778038240"></span></a>
+</div>
+</div>
+</div>
+<div class="crayons-story__indention">
+<h2 class="crayons-story__title crayons-story__title-full_post">
+<a data-preload-image="" href="../ramasankar_molleti_f7f80d/anthropic-just-killed-the-api-key-a-deep-dive-into-workload-identity-federation-for-claude-4chj.html" id="article-link-3618196">
+          Anthropic Just Killed the API Key: A Deep Dive into Workload Identity Federation for Claude
+        </a>
+</h2>
+<div class="crayons-story__tags">
+<a class="crayons-tag crayons-tag--monochrome" href="security.html" style="
+        --tag-bg: rgba(27, 172, 128, 0.10);
+        --tag-prefix: #1bac80;
+        --tag-bg-hover: rgba(27, 172, 128, 0.10);
+        --tag-prefix-hover: #1bac80;
+      "><span class="crayons-tag__prefix">#</span>security</a>
+<a class="crayons-tag crayons-tag--monochrome" href="kubernetes.html" style="
+        --tag-bg: rgba(50, 109, 230, 0.10);
+        --tag-prefix: #326de6;
+        --tag-bg-hover: rgba(50, 109, 230, 0.10);
+        --tag-prefix-hover: #326de6;
+      "><span class="crayons-tag__prefix">#</span>kubernetes</a>
+<a class="crayons-tag crayons-tag--monochrome" href="ai.html" style="
+        --tag-bg: rgba(23, 253, 26, 0.10);
+        --tag-prefix: #17fd1a;
+        --tag-bg-hover: rgba(23, 253, 26, 0.10);
+        --tag-prefix-hover: #17fd1a;
+      "><span class="crayons-tag__prefix">#</span>ai</a>
+<a class="crayons-tag crayons-tag--monochrome" href="devops.html" style="
+        --tag-bg: rgba(6, 181, 0, 0.10);
+        --tag-prefix: #06B500;
+        --tag-bg-hover: rgba(6, 181, 0, 0.10);
+        --tag-prefix-hover: #06B500;
+      "><span class="crayons-tag__prefix">#</span>devops</a>
+</div>
+<div class="crayons-story__bottom">
+<div class="crayons-story__details">
+<a aria-label="Add a comment to post - Anthropic Just Killed the API Key: A Deep Dive into Workload Identity Federation for Claude" class="crayons-btn crayons-btn--s crayons-btn--ghost crayons-btn--icon-left flex items-center" href="../ramasankar_molleti_f7f80d/anthropic-just-killed-the-api-key-a-deep-dive-into-workload-identity-federation-for-claude-4chj.html">
+<svg aria-labelledby="atrouwl6zkjz8tb7v4nluuipclrsl2qn" class="crayons-icon" height="24" role="img" width="24" xmlns="http://www.w3.org/2000/svg"><title id="atrouwl6zkjz8tb7v4nluuipclrsl2qn">Comments</title><path d="M10.5 5h3a6 6 0 110 12v2.625c-3.75-1.5-9-3.75-9-8.625a6 6 0 016-6zM12 15.5h1.5a4.501 4.501 0 001.722-8.657A4.5 4.5 0 0013.5 6.5h-3A4.5 4.5 0 006 11c0 2.707 1.846 4.475 6 6.36V15.5z"></path></svg>
+<span class="hidden s:inline">Add Comment</span>
+</a>
+</div>
+<div class="crayons-story__save">
+<small class="crayons-story__tertiary fs-xs mr-2">
+            11 min read
+          </small>
+<button aria-label="Save post Anthropic Just Killed the API Key: A Deep Dive into Workload Identity Federation for Claude to reading list" class="c-btn c-btn--icon-alone bookmark-button" data-article-author-id="2661743" data-reactable-id="3618196" id="article-save-button-3618196" title="Save post Anthropic Just Killed the API Key: A Deep Dive into Workload Identity Federation for Claude to reading list" type="button">
+<span class="bm-initial">
+<svg aria-hidden="true" height="24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M6.75 4.5h10.5a.75.75 0 01.75.75v14.357a.375.375 0 01-.575.318L12 16.523l-5.426 3.401A.375.375 0 016 19.607V5.25a.75.75 0 01.75-.75zM16.5 6h-9v11.574l4.5-2.82 4.5 2.82V6z"></path></svg>
+</span>
+<span class="bm-success">
+<svg aria-hidden="true" height="24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M6.75 4.5h10.5a.75.75 0 01.75.75v14.357a.375.375 0 01-.575.318L12 16.523l-5.426 3.401A.375.375 0 016 19.607V5.25a.75.75 0 01.75-.75z"></path></svg>
+</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="crayons-story" data-content-user-id="3667756" data-feed-content-id="3617525">
+<a aria-labelledby="article-link-3617525" class="crayons-story__hidden-navigation-link" href="../stonebridgetechsolutions/5-things-healthcare-engineering-teams-get-wrong-about-hipaa-cicd-5ao.html">5 things healthcare engineering teams get wrong about HIPAA CI/CD</a>
+<div class="crayons-story__body crayons-story__body-full_post">
+<div class="crayons-story__top">
+<div class="crayons-story__meta">
+<div class="crayons-story__author-pic">
+<a class="crayons-avatar crayons-avatar--l" href="../stonebridgetechsolutions.html">
+<img alt="stonebridgetechsolutions profile" class="crayons-avatar__image" loading="lazy" src="../cdn/media2.dev.to/dynamic/image/width=90,height=90,fit=cover,gravity=auto,format=auto/https___dev-to-uploads.s3.amazonaws.com_uploads_user_profile_image_3667756_559cdea9-b901-4e78-8f2a-ad5ce3d5ef32.png"/>
+</a>
+</div>
+<div>
+<div>
+<a class="crayons-story__secondary fw-medium m:hidden" href="../stonebridgetechsolutions.html">
+              Stonebridge Tech Solutions LLC
+            </a>
+<div class="profile-preview-card relative mb-4 s:mb-0 fw-medium hidden m:inline-block">
+<button aria-controls="story-author-preview-content-3617525" aria-label="Stonebridge Tech Solutions LLC profile details" class="profile-preview-card__trigger fs-s p-1 -ml-1 -my-2 crayons-btn crayons-btn--ghost" id="story-author-preview-trigger-3617525">
+                Stonebridge Tech Solutions LLC
+                
+              </button>
+<div class="profile-preview-card__content crayons-dropdown branded-7 p-4 pt-0" data-repositioning-dropdown="true" data-testid="profile-preview-card" id="story-author-preview-content-3617525" style="border-top-color: var(--card-color);">
+<div class="gap-4 grid">
+<div class="-mt-4">
+<a class="flex" href="../stonebridgetechsolutions.html">
+<span class="crayons-avatar crayons-avatar--xl mr-2 shrink-0">
+<img alt="" class="crayons-avatar__image" loading="lazy" src="../cdn/media2.dev.to/dynamic/image/width=90,height=90,fit=cover,gravity=auto,format=auto/https___dev-to-uploads.s3.amazonaws.com_uploads_user_profile_image_3667756_559cdea9-b901-4e78-8f2a-ad5ce3d5ef32.png"/>
+</span>
+<span class="crayons-link crayons-subtitle-2 mt-5">Stonebridge Tech Solutions LLC</span>
+</a>
+</div>
+<div class="print-hidden">
+<button class="crayons-btn follow-action-button whitespace-nowrap follow-user w-100" data-info='{"style":"full","id":3667756,"className":"User","name":"Stonebridge Tech Solutions LLC"}'>
+                      Follow
+                    </button>
+</div>
+<div class="author-preview-metadata-container" data-author-id="3667756"></div>
+</div>
+</div>
+</div>
+</div>
+<a class="crayons-story__tertiary fs-xs" href="../stonebridgetechsolutions/5-things-healthcare-engineering-teams-get-wrong-about-hipaa-cicd-5ao.html"><time datetime="2026-05-05T23:26:00Z">May 5</time><span class="time-ago-indicator-initial-placeholder" data-seconds="1778023560"></span></a>
+</div>
+</div>
+</div>
+<div class="crayons-story__indention">
+<h2 class="crayons-story__title crayons-story__title-full_post">
+<a data-preload-image="" href="../stonebridgetechsolutions/5-things-healthcare-engineering-teams-get-wrong-about-hipaa-cicd-5ao.html" id="article-link-3617525">
+          5 things healthcare engineering teams get wrong about HIPAA CI/CD
+        </a>
+</h2>
+<div class="crayons-story__tags">
+<a class="crayons-tag crayons-tag--monochrome" href="devops.html" style="
+        --tag-bg: rgba(6, 181, 0, 0.10);
+        --tag-prefix: #06B500;
+        --tag-bg-hover: rgba(6, 181, 0, 0.10);
+        --tag-prefix-hover: #06B500;
+      "><span class="crayons-tag__prefix">#</span>devops</a>
+<a class="crayons-tag crayons-tag--monochrome" href="healthcare.html" style="
+        --tag-bg: rgba(64, 78, 211, 0.10);
+        --tag-prefix: #404ED3;
+        --tag-bg-hover: rgba(64, 78, 211, 0.10);
+        --tag-prefix-hover: #404ED3;
+      "><span class="crayons-tag__prefix">#</span>healthcare</a>
+<a class="crayons-tag crayons-tag--monochrome" href="cicd.html" style="
+        --tag-bg: rgba(64, 78, 211, 0.10);
+        --tag-prefix: #404ED3;
+        --tag-bg-hover: rgba(64, 78, 211, 0.10);
+        --tag-prefix-hover: #404ED3;
+      "><span class="crayons-tag__prefix">#</span>cicd</a>
+<a class="crayons-tag crayons-tag--monochrome" href="security.html" style="
+        --tag-bg: rgba(27, 172, 128, 0.10);
+        --tag-prefix: #1bac80;
+        --tag-bg-hover: rgba(27, 172, 128, 0.10);
+        --tag-prefix-hover: #1bac80;
+      "><span class="crayons-tag__prefix">#</span>security</a>
+</div>
+<div class="crayons-story__bottom">
+<div class="crayons-story__details">
+<a aria-label="Add a comment to post - 5 things healthcare engineering teams get wrong about HIPAA CI/CD" class="crayons-btn crayons-btn--s crayons-btn--ghost crayons-btn--icon-left flex items-center" href="../stonebridgetechsolutions/5-things-healthcare-engineering-teams-get-wrong-about-hipaa-cicd-5ao.html">
+<svg aria-labelledby="am48l1ksvk1sgfcoq2njy9pv8c8793yn" class="crayons-icon" height="24" role="img" width="24" xmlns="http://www.w3.org/2000/svg"><title id="am48l1ksvk1sgfcoq2njy9pv8c8793yn">Comments</title><path d="M10.5 5h3a6 6 0 110 12v2.625c-3.75-1.5-9-3.75-9-8.625a6 6 0 016-6zM12 15.5h1.5a4.501 4.501 0 001.722-8.657A4.5 4.5 0 0013.5 6.5h-3A4.5 4.5 0 006 11c0 2.707 1.846 4.475 6 6.36V15.5z"></path></svg>
+
+              1<span class="hidden s:inline"> comment</span>
+</a>
+</div>
+<div class="crayons-story__save">
+<small class="crayons-story__tertiary fs-xs mr-2">
+            7 min read
+          </small>
+<button aria-label="Save post 5 things healthcare engineering teams get wrong about HIPAA CI/CD to reading list" class="c-btn c-btn--icon-alone bookmark-button" data-article-author-id="3667756" data-reactable-id="3617525" id="article-save-button-3617525" title="Save post 5 things healthcare engineering teams get wrong about HIPAA CI/CD to reading list" type="button">
+<span class="bm-initial">
+<svg aria-hidden="true" height="24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M6.75 4.5h10.5a.75.75 0 01.75.75v14.357a.375.375 0 01-.575.318L12 16.523l-5.426 3.401A.375.375 0 016 19.607V5.25a.75.75 0 01.75-.75zM16.5 6h-9v11.574l4.5-2.82 4.5 2.82V6z"></path></svg>
+</span>
+<span class="bm-success">
+<svg aria-hidden="true" height="24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M6.75 4.5h10.5a.75.75 0 01.75.75v14.357a.375.375 0 01-.575.318L12 16.523l-5.426 3.401A.375.375 0 016 19.607V5.25a.75.75 0 01.75-.75z"></path></svg>
+</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="crayons-story" data-content-user-id="1214886" data-feed-content-id="3618646">
+<a aria-labelledby="article-link-3618646" class="crayons-story__hidden-navigation-link" href="../ajitnk2006/i-used-an-ai-skill-to-audit-my-cloudformation-stack-found-a-broken-alarm-running-for-3-months-1ocn.html">I Used an AI "Skill" to Audit My CloudFormation Stack — Found a Broken Alarm Running for 3 Months</a>
+<div class="crayons-story__body crayons-story__body-full_post">
+<div class="crayons-story__top">
+<div class="crayons-story__meta">
+<div class="crayons-story__author-pic">
+<a class="crayons-avatar crayons-avatar--l" href="../ajitnk2006.html">
+<img alt="ajitnk2006 profile" class="crayons-avatar__image" loading="lazy" src="../cdn/media2.dev.to/dynamic/image/width=90,height=90,fit=cover,gravity=auto,format=auto/https___dev-to-uploads.s3.amazonaws.com_uploads_user_profile_image_1214886_4def6a73-9fa4-4fa4-a91d-b4465bb62077.png"/>
+</a>
+</div>
+<div>
+<div>
+<a class="crayons-story__secondary fw-medium m:hidden" href="../ajitnk2006.html">
+              Ajit
+            </a>
+<div class="profile-preview-card relative mb-4 s:mb-0 fw-medium hidden m:inline-block">
+<button aria-controls="story-author-preview-content-3618646" aria-label="Ajit profile details" class="profile-preview-card__trigger fs-s p-1 -ml-1 -my-2 crayons-btn crayons-btn--ghost" id="story-author-preview-trigger-3618646">
+                Ajit
+                
+              </button>
+<div class="profile-preview-card__content crayons-dropdown branded-7 p-4 pt-0" data-repositioning-dropdown="true" data-testid="profile-preview-card" id="story-author-preview-content-3618646" style="border-top-color: var(--card-color);">
+<div class="gap-4 grid">
+<div class="-mt-4">
+<a class="flex" href="../ajitnk2006.html">
+<span class="crayons-avatar crayons-avatar--xl mr-2 shrink-0">
+<img alt="" class="crayons-avatar__image" loading="lazy" src="../cdn/media2.dev.to/dynamic/image/width=90,height=90,fit=cover,gravity=auto,format=auto/https___dev-to-uploads.s3.amazonaws.com_uploads_user_profile_image_1214886_4def6a73-9fa4-4fa4-a91d-b4465bb62077.png"/>
+</span>
+<span class="crayons-link crayons-subtitle-2 mt-5">Ajit</span>
+</a>
+</div>
+<div class="print-hidden">
+<button class="crayons-btn follow-action-button whitespace-nowrap follow-user w-100" data-info='{"style":"full","id":1214886,"className":"User","name":"Ajit"}'>
+                      Follow
+                    </button>
+</div>
+<div class="author-preview-metadata-container" data-author-id="1214886"></div>
+</div>
+</div>
+</div>
+</div>
+<a class="crayons-story__tertiary fs-xs" href="../ajitnk2006/i-used-an-ai-skill-to-audit-my-cloudformation-stack-found-a-broken-alarm-running-for-3-months-1ocn.html"><time datetime="2026-05-06T05:30:43Z">May 6</time><span class="time-ago-indicator-initial-placeholder" data-seconds="1778045443"></span></a>
+</div>
+</div>
+</div>
+<div class="crayons-story__indention">
+<h2 class="crayons-story__title crayons-story__title-full_post">
+<a data-preload-image="" href="../ajitnk2006/i-used-an-ai-skill-to-audit-my-cloudformation-stack-found-a-broken-alarm-running-for-3-months-1ocn.html" id="article-link-3618646">
+          I Used an AI "Skill" to Audit My CloudFormation Stack — Found a Broken Alarm Running for 3 Months
+        </a>
+</h2>
+<div class="crayons-story__tags">
+<a class="crayons-tag crayons-tag--monochrome" href="aws.html" style="
+        --tag-bg: rgba(33, 43, 58, 0.10);
+        --tag-prefix: #212b3a;
+        --tag-bg-hover: rgba(33, 43, 58, 0.10);
+        --tag-prefix-hover: #212b3a;
+      "><span class="crayons-tag__prefix">#</span>aws</a>
+<a class="crayons-tag crayons-tag--monochrome" href="cloudformation.html" style="
+        --tag-bg: rgba(64, 78, 211, 0.10);
+        --tag-prefix: #404ED3;
+        --tag-bg-hover: rgba(64, 78, 211, 0.10);
+        --tag-prefix-hover: #404ED3;
+      "><span class="crayons-tag__prefix">#</span>cloudformation</a>
+<a class="crayons-tag crayons-tag--monochrome" href="devops.html" style="
+        --tag-bg: rgba(6, 181, 0, 0.10);
+        --tag-prefix: #06B500;
+        --tag-bg-hover: rgba(6, 181, 0, 0.10);
+        --tag-prefix-hover: #06B500;
+      "><span class="crayons-tag__prefix">#</span>devops</a>
+<a class="crayons-tag crayons-tag--monochrome" href="security.html" style="
+        --tag-bg: rgba(27, 172, 128, 0.10);
+        --tag-prefix: #1bac80;
+        --tag-bg-hover: rgba(27, 172, 128, 0.10);
+        --tag-prefix-hover: #1bac80;
+      "><span class="crayons-tag__prefix">#</span>security</a>
+</div>
+<div class="crayons-story__bottom">
+<div class="crayons-story__details">
+<a aria-label='Add a comment to post - I Used an AI "Skill" to Audit My CloudFormation Stack — Found a Broken Alarm Running for 3 Months' class="crayons-btn crayons-btn--s crayons-btn--ghost crayons-btn--icon-left flex items-center" href="../ajitnk2006/i-used-an-ai-skill-to-audit-my-cloudformation-stack-found-a-broken-alarm-running-for-3-months-1ocn.html">
+<svg aria-labelledby="a5uj9h2kbmc1r4i9uj5rk0ydrwahupa7" class="crayons-icon" height="24" role="img" width="24" xmlns="http://www.w3.org/2000/svg"><title id="a5uj9h2kbmc1r4i9uj5rk0ydrwahupa7">Comments</title><path d="M10.5 5h3a6 6 0 110 12v2.625c-3.75-1.5-9-3.75-9-8.625a6 6 0 016-6zM12 15.5h1.5a4.501 4.501 0 001.722-8.657A4.5 4.5 0 0013.5 6.5h-3A4.5 4.5 0 006 11c0 2.707 1.846 4.475 6 6.36V15.5z"></path></svg>
+<span class="hidden s:inline">Add Comment</span>
+</a>
+</div>
+<div class="crayons-story__save">
+<small class="crayons-story__tertiary fs-xs mr-2">
+            3 min read
+          </small>
+<button aria-label='Save post I Used an AI "Skill" to Audit My CloudFormation Stack — Found a Broken Alarm Running for 3 Months to reading list' class="c-btn c-btn--icon-alone bookmark-button" data-article-author-id="1214886" data-reactable-id="3618646" id="article-save-button-3618646" title='Save post I Used an AI "Skill" to Audit My CloudFormation Stack — Found a Broken Alarm Running for 3 Months to reading list' type="button">
+<span class="bm-initial">
+<svg aria-hidden="true" height="24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M6.75 4.5h10.5a.75.75 0 01.75.75v14.357a.375.375 0 01-.575.318L12 16.523l-5.426 3.401A.375.375 0 016 19.607V5.25a.75.75 0 01.75-.75zM16.5 6h-9v11.574l4.5-2.82 4.5 2.82V6z"></path></svg>
+</span>
+<span class="bm-success">
+<svg aria-hidden="true" height="24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M6.75 4.5h10.5a.75.75 0 01.75.75v14.357a.375.375 0 01-.575.318L12 16.523l-5.426 3.401A.375.375 0 016 19.607V5.25a.75.75 0 01.75-.75z"></path></svg>
+</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="crayons-story" data-content-user-id="1890803" data-feed-content-id="3616550">
+<a aria-labelledby="article-link-3616550" class="crayons-story__hidden-navigation-link" href="../numbpill3d/your-phone-connects-to-fake-cell-towers-daily-heres-how-i-detect-them-3e9n.html">Your Phone Connects to Fake Cell Towers Daily — Here's How I Detect Them</a>
+<div class="crayons-story__body crayons-story__body-full_post">
+<div class="crayons-story__top">
+<div class="crayons-story__meta">
+<div class="crayons-story__author-pic">
+<a class="crayons-avatar crayons-avatar--l" href="../numbpill3d.html">
+<img alt="numbpill3d profile" class="crayons-avatar__image" loading="lazy" src="../cdn/media2.dev.to/dynamic/image/width=90,height=90,fit=cover,gravity=auto,format=auto/https___dev-to-uploads.s3.amazonaws.com_uploads_user_profile_image_1890803_cad0d65c-d245-49cd-a357-f94d50b89379.gif"/>
+</a>
+</div>
+<div>
+<div>
+<a class="crayons-story__secondary fw-medium m:hidden" href="../numbpill3d.html">
+              v. Splicer
+            </a>
+<div class="profile-preview-card relative mb-4 s:mb-0 fw-medium hidden m:inline-block">
+<button aria-controls="story-author-preview-content-3616550" aria-label="v. Splicer profile details" class="profile-preview-card__trigger fs-s p-1 -ml-1 -my-2 crayons-btn crayons-btn--ghost" id="story-author-preview-trigger-3616550">
+                v. Splicer
+                
+              </button>
+<div class="profile-preview-card__content crayons-dropdown branded-7 p-4 pt-0" data-repositioning-dropdown="true" data-testid="profile-preview-card" id="story-author-preview-content-3616550" style="border-top-color: var(--card-color);">
+<div class="gap-4 grid">
+<div class="-mt-4">
+<a class="flex" href="../numbpill3d.html">
+<span class="crayons-avatar crayons-avatar--xl mr-2 shrink-0">
+<img alt="" class="crayons-avatar__image" loading="lazy" src="../cdn/media2.dev.to/dynamic/image/width=90,height=90,fit=cover,gravity=auto,format=auto/https___dev-to-uploads.s3.amazonaws.com_uploads_user_profile_image_1890803_cad0d65c-d245-49cd-a357-f94d50b89379.gif"/>
+</span>
+<span class="crayons-link crayons-subtitle-2 mt-5">v. Splicer</span>
+</a>
+</div>
+<div class="print-hidden">
+<button class="crayons-btn follow-action-button whitespace-nowrap follow-user w-100" data-info='{"style":"full","id":1890803,"className":"User","name":"v. Splicer"}'>
+                      Follow
+                    </button>
+</div>
+<div class="author-preview-metadata-container" data-author-id="1890803"></div>
+</div>
+</div>
+</div>
+</div>
+<a class="crayons-story__tertiary fs-xs" href="../numbpill3d/your-phone-connects-to-fake-cell-towers-daily-heres-how-i-detect-them-3e9n.html"><time datetime="2026-05-05T17:14:15Z">May 5</time><span class="time-ago-indicator-initial-placeholder" data-seconds="1778001255"></span></a>
+</div>
+</div>
+</div>
+<div class="crayons-story__indention">
+<h2 class="crayons-story__title crayons-story__title-full_post">
+<a data-preload-image="https://media2.dev.to/dynamic/image/width=1000,height=420,fit=cover,gravity=auto,format=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Farticles%2F1rr98m0e4o1reoggjeay.webp" href="../numbpill3d/your-phone-connects-to-fake-cell-towers-daily-heres-how-i-detect-them-3e9n.html" id="article-link-3616550">
+          Your Phone Connects to Fake Cell Towers Daily — Here's How I Detect Them
+        </a>
+</h2>
+<div class="crayons-story__tags">
+<a class="crayons-tag crayons-tag--monochrome" href="surveillance.html" style="
+        --tag-bg: rgba(64, 78, 211, 0.10);
+        --tag-prefix: #404ED3;
+        --tag-bg-hover: rgba(64, 78, 211, 0.10);
+        --tag-prefix-hover: #404ED3;
+      "><span class="crayons-tag__prefix">#</span>surveillance</a>
+<a class="crayons-tag crayons-tag--monochrome" href="security.html" style="
+        --tag-bg: rgba(27, 172, 128, 0.10);
+        --tag-prefix: #1bac80;
+        --tag-bg-hover: rgba(27, 172, 128, 0.10);
+        --tag-prefix-hover: #1bac80;
+      "><span class="crayons-tag__prefix">#</span>security</a>
+<a class="crayons-tag crayons-tag--monochrome" href="tutorial.html" style="
+        --tag-bg: rgba(254, 255, 165, 0.10);
+        --tag-prefix: #FEFFA5;
+        --tag-bg-hover: rgba(254, 255, 165, 0.10);
+        --tag-prefix-hover: #FEFFA5;
+      "><span class="crayons-tag__prefix">#</span>tutorial</a>
+<a class="crayons-tag crayons-tag--monochrome" href="cybersecurity.html" style="
+        --tag-bg: rgba(227, 255, 0, 0.10);
+        --tag-prefix: #e3ff00;
+        --tag-bg-hover: rgba(227, 255, 0, 0.10);
+        --tag-prefix-hover: #e3ff00;
+      "><span class="crayons-tag__prefix">#</span>cybersecurity</a>
+</div>
+<div class="crayons-story__bottom">
+<div class="crayons-story__details">
+<a aria-label="Add a comment to post - Your Phone Connects to Fake Cell Towers Daily — Here's How I Detect Them" class="crayons-btn crayons-btn--s crayons-btn--ghost crayons-btn--icon-left" data-reactable-id="3616550" data-reaction-count="" href="../numbpill3d/your-phone-connects-to-fake-cell-towers-daily-heres-how-i-detect-them-3e9n.html">
+<div class="multiple_reactions_aggregate">
+<span class="multiple_reactions_icons_container" dir="rtl">
+<span class="crayons_icon_container">
+<img height="18" src="../cdn/assets.dev.to/assets/sparkle-heart-5f9bee3767e18deb1bb725290cb151c25234768a0e9a2bd39370c382d02920cf.svg" width="18"/>
+</span>
+</span>
+<span class="aggregate_reactions_counter">1<span class="hidden s:inline"> reaction</span></span>
+</div>
+</a>
+<a aria-label="Add a comment to post - Your Phone Connects to Fake Cell Towers Daily — Here's How I Detect Them" class="crayons-btn crayons-btn--s crayons-btn--ghost crayons-btn--icon-left flex items-center" href="../numbpill3d/your-phone-connects-to-fake-cell-towers-daily-heres-how-i-detect-them-3e9n.html">
+<svg aria-labelledby="angbpvvcomj2dymw6ov6bm8yls8cz8gy" class="crayons-icon" height="24" role="img" width="24" xmlns="http://www.w3.org/2000/svg"><title id="angbpvvcomj2dymw6ov6bm8yls8cz8gy">Comments</title><path d="M10.5 5h3a6 6 0 110 12v2.625c-3.75-1.5-9-3.75-9-8.625a6 6 0 016-6zM12 15.5h1.5a4.501 4.501 0 001.722-8.657A4.5 4.5 0 0013.5 6.5h-3A4.5 4.5 0 006 11c0 2.707 1.846 4.475 6 6.36V15.5z"></path></svg>
+<span class="hidden s:inline">Add Comment</span>
+</a>
+</div>
+<div class="crayons-story__save">
+<small class="crayons-story__tertiary fs-xs mr-2">
+            7 min read
+          </small>
+<button aria-label="Save post Your Phone Connects to Fake Cell Towers Daily — Here's How I Detect Them to reading list" class="c-btn c-btn--icon-alone bookmark-button" data-article-author-id="1890803" data-reactable-id="3616550" id="article-save-button-3616550" title="Save post Your Phone Connects to Fake Cell Towers Daily — Here's How I Detect Them to reading list" type="button">
+<span class="bm-initial">
+<svg aria-hidden="true" height="24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M6.75 4.5h10.5a.75.75 0 01.75.75v14.357a.375.375 0 01-.575.318L12 16.523l-5.426 3.401A.375.375 0 016 19.607V5.25a.75.75 0 01.75-.75zM16.5 6h-9v11.574l4.5-2.82 4.5 2.82V6z"></path></svg>
+</span>
+<span class="bm-success">
+<svg aria-hidden="true" height="24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M6.75 4.5h10.5a.75.75 0 01.75.75v14.357a.375.375 0 01-.575.318L12 16.523l-5.426 3.401A.375.375 0 016 19.607V5.25a.75.75 0 01.75-.75z"></path></svg>
+</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="crayons-story" data-content-user-id="3874887" data-feed-content-id="3617565">
+<a aria-labelledby="article-link-3617565" class="crayons-story__hidden-navigation-link" href="../byte-guard/ssh-hardening-the-ultimate-guide-for-2026-396.html">SSH Hardening — The Ultimate Guide for 2026</a>
+<div class="crayons-story__body crayons-story__body-full_post">
+<div class="crayons-story__top">
+<div class="crayons-story__meta">
+<div class="crayons-story__author-pic">
+<a class="crayons-avatar crayons-avatar--l" href="../byte-guard.html">
+<img alt="byte-guard profile" class="crayons-avatar__image" loading="lazy" src="../cdn/media2.dev.to/dynamic/image/width=90,height=90,fit=cover,gravity=auto,format=auto/https___dev-to-uploads.s3.amazonaws.com_uploads_user_profile_image_3874887_b1a40b49-24d4-4b18-b170-c858a3a64af7.png"/>
+</a>
+</div>
+<div>
+<div>
+<a class="crayons-story__secondary fw-medium m:hidden" href="../byte-guard.html">
+              byteguard
+            </a>
+<div class="profile-preview-card relative mb-4 s:mb-0 fw-medium hidden m:inline-block">
+<button aria-controls="story-author-preview-content-3617565" aria-label="byteguard profile details" class="profile-preview-card__trigger fs-s p-1 -ml-1 -my-2 crayons-btn crayons-btn--ghost" id="story-author-preview-trigger-3617565">
+                byteguard
+                
+              </button>
+<div class="profile-preview-card__content crayons-dropdown branded-7 p-4 pt-0" data-repositioning-dropdown="true" data-testid="profile-preview-card" id="story-author-preview-content-3617565" style="border-top-color: var(--card-color);">
+<div class="gap-4 grid">
+<div class="-mt-4">
+<a class="flex" href="../byte-guard.html">
+<span class="crayons-avatar crayons-avatar--xl mr-2 shrink-0">
+<img alt="" class="crayons-avatar__image" loading="lazy" src="../cdn/media2.dev.to/dynamic/image/width=90,height=90,fit=cover,gravity=auto,format=auto/https___dev-to-uploads.s3.amazonaws.com_uploads_user_profile_image_3874887_b1a40b49-24d4-4b18-b170-c858a3a64af7.png"/>
+</span>
+<span class="crayons-link crayons-subtitle-2 mt-5">byteguard</span>
+</a>
+</div>
+<div class="print-hidden">
+<button class="crayons-btn follow-action-button whitespace-nowrap follow-user w-100" data-info='{"style":"full","id":3874887,"className":"User","name":"byteguard"}'>
+                      Follow
+                    </button>
+</div>
+<div class="author-preview-metadata-container" data-author-id="3874887"></div>
+</div>
+</div>
+</div>
+</div>
+<a class="crayons-story__tertiary fs-xs" href="../byte-guard/ssh-hardening-the-ultimate-guide-for-2026-396.html"><time datetime="2026-05-05T23:39:21Z">May 5</time><span class="time-ago-indicator-initial-placeholder" data-seconds="1778024361"></span></a>
+</div>
+</div>
+</div>
+<div class="crayons-story__indention">
+<h2 class="crayons-story__title crayons-story__title-full_post">
+<a data-preload-image="" href="../byte-guard/ssh-hardening-the-ultimate-guide-for-2026-396.html" id="article-link-3617565">
+          SSH Hardening — The Ultimate Guide for 2026
+        </a>
+</h2>
+<div class="crayons-story__tags">
+<a class="crayons-tag crayons-tag--monochrome" href="security.html" style="
+        --tag-bg: rgba(27, 172, 128, 0.10);
+        --tag-prefix: #1bac80;
+        --tag-bg-hover: rgba(27, 172, 128, 0.10);
+        --tag-prefix-hover: #1bac80;
+      "><span class="crayons-tag__prefix">#</span>security</a>
+<a class="crayons-tag crayons-tag--monochrome" href="linux.html" style="
+        --tag-bg: rgba(0, 0, 0, 0.10);
+        --tag-prefix: #000000;
+        --tag-bg-hover: rgba(0, 0, 0, 0.10);
+        --tag-prefix-hover: #000000;
+      "><span class="crayons-tag__prefix">#</span>linux</a>
+<a class="crayons-tag crayons-tag--monochrome" href="ssh.html" style="
+        --tag-bg: rgba(64, 78, 211, 0.10);
+        --tag-prefix: #404ED3;
+        --tag-bg-hover: rgba(64, 78, 211, 0.10);
+        --tag-prefix-hover: #404ED3;
+      "><span class="crayons-tag__prefix">#</span>ssh</a>
+<a class="crayons-tag crayons-tag--monochrome" href="devops.html" style="
+        --tag-bg: rgba(6, 181, 0, 0.10);
+        --tag-prefix: #06B500;
+        --tag-bg-hover: rgba(6, 181, 0, 0.10);
+        --tag-prefix-hover: #06B500;
+      "><span class="crayons-tag__prefix">#</span>devops</a>
+</div>
+<div class="crayons-story__bottom">
+<div class="crayons-story__details">
+<a aria-label="Add a comment to post - SSH Hardening — The Ultimate Guide for 2026" class="crayons-btn crayons-btn--s crayons-btn--ghost crayons-btn--icon-left" data-reactable-id="3617565" data-reaction-count="" href="../byte-guard/ssh-hardening-the-ultimate-guide-for-2026-396.html">
+<div class="multiple_reactions_aggregate">
+<span class="multiple_reactions_icons_container" dir="rtl">
+<span class="crayons_icon_container">
+<img height="18" src="../cdn/assets.dev.to/assets/sparkle-heart-5f9bee3767e18deb1bb725290cb151c25234768a0e9a2bd39370c382d02920cf.svg" width="18"/>
+</span>
+</span>
+<span class="aggregate_reactions_counter">1<span class="hidden s:inline"> reaction</span></span>
+</div>
+</a>
+<a aria-label="Add a comment to post - SSH Hardening — The Ultimate Guide for 2026" class="crayons-btn crayons-btn--s crayons-btn--ghost crayons-btn--icon-left flex items-center" href="../byte-guard/ssh-hardening-the-ultimate-guide-for-2026-396.html">
+<svg aria-labelledby="amyqnp5oa7xsxa5bbsrbhgq4g890opkg" class="crayons-icon" height="24" role="img" width="24" xmlns="http://www.w3.org/2000/svg"><title id="amyqnp5oa7xsxa5bbsrbhgq4g890opkg">Comments</title><path d="M10.5 5h3a6 6 0 110 12v2.625c-3.75-1.5-9-3.75-9-8.625a6 6 0 016-6zM12 15.5h1.5a4.501 4.501 0 001.722-8.657A4.5 4.5 0 0013.5 6.5h-3A4.5 4.5 0 006 11c0 2.707 1.846 4.475 6 6.36V15.5z"></path></svg>
+<span class="hidden s:inline">Add Comment</span>
+</a>
+</div>
+<div class="crayons-story__save">
+<small class="crayons-story__tertiary fs-xs mr-2">
+            8 min read
+          </small>
+<button aria-label="Save post SSH Hardening — The Ultimate Guide for 2026 to reading list" class="c-btn c-btn--icon-alone bookmark-button" data-article-author-id="3874887" data-reactable-id="3617565" id="article-save-button-3617565" title="Save post SSH Hardening — The Ultimate Guide for 2026 to reading list" type="button">
+<span class="bm-initial">
+<svg aria-hidden="true" height="24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M6.75 4.5h10.5a.75.75 0 01.75.75v14.357a.375.375 0 01-.575.318L12 16.523l-5.426 3.401A.375.375 0 016 19.607V5.25a.75.75 0 01.75-.75zM16.5 6h-9v11.574l4.5-2.82 4.5 2.82V6z"></path></svg>
+</span>
+<span class="bm-success">
+<svg aria-hidden="true" height="24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M6.75 4.5h10.5a.75.75 0 01.75.75v14.357a.375.375 0 01-.575.318L12 16.523l-5.426 3.401A.375.375 0 016 19.607V5.25a.75.75 0 01.75-.75z"></path></svg>
+</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="crayons-story" data-content-user-id="3875823" data-feed-content-id="3617139">
+<a aria-labelledby="article-link-3617139" class="crayons-story__hidden-navigation-link" href="../hezekiah_umoh/how-i-built-a-real-time-ddos-detection-engine-from-scratch-11ei.html">How I Built a Real-Time DDoS Detection Engine from Scratch</a>
+<div class="crayons-story__body crayons-story__body-full_post">
+<div class="crayons-story__top">
+<div class="crayons-story__meta">
+<div class="crayons-story__author-pic">
+<a class="crayons-avatar crayons-avatar--l" href="../hezekiah_umoh.html">
+<img alt="hezekiah_umoh profile" class="crayons-avatar__image" loading="lazy" src="../cdn/media2.dev.to/dynamic/image/width=90,height=90,fit=cover,gravity=auto,format=auto/https___dev-to-uploads.s3.amazonaws.com_uploads_user_profile_image_3875823_be07e4f3-136f-4324-beff-45cc88fe02d7.jpg"/>
+</a>
+</div>
+<div>
+<div>
+<a class="crayons-story__secondary fw-medium m:hidden" href="../hezekiah_umoh.html">
+              Hezekiah Umoh
+            </a>
+<div class="profile-preview-card relative mb-4 s:mb-0 fw-medium hidden m:inline-block">
+<button aria-controls="story-author-preview-content-3617139" aria-label="Hezekiah Umoh profile details" class="profile-preview-card__trigger fs-s p-1 -ml-1 -my-2 crayons-btn crayons-btn--ghost" id="story-author-preview-trigger-3617139">
+                Hezekiah Umoh
+                
+              </button>
+<div class="profile-preview-card__content crayons-dropdown branded-7 p-4 pt-0" data-repositioning-dropdown="true" data-testid="profile-preview-card" id="story-author-preview-content-3617139" style="border-top-color: var(--card-color);">
+<div class="gap-4 grid">
+<div class="-mt-4">
+<a class="flex" href="../hezekiah_umoh.html">
+<span class="crayons-avatar crayons-avatar--xl mr-2 shrink-0">
+<img alt="" class="crayons-avatar__image" loading="lazy" src="../cdn/media2.dev.to/dynamic/image/width=90,height=90,fit=cover,gravity=auto,format=auto/https___dev-to-uploads.s3.amazonaws.com_uploads_user_profile_image_3875823_be07e4f3-136f-4324-beff-45cc88fe02d7.jpg"/>
+</span>
+<span class="crayons-link crayons-subtitle-2 mt-5">Hezekiah Umoh</span>
+</a>
+</div>
+<div class="print-hidden">
+<button class="crayons-btn follow-action-button whitespace-nowrap follow-user w-100" data-info='{"style":"full","id":3875823,"className":"User","name":"Hezekiah Umoh"}'>
+                      Follow
+                    </button>
+</div>
+<div class="author-preview-metadata-container" data-author-id="3875823"></div>
+</div>
+</div>
+</div>
+</div>
+<a class="crayons-story__tertiary fs-xs" href="../hezekiah_umoh/how-i-built-a-real-time-ddos-detection-engine-from-scratch-11ei.html"><time datetime="2026-05-05T20:25:39Z">May 5</time><span class="time-ago-indicator-initial-placeholder" data-seconds="1778012739"></span></a>
+</div>
+</div>
+</div>
+<div class="crayons-story__indention">
+<h2 class="crayons-story__title crayons-story__title-full_post">
+<a data-preload-image="https://media2.dev.to/dynamic/image/width=1000,height=420,fit=cover,gravity=auto,format=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Farticles%2Ffjdjsby2adfowdx9dkdo.png" href="../hezekiah_umoh/how-i-built-a-real-time-ddos-detection-engine-from-scratch-11ei.html" id="article-link-3617139">
+          How I Built a Real-Time DDoS Detection Engine from Scratch
+        </a>
+</h2>
+<div class="crayons-story__tags">
+<a class="crayons-tag crayons-tag--monochrome" href="devops.html" style="
+        --tag-bg: rgba(6, 181, 0, 0.10);
+        --tag-prefix: #06B500;
+        --tag-bg-hover: rgba(6, 181, 0, 0.10);
+        --tag-prefix-hover: #06B500;
+      "><span class="crayons-tag__prefix">#</span>devops</a>
+<a class="crayons-tag crayons-tag--monochrome" href="python.html" style="
+        --tag-bg: rgba(30, 56, 187, 0.10);
+        --tag-prefix: #1E38BB;
+        --tag-bg-hover: rgba(30, 56, 187, 0.10);
+        --tag-prefix-hover: #1E38BB;
+      "><span class="crayons-tag__prefix">#</span>python</a>
+<a class="crayons-tag crayons-tag--monochrome" href="security.html" style="
+        --tag-bg: rgba(27, 172, 128, 0.10);
+        --tag-prefix: #1bac80;
+        --tag-bg-hover: rgba(27, 172, 128, 0.10);
+        --tag-prefix-hover: #1bac80;
+      "><span class="crayons-tag__prefix">#</span>security</a>
+<a class="crayons-tag crayons-tag--monochrome" href="docker.html" style="
+        --tag-bg: rgba(29, 99, 237, 0.10);
+        --tag-prefix: #1D63ED;
+        --tag-bg-hover: rgba(29, 99, 237, 0.10);
+        --tag-prefix-hover: #1D63ED;
+      "><span class="crayons-tag__prefix">#</span>docker</a>
+</div>
+<div class="crayons-story__bottom">
+<div class="crayons-story__details">
+<a aria-label="Add a comment to post - How I Built a Real-Time DDoS Detection Engine from Scratch" class="crayons-btn crayons-btn--s crayons-btn--ghost crayons-btn--icon-left flex items-center" href="../hezekiah_umoh/how-i-built-a-real-time-ddos-detection-engine-from-scratch-11ei.html">
+<svg aria-labelledby="ag88y5clajmruh5jg2bs1c647dj7bdkd" class="crayons-icon" height="24" role="img" width="24" xmlns="http://www.w3.org/2000/svg"><title id="ag88y5clajmruh5jg2bs1c647dj7bdkd">Comments</title><path d="M10.5 5h3a6 6 0 110 12v2.625c-3.75-1.5-9-3.75-9-8.625a6 6 0 016-6zM12 15.5h1.5a4.501 4.501 0 001.722-8.657A4.5 4.5 0 0013.5 6.5h-3A4.5 4.5 0 006 11c0 2.707 1.846 4.475 6 6.36V15.5z"></path></svg>
+<span class="hidden s:inline">Add Comment</span>
+</a>
+</div>
+<div class="crayons-story__save">
+<small class="crayons-story__tertiary fs-xs mr-2">
+            9 min read
+          </small>
+<button aria-label="Save post How I Built a Real-Time DDoS Detection Engine from Scratch to reading list" class="c-btn c-btn--icon-alone bookmark-button" data-article-author-id="3875823" data-reactable-id="3617139" id="article-save-button-3617139" title="Save post How I Built a Real-Time DDoS Detection Engine from Scratch to reading list" type="button">
+<span class="bm-initial">
+<svg aria-hidden="true" height="24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M6.75 4.5h10.5a.75.75 0 01.75.75v14.357a.375.375 0 01-.575.318L12 16.523l-5.426 3.401A.375.375 0 016 19.607V5.25a.75.75 0 01.75-.75zM16.5 6h-9v11.574l4.5-2.82 4.5 2.82V6z"></path></svg>
+</span>
+<span class="bm-success">
+<svg aria-hidden="true" height="24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M6.75 4.5h10.5a.75.75 0 01.75.75v14.357a.375.375 0 01-.575.318L12 16.523l-5.426 3.401A.375.375 0 016 19.607V5.25a.75.75 0 01.75-.75z"></path></svg>
+</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="crayons-story" data-content-user-id="3911306" data-feed-content-id="3617542">
+<a aria-labelledby="article-link-3617542" class="crayons-story__hidden-navigation-link" href="../kiurakku/llobster-ai-powered-web-security-scanner-fully-self-hostedpublished-true-1b5.html">llobster — AI-powered web security scanner, fully self-hosted published: true</a>
+<div class="crayons-story__body crayons-story__body-full_post">
+<div class="crayons-story__top">
+<div class="crayons-story__meta">
+<div class="crayons-story__author-pic">
+<a class="crayons-avatar crayons-avatar--l" href="../kiurakku.html">
+<img alt="kiurakku profile" class="crayons-avatar__image" loading="lazy" src="../cdn/media2.dev.to/dynamic/image/width=90,height=90,fit=cover,gravity=auto,format=auto/https___dev-to-uploads.s3.amazonaws.com_uploads_user_profile_image_3911306_dd620a24-9481-4c96-b1fe-ad4b56a77a6d.jpeg"/>
+</a>
+</div>
+<div>
+<div>
+<a class="crayons-story__secondary fw-medium m:hidden" href="../kiurakku.html">
+              Cloud9's
+            </a>
+<div class="profile-preview-card relative mb-4 s:mb-0 fw-medium hidden m:inline-block">
+<button aria-controls="story-author-preview-content-3617542" aria-label="Cloud9's profile details" class="profile-preview-card__trigger fs-s p-1 -ml-1 -my-2 crayons-btn crayons-btn--ghost" id="story-author-preview-trigger-3617542">
+                Cloud9's
+                
+              </button>
+<div class="profile-preview-card__content crayons-dropdown branded-7 p-4 pt-0" data-repositioning-dropdown="true" data-testid="profile-preview-card" id="story-author-preview-content-3617542" style="border-top-color: var(--card-color);">
+<div class="gap-4 grid">
+<div class="-mt-4">
+<a class="flex" href="../kiurakku.html">
+<span class="crayons-avatar crayons-avatar--xl mr-2 shrink-0">
+<img alt="" class="crayons-avatar__image" loading="lazy" src="../cdn/media2.dev.to/dynamic/image/width=90,height=90,fit=cover,gravity=auto,format=auto/https___dev-to-uploads.s3.amazonaws.com_uploads_user_profile_image_3911306_dd620a24-9481-4c96-b1fe-ad4b56a77a6d.jpeg"/>
+</span>
+<span class="crayons-link crayons-subtitle-2 mt-5">Cloud9's</span>
+</a>
+</div>
+<div class="print-hidden">
+<button class="crayons-btn follow-action-button whitespace-nowrap follow-user w-100" data-info="{&quot;style&quot;:&quot;full&quot;,&quot;id&quot;:3911306,&quot;className&quot;:&quot;User&quot;,&quot;name&quot;:&quot;Cloud9's&quot;}">
+                      Follow
+                    </button>
+</div>
+<div class="author-preview-metadata-container" data-author-id="3911306"></div>
+</div>
+</div>
+</div>
+</div>
+<a class="crayons-story__tertiary fs-xs" href="../kiurakku/llobster-ai-powered-web-security-scanner-fully-self-hostedpublished-true-1b5.html"><time datetime="2026-05-05T23:29:15Z">May 5</time><span class="time-ago-indicator-initial-placeholder" data-seconds="1778023755"></span></a>
+</div>
+</div>
+</div>
+<div class="crayons-story__indention">
+<h2 class="crayons-story__title crayons-story__title-full_post">
+<a data-preload-image="https://media2.dev.to/dynamic/image/width=1000,height=420,fit=cover,gravity=auto,format=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Farticles%2F5u4xrmrr7jzgy51of10j.png" href="../kiurakku/llobster-ai-powered-web-security-scanner-fully-self-hostedpublished-true-1b5.html" id="article-link-3617542">
+          llobster — AI-powered web security scanner, fully self-hosted published: true
+        </a>
+</h2>
+<div class="crayons-story__tags">
+<a class="crayons-tag crayons-tag--monochrome" href="ai.html" style="
+        --tag-bg: rgba(23, 253, 26, 0.10);
+        --tag-prefix: #17fd1a;
+        --tag-bg-hover: rgba(23, 253, 26, 0.10);
+        --tag-prefix-hover: #17fd1a;
+      "><span class="crayons-tag__prefix">#</span>ai</a>
+<a class="crayons-tag crayons-tag--monochrome" href="security.html" style="
+        --tag-bg: rgba(27, 172, 128, 0.10);
+        --tag-prefix: #1bac80;
+        --tag-bg-hover: rgba(27, 172, 128, 0.10);
+        --tag-prefix-hover: #1bac80;
+      "><span class="crayons-tag__prefix">#</span>security</a>
+<a class="crayons-tag crayons-tag--monochrome" href="opensource.html" style="
+        --tag-bg: rgba(38, 190, 0, 0.10);
+        --tag-prefix: #26BE00;
+        --tag-bg-hover: rgba(38, 190, 0, 0.10);
+        --tag-prefix-hover: #26BE00;
+      "><span class="crayons-tag__prefix">#</span>opensource</a>
+<a class="crayons-tag crayons-tag--monochrome" href="python.html" style="
+        --tag-bg: rgba(30, 56, 187, 0.10);
+        --tag-prefix: #1E38BB;
+        --tag-bg-hover: rgba(30, 56, 187, 0.10);
+        --tag-prefix-hover: #1E38BB;
+      "><span class="crayons-tag__prefix">#</span>python</a>
+</div>
+<div class="crayons-story__bottom">
+<div class="crayons-story__details">
+<a aria-label="Add a comment to post - llobster — AI-powered web security scanner, fully self-hosted published: true" class="crayons-btn crayons-btn--s crayons-btn--ghost crayons-btn--icon-left flex items-center" href="../kiurakku/llobster-ai-powered-web-security-scanner-fully-self-hostedpublished-true-1b5.html">
+<svg aria-labelledby="a51vrywan34kzgiec1iu6pspfrst6x9l" class="crayons-icon" height="24" role="img" width="24" xmlns="http://www.w3.org/2000/svg"><title id="a51vrywan34kzgiec1iu6pspfrst6x9l">Comments</title><path d="M10.5 5h3a6 6 0 110 12v2.625c-3.75-1.5-9-3.75-9-8.625a6 6 0 016-6zM12 15.5h1.5a4.501 4.501 0 001.722-8.657A4.5 4.5 0 0013.5 6.5h-3A4.5 4.5 0 006 11c0 2.707 1.846 4.475 6 6.36V15.5z"></path></svg>
+<span class="hidden s:inline">Add Comment</span>
+</a>
+</div>
+<div class="crayons-story__save">
+<small class="crayons-story__tertiary fs-xs mr-2">
+            1 min read
+          </small>
+<button aria-label="Save post llobster — AI-powered web security scanner, fully self-hosted published: true to reading list" class="c-btn c-btn--icon-alone bookmark-button" data-article-author-id="3911306" data-reactable-id="3617542" id="article-save-button-3617542" title="Save post llobster — AI-powered web security scanner, fully self-hosted published: true to reading list" type="button">
+<span class="bm-initial">
+<svg aria-hidden="true" height="24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M6.75 4.5h10.5a.75.75 0 01.75.75v14.357a.375.375 0 01-.575.318L12 16.523l-5.426 3.401A.375.375 0 016 19.607V5.25a.75.75 0 01.75-.75zM16.5 6h-9v11.574l4.5-2.82 4.5 2.82V6z"></path></svg>
+</span>
+<span class="bm-success">
+<svg aria-hidden="true" height="24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M6.75 4.5h10.5a.75.75 0 01.75.75v14.357a.375.375 0 01-.575.318L12 16.523l-5.426 3.401A.375.375 0 016 19.607V5.25a.75.75 0 01.75-.75z"></path></svg>
+</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="crayons-story" data-content-user-id="3408163" data-feed-content-id="3616901">
+<a aria-labelledby="article-link-3616901" class="crayons-story__hidden-navigation-link" href="../phantomojo/i-built-an-ai-honeypot-on-gcp-attackers-came-in-4-minutes-4j4.html">I Built an AI Honeypot on GCP — Attackers Came in 4 Minutes</a>
+<div class="crayons-story__body crayons-story__body-full_post">
+<div class="crayons-story__top">
+<div class="crayons-story__meta">
+<div class="crayons-story__author-pic">
+<a class="crayons-avatar crayons-avatar--l" href="../phantomojo.html">
+<img alt="phantomojo profile" class="crayons-avatar__image" loading="lazy" src="../cdn/media2.dev.to/dynamic/image/width=90,height=90,fit=cover,gravity=auto,format=auto/https___dev-to-uploads.s3.amazonaws.com_uploads_user_profile_image_3408163_9dcf0b55-f583-4d04-98e7-2da89fbe9a07.jpeg"/>
+</a>
+</div>
+<div>
+<div>
+<a class="crayons-story__secondary fw-medium m:hidden" href="../phantomojo.html">
+              Michael Muriithi
+            </a>
+<div class="profile-preview-card relative mb-4 s:mb-0 fw-medium hidden m:inline-block">
+<button aria-controls="story-author-preview-content-3616901" aria-label="Michael Muriithi profile details" class="profile-preview-card__trigger fs-s p-1 -ml-1 -my-2 crayons-btn crayons-btn--ghost" id="story-author-preview-trigger-3616901">
+                Michael Muriithi
+                
+              </button>
+<div class="profile-preview-card__content crayons-dropdown branded-7 p-4 pt-0" data-repositioning-dropdown="true" data-testid="profile-preview-card" id="story-author-preview-content-3616901" style="border-top-color: var(--card-color);">
+<div class="gap-4 grid">
+<div class="-mt-4">
+<a class="flex" href="../phantomojo.html">
+<span class="crayons-avatar crayons-avatar--xl mr-2 shrink-0">
+<img alt="" class="crayons-avatar__image" loading="lazy" src="../cdn/media2.dev.to/dynamic/image/width=90,height=90,fit=cover,gravity=auto,format=auto/https___dev-to-uploads.s3.amazonaws.com_uploads_user_profile_image_3408163_9dcf0b55-f583-4d04-98e7-2da89fbe9a07.jpeg"/>
+</span>
+<span class="crayons-link crayons-subtitle-2 mt-5">Michael Muriithi</span>
+</a>
+</div>
+<div class="print-hidden">
+<button class="crayons-btn follow-action-button whitespace-nowrap follow-user w-100" data-info='{"style":"full","id":3408163,"className":"User","name":"Michael Muriithi"}'>
+                      Follow
+                    </button>
+</div>
+<div class="author-preview-metadata-container" data-author-id="3408163"></div>
+</div>
+</div>
+</div>
+</div>
+<a class="crayons-story__tertiary fs-xs" href="../phantomojo/i-built-an-ai-honeypot-on-gcp-attackers-came-in-4-minutes-4j4.html"><time datetime="2026-05-05T19:05:20Z">May 5</time><span class="time-ago-indicator-initial-placeholder" data-seconds="1778007920"></span></a>
+</div>
+</div>
+</div>
+<div class="crayons-story__indention">
+<h2 class="crayons-story__title crayons-story__title-full_post">
+<a data-preload-image="https://media2.dev.to/dynamic/image/width=1000,height=420,fit=cover,gravity=auto,format=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Farticles%2Fgplbgcd4le8vbrc5aqs1.png" href="../phantomojo/i-built-an-ai-honeypot-on-gcp-attackers-came-in-4-minutes-4j4.html" id="article-link-3616901">
+          I Built an AI Honeypot on GCP — Attackers Came in 4 Minutes
+        </a>
+</h2>
+<div class="crayons-story__tags">
+<a class="crayons-tag crayons-tag--filled" href="showdev.html" style="
+        --tag-bg: rgba(9, 27, 71, 0.10);
+        --tag-prefix: #091b47;
+        --tag-bg-hover: rgba(9, 27, 71, 0.10);
+        --tag-prefix-hover: #091b47;
+      "><span class="crayons-tag__prefix">#</span>showdev</a>
+<a class="crayons-tag crayons-tag--monochrome" href="security.html" style="
+        --tag-bg: rgba(27, 172, 128, 0.10);
+        --tag-prefix: #1bac80;
+        --tag-bg-hover: rgba(27, 172, 128, 0.10);
+        --tag-prefix-hover: #1bac80;
+      "><span class="crayons-tag__prefix">#</span>security</a>
+<a class="crayons-tag crayons-tag--monochrome" href="cloud.html" style="
+        --tag-bg: rgba(255, 153, 0, 0.10);
+        --tag-prefix: #FF9900;
+        --tag-bg-hover: rgba(255, 153, 0, 0.10);
+        --tag-prefix-hover: #FF9900;
+      "><span class="crayons-tag__prefix">#</span>cloud</a>
+<a class="crayons-tag crayons-tag--monochrome" href="webdev.html" style="
+        --tag-bg: rgba(86, 39, 101, 0.10);
+        --tag-prefix: #562765;
+        --tag-bg-hover: rgba(86, 39, 101, 0.10);
+        --tag-prefix-hover: #562765;
+      "><span class="crayons-tag__prefix">#</span>webdev</a>
+</div>
+<div class="crayons-story__bottom">
+<div class="crayons-story__details">
+<a aria-label="Add a comment to post - I Built an AI Honeypot on GCP — Attackers Came in 4 Minutes" class="crayons-btn crayons-btn--s crayons-btn--ghost crayons-btn--icon-left flex items-center" href="../phantomojo/i-built-an-ai-honeypot-on-gcp-attackers-came-in-4-minutes-4j4.html">
+<svg aria-labelledby="agvj7ywht8bu9stlpcei1k1s75tv7u1i" class="crayons-icon" height="24" role="img" width="24" xmlns="http://www.w3.org/2000/svg"><title id="agvj7ywht8bu9stlpcei1k1s75tv7u1i">Comments</title><path d="M10.5 5h3a6 6 0 110 12v2.625c-3.75-1.5-9-3.75-9-8.625a6 6 0 016-6zM12 15.5h1.5a4.501 4.501 0 001.722-8.657A4.5 4.5 0 0013.5 6.5h-3A4.5 4.5 0 006 11c0 2.707 1.846 4.475 6 6.36V15.5z"></path></svg>
+<span class="hidden s:inline">Add Comment</span>
+</a>
+</div>
+<div class="crayons-story__save">
+<small class="crayons-story__tertiary fs-xs mr-2">
+            3 min read
+          </small>
+<button aria-label="Save post I Built an AI Honeypot on GCP — Attackers Came in 4 Minutes to reading list" class="c-btn c-btn--icon-alone bookmark-button" data-article-author-id="3408163" data-reactable-id="3616901" id="article-save-button-3616901" title="Save post I Built an AI Honeypot on GCP — Attackers Came in 4 Minutes to reading list" type="button">
+<span class="bm-initial">
+<svg aria-hidden="true" height="24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M6.75 4.5h10.5a.75.75 0 01.75.75v14.357a.375.375 0 01-.575.318L12 16.523l-5.426 3.401A.375.375 0 016 19.607V5.25a.75.75 0 01.75-.75zM16.5 6h-9v11.574l4.5-2.82 4.5 2.82V6z"></path></svg>
+</span>
+<span class="bm-success">
+<svg aria-hidden="true" height="24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M6.75 4.5h10.5a.75.75 0 01.75.75v14.357a.375.375 0 01-.575.318L12 16.523l-5.426 3.401A.375.375 0 016 19.607V5.25a.75.75 0 01.75-.75z"></path></svg>
+</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="crayons-story" data-content-user-id="3914754" data-feed-content-id="3617408">
+<a aria-labelledby="article-link-3617408" class="crayons-story__hidden-navigation-link" href="../jahanzeb_raja_758df006510/how-to-scan-your-codebase-for-post-quantum-cryptographic-risk-3da9.html">How to scan your codebase for post-quantum cryptographic risk</a>
+<div class="crayons-story__body crayons-story__body-full_post">
+<div class="crayons-story__top">
+<div class="crayons-story__meta">
+<div class="crayons-story__author-pic">
+<a class="crayons-avatar crayons-avatar--l" href="../jahanzeb_raja_758df006510.html">
+<img alt="jahanzeb_raja_758df006510 profile" class="crayons-avatar__image" loading="lazy" src="../cdn/media2.dev.to/dynamic/image/width=90,height=90,fit=cover,gravity=auto,format=auto/https___dev-to-uploads.s3.amazonaws.com_uploads_user_profile_image_3914754_d9c3c977-8fce-4fe9-a762-1c0051c5f353.jpg"/>
+</a>
+</div>
+<div>
+<div>
+<a class="crayons-story__secondary fw-medium m:hidden" href="../jahanzeb_raja_758df006510.html">
+              Jahanzeb Raja
+            </a>
+<div class="profile-preview-card relative mb-4 s:mb-0 fw-medium hidden m:inline-block">
+<button aria-controls="story-author-preview-content-3617408" aria-label="Jahanzeb Raja profile details" class="profile-preview-card__trigger fs-s p-1 -ml-1 -my-2 crayons-btn crayons-btn--ghost" id="story-author-preview-trigger-3617408">
+                Jahanzeb Raja
+                
+              </button>
+<div class="profile-preview-card__content crayons-dropdown branded-7 p-4 pt-0" data-repositioning-dropdown="true" data-testid="profile-preview-card" id="story-author-preview-content-3617408" style="border-top-color: var(--card-color);">
+<div class="gap-4 grid">
+<div class="-mt-4">
+<a class="flex" href="../jahanzeb_raja_758df006510.html">
+<span class="crayons-avatar crayons-avatar--xl mr-2 shrink-0">
+<img alt="" class="crayons-avatar__image" loading="lazy" src="../cdn/media2.dev.to/dynamic/image/width=90,height=90,fit=cover,gravity=auto,format=auto/https___dev-to-uploads.s3.amazonaws.com_uploads_user_profile_image_3914754_d9c3c977-8fce-4fe9-a762-1c0051c5f353.jpg"/>
+</span>
+<span class="crayons-link crayons-subtitle-2 mt-5">Jahanzeb Raja</span>
+</a>
+</div>
+<div class="print-hidden">
+<button class="crayons-btn follow-action-button whitespace-nowrap follow-user w-100" data-info='{"style":"full","id":3914754,"className":"User","name":"Jahanzeb Raja"}'>
+                      Follow
+                    </button>
+</div>
+<div class="author-preview-metadata-container" data-author-id="3914754"></div>
+</div>
+</div>
+</div>
+</div>
+<a class="crayons-story__tertiary fs-xs" href="../jahanzeb_raja_758df006510/how-to-scan-your-codebase-for-post-quantum-cryptographic-risk-3da9.html"><time datetime="2026-05-05T22:12:50Z">May 5</time><span class="time-ago-indicator-initial-placeholder" data-seconds="1778019170"></span></a>
+</div>
+</div>
+</div>
+<div class="crayons-story__indention">
+<h2 class="crayons-story__title crayons-story__title-full_post">
+<a data-preload-image="https://media2.dev.to/dynamic/image/width=1000,height=420,fit=cover,gravity=auto,format=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Farticles%2Fpn4wmqf8hxxpv8hovhk5.png" href="../jahanzeb_raja_758df006510/how-to-scan-your-codebase-for-post-quantum-cryptographic-risk-3da9.html" id="article-link-3617408">
+          How to scan your codebase for post-quantum cryptographic risk
+        </a>
+</h2>
+<div class="crayons-story__tags">
+<a class="crayons-tag crayons-tag--monochrome" href="security.html" style="
+        --tag-bg: rgba(27, 172, 128, 0.10);
+        --tag-prefix: #1bac80;
+        --tag-bg-hover: rgba(27, 172, 128, 0.10);
+        --tag-prefix-hover: #1bac80;
+      "><span class="crayons-tag__prefix">#</span>security</a>
+<a class="crayons-tag crayons-tag--monochrome" href="cryptography.html" style="
+        --tag-bg: rgba(64, 78, 211, 0.10);
+        --tag-prefix: #404ED3;
+        --tag-bg-hover: rgba(64, 78, 211, 0.10);
+        --tag-prefix-hover: #404ED3;
+      "><span class="crayons-tag__prefix">#</span>cryptography</a>
+<a class="crayons-tag crayons-tag--monochrome" href="devops.html" style="
+        --tag-bg: rgba(6, 181, 0, 0.10);
+        --tag-prefix: #06B500;
+        --tag-bg-hover: rgba(6, 181, 0, 0.10);
+        --tag-prefix-hover: #06B500;
+      "><span class="crayons-tag__prefix">#</span>devops</a>
+<a class="crayons-tag crayons-tag--monochrome" href="tutorial.html" style="
+        --tag-bg: rgba(254, 255, 165, 0.10);
+        --tag-prefix: #FEFFA5;
+        --tag-bg-hover: rgba(254, 255, 165, 0.10);
+        --tag-prefix-hover: #FEFFA5;
+      "><span class="crayons-tag__prefix">#</span>tutorial</a>
+</div>
+<div class="crayons-story__bottom">
+<div class="crayons-story__details">
+<a aria-label="Add a comment to post - How to scan your codebase for post-quantum cryptographic risk" class="crayons-btn crayons-btn--s crayons-btn--ghost crayons-btn--icon-left flex items-center" href="../jahanzeb_raja_758df006510/how-to-scan-your-codebase-for-post-quantum-cryptographic-risk-3da9.html">
+<svg aria-labelledby="a4pth0khh1f0iasyal9y68jrohql1w5f" class="crayons-icon" height="24" role="img" width="24" xmlns="http://www.w3.org/2000/svg"><title id="a4pth0khh1f0iasyal9y68jrohql1w5f">Comments</title><path d="M10.5 5h3a6 6 0 110 12v2.625c-3.75-1.5-9-3.75-9-8.625a6 6 0 016-6zM12 15.5h1.5a4.501 4.501 0 001.722-8.657A4.5 4.5 0 0013.5 6.5h-3A4.5 4.5 0 006 11c0 2.707 1.846 4.475 6 6.36V15.5z"></path></svg>
+<span class="hidden s:inline">Add Comment</span>
+</a>
+</div>
+<div class="crayons-story__save">
+<small class="crayons-story__tertiary fs-xs mr-2">
+            3 min read
+          </small>
+<button aria-label="Save post How to scan your codebase for post-quantum cryptographic risk to reading list" class="c-btn c-btn--icon-alone bookmark-button" data-article-author-id="3914754" data-reactable-id="3617408" id="article-save-button-3617408" title="Save post How to scan your codebase for post-quantum cryptographic risk to reading list" type="button">
+<span class="bm-initial">
+<svg aria-hidden="true" height="24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M6.75 4.5h10.5a.75.75 0 01.75.75v14.357a.375.375 0 01-.575.318L12 16.523l-5.426 3.401A.375.375 0 016 19.607V5.25a.75.75 0 01.75-.75zM16.5 6h-9v11.574l4.5-2.82 4.5 2.82V6z"></path></svg>
+</span>
+<span class="bm-success">
+<svg aria-hidden="true" height="24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M6.75 4.5h10.5a.75.75 0 01.75.75v14.357a.375.375 0 01-.575.318L12 16.523l-5.426 3.401A.375.375 0 016 19.607V5.25a.75.75 0 01.75-.75z"></path></svg>
+</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="crayons-story" data-content-user-id="3382813" data-feed-content-id="3617369">
+<a aria-labelledby="article-link-3617369" class="crayons-story__hidden-navigation-link" href="../dcentrica/health-checks-are-integral-to-website-maintenance-programmes-210o.html">Health checks are integral to website maintenance programmes</a>
+<div class="crayons-story__body crayons-story__body-full_post">
+<div class="crayons-story__top">
+<div class="crayons-story__meta">
+<div class="crayons-story__author-pic">
+<a class="crayons-avatar crayons-avatar--l" href="../dcentrica.html">
+<img alt="dcentrica profile" class="crayons-avatar__image" loading="lazy" src="../cdn/media2.dev.to/dynamic/image/width=90,height=90,fit=cover,gravity=auto,format=auto/https___dev-to-uploads.s3.amazonaws.com_uploads_user_profile_image_3382813_76950d82-d694-4a63-860a-4487443c5ae5.jpg"/>
+</a>
+</div>
+<div>
+<div>
+<a class="crayons-story__secondary fw-medium m:hidden" href="../dcentrica.html">
+              Dcentrica Solutions
+            </a>
+<div class="profile-preview-card relative mb-4 s:mb-0 fw-medium hidden m:inline-block">
+<button aria-controls="story-author-preview-content-3617369" aria-label="Dcentrica Solutions profile details" class="profile-preview-card__trigger fs-s p-1 -ml-1 -my-2 crayons-btn crayons-btn--ghost" id="story-author-preview-trigger-3617369">
+                Dcentrica Solutions
+                
+              </button>
+<div class="profile-preview-card__content crayons-dropdown branded-7 p-4 pt-0" data-repositioning-dropdown="true" data-testid="profile-preview-card" id="story-author-preview-content-3617369" style="border-top-color: var(--card-color);">
+<div class="gap-4 grid">
+<div class="-mt-4">
+<a class="flex" href="../dcentrica.html">
+<span class="crayons-avatar crayons-avatar--xl mr-2 shrink-0">
+<img alt="" class="crayons-avatar__image" loading="lazy" src="../cdn/media2.dev.to/dynamic/image/width=90,height=90,fit=cover,gravity=auto,format=auto/https___dev-to-uploads.s3.amazonaws.com_uploads_user_profile_image_3382813_76950d82-d694-4a63-860a-4487443c5ae5.jpg"/>
+</span>
+<span class="crayons-link crayons-subtitle-2 mt-5">Dcentrica Solutions</span>
+</a>
+</div>
+<div class="print-hidden">
+<button class="crayons-btn follow-action-button whitespace-nowrap follow-user w-100" data-info='{"style":"full","id":3382813,"className":"User","name":"Dcentrica Solutions"}'>
+                      Follow
+                    </button>
+</div>
+<div class="author-preview-metadata-container" data-author-id="3382813"></div>
+</div>
+</div>
+</div>
+</div>
+<a class="crayons-story__tertiary fs-xs" href="../dcentrica/health-checks-are-integral-to-website-maintenance-programmes-210o.html"><time datetime="2026-05-05T21:52:10Z">May 5</time><span class="time-ago-indicator-initial-placeholder" data-seconds="1778017930"></span></a>
+</div>
+</div>
+</div>
+<div class="crayons-story__indention">
+<h2 class="crayons-story__title crayons-story__title-full_post">
+<a data-preload-image="https://media2.dev.to/dynamic/image/width=1000,height=420,fit=cover,gravity=auto,format=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Farticles%2Ftluc5jt315aq367emo62.webp" href="../dcentrica/health-checks-are-integral-to-website-maintenance-programmes-210o.html" id="article-link-3617369">
+          Health checks are integral to website maintenance programmes
+        </a>
+</h2>
+<div class="crayons-story__tags">
+<a class="crayons-tag crayons-tag--monochrome" href="webdev.html" style="
+        --tag-bg: rgba(86, 39, 101, 0.10);
+        --tag-prefix: #562765;
+        --tag-bg-hover: rgba(86, 39, 101, 0.10);
+        --tag-prefix-hover: #562765;
+      "><span class="crayons-tag__prefix">#</span>webdev</a>
+<a class="crayons-tag crayons-tag--monochrome" href="security.html" style="
+        --tag-bg: rgba(27, 172, 128, 0.10);
+        --tag-prefix: #1bac80;
+        --tag-bg-hover: rgba(27, 172, 128, 0.10);
+        --tag-prefix-hover: #1bac80;
+      "><span class="crayons-tag__prefix">#</span>security</a>
+<a class="crayons-tag crayons-tag--monochrome" href="saas.html" style="
+        --tag-bg: rgba(170, 255, 236, 0.10);
+        --tag-prefix: #aaffec;
+        --tag-bg-hover: rgba(170, 255, 236, 0.10);
+        --tag-prefix-hover: #aaffec;
+      "><span class="crayons-tag__prefix">#</span>saas</a>
+<a class="crayons-tag crayons-tag--monochrome" href="monitoring.html" style="
+        --tag-bg: rgba(255, 163, 100, 0.10);
+        --tag-prefix: #ffa364;
+        --tag-bg-hover: rgba(255, 163, 100, 0.10);
+        --tag-prefix-hover: #ffa364;
+      "><span class="crayons-tag__prefix">#</span>monitoring</a>
+</div>
+<div class="crayons-story__bottom">
+<div class="crayons-story__details">
+<a aria-label="Add a comment to post - Health checks are integral to website maintenance programmes" class="crayons-btn crayons-btn--s crayons-btn--ghost crayons-btn--icon-left flex items-center" href="../dcentrica/health-checks-are-integral-to-website-maintenance-programmes-210o.html">
+<svg aria-labelledby="a77cyzwa7sc1oi4p10dig6yq9jtqd764" class="crayons-icon" height="24" role="img" width="24" xmlns="http://www.w3.org/2000/svg"><title id="a77cyzwa7sc1oi4p10dig6yq9jtqd764">Comments</title><path d="M10.5 5h3a6 6 0 110 12v2.625c-3.75-1.5-9-3.75-9-8.625a6 6 0 016-6zM12 15.5h1.5a4.501 4.501 0 001.722-8.657A4.5 4.5 0 0013.5 6.5h-3A4.5 4.5 0 006 11c0 2.707 1.846 4.475 6 6.36V15.5z"></path></svg>
+<span class="hidden s:inline">Add Comment</span>
+</a>
+</div>
+<div class="crayons-story__save">
+<small class="crayons-story__tertiary fs-xs mr-2">
+            5 min read
+          </small>
+<button aria-label="Save post Health checks are integral to website maintenance programmes to reading list" class="c-btn c-btn--icon-alone bookmark-button" data-article-author-id="3382813" data-reactable-id="3617369" id="article-save-button-3617369" title="Save post Health checks are integral to website maintenance programmes to reading list" type="button">
+<span class="bm-initial">
+<svg aria-hidden="true" height="24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M6.75 4.5h10.5a.75.75 0 01.75.75v14.357a.375.375 0 01-.575.318L12 16.523l-5.426 3.401A.375.375 0 016 19.607V5.25a.75.75 0 01.75-.75zM16.5 6h-9v11.574l4.5-2.82 4.5 2.82V6z"></path></svg>
+</span>
+<span class="bm-success">
+<svg aria-hidden="true" height="24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M6.75 4.5h10.5a.75.75 0 01.75.75v14.357a.375.375 0 01-.575.318L12 16.523l-5.426 3.401A.375.375 0 016 19.607V5.25a.75.75 0 01.75-.75z"></path></svg>
+</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="crayons-story" data-content-user-id="3812665" data-feed-content-id="3617345">
+<a aria-labelledby="article-link-3617345" class="crayons-story__hidden-navigation-link" href="../soytuber/new-cves-in-ollama-daemon-tools-webhooks-lack-signature-checks-103l.html">New CVEs in Ollama &amp; DAEMON Tools; Webhooks Lack Signature Checks</a>
+<div class="crayons-story__body crayons-story__body-full_post">
+<div class="crayons-story__top">
+<div class="crayons-story__meta">
+<div class="crayons-story__author-pic">
+<a class="crayons-avatar crayons-avatar--l" href="../soytuber.html">
+<img alt="soytuber profile" class="crayons-avatar__image" loading="lazy" src="../cdn/media2.dev.to/dynamic/image/width=90,height=90,fit=cover,gravity=auto,format=auto/https___dev-to-uploads.s3.amazonaws.com_uploads_user_profile_image_3812665_761376f9-10b8-4c2c-b6cb-af00f9fa48ab.jpeg"/>
+</a>
+</div>
+<div>
+<div>
+<a class="crayons-story__secondary fw-medium m:hidden" href="../soytuber.html">
+              soy
+            </a>
+<div class="profile-preview-card relative mb-4 s:mb-0 fw-medium hidden m:inline-block">
+<button aria-controls="story-author-preview-content-3617345" aria-label="soy profile details" class="profile-preview-card__trigger fs-s p-1 -ml-1 -my-2 crayons-btn crayons-btn--ghost" id="story-author-preview-trigger-3617345">
+                soy
+                
+              </button>
+<div class="profile-preview-card__content crayons-dropdown branded-7 p-4 pt-0" data-repositioning-dropdown="true" data-testid="profile-preview-card" id="story-author-preview-content-3617345" style="border-top-color: var(--card-color);">
+<div class="gap-4 grid">
+<div class="-mt-4">
+<a class="flex" href="../soytuber.html">
+<span class="crayons-avatar crayons-avatar--xl mr-2 shrink-0">
+<img alt="" class="crayons-avatar__image" loading="lazy" src="../cdn/media2.dev.to/dynamic/image/width=90,height=90,fit=cover,gravity=auto,format=auto/https___dev-to-uploads.s3.amazonaws.com_uploads_user_profile_image_3812665_761376f9-10b8-4c2c-b6cb-af00f9fa48ab.jpeg"/>
+</span>
+<span class="crayons-link crayons-subtitle-2 mt-5">soy</span>
+</a>
+</div>
+<div class="print-hidden">
+<button class="crayons-btn follow-action-button whitespace-nowrap follow-user w-100" data-info='{"style":"full","id":3812665,"className":"User","name":"soy"}'>
+                      Follow
+                    </button>
+</div>
+<div class="author-preview-metadata-container" data-author-id="3812665"></div>
+</div>
+</div>
+</div>
+</div>
+<a class="crayons-story__tertiary fs-xs" href="../soytuber/new-cves-in-ollama-daemon-tools-webhooks-lack-signature-checks-103l.html"><time datetime="2026-05-05T21:37:15Z">May 5</time><span class="time-ago-indicator-initial-placeholder" data-seconds="1778017035"></span></a>
+</div>
+</div>
+</div>
+<div class="crayons-story__indention">
+<h2 class="crayons-story__title crayons-story__title-full_post">
+<a data-preload-image="" href="../soytuber/new-cves-in-ollama-daemon-tools-webhooks-lack-signature-checks-103l.html" id="article-link-3617345">
+          New CVEs in Ollama &amp; DAEMON Tools; Webhooks Lack Signature Checks
+        </a>
+</h2>
+<div class="crayons-story__tags">
+<a class="crayons-tag crayons-tag--monochrome" href="security.html" style="
+        --tag-bg: rgba(27, 172, 128, 0.10);
+        --tag-prefix: #1bac80;
+        --tag-bg-hover: rgba(27, 172, 128, 0.10);
+        --tag-prefix-hover: #1bac80;
+      "><span class="crayons-tag__prefix">#</span>security</a>
+<a class="crayons-tag crayons-tag--monochrome" href="cybersecurity.html" style="
+        --tag-bg: rgba(227, 255, 0, 0.10);
+        --tag-prefix: #e3ff00;
+        --tag-bg-hover: rgba(227, 255, 0, 0.10);
+        --tag-prefix-hover: #e3ff00;
+      "><span class="crayons-tag__prefix">#</span>cybersecurity</a>
+<a class="crayons-tag crayons-tag--monochrome" href="vulnerability.html" style="
+        --tag-bg: rgba(64, 78, 211, 0.10);
+        --tag-prefix: #404ED3;
+        --tag-bg-hover: rgba(64, 78, 211, 0.10);
+        --tag-prefix-hover: #404ED3;
+      "><span class="crayons-tag__prefix">#</span>vulnerability</a>
+</div>
+<div class="crayons-story__bottom">
+<div class="crayons-story__details">
+<a aria-label="Add a comment to post - New CVEs in Ollama &amp; DAEMON Tools; Webhooks Lack Signature Checks" class="crayons-btn crayons-btn--s crayons-btn--ghost crayons-btn--icon-left flex items-center" href="../soytuber/new-cves-in-ollama-daemon-tools-webhooks-lack-signature-checks-103l.html">
+<svg aria-labelledby="a4omidw8oxrh3j6fsjecx90zwdc9d6ft" class="crayons-icon" height="24" role="img" width="24" xmlns="http://www.w3.org/2000/svg"><title id="a4omidw8oxrh3j6fsjecx90zwdc9d6ft">Comments</title><path d="M10.5 5h3a6 6 0 110 12v2.625c-3.75-1.5-9-3.75-9-8.625a6 6 0 016-6zM12 15.5h1.5a4.501 4.501 0 001.722-8.657A4.5 4.5 0 0013.5 6.5h-3A4.5 4.5 0 006 11c0 2.707 1.846 4.475 6 6.36V15.5z"></path></svg>
+<span class="hidden s:inline">Add Comment</span>
+</a>
+</div>
+<div class="crayons-story__save">
+<small class="crayons-story__tertiary fs-xs mr-2">
+            4 min read
+          </small>
+<button aria-label="Save post New CVEs in Ollama &amp; DAEMON Tools; Webhooks Lack Signature Checks to reading list" class="c-btn c-btn--icon-alone bookmark-button" data-article-author-id="3812665" data-reactable-id="3617345" id="article-save-button-3617345" title="Save post New CVEs in Ollama &amp; DAEMON Tools; Webhooks Lack Signature Checks to reading list" type="button">
+<span class="bm-initial">
+<svg aria-hidden="true" height="24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M6.75 4.5h10.5a.75.75 0 01.75.75v14.357a.375.375 0 01-.575.318L12 16.523l-5.426 3.401A.375.375 0 016 19.607V5.25a.75.75 0 01.75-.75zM16.5 6h-9v11.574l4.5-2.82 4.5 2.82V6z"></path></svg>
+</span>
+<span class="bm-success">
+<svg aria-hidden="true" height="24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M6.75 4.5h10.5a.75.75 0 01.75.75v14.357a.375.375 0 01-.575.318L12 16.523l-5.426 3.401A.375.375 0 016 19.607V5.25a.75.75 0 01.75-.75z"></path></svg>
+</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="placeholder-div"></div>
+<div class="single-article-small-pic" id="article-index-hidden-div" style="display:none"></div>
+</div>
+<div aria-live="polite" class="crayons-notice mt-4">
+        👋 <a href="../enter-q7ffd52de7b.html">Sign in</a> for the ability to sort posts by <strong>relevant</strong>, <strong>latest</strong>, or <strong>top</strong>.
+      </div>
+</main>
+<div class="sidebar-wrapper sidebar-wrapper-right" id="sidebar-wrapper-right">
+<div class="sidebar-bg" id="sidebar-bg-right"></div>
+<aside class="side-bar sidebar-additional showing fs-s" id="sidebar-additional">
+<div class="widget">
+<header>
+<h4 class="fs-base fw-medium">trending guides/resources</h4>
+</header>
+<div class="widget-body fs-s">
+<div class="widget-link-list">
+<a class="crayons-link crayons-link--contentful" href="../aws-builders/anthropic-accidentally-leaked-claude-codes-source-code-heres-what-that-means-2f89.html">
+  Anthropic accidentally leaked Claude Code's source code. Here's what that means.
+</a>
+<a class="crayons-link crayons-link--contentful" href="../gabrielanhaia/claude-codes-entire-source-code-was-just-leaked-via-npm-source-maps-heres-whats-inside-cjo.html">
+  Claude Code's Entire Source Code Was Just Leaked via npm Source Maps — Here's What's Inside
+</a>
+<a class="crayons-link crayons-link--contentful" href="../mechcloud_academy/architecting-the-agentic-future-openclaw-vs-nanoclaw-vs-nvidias-nemoclaw-9f8.html">
+  Architecting the Agentic Future: OpenClaw vs. NanoClaw vs. Nvidia's NemoClaw
+</a>
+<a class="crayons-link crayons-link--contentful" href="../jon_at_backboardio/two-days-two-hacks-the-lovable-disclosure-and-the-pattern-nobody-wants-to-talk-about-47eh.html">
+  Two Days, Two Hacks: The Lovable Disclosure and the Pattern Nobody Wants to Talk About
+</a>
+<a class="crayons-link crayons-link--contentful" href="../osovsky/6-ways-to-get-youtube-cookies-for-yt-dlp-in-2026-only-1-works-2cnb.html">
+  6 Ways to Get YouTube Cookies for yt-dlp in 2026 — Only 1 Works
+</a>
+<a class="crayons-link crayons-link--contentful" href="../boucle2026/how-to-protect-your-env-from-claude-code-28f8.html">
+  How to Protect Your .env From Claude Code
+</a>
+<a class="crayons-link crayons-link--contentful" href="../kuro_agent/a-vague-rumor-found-real-0-days-in-vim-and-emacs-heres-why-it-worked-32ec.html">
+  A Vague Rumor Found Real 0-Days in Vim and Emacs. Here's Why It Worked.
+</a>
+<a class="crayons-link crayons-link--contentful" href="../maxkrivich/ai-coding-agent-security-practical-guardrails-for-claude-code-copilot-and-codex-och.html">
+  AI Coding Agent Security: Practical Guardrails for Claude Code, Copilot, and Codex
+</a>
+<a class="crayons-link crayons-link--contentful" href="../valentin_monteiro/claude-mythos-finds-bugs-like-a-senior-dev-finds-excuses-to-skip-standup-2h07.html">
+  Claude Mythos Finds Bugs Like a Senior Dev Finds Excuses to Skip Standup
+</a>
+<a class="crayons-link crayons-link--contentful" href="../zaferdace/the-machine-is-real-an-ai-escaped-its-sandbox-and-sent-an-email-41hp.html">
+  The Machine Is Real: An AI Escaped Its Sandbox and Sent an Email
+</a>
+<a class="crayons-link crayons-link--contentful" href="../uenyioha/os-level-sandboxing-kernel-isolation-for-ai-agents-3fdg.html">
+  OS-Level Sandboxing: Kernel Isolation for AI Agents
+</a>
+<a class="crayons-link crayons-link--contentful" href="../alanwest/github-copilot-is-training-on-your-private-code-now-you-probably-didnt-notice-2f6.html">
+  GitHub Copilot Is Training on Your Private Code Now. You Probably Didn't Notice.
+</a>
+<a class="crayons-link crayons-link--contentful" href="../aws-builders/openclaw-on-aws-agentcore-secure-serverless-production-ready-i8n.html">
+  OpenClaw on AWS Bedrock AgentCore: Secure and Serverless
+</a>
+<a class="crayons-link crayons-link--contentful" href="../freerave/exposed-the-youdao-ads-influencer-marketing-scam-technical-analysis-red-flags-5cag.html">
+  EXPOSED: The Youdao Ads Influencer Marketing Scam - Technical Analysis &amp; Red Flags
+</a>
+<a class="crayons-link crayons-link--contentful" href="../excalibra/edrxdr-bypass-and-detection-evasion-techniques-an-investigation-of-advanced-evasion-strategies-5ckf.html">
+  EDR/XDR Bypass and Detection Evasion Techniques: An Investigation of Advanced Evasion Strategies ...
+</a>
+<a class="crayons-link crayons-link--contentful" href="../thedailyagent/top-5-code-sandboxes-for-ai-agents-in-2026-58id.html">
+  Top 5 Code Sandboxes for AI Agents in 2026
+</a>
+<a class="crayons-link crayons-link--contentful" href="../alsaheem/how-to-store-secrets-in-the-mac-keychain-and-use-them-like-environment-variables-1aj7.html">
+  How to Store Secrets in the Mac Keychain (and Use Them Like Environment Variables)
+</a>
+<a class="crayons-link crayons-link--contentful" href="../smyekh/axios-hijack-post-mortem-how-to-audit-pin-and-automate-a-defense-481d.html">
+  Axios Hijack Post-Mortem: How to Audit, Pin, and Automate a Defense
+</a>
+<a class="crayons-link crayons-link--contentful" href="../kanywst/rfc-8693-deep-dive-token-exchange-310i.html">
+  RFC 8693 Deep Dive: Token Exchange
+</a>
+<a class="crayons-link crayons-link--contentful" href="../lukehinds/nono-the-ultimate-coding-agent-security-tool-sandbox-and-supercharge-claude-code-in-just-two-87l.html">
+  nono : the ultimate coding agent security tool - sandbox and supercharge Claude Code in just two ...
+</a>
+<a class="crayons-link crayons-link--contentful" href="../teppana88/how-i-validate-quality-when-ai-agents-write-my-code-481c.html">
+  How I Validate Quality When AI Agents Write My Code
+</a>
+<a class="crayons-link crayons-link--contentful" href="../dellamas/java-26-o-que-muda-quando-voce-altera-um-campo-final-com-reflection-jep-500-4bch.html">
+  Java 26: o que muda quando você altera um campo final com reflection (JEP 500)
+</a>
+<a class="crayons-link crayons-link--contentful" href="../freerave/the-vercel-breach-what-actually-happened-why-it-matters-and-what-every-developer-should-do-right-4mjn.html">
+  The Vercel Breach: What Actually Happened, Why It Matters, and What Every Developer Should Do Rig...
+</a>
+<a class="crayons-link crayons-link--contentful" href="../nirzak/setting-up-crowdsec-on-your-linux-server-a-complete-guide-14ak.html">
+  Setting Up CrowdSec on your Linux Server: A Complete Guide
+</a>
+<a class="crayons-link crayons-link--contentful" href="../kanywst/rfc-6749-deep-dive-understanding-oauth-20-design-decisions-from-the-specification-2amb.html">
+  RFC 6749 Deep Dive: Understanding OAuth 2.0 Design Decisions from the Specification
+</a>
+</div>
+</div>
+</div>
+</aside>
+</div>
+</div>
+<script defer="defer" src="../cdn/assets.dev.to/assets/storiesList-b9c50cbd898a3a64258a3a49db1c531651b0a4a11937be35ed4651111802b5b5.js"></script>
+<script defer="defer" src="../cdn/assets.dev.to/assets/tagFollows-07a4928c795d6d74427628f275723d9c29def9bb2706cc45ccbb95c0054465fe.js"></script>
+<script defer="defer" src="../cdn/assets.dev.to/assets/feedPreviewCards-8d16b0b656456a28c0a290f756cf6e21e19833111c4796f48c631bfea8323d51.js"></script>
+<script defer="defer" src="../cdn/assets.dev.to/assets/hideBookmarkButtons-a5d5527593e7fcba1cba72db457b57f49f94bf2266c62db454b2c8a00e751d33.js"></script>
+<script defer="defer" src="../cdn/assets.dev.to/assets/drawerSliders-823098a874684cfb50f32368b8dd1c7854954b83a588b8b6cfaef1e8fd30d858.js"></script>
+<script defer="defer" src="../cdn/assets.dev.to/assets/localizeArticleDates-70147c5c6bfe350b42e020ebb2a3dd37419d83978982b5a67b6389119bf162ac.js"></script>
+<div id="runtime-banner-container"></div>
+<div data-translations="{&quot;en&quot;:{&quot;core&quot;:{&quot;add_comment&quot;:&quot;Add comment&quot;,&quot;beta&quot;:&quot;beta&quot;,&quot;comment&quot;:&quot;Comment&quot;,&quot;copy_link&quot;:&quot;Copy link&quot;,&quot;edit_profile&quot;:&quot;Edit profile&quot;,&quot;follow&quot;:&quot;Follow&quot;,&quot;follow_back&quot;:&quot;Follow back&quot;,&quot;following&quot;:&quot;Following&quot;,&quot;like&quot;:&quot;Like&quot;,&quot;loading&quot;:&quot;loading...&quot;,&quot;reaction&quot;:&quot;Reaction&quot;,&quot;report_abuse&quot;:&quot;Report abuse&quot;,&quot;search&quot;:&quot;Search&quot;,&quot;success_settings&quot;:&quot;Successfully updated settings.&quot;,&quot;search_placeholder&quot;:&quot;Search...&quot;,&quot;search_find_related_posts&quot;:&quot;Find related posts...&quot;,&quot;search_powered_by&quot;:&quot;Powered by Algolia&quot;,&quot;search_submit_search&quot;:&quot;Submit search for advanced filtering.&quot;,&quot;search_displaying_recommendations&quot;:&quot;Displaying Algolia Recommendations — Start typing to search&quot;,&quot;article_form_save_changes&quot;:&quot;Save changes&quot;,&quot;article_form_schedule&quot;:&quot;Schedule&quot;,&quot;article_form_publish&quot;:&quot;Publish&quot;,&quot;article_form_loading_preview&quot;:&quot;Loading preview&quot;,&quot;article_form_preview_loaded&quot;:&quot;Preview loaded&quot;,&quot;article_form_co_authors&quot;:&quot;Co-authors&quot;,&quot;article_form_co_authors_description&quot;:&quot;Add up to 4 co-authors from %{org_name}.&quot;,&quot;article_form_co_authors_placeholder&quot;:&quot;Add up to 4...&quot;,&quot;comments_preview&quot;:&quot;Preview&quot;,&quot;comments_continue_editing&quot;:&quot;Continue editing&quot;,&quot;survey_enter_response&quot;:&quot;Enter your response here...&quot;,&quot;survey_thank_you_response&quot;:&quot;Thank you for your response.&quot;,&quot;survey_thank_you_completing&quot;:&quot;Thank you for completing the survey!&quot;,&quot;dashboard_analytics_readers&quot;:&quot;Readers&quot;,&quot;dashboard_analytics_avg_read_time&quot;:&quot;avg. read time %{seconds}s&quot;,&quot;dashboard_analytics_comments&quot;:&quot;Comments&quot;,&quot;dashboard_analytics_reactions&quot;:&quot;Reactions&quot;,&quot;dashboard_analytics_unique_reactors&quot;:&quot;from %{count} unique users&quot;,&quot;dashboard_analytics_bookmarks&quot;:&quot;Bookmarks&quot;,&quot;dashboard_analytics_followers&quot;:&quot;New Followers&quot;,&quot;top_contributors_empty&quot;:&quot;No engagers found for this period.&quot;,&quot;top_contributors_reactions&quot;:&quot;reactions&quot;,&quot;top_contributors_comments&quot;:&quot;comments&quot;,&quot;top_contributors_weight_note&quot;:&quot;Comments carry more weight&quot;,&quot;follower_engagement_ratio&quot;:&quot;%{ratio}% of followers engaged&quot;,&quot;follower_engagement_detail&quot;:&quot;(%{engaged} of %{total})&quot;,&quot;dashboard_analytics_no_data&quot;:&quot;No data available for this period&quot;,&quot;dashboard_analytics_no_referrers&quot;:&quot;No traffic sources yet&quot;,&quot;stats_by&quot;:&quot;by&quot;,&quot;editor_new_title&quot;:&quot;New post title here...&quot;,&quot;editor_body_placeholder&quot;:&quot;Write your post content here...&quot;,&quot;tags_field_label&quot;:&quot;Add up to 4 tags&quot;,&quot;tags_field_placeholder&quot;:&quot;Add up to 4 tags...&quot;,&quot;counted_organization&quot;:{&quot;one&quot;:&quot;%{count} organization&quot;,&quot;other&quot;:&quot;%{count} organizations&quot;},&quot;counted_user&quot;:{&quot;one&quot;:&quot;%{count} person&quot;,&quot;other&quot;:&quot;%{count} people&quot;},&quot;not_following&quot;:&quot;You're not following anyone&quot;,&quot;following_everyone&quot;:&quot;You're following %{details} (everyone)&quot;,&quot;you_are_following&quot;:&quot;You're following&quot;,&quot;and&quot;:&quot;and&quot;}}}" id="i18n-translations"></div>
+</div>
+</div>
+<footer class="crayons-footer print-hidden" id="footer">
+<div class="crayons-footer__container" id="footer-container">
+<style>
+  .long-bb-body {
+    max-height: calc(100vh - 200px);
+    overflow: hidden;
+  }
+  .long-bb-bottom {
+    height: 180px;
+    background: linear-gradient(to top, var(--card-bg), transparent);
+    margin-top: -180px;
+    position:relative;
+    z-index: 5;
+  }
+</style>
+<div data-article-id="" data-category-click="click" data-category-impression="impression" data-context-type="home" data-display-unit="" data-id="146443" data-special="nothing" data-type-of="in_house" style="">
+<div class="crayons-card crayons-card--secondary crayons-bb bb-placement js-billboard" style="display: inline-flex; flex-direction: column; align-items: center; margin: 0 auto 2rem auto; width: fit-content; padding: 2rem;">
+<p style="font-weight: bold; margin: 0 0 1rem 0;">
+            💎 DEV Diamond Sponsors
+        </p>
+<p style="font-size: 0.8em; margin: 0 0 2rem 0;">
+            Thank you to our Diamond Sponsors for supporting the DEV Community
+        </p>
+<div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 2rem;">
+<div style="display: inline-block; max-width: 240px; font-size: 0.8em; font-style: italic; text-align: center; padding: 10px; background: #ffffff; border-radius: 5px; color: #404040;">
+<a href="https://aistudio.google.com/?utm_source=partner&amp;utm_medium=partner&amp;utm_campaign=FY25-Global-DEVpartnership-sponsorship-AIS&amp;utm_content=-&amp;utm_term=-&amp;bb=146443" rel="noopener noreferrer" style="display: flex; justify-content: center; align-items: center;" target="_blank">
+<img alt="Google AI - Official AI Model and Platform Partner" height="472" loading="lazy" src="../cdn/media2.dev.to/dynamic/image/width=880,height=,fit=scale-down,gravity=auto,format=auto/https___dev-to-uploads.s3.amazonaws.com_uploads_articles_xjlyhbdqehj3akhz166w.png" style="display: block; background: #ffffff; margin: 0 auto; width: auto; height: 54px; padding: 10px;" width="2048"/>
+</a>
+<p style="text-align: center;">Google AI is the official AI Model and Platform Partner of DEV</p>
+</div>
+<div style="display: inline-block; max-width: 240px; font-size: 0.8em; font-style: italic; text-align: center; padding: 10px; background: #ffffff; border-radius: 5px; color: #404040;">
+<a href="https://neon.tech/?ref=devto&amp;bb=146443" rel="noopener noreferrer" style="display: flex; justify-content: center; align-items: center;" target="_blank">
+<img alt="Neon - Official Database Partner" height="596" loading="lazy" src="../cdn/media2.dev.to/dynamic/image/width=880,height=,fit=scale-down,gravity=auto,format=auto/https___dev-to-uploads.s3.amazonaws.com_uploads_articles_bnl88cil6afxzmgwrgtt.png" style="display: block; background: #ffffff; margin: 0 auto; width: auto; height: 60px; padding: 10px;" width="2286"/>
+</a>
+<p style="text-align: center;">Neon is the official database partner of DEV</p>
+</div>
+<div style="display: inline-block; max-width: 240px; font-size: 0.8em; font-style: italic; text-align: center; padding: 10px; background: #ffffff; border-radius: 5px; color: #404040;">
+<a href="https://www.algolia.com/developers/?utm_source=devto&amp;utm_medium=referral&amp;bb=146443" rel="noopener noreferrer" style="display: flex; justify-content: center; align-items: center;" target="_blank">
+<img alt="Algolia - Official Search Partner" height="596" loading="lazy" src="../cdn/media2.dev.to/dynamic/image/width=880,height=,fit=scale-down,gravity=auto,format=auto/https___dev-to-uploads.s3.amazonaws.com_uploads_articles_v30ephnolfvnlwgwm0yz.png" style="display: block; background: #ffffff; margin: 0 auto; width: auto; height: 60px; padding: 10px;" width="2286"/>
+</a>
+<p style="text-align: center;">Algolia is the official search partner of DEV</p>
+</div>
+</div>
+</div>
+</div>
+<p class="fs-s crayons-footer__description">
+<a aria-label="DEV Community Home" class="c-link c-link--branded fw-medium" href="../index.html">DEV Community</a> — A space to discuss and keep up software development and manage your software career
+    </p>
+<ul class="footer__nav-links flex gap-2 justify-center flex-wrap fs-s p-0" style=""></ul>
+<li class="footer__nav-link flex items-center">
+<a href="../index.html">
+      Home
+    </a>
+<span class="dot ml-2"></span>
+</li>
+<li class="footer__nav-link flex items-center">
+<a href="../about.html">
+      About
+    </a>
+<span class="dot ml-2"></span>
+</li>
+<li class="footer__nav-link flex items-center">
+<a href="../contact.html">
+      Contact
+    </a>
+<span class="dot ml-2"></span>
+</li>
+<li class="footer__nav-link flex items-center">
+<a href="https://mlh.io/">
+      MLH
+    </a>
+<span class="dot ml-2"></span>
+</li>
+
+<ul class="footer__nav-links flex gap-2 justify-center flex-wrap fs-s p-0" style=""></ul>
+<li class="footer__nav-link flex items-center">
+<a href="../code-of-conduct.html">
+      Code of Conduct
+    </a>
+<span class="dot ml-2"></span>
+</li>
+<li class="footer__nav-link flex items-center">
+<a href="../privacy.html">
+      Privacy Policy
+    </a>
+<span class="dot ml-2"></span>
+</li>
+<li class="footer__nav-link flex items-center">
+<a href="../terms.html">
+      Terms of Use
+    </a>
+<span class="dot ml-2"></span>
+</li>
+
+<div class="fs-s">
+<p>Built on <a class="c-link c-link--branded" href="https://www.forem.com" rel="noopener" target="_blank">Forem</a> — the <a class="c-link c-link--branded" href="opensource.html" rel="noopener" target="_blank">open source</a> software that powers <a class="c-link c-link--branded" href="../index.html" rel="noopener" target="_blank">DEV</a> and other inclusive communities.</p>
+<p>Made with love and <a class="c-link c-link--branded" href="rails.html" rel="noopener" target="_blank">Ruby on Rails</a>. DEV Community <span title="copyright">©</span> 2016 - 2026.</p>
+</div>
+</div>
+</footer>
+<div id="snack-zone"></div>
+<div class="authentication-modal hidden" id="global-signup-modal">
+<div class="authentication-modal__container">
+<figure class="authentication-modal__image-container">
+<img alt="DEV Community" class="authentication-modal__image" loading="lazy" src="../cdn/media2.dev.to/dynamic/image/width=190,height=,fit=scale-down,gravity=auto,format=auto/https___dev-to-uploads.s3.amazonaws.com_uploads_articles_8j7kvp660rqzt99zui8e.png">
+</img></figure>
+<div class="authentication-modal__content">
+<p class="authentication-modal__description">
+          We're a place where coders share, stay up-to-date and grow their careers.
+      </p>
+</div>
+<div class="authentication-modal__actions">
+<a aria-label="Log in" class="crayons-btn" data-no-instant="" href="../enter-q7ffd52de7b.html">
+        Log in
+      </a>
+<a aria-label="Create new account" class="crayons-btn crayons-btn--ghost-brand js-global-signup-modal__create-account" data-no-instant="" href="../enter-qfc40b94913.html">
+        Create account
+      </a>
+</div>
+</div>
+</div>
+<script defer="defer" src="../cdn/assets.dev.to/assets/signupModalShortcuts-0b25469b985100a01e94cbd7fccaf7f0a4d776e129aac65c766aa32cb28ab29a.js"></script>
+<div id="cookie-consent"></div>
+<div aria-hidden="true" class="hidden" id="reaction-category-resources">
+<img data-name="Like" data-position="1" data-slug="like" height="18" src="../cdn/assets.dev.to/assets/sparkle-heart-5f9bee3767e18deb1bb725290cb151c25234768a0e9a2bd39370c382d02920cf.svg" width="18">
+<img data-name="Unicorn" data-position="2" data-slug="unicorn" height="18" src="../cdn/assets.dev.to/assets/multi-unicorn-b44d6f8c23cdd00964192bedc38af3e82463978aa611b4365bd33a0f1f4f3e97.svg" width="18">
+<img data-name="Exploding Head" data-position="3" data-slug="exploding_head" height="18" src="../cdn/assets.dev.to/assets/exploding-head-daceb38d627e6ae9b730f36a1e390fca556a4289d5a41abb2c35068ad3e2c4b5.svg" width="18"/>
+<img data-name="Raised Hands" data-position="4" data-slug="raised_hands" height="18" src="../cdn/assets.dev.to/assets/raised-hands-74b2099fd66a39f2d7eed9305ee0f4553df0eb7b4f11b01b6b1b499973048fe5.svg" width="18"/>
+<img data-name="Fire" data-position="5" data-slug="fire" height="18" src="../cdn/assets.dev.to/assets/fire-f60e7a582391810302117f987b22a8ef04a2fe0df7e3258a5f49332df1cec71e.svg" width="18"/>
+</img></img></div>
+<script>
+  var userSignedIn = false;
+  if (document.readyState === 'complete' || document.readyState === 'interactive') {
+    initAuth();
+  } else {
+    document.addEventListener('DOMContentLoaded', initAuth);
+  }
+
+  function initAuth() {
+    var paramToken = new URLSearchParams(window.location.search).get('jwt');
+
+    if (paramToken && !userSignedIn) {
+      authenticateUser(paramToken);
+    } else {
+      var iframe = document.createElement('iframe');
+      iframe.style.display = 'none';
+      iframe.src = 'https://forem.com/auth_pass/iframe';
+  
+      document.body.appendChild(iframe);
+  
+      window.addEventListener('message', function(event) {
+        if (event.origin !== 'https://forem.com' && event.origin !== window.location.origin) {
+          return;
+        }
+  
+        var data = event.data;
+  
+        if (data.authenticated && !userSignedIn) {
+          authenticateUser(data.token);
+        } else if(data.authenticated && window.ReactNativeWebView && window.ReactNativeWebView.postMessage) {
+          window.ReactNativeWebView.postMessage(JSON.stringify({
+            action: 'login',
+            token: data.token,
+          }));
+        }
+      });  
+    }
+
+    function authenticateUser(token) {
+      fetch('/auth_pass/token_login', {
+        method: 'POST',
+        credentials: 'include',
+        headers: {
+          'Content-Type': 'application/json',
+          'X-CSRF-Token': getMetaContent('csrf-token'),
+        },
+        body: JSON.stringify({ token: token }),
+      })
+      .then(function(response) {
+        return response.json();
+      })
+      .then(function(data) {
+        if (data.success) {
+          if (document.head.querySelector('meta[name="user-signed-in"][content="false"]')) {
+            // Reload the page to update the user's state
+            location.reload();
+          }
+        }
+      })
+      .catch(function(error) {
+        console.error('Error during authentication:', error);
+      });
+    }
+
+    function getMetaContent(name) {
+      var element = document.querySelector('meta[name="' + name + '"]');
+      return element ? element.getAttribute('content') : '';
+    }
+  }
+</script>
+</link></body>
+</html>

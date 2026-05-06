@@ -1,0 +1,2479 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<title>Jerry A. Henley - DEV Community</title>
+<link href="https://dev.to/anderecit" rel="canonical"/>
+<meta content="I write about real-world engineering problems, system failures, and lessons learned while building data pipelines at scale." name="description"/>
+<meta content="software development, engineering, rails, javascript, ruby" name="keywords"/>
+<meta content="website" property="og:type">
+<meta content="https://dev.to/anderecit" property="og:url">
+<meta content="Jerry A. Henley — DEV Community Profile" property="og:title">
+<meta content="cdn/dev-to-uploads.s3.amazonaws.com/uploads/articles/3otvb2z646ytpt1hl2rv.jpg" property="og:image"/>
+<meta content="I write about real-world engineering problems, system failures, and lessons learned while building data pipelines at scale." property="og:description"/>
+<meta content="DEV Community" property="og:site_name"/>
+<meta content="summary_large_image" name="twitter:card"/>
+<meta content="@thepracticaldev" name="twitter:site"/>
+<meta content="@" name="twitter:creator"/>
+<meta content="Jerry A. Henley — DEV Community Profile" name="twitter:title"/>
+<meta content="I write about real-world engineering problems, system failures, and lessons learned while building data pipelines at scale." name="twitter:description"/>
+<meta content="cdn/dev-to-uploads.s3.amazonaws.com/uploads/articles/3otvb2z646ytpt1hl2rv.jpg" name="twitter:image:src">
+<link href="https://dev.to/feed/anderecit" rel="alternate" title="DEV Community RSS Feed" type="application/rss+xml"/>
+<meta content="2026-05-06 03:25:09 UTC" name="last-updated"/>
+<meta content="false" name="user-signed-in"/>
+<meta content="1778037909" name="head-cached-at"/>
+<meta content="production" name="environment"/>
+<link href="cdn/assets.dev.to/assets/minimal-2213124ac5505ccdbf3c4eb62fd70ecda26cb75ed6de931633992a7bac437c81.css" id="main-minimal-stylesheet" media="all" rel="stylesheet"/>
+<link href="cdn/assets.dev.to/assets/views-0681ac17bf1546793c4b7ef7c615b2defec919060aefb3b9c287471e8cb77bf2.css" id="main-views-stylesheet" media="all" rel="stylesheet"/>
+<link href="cdn/assets.dev.to/assets/crayons-d2b52af1d86a9ac9a8bc215ed34ffad7a94af68f4abd1cdcae2a8c1a4385cd23.css" id="main-crayons-stylesheet" media="all" rel="stylesheet"/>
+<script defer="defer" src="cdn/assets.dev.to/assets/base-0c748bbcdc30041261c326ef2ce931fbce46c58bc3c488da881ae35c4750941d.js"></script>
+<script defer="defer" src="cdn/assets.dev.to/assets/application-0b268684912bef9b0f23defff01cb608bfc5d5e5610287725e7b686139ae32d3.js"></script>
+<script defer="defer" src="cdn/assets.dev.to/assets/baseInitializers-2f0777a6d67046056f9f42665560ce072de3801292674358ddbad6e135c1891d.js"></script>
+<script defer="defer" src="cdn/assets.dev.to/assets/baseTracking-90c1c7b9b4f617aa0f900eadaf0ccbdbc2a002f12c1e1ada7da039c823601b14.js"></script>
+<script defer="defer" src="cdn/assets.dev.to/assets/followButtons-e3595664847e9f43945a9b8a0445b32cda9a149f1f169f78b8fcc7714ccab45a.js"></script>
+<meta content="https://assets.dev.to/assets/Search-b977aea0f2d7a5818b4ebd97f7d4aba8548099f84f5db5761f8fa67be76abc54.js" name="search-script"/>
+<meta content="width=device-width, initial-scale=1.0, viewport-fit=cover" name="viewport"/>
+<link href="cdn/media2.dev.to/dynamic/image/width=32,height=,fit=scale-down,gravity=auto,format=auto/https___dev-to-uploads.s3.amazonaws.com_uploads_articles_8j7kvp660rqzt99zui8e.png" rel="icon" type="image/x-icon"/>
+<link href="cdn/media2.dev.to/dynamic/image/width=180,height=,fit=scale-down,gravity=auto,format=auto/https___dev-to-uploads.s3.amazonaws.com_uploads_articles_8j7kvp660rqzt99zui8e.png" rel="apple-touch-icon"/>
+<link href="cdn/media2.dev.to/dynamic/image/width=152,height=,fit=scale-down,gravity=auto,format=auto/https___dev-to-uploads.s3.amazonaws.com_uploads_articles_8j7kvp660rqzt99zui8e.png" rel="apple-touch-icon" sizes="152x152"/>
+<link href="cdn/media2.dev.to/dynamic/image/width=180,height=,fit=scale-down,gravity=auto,format=auto/https___dev-to-uploads.s3.amazonaws.com_uploads_articles_8j7kvp660rqzt99zui8e.png" rel="apple-touch-icon" sizes="180x180"/>
+<link href="cdn/media2.dev.to/dynamic/image/width=167,height=,fit=scale-down,gravity=auto,format=auto/https___dev-to-uploads.s3.amazonaws.com_uploads_articles_8j7kvp660rqzt99zui8e.png" rel="apple-touch-icon" sizes="167x167"/>
+<link href="cdn/media2.dev.to/dynamic/image/width=192,height=,fit=scale-down,gravity=auto,format=auto/https___dev-to-uploads.s3.amazonaws.com_uploads_articles_8j7kvp660rqzt99zui8e.png" rel="icon" sizes="192x192">
+<link href="cdn/media2.dev.to/dynamic/image/width=128,height=,fit=scale-down,gravity=auto,format=auto/https___dev-to-uploads.s3.amazonaws.com_uploads_articles_8j7kvp660rqzt99zui8e.png" rel="icon" sizes="128x128">
+<meta content="dev.to" name="apple-mobile-web-app-title"/>
+<meta content="dev.to" name="application-name"/>
+<meta content="#ffffff" media="(prefers-color-scheme: light)" name="theme-color"/>
+<meta content="#000000" media="(prefers-color-scheme: dark)" name="theme-color"/>
+<link href="https://dev.to/open-search.xml" rel="search" title="DEV Community" type="application/opensearchdescription+xml">
+<meta content="DEV Community" property="forem:name">
+<meta content="https://media2.dev.to/dynamic/image/width=512,height=,fit=scale-down,gravity=auto,format=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Farticles%2F8j7kvp660rqzt99zui8e.png" property="forem:logo">
+<meta content="dev.to" property="forem:domain">
+<style>
+/* ==========================================================================
+   THE 418 CHALLENGE: THEME-AWARE RETRO EDITION
+   ========================================================================== */
+
+.articletag-418challenge {
+  font-family: "Comic Sans MS", "Chalkboard SE", "Marker Felt", sans-serif !important;
+  cursor: crosshair !important;
+}
+
+/* Destroy modern rounded corners and add brutal borders */
+.articletag-418challenge .crayons-card,
+.articletag-418challenge .crayons-article__main,
+.articletag-418challenge .crayons-article__header {
+  border-radius: 0 !important;
+  margin-bottom: 2rem !important;
+}
+
+/* Typography specifics */
+.articletag-418challenge h1,
+.articletag-418challenge h2,
+.articletag-418challenge h3 {
+  text-transform: uppercase !important;
+}
+
+/* Fake <marquee> effect for the main article title */
+.articletag-418challenge h1.fs-3xl {
+  animation: retro-slide 5s linear infinite alternate;
+  overflow: visible;
+}
+
+/* Spin those avatars */
+.articletag-418challenge .crayons-article__header__meta img {
+  border-radius: 0 !important; 
+  animation: retro-spin 5s linear infinite;
+}
+
+/* Obnoxious tags */
+.articletag-418challenge .crayons-tag {
+  border-radius: 0 !important;
+  font-weight: 900 !important;
+  transform: rotate(-3deg);
+  display: inline-block;
+}
+.articletag-418challenge .crayons-tag:nth-child(even) {
+  transform: rotate(3deg);
+}
+
+/* --------------------------------------------------------------------------
+   2. LIGHT THEME (Windows 95 / Office 97 Vibes)
+   -------------------------------------------------------------------------- */
+body:not(.dark-theme) .articletag-418challenge {
+  background-color: #008080 !important; /* Win95 Teal Desktop */
+}
+
+body:not(.dark-theme) .articletag-418challenge .crayons-card,
+body:not(.dark-theme) .articletag-418challenge .crayons-article__main,
+body:not(.dark-theme) .articletag-418challenge .crayons-article__header {
+  background-color: #c0c0c0 !important; /* Classic dialog gray */
+  color: #000000 !important;
+  border: 4px outset #ffffff !important;
+  box-shadow: 8px 8px 0px #000000 !important;
+}
+
+body:not(.dark-theme) .articletag-418challenge h1,
+body:not(.dark-theme) .articletag-418challenge h2,
+body:not(.dark-theme) .articletag-418challenge h3 {
+  color: #ff0000 !important;
+  text-shadow: 2px 2px 0px #ffff00 !important;
+  border-bottom: 3px dashed #0000ff !important;
+}
+
+body:not(.dark-theme) .articletag-418challenge a,
+body:not(.dark-theme) .articletag-418challenge .crayons-link {
+  color: #0000ff !important; /* Standard unvisited blue */
+  text-decoration: underline !important;
+  font-weight: bold !important;
+}
+
+body:not(.dark-theme) .articletag-418challenge a:hover,
+body:not(.dark-theme) .articletag-418challenge .crayons-link:hover {
+  background-color: #ffff00 !important;
+  color: #ff0000 !important;
+}
+
+body:not(.dark-theme) .articletag-418challenge .crayons-tag {
+  background: #ffff00 !important;
+  color: #ff0000 !important;
+  border: 2px dotted #0000ff !important;
+}
+
+/* --------------------------------------------------------------------------
+   3. DARK THEME (1999 Hacker / Deep GeoCities Vibes)
+   -------------------------------------------------------------------------- */
+body.dark-theme .articletag-418challenge {
+  background-color: #000000 !important;
+  /* Dumb CSS: A scrolling, eye-bleeding neon green hacker grid with CRT scanlines */
+  background-image: 
+    linear-gradient(transparent 50%, rgba(0, 255, 0, 0.25) 50%), 
+    linear-gradient(90deg, rgba(0, 255, 0, 0.5) 1px, transparent 1px), 
+    linear-gradient(rgba(0, 255, 0, 0.5) 1px, transparent 1px) !important;
+  background-size: 100% 4px, 20px 20px, 20px 20px !important;
+  animation: retro-pan 60s linear infinite !important;
+}
+
+body.dark-theme .articletag-418challenge .crayons-card,
+body.dark-theme .articletag-418challenge .crayons-article__main,
+body.dark-theme .articletag-418challenge .crayons-article__header {
+  background-color: #111111 !important;
+  color: #00ff00 !important; /* Terminal Green */
+  border: 4px outset #555555 !important;
+  box-shadow: 8px 8px 0px #ff00ff !important; /* Hot pink shadow */
+}
+
+body.dark-theme .articletag-418challenge h1,
+body.dark-theme .articletag-418challenge h2,
+body.dark-theme .articletag-418challenge h3 {
+  color: #ff00ff !important; /* Magenta headers */
+  text-shadow: 2px 2px 0px #00ffff !important; /* Cyan shadow */
+  border-bottom: 3px dashed #00ff00 !important;
+}
+
+body.dark-theme .articletag-418challenge a,
+body.dark-theme .articletag-418challenge .crayons-link {
+  color: #00ffff !important; /* Cyan links */
+  text-decoration: underline !important;
+  font-weight: bold !important;
+}
+
+body.dark-theme .articletag-418challenge a:hover,
+body.dark-theme .articletag-418challenge .crayons-link:hover {
+  background-color: #ff00ff !important;
+  color: #ffffff !important;
+}
+
+body.dark-theme .articletag-418challenge .crayons-tag {
+  background: #000000 !important;
+  color: #00ff00 !important;
+  border: 2px dotted #ff00ff !important;
+}
+
+/* --------------------------------------------------------------------------
+   4. ANIMATIONS
+   -------------------------------------------------------------------------- */
+@keyframes retro-spin {
+  100% { transform: rotate(360deg); }
+}
+
+@keyframes retro-slide {
+  0% { transform: translateX(-2%); }
+  100% { transform: translateX(2%); }
+}
+
+@keyframes retro-pan {
+  0% { background-position: 0 0, 0 0, 0 0; }
+  /* Numbers must be multiples of the background-size (4px and 20px) to loop perfectly */
+  100% { background-position: 0 100px, 40px 40px, 40px 40px; }
+}
+
+/* --------------------------------------------------------------------------
+   5. BONUS: CAUTION TAPE REACTION BAR
+   -------------------------------------------------------------------------- */
+.articletag-418challenge .crayons-article-actions {
+  background: repeating-linear-gradient(
+    45deg,
+    #ffff00,
+    #ffff00 10px,
+    #000000 10px,
+    #000000 20px
+  ) !important;
+  border: 4px solid #ff0000 !important;
+  border-radius: 0 !important;
+}
+
+.articletag-418challenge .crayons-article-actions button {
+  background:black;
+  color: #ff00ff !important;
+}
+
+.articletag-418challenge .crayons-article-actions .crayons-reaction__count {
+    color: #ff00ff !important;
+    font-weight: bold !important;
+}
+
+.articletag-418challenge .crayons-icon:not(.crayons-icon--default) * {
+    fill: #ffff00 !important;
+}
+
+.articletag-418challenge .c-embed .crayons-btn--primary {
+  color: #00ff00 !important;
+}
+
+.articletag-418challenge .popover-billboard {
+margin-bottom: 0 !important;
+}
+
+.crayons-story__contentpreview .ltag__link--embedded {
+margin-top: 0 !important;
+}
+
+.subscription-icon {
+    max-height: 16px !important;
+    display: inline-block !important;
+}
+
+@media screen and (min-width: 950px) {
+    .event-show-layout {
+        margin-top: 24px !important;
+    }
+}
+
+@media screen and (max-width: 949px) {
+    .event-show-layout {
+        padding: 11px !important;
+    }
+}
+
+
+</style>
+</meta></meta></meta></link></link></link></meta></meta></meta></meta></head>
+<body class="sans-serif-article-body default-header" data-algolia-display="true" data-algolia-id="PRSOBFP46H" data-algolia-search-key="9aa7d31610cba78851c9b1f63776a9dd" data-community-name="DEV Community" data-cookie-banner-platform-context="off" data-cookie-banner-user-context="logged_out_only" data-deployed-at="2026-05-05T19:04:15Z" data-dynamic-url-component="bmar11" data-ga-tracking="UA-71991109-1" data-ga4-tracking-id="G-TYEM8Y3JN3" data-honeybadger-key="hbp_nqu4Y66HuEKlD6YRGssZuRQnPOjDm50J8Zkr" data-is-root-subforem="false" data-latest-commit-id="99141cc1f10837f83a0dcd05003c5e711ec877ac" data-locale="en" data-side-nav-visible="true" data-subforem-id="1" data-subscription-icon="https://assets.dev.to/assets/subscription-icon-805dfa7ac7dd660f07ed8d654877270825b07a92a03841aa99a1093bd00431b2.png" data-user-status="logged-out">
+<script>
+        if (navigator.userAgent === 'ForemWebView/1' || window.frameElement) {
+          document.body.classList.add("hidden-shell");
+        }
+          if (new Date() > new Date("2026-02-04T09:00:00-05:00")) {
+            document.body.dataset.sideNavVisible = "false";
+          } 
+      </script>
+<link href="cdn/assets.dev.to/assets/minimal-2213124ac5505ccdbf3c4eb62fd70ecda26cb75ed6de931633992a7bac437c81.css" id="secondary-minimal-stylesheet" media="all" rel="stylesheet">
+<link href="cdn/assets.dev.to/assets/views-0681ac17bf1546793c4b7ef7c615b2defec919060aefb3b9c287471e8cb77bf2.css" id="secondary-views-stylesheet" media="all" rel="stylesheet"/>
+<link href="cdn/assets.dev.to/assets/crayons-d2b52af1d86a9ac9a8bc215ed34ffad7a94af68f4abd1cdcae2a8c1a4385cd23.css" id="secondary-crayons-stylesheet" media="all" rel="stylesheet"/>
+<div id="body-styles">
+<style>
+          :root {
+            --accent-brand-lighter-rgb: 86, 105, 285;
+            --accent-brand-rgb: 64, 78, 211;
+            --accent-brand-darker-rgb: 51, 62, 169;
+          }
+        </style>
+</div>
+<div data-podcast="" id="audiocontent">
+</div>
+<div class="navigation-progress" id="navigation-progress"></div>
+<header class="crayons-header topbar print-hidden" id="topbar">
+<span id="route-change-target" tabindex="-1"></span>
+<a class="skip-content-link" href="#main-content">Skip to content</a>
+<div class="crayons-header__container">
+<span class="inline-block m:hidden">
+<button class="c-btn c-btn--icon-alone js-hamburger-trigger mx-2">
+<svg aria-labelledby="aq6h5w4nzv84focyv1eqrbvkzhi4b46w" class="crayons-icon" height="24" role="img" viewbox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><title id="aq6h5w4nzv84focyv1eqrbvkzhi4b46w">Navigation menu</title>
+<path d="M3 4h18v2H3V4zm0 7h18v2H3v-2zm0 7h18v2H3v-2z"></path>
+</svg>
+</button>
+</span>
+<a aria-label="DEV Community Home" class="site-logo" href="index.html">
+<img alt="DEV Community" class="site-logo__img" src="cdn/media2.dev.to/dynamic/image/quality=100/https_/dev-to-uploads.s3.amazonaws.com/uploads/logos/resized_logo_UQww2soKuUsjaOGNB38o.png" style="aspect-ratio: 10 / 8"/>
+</a>
+<div class="crayons-header--search js-search-form" id="header-search">
+<form accept-charset="UTF-8" action="/search" method="get" role="search">
+<div class="crayons-fields crayons-fields--horizontal">
+<div class="crayons-field flex-1 relative">
+<input autocomplete="off" class="crayons-header--search-input crayons-textfield js-search-input" id="nav-search" name="q" placeholder="Search..." type="text"/>
+<button aria-label="Search" class="c-btn c-btn--icon-alone absolute inset-px right-auto mt-0 py-0" type="submit">
+<svg aria-hidden="true" aria-labelledby="a4y03atuavujg7352oo7l3voi24jdcda" class="crayons-icon" height="24" role="img" viewbox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><title id="a4y03atuavujg7352oo7l3voi24jdcda">Search</title>
+<path d="M18.031 16.617l4.283 4.282-1.415 1.415-4.282-4.283A8.96 8.96 0 0111 20c-4.968 0-9-4.032-9-9s4.032-9 9-9 9 4.032 9 9a8.96 8.96 0 01-1.969 5.617zm-2.006-.742A6.977 6.977 0 0018 11c0-3.868-3.133-7-7-7-3.868 0-7 3.132-7 7 0 3.867 3.132 7 7 7a6.977 6.977 0 004.875-1.975l.15-.15z"></path>
+</svg>
+</button>
+<a class="crayons-header--search-brand-indicator" href="https://www.algolia.com/developers/?utm_source=devto&amp;utm_medium=referral" rel="noopener noreferrer" target="_blank">
+                Powered by Algolia
+                <svg aria-hidden="true" aria-labelledby="aeg4r07tukn1br5bpo2ijne4mqpkj11y" class="crayons-icon" height="24" id="Layer_1" role="img" viewbox="0 0 500 500.34" width="24" xmlns="http://www.w3.org/2000/svg"><title id="aeg4r07tukn1br5bpo2ijne4mqpkj11y">Search</title>
+<defs></defs><path class="cls-1" d="M250,0C113.38,0,2,110.16,.03,246.32c-2,138.29,110.19,252.87,248.49,253.67,42.71,.25,83.85-10.2,120.38-30.05,3.56-1.93,4.11-6.83,1.08-9.52l-23.39-20.74c-4.75-4.22-11.52-5.41-17.37-2.92-25.5,10.85-53.21,16.39-81.76,16.04-111.75-1.37-202.04-94.35-200.26-206.1,1.76-110.33,92.06-199.55,202.8-199.55h202.83V407.68l-115.08-102.25c-3.72-3.31-9.43-2.66-12.43,1.31-18.47,24.46-48.56,39.67-81.98,37.36-46.36-3.2-83.92-40.52-87.4-86.86-4.15-55.28,39.65-101.58,94.07-101.58,49.21,0,89.74,37.88,93.97,86.01,.38,4.28,2.31,8.28,5.53,11.13l29.97,26.57c3.4,3.01,8.8,1.17,9.63-3.3,2.16-11.55,2.92-23.6,2.07-35.95-4.83-70.39-61.84-127.01-132.26-131.35-80.73-4.98-148.23,58.18-150.37,137.35-2.09,77.15,61.12,143.66,138.28,145.36,32.21,.71,62.07-9.42,86.2-26.97l150.36,133.29c6.45,5.71,16.62,1.14,16.62-7.48V9.49C500,4.25,495.75,0,490.51,0H250Z"></path>
+</svg>
+</a>
+</div>
+</div>
+</form>
+</div>
+<div class="flex items-center h-100 ml-auto">
+<div class="flex" id="authentication-top-nav-actions">
+<span class="hidden m:block">
+<a class="c-link c-link--block mr-2 whitespace-nowrap ml-auto" data-no-instant="" href="enter-q7ffd52de7b.html">
+              Log in
+            </a>
+</span>
+<a class="c-cta c-cta--branded whitespace-nowrap mr-2" data-no-instant="" data-tracking-id="ca_top_nav" data-tracking-source="top_navbar" href="enter-qfc40b94913.html">
+            Create account
+          </a>
+</div>
+</div>
+</div>
+</header>
+<div class="hamburger">
+<div class="hamburger__content">
+<header class="hamburger__content__header">
+<h2 class="fs-l fw-bold flex-1 break-word lh-tight">DEV Community</h2>
+<button aria-label="Close" class="c-btn c-btn--icon-alone js-hamburger-trigger shrink-0">
+<svg aria-hidden="true" aria-labelledby="at159nu1l2hym61ym18jjiz4wmuzg07p" class="crayons-icon c-btn__icon" height="24" role="img" viewbox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><title id="at159nu1l2hym61ym18jjiz4wmuzg07p">Close</title><path d="M12 10.586l4.95-4.95 1.414 1.414-4.95 4.95 4.95 4.95-1.414 1.414-4.95-4.95-4.95 4.95-1.414-1.414 4.95-4.95-4.95-4.95L7.05 5.636l4.95 4.95z"></path></svg>
+</button>
+</header>
+<div class="p-2 js-navigation-links-container" id="authentication-hamburger-actions">
+</div>
+</div>
+<div class="hamburger__overlay js-hamburger-trigger"></div>
+</div>
+<div class="broadcast-wrapper" id="active-broadcast"></div>
+<div class="wrapper stories stories-index" data-current-page="stories-index" id="page-content">
+<div data-internal-nav="false" data-viewable-id="" data-viewable-type="" id="page-content-inner">
+<div aria-atomic="true" aria-live="polite" class="screen-reader-only" id="page-route-change"></div>
+<main id="main-content">
+<script type="application/ld+json">
+    {"@context":"http://schema.org","@type":"Person","mainEntityOfPage":{"@type":"WebPage","@id":"https://dev.to/anderecit"},"url":"https://dev.to/anderecit","image":"https://media2.dev.to/dynamic/image/width=320,height=320,fit=cover,gravity=auto,format=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Fuser%2Fprofile_image%2F3729692%2F74d7e0fb-145a-4c4d-962f-79ac4411266b.jpg","name":"Jerry A. Henley","description":"I write about real-world engineering problems, system failures, and lessons learned while building data pipelines at scale."}
+  </script>
+<style>
+    :root {
+      --profile-brand-color: #000000;
+    }
+  </style>
+<div class="brand-bg">
+<div class="crayons-layout crayons-layout--limited-l pt-7 m:pt-9">
+<header class="profile-header crayons-card mt-2">
+<div class="relative profile-header__top">
+<span class="crayons-avatar crayons-avatar--3xl">
+<img alt="Jerry A. Henley profile picture" class="crayons-avatar__image" height="128" src="cdn/media2.dev.to/dynamic/image/width=320,height=320,fit=cover,gravity=auto,format=auto/https___dev-to-uploads.s3.amazonaws.com_uploads_user_profile_image_3729692_74d7e0fb-145a-4c4d-962f-79ac4411266b.jpg" width="128"/>
+</span>
+<div class="profile-header__actions">
+<button class="crayons-btn whitespace-nowrap follow-action-button follow-user" data-info='{"id":3729692,"className":"User","name":"Jerry A. Henley"}' id="user-follow-butt">Follow</button>
+<div class="profile-dropdown ml-2 s:relative hide-if-belongs-to-current-user-3729692" data-username="anderecit">
+<button aria-controls="user-profile-dropdownmenu" aria-expanded="false" aria-haspopup="true" class="crayons-btn crayons-btn--ghost-dimmed crayons-btn--icon" id="user-profile-dropdown">
+<svg aria-labelledby="aghnr00x8zxdegl3btesx9h48jxftj04" class="crayons-icon dropdown-icon" height="24" role="img" width="24" xmlns="http://www.w3.org/2000/svg"><title id="aghnr00x8zxdegl3btesx9h48jxftj04">User actions</title><path clip-rule="evenodd" d="M7 12a2 2 0 11-4 0 2 2 0 014 0zm7 0a2 2 0 11-4 0 2 2 0 014 0zm5 2a2 2 0 100-4 2 2 0 000 4z" fill-rule="evenodd"></path></svg>
+</button>
+<div class="crayons-dropdown left-2 right-2 s:right-0 s:left-auto top-100 mt-1" id="user-profile-dropdownmenu">
+<span class="report-abuse-link-wrapper" data-path="/report-abuse?url=https://dev.to/anderecit"></span>
+</div>
+</div>
+</div>
+</div>
+<div class="profile-header__details" data-url="/users/3729692">
+<div class="items-center js-username-container mb-2">
+<h1 class="crayons-title lh-tight">
+              Jerry A. Henley
+              <span class="ml-2"></span>
+</h1>
+</div>
+<p class="fs-base profile-header__bio m:fs-l color-base-90 mb-4 mx-auto max-w-100 m:max-w-75">I write about real-world engineering problems, system failures, and lessons learned while building data pipelines at scale.</p>
+<div class="profile-header__meta">
+<span class="profile-header__meta__item">
+<svg aria-labelledby="andr208a88ispuehxj3nh6o1ufidkipp" class="crayons-icon mr-2 shrink-0" height="24" role="img" viewbox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><title id="andr208a88ispuehxj3nh6o1ufidkipp">Joined</title>
+<path d="M8 6v3.999h3V6h2v3.999h3V6h2v3.999L19 10a3 3 0 012.995 2.824L22 13v1c0 1.014-.377 1.94-.999 2.645L21 21a1 1 0 01-1 1H4a1 1 0 01-1-1v-4.36a4.025 4.025 0 01-.972-2.182l-.022-.253L2 14v-1a3 3 0 012.824-2.995L5 10l1-.001V6h2zm11 6H5a1 1 0 00-.993.883L4 13v.971l.003.147a2 2 0 003.303 1.4c.363-.312.602-.744.674-1.218l.015-.153.005-.176c.036-1.248 1.827-1.293 1.989-.134l.01.134.004.147a2 2 0 003.992.031l.012-.282c.124-1.156 1.862-1.156 1.986 0l.012.282a2 2 0 003.99 0L20 14v-1a1 1 0 00-.883-.993L19 12zM7 1c1.32.871 1.663 2.088 1.449 2.888a1.5 1.5 0 11-2.898-.776C5.85 2.002 7 2.5 7 1zm5 0c1.32.871 1.663 2.088 1.449 2.888a1.5 1.5 0 01-2.898-.776C10.85 2.002 12 2.5 12 1zm5 0c1.32.871 1.663 2.088 1.449 2.888a1.5 1.5 0 01-2.898-.776C15.85 2.002 17 2.5 17 1z"></path>
+</svg>
+<span>
+                Joined on <time class="date" datetime="2026-01-24T07:30:10Z">Jan 24, 2026</time>
+</span>
+</span>
+</div>
+</div>
+<div class="p-3 block m:hidden js-user-info-trigger-wrapper">
+<button class="my-3 crayons-btn crayons-btn--outlined w-100 js-user-info-trigger" type="button">More info about @anderecit</button>
+</div>
+</header>
+</div>
+</div>
+<div class="crayons-layout crayons-layout--limited-l crayons-layout--2-cols crayons-layout--2-cols--1-2 pt-4 m:pt-0" data-articles-since="0" data-feed="base-feed" data-params='{"user_id":3729692,"class_name":"Article","sort_by":"published_at","sort_direction":"desc"}' data-tag="" data-which="articles" id="index-container">
+<div class="crayons-layout__sidebar-left crayons-layout__content">
+<div class="m:gap-4 hidden m:grid js-user-info">
+<div class="crayons-card crayons-card--secondary">
+<header class="crayons-card__header">
+<h3 class="crayons-subtitle-3">Badges</h3>
+</header>
+<div class="crayons-card__body">
+<div class="grid gap-4 grid-cols-3 s:grid-cols-4 m:grid-cols-2 align-center items-center js-profile-badges">
+<div class="js-profile-badge relative" onclick="window.Forem.showModal({size: 'medium', showHeader: false, contentSelector: '#badge-280', overlay: true})" role="button" title="Writing Debut">
+<img alt="Writing Debut" class="mx-auto w-75 h-auto align-middle" loading="lazy" src="cdn/media2.dev.to/dynamic/image/width=192,height=,fit=scale-down,gravity=auto,format=auto/https___dev-to-uploads.s3.amazonaws.com_uploads_badge_badge_image_280_Writing_Streak_Badges-05.png" style="object-fit: contain; cursor: pointer; width: 100%; aspect-ratio: 1 / 1; max-width: 80px;">
+</img></div>
+<template id="badge-280">
+<div class="badge_details">
+<div class="badge-image-container p-3">
+<img alt="Writing Debut badge" class="badge-image" loading="lazy" src="cdn/media2.dev.to/dynamic/image/width=192,height=,fit=scale-down,gravity=auto,format=auto/https___dev-to-uploads.s3.amazonaws.com_uploads_badge_badge_image_280_Writing_Streak_Badges-05.png" title="Writing Debut">
+</img></div>
+<div class="badge_text_content">
+<h4 class="title fw-800 fs-l">Writing Debut</h4>
+<p class="description">Awarded for writing and sharing your first DEV post! Continue sharing your work to earn the 4 Week Writing Streak Badge.</p>
+<button class="got-it-btn items-start c-btn c-btn--primary" onclick="window.Forem.closeModal()">Got it</button>
+</div>
+<div class="close" onclick="window.Forem.closeModal()">
+<svg aria-hidden="true" class="close_icon" height="24" viewbox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><title>Close</title><path d="M12 10.586l4.95-4.95 1.414 1.414-4.95 4.95 4.95 4.95-1.414 1.414-4.95-4.95-4.95 4.95-1.414-1.414 4.95-4.95-4.95-4.95L7.05 5.636l4.95 4.95z"></path></svg>
+</div>
+</div>
+</template>
+</div>
+</div>
+</div>
+<div class="crayons-card crayons-card--secondary p-4">
+<div class="flex items-center mb-4">
+<svg aria-labelledby="a4r1s33vxce1jw00dhfn4rfxnyssf9mt" class="crayons-icon mr-3 color-base-50" height="24" role="img" viewbox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><title id="a4r1s33vxce1jw00dhfn4rfxnyssf9mt">Post</title>
+<path d="M19 22H5a3 3 0 01-3-3V3a1 1 0 011-1h14a1 1 0 011 1v12h4v4a3 3 0 01-3 3zm-1-5v2a1 1 0 002 0v-2h-2zm-2 3V4H4v15a1 1 0 001 1h11zM6 7h8v2H6V7zm0 4h8v2H6v-2zm0 4h5v2H6v-2z"></path>
+</svg>
+
+        19 posts published
+      </div>
+<div class="flex items-center mb-4">
+<svg aria-labelledby="an3xadkfk2sigtvptne92j3kdpv78wfb" class="crayons-icon mr-3 color-base-50" height="24" role="img" viewbox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><title id="an3xadkfk2sigtvptne92j3kdpv78wfb">Comment</title>
+<path d="M10 3h4a8 8 0 010 16v3.5c-5-2-12-5-12-11.5a8 8 0 018-8zm2 14h2a6 6 0 000-12h-4a6 6 0 00-6 6c0 3.61 2.462 5.966 8 8.48V17z"></path>
+</svg>
+
+        0 comments written
+      </div>
+<div class="flex items-center">
+<svg aria-labelledby="ajzg08y9c40nqbv1cx3yxjehx87s0k6j" class="crayons-icon mr-3 color-base-50" height="24" role="img" viewbox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><title id="ajzg08y9c40nqbv1cx3yxjehx87s0k6j">Tag</title>
+<path d="M7.784 14l.42-4H4V8h4.415l.525-5h2.011l-.525 5h3.989l.525-5h2.011l-.525 5H20v2h-3.784l-.42 4H20v2h-4.415l-.525 5h-2.011l.525-5H9.585l-.525 5H7.049l.525-5H4v-2h3.784zm2.011 0h3.99l.42-4h-3.99l-.42 4z"></path>
+</svg>
+
+        7 tags followed
+      </div>
+</div>
+</div>
+</div>
+<main class="crayons-layout__content articles-list" id="articles-list">
+<div class="substories" id="substories">
+<div class="crayons-story" data-content-user-id="3729692" data-feed-content-id="3448451">
+<a aria-labelledby="article-link-3448451" class="crayons-story__hidden-navigation-link" href="anderecit/automate-competitor-price-tracking-turn-one-off-scrapes-into-weekly-audits-1kd7.html">Automate Competitor Price Tracking: Turn One-Off Scrapes into Weekly Audits</a>
+<div class="crayons-story__body crayons-story__body-full_post">
+<div class="crayons-story__top">
+<div class="crayons-story__meta">
+<div class="crayons-story__author-pic">
+<a class="crayons-avatar crayons-avatar--l" href="anderecit.html">
+<img alt="anderecit profile" class="crayons-avatar__image" loading="lazy" src="cdn/media2.dev.to/dynamic/image/width=90,height=90,fit=cover,gravity=auto,format=auto/https___dev-to-uploads.s3.amazonaws.com_uploads_user_profile_image_3729692_74d7e0fb-145a-4c4d-962f-79ac4411266b.jpg"/>
+</a>
+</div>
+<div>
+<div>
+<a class="crayons-story__secondary fw-medium m:hidden" href="anderecit.html">
+              Jerry A. Henley
+            </a>
+<div class="profile-preview-card relative mb-4 s:mb-0 fw-medium hidden m:inline-block">
+<button aria-controls="story-author-preview-content-3448451" aria-label="Jerry A. Henley profile details" class="profile-preview-card__trigger fs-s p-1 -ml-1 -my-2 crayons-btn crayons-btn--ghost" id="story-author-preview-trigger-3448451">
+                Jerry A. Henley
+                
+              </button>
+<div class="profile-preview-card__content crayons-dropdown branded-7 p-4 pt-0" data-repositioning-dropdown="true" data-testid="profile-preview-card" id="story-author-preview-content-3448451" style="border-top-color: var(--card-color);">
+<div class="gap-4 grid">
+<div class="-mt-4">
+<a class="flex" href="anderecit.html">
+<span class="crayons-avatar crayons-avatar--xl mr-2 shrink-0">
+<img alt="" class="crayons-avatar__image" loading="lazy" src="cdn/media2.dev.to/dynamic/image/width=90,height=90,fit=cover,gravity=auto,format=auto/https___dev-to-uploads.s3.amazonaws.com_uploads_user_profile_image_3729692_74d7e0fb-145a-4c4d-962f-79ac4411266b.jpg"/>
+</span>
+<span class="crayons-link crayons-subtitle-2 mt-5">Jerry A. Henley</span>
+</a>
+</div>
+<div class="print-hidden">
+<button class="crayons-btn follow-action-button whitespace-nowrap follow-user w-100" data-info='{"style":"full","id":3729692,"className":"User","name":"Jerry A. Henley"}'>
+                      Follow
+                    </button>
+</div>
+<div class="author-preview-metadata-container" data-author-id="3729692"></div>
+</div>
+</div>
+</div>
+</div>
+<a class="crayons-story__tertiary fs-xs" href="anderecit/automate-competitor-price-tracking-turn-one-off-scrapes-into-weekly-audits-1kd7.html"><time datetime="2026-04-03T07:36:27Z">Apr 3</time><span class="time-ago-indicator-initial-placeholder" data-seconds="1775201787"></span></a>
+</div>
+</div>
+</div>
+<div class="crayons-story__indention">
+<h2 class="crayons-story__title crayons-story__title-full_post">
+<a data-preload-image="https://media2.dev.to/dynamic/image/width=1000,height=420,fit=cover,gravity=auto,format=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Farticles%2Fr0utdd1bltz22y6mumzi.png" href="anderecit/automate-competitor-price-tracking-turn-one-off-scrapes-into-weekly-audits-1kd7.html" id="article-link-3448451">
+          Automate Competitor Price Tracking: Turn One-Off Scrapes into Weekly Audits
+        </a>
+</h2>
+<div class="crayons-story__tags">
+<a class="crayons-tag crayons-tag--monochrome" href="t/webscraping.html" style="
+        --tag-bg: rgba(64, 78, 211, 0.10);
+        --tag-prefix: #404ED3;
+        --tag-bg-hover: rgba(64, 78, 211, 0.10);
+        --tag-prefix-hover: #404ED3;
+      "><span class="crayons-tag__prefix">#</span>webscraping</a>
+<a class="crayons-tag crayons-tag--monochrome" href="t/webdev.html" style="
+        --tag-bg: rgba(86, 39, 101, 0.10);
+        --tag-prefix: #562765;
+        --tag-bg-hover: rgba(86, 39, 101, 0.10);
+        --tag-prefix-hover: #562765;
+      "><span class="crayons-tag__prefix">#</span>webdev</a>
+<a class="crayons-tag crayons-tag--monochrome" href="t/ai.html" style="
+        --tag-bg: rgba(23, 253, 26, 0.10);
+        --tag-prefix: #17fd1a;
+        --tag-bg-hover: rgba(23, 253, 26, 0.10);
+        --tag-prefix-hover: #17fd1a;
+      "><span class="crayons-tag__prefix">#</span>ai</a>
+<a class="crayons-tag crayons-tag--monochrome" href="t/python.html" style="
+        --tag-bg: rgba(30, 56, 187, 0.10);
+        --tag-prefix: #1E38BB;
+        --tag-bg-hover: rgba(30, 56, 187, 0.10);
+        --tag-prefix-hover: #1E38BB;
+      "><span class="crayons-tag__prefix">#</span>python</a>
+</div>
+<div class="crayons-story__bottom">
+<div class="crayons-story__details">
+<a aria-label="Add a comment to post - Automate Competitor Price Tracking: Turn One-Off Scrapes into Weekly Audits" class="crayons-btn crayons-btn--s crayons-btn--ghost crayons-btn--icon-left" data-reactable-id="3448451" data-reaction-count="" href="anderecit/automate-competitor-price-tracking-turn-one-off-scrapes-into-weekly-audits-1kd7.html">
+<div class="multiple_reactions_aggregate">
+<span class="multiple_reactions_icons_container" dir="rtl">
+<span class="crayons_icon_container">
+<img height="18" src="cdn/assets.dev.to/assets/sparkle-heart-5f9bee3767e18deb1bb725290cb151c25234768a0e9a2bd39370c382d02920cf.svg" width="18"/>
+</span>
+</span>
+<span class="aggregate_reactions_counter">1<span class="hidden s:inline"> reaction</span></span>
+</div>
+</a>
+<a aria-label="Add a comment to post - Automate Competitor Price Tracking: Turn One-Off Scrapes into Weekly Audits" class="crayons-btn crayons-btn--s crayons-btn--ghost crayons-btn--icon-left flex items-center" href="anderecit/automate-competitor-price-tracking-turn-one-off-scrapes-into-weekly-audits-1kd7.html">
+<svg aria-labelledby="anj5g0gnjc71af674tvht8046e3ezgeg" class="crayons-icon" height="24" role="img" width="24" xmlns="http://www.w3.org/2000/svg"><title id="anj5g0gnjc71af674tvht8046e3ezgeg">Comments</title><path d="M10.5 5h3a6 6 0 110 12v2.625c-3.75-1.5-9-3.75-9-8.625a6 6 0 016-6zM12 15.5h1.5a4.501 4.501 0 001.722-8.657A4.5 4.5 0 0013.5 6.5h-3A4.5 4.5 0 006 11c0 2.707 1.846 4.475 6 6.36V15.5z"></path></svg>
+<span class="hidden s:inline">Add Comment</span>
+</a>
+</div>
+<div class="crayons-story__save">
+<small class="crayons-story__tertiary fs-xs mr-2">
+            5 min read
+          </small>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="crayons-story" data-content-user-id="3729692" data-feed-content-id="3334645">
+<a aria-labelledby="article-link-3334645" class="crayons-story__hidden-navigation-link" href="anderecit/stop-paying-twice-how-to-cut-web-scraping-proxy-costs-with-smart-caching-451c.html">Stop Paying Twice: How to Cut Web Scraping Proxy Costs with Smart Caching</a>
+<div class="crayons-story__body crayons-story__body-full_post">
+<div class="crayons-story__top">
+<div class="crayons-story__meta">
+<div class="crayons-story__author-pic">
+<a class="crayons-avatar crayons-avatar--l" href="anderecit.html">
+<img alt="anderecit profile" class="crayons-avatar__image" loading="lazy" src="cdn/media2.dev.to/dynamic/image/width=90,height=90,fit=cover,gravity=auto,format=auto/https___dev-to-uploads.s3.amazonaws.com_uploads_user_profile_image_3729692_74d7e0fb-145a-4c4d-962f-79ac4411266b.jpg"/>
+</a>
+</div>
+<div>
+<div>
+<a class="crayons-story__secondary fw-medium m:hidden" href="anderecit.html">
+              Jerry A. Henley
+            </a>
+<div class="profile-preview-card relative mb-4 s:mb-0 fw-medium hidden m:inline-block">
+<button aria-controls="story-author-preview-content-3334645" aria-label="Jerry A. Henley profile details" class="profile-preview-card__trigger fs-s p-1 -ml-1 -my-2 crayons-btn crayons-btn--ghost" id="story-author-preview-trigger-3334645">
+                Jerry A. Henley
+                
+              </button>
+<div class="profile-preview-card__content crayons-dropdown branded-7 p-4 pt-0" data-repositioning-dropdown="true" data-testid="profile-preview-card" id="story-author-preview-content-3334645" style="border-top-color: var(--card-color);">
+<div class="gap-4 grid">
+<div class="-mt-4">
+<a class="flex" href="anderecit.html">
+<span class="crayons-avatar crayons-avatar--xl mr-2 shrink-0">
+<img alt="" class="crayons-avatar__image" loading="lazy" src="cdn/media2.dev.to/dynamic/image/width=90,height=90,fit=cover,gravity=auto,format=auto/https___dev-to-uploads.s3.amazonaws.com_uploads_user_profile_image_3729692_74d7e0fb-145a-4c4d-962f-79ac4411266b.jpg"/>
+</span>
+<span class="crayons-link crayons-subtitle-2 mt-5">Jerry A. Henley</span>
+</a>
+</div>
+<div class="print-hidden">
+<button class="crayons-btn follow-action-button whitespace-nowrap follow-user w-100" data-info='{"style":"full","id":3729692,"className":"User","name":"Jerry A. Henley"}'>
+                      Follow
+                    </button>
+</div>
+<div class="author-preview-metadata-container" data-author-id="3729692"></div>
+</div>
+</div>
+</div>
+</div>
+<a class="crayons-story__tertiary fs-xs" href="anderecit/stop-paying-twice-how-to-cut-web-scraping-proxy-costs-with-smart-caching-451c.html"><time datetime="2026-03-20T17:13:00Z">Mar 20</time><span class="time-ago-indicator-initial-placeholder" data-seconds="1774026780"></span></a>
+</div>
+</div>
+</div>
+<div class="crayons-story__indention">
+<h2 class="crayons-story__title crayons-story__title-full_post">
+<a data-preload-image="https://media2.dev.to/dynamic/image/width=1000,height=420,fit=cover,gravity=auto,format=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Farticles%2F9vta5fgzykzw1ozidgrg.png" href="anderecit/stop-paying-twice-how-to-cut-web-scraping-proxy-costs-with-smart-caching-451c.html" id="article-link-3334645">
+          Stop Paying Twice: How to Cut Web Scraping Proxy Costs with Smart Caching
+        </a>
+</h2>
+<div class="crayons-story__tags">
+<a class="crayons-tag crayons-tag--monochrome" href="t/proxy.html" style="
+        --tag-bg: rgba(64, 78, 211, 0.10);
+        --tag-prefix: #404ED3;
+        --tag-bg-hover: rgba(64, 78, 211, 0.10);
+        --tag-prefix-hover: #404ED3;
+      "><span class="crayons-tag__prefix">#</span>proxy</a>
+<a class="crayons-tag crayons-tag--monochrome" href="t/webscraping.html" style="
+        --tag-bg: rgba(64, 78, 211, 0.10);
+        --tag-prefix: #404ED3;
+        --tag-bg-hover: rgba(64, 78, 211, 0.10);
+        --tag-prefix-hover: #404ED3;
+      "><span class="crayons-tag__prefix">#</span>webscraping</a>
+<a class="crayons-tag crayons-tag--monochrome" href="t/devops.html" style="
+        --tag-bg: rgba(6, 181, 0, 0.10);
+        --tag-prefix: #06B500;
+        --tag-bg-hover: rgba(6, 181, 0, 0.10);
+        --tag-prefix-hover: #06B500;
+      "><span class="crayons-tag__prefix">#</span>devops</a>
+<a class="crayons-tag crayons-tag--monochrome" href="t/python.html" style="
+        --tag-bg: rgba(30, 56, 187, 0.10);
+        --tag-prefix: #1E38BB;
+        --tag-bg-hover: rgba(30, 56, 187, 0.10);
+        --tag-prefix-hover: #1E38BB;
+      "><span class="crayons-tag__prefix">#</span>python</a>
+</div>
+<div class="crayons-story__bottom">
+<div class="crayons-story__details">
+<a aria-label="Add a comment to post - Stop Paying Twice: How to Cut Web Scraping Proxy Costs with Smart Caching" class="crayons-btn crayons-btn--s crayons-btn--ghost crayons-btn--icon-left flex items-center" href="anderecit/stop-paying-twice-how-to-cut-web-scraping-proxy-costs-with-smart-caching-451c.html">
+<svg aria-labelledby="aeg6a9cmu4jhwy9zinj0stlqzg0vtfdk" class="crayons-icon" height="24" role="img" width="24" xmlns="http://www.w3.org/2000/svg"><title id="aeg6a9cmu4jhwy9zinj0stlqzg0vtfdk">Comments</title><path d="M10.5 5h3a6 6 0 110 12v2.625c-3.75-1.5-9-3.75-9-8.625a6 6 0 016-6zM12 15.5h1.5a4.501 4.501 0 001.722-8.657A4.5 4.5 0 0013.5 6.5h-3A4.5 4.5 0 006 11c0 2.707 1.846 4.475 6 6.36V15.5z"></path></svg>
+<span class="hidden s:inline">Add Comment</span>
+</a>
+</div>
+<div class="crayons-story__save">
+<small class="crayons-story__tertiary fs-xs mr-2">
+            5 min read
+          </small>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="crayons-story" data-content-user-id="3729692" data-feed-content-id="3314555">
+<a aria-labelledby="article-link-3314555" class="crayons-story__hidden-navigation-link" href="anderecit/stop-silent-failures-using-python-dataclasses-to-catch-stale-css-selectors-26nm.html">Stop Silent Failures: Using Python Dataclasses to Catch Stale CSS Selectors</a>
+<div class="crayons-story__body crayons-story__body-full_post">
+<div class="crayons-story__top">
+<div class="crayons-story__meta">
+<div class="crayons-story__author-pic">
+<a class="crayons-avatar crayons-avatar--l" href="anderecit.html">
+<img alt="anderecit profile" class="crayons-avatar__image" loading="lazy" src="cdn/media2.dev.to/dynamic/image/width=90,height=90,fit=cover,gravity=auto,format=auto/https___dev-to-uploads.s3.amazonaws.com_uploads_user_profile_image_3729692_74d7e0fb-145a-4c4d-962f-79ac4411266b.jpg"/>
+</a>
+</div>
+<div>
+<div>
+<a class="crayons-story__secondary fw-medium m:hidden" href="anderecit.html">
+              Jerry A. Henley
+            </a>
+<div class="profile-preview-card relative mb-4 s:mb-0 fw-medium hidden m:inline-block">
+<button aria-controls="story-author-preview-content-3314555" aria-label="Jerry A. Henley profile details" class="profile-preview-card__trigger fs-s p-1 -ml-1 -my-2 crayons-btn crayons-btn--ghost" id="story-author-preview-trigger-3314555">
+                Jerry A. Henley
+                
+              </button>
+<div class="profile-preview-card__content crayons-dropdown branded-7 p-4 pt-0" data-repositioning-dropdown="true" data-testid="profile-preview-card" id="story-author-preview-content-3314555" style="border-top-color: var(--card-color);">
+<div class="gap-4 grid">
+<div class="-mt-4">
+<a class="flex" href="anderecit.html">
+<span class="crayons-avatar crayons-avatar--xl mr-2 shrink-0">
+<img alt="" class="crayons-avatar__image" loading="lazy" src="cdn/media2.dev.to/dynamic/image/width=90,height=90,fit=cover,gravity=auto,format=auto/https___dev-to-uploads.s3.amazonaws.com_uploads_user_profile_image_3729692_74d7e0fb-145a-4c4d-962f-79ac4411266b.jpg"/>
+</span>
+<span class="crayons-link crayons-subtitle-2 mt-5">Jerry A. Henley</span>
+</a>
+</div>
+<div class="print-hidden">
+<button class="crayons-btn follow-action-button whitespace-nowrap follow-user w-100" data-info='{"style":"full","id":3729692,"className":"User","name":"Jerry A. Henley"}'>
+                      Follow
+                    </button>
+</div>
+<div class="author-preview-metadata-container" data-author-id="3729692"></div>
+</div>
+</div>
+</div>
+</div>
+<a class="crayons-story__tertiary fs-xs" href="anderecit/stop-silent-failures-using-python-dataclasses-to-catch-stale-css-selectors-26nm.html"><time datetime="2026-03-09T17:30:00Z">Mar 9</time><span class="time-ago-indicator-initial-placeholder" data-seconds="1773077400"></span></a>
+</div>
+</div>
+</div>
+<div class="crayons-story__indention">
+<h2 class="crayons-story__title crayons-story__title-full_post">
+<a data-preload-image="https://media2.dev.to/dynamic/image/width=1000,height=420,fit=cover,gravity=auto,format=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Farticles%2Fusaxdxv400rq27h7y7ic.jpg" href="anderecit/stop-silent-failures-using-python-dataclasses-to-catch-stale-css-selectors-26nm.html" id="article-link-3314555">
+          Stop Silent Failures: Using Python Dataclasses to Catch Stale CSS Selectors
+        </a>
+</h2>
+<div class="crayons-story__tags">
+<a class="crayons-tag crayons-tag--monochrome" href="t/python.html" style="
+        --tag-bg: rgba(30, 56, 187, 0.10);
+        --tag-prefix: #1E38BB;
+        --tag-bg-hover: rgba(30, 56, 187, 0.10);
+        --tag-prefix-hover: #1E38BB;
+      "><span class="crayons-tag__prefix">#</span>python</a>
+<a class="crayons-tag crayons-tag--monochrome" href="t/webscraping.html" style="
+        --tag-bg: rgba(64, 78, 211, 0.10);
+        --tag-prefix: #404ED3;
+        --tag-bg-hover: rgba(64, 78, 211, 0.10);
+        --tag-prefix-hover: #404ED3;
+      "><span class="crayons-tag__prefix">#</span>webscraping</a>
+<a class="crayons-tag crayons-tag--monochrome" href="t/webdev.html" style="
+        --tag-bg: rgba(86, 39, 101, 0.10);
+        --tag-prefix: #562765;
+        --tag-bg-hover: rgba(86, 39, 101, 0.10);
+        --tag-prefix-hover: #562765;
+      "><span class="crayons-tag__prefix">#</span>webdev</a>
+<a class="crayons-tag crayons-tag--monochrome" href="t/devops.html" style="
+        --tag-bg: rgba(6, 181, 0, 0.10);
+        --tag-prefix: #06B500;
+        --tag-bg-hover: rgba(6, 181, 0, 0.10);
+        --tag-prefix-hover: #06B500;
+      "><span class="crayons-tag__prefix">#</span>devops</a>
+</div>
+<div class="crayons-story__bottom">
+<div class="crayons-story__details">
+<a aria-label="Add a comment to post - Stop Silent Failures: Using Python Dataclasses to Catch Stale CSS Selectors" class="crayons-btn crayons-btn--s crayons-btn--ghost crayons-btn--icon-left flex items-center" href="anderecit/stop-silent-failures-using-python-dataclasses-to-catch-stale-css-selectors-26nm.html">
+<svg aria-labelledby="a8v3xyym2s2c997kzk9qnwyr4ymqqi2l" class="crayons-icon" height="24" role="img" width="24" xmlns="http://www.w3.org/2000/svg"><title id="a8v3xyym2s2c997kzk9qnwyr4ymqqi2l">Comments</title><path d="M10.5 5h3a6 6 0 110 12v2.625c-3.75-1.5-9-3.75-9-8.625a6 6 0 016-6zM12 15.5h1.5a4.501 4.501 0 001.722-8.657A4.5 4.5 0 0013.5 6.5h-3A4.5 4.5 0 006 11c0 2.707 1.846 4.475 6 6.36V15.5z"></path></svg>
+<span class="hidden s:inline">Add Comment</span>
+</a>
+</div>
+<div class="crayons-story__save">
+<small class="crayons-story__tertiary fs-xs mr-2">
+            5 min read
+          </small>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="crayons-story" data-content-user-id="3729692" data-feed-content-id="3283430">
+<a aria-labelledby="article-link-3283430" class="crayons-story__hidden-navigation-link" href="anderecit/share-of-shelf-analysis-how-to-scrape-zappos-search-results-5b6n.html">Share of Shelf Analysis: How to Scrape Zappos Search Results</a>
+<div class="crayons-story__body crayons-story__body-full_post">
+<div class="crayons-story__top">
+<div class="crayons-story__meta">
+<div class="crayons-story__author-pic">
+<a class="crayons-avatar crayons-avatar--l" href="anderecit.html">
+<img alt="anderecit profile" class="crayons-avatar__image" loading="lazy" src="cdn/media2.dev.to/dynamic/image/width=90,height=90,fit=cover,gravity=auto,format=auto/https___dev-to-uploads.s3.amazonaws.com_uploads_user_profile_image_3729692_74d7e0fb-145a-4c4d-962f-79ac4411266b.jpg"/>
+</a>
+</div>
+<div>
+<div>
+<a class="crayons-story__secondary fw-medium m:hidden" href="anderecit.html">
+              Jerry A. Henley
+            </a>
+<div class="profile-preview-card relative mb-4 s:mb-0 fw-medium hidden m:inline-block">
+<button aria-controls="story-author-preview-content-3283430" aria-label="Jerry A. Henley profile details" class="profile-preview-card__trigger fs-s p-1 -ml-1 -my-2 crayons-btn crayons-btn--ghost" id="story-author-preview-trigger-3283430">
+                Jerry A. Henley
+                
+              </button>
+<div class="profile-preview-card__content crayons-dropdown branded-7 p-4 pt-0" data-repositioning-dropdown="true" data-testid="profile-preview-card" id="story-author-preview-content-3283430" style="border-top-color: var(--card-color);">
+<div class="gap-4 grid">
+<div class="-mt-4">
+<a class="flex" href="anderecit.html">
+<span class="crayons-avatar crayons-avatar--xl mr-2 shrink-0">
+<img alt="" class="crayons-avatar__image" loading="lazy" src="cdn/media2.dev.to/dynamic/image/width=90,height=90,fit=cover,gravity=auto,format=auto/https___dev-to-uploads.s3.amazonaws.com_uploads_user_profile_image_3729692_74d7e0fb-145a-4c4d-962f-79ac4411266b.jpg"/>
+</span>
+<span class="crayons-link crayons-subtitle-2 mt-5">Jerry A. Henley</span>
+</a>
+</div>
+<div class="print-hidden">
+<button class="crayons-btn follow-action-button whitespace-nowrap follow-user w-100" data-info='{"style":"full","id":3729692,"className":"User","name":"Jerry A. Henley"}'>
+                      Follow
+                    </button>
+</div>
+<div class="author-preview-metadata-container" data-author-id="3729692"></div>
+</div>
+</div>
+</div>
+</div>
+<a class="crayons-story__tertiary fs-xs" href="anderecit/share-of-shelf-analysis-how-to-scrape-zappos-search-results-5b6n.html"><time datetime="2026-03-05T19:18:00Z">Mar 5</time><span class="time-ago-indicator-initial-placeholder" data-seconds="1772738280"></span></a>
+</div>
+</div>
+</div>
+<div class="crayons-story__indention">
+<h2 class="crayons-story__title crayons-story__title-full_post">
+<a data-preload-image="https://media2.dev.to/dynamic/image/width=1000,height=420,fit=cover,gravity=auto,format=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Farticles%2F6a1yvg8bpp0g1hzklui4.png" href="anderecit/share-of-shelf-analysis-how-to-scrape-zappos-search-results-5b6n.html" id="article-link-3283430">
+          Share of Shelf Analysis: How to Scrape Zappos Search Results
+        </a>
+</h2>
+<div class="crayons-story__tags">
+<a class="crayons-tag crayons-tag--monochrome" href="t/webdev.html" style="
+        --tag-bg: rgba(86, 39, 101, 0.10);
+        --tag-prefix: #562765;
+        --tag-bg-hover: rgba(86, 39, 101, 0.10);
+        --tag-prefix-hover: #562765;
+      "><span class="crayons-tag__prefix">#</span>webdev</a>
+<a class="crayons-tag crayons-tag--monochrome" href="t/devops.html" style="
+        --tag-bg: rgba(6, 181, 0, 0.10);
+        --tag-prefix: #06B500;
+        --tag-bg-hover: rgba(6, 181, 0, 0.10);
+        --tag-prefix-hover: #06B500;
+      "><span class="crayons-tag__prefix">#</span>devops</a>
+<a class="crayons-tag crayons-tag--monochrome" href="t/webscraping.html" style="
+        --tag-bg: rgba(64, 78, 211, 0.10);
+        --tag-prefix: #404ED3;
+        --tag-bg-hover: rgba(64, 78, 211, 0.10);
+        --tag-prefix-hover: #404ED3;
+      "><span class="crayons-tag__prefix">#</span>webscraping</a>
+<a class="crayons-tag crayons-tag--monochrome" href="t/dataengineering.html" style="
+        --tag-bg: rgba(64, 78, 211, 0.10);
+        --tag-prefix: #404ED3;
+        --tag-bg-hover: rgba(64, 78, 211, 0.10);
+        --tag-prefix-hover: #404ED3;
+      "><span class="crayons-tag__prefix">#</span>dataengineering</a>
+</div>
+<div class="crayons-story__bottom">
+<div class="crayons-story__details">
+<a aria-label="Add a comment to post - Share of Shelf Analysis: How to Scrape Zappos Search Results" class="crayons-btn crayons-btn--s crayons-btn--ghost crayons-btn--icon-left" data-reactable-id="3283430" data-reaction-count="" href="anderecit/share-of-shelf-analysis-how-to-scrape-zappos-search-results-5b6n.html">
+<div class="multiple_reactions_aggregate">
+<span class="multiple_reactions_icons_container" dir="rtl">
+<span class="crayons_icon_container">
+<img height="18" src="cdn/assets.dev.to/assets/raised-hands-74b2099fd66a39f2d7eed9305ee0f4553df0eb7b4f11b01b6b1b499973048fe5.svg" width="18"/>
+</span>
+</span>
+<span class="aggregate_reactions_counter">1<span class="hidden s:inline"> reaction</span></span>
+</div>
+</a>
+<a aria-label="Add a comment to post - Share of Shelf Analysis: How to Scrape Zappos Search Results" class="crayons-btn crayons-btn--s crayons-btn--ghost crayons-btn--icon-left flex items-center" href="anderecit/share-of-shelf-analysis-how-to-scrape-zappos-search-results-5b6n.html">
+<svg aria-labelledby="aimnyfrgdzvuecvo8dfhqk2tktnjwtd0" class="crayons-icon" height="24" role="img" width="24" xmlns="http://www.w3.org/2000/svg"><title id="aimnyfrgdzvuecvo8dfhqk2tktnjwtd0">Comments</title><path d="M10.5 5h3a6 6 0 110 12v2.625c-3.75-1.5-9-3.75-9-8.625a6 6 0 016-6zM12 15.5h1.5a4.501 4.501 0 001.722-8.657A4.5 4.5 0 0013.5 6.5h-3A4.5 4.5 0 006 11c0 2.707 1.846 4.475 6 6.36V15.5z"></path></svg>
+<span class="hidden s:inline">Add Comment</span>
+</a>
+</div>
+<div class="crayons-story__save">
+<small class="crayons-story__tertiary fs-xs mr-2">
+            4 min read
+          </small>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="crayons-story" data-content-user-id="3729692" data-feed-content-id="3279826">
+<a aria-labelledby="article-link-3279826" class="crayons-story__hidden-navigation-link" href="anderecit/hardening-python-scrapers-managing-anti-bot-triggers-on-wayfair-k49.html">Hardening Python Scrapers: Managing Anti-Bot Triggers on Wayfair</a>
+<div class="crayons-story__body crayons-story__body-full_post">
+<div class="crayons-story__top">
+<div class="crayons-story__meta">
+<div class="crayons-story__author-pic">
+<a class="crayons-avatar crayons-avatar--l" href="anderecit.html">
+<img alt="anderecit profile" class="crayons-avatar__image" loading="lazy" src="cdn/media2.dev.to/dynamic/image/width=90,height=90,fit=cover,gravity=auto,format=auto/https___dev-to-uploads.s3.amazonaws.com_uploads_user_profile_image_3729692_74d7e0fb-145a-4c4d-962f-79ac4411266b.jpg"/>
+</a>
+</div>
+<div>
+<div>
+<a class="crayons-story__secondary fw-medium m:hidden" href="anderecit.html">
+              Jerry A. Henley
+            </a>
+<div class="profile-preview-card relative mb-4 s:mb-0 fw-medium hidden m:inline-block">
+<button aria-controls="story-author-preview-content-3279826" aria-label="Jerry A. Henley profile details" class="profile-preview-card__trigger fs-s p-1 -ml-1 -my-2 crayons-btn crayons-btn--ghost" id="story-author-preview-trigger-3279826">
+                Jerry A. Henley
+                
+              </button>
+<div class="profile-preview-card__content crayons-dropdown branded-7 p-4 pt-0" data-repositioning-dropdown="true" data-testid="profile-preview-card" id="story-author-preview-content-3279826" style="border-top-color: var(--card-color);">
+<div class="gap-4 grid">
+<div class="-mt-4">
+<a class="flex" href="anderecit.html">
+<span class="crayons-avatar crayons-avatar--xl mr-2 shrink-0">
+<img alt="" class="crayons-avatar__image" loading="lazy" src="cdn/media2.dev.to/dynamic/image/width=90,height=90,fit=cover,gravity=auto,format=auto/https___dev-to-uploads.s3.amazonaws.com_uploads_user_profile_image_3729692_74d7e0fb-145a-4c4d-962f-79ac4411266b.jpg"/>
+</span>
+<span class="crayons-link crayons-subtitle-2 mt-5">Jerry A. Henley</span>
+</a>
+</div>
+<div class="print-hidden">
+<button class="crayons-btn follow-action-button whitespace-nowrap follow-user w-100" data-info='{"style":"full","id":3729692,"className":"User","name":"Jerry A. Henley"}'>
+                      Follow
+                    </button>
+</div>
+<div class="author-preview-metadata-container" data-author-id="3729692"></div>
+</div>
+</div>
+</div>
+</div>
+<a class="crayons-story__tertiary fs-xs" href="anderecit/hardening-python-scrapers-managing-anti-bot-triggers-on-wayfair-k49.html"><time datetime="2026-03-02T04:30:00Z">Mar 2</time><span class="time-ago-indicator-initial-placeholder" data-seconds="1772425800"></span></a>
+</div>
+</div>
+</div>
+<div class="crayons-story__indention">
+<h2 class="crayons-story__title crayons-story__title-full_post">
+<a data-preload-image="https://media2.dev.to/dynamic/image/width=1000,height=420,fit=cover,gravity=auto,format=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Farticles%2F55pi1v893qig7uqfw9mw.jpeg" href="anderecit/hardening-python-scrapers-managing-anti-bot-triggers-on-wayfair-k49.html" id="article-link-3279826">
+          Hardening Python Scrapers: Managing Anti-Bot Triggers on Wayfair
+        </a>
+</h2>
+<div class="crayons-story__tags">
+<a class="crayons-tag crayons-tag--monochrome" href="t/webdev.html" style="
+        --tag-bg: rgba(86, 39, 101, 0.10);
+        --tag-prefix: #562765;
+        --tag-bg-hover: rgba(86, 39, 101, 0.10);
+        --tag-prefix-hover: #562765;
+      "><span class="crayons-tag__prefix">#</span>webdev</a>
+<a class="crayons-tag crayons-tag--monochrome" href="t/python.html" style="
+        --tag-bg: rgba(30, 56, 187, 0.10);
+        --tag-prefix: #1E38BB;
+        --tag-bg-hover: rgba(30, 56, 187, 0.10);
+        --tag-prefix-hover: #1E38BB;
+      "><span class="crayons-tag__prefix">#</span>python</a>
+<a class="crayons-tag crayons-tag--monochrome" href="t/webscraping.html" style="
+        --tag-bg: rgba(64, 78, 211, 0.10);
+        --tag-prefix: #404ED3;
+        --tag-bg-hover: rgba(64, 78, 211, 0.10);
+        --tag-prefix-hover: #404ED3;
+      "><span class="crayons-tag__prefix">#</span>webscraping</a>
+</div>
+<div class="crayons-story__bottom">
+<div class="crayons-story__details">
+<a aria-label="Add a comment to post - Hardening Python Scrapers: Managing Anti-Bot Triggers on Wayfair" class="crayons-btn crayons-btn--s crayons-btn--ghost crayons-btn--icon-left" data-reactable-id="3279826" data-reaction-count="" href="anderecit/hardening-python-scrapers-managing-anti-bot-triggers-on-wayfair-k49.html">
+<div class="multiple_reactions_aggregate">
+<span class="multiple_reactions_icons_container" dir="rtl">
+<span class="crayons_icon_container">
+<img height="18" src="cdn/assets.dev.to/assets/fire-f60e7a582391810302117f987b22a8ef04a2fe0df7e3258a5f49332df1cec71e.svg" width="18"/>
+</span>
+</span>
+<span class="aggregate_reactions_counter">1<span class="hidden s:inline"> reaction</span></span>
+</div>
+</a>
+<a aria-label="Add a comment to post - Hardening Python Scrapers: Managing Anti-Bot Triggers on Wayfair" class="crayons-btn crayons-btn--s crayons-btn--ghost crayons-btn--icon-left flex items-center" href="anderecit/hardening-python-scrapers-managing-anti-bot-triggers-on-wayfair-k49.html">
+<svg aria-labelledby="ars9zjx73facecukuvj50o6z45ps1zf8" class="crayons-icon" height="24" role="img" width="24" xmlns="http://www.w3.org/2000/svg"><title id="ars9zjx73facecukuvj50o6z45ps1zf8">Comments</title><path d="M10.5 5h3a6 6 0 110 12v2.625c-3.75-1.5-9-3.75-9-8.625a6 6 0 016-6zM12 15.5h1.5a4.501 4.501 0 001.722-8.657A4.5 4.5 0 0013.5 6.5h-3A4.5 4.5 0 006 11c0 2.707 1.846 4.475 6 6.36V15.5z"></path></svg>
+<span class="hidden s:inline">Add Comment</span>
+</a>
+</div>
+<div class="crayons-story__save">
+<small class="crayons-story__tertiary fs-xs mr-2">
+            5 min read
+          </small>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="crayons-story" data-content-user-id="3729692" data-feed-content-id="3276594">
+<a aria-labelledby="article-link-3276594" class="crayons-story__hidden-navigation-link" href="anderecit/how-to-track-competitor-pricing-on-wayfair-with-python-for-non-coders-31pk.html">How to Track Competitor Pricing on Wayfair with Python (For Non-Coders)</a>
+<div class="crayons-story__body crayons-story__body-full_post">
+<div class="crayons-story__top">
+<div class="crayons-story__meta">
+<div class="crayons-story__author-pic">
+<a class="crayons-avatar crayons-avatar--l" href="anderecit.html">
+<img alt="anderecit profile" class="crayons-avatar__image" loading="lazy" src="cdn/media2.dev.to/dynamic/image/width=90,height=90,fit=cover,gravity=auto,format=auto/https___dev-to-uploads.s3.amazonaws.com_uploads_user_profile_image_3729692_74d7e0fb-145a-4c4d-962f-79ac4411266b.jpg"/>
+</a>
+</div>
+<div>
+<div>
+<a class="crayons-story__secondary fw-medium m:hidden" href="anderecit.html">
+              Jerry A. Henley
+            </a>
+<div class="profile-preview-card relative mb-4 s:mb-0 fw-medium hidden m:inline-block">
+<button aria-controls="story-author-preview-content-3276594" aria-label="Jerry A. Henley profile details" class="profile-preview-card__trigger fs-s p-1 -ml-1 -my-2 crayons-btn crayons-btn--ghost" id="story-author-preview-trigger-3276594">
+                Jerry A. Henley
+                
+              </button>
+<div class="profile-preview-card__content crayons-dropdown branded-7 p-4 pt-0" data-repositioning-dropdown="true" data-testid="profile-preview-card" id="story-author-preview-content-3276594" style="border-top-color: var(--card-color);">
+<div class="gap-4 grid">
+<div class="-mt-4">
+<a class="flex" href="anderecit.html">
+<span class="crayons-avatar crayons-avatar--xl mr-2 shrink-0">
+<img alt="" class="crayons-avatar__image" loading="lazy" src="cdn/media2.dev.to/dynamic/image/width=90,height=90,fit=cover,gravity=auto,format=auto/https___dev-to-uploads.s3.amazonaws.com_uploads_user_profile_image_3729692_74d7e0fb-145a-4c4d-962f-79ac4411266b.jpg"/>
+</span>
+<span class="crayons-link crayons-subtitle-2 mt-5">Jerry A. Henley</span>
+</a>
+</div>
+<div class="print-hidden">
+<button class="crayons-btn follow-action-button whitespace-nowrap follow-user w-100" data-info='{"style":"full","id":3729692,"className":"User","name":"Jerry A. Henley"}'>
+                      Follow
+                    </button>
+</div>
+<div class="author-preview-metadata-container" data-author-id="3729692"></div>
+</div>
+</div>
+</div>
+</div>
+<a class="crayons-story__tertiary fs-xs" href="anderecit/how-to-track-competitor-pricing-on-wayfair-with-python-for-non-coders-31pk.html"><time datetime="2026-02-27T03:30:00Z">Feb 27</time><span class="time-ago-indicator-initial-placeholder" data-seconds="1772163000"></span></a>
+</div>
+</div>
+</div>
+<div class="crayons-story__indention">
+<h2 class="crayons-story__title crayons-story__title-full_post">
+<a data-preload-image="https://media2.dev.to/dynamic/image/width=1000,height=420,fit=cover,gravity=auto,format=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Farticles%2Fqcofkjump08p8lnlp2lu.jpg" href="anderecit/how-to-track-competitor-pricing-on-wayfair-with-python-for-non-coders-31pk.html" id="article-link-3276594">
+          How to Track Competitor Pricing on Wayfair with Python (For Non-Coders)
+        </a>
+</h2>
+<div class="crayons-story__tags">
+<a class="crayons-tag crayons-tag--monochrome" href="t/webscraping.html" style="
+        --tag-bg: rgba(64, 78, 211, 0.10);
+        --tag-prefix: #404ED3;
+        --tag-bg-hover: rgba(64, 78, 211, 0.10);
+        --tag-prefix-hover: #404ED3;
+      "><span class="crayons-tag__prefix">#</span>webscraping</a>
+<a class="crayons-tag crayons-tag--monochrome" href="t/python.html" style="
+        --tag-bg: rgba(30, 56, 187, 0.10);
+        --tag-prefix: #1E38BB;
+        --tag-bg-hover: rgba(30, 56, 187, 0.10);
+        --tag-prefix-hover: #1E38BB;
+      "><span class="crayons-tag__prefix">#</span>python</a>
+<a class="crayons-tag crayons-tag--monochrome" href="t/devops.html" style="
+        --tag-bg: rgba(6, 181, 0, 0.10);
+        --tag-prefix: #06B500;
+        --tag-bg-hover: rgba(6, 181, 0, 0.10);
+        --tag-prefix-hover: #06B500;
+      "><span class="crayons-tag__prefix">#</span>devops</a>
+<a class="crayons-tag crayons-tag--monochrome" href="t/node.html" style="
+        --tag-bg: rgba(61, 136, 54, 0.10);
+        --tag-prefix: #3d8836;
+        --tag-bg-hover: rgba(61, 136, 54, 0.10);
+        --tag-prefix-hover: #3d8836;
+      "><span class="crayons-tag__prefix">#</span>node</a>
+</div>
+<div class="crayons-story__bottom">
+<div class="crayons-story__details">
+<a aria-label="Add a comment to post - How to Track Competitor Pricing on Wayfair with Python (For Non-Coders)" class="crayons-btn crayons-btn--s crayons-btn--ghost crayons-btn--icon-left flex items-center" href="anderecit/how-to-track-competitor-pricing-on-wayfair-with-python-for-non-coders-31pk.html">
+<svg aria-labelledby="a26bh5sb6jk166bxz8fr1fjlorw9mmb9" class="crayons-icon" height="24" role="img" width="24" xmlns="http://www.w3.org/2000/svg"><title id="a26bh5sb6jk166bxz8fr1fjlorw9mmb9">Comments</title><path d="M10.5 5h3a6 6 0 110 12v2.625c-3.75-1.5-9-3.75-9-8.625a6 6 0 016-6zM12 15.5h1.5a4.501 4.501 0 001.722-8.657A4.5 4.5 0 0013.5 6.5h-3A4.5 4.5 0 006 11c0 2.707 1.846 4.475 6 6.36V15.5z"></path></svg>
+<span class="hidden s:inline">Add Comment</span>
+</a>
+</div>
+<div class="crayons-story__save">
+<small class="crayons-story__tertiary fs-xs mr-2">
+            5 min read
+          </small>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="crayons-story" data-content-user-id="3729692" data-feed-content-id="3276543">
+<a aria-labelledby="article-link-3276543" class="crayons-story__hidden-navigation-link" href="anderecit/production-grade-costco-scraping-error-budgets-retries-and-pipelines-475m.html">Production-Grade Costco Scraping: Error Budgets, Retries, and Pipelines</a>
+<div class="crayons-story__body crayons-story__body-full_post">
+<div class="crayons-story__top">
+<div class="crayons-story__meta">
+<div class="crayons-story__author-pic">
+<a class="crayons-avatar crayons-avatar--l" href="anderecit.html">
+<img alt="anderecit profile" class="crayons-avatar__image" loading="lazy" src="cdn/media2.dev.to/dynamic/image/width=90,height=90,fit=cover,gravity=auto,format=auto/https___dev-to-uploads.s3.amazonaws.com_uploads_user_profile_image_3729692_74d7e0fb-145a-4c4d-962f-79ac4411266b.jpg"/>
+</a>
+</div>
+<div>
+<div>
+<a class="crayons-story__secondary fw-medium m:hidden" href="anderecit.html">
+              Jerry A. Henley
+            </a>
+<div class="profile-preview-card relative mb-4 s:mb-0 fw-medium hidden m:inline-block">
+<button aria-controls="story-author-preview-content-3276543" aria-label="Jerry A. Henley profile details" class="profile-preview-card__trigger fs-s p-1 -ml-1 -my-2 crayons-btn crayons-btn--ghost" id="story-author-preview-trigger-3276543">
+                Jerry A. Henley
+                
+              </button>
+<div class="profile-preview-card__content crayons-dropdown branded-7 p-4 pt-0" data-repositioning-dropdown="true" data-testid="profile-preview-card" id="story-author-preview-content-3276543" style="border-top-color: var(--card-color);">
+<div class="gap-4 grid">
+<div class="-mt-4">
+<a class="flex" href="anderecit.html">
+<span class="crayons-avatar crayons-avatar--xl mr-2 shrink-0">
+<img alt="" class="crayons-avatar__image" loading="lazy" src="cdn/media2.dev.to/dynamic/image/width=90,height=90,fit=cover,gravity=auto,format=auto/https___dev-to-uploads.s3.amazonaws.com_uploads_user_profile_image_3729692_74d7e0fb-145a-4c4d-962f-79ac4411266b.jpg"/>
+</span>
+<span class="crayons-link crayons-subtitle-2 mt-5">Jerry A. Henley</span>
+</a>
+</div>
+<div class="print-hidden">
+<button class="crayons-btn follow-action-button whitespace-nowrap follow-user w-100" data-info='{"style":"full","id":3729692,"className":"User","name":"Jerry A. Henley"}'>
+                      Follow
+                    </button>
+</div>
+<div class="author-preview-metadata-container" data-author-id="3729692"></div>
+</div>
+</div>
+</div>
+</div>
+<a class="crayons-story__tertiary fs-xs" href="anderecit/production-grade-costco-scraping-error-budgets-retries-and-pipelines-475m.html"><time datetime="2026-02-25T04:30:00Z">Feb 25</time><span class="time-ago-indicator-initial-placeholder" data-seconds="1771993800"></span></a>
+</div>
+</div>
+</div>
+<div class="crayons-story__indention">
+<h2 class="crayons-story__title crayons-story__title-full_post">
+<a data-preload-image="https://media2.dev.to/dynamic/image/width=1000,height=420,fit=cover,gravity=auto,format=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Farticles%2F8zendm6xq4tkopye8t9e.png" href="anderecit/production-grade-costco-scraping-error-budgets-retries-and-pipelines-475m.html" id="article-link-3276543">
+          Production-Grade Costco Scraping: Error Budgets, Retries, and Pipelines
+        </a>
+</h2>
+<div class="crayons-story__tags">
+<a class="crayons-tag crayons-tag--monochrome" href="t/webscraping.html" style="
+        --tag-bg: rgba(64, 78, 211, 0.10);
+        --tag-prefix: #404ED3;
+        --tag-bg-hover: rgba(64, 78, 211, 0.10);
+        --tag-prefix-hover: #404ED3;
+      "><span class="crayons-tag__prefix">#</span>webscraping</a>
+<a class="crayons-tag crayons-tag--monochrome" href="t/python.html" style="
+        --tag-bg: rgba(30, 56, 187, 0.10);
+        --tag-prefix: #1E38BB;
+        --tag-bg-hover: rgba(30, 56, 187, 0.10);
+        --tag-prefix-hover: #1E38BB;
+      "><span class="crayons-tag__prefix">#</span>python</a>
+<a class="crayons-tag crayons-tag--monochrome" href="t/node.html" style="
+        --tag-bg: rgba(61, 136, 54, 0.10);
+        --tag-prefix: #3d8836;
+        --tag-bg-hover: rgba(61, 136, 54, 0.10);
+        --tag-prefix-hover: #3d8836;
+      "><span class="crayons-tag__prefix">#</span>node</a>
+<a class="crayons-tag crayons-tag--monochrome" href="t/dataengineering.html" style="
+        --tag-bg: rgba(64, 78, 211, 0.10);
+        --tag-prefix: #404ED3;
+        --tag-bg-hover: rgba(64, 78, 211, 0.10);
+        --tag-prefix-hover: #404ED3;
+      "><span class="crayons-tag__prefix">#</span>dataengineering</a>
+</div>
+<div class="crayons-story__bottom">
+<div class="crayons-story__details">
+<a aria-label="Add a comment to post - Production-Grade Costco Scraping: Error Budgets, Retries, and Pipelines" class="crayons-btn crayons-btn--s crayons-btn--ghost crayons-btn--icon-left" data-reactable-id="3276543" data-reaction-count="" href="anderecit/production-grade-costco-scraping-error-budgets-retries-and-pipelines-475m.html">
+<div class="multiple_reactions_aggregate">
+<span class="multiple_reactions_icons_container" dir="rtl">
+<span class="crayons_icon_container">
+<img height="18" src="cdn/assets.dev.to/assets/sparkle-heart-5f9bee3767e18deb1bb725290cb151c25234768a0e9a2bd39370c382d02920cf.svg" width="18"/>
+</span>
+</span>
+<span class="aggregate_reactions_counter">1<span class="hidden s:inline"> reaction</span></span>
+</div>
+</a>
+<a aria-label="Add a comment to post - Production-Grade Costco Scraping: Error Budgets, Retries, and Pipelines" class="crayons-btn crayons-btn--s crayons-btn--ghost crayons-btn--icon-left flex items-center" href="anderecit/production-grade-costco-scraping-error-budgets-retries-and-pipelines-475m.html">
+<svg aria-labelledby="ah6dusewutyqkvbkdhrl928pdraz9z3d" class="crayons-icon" height="24" role="img" width="24" xmlns="http://www.w3.org/2000/svg"><title id="ah6dusewutyqkvbkdhrl928pdraz9z3d">Comments</title><path d="M10.5 5h3a6 6 0 110 12v2.625c-3.75-1.5-9-3.75-9-8.625a6 6 0 016-6zM12 15.5h1.5a4.501 4.501 0 001.722-8.657A4.5 4.5 0 0013.5 6.5h-3A4.5 4.5 0 006 11c0 2.707 1.846 4.475 6 6.36V15.5z"></path></svg>
+<span class="hidden s:inline">Add Comment</span>
+</a>
+</div>
+<div class="crayons-story__save">
+<small class="crayons-story__tertiary fs-xs mr-2">
+            4 min read
+          </small>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="crayons-story" data-content-user-id="3729692" data-feed-content-id="3272424">
+<a aria-labelledby="article-link-3272424" class="crayons-story__hidden-navigation-link" href="anderecit/from-scrape-to-feed-generating-google-shopping-xml-from-costco-product-data-10ib.html">From Scrape to Feed: Generating Google Shopping XML from Costco Product Data</a>
+<div class="crayons-story__body crayons-story__body-full_post">
+<div class="crayons-story__top">
+<div class="crayons-story__meta">
+<div class="crayons-story__author-pic">
+<a class="crayons-avatar crayons-avatar--l" href="anderecit.html">
+<img alt="anderecit profile" class="crayons-avatar__image" loading="lazy" src="cdn/media2.dev.to/dynamic/image/width=90,height=90,fit=cover,gravity=auto,format=auto/https___dev-to-uploads.s3.amazonaws.com_uploads_user_profile_image_3729692_74d7e0fb-145a-4c4d-962f-79ac4411266b.jpg"/>
+</a>
+</div>
+<div>
+<div>
+<a class="crayons-story__secondary fw-medium m:hidden" href="anderecit.html">
+              Jerry A. Henley
+            </a>
+<div class="profile-preview-card relative mb-4 s:mb-0 fw-medium hidden m:inline-block">
+<button aria-controls="story-author-preview-content-3272424" aria-label="Jerry A. Henley profile details" class="profile-preview-card__trigger fs-s p-1 -ml-1 -my-2 crayons-btn crayons-btn--ghost" id="story-author-preview-trigger-3272424">
+                Jerry A. Henley
+                
+              </button>
+<div class="profile-preview-card__content crayons-dropdown branded-7 p-4 pt-0" data-repositioning-dropdown="true" data-testid="profile-preview-card" id="story-author-preview-content-3272424" style="border-top-color: var(--card-color);">
+<div class="gap-4 grid">
+<div class="-mt-4">
+<a class="flex" href="anderecit.html">
+<span class="crayons-avatar crayons-avatar--xl mr-2 shrink-0">
+<img alt="" class="crayons-avatar__image" loading="lazy" src="cdn/media2.dev.to/dynamic/image/width=90,height=90,fit=cover,gravity=auto,format=auto/https___dev-to-uploads.s3.amazonaws.com_uploads_user_profile_image_3729692_74d7e0fb-145a-4c4d-962f-79ac4411266b.jpg"/>
+</span>
+<span class="crayons-link crayons-subtitle-2 mt-5">Jerry A. Henley</span>
+</a>
+</div>
+<div class="print-hidden">
+<button class="crayons-btn follow-action-button whitespace-nowrap follow-user w-100" data-info='{"style":"full","id":3729692,"className":"User","name":"Jerry A. Henley"}'>
+                      Follow
+                    </button>
+</div>
+<div class="author-preview-metadata-container" data-author-id="3729692"></div>
+</div>
+</div>
+</div>
+</div>
+<a class="crayons-story__tertiary fs-xs" href="anderecit/from-scrape-to-feed-generating-google-shopping-xml-from-costco-product-data-10ib.html"><time datetime="2026-02-21T05:43:05Z">Feb 21</time><span class="time-ago-indicator-initial-placeholder" data-seconds="1771652585"></span></a>
+</div>
+</div>
+</div>
+<div class="crayons-story__indention">
+<h2 class="crayons-story__title crayons-story__title-full_post">
+<a data-preload-image="https://media2.dev.to/dynamic/image/width=1000,height=420,fit=cover,gravity=auto,format=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Farticles%2Fgd62knttarfch2r51usk.jpg" href="anderecit/from-scrape-to-feed-generating-google-shopping-xml-from-costco-product-data-10ib.html" id="article-link-3272424">
+          From Scrape to Feed: Generating Google Shopping XML from Costco Product Data
+        </a>
+</h2>
+<div class="crayons-story__tags">
+<a class="crayons-tag crayons-tag--monochrome" href="t/webscraping.html" style="
+        --tag-bg: rgba(64, 78, 211, 0.10);
+        --tag-prefix: #404ED3;
+        --tag-bg-hover: rgba(64, 78, 211, 0.10);
+        --tag-prefix-hover: #404ED3;
+      "><span class="crayons-tag__prefix">#</span>webscraping</a>
+<a class="crayons-tag crayons-tag--monochrome" href="t/googleshopping.html" style="
+        --tag-bg: rgba(64, 78, 211, 0.10);
+        --tag-prefix: #404ED3;
+        --tag-bg-hover: rgba(64, 78, 211, 0.10);
+        --tag-prefix-hover: #404ED3;
+      "><span class="crayons-tag__prefix">#</span>googleshopping</a>
+<a class="crayons-tag crayons-tag--monochrome" href="t/python.html" style="
+        --tag-bg: rgba(30, 56, 187, 0.10);
+        --tag-prefix: #1E38BB;
+        --tag-bg-hover: rgba(30, 56, 187, 0.10);
+        --tag-prefix-hover: #1E38BB;
+      "><span class="crayons-tag__prefix">#</span>python</a>
+<a class="crayons-tag crayons-tag--monochrome" href="t/node.html" style="
+        --tag-bg: rgba(61, 136, 54, 0.10);
+        --tag-prefix: #3d8836;
+        --tag-bg-hover: rgba(61, 136, 54, 0.10);
+        --tag-prefix-hover: #3d8836;
+      "><span class="crayons-tag__prefix">#</span>node</a>
+</div>
+<div class="crayons-story__bottom">
+<div class="crayons-story__details">
+<a aria-label="Add a comment to post - From Scrape to Feed: Generating Google Shopping XML from Costco Product Data" class="crayons-btn crayons-btn--s crayons-btn--ghost crayons-btn--icon-left flex items-center" href="anderecit/from-scrape-to-feed-generating-google-shopping-xml-from-costco-product-data-10ib.html">
+<svg aria-labelledby="a6za7gaxebsk320xz7j4t20ivfzgzhkt" class="crayons-icon" height="24" role="img" width="24" xmlns="http://www.w3.org/2000/svg"><title id="a6za7gaxebsk320xz7j4t20ivfzgzhkt">Comments</title><path d="M10.5 5h3a6 6 0 110 12v2.625c-3.75-1.5-9-3.75-9-8.625a6 6 0 016-6zM12 15.5h1.5a4.501 4.501 0 001.722-8.657A4.5 4.5 0 0013.5 6.5h-3A4.5 4.5 0 006 11c0 2.707 1.846 4.475 6 6.36V15.5z"></path></svg>
+<span class="hidden s:inline">Add Comment</span>
+</a>
+</div>
+<div class="crayons-story__save">
+<small class="crayons-story__tertiary fs-xs mr-2">
+            4 min read
+          </small>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="crayons-story" data-content-user-id="3729692" data-feed-content-id="3270135">
+<a aria-labelledby="article-link-3270135" class="crayons-story__hidden-navigation-link" href="anderecit/monitoring-share-of-search-automating-ikea-product-visibility-tracking-3p8.html">Monitoring Share of Search: Automating IKEA Product Visibility Tracking</a>
+<div class="crayons-story__body crayons-story__body-full_post">
+<div class="crayons-story__top">
+<div class="crayons-story__meta">
+<div class="crayons-story__author-pic">
+<a class="crayons-avatar crayons-avatar--l" href="anderecit.html">
+<img alt="anderecit profile" class="crayons-avatar__image" loading="lazy" src="cdn/media2.dev.to/dynamic/image/width=90,height=90,fit=cover,gravity=auto,format=auto/https___dev-to-uploads.s3.amazonaws.com_uploads_user_profile_image_3729692_74d7e0fb-145a-4c4d-962f-79ac4411266b.jpg"/>
+</a>
+</div>
+<div>
+<div>
+<a class="crayons-story__secondary fw-medium m:hidden" href="anderecit.html">
+              Jerry A. Henley
+            </a>
+<div class="profile-preview-card relative mb-4 s:mb-0 fw-medium hidden m:inline-block">
+<button aria-controls="story-author-preview-content-3270135" aria-label="Jerry A. Henley profile details" class="profile-preview-card__trigger fs-s p-1 -ml-1 -my-2 crayons-btn crayons-btn--ghost" id="story-author-preview-trigger-3270135">
+                Jerry A. Henley
+                
+              </button>
+<div class="profile-preview-card__content crayons-dropdown branded-7 p-4 pt-0" data-repositioning-dropdown="true" data-testid="profile-preview-card" id="story-author-preview-content-3270135" style="border-top-color: var(--card-color);">
+<div class="gap-4 grid">
+<div class="-mt-4">
+<a class="flex" href="anderecit.html">
+<span class="crayons-avatar crayons-avatar--xl mr-2 shrink-0">
+<img alt="" class="crayons-avatar__image" loading="lazy" src="cdn/media2.dev.to/dynamic/image/width=90,height=90,fit=cover,gravity=auto,format=auto/https___dev-to-uploads.s3.amazonaws.com_uploads_user_profile_image_3729692_74d7e0fb-145a-4c4d-962f-79ac4411266b.jpg"/>
+</span>
+<span class="crayons-link crayons-subtitle-2 mt-5">Jerry A. Henley</span>
+</a>
+</div>
+<div class="print-hidden">
+<button class="crayons-btn follow-action-button whitespace-nowrap follow-user w-100" data-info='{"style":"full","id":3729692,"className":"User","name":"Jerry A. Henley"}'>
+                      Follow
+                    </button>
+</div>
+<div class="author-preview-metadata-container" data-author-id="3729692"></div>
+</div>
+</div>
+</div>
+</div>
+<a class="crayons-story__tertiary fs-xs" href="anderecit/monitoring-share-of-search-automating-ikea-product-visibility-tracking-3p8.html"><time datetime="2026-02-20T07:55:59Z">Feb 20</time><span class="time-ago-indicator-initial-placeholder" data-seconds="1771574159"></span></a>
+</div>
+</div>
+</div>
+<div class="crayons-story__indention">
+<h2 class="crayons-story__title crayons-story__title-full_post">
+<a data-preload-image="https://media2.dev.to/dynamic/image/width=1000,height=420,fit=cover,gravity=auto,format=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Farticles%2Foq8661h0qf7tud9dfchm.png" href="anderecit/monitoring-share-of-search-automating-ikea-product-visibility-tracking-3p8.html" id="article-link-3270135">
+          Monitoring Share of Search: Automating IKEA Product Visibility Tracking
+        </a>
+</h2>
+<div class="crayons-story__tags">
+<a class="crayons-tag crayons-tag--monochrome" href="t/webscraping.html" style="
+        --tag-bg: rgba(64, 78, 211, 0.10);
+        --tag-prefix: #404ED3;
+        --tag-bg-hover: rgba(64, 78, 211, 0.10);
+        --tag-prefix-hover: #404ED3;
+      "><span class="crayons-tag__prefix">#</span>webscraping</a>
+<a class="crayons-tag crayons-tag--monochrome" href="t/python.html" style="
+        --tag-bg: rgba(30, 56, 187, 0.10);
+        --tag-prefix: #1E38BB;
+        --tag-bg-hover: rgba(30, 56, 187, 0.10);
+        --tag-prefix-hover: #1E38BB;
+      "><span class="crayons-tag__prefix">#</span>python</a>
+<a class="crayons-tag crayons-tag--monochrome" href="t/node.html" style="
+        --tag-bg: rgba(61, 136, 54, 0.10);
+        --tag-prefix: #3d8836;
+        --tag-bg-hover: rgba(61, 136, 54, 0.10);
+        --tag-prefix-hover: #3d8836;
+      "><span class="crayons-tag__prefix">#</span>node</a>
+<a class="crayons-tag crayons-tag--monochrome" href="t/dataengineering.html" style="
+        --tag-bg: rgba(64, 78, 211, 0.10);
+        --tag-prefix: #404ED3;
+        --tag-bg-hover: rgba(64, 78, 211, 0.10);
+        --tag-prefix-hover: #404ED3;
+      "><span class="crayons-tag__prefix">#</span>dataengineering</a>
+</div>
+<div class="crayons-story__bottom">
+<div class="crayons-story__details">
+<a aria-label="Add a comment to post - Monitoring Share of Search: Automating IKEA Product Visibility Tracking" class="crayons-btn crayons-btn--s crayons-btn--ghost crayons-btn--icon-left flex items-center" href="anderecit/monitoring-share-of-search-automating-ikea-product-visibility-tracking-3p8.html">
+<svg aria-labelledby="a3yu5jrbxadfrwtp9epzs2tmkfgsugdn" class="crayons-icon" height="24" role="img" width="24" xmlns="http://www.w3.org/2000/svg"><title id="a3yu5jrbxadfrwtp9epzs2tmkfgsugdn">Comments</title><path d="M10.5 5h3a6 6 0 110 12v2.625c-3.75-1.5-9-3.75-9-8.625a6 6 0 016-6zM12 15.5h1.5a4.501 4.501 0 001.722-8.657A4.5 4.5 0 0013.5 6.5h-3A4.5 4.5 0 006 11c0 2.707 1.846 4.475 6 6.36V15.5z"></path></svg>
+<span class="hidden s:inline">Add Comment</span>
+</a>
+</div>
+<div class="crayons-story__save">
+<small class="crayons-story__tertiary fs-xs mr-2">
+            5 min read
+          </small>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="crayons-story" data-content-user-id="3729692" data-feed-content-id="3261433">
+<a aria-labelledby="article-link-3261433" class="crayons-story__hidden-navigation-link" href="anderecit/from-script-to-spreadsheet-building-a-self-serve-etsy-competitor-tracker-4o13.html">From Script to Spreadsheet: Building a Self-Serve Etsy Competitor Tracker</a>
+<div class="crayons-story__body crayons-story__body-full_post">
+<div class="crayons-story__top">
+<div class="crayons-story__meta">
+<div class="crayons-story__author-pic">
+<a class="crayons-avatar crayons-avatar--l" href="anderecit.html">
+<img alt="anderecit profile" class="crayons-avatar__image" loading="lazy" src="cdn/media2.dev.to/dynamic/image/width=90,height=90,fit=cover,gravity=auto,format=auto/https___dev-to-uploads.s3.amazonaws.com_uploads_user_profile_image_3729692_74d7e0fb-145a-4c4d-962f-79ac4411266b.jpg"/>
+</a>
+</div>
+<div>
+<div>
+<a class="crayons-story__secondary fw-medium m:hidden" href="anderecit.html">
+              Jerry A. Henley
+            </a>
+<div class="profile-preview-card relative mb-4 s:mb-0 fw-medium hidden m:inline-block">
+<button aria-controls="story-author-preview-content-3261433" aria-label="Jerry A. Henley profile details" class="profile-preview-card__trigger fs-s p-1 -ml-1 -my-2 crayons-btn crayons-btn--ghost" id="story-author-preview-trigger-3261433">
+                Jerry A. Henley
+                
+              </button>
+<div class="profile-preview-card__content crayons-dropdown branded-7 p-4 pt-0" data-repositioning-dropdown="true" data-testid="profile-preview-card" id="story-author-preview-content-3261433" style="border-top-color: var(--card-color);">
+<div class="gap-4 grid">
+<div class="-mt-4">
+<a class="flex" href="anderecit.html">
+<span class="crayons-avatar crayons-avatar--xl mr-2 shrink-0">
+<img alt="" class="crayons-avatar__image" loading="lazy" src="cdn/media2.dev.to/dynamic/image/width=90,height=90,fit=cover,gravity=auto,format=auto/https___dev-to-uploads.s3.amazonaws.com_uploads_user_profile_image_3729692_74d7e0fb-145a-4c4d-962f-79ac4411266b.jpg"/>
+</span>
+<span class="crayons-link crayons-subtitle-2 mt-5">Jerry A. Henley</span>
+</a>
+</div>
+<div class="print-hidden">
+<button class="crayons-btn follow-action-button whitespace-nowrap follow-user w-100" data-info='{"style":"full","id":3729692,"className":"User","name":"Jerry A. Henley"}'>
+                      Follow
+                    </button>
+</div>
+<div class="author-preview-metadata-container" data-author-id="3729692"></div>
+</div>
+</div>
+</div>
+</div>
+<a class="crayons-story__tertiary fs-xs" href="anderecit/from-script-to-spreadsheet-building-a-self-serve-etsy-competitor-tracker-4o13.html"><time datetime="2026-02-17T06:05:07Z">Feb 17</time><span class="time-ago-indicator-initial-placeholder" data-seconds="1771308307"></span></a>
+</div>
+</div>
+</div>
+<div class="crayons-story__indention">
+<h2 class="crayons-story__title crayons-story__title-full_post">
+<a data-preload-image="https://media2.dev.to/dynamic/image/width=1000,height=420,fit=cover,gravity=auto,format=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Farticles%2Fiig7dczf3ob9sjaqgayz.png" href="anderecit/from-script-to-spreadsheet-building-a-self-serve-etsy-competitor-tracker-4o13.html" id="article-link-3261433">
+          From Script to Spreadsheet: Building a Self-Serve Etsy Competitor Tracker
+        </a>
+</h2>
+<div class="crayons-story__tags">
+<a class="crayons-tag crayons-tag--monochrome" href="t/webscraping.html" style="
+        --tag-bg: rgba(64, 78, 211, 0.10);
+        --tag-prefix: #404ED3;
+        --tag-bg-hover: rgba(64, 78, 211, 0.10);
+        --tag-prefix-hover: #404ED3;
+      "><span class="crayons-tag__prefix">#</span>webscraping</a>
+<a class="crayons-tag crayons-tag--monochrome" href="t/devops.html" style="
+        --tag-bg: rgba(6, 181, 0, 0.10);
+        --tag-prefix: #06B500;
+        --tag-bg-hover: rgba(6, 181, 0, 0.10);
+        --tag-prefix-hover: #06B500;
+      "><span class="crayons-tag__prefix">#</span>devops</a>
+<a class="crayons-tag crayons-tag--monochrome" href="t/python.html" style="
+        --tag-bg: rgba(30, 56, 187, 0.10);
+        --tag-prefix: #1E38BB;
+        --tag-bg-hover: rgba(30, 56, 187, 0.10);
+        --tag-prefix-hover: #1E38BB;
+      "><span class="crayons-tag__prefix">#</span>python</a>
+<a class="crayons-tag crayons-tag--monochrome" href="t/dataengineering.html" style="
+        --tag-bg: rgba(64, 78, 211, 0.10);
+        --tag-prefix: #404ED3;
+        --tag-bg-hover: rgba(64, 78, 211, 0.10);
+        --tag-prefix-hover: #404ED3;
+      "><span class="crayons-tag__prefix">#</span>dataengineering</a>
+</div>
+<div class="crayons-story__bottom">
+<div class="crayons-story__details">
+<a aria-label="Add a comment to post - From Script to Spreadsheet: Building a Self-Serve Etsy Competitor Tracker" class="crayons-btn crayons-btn--s crayons-btn--ghost crayons-btn--icon-left" data-reactable-id="3261433" data-reaction-count="" href="anderecit/from-script-to-spreadsheet-building-a-self-serve-etsy-competitor-tracker-4o13.html">
+<div class="multiple_reactions_aggregate">
+<span class="multiple_reactions_icons_container" dir="rtl">
+<span class="crayons_icon_container">
+<img height="18" src="cdn/assets.dev.to/assets/sparkle-heart-5f9bee3767e18deb1bb725290cb151c25234768a0e9a2bd39370c382d02920cf.svg" width="18"/>
+</span>
+</span>
+<span class="aggregate_reactions_counter">2<span class="hidden s:inline"> reactions</span></span>
+</div>
+</a>
+<a aria-label="Add a comment to post - From Script to Spreadsheet: Building a Self-Serve Etsy Competitor Tracker" class="crayons-btn crayons-btn--s crayons-btn--ghost crayons-btn--icon-left flex items-center" href="anderecit/from-script-to-spreadsheet-building-a-self-serve-etsy-competitor-tracker-4o13.html">
+<svg aria-labelledby="ahcunryptxwla1farzs5cnvtrlf8svgs" class="crayons-icon" height="24" role="img" width="24" xmlns="http://www.w3.org/2000/svg"><title id="ahcunryptxwla1farzs5cnvtrlf8svgs">Comments</title><path d="M10.5 5h3a6 6 0 110 12v2.625c-3.75-1.5-9-3.75-9-8.625a6 6 0 016-6zM12 15.5h1.5a4.501 4.501 0 001.722-8.657A4.5 4.5 0 0013.5 6.5h-3A4.5 4.5 0 006 11c0 2.707 1.846 4.475 6 6.36V15.5z"></path></svg>
+<span class="hidden s:inline">Add Comment</span>
+</a>
+</div>
+<div class="crayons-story__save">
+<small class="crayons-story__tertiary fs-xs mr-2">
+            5 min read
+          </small>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="crayons-story" data-content-user-id="3729692" data-feed-content-id="3253422">
+<a aria-labelledby="article-link-3253422" class="crayons-story__hidden-navigation-link" href="anderecit/how-to-generate-a-google-shopping-feed-from-any-e-commerce-site-using-python-4ni6.html">How to Generate a Google Shopping Feed from Any E-commerce Site Using Python</a>
+<div class="crayons-story__body crayons-story__body-full_post">
+<div class="crayons-story__top">
+<div class="crayons-story__meta">
+<div class="crayons-story__author-pic">
+<a class="crayons-avatar crayons-avatar--l" href="anderecit.html">
+<img alt="anderecit profile" class="crayons-avatar__image" loading="lazy" src="cdn/media2.dev.to/dynamic/image/width=90,height=90,fit=cover,gravity=auto,format=auto/https___dev-to-uploads.s3.amazonaws.com_uploads_user_profile_image_3729692_74d7e0fb-145a-4c4d-962f-79ac4411266b.jpg"/>
+</a>
+</div>
+<div>
+<div>
+<a class="crayons-story__secondary fw-medium m:hidden" href="anderecit.html">
+              Jerry A. Henley
+            </a>
+<div class="profile-preview-card relative mb-4 s:mb-0 fw-medium hidden m:inline-block">
+<button aria-controls="story-author-preview-content-3253422" aria-label="Jerry A. Henley profile details" class="profile-preview-card__trigger fs-s p-1 -ml-1 -my-2 crayons-btn crayons-btn--ghost" id="story-author-preview-trigger-3253422">
+                Jerry A. Henley
+                
+              </button>
+<div class="profile-preview-card__content crayons-dropdown branded-7 p-4 pt-0" data-repositioning-dropdown="true" data-testid="profile-preview-card" id="story-author-preview-content-3253422" style="border-top-color: var(--card-color);">
+<div class="gap-4 grid">
+<div class="-mt-4">
+<a class="flex" href="anderecit.html">
+<span class="crayons-avatar crayons-avatar--xl mr-2 shrink-0">
+<img alt="" class="crayons-avatar__image" loading="lazy" src="cdn/media2.dev.to/dynamic/image/width=90,height=90,fit=cover,gravity=auto,format=auto/https___dev-to-uploads.s3.amazonaws.com_uploads_user_profile_image_3729692_74d7e0fb-145a-4c4d-962f-79ac4411266b.jpg"/>
+</span>
+<span class="crayons-link crayons-subtitle-2 mt-5">Jerry A. Henley</span>
+</a>
+</div>
+<div class="print-hidden">
+<button class="crayons-btn follow-action-button whitespace-nowrap follow-user w-100" data-info='{"style":"full","id":3729692,"className":"User","name":"Jerry A. Henley"}'>
+                      Follow
+                    </button>
+</div>
+<div class="author-preview-metadata-container" data-author-id="3729692"></div>
+</div>
+</div>
+</div>
+</div>
+<a class="crayons-story__tertiary fs-xs" href="anderecit/how-to-generate-a-google-shopping-feed-from-any-e-commerce-site-using-python-4ni6.html"><time datetime="2026-02-15T23:30:00Z">Feb 15</time><span class="time-ago-indicator-initial-placeholder" data-seconds="1771198200"></span></a>
+</div>
+</div>
+</div>
+<div class="crayons-story__indention">
+<h2 class="crayons-story__title crayons-story__title-full_post">
+<a data-preload-image="https://media2.dev.to/dynamic/image/width=1000,height=420,fit=cover,gravity=auto,format=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Farticles%2Fquo3isu8pbl7yn5x489k.jpg" href="anderecit/how-to-generate-a-google-shopping-feed-from-any-e-commerce-site-using-python-4ni6.html" id="article-link-3253422">
+          How to Generate a Google Shopping Feed from Any E-commerce Site Using Python
+        </a>
+</h2>
+<div class="crayons-story__tags">
+<a class="crayons-tag crayons-tag--monochrome" href="t/googleshopping.html" style="
+        --tag-bg: rgba(64, 78, 211, 0.10);
+        --tag-prefix: #404ED3;
+        --tag-bg-hover: rgba(64, 78, 211, 0.10);
+        --tag-prefix-hover: #404ED3;
+      "><span class="crayons-tag__prefix">#</span>googleshopping</a>
+<a class="crayons-tag crayons-tag--monochrome" href="t/webscraping.html" style="
+        --tag-bg: rgba(64, 78, 211, 0.10);
+        --tag-prefix: #404ED3;
+        --tag-bg-hover: rgba(64, 78, 211, 0.10);
+        --tag-prefix-hover: #404ED3;
+      "><span class="crayons-tag__prefix">#</span>webscraping</a>
+<a class="crayons-tag crayons-tag--monochrome" href="t/python.html" style="
+        --tag-bg: rgba(30, 56, 187, 0.10);
+        --tag-prefix: #1E38BB;
+        --tag-bg-hover: rgba(30, 56, 187, 0.10);
+        --tag-prefix-hover: #1E38BB;
+      "><span class="crayons-tag__prefix">#</span>python</a>
+<a class="crayons-tag crayons-tag--monochrome" href="t/ecommerce.html" style="
+        --tag-bg: rgba(64, 78, 211, 0.10);
+        --tag-prefix: #404ED3;
+        --tag-bg-hover: rgba(64, 78, 211, 0.10);
+        --tag-prefix-hover: #404ED3;
+      "><span class="crayons-tag__prefix">#</span>ecommerce</a>
+</div>
+<div class="crayons-story__bottom">
+<div class="crayons-story__details">
+<a aria-label="Add a comment to post - How to Generate a Google Shopping Feed from Any E-commerce Site Using Python" class="crayons-btn crayons-btn--s crayons-btn--ghost crayons-btn--icon-left flex items-center" href="anderecit/how-to-generate-a-google-shopping-feed-from-any-e-commerce-site-using-python-4ni6.html">
+<svg aria-labelledby="apdruzn2mvnvpnznicgxjnp2sd7jr3c4" class="crayons-icon" height="24" role="img" width="24" xmlns="http://www.w3.org/2000/svg"><title id="apdruzn2mvnvpnznicgxjnp2sd7jr3c4">Comments</title><path d="M10.5 5h3a6 6 0 110 12v2.625c-3.75-1.5-9-3.75-9-8.625a6 6 0 016-6zM12 15.5h1.5a4.501 4.501 0 001.722-8.657A4.5 4.5 0 0013.5 6.5h-3A4.5 4.5 0 006 11c0 2.707 1.846 4.475 6 6.36V15.5z"></path></svg>
+<span class="hidden s:inline">Add Comment</span>
+</a>
+</div>
+<div class="crayons-story__save">
+<small class="crayons-story__tertiary fs-xs mr-2">
+            5 min read
+          </small>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="crayons-story" data-content-user-id="3729692" data-feed-content-id="3251086">
+<a aria-labelledby="article-link-3251086" class="crayons-story__hidden-navigation-link" href="anderecit/future-proofing-your-scrapers-strategies-for-resilient-dom-selection-1j4f.html">Future-Proofing Your Scrapers: Strategies for Resilient DOM Selection</a>
+<div class="crayons-story__body crayons-story__body-full_post">
+<div class="crayons-story__top">
+<div class="crayons-story__meta">
+<div class="crayons-story__author-pic">
+<a class="crayons-avatar crayons-avatar--l" href="anderecit.html">
+<img alt="anderecit profile" class="crayons-avatar__image" loading="lazy" src="cdn/media2.dev.to/dynamic/image/width=90,height=90,fit=cover,gravity=auto,format=auto/https___dev-to-uploads.s3.amazonaws.com_uploads_user_profile_image_3729692_74d7e0fb-145a-4c4d-962f-79ac4411266b.jpg"/>
+</a>
+</div>
+<div>
+<div>
+<a class="crayons-story__secondary fw-medium m:hidden" href="anderecit.html">
+              Jerry A. Henley
+            </a>
+<div class="profile-preview-card relative mb-4 s:mb-0 fw-medium hidden m:inline-block">
+<button aria-controls="story-author-preview-content-3251086" aria-label="Jerry A. Henley profile details" class="profile-preview-card__trigger fs-s p-1 -ml-1 -my-2 crayons-btn crayons-btn--ghost" id="story-author-preview-trigger-3251086">
+                Jerry A. Henley
+                
+              </button>
+<div class="profile-preview-card__content crayons-dropdown branded-7 p-4 pt-0" data-repositioning-dropdown="true" data-testid="profile-preview-card" id="story-author-preview-content-3251086" style="border-top-color: var(--card-color);">
+<div class="gap-4 grid">
+<div class="-mt-4">
+<a class="flex" href="anderecit.html">
+<span class="crayons-avatar crayons-avatar--xl mr-2 shrink-0">
+<img alt="" class="crayons-avatar__image" loading="lazy" src="cdn/media2.dev.to/dynamic/image/width=90,height=90,fit=cover,gravity=auto,format=auto/https___dev-to-uploads.s3.amazonaws.com_uploads_user_profile_image_3729692_74d7e0fb-145a-4c4d-962f-79ac4411266b.jpg"/>
+</span>
+<span class="crayons-link crayons-subtitle-2 mt-5">Jerry A. Henley</span>
+</a>
+</div>
+<div class="print-hidden">
+<button class="crayons-btn follow-action-button whitespace-nowrap follow-user w-100" data-info='{"style":"full","id":3729692,"className":"User","name":"Jerry A. Henley"}'>
+                      Follow
+                    </button>
+</div>
+<div class="author-preview-metadata-container" data-author-id="3729692"></div>
+</div>
+</div>
+</div>
+</div>
+<a class="crayons-story__tertiary fs-xs" href="anderecit/future-proofing-your-scrapers-strategies-for-resilient-dom-selection-1j4f.html"><time datetime="2026-02-12T10:14:02Z">Feb 12</time><span class="time-ago-indicator-initial-placeholder" data-seconds="1770891242"></span></a>
+</div>
+</div>
+</div>
+<div class="crayons-story__indention">
+<h2 class="crayons-story__title crayons-story__title-full_post">
+<a data-preload-image="https://media2.dev.to/dynamic/image/width=1000,height=420,fit=cover,gravity=auto,format=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Farticles%2Fw27ja3pmuuvyytu0vxqc.jpeg" href="anderecit/future-proofing-your-scrapers-strategies-for-resilient-dom-selection-1j4f.html" id="article-link-3251086">
+          Future-Proofing Your Scrapers: Strategies for Resilient DOM Selection
+        </a>
+</h2>
+<div class="crayons-story__tags">
+<a class="crayons-tag crayons-tag--monochrome" href="t/webscraping.html" style="
+        --tag-bg: rgba(64, 78, 211, 0.10);
+        --tag-prefix: #404ED3;
+        --tag-bg-hover: rgba(64, 78, 211, 0.10);
+        --tag-prefix-hover: #404ED3;
+      "><span class="crayons-tag__prefix">#</span>webscraping</a>
+<a class="crayons-tag crayons-tag--monochrome" href="t/devops.html" style="
+        --tag-bg: rgba(6, 181, 0, 0.10);
+        --tag-prefix: #06B500;
+        --tag-bg-hover: rgba(6, 181, 0, 0.10);
+        --tag-prefix-hover: #06B500;
+      "><span class="crayons-tag__prefix">#</span>devops</a>
+<a class="crayons-tag crayons-tag--monochrome" href="t/python.html" style="
+        --tag-bg: rgba(30, 56, 187, 0.10);
+        --tag-prefix: #1E38BB;
+        --tag-bg-hover: rgba(30, 56, 187, 0.10);
+        --tag-prefix-hover: #1E38BB;
+      "><span class="crayons-tag__prefix">#</span>python</a>
+<a class="crayons-tag crayons-tag--monochrome" href="t/scraper.html" style="
+        --tag-bg: rgba(64, 78, 211, 0.10);
+        --tag-prefix: #404ED3;
+        --tag-bg-hover: rgba(64, 78, 211, 0.10);
+        --tag-prefix-hover: #404ED3;
+      "><span class="crayons-tag__prefix">#</span>scraper</a>
+</div>
+<div class="crayons-story__bottom">
+<div class="crayons-story__details">
+<a aria-label="Add a comment to post - Future-Proofing Your Scrapers: Strategies for Resilient DOM Selection" class="crayons-btn crayons-btn--s crayons-btn--ghost crayons-btn--icon-left" data-reactable-id="3251086" data-reaction-count="" href="anderecit/future-proofing-your-scrapers-strategies-for-resilient-dom-selection-1j4f.html">
+<div class="multiple_reactions_aggregate">
+<span class="multiple_reactions_icons_container" dir="rtl">
+<span class="crayons_icon_container">
+<img height="18" src="cdn/assets.dev.to/assets/sparkle-heart-5f9bee3767e18deb1bb725290cb151c25234768a0e9a2bd39370c382d02920cf.svg" width="18"/>
+</span>
+</span>
+<span class="aggregate_reactions_counter">1<span class="hidden s:inline"> reaction</span></span>
+</div>
+</a>
+<a aria-label="Add a comment to post - Future-Proofing Your Scrapers: Strategies for Resilient DOM Selection" class="crayons-btn crayons-btn--s crayons-btn--ghost crayons-btn--icon-left flex items-center" href="anderecit/future-proofing-your-scrapers-strategies-for-resilient-dom-selection-1j4f.html">
+<svg aria-labelledby="aj2patxwh6udrrutagckxxp3vhuj4di5" class="crayons-icon" height="24" role="img" width="24" xmlns="http://www.w3.org/2000/svg"><title id="aj2patxwh6udrrutagckxxp3vhuj4di5">Comments</title><path d="M10.5 5h3a6 6 0 110 12v2.625c-3.75-1.5-9-3.75-9-8.625a6 6 0 016-6zM12 15.5h1.5a4.501 4.501 0 001.722-8.657A4.5 4.5 0 0013.5 6.5h-3A4.5 4.5 0 006 11c0 2.707 1.846 4.475 6 6.36V15.5z"></path></svg>
+<span class="hidden s:inline">Add Comment</span>
+</a>
+</div>
+<div class="crayons-story__save">
+<small class="crayons-story__tertiary fs-xs mr-2">
+            5 min read
+          </small>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="crayons-story" data-content-user-id="3729692" data-feed-content-id="3242454">
+<a aria-labelledby="article-link-3242454" class="crayons-story__hidden-navigation-link" href="anderecit/stop-silent-failures-using-llms-to-validate-web-scraper-output-24gf.html">Stop Silent Failures: Using LLMs to Validate Web Scraper Output</a>
+<div class="crayons-story__body crayons-story__body-full_post">
+<div class="crayons-story__top">
+<div class="crayons-story__meta">
+<div class="crayons-story__author-pic">
+<a class="crayons-avatar crayons-avatar--l" href="anderecit.html">
+<img alt="anderecit profile" class="crayons-avatar__image" loading="lazy" src="cdn/media2.dev.to/dynamic/image/width=90,height=90,fit=cover,gravity=auto,format=auto/https___dev-to-uploads.s3.amazonaws.com_uploads_user_profile_image_3729692_74d7e0fb-145a-4c4d-962f-79ac4411266b.jpg"/>
+</a>
+</div>
+<div>
+<div>
+<a class="crayons-story__secondary fw-medium m:hidden" href="anderecit.html">
+              Jerry A. Henley
+            </a>
+<div class="profile-preview-card relative mb-4 s:mb-0 fw-medium hidden m:inline-block">
+<button aria-controls="story-author-preview-content-3242454" aria-label="Jerry A. Henley profile details" class="profile-preview-card__trigger fs-s p-1 -ml-1 -my-2 crayons-btn crayons-btn--ghost" id="story-author-preview-trigger-3242454">
+                Jerry A. Henley
+                
+              </button>
+<div class="profile-preview-card__content crayons-dropdown branded-7 p-4 pt-0" data-repositioning-dropdown="true" data-testid="profile-preview-card" id="story-author-preview-content-3242454" style="border-top-color: var(--card-color);">
+<div class="gap-4 grid">
+<div class="-mt-4">
+<a class="flex" href="anderecit.html">
+<span class="crayons-avatar crayons-avatar--xl mr-2 shrink-0">
+<img alt="" class="crayons-avatar__image" loading="lazy" src="cdn/media2.dev.to/dynamic/image/width=90,height=90,fit=cover,gravity=auto,format=auto/https___dev-to-uploads.s3.amazonaws.com_uploads_user_profile_image_3729692_74d7e0fb-145a-4c4d-962f-79ac4411266b.jpg"/>
+</span>
+<span class="crayons-link crayons-subtitle-2 mt-5">Jerry A. Henley</span>
+</a>
+</div>
+<div class="print-hidden">
+<button class="crayons-btn follow-action-button whitespace-nowrap follow-user w-100" data-info='{"style":"full","id":3729692,"className":"User","name":"Jerry A. Henley"}'>
+                      Follow
+                    </button>
+</div>
+<div class="author-preview-metadata-container" data-author-id="3729692"></div>
+</div>
+</div>
+</div>
+</div>
+<a class="crayons-story__tertiary fs-xs" href="anderecit/stop-silent-failures-using-llms-to-validate-web-scraper-output-24gf.html"><time datetime="2026-02-09T05:43:08Z">Feb 9</time><span class="time-ago-indicator-initial-placeholder" data-seconds="1770615788"></span></a>
+</div>
+</div>
+</div>
+<div class="crayons-story__indention">
+<h2 class="crayons-story__title crayons-story__title-full_post">
+<a data-preload-image="https://media2.dev.to/dynamic/image/width=1000,height=420,fit=cover,gravity=auto,format=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Farticles%2F3udomvxk1tqlsyuxgxh6.png" href="anderecit/stop-silent-failures-using-llms-to-validate-web-scraper-output-24gf.html" id="article-link-3242454">
+          Stop Silent Failures: Using LLMs to Validate Web Scraper Output
+        </a>
+</h2>
+<div class="crayons-story__tags">
+<a class="crayons-tag crayons-tag--monochrome" href="t/llm.html" style="
+        --tag-bg: rgba(64, 78, 211, 0.10);
+        --tag-prefix: #404ED3;
+        --tag-bg-hover: rgba(64, 78, 211, 0.10);
+        --tag-prefix-hover: #404ED3;
+      "><span class="crayons-tag__prefix">#</span>llm</a>
+<a class="crayons-tag crayons-tag--monochrome" href="t/webscraping.html" style="
+        --tag-bg: rgba(64, 78, 211, 0.10);
+        --tag-prefix: #404ED3;
+        --tag-bg-hover: rgba(64, 78, 211, 0.10);
+        --tag-prefix-hover: #404ED3;
+      "><span class="crayons-tag__prefix">#</span>webscraping</a>
+<a class="crayons-tag crayons-tag--monochrome" href="t/devops.html" style="
+        --tag-bg: rgba(6, 181, 0, 0.10);
+        --tag-prefix: #06B500;
+        --tag-bg-hover: rgba(6, 181, 0, 0.10);
+        --tag-prefix-hover: #06B500;
+      "><span class="crayons-tag__prefix">#</span>devops</a>
+</div>
+<div class="crayons-story__bottom">
+<div class="crayons-story__details">
+<a aria-label="Add a comment to post - Stop Silent Failures: Using LLMs to Validate Web Scraper Output" class="crayons-btn crayons-btn--s crayons-btn--ghost crayons-btn--icon-left flex items-center" href="anderecit/stop-silent-failures-using-llms-to-validate-web-scraper-output-24gf.html">
+<svg aria-labelledby="a67nquacwq5v6clz4hh6b7i9572wgr95" class="crayons-icon" height="24" role="img" width="24" xmlns="http://www.w3.org/2000/svg"><title id="a67nquacwq5v6clz4hh6b7i9572wgr95">Comments</title><path d="M10.5 5h3a6 6 0 110 12v2.625c-3.75-1.5-9-3.75-9-8.625a6 6 0 016-6zM12 15.5h1.5a4.501 4.501 0 001.722-8.657A4.5 4.5 0 0013.5 6.5h-3A4.5 4.5 0 006 11c0 2.707 1.846 4.475 6 6.36V15.5z"></path></svg>
+
+              1<span class="hidden s:inline"> comment</span>
+</a>
+</div>
+<div class="crayons-story__save">
+<small class="crayons-story__tertiary fs-xs mr-2">
+            5 min read
+          </small>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="crayons-story" data-content-user-id="3729692" data-feed-content-id="3233967">
+<a aria-labelledby="article-link-3233967" class="crayons-story__hidden-navigation-link" href="anderecit/static-vs-dynamic-scraping-choosing-the-right-architecture-for-ai-generated-code-3b2i.html">Static vs. Dynamic Scraping: Choosing the Right Architecture for AI-Generated Code</a>
+<div class="crayons-story__body crayons-story__body-full_post">
+<div class="crayons-story__top">
+<div class="crayons-story__meta">
+<div class="crayons-story__author-pic">
+<a class="crayons-avatar crayons-avatar--l" href="anderecit.html">
+<img alt="anderecit profile" class="crayons-avatar__image" loading="lazy" src="cdn/media2.dev.to/dynamic/image/width=90,height=90,fit=cover,gravity=auto,format=auto/https___dev-to-uploads.s3.amazonaws.com_uploads_user_profile_image_3729692_74d7e0fb-145a-4c4d-962f-79ac4411266b.jpg"/>
+</a>
+</div>
+<div>
+<div>
+<a class="crayons-story__secondary fw-medium m:hidden" href="anderecit.html">
+              Jerry A. Henley
+            </a>
+<div class="profile-preview-card relative mb-4 s:mb-0 fw-medium hidden m:inline-block">
+<button aria-controls="story-author-preview-content-3233967" aria-label="Jerry A. Henley profile details" class="profile-preview-card__trigger fs-s p-1 -ml-1 -my-2 crayons-btn crayons-btn--ghost" id="story-author-preview-trigger-3233967">
+                Jerry A. Henley
+                
+              </button>
+<div class="profile-preview-card__content crayons-dropdown branded-7 p-4 pt-0" data-repositioning-dropdown="true" data-testid="profile-preview-card" id="story-author-preview-content-3233967" style="border-top-color: var(--card-color);">
+<div class="gap-4 grid">
+<div class="-mt-4">
+<a class="flex" href="anderecit.html">
+<span class="crayons-avatar crayons-avatar--xl mr-2 shrink-0">
+<img alt="" class="crayons-avatar__image" loading="lazy" src="cdn/media2.dev.to/dynamic/image/width=90,height=90,fit=cover,gravity=auto,format=auto/https___dev-to-uploads.s3.amazonaws.com_uploads_user_profile_image_3729692_74d7e0fb-145a-4c4d-962f-79ac4411266b.jpg"/>
+</span>
+<span class="crayons-link crayons-subtitle-2 mt-5">Jerry A. Henley</span>
+</a>
+</div>
+<div class="print-hidden">
+<button class="crayons-btn follow-action-button whitespace-nowrap follow-user w-100" data-info='{"style":"full","id":3729692,"className":"User","name":"Jerry A. Henley"}'>
+                      Follow
+                    </button>
+</div>
+<div class="author-preview-metadata-container" data-author-id="3729692"></div>
+</div>
+</div>
+</div>
+</div>
+<a class="crayons-story__tertiary fs-xs" href="anderecit/static-vs-dynamic-scraping-choosing-the-right-architecture-for-ai-generated-code-3b2i.html"><time datetime="2026-02-05T07:37:32Z">Feb 5</time><span class="time-ago-indicator-initial-placeholder" data-seconds="1770277052"></span></a>
+</div>
+</div>
+</div>
+<div class="crayons-story__indention">
+<h2 class="crayons-story__title crayons-story__title-full_post">
+<a data-preload-image="https://media2.dev.to/dynamic/image/width=1000,height=420,fit=cover,gravity=auto,format=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Farticles%2Fh726jjbn0dw2pq3cl8sd.jpg" href="anderecit/static-vs-dynamic-scraping-choosing-the-right-architecture-for-ai-generated-code-3b2i.html" id="article-link-3233967">
+          Static vs. Dynamic Scraping: Choosing the Right Architecture for AI-Generated Code
+        </a>
+</h2>
+<div class="crayons-story__tags">
+<a class="crayons-tag crayons-tag--monochrome" href="t/webscraping.html" style="
+        --tag-bg: rgba(64, 78, 211, 0.10);
+        --tag-prefix: #404ED3;
+        --tag-bg-hover: rgba(64, 78, 211, 0.10);
+        --tag-prefix-hover: #404ED3;
+      "><span class="crayons-tag__prefix">#</span>webscraping</a>
+<a class="crayons-tag crayons-tag--monochrome" href="t/devops.html" style="
+        --tag-bg: rgba(6, 181, 0, 0.10);
+        --tag-prefix: #06B500;
+        --tag-bg-hover: rgba(6, 181, 0, 0.10);
+        --tag-prefix-hover: #06B500;
+      "><span class="crayons-tag__prefix">#</span>devops</a>
+<a class="crayons-tag crayons-tag--monochrome" href="t/dataengineering.html" style="
+        --tag-bg: rgba(64, 78, 211, 0.10);
+        --tag-prefix: #404ED3;
+        --tag-bg-hover: rgba(64, 78, 211, 0.10);
+        --tag-prefix-hover: #404ED3;
+      "><span class="crayons-tag__prefix">#</span>dataengineering</a>
+</div>
+<div class="crayons-story__bottom">
+<div class="crayons-story__details">
+<a aria-label="Add a comment to post - Static vs. Dynamic Scraping: Choosing the Right Architecture for AI-Generated Code" class="crayons-btn crayons-btn--s crayons-btn--ghost crayons-btn--icon-left flex items-center" href="anderecit/static-vs-dynamic-scraping-choosing-the-right-architecture-for-ai-generated-code-3b2i.html">
+<svg aria-labelledby="arbrw67tp3h80w4aitgoli9mvmw6qs41" class="crayons-icon" height="24" role="img" width="24" xmlns="http://www.w3.org/2000/svg"><title id="arbrw67tp3h80w4aitgoli9mvmw6qs41">Comments</title><path d="M10.5 5h3a6 6 0 110 12v2.625c-3.75-1.5-9-3.75-9-8.625a6 6 0 016-6zM12 15.5h1.5a4.501 4.501 0 001.722-8.657A4.5 4.5 0 0013.5 6.5h-3A4.5 4.5 0 006 11c0 2.707 1.846 4.475 6 6.36V15.5z"></path></svg>
+<span class="hidden s:inline">Add Comment</span>
+</a>
+</div>
+<div class="crayons-story__save">
+<small class="crayons-story__tertiary fs-xs mr-2">
+            5 min read
+          </small>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="crayons-story" data-content-user-id="3729692" data-feed-content-id="3229908">
+<a aria-labelledby="article-link-3229908" class="crayons-story__hidden-navigation-link" href="anderecit/the-economics-of-extraction-solving-the-proxy-paradox-in-web-scraping-efl.html">The Economics of Extraction: Solving the "Proxy Paradox" in Web Scraping</a>
+<div class="crayons-story__body crayons-story__body-full_post">
+<div class="crayons-story__top">
+<div class="crayons-story__meta">
+<div class="crayons-story__author-pic">
+<a class="crayons-avatar crayons-avatar--l" href="anderecit.html">
+<img alt="anderecit profile" class="crayons-avatar__image" loading="lazy" src="cdn/media2.dev.to/dynamic/image/width=90,height=90,fit=cover,gravity=auto,format=auto/https___dev-to-uploads.s3.amazonaws.com_uploads_user_profile_image_3729692_74d7e0fb-145a-4c4d-962f-79ac4411266b.jpg"/>
+</a>
+</div>
+<div>
+<div>
+<a class="crayons-story__secondary fw-medium m:hidden" href="anderecit.html">
+              Jerry A. Henley
+            </a>
+<div class="profile-preview-card relative mb-4 s:mb-0 fw-medium hidden m:inline-block">
+<button aria-controls="story-author-preview-content-3229908" aria-label="Jerry A. Henley profile details" class="profile-preview-card__trigger fs-s p-1 -ml-1 -my-2 crayons-btn crayons-btn--ghost" id="story-author-preview-trigger-3229908">
+                Jerry A. Henley
+                
+              </button>
+<div class="profile-preview-card__content crayons-dropdown branded-7 p-4 pt-0" data-repositioning-dropdown="true" data-testid="profile-preview-card" id="story-author-preview-content-3229908" style="border-top-color: var(--card-color);">
+<div class="gap-4 grid">
+<div class="-mt-4">
+<a class="flex" href="anderecit.html">
+<span class="crayons-avatar crayons-avatar--xl mr-2 shrink-0">
+<img alt="" class="crayons-avatar__image" loading="lazy" src="cdn/media2.dev.to/dynamic/image/width=90,height=90,fit=cover,gravity=auto,format=auto/https___dev-to-uploads.s3.amazonaws.com_uploads_user_profile_image_3729692_74d7e0fb-145a-4c4d-962f-79ac4411266b.jpg"/>
+</span>
+<span class="crayons-link crayons-subtitle-2 mt-5">Jerry A. Henley</span>
+</a>
+</div>
+<div class="print-hidden">
+<button class="crayons-btn follow-action-button whitespace-nowrap follow-user w-100" data-info='{"style":"full","id":3729692,"className":"User","name":"Jerry A. Henley"}'>
+                      Follow
+                    </button>
+</div>
+<div class="author-preview-metadata-container" data-author-id="3729692"></div>
+</div>
+</div>
+</div>
+</div>
+<a class="crayons-story__tertiary fs-xs" href="anderecit/the-economics-of-extraction-solving-the-proxy-paradox-in-web-scraping-efl.html"><time datetime="2026-02-04T06:35:02Z">Feb 4</time><span class="time-ago-indicator-initial-placeholder" data-seconds="1770186902"></span></a>
+</div>
+</div>
+</div>
+<div class="crayons-story__indention">
+<h2 class="crayons-story__title crayons-story__title-full_post">
+<a data-preload-image="https://media2.dev.to/dynamic/image/width=1000,height=420,fit=cover,gravity=auto,format=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Farticles%2F24wjupo53av5ddb05ufd.png" href="anderecit/the-economics-of-extraction-solving-the-proxy-paradox-in-web-scraping-efl.html" id="article-link-3229908">
+          The Economics of Extraction: Solving the "Proxy Paradox" in Web Scraping
+        </a>
+</h2>
+<div class="crayons-story__tags">
+<a class="crayons-tag crayons-tag--monochrome" href="t/webscraping.html" style="
+        --tag-bg: rgba(64, 78, 211, 0.10);
+        --tag-prefix: #404ED3;
+        --tag-bg-hover: rgba(64, 78, 211, 0.10);
+        --tag-prefix-hover: #404ED3;
+      "><span class="crayons-tag__prefix">#</span>webscraping</a>
+<a class="crayons-tag crayons-tag--monochrome" href="t/dataengineering.html" style="
+        --tag-bg: rgba(64, 78, 211, 0.10);
+        --tag-prefix: #404ED3;
+        --tag-bg-hover: rgba(64, 78, 211, 0.10);
+        --tag-prefix-hover: #404ED3;
+      "><span class="crayons-tag__prefix">#</span>dataengineering</a>
+<a class="crayons-tag crayons-tag--monochrome" href="t/proxies.html" style="
+        --tag-bg: rgba(64, 78, 211, 0.10);
+        --tag-prefix: #404ED3;
+        --tag-bg-hover: rgba(64, 78, 211, 0.10);
+        --tag-prefix-hover: #404ED3;
+      "><span class="crayons-tag__prefix">#</span>proxies</a>
+<a class="crayons-tag crayons-tag--monochrome" href="t/devops.html" style="
+        --tag-bg: rgba(6, 181, 0, 0.10);
+        --tag-prefix: #06B500;
+        --tag-bg-hover: rgba(6, 181, 0, 0.10);
+        --tag-prefix-hover: #06B500;
+      "><span class="crayons-tag__prefix">#</span>devops</a>
+</div>
+<div class="crayons-story__bottom">
+<div class="crayons-story__details">
+<a aria-label='Add a comment to post - The Economics of Extraction: Solving the "Proxy Paradox" in Web Scraping' class="crayons-btn crayons-btn--s crayons-btn--ghost crayons-btn--icon-left" data-reactable-id="3229908" data-reaction-count="" href="anderecit/the-economics-of-extraction-solving-the-proxy-paradox-in-web-scraping-efl.html">
+<div class="multiple_reactions_aggregate">
+<span class="multiple_reactions_icons_container" dir="rtl">
+<span class="crayons_icon_container">
+<img height="18" src="cdn/assets.dev.to/assets/sparkle-heart-5f9bee3767e18deb1bb725290cb151c25234768a0e9a2bd39370c382d02920cf.svg" width="18"/>
+</span>
+</span>
+<span class="aggregate_reactions_counter">1<span class="hidden s:inline"> reaction</span></span>
+</div>
+</a>
+<a aria-label='Add a comment to post - The Economics of Extraction: Solving the "Proxy Paradox" in Web Scraping' class="crayons-btn crayons-btn--s crayons-btn--ghost crayons-btn--icon-left flex items-center" href="anderecit/the-economics-of-extraction-solving-the-proxy-paradox-in-web-scraping-efl.html">
+<svg aria-labelledby="a8h29rx43kn8lvl7lrkusegzr60rlgtr" class="crayons-icon" height="24" role="img" width="24" xmlns="http://www.w3.org/2000/svg"><title id="a8h29rx43kn8lvl7lrkusegzr60rlgtr">Comments</title><path d="M10.5 5h3a6 6 0 110 12v2.625c-3.75-1.5-9-3.75-9-8.625a6 6 0 016-6zM12 15.5h1.5a4.501 4.501 0 001.722-8.657A4.5 4.5 0 0013.5 6.5h-3A4.5 4.5 0 006 11c0 2.707 1.846 4.475 6 6.36V15.5z"></path></svg>
+<span class="hidden s:inline">Add Comment</span>
+</a>
+</div>
+<div class="crayons-story__save">
+<small class="crayons-story__tertiary fs-xs mr-2">
+            5 min read
+          </small>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="crayons-story" data-content-user-id="3729692" data-feed-content-id="3212757">
+<a aria-labelledby="article-link-3212757" class="crayons-story__hidden-navigation-link" href="anderecit/from-gut-feeling-to-data-backed-validating-growth-hypotheses-with-external-data-50j.html">From Gut Feeling to Data-Backed: Validating Growth Hypotheses with External Data</a>
+<div class="crayons-story__body crayons-story__body-full_post">
+<div class="crayons-story__top">
+<div class="crayons-story__meta">
+<div class="crayons-story__author-pic">
+<a class="crayons-avatar crayons-avatar--l" href="anderecit.html">
+<img alt="anderecit profile" class="crayons-avatar__image" loading="lazy" src="cdn/media2.dev.to/dynamic/image/width=90,height=90,fit=cover,gravity=auto,format=auto/https___dev-to-uploads.s3.amazonaws.com_uploads_user_profile_image_3729692_74d7e0fb-145a-4c4d-962f-79ac4411266b.jpg"/>
+</a>
+</div>
+<div>
+<div>
+<a class="crayons-story__secondary fw-medium m:hidden" href="anderecit.html">
+              Jerry A. Henley
+            </a>
+<div class="profile-preview-card relative mb-4 s:mb-0 fw-medium hidden m:inline-block">
+<button aria-controls="story-author-preview-content-3212757" aria-label="Jerry A. Henley profile details" class="profile-preview-card__trigger fs-s p-1 -ml-1 -my-2 crayons-btn crayons-btn--ghost" id="story-author-preview-trigger-3212757">
+                Jerry A. Henley
+                
+              </button>
+<div class="profile-preview-card__content crayons-dropdown branded-7 p-4 pt-0" data-repositioning-dropdown="true" data-testid="profile-preview-card" id="story-author-preview-content-3212757" style="border-top-color: var(--card-color);">
+<div class="gap-4 grid">
+<div class="-mt-4">
+<a class="flex" href="anderecit.html">
+<span class="crayons-avatar crayons-avatar--xl mr-2 shrink-0">
+<img alt="" class="crayons-avatar__image" loading="lazy" src="cdn/media2.dev.to/dynamic/image/width=90,height=90,fit=cover,gravity=auto,format=auto/https___dev-to-uploads.s3.amazonaws.com_uploads_user_profile_image_3729692_74d7e0fb-145a-4c4d-962f-79ac4411266b.jpg"/>
+</span>
+<span class="crayons-link crayons-subtitle-2 mt-5">Jerry A. Henley</span>
+</a>
+</div>
+<div class="print-hidden">
+<button class="crayons-btn follow-action-button whitespace-nowrap follow-user w-100" data-info='{"style":"full","id":3729692,"className":"User","name":"Jerry A. Henley"}'>
+                      Follow
+                    </button>
+</div>
+<div class="author-preview-metadata-container" data-author-id="3729692"></div>
+</div>
+</div>
+</div>
+</div>
+<a class="crayons-story__tertiary fs-xs" href="anderecit/from-gut-feeling-to-data-backed-validating-growth-hypotheses-with-external-data-50j.html"><time datetime="2026-01-31T05:48:13Z">Jan 31</time><span class="time-ago-indicator-initial-placeholder" data-seconds="1769838493"></span></a>
+</div>
+</div>
+</div>
+<div class="crayons-story__indention">
+<h2 class="crayons-story__title crayons-story__title-full_post">
+<a data-preload-image="https://media2.dev.to/dynamic/image/width=1000,height=420,fit=cover,gravity=auto,format=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Farticles%2F0cridw1dbbv59wocqmhg.png" href="anderecit/from-gut-feeling-to-data-backed-validating-growth-hypotheses-with-external-data-50j.html" id="article-link-3212757">
+          From Gut Feeling to Data-Backed: Validating Growth Hypotheses with External Data
+        </a>
+</h2>
+<div class="crayons-story__tags">
+<a class="crayons-tag crayons-tag--monochrome" href="t/webscraping.html" style="
+        --tag-bg: rgba(64, 78, 211, 0.10);
+        --tag-prefix: #404ED3;
+        --tag-bg-hover: rgba(64, 78, 211, 0.10);
+        --tag-prefix-hover: #404ED3;
+      "><span class="crayons-tag__prefix">#</span>webscraping</a>
+<a class="crayons-tag crayons-tag--monochrome" href="t/webdev.html" style="
+        --tag-bg: rgba(86, 39, 101, 0.10);
+        --tag-prefix: #562765;
+        --tag-bg-hover: rgba(86, 39, 101, 0.10);
+        --tag-prefix-hover: #562765;
+      "><span class="crayons-tag__prefix">#</span>webdev</a>
+<a class="crayons-tag crayons-tag--monochrome" href="t/growth.html" style="
+        --tag-bg: rgba(64, 78, 211, 0.10);
+        --tag-prefix: #404ED3;
+        --tag-bg-hover: rgba(64, 78, 211, 0.10);
+        --tag-prefix-hover: #404ED3;
+      "><span class="crayons-tag__prefix">#</span>growth</a>
+</div>
+<div class="crayons-story__bottom">
+<div class="crayons-story__details">
+<a aria-label="Add a comment to post - From Gut Feeling to Data-Backed: Validating Growth Hypotheses with External Data" class="crayons-btn crayons-btn--s crayons-btn--ghost crayons-btn--icon-left" data-reactable-id="3212757" data-reaction-count="" href="anderecit/from-gut-feeling-to-data-backed-validating-growth-hypotheses-with-external-data-50j.html">
+<div class="multiple_reactions_aggregate">
+<span class="multiple_reactions_icons_container" dir="rtl">
+<span class="crayons_icon_container">
+<img height="18" src="cdn/assets.dev.to/assets/sparkle-heart-5f9bee3767e18deb1bb725290cb151c25234768a0e9a2bd39370c382d02920cf.svg" width="18"/>
+</span>
+</span>
+<span class="aggregate_reactions_counter">1<span class="hidden s:inline"> reaction</span></span>
+</div>
+</a>
+<a aria-label="Add a comment to post - From Gut Feeling to Data-Backed: Validating Growth Hypotheses with External Data" class="crayons-btn crayons-btn--s crayons-btn--ghost crayons-btn--icon-left flex items-center" href="anderecit/from-gut-feeling-to-data-backed-validating-growth-hypotheses-with-external-data-50j.html">
+<svg aria-labelledby="a164i6jok9phz1rjurigt4hn7zx8s1uk" class="crayons-icon" height="24" role="img" width="24" xmlns="http://www.w3.org/2000/svg"><title id="a164i6jok9phz1rjurigt4hn7zx8s1uk">Comments</title><path d="M10.5 5h3a6 6 0 110 12v2.625c-3.75-1.5-9-3.75-9-8.625a6 6 0 016-6zM12 15.5h1.5a4.501 4.501 0 001.722-8.657A4.5 4.5 0 0013.5 6.5h-3A4.5 4.5 0 006 11c0 2.707 1.846 4.475 6 6.36V15.5z"></path></svg>
+
+              1<span class="hidden s:inline"> comment</span>
+</a>
+</div>
+<div class="crayons-story__save">
+<small class="crayons-story__tertiary fs-xs mr-2">
+            5 min read
+          </small>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="crayons-story" data-content-user-id="3729692" data-feed-content-id="3209369">
+<a aria-labelledby="article-link-3209369" class="crayons-story__hidden-navigation-link" href="anderecit/stop-waiting-for-data-engineers-build-your-own-real-time-price-monitor-in-minutes-127o.html">Stop Waiting for Data Engineers: Build Your Own Real-Time Price Monitor in Minutes</a>
+<div class="crayons-story__body crayons-story__body-full_post">
+<div class="crayons-story__top">
+<div class="crayons-story__meta">
+<div class="crayons-story__author-pic">
+<a class="crayons-avatar crayons-avatar--l" href="anderecit.html">
+<img alt="anderecit profile" class="crayons-avatar__image" loading="lazy" src="cdn/media2.dev.to/dynamic/image/width=90,height=90,fit=cover,gravity=auto,format=auto/https___dev-to-uploads.s3.amazonaws.com_uploads_user_profile_image_3729692_74d7e0fb-145a-4c4d-962f-79ac4411266b.jpg"/>
+</a>
+</div>
+<div>
+<div>
+<a class="crayons-story__secondary fw-medium m:hidden" href="anderecit.html">
+              Jerry A. Henley
+            </a>
+<div class="profile-preview-card relative mb-4 s:mb-0 fw-medium hidden m:inline-block">
+<button aria-controls="story-author-preview-content-3209369" aria-label="Jerry A. Henley profile details" class="profile-preview-card__trigger fs-s p-1 -ml-1 -my-2 crayons-btn crayons-btn--ghost" id="story-author-preview-trigger-3209369">
+                Jerry A. Henley
+                
+              </button>
+<div class="profile-preview-card__content crayons-dropdown branded-7 p-4 pt-0" data-repositioning-dropdown="true" data-testid="profile-preview-card" id="story-author-preview-content-3209369" style="border-top-color: var(--card-color);">
+<div class="gap-4 grid">
+<div class="-mt-4">
+<a class="flex" href="anderecit.html">
+<span class="crayons-avatar crayons-avatar--xl mr-2 shrink-0">
+<img alt="" class="crayons-avatar__image" loading="lazy" src="cdn/media2.dev.to/dynamic/image/width=90,height=90,fit=cover,gravity=auto,format=auto/https___dev-to-uploads.s3.amazonaws.com_uploads_user_profile_image_3729692_74d7e0fb-145a-4c4d-962f-79ac4411266b.jpg"/>
+</span>
+<span class="crayons-link crayons-subtitle-2 mt-5">Jerry A. Henley</span>
+</a>
+</div>
+<div class="print-hidden">
+<button class="crayons-btn follow-action-button whitespace-nowrap follow-user w-100" data-info='{"style":"full","id":3729692,"className":"User","name":"Jerry A. Henley"}'>
+                      Follow
+                    </button>
+</div>
+<div class="author-preview-metadata-container" data-author-id="3729692"></div>
+</div>
+</div>
+</div>
+</div>
+<a class="crayons-story__tertiary fs-xs" href="anderecit/stop-waiting-for-data-engineers-build-your-own-real-time-price-monitor-in-minutes-127o.html"><time datetime="2026-01-30T05:57:13Z">Jan 30</time><span class="time-ago-indicator-initial-placeholder" data-seconds="1769752633"></span></a>
+</div>
+</div>
+</div>
+<div class="crayons-story__indention">
+<h2 class="crayons-story__title crayons-story__title-full_post">
+<a data-preload-image="https://media2.dev.to/dynamic/image/width=1000,height=420,fit=cover,gravity=auto,format=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Farticles%2Fmtzs33y2357dczvpqfbn.png" href="anderecit/stop-waiting-for-data-engineers-build-your-own-real-time-price-monitor-in-minutes-127o.html" id="article-link-3209369">
+          Stop Waiting for Data Engineers: Build Your Own Real-Time Price Monitor in Minutes
+        </a>
+</h2>
+<div class="crayons-story__tags">
+<a class="crayons-tag crayons-tag--monochrome" href="t/webscraping.html" style="
+        --tag-bg: rgba(64, 78, 211, 0.10);
+        --tag-prefix: #404ED3;
+        --tag-bg-hover: rgba(64, 78, 211, 0.10);
+        --tag-prefix-hover: #404ED3;
+      "><span class="crayons-tag__prefix">#</span>webscraping</a>
+<a class="crayons-tag crayons-tag--monochrome" href="t/automation.html" style="
+        --tag-bg: rgba(64, 78, 211, 0.10);
+        --tag-prefix: #404ED3;
+        --tag-bg-hover: rgba(64, 78, 211, 0.10);
+        --tag-prefix-hover: #404ED3;
+      "><span class="crayons-tag__prefix">#</span>automation</a>
+<a class="crayons-tag crayons-tag--monochrome" href="t/datascience.html" style="
+        --tag-bg: rgba(0, 153, 153, 0.10);
+        --tag-prefix: #009999;
+        --tag-bg-hover: rgba(0, 153, 153, 0.10);
+        --tag-prefix-hover: #009999;
+      "><span class="crayons-tag__prefix">#</span>datascience</a>
+</div>
+<div class="crayons-story__bottom">
+<div class="crayons-story__details">
+<a aria-label="Add a comment to post - Stop Waiting for Data Engineers: Build Your Own Real-Time Price Monitor in Minutes" class="crayons-btn crayons-btn--s crayons-btn--ghost crayons-btn--icon-left flex items-center" href="anderecit/stop-waiting-for-data-engineers-build-your-own-real-time-price-monitor-in-minutes-127o.html">
+<svg aria-labelledby="ar6gun0hgcehgo9xoxnuozkba9y7psjg" class="crayons-icon" height="24" role="img" width="24" xmlns="http://www.w3.org/2000/svg"><title id="ar6gun0hgcehgo9xoxnuozkba9y7psjg">Comments</title><path d="M10.5 5h3a6 6 0 110 12v2.625c-3.75-1.5-9-3.75-9-8.625a6 6 0 016-6zM12 15.5h1.5a4.501 4.501 0 001.722-8.657A4.5 4.5 0 0013.5 6.5h-3A4.5 4.5 0 006 11c0 2.707 1.846 4.475 6 6.36V15.5z"></path></svg>
+<span class="hidden s:inline">Add Comment</span>
+</a>
+</div>
+<div class="crayons-story__save">
+<small class="crayons-story__tertiary fs-xs mr-2">
+            5 min read
+          </small>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="crayons-story" data-content-user-id="3729692" data-feed-content-id="3206757">
+<a aria-labelledby="article-link-3206757" class="crayons-story__hidden-navigation-link" href="anderecit/stop-refreshing-tabs-build-an-automated-price-monitor-for-the-holidays-in-15-minutes-1j58.html">Stop Refreshing Tabs: Build an Automated Price Monitor for the Holidays in 15 Minutes</a>
+<div class="crayons-story__body crayons-story__body-full_post">
+<div class="crayons-story__top">
+<div class="crayons-story__meta">
+<div class="crayons-story__author-pic">
+<a class="crayons-avatar crayons-avatar--l" href="anderecit.html">
+<img alt="anderecit profile" class="crayons-avatar__image" loading="lazy" src="cdn/media2.dev.to/dynamic/image/width=90,height=90,fit=cover,gravity=auto,format=auto/https___dev-to-uploads.s3.amazonaws.com_uploads_user_profile_image_3729692_74d7e0fb-145a-4c4d-962f-79ac4411266b.jpg"/>
+</a>
+</div>
+<div>
+<div>
+<a class="crayons-story__secondary fw-medium m:hidden" href="anderecit.html">
+              Jerry A. Henley
+            </a>
+<div class="profile-preview-card relative mb-4 s:mb-0 fw-medium hidden m:inline-block">
+<button aria-controls="story-author-preview-content-3206757" aria-label="Jerry A. Henley profile details" class="profile-preview-card__trigger fs-s p-1 -ml-1 -my-2 crayons-btn crayons-btn--ghost" id="story-author-preview-trigger-3206757">
+                Jerry A. Henley
+                
+              </button>
+<div class="profile-preview-card__content crayons-dropdown branded-7 p-4 pt-0" data-repositioning-dropdown="true" data-testid="profile-preview-card" id="story-author-preview-content-3206757" style="border-top-color: var(--card-color);">
+<div class="gap-4 grid">
+<div class="-mt-4">
+<a class="flex" href="anderecit.html">
+<span class="crayons-avatar crayons-avatar--xl mr-2 shrink-0">
+<img alt="" class="crayons-avatar__image" loading="lazy" src="cdn/media2.dev.to/dynamic/image/width=90,height=90,fit=cover,gravity=auto,format=auto/https___dev-to-uploads.s3.amazonaws.com_uploads_user_profile_image_3729692_74d7e0fb-145a-4c4d-962f-79ac4411266b.jpg"/>
+</span>
+<span class="crayons-link crayons-subtitle-2 mt-5">Jerry A. Henley</span>
+</a>
+</div>
+<div class="print-hidden">
+<button class="crayons-btn follow-action-button whitespace-nowrap follow-user w-100" data-info='{"style":"full","id":3729692,"className":"User","name":"Jerry A. Henley"}'>
+                      Follow
+                    </button>
+</div>
+<div class="author-preview-metadata-container" data-author-id="3729692"></div>
+</div>
+</div>
+</div>
+</div>
+<a class="crayons-story__tertiary fs-xs" href="anderecit/stop-refreshing-tabs-build-an-automated-price-monitor-for-the-holidays-in-15-minutes-1j58.html"><time datetime="2026-01-29T06:40:25Z">Jan 29</time><span class="time-ago-indicator-initial-placeholder" data-seconds="1769668825"></span></a>
+</div>
+</div>
+</div>
+<div class="crayons-story__indention">
+<h2 class="crayons-story__title crayons-story__title-full_post">
+<a data-preload-image="https://media2.dev.to/dynamic/image/width=1000,height=420,fit=cover,gravity=auto,format=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Farticles%2F96nseknucio7m6colrwm.png" href="anderecit/stop-refreshing-tabs-build-an-automated-price-monitor-for-the-holidays-in-15-minutes-1j58.html" id="article-link-3206757">
+          Stop Refreshing Tabs: Build an Automated Price Monitor for the Holidays in 15 Minutes
+        </a>
+</h2>
+<div class="crayons-story__tags">
+<a class="crayons-tag crayons-tag--monochrome" href="t/webscraping.html" style="
+        --tag-bg: rgba(64, 78, 211, 0.10);
+        --tag-prefix: #404ED3;
+        --tag-bg-hover: rgba(64, 78, 211, 0.10);
+        --tag-prefix-hover: #404ED3;
+      "><span class="crayons-tag__prefix">#</span>webscraping</a>
+<a class="crayons-tag crayons-tag--monochrome" href="t/automation.html" style="
+        --tag-bg: rgba(64, 78, 211, 0.10);
+        --tag-prefix: #404ED3;
+        --tag-bg-hover: rgba(64, 78, 211, 0.10);
+        --tag-prefix-hover: #404ED3;
+      "><span class="crayons-tag__prefix">#</span>automation</a>
+<a class="crayons-tag crayons-tag--monochrome" href="t/webdev.html" style="
+        --tag-bg: rgba(86, 39, 101, 0.10);
+        --tag-prefix: #562765;
+        --tag-bg-hover: rgba(86, 39, 101, 0.10);
+        --tag-prefix-hover: #562765;
+      "><span class="crayons-tag__prefix">#</span>webdev</a>
+</div>
+<div class="crayons-story__bottom">
+<div class="crayons-story__details">
+<a aria-label="Add a comment to post - Stop Refreshing Tabs: Build an Automated Price Monitor for the Holidays in 15 Minutes" class="crayons-btn crayons-btn--s crayons-btn--ghost crayons-btn--icon-left flex items-center" href="anderecit/stop-refreshing-tabs-build-an-automated-price-monitor-for-the-holidays-in-15-minutes-1j58.html">
+<svg aria-labelledby="apmkqco56uis911o026zdslypj335bxi" class="crayons-icon" height="24" role="img" width="24" xmlns="http://www.w3.org/2000/svg"><title id="apmkqco56uis911o026zdslypj335bxi">Comments</title><path d="M10.5 5h3a6 6 0 110 12v2.625c-3.75-1.5-9-3.75-9-8.625a6 6 0 016-6zM12 15.5h1.5a4.501 4.501 0 001.722-8.657A4.5 4.5 0 0013.5 6.5h-3A4.5 4.5 0 006 11c0 2.707 1.846 4.475 6 6.36V15.5z"></path></svg>
+<span class="hidden s:inline">Add Comment</span>
+</a>
+</div>
+<div class="crayons-story__save">
+<small class="crayons-story__tertiary fs-xs mr-2">
+            5 min read
+          </small>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="crayons-story" data-content-user-id="3729692" data-feed-content-id="3195085">
+<a aria-labelledby="article-link-3195085" class="crayons-story__hidden-navigation-link" href="anderecit/from-403-forbidden-to-200-ok-stealth-scraping-appsumo-5edf.html">From 403 Forbidden to 200 OK: Stealth Scraping AppSumo</a>
+<div class="crayons-story__body crayons-story__body-full_post">
+<div class="crayons-story__top">
+<div class="crayons-story__meta">
+<div class="crayons-story__author-pic">
+<a class="crayons-avatar crayons-avatar--l" href="anderecit.html">
+<img alt="anderecit profile" class="crayons-avatar__image" loading="lazy" src="cdn/media2.dev.to/dynamic/image/width=90,height=90,fit=cover,gravity=auto,format=auto/https___dev-to-uploads.s3.amazonaws.com_uploads_user_profile_image_3729692_74d7e0fb-145a-4c4d-962f-79ac4411266b.jpg"/>
+</a>
+</div>
+<div>
+<div>
+<a class="crayons-story__secondary fw-medium m:hidden" href="anderecit.html">
+              Jerry A. Henley
+            </a>
+<div class="profile-preview-card relative mb-4 s:mb-0 fw-medium hidden m:inline-block">
+<button aria-controls="story-author-preview-content-3195085" aria-label="Jerry A. Henley profile details" class="profile-preview-card__trigger fs-s p-1 -ml-1 -my-2 crayons-btn crayons-btn--ghost" id="story-author-preview-trigger-3195085">
+                Jerry A. Henley
+                
+              </button>
+<div class="profile-preview-card__content crayons-dropdown branded-7 p-4 pt-0" data-repositioning-dropdown="true" data-testid="profile-preview-card" id="story-author-preview-content-3195085" style="border-top-color: var(--card-color);">
+<div class="gap-4 grid">
+<div class="-mt-4">
+<a class="flex" href="anderecit.html">
+<span class="crayons-avatar crayons-avatar--xl mr-2 shrink-0">
+<img alt="" class="crayons-avatar__image" loading="lazy" src="cdn/media2.dev.to/dynamic/image/width=90,height=90,fit=cover,gravity=auto,format=auto/https___dev-to-uploads.s3.amazonaws.com_uploads_user_profile_image_3729692_74d7e0fb-145a-4c4d-962f-79ac4411266b.jpg"/>
+</span>
+<span class="crayons-link crayons-subtitle-2 mt-5">Jerry A. Henley</span>
+</a>
+</div>
+<div class="print-hidden">
+<button class="crayons-btn follow-action-button whitespace-nowrap follow-user w-100" data-info='{"style":"full","id":3729692,"className":"User","name":"Jerry A. Henley"}'>
+                      Follow
+                    </button>
+</div>
+<div class="author-preview-metadata-container" data-author-id="3729692"></div>
+</div>
+</div>
+</div>
+</div>
+<a class="crayons-story__tertiary fs-xs" href="anderecit/from-403-forbidden-to-200-ok-stealth-scraping-appsumo-5edf.html"><time datetime="2026-01-24T07:38:19Z">Jan 24</time><span class="time-ago-indicator-initial-placeholder" data-seconds="1769240299"></span></a>
+</div>
+</div>
+</div>
+<div class="crayons-story__indention">
+<h2 class="crayons-story__title crayons-story__title-full_post">
+<a data-preload-image="https://media2.dev.to/dynamic/image/width=1000,height=420,fit=cover,gravity=auto,format=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Farticles%2Fsvqdutxgw5q8ytbkpldb.jpg" href="anderecit/from-403-forbidden-to-200-ok-stealth-scraping-appsumo-5edf.html" id="article-link-3195085">
+          From 403 Forbidden to 200 OK: Stealth Scraping AppSumo
+        </a>
+</h2>
+<div class="crayons-story__tags">
+<a class="crayons-tag crayons-tag--monochrome" href="t/stealthautomation.html" style="
+        --tag-bg: rgba(64, 78, 211, 0.10);
+        --tag-prefix: #404ED3;
+        --tag-bg-hover: rgba(64, 78, 211, 0.10);
+        --tag-prefix-hover: #404ED3;
+      "><span class="crayons-tag__prefix">#</span>stealthautomation</a>
+<a class="crayons-tag crayons-tag--monochrome" href="t/antibotbypass.html" style="
+        --tag-bg: rgba(64, 78, 211, 0.10);
+        --tag-prefix: #404ED3;
+        --tag-bg-hover: rgba(64, 78, 211, 0.10);
+        --tag-prefix-hover: #404ED3;
+      "><span class="crayons-tag__prefix">#</span>antibotbypass</a>
+<a class="crayons-tag crayons-tag--monochrome" href="t/webscraping.html" style="
+        --tag-bg: rgba(64, 78, 211, 0.10);
+        --tag-prefix: #404ED3;
+        --tag-bg-hover: rgba(64, 78, 211, 0.10);
+        --tag-prefix-hover: #404ED3;
+      "><span class="crayons-tag__prefix">#</span>webscraping</a>
+</div>
+<div class="crayons-story__bottom">
+<div class="crayons-story__details">
+<a aria-label="Add a comment to post - From 403 Forbidden to 200 OK: Stealth Scraping AppSumo" class="crayons-btn crayons-btn--s crayons-btn--ghost crayons-btn--icon-left flex items-center" href="anderecit/from-403-forbidden-to-200-ok-stealth-scraping-appsumo-5edf.html">
+<svg aria-labelledby="a39fibjx9t1apllfhsmr9qoyjwwaksld" class="crayons-icon" height="24" role="img" width="24" xmlns="http://www.w3.org/2000/svg"><title id="a39fibjx9t1apllfhsmr9qoyjwwaksld">Comments</title><path d="M10.5 5h3a6 6 0 110 12v2.625c-3.75-1.5-9-3.75-9-8.625a6 6 0 016-6zM12 15.5h1.5a4.501 4.501 0 001.722-8.657A4.5 4.5 0 0013.5 6.5h-3A4.5 4.5 0 006 11c0 2.707 1.846 4.475 6 6.36V15.5z"></path></svg>
+<span class="hidden s:inline">Add Comment</span>
+</a>
+</div>
+<div class="crayons-story__save">
+<small class="crayons-story__tertiary fs-xs mr-2">
+            4 min read
+          </small>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="placeholder-div"></div>
+</div>
+<div class="loading-articles" id="loading-articles">
+      loading...
+    </div>
+</main>
+</div>
+</main>
+<script defer="defer" src="cdn/assets.dev.to/assets/storiesList-b9c50cbd898a3a64258a3a49db1c531651b0a4a11937be35ed4651111802b5b5.js"></script>
+<script defer="defer" src="cdn/assets.dev.to/assets/feedPreviewCards-8d16b0b656456a28c0a290f756cf6e21e19833111c4796f48c631bfea8323d51.js"></script>
+<script defer="defer" src="cdn/assets.dev.to/assets/hideBookmarkButtons-a5d5527593e7fcba1cba72db457b57f49f94bf2266c62db454b2c8a00e751d33.js"></script>
+<script defer="defer" src="cdn/assets.dev.to/assets/profileDropdown-76c67dc056b34c259378a0e80f6c393e27fdd8c5d3f48a1edcbcd4904d2e18f0.js"></script>
+<script defer="defer" src="cdn/assets.dev.to/assets/users/profilePage-1393cb4a2fea4e217cb2a2451f02d7a20ee01da60dc85f128f703631908dab09.js"></script>
+<script defer="defer" src="cdn/assets.dev.to/assets/localizeArticleDates-70147c5c6bfe350b42e020ebb2a3dd37419d83978982b5a67b6389119bf162ac.js"></script>
+<script defer="defer" src="cdn/assets.dev.to/assets/asyncUserStatusCheck-c38c3dcbc3fa64c8ff9e403434eabaf359c4957d3fb713784cc99144da5d5358.js"></script>
+<div id="runtime-banner-container"></div>
+<div data-translations="{&quot;en&quot;:{&quot;core&quot;:{&quot;add_comment&quot;:&quot;Add comment&quot;,&quot;beta&quot;:&quot;beta&quot;,&quot;comment&quot;:&quot;Comment&quot;,&quot;copy_link&quot;:&quot;Copy link&quot;,&quot;edit_profile&quot;:&quot;Edit profile&quot;,&quot;follow&quot;:&quot;Follow&quot;,&quot;follow_back&quot;:&quot;Follow back&quot;,&quot;following&quot;:&quot;Following&quot;,&quot;like&quot;:&quot;Like&quot;,&quot;loading&quot;:&quot;loading...&quot;,&quot;reaction&quot;:&quot;Reaction&quot;,&quot;report_abuse&quot;:&quot;Report abuse&quot;,&quot;search&quot;:&quot;Search&quot;,&quot;success_settings&quot;:&quot;Successfully updated settings.&quot;,&quot;search_placeholder&quot;:&quot;Search...&quot;,&quot;search_find_related_posts&quot;:&quot;Find related posts...&quot;,&quot;search_powered_by&quot;:&quot;Powered by Algolia&quot;,&quot;search_submit_search&quot;:&quot;Submit search for advanced filtering.&quot;,&quot;search_displaying_recommendations&quot;:&quot;Displaying Algolia Recommendations — Start typing to search&quot;,&quot;article_form_save_changes&quot;:&quot;Save changes&quot;,&quot;article_form_schedule&quot;:&quot;Schedule&quot;,&quot;article_form_publish&quot;:&quot;Publish&quot;,&quot;article_form_loading_preview&quot;:&quot;Loading preview&quot;,&quot;article_form_preview_loaded&quot;:&quot;Preview loaded&quot;,&quot;article_form_co_authors&quot;:&quot;Co-authors&quot;,&quot;article_form_co_authors_description&quot;:&quot;Add up to 4 co-authors from %{org_name}.&quot;,&quot;article_form_co_authors_placeholder&quot;:&quot;Add up to 4...&quot;,&quot;comments_preview&quot;:&quot;Preview&quot;,&quot;comments_continue_editing&quot;:&quot;Continue editing&quot;,&quot;survey_enter_response&quot;:&quot;Enter your response here...&quot;,&quot;survey_thank_you_response&quot;:&quot;Thank you for your response.&quot;,&quot;survey_thank_you_completing&quot;:&quot;Thank you for completing the survey!&quot;,&quot;dashboard_analytics_readers&quot;:&quot;Readers&quot;,&quot;dashboard_analytics_avg_read_time&quot;:&quot;avg. read time %{seconds}s&quot;,&quot;dashboard_analytics_comments&quot;:&quot;Comments&quot;,&quot;dashboard_analytics_reactions&quot;:&quot;Reactions&quot;,&quot;dashboard_analytics_unique_reactors&quot;:&quot;from %{count} unique users&quot;,&quot;dashboard_analytics_bookmarks&quot;:&quot;Bookmarks&quot;,&quot;dashboard_analytics_followers&quot;:&quot;New Followers&quot;,&quot;top_contributors_empty&quot;:&quot;No engagers found for this period.&quot;,&quot;top_contributors_reactions&quot;:&quot;reactions&quot;,&quot;top_contributors_comments&quot;:&quot;comments&quot;,&quot;top_contributors_weight_note&quot;:&quot;Comments carry more weight&quot;,&quot;follower_engagement_ratio&quot;:&quot;%{ratio}% of followers engaged&quot;,&quot;follower_engagement_detail&quot;:&quot;(%{engaged} of %{total})&quot;,&quot;dashboard_analytics_no_data&quot;:&quot;No data available for this period&quot;,&quot;dashboard_analytics_no_referrers&quot;:&quot;No traffic sources yet&quot;,&quot;stats_by&quot;:&quot;by&quot;,&quot;editor_new_title&quot;:&quot;New post title here...&quot;,&quot;editor_body_placeholder&quot;:&quot;Write your post content here...&quot;,&quot;tags_field_label&quot;:&quot;Add up to 4 tags&quot;,&quot;tags_field_placeholder&quot;:&quot;Add up to 4 tags...&quot;,&quot;counted_organization&quot;:{&quot;one&quot;:&quot;%{count} organization&quot;,&quot;other&quot;:&quot;%{count} organizations&quot;},&quot;counted_user&quot;:{&quot;one&quot;:&quot;%{count} person&quot;,&quot;other&quot;:&quot;%{count} people&quot;},&quot;not_following&quot;:&quot;You're not following anyone&quot;,&quot;following_everyone&quot;:&quot;You're following %{details} (everyone)&quot;,&quot;you_are_following&quot;:&quot;You're following&quot;,&quot;and&quot;:&quot;and&quot;}}}" id="i18n-translations"></div>
+</div>
+</div>
+<footer class="crayons-footer print-hidden" id="footer">
+<div class="crayons-footer__container" id="footer-container">
+<style>
+  .long-bb-body {
+    max-height: calc(100vh - 200px);
+    overflow: hidden;
+  }
+  .long-bb-bottom {
+    height: 180px;
+    background: linear-gradient(to top, var(--card-bg), transparent);
+    margin-top: -180px;
+    position:relative;
+    z-index: 5;
+  }
+</style>
+<div data-article-id="" data-category-click="click" data-category-impression="impression" data-context-type="home" data-display-unit="" data-id="146443" data-special="nothing" data-type-of="in_house" style="">
+<div class="crayons-card crayons-card--secondary crayons-bb bb-placement js-billboard" style="display: inline-flex; flex-direction: column; align-items: center; margin: 0 auto 2rem auto; width: fit-content; padding: 2rem;">
+<p style="font-weight: bold; margin: 0 0 1rem 0;">
+            💎 DEV Diamond Sponsors
+        </p>
+<p style="font-size: 0.8em; margin: 0 0 2rem 0;">
+            Thank you to our Diamond Sponsors for supporting the DEV Community
+        </p>
+<div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 2rem;">
+<div style="display: inline-block; max-width: 240px; font-size: 0.8em; font-style: italic; text-align: center; padding: 10px; background: #ffffff; border-radius: 5px; color: #404040;">
+<a href="https://aistudio.google.com/?utm_source=partner&amp;utm_medium=partner&amp;utm_campaign=FY25-Global-DEVpartnership-sponsorship-AIS&amp;utm_content=-&amp;utm_term=-&amp;bb=146443" rel="noopener noreferrer" style="display: flex; justify-content: center; align-items: center;" target="_blank">
+<img alt="Google AI - Official AI Model and Platform Partner" height="472" loading="lazy" src="cdn/media2.dev.to/dynamic/image/width=880,height=,fit=scale-down,gravity=auto,format=auto/https___dev-to-uploads.s3.amazonaws.com_uploads_articles_xjlyhbdqehj3akhz166w.png" style="display: block; background: #ffffff; margin: 0 auto; width: auto; height: 54px; padding: 10px;" width="2048"/>
+</a>
+<p style="text-align: center;">Google AI is the official AI Model and Platform Partner of DEV</p>
+</div>
+<div style="display: inline-block; max-width: 240px; font-size: 0.8em; font-style: italic; text-align: center; padding: 10px; background: #ffffff; border-radius: 5px; color: #404040;">
+<a href="https://neon.tech/?ref=devto&amp;bb=146443" rel="noopener noreferrer" style="display: flex; justify-content: center; align-items: center;" target="_blank">
+<img alt="Neon - Official Database Partner" height="596" loading="lazy" src="cdn/media2.dev.to/dynamic/image/width=880,height=,fit=scale-down,gravity=auto,format=auto/https___dev-to-uploads.s3.amazonaws.com_uploads_articles_bnl88cil6afxzmgwrgtt.png" style="display: block; background: #ffffff; margin: 0 auto; width: auto; height: 60px; padding: 10px;" width="2286"/>
+</a>
+<p style="text-align: center;">Neon is the official database partner of DEV</p>
+</div>
+<div style="display: inline-block; max-width: 240px; font-size: 0.8em; font-style: italic; text-align: center; padding: 10px; background: #ffffff; border-radius: 5px; color: #404040;">
+<a href="https://www.algolia.com/developers/?utm_source=devto&amp;utm_medium=referral&amp;bb=146443" rel="noopener noreferrer" style="display: flex; justify-content: center; align-items: center;" target="_blank">
+<img alt="Algolia - Official Search Partner" height="596" loading="lazy" src="cdn/media2.dev.to/dynamic/image/width=880,height=,fit=scale-down,gravity=auto,format=auto/https___dev-to-uploads.s3.amazonaws.com_uploads_articles_v30ephnolfvnlwgwm0yz.png" style="display: block; background: #ffffff; margin: 0 auto; width: auto; height: 60px; padding: 10px;" width="2286"/>
+</a>
+<p style="text-align: center;">Algolia is the official search partner of DEV</p>
+</div>
+</div>
+</div>
+</div>
+<p class="fs-s crayons-footer__description">
+<a aria-label="DEV Community Home" class="c-link c-link--branded fw-medium" href="index.html">DEV Community</a> — A space to discuss and keep up software development and manage your software career
+    </p>
+<ul class="footer__nav-links flex gap-2 justify-center flex-wrap fs-s p-0" style=""></ul>
+<li class="footer__nav-link flex items-center">
+<a href="index.html">
+      Home
+    </a>
+<span class="dot ml-2"></span>
+</li>
+<li class="footer__nav-link flex items-center">
+<a href="about.html">
+      About
+    </a>
+<span class="dot ml-2"></span>
+</li>
+<li class="footer__nav-link flex items-center">
+<a href="contact.html">
+      Contact
+    </a>
+<span class="dot ml-2"></span>
+</li>
+<li class="footer__nav-link flex items-center">
+<a href="https://mlh.io/">
+      MLH
+    </a>
+<span class="dot ml-2"></span>
+</li>
+
+<ul class="footer__nav-links flex gap-2 justify-center flex-wrap fs-s p-0" style=""></ul>
+<li class="footer__nav-link flex items-center">
+<a href="code-of-conduct.html">
+      Code of Conduct
+    </a>
+<span class="dot ml-2"></span>
+</li>
+<li class="footer__nav-link flex items-center">
+<a href="privacy.html">
+      Privacy Policy
+    </a>
+<span class="dot ml-2"></span>
+</li>
+<li class="footer__nav-link flex items-center">
+<a href="terms.html">
+      Terms of Use
+    </a>
+<span class="dot ml-2"></span>
+</li>
+
+<div class="fs-s">
+<p>Built on <a class="c-link c-link--branded" href="https://www.forem.com" rel="noopener" target="_blank">Forem</a> — the <a class="c-link c-link--branded" href="t/opensource.html" rel="noopener" target="_blank">open source</a> software that powers <a class="c-link c-link--branded" href="index.html" rel="noopener" target="_blank">DEV</a> and other inclusive communities.</p>
+<p>Made with love and <a class="c-link c-link--branded" href="t/rails.html" rel="noopener" target="_blank">Ruby on Rails</a>. DEV Community <span title="copyright">©</span> 2016 - 2026.</p>
+</div>
+</div>
+</footer>
+<div id="snack-zone"></div>
+<div class="authentication-modal hidden" id="global-signup-modal">
+<div class="authentication-modal__container">
+<figure class="authentication-modal__image-container">
+<img alt="DEV Community" class="authentication-modal__image" loading="lazy" src="cdn/media2.dev.to/dynamic/image/width=190,height=,fit=scale-down,gravity=auto,format=auto/https___dev-to-uploads.s3.amazonaws.com_uploads_articles_8j7kvp660rqzt99zui8e.png">
+</img></figure>
+<div class="authentication-modal__content">
+<p class="authentication-modal__description">
+          We're a place where coders share, stay up-to-date and grow their careers.
+      </p>
+</div>
+<div class="authentication-modal__actions">
+<a aria-label="Log in" class="crayons-btn" data-no-instant="" href="enter-q7ffd52de7b.html">
+        Log in
+      </a>
+<a aria-label="Create new account" class="crayons-btn crayons-btn--ghost-brand js-global-signup-modal__create-account" data-no-instant="" href="enter-qfc40b94913.html">
+        Create account
+      </a>
+</div>
+</div>
+</div>
+<script defer="defer" src="cdn/assets.dev.to/assets/signupModalShortcuts-0b25469b985100a01e94cbd7fccaf7f0a4d776e129aac65c766aa32cb28ab29a.js"></script>
+<div id="cookie-consent"></div>
+<div aria-hidden="true" class="hidden" id="reaction-category-resources">
+<img data-name="Like" data-position="1" data-slug="like" height="18" src="cdn/assets.dev.to/assets/sparkle-heart-5f9bee3767e18deb1bb725290cb151c25234768a0e9a2bd39370c382d02920cf.svg" width="18">
+<img data-name="Unicorn" data-position="2" data-slug="unicorn" height="18" src="cdn/assets.dev.to/assets/multi-unicorn-b44d6f8c23cdd00964192bedc38af3e82463978aa611b4365bd33a0f1f4f3e97.svg" width="18">
+<img data-name="Exploding Head" data-position="3" data-slug="exploding_head" height="18" src="cdn/assets.dev.to/assets/exploding-head-daceb38d627e6ae9b730f36a1e390fca556a4289d5a41abb2c35068ad3e2c4b5.svg" width="18"/>
+<img data-name="Raised Hands" data-position="4" data-slug="raised_hands" height="18" src="cdn/assets.dev.to/assets/raised-hands-74b2099fd66a39f2d7eed9305ee0f4553df0eb7b4f11b01b6b1b499973048fe5.svg" width="18"/>
+<img data-name="Fire" data-position="5" data-slug="fire" height="18" src="cdn/assets.dev.to/assets/fire-f60e7a582391810302117f987b22a8ef04a2fe0df7e3258a5f49332df1cec71e.svg" width="18"/>
+</img></img></div>
+<script>
+  var userSignedIn = false;
+  if (document.readyState === 'complete' || document.readyState === 'interactive') {
+    initAuth();
+  } else {
+    document.addEventListener('DOMContentLoaded', initAuth);
+  }
+
+  function initAuth() {
+    var paramToken = new URLSearchParams(window.location.search).get('jwt');
+
+    if (paramToken && !userSignedIn) {
+      authenticateUser(paramToken);
+    } else {
+      var iframe = document.createElement('iframe');
+      iframe.style.display = 'none';
+      iframe.src = 'https://forem.com/auth_pass/iframe';
+  
+      document.body.appendChild(iframe);
+  
+      window.addEventListener('message', function(event) {
+        if (event.origin !== 'https://forem.com' && event.origin !== window.location.origin) {
+          return;
+        }
+  
+        var data = event.data;
+  
+        if (data.authenticated && !userSignedIn) {
+          authenticateUser(data.token);
+        } else if(data.authenticated && window.ReactNativeWebView && window.ReactNativeWebView.postMessage) {
+          window.ReactNativeWebView.postMessage(JSON.stringify({
+            action: 'login',
+            token: data.token,
+          }));
+        }
+      });  
+    }
+
+    function authenticateUser(token) {
+      fetch('/auth_pass/token_login', {
+        method: 'POST',
+        credentials: 'include',
+        headers: {
+          'Content-Type': 'application/json',
+          'X-CSRF-Token': getMetaContent('csrf-token'),
+        },
+        body: JSON.stringify({ token: token }),
+      })
+      .then(function(response) {
+        return response.json();
+      })
+      .then(function(data) {
+        if (data.success) {
+          if (document.head.querySelector('meta[name="user-signed-in"][content="false"]')) {
+            // Reload the page to update the user's state
+            location.reload();
+          }
+        }
+      })
+      .catch(function(error) {
+        console.error('Error during authentication:', error);
+      });
+    }
+
+    function getMetaContent(name) {
+      var element = document.querySelector('meta[name="' + name + '"]');
+      return element ? element.getAttribute('content') : '';
+    }
+  }
+</script>
+</link></body>
+</html>

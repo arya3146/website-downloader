@@ -1,0 +1,2028 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<title>AWS S3 Files just made Transfer Family SFTP obsolete for most use cases - DEV Community</title>
+<link as="fetch" crossorigin="same-origin" href="../reactions-qa1b5bcfab4" rel="preload"/>
+<link href="https://dev.to/aws-builders/aws-s3-files-just-made-transfer-family-sftp-obsolete-for-most-use-cases-4me" rel="canonical">
+<meta content="AWS just launched one of the most impactful storage features in years: S3 Files. It puts an... Tagged with aws, s3files, terraform, sftp." name="description"/>
+<meta content="aws, s3files, terraform, sftp, software, coding, development, engineering, inclusive, community" name="keywords"/>
+<meta content="article" property="og:type">
+<meta content="https://dev.to/aws-builders/aws-s3-files-just-made-transfer-family-sftp-obsolete-for-most-use-cases-4me" property="og:url">
+<meta content="AWS S3 Files just made Transfer Family SFTP obsolete for most use cases" property="og:title">
+<meta content="AWS just launched one of the most impactful storage features in years: S3 Files. It puts an..." property="og:description"/>
+<meta content="DEV Community" property="og:site_name"/>
+<meta content="@thepracticaldev" name="twitter:site"/>
+<meta content="@" name="twitter:creator"/>
+<meta content="AWS S3 Files just made Transfer Family SFTP obsolete for most use cases" name="twitter:title"/>
+<meta content="AWS just launched one of the most impactful storage features in years: S3 Files. It puts an..." name="twitter:description"/>
+<meta content="summary_large_image" name="twitter:card"/>
+<meta content="on" name="twitter:widgets:new-embed-design"/>
+<meta content="max-snippet:-1, max-image-preview:large, max-video-preview:-1" name="robots"/>
+<meta content="../cdn/media2.dev.to/dynamic/image/width=1200,height=627,fit=cover,gravity=auto,format=auto/https___dev-to-uploads.s3.amazonaws.com_uploads_articles_hliprheg417g8vvenitq.png" property="og:image">
+<meta content="../cdn/media2.dev.to/dynamic/image/width=1200,height=627,fit=cover,gravity=auto,format=auto/https___dev-to-uploads.s3.amazonaws.com_uploads_articles_hliprheg417g8vvenitq.png" name="twitter:image:src"/>
+<meta content="2026-05-05 08:19:01 UTC" name="last-updated"/>
+<meta content="false" name="user-signed-in"/>
+<meta content="1777969141" name="head-cached-at"/>
+<meta content="production" name="environment"/>
+<link href="../cdn/assets.dev.to/assets/minimal-2213124ac5505ccdbf3c4eb62fd70ecda26cb75ed6de931633992a7bac437c81.css" id="main-minimal-stylesheet" media="all" rel="stylesheet"/>
+<link href="../cdn/assets.dev.to/assets/views-0681ac17bf1546793c4b7ef7c615b2defec919060aefb3b9c287471e8cb77bf2.css" id="main-views-stylesheet" media="all" rel="stylesheet"/>
+<link href="../cdn/assets.dev.to/assets/crayons-d2b52af1d86a9ac9a8bc215ed34ffad7a94af68f4abd1cdcae2a8c1a4385cd23.css" id="main-crayons-stylesheet" media="all" rel="stylesheet"/>
+<script defer="defer" src="../cdn/assets.dev.to/assets/base-0c748bbcdc30041261c326ef2ce931fbce46c58bc3c488da881ae35c4750941d.js"></script>
+<script defer="defer" src="../cdn/assets.dev.to/assets/application-0b268684912bef9b0f23defff01cb608bfc5d5e5610287725e7b686139ae32d3.js"></script>
+<script defer="defer" src="../cdn/assets.dev.to/assets/baseInitializers-2f0777a6d67046056f9f42665560ce072de3801292674358ddbad6e135c1891d.js"></script>
+<script defer="defer" src="../cdn/assets.dev.to/assets/baseTracking-90c1c7b9b4f617aa0f900eadaf0ccbdbc2a002f12c1e1ada7da039c823601b14.js"></script>
+<script defer="defer" src="../cdn/assets.dev.to/assets/followButtons-e3595664847e9f43945a9b8a0445b32cda9a149f1f169f78b8fcc7714ccab45a.js"></script>
+<meta content="https://assets.dev.to/assets/Search-b977aea0f2d7a5818b4ebd97f7d4aba8548099f84f5db5761f8fa67be76abc54.js" name="search-script"/>
+<meta content="width=device-width, initial-scale=1.0, viewport-fit=cover" name="viewport"/>
+<link href="../cdn/media2.dev.to/dynamic/image/width=32,height=,fit=scale-down,gravity=auto,format=auto/https___dev-to-uploads.s3.amazonaws.com_uploads_articles_8j7kvp660rqzt99zui8e.png" rel="icon" type="image/x-icon"/>
+<link href="../cdn/media2.dev.to/dynamic/image/width=180,height=,fit=scale-down,gravity=auto,format=auto/https___dev-to-uploads.s3.amazonaws.com_uploads_articles_8j7kvp660rqzt99zui8e.png" rel="apple-touch-icon"/>
+<link href="../cdn/media2.dev.to/dynamic/image/width=152,height=,fit=scale-down,gravity=auto,format=auto/https___dev-to-uploads.s3.amazonaws.com_uploads_articles_8j7kvp660rqzt99zui8e.png" rel="apple-touch-icon" sizes="152x152"/>
+<link href="../cdn/media2.dev.to/dynamic/image/width=180,height=,fit=scale-down,gravity=auto,format=auto/https___dev-to-uploads.s3.amazonaws.com_uploads_articles_8j7kvp660rqzt99zui8e.png" rel="apple-touch-icon" sizes="180x180"/>
+<link href="../cdn/media2.dev.to/dynamic/image/width=167,height=,fit=scale-down,gravity=auto,format=auto/https___dev-to-uploads.s3.amazonaws.com_uploads_articles_8j7kvp660rqzt99zui8e.png" rel="apple-touch-icon" sizes="167x167"/>
+<link href="../cdn/media2.dev.to/dynamic/image/width=192,height=,fit=scale-down,gravity=auto,format=auto/https___dev-to-uploads.s3.amazonaws.com_uploads_articles_8j7kvp660rqzt99zui8e.png" rel="icon" sizes="192x192">
+<link href="../cdn/media2.dev.to/dynamic/image/width=128,height=,fit=scale-down,gravity=auto,format=auto/https___dev-to-uploads.s3.amazonaws.com_uploads_articles_8j7kvp660rqzt99zui8e.png" rel="icon" sizes="128x128">
+<meta content="dev.to" name="apple-mobile-web-app-title"/>
+<meta content="dev.to" name="application-name"/>
+<meta content="#ffffff" media="(prefers-color-scheme: light)" name="theme-color"/>
+<meta content="#000000" media="(prefers-color-scheme: dark)" name="theme-color"/>
+<link href="https://dev.to/open-search.xml" rel="search" title="DEV Community" type="application/opensearchdescription+xml">
+<meta content="DEV Community" property="forem:name">
+<meta content="https://media2.dev.to/dynamic/image/width=512,height=,fit=scale-down,gravity=auto,format=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Farticles%2F8j7kvp660rqzt99zui8e.png" property="forem:logo">
+<meta content="dev.to" property="forem:domain">
+<style>
+/* ==========================================================================
+   THE 418 CHALLENGE: THEME-AWARE RETRO EDITION
+   ========================================================================== */
+
+.articletag-418challenge {
+  font-family: "Comic Sans MS", "Chalkboard SE", "Marker Felt", sans-serif !important;
+  cursor: crosshair !important;
+}
+
+/* Destroy modern rounded corners and add brutal borders */
+.articletag-418challenge .crayons-card,
+.articletag-418challenge .crayons-article__main,
+.articletag-418challenge .crayons-article__header {
+  border-radius: 0 !important;
+  margin-bottom: 2rem !important;
+}
+
+/* Typography specifics */
+.articletag-418challenge h1,
+.articletag-418challenge h2,
+.articletag-418challenge h3 {
+  text-transform: uppercase !important;
+}
+
+/* Fake <marquee> effect for the main article title */
+.articletag-418challenge h1.fs-3xl {
+  animation: retro-slide 5s linear infinite alternate;
+  overflow: visible;
+}
+
+/* Spin those avatars */
+.articletag-418challenge .crayons-article__header__meta img {
+  border-radius: 0 !important; 
+  animation: retro-spin 5s linear infinite;
+}
+
+/* Obnoxious tags */
+.articletag-418challenge .crayons-tag {
+  border-radius: 0 !important;
+  font-weight: 900 !important;
+  transform: rotate(-3deg);
+  display: inline-block;
+}
+.articletag-418challenge .crayons-tag:nth-child(even) {
+  transform: rotate(3deg);
+}
+
+/* --------------------------------------------------------------------------
+   2. LIGHT THEME (Windows 95 / Office 97 Vibes)
+   -------------------------------------------------------------------------- */
+body:not(.dark-theme) .articletag-418challenge {
+  background-color: #008080 !important; /* Win95 Teal Desktop */
+}
+
+body:not(.dark-theme) .articletag-418challenge .crayons-card,
+body:not(.dark-theme) .articletag-418challenge .crayons-article__main,
+body:not(.dark-theme) .articletag-418challenge .crayons-article__header {
+  background-color: #c0c0c0 !important; /* Classic dialog gray */
+  color: #000000 !important;
+  border: 4px outset #ffffff !important;
+  box-shadow: 8px 8px 0px #000000 !important;
+}
+
+body:not(.dark-theme) .articletag-418challenge h1,
+body:not(.dark-theme) .articletag-418challenge h2,
+body:not(.dark-theme) .articletag-418challenge h3 {
+  color: #ff0000 !important;
+  text-shadow: 2px 2px 0px #ffff00 !important;
+  border-bottom: 3px dashed #0000ff !important;
+}
+
+body:not(.dark-theme) .articletag-418challenge a,
+body:not(.dark-theme) .articletag-418challenge .crayons-link {
+  color: #0000ff !important; /* Standard unvisited blue */
+  text-decoration: underline !important;
+  font-weight: bold !important;
+}
+
+body:not(.dark-theme) .articletag-418challenge a:hover,
+body:not(.dark-theme) .articletag-418challenge .crayons-link:hover {
+  background-color: #ffff00 !important;
+  color: #ff0000 !important;
+}
+
+body:not(.dark-theme) .articletag-418challenge .crayons-tag {
+  background: #ffff00 !important;
+  color: #ff0000 !important;
+  border: 2px dotted #0000ff !important;
+}
+
+/* --------------------------------------------------------------------------
+   3. DARK THEME (1999 Hacker / Deep GeoCities Vibes)
+   -------------------------------------------------------------------------- */
+body.dark-theme .articletag-418challenge {
+  background-color: #000000 !important;
+  /* Dumb CSS: A scrolling, eye-bleeding neon green hacker grid with CRT scanlines */
+  background-image: 
+    linear-gradient(transparent 50%, rgba(0, 255, 0, 0.25) 50%), 
+    linear-gradient(90deg, rgba(0, 255, 0, 0.5) 1px, transparent 1px), 
+    linear-gradient(rgba(0, 255, 0, 0.5) 1px, transparent 1px) !important;
+  background-size: 100% 4px, 20px 20px, 20px 20px !important;
+  animation: retro-pan 60s linear infinite !important;
+}
+
+body.dark-theme .articletag-418challenge .crayons-card,
+body.dark-theme .articletag-418challenge .crayons-article__main,
+body.dark-theme .articletag-418challenge .crayons-article__header {
+  background-color: #111111 !important;
+  color: #00ff00 !important; /* Terminal Green */
+  border: 4px outset #555555 !important;
+  box-shadow: 8px 8px 0px #ff00ff !important; /* Hot pink shadow */
+}
+
+body.dark-theme .articletag-418challenge h1,
+body.dark-theme .articletag-418challenge h2,
+body.dark-theme .articletag-418challenge h3 {
+  color: #ff00ff !important; /* Magenta headers */
+  text-shadow: 2px 2px 0px #00ffff !important; /* Cyan shadow */
+  border-bottom: 3px dashed #00ff00 !important;
+}
+
+body.dark-theme .articletag-418challenge a,
+body.dark-theme .articletag-418challenge .crayons-link {
+  color: #00ffff !important; /* Cyan links */
+  text-decoration: underline !important;
+  font-weight: bold !important;
+}
+
+body.dark-theme .articletag-418challenge a:hover,
+body.dark-theme .articletag-418challenge .crayons-link:hover {
+  background-color: #ff00ff !important;
+  color: #ffffff !important;
+}
+
+body.dark-theme .articletag-418challenge .crayons-tag {
+  background: #000000 !important;
+  color: #00ff00 !important;
+  border: 2px dotted #ff00ff !important;
+}
+
+/* --------------------------------------------------------------------------
+   4. ANIMATIONS
+   -------------------------------------------------------------------------- */
+@keyframes retro-spin {
+  100% { transform: rotate(360deg); }
+}
+
+@keyframes retro-slide {
+  0% { transform: translateX(-2%); }
+  100% { transform: translateX(2%); }
+}
+
+@keyframes retro-pan {
+  0% { background-position: 0 0, 0 0, 0 0; }
+  /* Numbers must be multiples of the background-size (4px and 20px) to loop perfectly */
+  100% { background-position: 0 100px, 40px 40px, 40px 40px; }
+}
+
+/* --------------------------------------------------------------------------
+   5. BONUS: CAUTION TAPE REACTION BAR
+   -------------------------------------------------------------------------- */
+.articletag-418challenge .crayons-article-actions {
+  background: repeating-linear-gradient(
+    45deg,
+    #ffff00,
+    #ffff00 10px,
+    #000000 10px,
+    #000000 20px
+  ) !important;
+  border: 4px solid #ff0000 !important;
+  border-radius: 0 !important;
+}
+
+.articletag-418challenge .crayons-article-actions button {
+  background:black;
+  color: #ff00ff !important;
+}
+
+.articletag-418challenge .crayons-article-actions .crayons-reaction__count {
+    color: #ff00ff !important;
+    font-weight: bold !important;
+}
+
+.articletag-418challenge .crayons-icon:not(.crayons-icon--default) * {
+    fill: #ffff00 !important;
+}
+
+.articletag-418challenge .c-embed .crayons-btn--primary {
+  color: #00ff00 !important;
+}
+
+.articletag-418challenge .popover-billboard {
+margin-bottom: 0 !important;
+}
+
+.crayons-story__contentpreview .ltag__link--embedded {
+margin-top: 0 !important;
+}
+
+.subscription-icon {
+    max-height: 16px !important;
+    display: inline-block !important;
+}
+
+@media screen and (min-width: 950px) {
+    .event-show-layout {
+        margin-top: 24px !important;
+    }
+}
+
+@media screen and (max-width: 949px) {
+    .event-show-layout {
+        padding: 11px !important;
+    }
+}
+
+
+</style>
+</meta></meta></meta></link></link></link></meta></meta></meta></meta></link></head>
+<body class="sans-serif-article-body default-header" data-algolia-display="true" data-algolia-id="PRSOBFP46H" data-algolia-search-key="9aa7d31610cba78851c9b1f63776a9dd" data-community-name="DEV Community" data-cookie-banner-platform-context="off" data-cookie-banner-user-context="logged_out_only" data-deployed-at="2026-05-04T16:42:28Z" data-dynamic-url-component="bmar11" data-ga-tracking="UA-71991109-1" data-ga4-tracking-id="G-TYEM8Y3JN3" data-honeybadger-key="hbp_nqu4Y66HuEKlD6YRGssZuRQnPOjDm50J8Zkr" data-is-root-subforem="false" data-latest-commit-id="e997d427ad14eeb4620879445f7787b125048e08" data-locale="en" data-side-nav-visible="true" data-subforem-id="1" data-subscription-icon="https://assets.dev.to/assets/subscription-icon-805dfa7ac7dd660f07ed8d654877270825b07a92a03841aa99a1093bd00431b2.png" data-user-status="logged-out">
+<script>
+        if (navigator.userAgent === 'ForemWebView/1' || window.frameElement) {
+          document.body.classList.add("hidden-shell");
+        }
+          if (new Date() > new Date("2026-02-04T09:00:00-05:00")) {
+            document.body.dataset.sideNavVisible = "false";
+          } 
+      </script>
+<link href="../cdn/assets.dev.to/assets/minimal-2213124ac5505ccdbf3c4eb62fd70ecda26cb75ed6de931633992a7bac437c81.css" id="secondary-minimal-stylesheet" media="all" rel="stylesheet">
+<link href="../cdn/assets.dev.to/assets/views-0681ac17bf1546793c4b7ef7c615b2defec919060aefb3b9c287471e8cb77bf2.css" id="secondary-views-stylesheet" media="all" rel="stylesheet"/>
+<link href="../cdn/assets.dev.to/assets/crayons-d2b52af1d86a9ac9a8bc215ed34ffad7a94af68f4abd1cdcae2a8c1a4385cd23.css" id="secondary-crayons-stylesheet" media="all" rel="stylesheet"/>
+<div id="body-styles">
+<style>
+          :root {
+            --accent-brand-lighter-rgb: 86, 105, 285;
+            --accent-brand-rgb: 64, 78, 211;
+            --accent-brand-darker-rgb: 51, 62, 169;
+          }
+        </style>
+</div>
+<div data-podcast="" id="audiocontent">
+</div>
+<div class="navigation-progress" id="navigation-progress"></div>
+<header class="crayons-header topbar print-hidden" id="topbar">
+<span id="route-change-target" tabindex="-1"></span>
+<a class="skip-content-link" href="#main-content">Skip to content</a>
+<div class="crayons-header__container">
+<span class="inline-block m:hidden">
+<button class="c-btn c-btn--icon-alone js-hamburger-trigger mx-2">
+<svg aria-labelledby="a6vzdkd1jdbp7xagzcumclkt5pj6ol6s" class="crayons-icon" height="24" role="img" viewbox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><title id="a6vzdkd1jdbp7xagzcumclkt5pj6ol6s">Navigation menu</title>
+<path d="M3 4h18v2H3V4zm0 7h18v2H3v-2zm0 7h18v2H3v-2z"></path>
+</svg>
+</button>
+</span>
+<a aria-label="DEV Community Home" class="site-logo" href="../index.html">
+<img alt="DEV Community" class="site-logo__img" src="../cdn/media2.dev.to/dynamic/image/quality=100/https_/dev-to-uploads.s3.amazonaws.com/uploads/logos/resized_logo_UQww2soKuUsjaOGNB38o.png" style="aspect-ratio: 10 / 8"/>
+</a>
+<div class="crayons-header--search js-search-form" id="header-search">
+<form accept-charset="UTF-8" action="/search" method="get" role="search">
+<div class="crayons-fields crayons-fields--horizontal">
+<div class="crayons-field flex-1 relative">
+<input autocomplete="off" class="crayons-header--search-input crayons-textfield js-search-input" id="nav-search" name="q" placeholder="Find related posts..." type="text"/>
+<button aria-label="Search" class="c-btn c-btn--icon-alone absolute inset-px right-auto mt-0 py-0" type="submit">
+<svg aria-hidden="true" aria-labelledby="aqujlx7y1sjxysmh5yh2ibb9hi3qrgpe" class="crayons-icon" height="24" role="img" viewbox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><title id="aqujlx7y1sjxysmh5yh2ibb9hi3qrgpe">Search</title>
+<path d="M18.031 16.617l4.283 4.282-1.415 1.415-4.282-4.283A8.96 8.96 0 0111 20c-4.968 0-9-4.032-9-9s4.032-9 9-9 9 4.032 9 9a8.96 8.96 0 01-1.969 5.617zm-2.006-.742A6.977 6.977 0 0018 11c0-3.868-3.133-7-7-7-3.868 0-7 3.132-7 7 0 3.867 3.132 7 7 7a6.977 6.977 0 004.875-1.975l.15-.15z"></path>
+</svg>
+</button>
+<a class="crayons-header--search-brand-indicator" href="https://www.algolia.com/developers/?utm_source=devto&amp;utm_medium=referral" rel="noopener noreferrer" target="_blank">
+                Powered by Algolia
+                <svg aria-hidden="true" aria-labelledby="a3gmjrrletse7k78thvci1zw6073wsrq" class="crayons-icon" height="24" id="Layer_1" role="img" viewbox="0 0 500 500.34" width="24" xmlns="http://www.w3.org/2000/svg"><title id="a3gmjrrletse7k78thvci1zw6073wsrq">Search</title>
+<defs></defs><path class="cls-1" d="M250,0C113.38,0,2,110.16,.03,246.32c-2,138.29,110.19,252.87,248.49,253.67,42.71,.25,83.85-10.2,120.38-30.05,3.56-1.93,4.11-6.83,1.08-9.52l-23.39-20.74c-4.75-4.22-11.52-5.41-17.37-2.92-25.5,10.85-53.21,16.39-81.76,16.04-111.75-1.37-202.04-94.35-200.26-206.1,1.76-110.33,92.06-199.55,202.8-199.55h202.83V407.68l-115.08-102.25c-3.72-3.31-9.43-2.66-12.43,1.31-18.47,24.46-48.56,39.67-81.98,37.36-46.36-3.2-83.92-40.52-87.4-86.86-4.15-55.28,39.65-101.58,94.07-101.58,49.21,0,89.74,37.88,93.97,86.01,.38,4.28,2.31,8.28,5.53,11.13l29.97,26.57c3.4,3.01,8.8,1.17,9.63-3.3,2.16-11.55,2.92-23.6,2.07-35.95-4.83-70.39-61.84-127.01-132.26-131.35-80.73-4.98-148.23,58.18-150.37,137.35-2.09,77.15,61.12,143.66,138.28,145.36,32.21,.71,62.07-9.42,86.2-26.97l150.36,133.29c6.45,5.71,16.62,1.14,16.62-7.48V9.49C500,4.25,495.75,0,490.51,0H250Z"></path>
+</svg>
+</a>
+</div>
+</div>
+</form>
+</div>
+<div class="flex items-center h-100 ml-auto">
+<div class="flex" id="authentication-top-nav-actions">
+<span class="hidden m:block">
+<a class="c-link c-link--block mr-2 whitespace-nowrap ml-auto" data-no-instant="" href="../enter-q7ffd52de7b.html">
+              Log in
+            </a>
+</span>
+<a class="c-cta c-cta--branded whitespace-nowrap mr-2" data-no-instant="" data-tracking-id="ca_top_nav" data-tracking-source="top_navbar" href="../enter-qfc40b94913.html">
+            Create account
+          </a>
+</div>
+</div>
+</div>
+</header>
+<div class="hamburger">
+<div class="hamburger__content">
+<header class="hamburger__content__header">
+<h2 class="fs-l fw-bold flex-1 break-word lh-tight">DEV Community</h2>
+<button aria-label="Close" class="c-btn c-btn--icon-alone js-hamburger-trigger shrink-0">
+<svg aria-hidden="true" aria-labelledby="ao9tzed9o39tlzgfqgwinkr3fbj5fcsl" class="crayons-icon c-btn__icon" height="24" role="img" viewbox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><title id="ao9tzed9o39tlzgfqgwinkr3fbj5fcsl">Close</title><path d="M12 10.586l4.95-4.95 1.414 1.414-4.95 4.95 4.95 4.95-1.414 1.414-4.95-4.95-4.95 4.95-1.414-1.414 4.95-4.95-4.95-4.95L7.05 5.636l4.95 4.95z"></path></svg>
+</button>
+</header>
+<div class="p-2 js-navigation-links-container" id="authentication-hamburger-actions">
+</div>
+</div>
+<div class="hamburger__overlay js-hamburger-trigger"></div>
+</div>
+<div class="broadcast-wrapper" id="active-broadcast"></div>
+<div class="wrapper stories stories-show articletag-aws articletag-s3files articletag-terraform articletag-sftp articleuser-1338515 articleorg-2794" data-current-page="stories-show" id="page-content">
+<div data-internal-nav="false" data-viewable-id="3470259" data-viewable-type="Article" id="page-content-inner">
+<div aria-atomic="true" aria-live="polite" class="screen-reader-only" id="page-route-change"></div>
+<style>
+  .html-variant-wrapper { display: none}
+</style>
+<script defer="" src="../cdn/unpkg.com/@webcomponents/webcomponentsjs@2.2.10/webcomponents-loader.js"></script>
+<script defer="defer" src="../cdn/assets.dev.to/assets/webShare-0686f0b9ac40589694ef6ae6a6202c44119bc781c254f6cf6d52d8a008461156.js"></script>
+<script defer="defer" src="../cdn/assets.dev.to/assets/articlePage-ed23d70916aed9a7fec41f94e64aac17438d3210c1bb1d6fceace80f15445213.js"></script>
+<script defer="defer" src="../cdn/assets.dev.to/assets/commentDropdowns-7a28d130e5b78d38b30a9495a964003a66bd64fa455fc70b766d69cf06b9ba24.js"></script>
+<script type="application/ld+json">
+    {"@context":"http://schema.org","@type":"Article","mainEntityOfPage":{"@type":"WebPage","@id":"https://dev.to/aws-builders/aws-s3-files-just-made-transfer-family-sftp-obsolete-for-most-use-cases-4me"},"url":"https://dev.to/aws-builders/aws-s3-files-just-made-transfer-family-sftp-obsolete-for-most-use-cases-4me","image":["https://media2.dev.to/dynamic/image/width=1080,height=1080,fit=cover,gravity=auto,format=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Farticles%2Fhliprheg417g8vvenitq.png","https://media2.dev.to/dynamic/image/width=1280,height=720,fit=cover,gravity=auto,format=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Farticles%2Fhliprheg417g8vvenitq.png","https://media2.dev.to/dynamic/image/width=1600,height=900,fit=cover,gravity=auto,format=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Farticles%2Fhliprheg417g8vvenitq.png"],"publisher":{"@context":"http://schema.org","@type":"Organization","name":"DEV Community","logo":{"@context":"http://schema.org","@type":"ImageObject","url":"https://media2.dev.to/dynamic/image/width=192,height=,fit=scale-down,gravity=auto,format=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Farticles%2F8j7kvp660rqzt99zui8e.png","width":"192","height":"192"}},"headline":"AWS S3 Files just made Transfer Family SFTP obsolete for most use cases","author":{"@context":"http://schema.org","@type":"Person","url":"https://dev.to/psantus","name":"Paul SANTUS"},"datePublished":"2026-04-08T08:15:29Z","dateModified":"2026-04-08T08:15:29Z","mainEntity":{"@type":"DiscussionForumPosting","@id":"#article-discussion-3470259","headline":"AWS S3 Files just made Transfer Family SFTP obsolete for most use cases","text":"\u003cp\u003eAWS just launched one of the most impactful storage features in years: \u003cstrong\u003eS3 Files\u003c/strong\u003e. It puts an EFS-compatible file system interface directly in front of your S3 buckets. When I was introduced to S3 Files (as part of \u003ca href=\"https://www.linkedin.com/posts/coreystrausman_aws-s3-cloudcomputing-activity-7447375367155351552-Uuyo?utm_source=share\u0026amp;utm_medium=member_desktop\u0026amp;rcm=ACoAAAHqFuoBYjYsx4cq4zQ6SBklTKN3Pd_juYs\" target=\"_blank\" rel=\"noopener noreferrer\"\u003eAWS Community Builder program\u003c/a\u003e), I immediately thought of SFTP as the most obvious use case for my clients.\u003c/p\u003e\n\n\u003cp\u003eIf you're currently paying for AWS Transfer Family to give your partners SFTP access to S3, you should read this carefully. There's now a dramatically cheaper and more powerful alternative.\u003c/p\u003e\n\n\u003ch2\u003e\n  \u003ca name=\"what-is-s3-files\" href=\"#what-is-s3-files\"\u003e\n  \u003c/a\u003e\n  What is S3 Files?\n\u003c/h2\u003e\n\n\u003cp\u003eS3 Files creates a high-performance NFS file system backed by an S3 bucket. Think of it as an EFS-like layer that reads and writes directly to S3 objects, with automatic bidirectional synchronization. Any file written through the file system appears as an S3 object, and any object uploaded to S3 becomes visible through the file system.\u003c/p\u003e\n\n\u003cp\u003eThe key properties:\u003c/p\u003e\n\n\u003cul\u003e\n\u003cli\u003e\n\u003cstrong\u003eSub-millisecond latency\u003c/strong\u003e for file operations\u003c/li\u003e\n\u003cli\u003e\n\u003cstrong\u003eAutomatic sync\u003c/strong\u003e between file system and S3 bucket (powered by EventBridge under the hood)\u003c/li\u003e\n\u003cli\u003e\n\u003cstrong\u003eMountable on ECS Fargate\u003c/strong\u003e, ECS Managed Instances, EKS, and EC2\u003c/li\u003e\n\u003cli\u003e\n\u003cstrong\u003eStandard NFS protocol\u003c/strong\u003e — no special client needed on the compute side (ECS/EKS handle it natively)\u003c/li\u003e\n\u003cli\u003e\n\u003cstrong\u003eAccess points\u003c/strong\u003e with POSIX user/group enforcement\u003c/li\u003e\n\u003cli\u003e\n\u003cstrong\u003eS3 Versioning\u003c/strong\u003e required and leveraged for consistency\u003c/li\u003e\n\u003c/ul\u003e\n\n\u003ch2\u003e\n  \u003ca name=\"the-problem-with-aws-transfer-family\" href=\"#the-problem-with-aws-transfer-family\"\u003e\n  \u003c/a\u003e\n  The Problem with AWS Transfer Family\n\u003c/h2\u003e\n\n\u003cp\u003eAWS Transfer Family has been the \"official\" way to expose SFTP endpoints backed by S3. It works, but it comes with serious pain points:\u003c/p\u003e\n\n\u003ch3\u003e\n  \u003ca name=\"its-expensive\" href=\"#its-expensive\"\u003e\n  \u003c/a\u003e\n  It's expensive\n\u003c/h3\u003e\n\n\u003cp\u003eTransfer Family charges \u003cstrong\u003e$0.30/hour\u003c/strong\u003e just for the endpoint — that's \u003cstrong\u003e~$216/month\u003c/strong\u003e before you transfer a single byte. Add data transfer costs on top. For a service that many teams use for a handful of daily file drops, this is hard to justify.\u003c/p\u003e\n\n\u003ch3\u003e\n  \u003ca name=\"its-a-black-box\" href=\"#its-a-black-box\"\u003e\n  \u003c/a\u003e\n  It's a black box\n\u003c/h3\u003e\n\n\u003cp\u003eYou get an SFTP endpoint, but you don't control the server. Custom authentication requires Lambda hooks. Logging is limited. You can't SSH in to debug. You can't customize the SFTP server behavior, add pre/post-processing scripts, or run anything alongside it.\u003c/p\u003e\n\n\u003ch2\u003e\n  \u003ca name=\"the-new-architecture-atmozsftp-s3-files-on-ecs-fargate\" href=\"#the-new-architecture-atmozsftp-s3-files-on-ecs-fargate\"\u003e\n  \u003c/a\u003e\n  The New Architecture: atmoz/sftp + S3 Files on ECS Fargate\n\u003c/h2\u003e\n\n\u003cp\u003eHere's what you could run instead:\u003c/p\u003e\n\n\u003cp\u003e\u003ca href=\"https://media2.dev.to/dynamic/image/width=800%2Cheight=%2Cfit=scale-down%2Cgravity=auto%2Cformat=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Farticles%2F1l55rvat4vr4vxk97vbs.png\" class=\"article-body-image-wrapper\"\u003e\u003cimg src=\"https://media2.dev.to/dynamic/image/width=800%2Cheight=%2Cfit=scale-down%2Cgravity=auto%2Cformat=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Farticles%2F1l55rvat4vr4vxk97vbs.png\" alt=\" \" loading=\"lazy\" width=\"800\" height=\"320\"\u003e\u003c/a\u003e\u003c/p\u003e\n\n\u003cp\u003eThe components:\u003c/p\u003e\n\n\u003col\u003e\n\u003cli\u003e\n\u003cstrong\u003eS3 bucket\u003c/strong\u003e with versioning enabled (required by S3 Files)\u003c/li\u003e\n\u003cli\u003e\n\u003cstrong\u003eS3 Files file system\u003c/strong\u003e pointed at the bucket, with mount targets in your VPC\u003c/li\u003e\n\u003cli\u003e\n\u003cstrong\u003eEFS volume\u003c/strong\u003e for persistent SSH host keys (stable fingerprint across restarts and scaling)\u003c/li\u003e\n\u003cli\u003e\n\u003cstrong\u003eECS Fargate service\u003c/strong\u003e running \u003ca href=\"https://github.com/atmoz/sftp\" target=\"_blank\" rel=\"noopener noreferrer\"\u003eatmoz/sftp\u003c/a\u003e with the S3 Files volume mounted at \u003ccode\u003e/home\u003c/code\u003e\n\u003c/li\u003e\n\u003cli\u003e\n\u003cstrong\u003eNetwork Load Balancer\u003c/strong\u003e exposing port 22\u003c/li\u003e\n\u003cli\u003e\n\u003cstrong\u003eDNS record\u003c/strong\u003e for \u003ccode\u003esftp.yourdomain.com\u003c/code\u003e (optional)\u003c/li\u003e\n\u003c/ol\u003e\n\n\u003cp\u003eFiles uploaded via SFTP land on the S3 Files mount → appear in S3 within seconds → trigger S3 event notifications for downstream processing.\u003c/p\u003e\n\n\u003ch2\u003e\n  \u003ca name=\"cost-comparison\" href=\"#cost-comparison\"\u003e\n  \u003c/a\u003e\n  Cost Comparison\n\u003c/h2\u003e\n\n\u003cdiv class=\"table-wrapper-paragraph\"\u003e\u003ctable\u003e\n\u003cthead\u003e\n\u003ctr\u003e\n\u003cth\u003eComponent\u003c/th\u003e\n\u003cth\u003eTransfer Family\u003c/th\u003e\n\u003cth\u003eS3 Files + Fargate\u003c/th\u003e\n\u003c/tr\u003e\n\u003c/thead\u003e\n\u003ctbody\u003e\n\u003ctr\u003e\n\u003ctd\u003eBase cost\u003c/td\u003e\n\u003ctd\u003e$0.30/hr (~$216/mo)\u003c/td\u003e\n\u003ctd\u003eNLB: ~$16/mo\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd\u003eCompute\u003c/td\u003e\n\u003ctd\u003eIncluded\u003c/td\u003e\n\u003ctd\u003eFargate 0.25 vCPU / 512MB: ~$9/mo\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd\u003eStorage\u003c/td\u003e\n\u003ctd\u003eS3 pricing\u003c/td\u003e\n\u003ctd\u003eS3 pricing (same)\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd\u003eData transfer\u003c/td\u003e\n\u003ctd\u003e$0.04/GB over SFTP\u003c/td\u003e\n\u003ctd\u003eStandard NLB pricing\u003c/td\u003e\n\u003c/tr\u003e\n\u003ctr\u003e\n\u003ctd\u003e\u003cstrong\u003eMonthly minimum\u003c/strong\u003e\u003c/td\u003e\n\u003ctd\u003e\u003cstrong\u003e~$216\u003c/strong\u003e\u003c/td\u003e\n\u003ctd\u003e\u003cstrong\u003e~$25\u003c/strong\u003e\u003c/td\u003e\n\u003c/tr\u003e\n\u003c/tbody\u003e\n\u003c/table\u003e\u003c/div\u003e\n\n\u003cp\u003eThat's roughly \u003cstrong\u003e8x cheaper\u003c/strong\u003e at the base level. For low-to-medium traffic SFTP use cases (which is most of them), the savings are significant.\u003c/p\u003e\n\n\u003ch2\u003e\n  \u003ca name=\"why-this-is-better-than-efsbacked-sftp\" href=\"#why-this-is-better-than-efsbacked-sftp\"\u003e\n  \u003c/a\u003e\n  Why This Is Better Than EFS-Backed SFTP\n\u003c/h2\u003e\n\n\u003cp\u003eBefore S3 Files, the common DIY approach was to mount EFS on Fargate and run atmoz/sftp. We did exactly this. It worked, but had a fundamental limitation: \u003cstrong\u003eyour files lived in EFS, not S3\u003c/strong\u003e.\u003c/p\u003e\n\n\u003cp\u003eThat meant:\u003c/p\u003e\n\n\u003cul\u003e\n\u003cli\u003eNo S3 event notifications when files arrived\u003c/li\u003e\n\u003cli\u003eNo S3 lifecycle policies\u003c/li\u003e\n\u003cli\u003eNo S3 cross-region replication\u003c/li\u003e\n\u003cli\u003eNo direct S3 API access to the files\u003c/li\u003e\n\u003cli\u003eEFS pricing ($0.30/GB for Standard) vs S3 ($0.023/GB)\u003c/li\u003e\n\u003cli\u003eSeparate backup strategy needed\u003c/li\u003e\n\u003c/ul\u003e\n\n\u003cp\u003eWith S3 Files, the data lives in S3. You get the full S3 feature set — notifications, lifecycle rules, replication, analytics, Glacier tiering — while still having a mountable file system for your SFTP server.\u003c/p\u003e\n\n\u003ch2\u003e\n  \u003ca name=\"eventdriven-file-processing\" href=\"#eventdriven-file-processing\"\u003e\n  \u003c/a\u003e\n  Event-Driven File Processing\n\u003c/h2\u003e\n\n\u003cp\u003eBoth Transfer Family and our S3 Files approach write to S3, so you get the same event-driven capabilities either way:\u003c/p\u003e\n\n\u003cul\u003e\n\u003cli\u003e\n\u003cstrong\u003eS3 Event Notifications → SQS/SNS/Lambda\u003c/strong\u003e for immediate processing when a file arrives\u003c/li\u003e\n\u003cli\u003e\n\u003cstrong\u003eS3 Event Notifications → EventBridge\u003c/strong\u003e for complex routing rules\u003c/li\u003e\n\u003cli\u003e\n\u003cstrong\u003eS3 Inventory\u003c/strong\u003e for auditing\u003c/li\u003e\n\u003cli\u003e\n\u003cstrong\u003eS3 Object Lock\u003c/strong\u003e for compliance\u003c/li\u003e\n\u003cli\u003e\n\u003cstrong\u003eS3 Replication\u003c/strong\u003e to replicate uploaded files to another region or account\u003c/li\u003e\n\u003c/ul\u003e\n\n\u003cp\u003eThe difference isn't in features — it's in cost. You get the exact same S3 event-driven pipeline for ~$25/mo instead of ~$216/mo.\u003c/p\u003e\n\n\u003ch2\u003e\n  \u003ca name=\"the-terraform-implementation\" href=\"#the-terraform-implementation\"\u003e\n  \u003c/a\u003e\n  The Terraform Implementation\n\u003c/h2\u003e\n\n\u003cp\u003eSince \u003ccode\u003eaws_s3files_file_system\u003c/code\u003e isn't in the Terraform AWS provider yet (\u003ca href=\"https://github.com/hashicorp/terraform-provider-aws/pull/47325\" target=\"_blank\" rel=\"noopener noreferrer\"\u003ePR #47325\u003c/a\u003e is open and prioritized), we manage S3 Files resources through \u003ccode\u003eterraform_data\u003c/code\u003e with \u003ccode\u003elocal-exec\u003c/code\u003e provisioners calling the AWS CLI.\u003c/p\u003e\n\n\u003cp\u003eThe key resources:\u003cbr\u003e\n\u003c/p\u003e\n\n\u003cdiv class=\"highlight js-code-highlight\"\u003e\n\u003cpre class=\"highlight hcl\"\u003e\u003ccode\u003e\u003cspan class=\"c1\"\u003e# S3 Files file system — created via AWS CLI\u003c/span\u003e\n\u003cspan class=\"nx\"\u003eresource\u003c/span\u003e \u003cspan class=\"s2\"\u003e\"terraform_data\"\u003c/span\u003e \u003cspan class=\"s2\"\u003e\"s3files_file_system\"\u003c/span\u003e \u003cspan class=\"p\"\u003e{\u003c/span\u003e\n  \u003cspan class=\"nx\"\u003eprovisioner\u003c/span\u003e \u003cspan class=\"s2\"\u003e\"local-exec\"\u003c/span\u003e \u003cspan class=\"p\"\u003e{\u003c/span\u003e\n    \u003cspan class=\"nx\"\u003ecommand\u003c/span\u003e \u003cspan class=\"p\"\u003e=\u003c/span\u003e \u003cspan class=\"o\"\u003e\u0026lt;\u0026lt;-\u003c/span\u003e\u003cspan class=\"no\"\u003eEOT\u003c/span\u003e\u003cspan class=\"sh\"\u003e\n      aws s3files create-file-system \\\n        --bucket \"$BUCKET_ARN\" \\\n        --role-arn \"$ROLE_ARN\" \\\n        --accept-bucket-warning \\\n        --region \"$REGION\"\n\u003c/span\u003e\u003cspan class=\"no\"\u003e    EOT\n\u003c/span\u003e  \u003cspan class=\"p\"\u003e}\u003c/span\u003e\n\u003cspan class=\"p\"\u003e}\u003c/span\u003e\n\n\u003cspan class=\"c1\"\u003e# Mount targets in each private subnet\u003c/span\u003e\n\u003cspan class=\"nx\"\u003eresource\u003c/span\u003e \u003cspan class=\"s2\"\u003e\"terraform_data\"\u003c/span\u003e \u003cspan class=\"s2\"\u003e\"s3files_mount_targets\"\u003c/span\u003e \u003cspan class=\"p\"\u003e{\u003c/span\u003e\n  \u003cspan class=\"nx\"\u003efor_each\u003c/span\u003e \u003cspan class=\"p\"\u003e=\u003c/span\u003e \u003cspan class=\"nx\"\u003etoset\u003c/span\u003e\u003cspan class=\"p\"\u003e(\u003c/span\u003e\u003cspan class=\"nx\"\u003evar\u003c/span\u003e\u003cspan class=\"p\"\u003e.\u003c/span\u003e\u003cspan class=\"nx\"\u003eprivate_subnet_ids\u003c/span\u003e\u003cspan class=\"p\"\u003e)\u003c/span\u003e\n  \u003cspan class=\"nx\"\u003eprovisioner\u003c/span\u003e \u003cspan class=\"s2\"\u003e\"local-exec\"\u003c/span\u003e \u003cspan class=\"p\"\u003e{\u003c/span\u003e\n    \u003cspan class=\"nx\"\u003ecommand\u003c/span\u003e \u003cspan class=\"p\"\u003e=\u003c/span\u003e \u003cspan class=\"o\"\u003e\u0026lt;\u0026lt;-\u003c/span\u003e\u003cspan class=\"no\"\u003eEOT\u003c/span\u003e\u003cspan class=\"sh\"\u003e\n      aws s3files create-mount-target \\\n        --file-system-id \"$FS_ID\" \\\n        --subnet-id \"${each.value}\" \\\n        --security-groups \"$SG_ID\"\n\u003c/span\u003e\u003cspan class=\"no\"\u003e    EOT\n\u003c/span\u003e  \u003cspan class=\"p\"\u003e}\u003c/span\u003e\n\u003cspan class=\"p\"\u003e}\u003c/span\u003e\n\n\u003cspan class=\"c1\"\u003e# ECS task definition uses s3filesVolumeConfiguration\u003c/span\u003e\n\u003cspan class=\"nx\"\u003evolume\u003c/span\u003e \u003cspan class=\"err\"\u003e=\u003c/span\u003e \u003cspan class=\"p\"\u003e{\u003c/span\u003e\n  \u003cspan class=\"nx\"\u003esftp-home\u003c/span\u003e \u003cspan class=\"p\"\u003e=\u003c/span\u003e \u003cspan class=\"p\"\u003e{\u003c/span\u003e\n    \u003cspan class=\"nx\"\u003es3files_volume_configuration\u003c/span\u003e \u003cspan class=\"p\"\u003e=\u003c/span\u003e \u003cspan class=\"p\"\u003e{\u003c/span\u003e\n      \u003cspan class=\"nx\"\u003efile_system_arn\u003c/span\u003e \u003cspan class=\"p\"\u003e=\u003c/span\u003e \u003cspan class=\"nx\"\u003elocal\u003c/span\u003e\u003cspan class=\"p\"\u003e.\u003c/span\u003e\u003cspan class=\"nx\"\u003es3files_fs_arn\u003c/span\u003e\n      \u003cspan class=\"nx\"\u003eroot_directory\u003c/span\u003e  \u003cspan class=\"p\"\u003e=\u003c/span\u003e \u003cspan class=\"s2\"\u003e\"/\"\u003c/span\u003e\n    \u003cspan class=\"p\"\u003e}\u003c/span\u003e\n  \u003cspan class=\"p\"\u003e}\u003c/span\u003e\n\u003cspan class=\"p\"\u003e}\u003c/span\u003e\n\u003c/code\u003e\u003c/pre\u003e\n\u003cdiv class=\"highlight__panel js-actions-panel\"\u003e\n\u003cdiv class=\"highlight__panel-action js-fullscreen-code-action\"\u003e\n    \u003csvg xmlns=\"http://www.w3.org/2000/svg\" width=\"20px\" height=\"20px\" viewbox=\"0 0 24 24\" class=\"highlight-action crayons-icon highlight-action--fullscreen-on\"\u003e\u003ctitle\u003eEnter fullscreen mode\u003c/title\u003e\n    \u003cpath d=\"M16 3h6v6h-2V5h-4V3zM2 3h6v2H4v4H2V3zm18 16v-4h2v6h-6v-2h4zM4 19h4v2H2v-6h2v4z\"\u003e\u003c/path\u003e\n\u003c/svg\u003e\n\n    \u003csvg xmlns=\"http://www.w3.org/2000/svg\" width=\"20px\" height=\"20px\" viewbox=\"0 0 24 24\" class=\"highlight-action crayons-icon highlight-action--fullscreen-off\"\u003e\u003ctitle\u003eExit fullscreen mode\u003c/title\u003e\n    \u003cpath d=\"M18 7h4v2h-6V3h2v4zM8 9H2V7h4V3h2v6zm10 8v4h-2v-6h6v2h-4zM8 15v6H6v-4H2v-2h6z\"\u003e\u003c/path\u003e\n\u003c/svg\u003e\n\n\u003c/div\u003e\n\u003c/div\u003e\n\u003c/div\u003e\n\n\n\n\u003cp\u003eThe full working Terraform code is available as a \u003ca href=\"https://registry.terraform.io/modules/psantus/s3files-sftp/aws/latest\" target=\"_blank\" rel=\"noopener noreferrer\"\u003eTerraform module\u003c/a\u003e. The Terraform AWS provider doesn't support \u003ccode\u003eaws_s3files_file_system\u003c/code\u003e yet (\u003ca href=\"https://github.com/hashicorp/terraform-provider-aws/pull/47325\" target=\"_blank\" rel=\"noopener noreferrer\"\u003ePR #47325\u003c/a\u003e is open and prioritized), so S3 Files resources are currently managed via \u003ccode\u003eterraform_data\u003c/code\u003e + AWS CLI. I pledge to update this module to use native Terraform resources as soon as the provider ships S3 Files support.\u003c/p\u003e\n\n\u003ch2\u003e\n  \u003ca name=\"iam-setup\" href=\"#iam-setup\"\u003e\n  \u003c/a\u003e\n  IAM Setup\n\u003c/h2\u003e\n\n\u003cp\u003eTwo IAM roles are needed:\u003c/p\u003e\n\n\u003col\u003e\n\u003cli\u003e\u003cp\u003e\u003cstrong\u003eS3 Files service role\u003c/strong\u003e — assumed by \u003ccode\u003eelasticfilesystem.amazonaws.com\u003c/code\u003e to sync between the file system and S3 bucket. Needs S3 read/write on the bucket + EventBridge permissions for change detection.\u003c/p\u003e\u003c/li\u003e\n\u003cli\u003e\u003cp\u003e\u003cstrong\u003eECS task role\u003c/strong\u003e — needs \u003ccode\u003es3files:ClientMount\u003c/code\u003e, \u003ccode\u003es3files:ClientWrite\u003c/code\u003e, and \u003ccode\u003es3:GetObject\u003c/code\u003e/\u003ccode\u003es3:ListBucket\u003c/code\u003e on the backing bucket for optimized reads.\u003c/p\u003e\u003c/li\u003e\n\u003c/ol\u003e\n\n\u003ch2\u003e\n  \u003ca name=\"when-transfer-family-still-makes-sense\" href=\"#when-transfer-family-still-makes-sense\"\u003e\n  \u003c/a\u003e\n  When Transfer Family Still Makes Sense\n\u003c/h2\u003e\n\n\u003cp\u003eTo be fair, Transfer Family isn't dead for every use case:\u003c/p\u003e\n\n\u003cul\u003e\n\u003cli\u003e\n\u003cstrong\u003eManaged SFTP keys and user management\u003c/strong\u003e — Transfer Family has built-in identity provider integration (AD, Lambda custom auth). With atmoz/sftp, you manage users via config.\u003c/li\u003e\n\u003cli\u003e\n\u003cstrong\u003eAS2 protocol support\u003c/strong\u003e — if you need AS2, Transfer Family is still the only managed option.\u003c/li\u003e\n\u003cli\u003e\n\u003cstrong\u003eFTPS\u003c/strong\u003e — Transfer Family supports FTPS natively.\u003c/li\u003e\n\u003cli\u003e\n\u003cstrong\u003eZero ops tolerance\u003c/strong\u003e — if you truly cannot manage a container, Transfer Family is fully managed.\u003c/li\u003e\n\u003c/ul\u003e\n\n\u003cp\u003eBut for the vast majority of SFTP use cases — partners dropping files that need processing — the S3 Files approach is cheaper, more flexible, and gives you better observability.\u003c/p\u003e\n\n\u003ch2\u003e\n  \u003ca name=\"getting-started\" href=\"#getting-started\"\u003e\n  \u003c/a\u003e\n  Getting Started\n\u003c/h2\u003e\n\n\u003cp\u003e\u003cstrong\u003ePrerequisite:\u003c/strong\u003e The \u003ccode\u003eaws s3files\u003c/code\u003e commands require AWS CLI v2.34.26 or later. You also need \u003ca href=\"https://jqlang.github.io/jq/\" target=\"_blank\" rel=\"noopener noreferrer\"\u003ejq\u003c/a\u003e installed (used by the Terraform provisioner scripts). Update the CLI with \u003ccode\u003ebrew upgrade awscli\u003c/code\u003e or see \u003ca href=\"https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html\" target=\"_blank\" rel=\"noopener noreferrer\"\u003eAWS CLI install guide\u003c/a\u003e.\u003c/p\u003e\n\n\u003col\u003e\n\u003cli\u003eCreate an S3 bucket with versioning enabled\u003c/li\u003e\n\u003cli\u003eCreate an IAM role for S3 Files with the required trust and permissions policies\u003c/li\u003e\n\u003cli\u003eCreate an S3 Files file system via the console or \u003ccode\u003eaws s3files create-file-system\u003c/code\u003e\n\u003c/li\u003e\n\u003cli\u003eCreate mount targets in your VPC subnets\u003c/li\u003e\n\u003cli\u003eCreate an EFS for persistent SSH host keys\u003c/li\u003e\n\u003cli\u003eDeploy an ECS Fargate service with atmoz/sftp, mounting S3 Files at \u003ccode\u003e/home\u003c/code\u003e and EFS at \u003ccode\u003e/etc/ssh/\u003c/code\u003e\n\u003c/li\u003e\n\u003cli\u003ePut an NLB in front, point your DNS at it\u003c/li\u003e\n\u003cli\u003eSet up S3 event notifications on the bucket for downstream processing\u003c/li\u003e\n\u003c/ol\u003e\n\n\u003cp\u003eOr just use the \u003ca href=\"https://registry.terraform.io/modules/psantus/s3files-sftp/aws/latest\" target=\"_blank\" rel=\"noopener noreferrer\"\u003eTerraform module\u003c/a\u003e — the whole thing deploys in under 10 minutes.\u003c/p\u003e\n\n\u003ch2\u003e\n  \u003ca name=\"testing-it-endtoend\" href=\"#testing-it-endtoend\"\u003e\n  \u003c/a\u003e\n  Testing it end-to-end\n\u003c/h2\u003e\n\n\u003cp\u003eAfter \u003ccode\u003eterraform apply\u003c/code\u003e, the SFTP server is ready in about 8 minutes (most of the time is S3 Files mount targets becoming available). Here's a quick test:\u003cbr\u003e\n\u003c/p\u003e\n\n\u003cdiv class=\"highlight js-code-highlight\"\u003e\n\u003cpre class=\"highlight shell\"\u003e\u003ccode\u003e\u003cspan class=\"c\"\u003e# Upload a file\u003c/span\u003e\n\u003cspan class=\"nb\"\u003eecho\u003c/span\u003e \u003cspan class=\"s2\"\u003e\"Hello from S3 Files SFTP!\"\u003c/span\u003e \u003cspan class=\"o\"\u003e\u0026gt;\u003c/span\u003e test.txt\nsshpass \u003cspan class=\"nt\"\u003e-p\u003c/span\u003e demo sftp \u003cspan class=\"nt\"\u003e-o\u003c/span\u003e \u003cspan class=\"nv\"\u003eStrictHostKeyChecking\u003c/span\u003e\u003cspan class=\"o\"\u003e=\u003c/span\u003eno \u003cspan class=\"nt\"\u003e-P\u003c/span\u003e 22 demo@\u0026lt;sftp_endpoint\u0026gt; \u003cspan class=\"o\"\u003e\u0026lt;\u0026lt;\u003c/span\u003e\u003cspan class=\"no\"\u003eEOF\u003c/span\u003e\u003cspan class=\"sh\"\u003e\ncd upload\nput test.txt\nbye\n\u003c/span\u003e\u003cspan class=\"no\"\u003eEOF\n\n\u003c/span\u003e\u003cspan class=\"c\"\u003e# Verify it landed in S3 (wait ~30-60s for sync)\u003c/span\u003e\naws s3 \u003cspan class=\"nb\"\u003ecp \u003c/span\u003es3://\u0026lt;sftp_bucket_name\u0026gt;/demo/upload/test.txt -\n\u003cspan class=\"c\"\u003e# Output: Hello from S3 Files SFTP!\u003c/span\u003e\n\u003c/code\u003e\u003c/pre\u003e\n\u003cdiv class=\"highlight__panel js-actions-panel\"\u003e\n\u003cdiv class=\"highlight__panel-action js-fullscreen-code-action\"\u003e\n    \u003csvg xmlns=\"http://www.w3.org/2000/svg\" width=\"20px\" height=\"20px\" viewbox=\"0 0 24 24\" class=\"highlight-action crayons-icon highlight-action--fullscreen-on\"\u003e\u003ctitle\u003eEnter fullscreen mode\u003c/title\u003e\n    \u003cpath d=\"M16 3h6v6h-2V5h-4V3zM2 3h6v2H4v4H2V3zm18 16v-4h2v6h-6v-2h4zM4 19h4v2H2v-6h2v4z\"\u003e\u003c/path\u003e\n\u003c/svg\u003e\n\n    \u003csvg xmlns=\"http://www.w3.org/2000/svg\" width=\"20px\" height=\"20px\" viewbox=\"0 0 24 24\" class=\"highlight-action crayons-icon highlight-action--fullscreen-off\"\u003e\u003ctitle\u003eExit fullscreen mode\u003c/title\u003e\n    \u003cpath d=\"M18 7h4v2h-6V3h2v4zM8 9H2V7h4V3h2v6zm10 8v4h-2v-6h6v2h-4zM8 15v6H6v-4H2v-2h6z\"\u003e\u003c/path\u003e\n\u003c/svg\u003e\n\n\u003c/div\u003e\n\u003c/div\u003e\n\u003c/div\u003e\n\n\n\n\u003cp\u003eWe also verified that SSH host keys persist across task restarts — the server fingerprint stays the same after a forced redeployment, thanks to the EFS volume mounted at \u003ccode\u003e/etc/ssh/\u003c/code\u003e.\u003c/p\u003e\n\n\u003ch2\u003e\n  \u003ca name=\"conclusion\" href=\"#conclusion\"\u003e\n  \u003c/a\u003e\n  Conclusion\n\u003c/h2\u003e\n\n\u003cp\u003eS3 Files bridges the gap between file system and object storage in a way that makes a lot of expensive AWS services feel redundant. For SFTP specifically, the combination of atmoz/sftp + S3 Files on Fargate gives you:\u003c/p\u003e\n\n\u003cul\u003e\n\u003cli\u003e\n\u003cstrong\u003e~8x lower cost\u003c/strong\u003e than Transfer Family\u003c/li\u003e\n\u003cli\u003e\n\u003cstrong\u003eFull control\u003c/strong\u003e over the SFTP server\u003c/li\u003e\n\u003cli\u003e\n\u003cstrong\u003eNative S3 event notifications\u003c/strong\u003e for event-driven processing\u003c/li\u003e\n\u003cli\u003e\n\u003cstrong\u003eS3 as the source of truth\u003c/strong\u003e — lifecycle rules, replication, analytics all work\u003c/li\u003e\n\u003cli\u003e\n\u003cstrong\u003eInfrastructure as Code\u003c/strong\u003e with Terraform (even before native provider support)\u003c/li\u003e\n\u003c/ul\u003e\n\n\u003cp\u003eThe days of paying $216/month minimum for a managed SFTP endpoint are over for most teams. S3 Files is the missing piece that makes DIY SFTP on AWS not just viable, but ~8x cheaper.\u003c/p\u003e\n\n","author":{"@type":"Person","name":"Paul SANTUS","url":"https://dev.to/psantus"},"datePublished":"2026-04-08T08:15:29Z","dateModified":"2026-04-08T08:15:29Z","url":"https://dev.to/aws-builders/aws-s3-files-just-made-transfer-family-sftp-obsolete-for-most-use-cases-4me","interactionStatistic":[{"@type":"InteractionCounter","interactionType":"https://schema.org/CommentAction","userInteractionCount":5},{"@type":"InteractionCounter","interactionType":"https://schema.org/LikeAction","userInteractionCount":10}],"comment":[{"@type":"Comment","@id":"#comment-1493531","text":"\u003cp\u003eReally interesting approach, nice to see how far you can push S3 plus containers.\u003c/p\u003e\n\n\u003cp\u003eThat said, I wouldn’t go as far as saying this replaces \u003cstrong\u003eAWS Transfer Family\u003c/strong\u003e for most use cases. It feels more like a classic DIY vs managed service trade-off.\u003c/p\u003e\n\n\u003cp\u003eOn pricing, totally fair point. If you’re running something lightweight with low traffic, the ECS or Fargate plus SFTP route will almost always be cheaper on paper compared to the roughly $0.30 per hour endpoint cost. No disagreement there.\u003c/p\u003e\n\n\u003cp\u003eBut that comparison is really just infrastructure cost, not the full picture. \u003cstrong\u003eWith the DIY setup, you are now owning scaling, patching, high availability, SSH key management, monitoring, and handling failures when things break.\u003c/strong\u003e That is where the cost and risk quietly shifts to your team.\u003c/p\u003e\n\n\u003cp\u003e\u003cstrong\u003eWhere AWS Transfer Family still makes a lot of sense is when you need something production ready. Secure by default, multi AZ, integrated with IAM, audit ready, and supporting protocols beyond SFTP like AS2 for B2B or EDI use cases.\u003c/strong\u003e\u003c/p\u003e\n\n\u003cp\u003e\u003cstrong\u003eSo I would frame it more as\u003c/strong\u003e \u003cstrong\u003eGreat option for simple, cost sensitive workloads\u003c/strong\u003e\u003cbr\u003e\nBut \u003cstrong\u003emanaged services still win for enterprise, partner facing, and compliance heavy scenarios\u003c/strong\u003e\u003c/p\u003e\n\n","author":{"@type":"Person","name":"madhuadavi","url":"https://dev.to/madhuadavi"},"datePublished":"2026-04-16T17:41:22Z","dateModified":"2026-04-16T17:41:53Z","url":"https://dev.to/madhuadavi/comment/36p9d","interactionStatistic":[{"@type":"InteractionCounter","interactionType":"https://schema.org/LikeAction","userInteractionCount":1}]},{"@type":"Comment","@id":"#comment-1493015","text":"\u003cp\u003eNote: v0.4.0 of the terraform module is now terraform-only!\u003c/p\u003e\n\n\u003cp\u003eNo more terraform_data resources and local-exec provisioners \u003c/p\u003e\n\n","author":{"@type":"Person","name":"Paul SANTUS","url":"https://dev.to/psantus"},"datePublished":"2026-04-15T21:50:54Z","dateModified":"2026-04-15T21:50:54Z","url":"https://dev.to/psantus/comment/36ofh","interactionStatistic":[{"@type":"InteractionCounter","interactionType":"https://schema.org/LikeAction","userInteractionCount":1}]},{"@type":"Comment","@id":"#comment-1497359","text":"\u003cp\u003eAWS S3 Files also has a high performance cache which it uses for each write which costs 0.06$ per GB. Also, syncing to S3 from this cache costs 0.03$ per GB. So we should also take these costs into account. \u003c/p\u003e\n\n\u003cp\u003eThere's a point (roughly 4320 GB) after which AWS Transfer Family is cheaper than S3 Files.\u003c/p\u003e\n\n","author":{"@type":"Person","name":"Varun Dalal","url":"https://dev.to/thegeekboy"},"datePublished":"2026-04-22T21:30:49Z","dateModified":"2026-04-22T21:30:49Z","url":"https://dev.to/thegeekboy/comment/3750j","interactionStatistic":[{"@type":"InteractionCounter","interactionType":"https://schema.org/LikeAction","userInteractionCount":1}]},{"@type":"Comment","@id":"#comment-1490782","text":"\u003cp\u003eWhy go through the trouble and complexity of NLB at $16 with ECS when the same instance in EC2 will cost the same compute and only need an elastic IP for $1?\u003c/p\u003e\n\n","author":{"@type":"Person","name":"plutonium239","url":"https://dev.to/plutonium239"},"datePublished":"2026-04-12T14:36:47Z","dateModified":"2026-04-12T14:36:47Z","url":"https://dev.to/plutonium239/comment/36l7k","interactionStatistic":[{"@type":"InteractionCounter","interactionType":"https://schema.org/LikeAction","userInteractionCount":1}],"comment":[{"@type":"Comment","@id":"#comment-1492264","text":"\u003cp\u003eTo provide easy horizontal scalability + replacement in case of crash.. \u003c/p\u003e\n\n\u003cp\u003eIf your use case doesn't require this, you can of course host on EC2. \u003c/p\u003e\n\n\u003cp\u003eBut that could be done before S3 Files (S3 mount / fuse drivers) so I'm not covering this use case, rather focusing on what couldn't be achieved earlier \u003c/p\u003e\n\n","author":{"@type":"Person","name":"Paul SANTUS","url":"https://dev.to/psantus"},"datePublished":"2026-04-14T18:35:43Z","dateModified":"2026-04-14T18:35:43Z","url":"https://dev.to/psantus/comment/36nck","interactionStatistic":[{"@type":"InteractionCounter","interactionType":"https://schema.org/LikeAction","userInteractionCount":1}],"parentItem":{"@type":"Comment","@id":"#comment-1490782"}}]}]}}
+  </script>
+<div class="crayons-layout crayons-layout--3-cols crayons-layout--article">
+<aside aria-label="Article actions" class="crayons-layout__sidebar-left">
+<script>
+  if (/Twitter for (iPhone|iPad|Android)/i.test(navigator.userAgent)) {
+    document.documentElement.classList.add('is-twitter-in-app');
+  }
+</script>
+<div class="crayons-article-actions print-hidden">
+<div class="crayons-article-actions__inner">
+<div class="reaction-drawer__outer hoverdown" style="">
+<button aria-label="reaction-drawer-trigger" aria-pressed="false" class="hoverdown-trigger crayons-reaction pseudo-reaction crayons-tooltip__activator relative" id="reaction-drawer-trigger">
+<span class="crayons-reaction__icon crayons-reaction__icon--borderless crayons-reaction--like crayons-reaction__icon--inactive" style="width: 40px; height: 40px">
+<svg aria-hidden="true" class="crayons-icon" fill="none" height="24" role="img" viewbox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+<g clip-path="url(#clip0_988_3276)">
+<path d="M19 14V17H22V19H18.999L19 22H17L16.999 19H14V17H17V14H19ZM20.243 4.75698C22.505 7.02498 22.583 10.637 20.479 12.992L19.059 11.574C20.39 10.05 20.32 7.65998 18.827 6.16998C17.324 4.67098 14.907 4.60698 13.337 6.01698L12.002 7.21498L10.666 6.01798C9.09103 4.60598 6.67503 4.66798 5.17203 6.17198C3.68203 7.66198 3.60703 10.047 4.98003 11.623L13.412 20.069L12 21.485L3.52003 12.993C1.41603 10.637 1.49503 7.01898 3.75603 4.75698C6.02103 2.49298 9.64403 2.41698 12 4.52898C14.349 2.41998 17.979 2.48998 20.242 4.75698H20.243Z" fill="#525252"></path>
+</g>
+<defs>
+<clippath id="clip0_988_3276">
+<rect fill="white" height="24" width="24"></rect>
+</clippath>
+</defs>
+</svg>
+</span>
+<span class="crayons-reaction__icon crayons-reaction__icon--borderless crayons-reaction__icon--active" style="width: 40px; height: 40px">
+<img aria_hidden="true" height="24" src="../cdn/assets.dev.to/assets/heart-plus-active-9ea3b22f2bc311281db911d416166c5f430636e76b15cd5df6b3b841d830eefa.svg" width="24">
+</img></span>
+<span class="crayons-reaction__count" id="reaction_total_count">
+<span class="bg-base-40 opacity-25 p-2 inline-block radius-default"></span>
+</span>
+<span class="crayons-tooltip__content">
+        Add reaction
+      </span>
+</button>
+<div aria-expanded="false" class="reaction-drawer">
+<div class="reaction-drawer__container">
+<button aria-label="Like" aria-pressed="false" class="crayons-reaction crayons-tooltip__activator relative pt-2 pr-2 pb-1 pl-2" data-category="like" id="reaction-butt-like" name="Like">
+<span class="crayons-reaction__icon crayons-reaction__icon--inactive p-0">
+<img aria_hidden="true" height="32" src="../cdn/assets.dev.to/assets/sparkle-heart-5f9bee3767e18deb1bb725290cb151c25234768a0e9a2bd39370c382d02920cf.svg" width="32"/>
+</span>
+<span class="crayons-reaction__count" id="reaction-number-like"><span class="bg-base-40 opacity-25 p-2 inline-block radius-default"></span></span>
+<span class="crayons-tooltip__content" data-testid="tooltip">
+      Like
+    </span>
+</button>
+<button aria-label="Unicorn" aria-pressed="false" class="crayons-reaction crayons-tooltip__activator relative pt-2 pr-2 pb-1 pl-2" data-category="unicorn" id="reaction-butt-unicorn" name="Unicorn">
+<span class="crayons-reaction__icon crayons-reaction__icon--inactive p-0">
+<img aria_hidden="true" height="32" src="../cdn/assets.dev.to/assets/multi-unicorn-b44d6f8c23cdd00964192bedc38af3e82463978aa611b4365bd33a0f1f4f3e97.svg" width="32"/>
+</span>
+<span class="crayons-reaction__count" id="reaction-number-unicorn"><span class="bg-base-40 opacity-25 p-2 inline-block radius-default"></span></span>
+<span class="crayons-tooltip__content" data-testid="tooltip">
+      Unicorn
+    </span>
+</button>
+<button aria-label="Exploding Head" aria-pressed="false" class="crayons-reaction crayons-tooltip__activator relative pt-2 pr-2 pb-1 pl-2" data-category="exploding_head" id="reaction-butt-exploding_head" name="Exploding Head">
+<span class="crayons-reaction__icon crayons-reaction__icon--inactive p-0">
+<img aria_hidden="true" height="32" src="../cdn/assets.dev.to/assets/exploding-head-daceb38d627e6ae9b730f36a1e390fca556a4289d5a41abb2c35068ad3e2c4b5.svg" width="32"/>
+</span>
+<span class="crayons-reaction__count" id="reaction-number-exploding_head"><span class="bg-base-40 opacity-25 p-2 inline-block radius-default"></span></span>
+<span class="crayons-tooltip__content" data-testid="tooltip">
+      Exploding Head
+    </span>
+</button>
+<button aria-label="Raised Hands" aria-pressed="false" class="crayons-reaction crayons-tooltip__activator relative pt-2 pr-2 pb-1 pl-2" data-category="raised_hands" id="reaction-butt-raised_hands" name="Raised Hands">
+<span class="crayons-reaction__icon crayons-reaction__icon--inactive p-0">
+<img aria_hidden="true" height="32" src="../cdn/assets.dev.to/assets/raised-hands-74b2099fd66a39f2d7eed9305ee0f4553df0eb7b4f11b01b6b1b499973048fe5.svg" width="32"/>
+</span>
+<span class="crayons-reaction__count" id="reaction-number-raised_hands"><span class="bg-base-40 opacity-25 p-2 inline-block radius-default"></span></span>
+<span class="crayons-tooltip__content" data-testid="tooltip">
+      Raised Hands
+    </span>
+</button>
+<button aria-label="Fire" aria-pressed="false" class="crayons-reaction crayons-tooltip__activator relative pt-2 pr-2 pb-1 pl-2" data-category="fire" id="reaction-butt-fire" name="Fire">
+<span class="crayons-reaction__icon crayons-reaction__icon--inactive p-0">
+<img aria_hidden="true" height="32" src="../cdn/assets.dev.to/assets/fire-f60e7a582391810302117f987b22a8ef04a2fe0df7e3258a5f49332df1cec71e.svg" width="32"/>
+</span>
+<span class="crayons-reaction__count" id="reaction-number-fire"><span class="bg-base-40 opacity-25 p-2 inline-block radius-default"></span></span>
+<span class="crayons-tooltip__content" data-testid="tooltip">
+      Fire
+    </span>
+</button>
+</div>
+</div>
+</div>
+<button aria-label="Jump to Comments" aria-pressed="false" class="crayons-reaction crayons-reaction--comment crayons-tooltip__activator relative" data-category="comment" id="reaction-butt-comment">
+<span class="crayons-reaction__icon crayons-reaction__icon--borderless crayons-reaction__icon--inactive">
+<svg aria-hidden="true" class="crayons-icon" height="24" role="img" viewbox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+<path d="M10 3h4a8 8 0 010 16v3.5c-5-2-12-5-12-11.5a8 8 0 018-8zm2 14h2a6 6 0 000-12h-4a6 6 0 00-6 6c0 3.61 2.462 5.966 8 8.48V17z"></path>
+</svg>
+</span>
+<span class="crayons-reaction__count" data-count="5" id="reaction-number-comment">
+<span class="bg-base-40 opacity-25 p-2 inline-block radius-default"></span>
+</span>
+<span class="crayons-tooltip__content" data-testid="tooltip">
+      Jump to Comments
+    </span>
+</button>
+<button aria-label="Add to reading list" aria-pressed="false" class="crayons-reaction crayons-reaction--readinglist crayons-tooltip__activator relative" data-category="readinglist" id="reaction-butt-readinglist">
+<span class="crayons-reaction__icon crayons-reaction__icon--borderless crayons-reaction__icon--inactive">
+<svg aria-hidden="true" class="crayons-icon" height="24" role="img" viewbox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+<path d="M5 2h14a1 1 0 011 1v19.143a.5.5 0 01-.766.424L12 18.03l-7.234 4.536A.5.5 0 014 22.143V3a1 1 0 011-1zm13 2H6v15.432l6-3.761 6 3.761V4z"></path>
+</svg>
+</span>
+<span class="crayons-reaction__count" id="reaction-number-readinglist"><span class="bg-base-40 opacity-25 p-2 inline-block radius-default"></span></span>
+<span class="crayons-tooltip__content" data-testid="tooltip">
+      Save
+    </span>
+</button>
+<button aria-label="Boost" aria-pressed="false" class="crayons-reaction crayons-reaction--boost crayons-tooltip__activator relative" id="reaction-butt-boost">
+<span class="crayons-reaction__icon crayons-reaction__icon--borderless crayons-reaction__icon--inactive">
+<svg aria-hidden="true" class="crayons-icon" fill="currentColor" height="24" role="img" viewbox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+<path d="M6 4H21C21.5523 4 22 4.44772 22 5V12H20V6H6V9L1 5L6 1V4ZM18 20H3C2.44772 20 2 19.5523 2 19V12H4V18H18V15L23 19L18 23V20Z" transform="translate(24,0) scale(-1,1)"></path>
+</svg>
+</span>
+<span class="crayons-tooltip__content" data-testid="tooltip">
+      Boost
+    </span>
+</button>
+<div class="only-sidebar-menu-item">
+<div class="print-hidden trusted-visible-block align-center" id="mod-actions-menu-btn-area">
+</div>
+</div>
+<div class="align-center m:relative">
+<button aria-controls="article-show-more-dropdown" aria-expanded="false" aria-haspopup="true" aria-label="Share post options" class="dropbtn crayons-btn crayons-btn--ghost-dimmed crayons-btn--icon-rounded" id="article-show-more-button">
+<svg aria-hidden="true" aria-labelledby="a463llp0l6rhli8tu00dviziutgyqylg" class="crayons-icon dropdown-icon" height="24" role="img" width="24" xmlns="http://www.w3.org/2000/svg"><title id="a463llp0l6rhli8tu00dviziutgyqylg">More...</title><path clip-rule="evenodd" d="M7 12a2 2 0 11-4 0 2 2 0 014 0zm7 0a2 2 0 11-4 0 2 2 0 014 0zm5 2a2 2 0 100-4 2 2 0 000 4z" fill-rule="evenodd"></path></svg>
+</button>
+<div class="crayons-dropdown side-bar left-2 right-2 m:right-auto m:left-100 s:left-auto mb-1 m:mb-0 top-unset bottom-100 m:top-0 m:bottom-unset" id="article-show-more-dropdown">
+<div>
+<button class="flex justify-between crayons-link crayons-link--block w-100 bg-transparent border-0" data-posturl="https://dev.to/aws-builders/aws-s3-files-just-made-transfer-family-sftp-obsolete-for-most-use-cases-4me" id="copy-post-url-button">
+<span class="fw-bold">Copy link</span>
+<svg aria-hidden="true" aria-labelledby="asggya9pw5t2qkipougdd5k6dcxqbt96" class="crayons-icon mx-2 shrink-0" height="24" id="article-copy-icon" role="img" viewbox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><title id="asggya9pw5t2qkipougdd5k6dcxqbt96">Copy link</title>
+<path d="M7 6V3a1 1 0 011-1h12a1 1 0 011 1v14a1 1 0 01-1 1h-3v3c0 .552-.45 1-1.007 1H4.007A1 1 0 013 21l.003-14c0-.552.45-1 1.007-1H7zm2 0h8v10h2V4H9v2zm-2 5v2h6v-2H7zm0 4v2h6v-2H7z"></path>
+</svg>
+</button>
+<div aria-live="polite" class="crayons-notice crayons-notice--success my-2 p-1" hidden="" id="article-copy-link-announcer">Copied to Clipboard</div>
+</div>
+<div class="Desktop-only">
+<a class="crayons-link crayons-link--block" href="https://twitter.com/intent/tweet?text=%22AWS%20S3%20Files%20just%20made%20Transfer%20Family%20SFTP%20obsolete%20for%20most%20use%20cases%22%20by%20Paul%20SANTUS%20%23DEVCommunity%20https%3A%2F%2Fdev.to%2Faws-builders%2Faws-s3-files-just-made-transfer-family-sftp-obsolete-for-most-use-cases-4me" rel="noopener" target="_blank">
+              Share to X
+            </a>
+<a class="crayons-link crayons-link--block" href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3A%2F%2Fdev.to%2Faws-builders%2Faws-s3-files-just-made-transfer-family-sftp-obsolete-for-most-use-cases-4me&amp;title=AWS%20S3%20Files%20just%20made%20Transfer%20Family%20SFTP%20obsolete%20for%20most%20use%20cases&amp;summary=AWS%20just%20launched%20one%20of%20the%20most%20impactful%20storage%20features%20in%20years%3A%20S3%20Files.%20It%20puts%20an...&amp;source=DEV%20Community" rel="noopener" target="_blank">
+              Share to LinkedIn
+            </a>
+<a class="crayons-link crayons-link--block" href="https://www.facebook.com/sharer.php?u=https%3A%2F%2Fdev.to%2Faws-builders%2Faws-s3-files-just-made-transfer-family-sftp-obsolete-for-most-use-cases-4me" rel="noopener" target="_blank">
+              Share to Facebook
+            </a>
+<a class="crayons-link crayons-link--block" href="https://s2f.kytta.dev/?text=https%3A%2F%2Fdev.to%2Faws-builders%2Faws-s3-files-just-made-transfer-family-sftp-obsolete-for-most-use-cases-4me" rel="noopener" target="_blank">
+              Share to Mastodon
+            </a>
+</div>
+<web-share-wrapper sharetext="AWS just launched one of the most impactful storage features in years: S3 Files. It puts an..." sharetitle="AWS S3 Files just made Transfer Family SFTP obsolete for most use cases" shareurl="https://dev.to/aws-builders/aws-s3-files-just-made-transfer-family-sftp-obsolete-for-most-use-cases-4me" template="web-share-button">
+</web-share-wrapper>
+<template id="web-share-button">
+<a class="dropdown-link-row crayons-link crayons-link--block" href="#">Share Post via...</a>
+</template>
+<a class="crayons-link crayons-link--block" href="../report-abuse.html" id="ReportButtonAuthor">Report Abuse</a>
+</div>
+</div>
+</div>
+</div>
+</aside>
+<main class="crayons-layout__content grid gap-4" id="main-content">
+<div class="article-wrapper">
+<article class="crayons-card crayons-article mb-4" data-article-id="3470259" data-article-slug="aws-s3-files-just-made-transfer-family-sftp-obsolete-for-most-use-cases-4me" data-author-id="1338515" data-author-name="Paul SANTUS" data-author-username="aws-builders" data-co-author-ids="" data-path="/aws-builders/aws-s3-files-just-made-transfer-family-sftp-obsolete-for-most-use-cases-4me" data-pin-path="/stories/feed/pinned_article" data-pinned-article-id="" data-published="true" data-scheduled="false" id="article-show-container" lang="en">
+<script>
+            try {
+              if(localStorage) {
+                let currentUser = localStorage.getItem('current_user');
+
+                if (currentUser) {
+                  currentUser = JSON.parse(currentUser);
+                  if (currentUser.id === 1338515) {
+                    document.getElementById('article-show-container').classList.add('current-user-is-article-author');
+                  }
+                }
+              }
+            } catch (e) {
+              console.error(e);
+            }
+          </script>
+<header class="crayons-article__header" id="main-title">
+<a class="crayons-article__cover" href="https://media2.dev.to/dynamic/image/width=1000,height=420,fit=cover,gravity=auto,format=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Farticles%2Fhliprheg417g8vvenitq.png">
+<img alt="Cover image for AWS S3 Files just made Transfer Family SFTP obsolete for most use cases" class="crayons-article__cover__image" height="420" src="../cdn/media2.dev.to/dynamic/image/width=1000,height=420,fit=cover,gravity=auto,format=auto/https___dev-to-uploads.s3.amazonaws.com_uploads_articles_hliprheg417g8vvenitq.png" style="aspect-ratio: auto 1000 / 420;" width="1000"/>
+</a>
+<div class="crayons-article__header__meta">
+<div class="flex s:items-start flex-col s:flex-row">
+<div class="crayons-article__actions mb-4 s:mb-0 s:order-last" id="action-space"></div>
+<div class="flex flex-1 mb-5 items-start">
+<div class="relative">
+<a href="../aws-builders.html"><img alt="AWS Community Builders  profile image" class="radius-default align-middle" height="40" src="../cdn/media2.dev.to/dynamic/image/width=50,height=50,fit=cover,gravity=auto,format=auto/https___dev-to-uploads.s3.amazonaws.com_uploads_organization_profile_image_2794_88da75b6-aadd-4ea1-8083-ae2dfca8be94.png" width="40"/></a>
+<a class="absolute -right-2 -bottom-2 radius-full border border-solid border-2 border-base-inverted inline-flex" href="../psantus.html">
+<img alt="Paul SANTUS" class="radius-full align-middle" height="24" src="../cdn/media2.dev.to/dynamic/image/width=50,height=50,fit=cover,gravity=auto,format=auto/https___dev-to-uploads.s3.amazonaws.com_uploads_user_profile_image_1338515_8abdaf33-0c48-4f84-aa29-7a881090986e.jpeg" width="24">
+</img></a>
+</div>
+<div class="pl-3 flex-1">
+<a class="crayons-link fw-bold" href="../psantus.html">Paul SANTUS</a>
+<span class="color-base-60"> for </span><a class="crayons-link" href="../aws-builders.html">AWS Community Builders </a>
+<p class="fs-xs color-base-60">
+                        Posted on <time class="date-no-year" datetime="2026-04-08T08:15:29Z">Apr 8</time>
+</p>
+</div>
+</div>
+</div>
+<div class="multiple_reactions_engagement">
+<button aria-label="Like" class="reaction_engagement_like hidden crayons-reaction crayons-reaction--like" data-category="like" type="button"><span class="crayons-reaction__icon crayons-reaction__icon--inactive p-1"><img height="24" src="../cdn/assets.dev.to/assets/sparkle-heart-5f9bee3767e18deb1bb725290cb151c25234768a0e9a2bd39370c382d02920cf.svg" width="24"/></span>
+<span class="crayons-reaction__count" id="reaction_engagement_like_count"> </span>
+</button> <button aria-label="Unicorn" class="reaction_engagement_unicorn hidden crayons-reaction crayons-reaction--unicorn" data-category="unicorn" type="button"><span class="crayons-reaction__icon crayons-reaction__icon--inactive p-1"><img height="24" src="../cdn/assets.dev.to/assets/multi-unicorn-b44d6f8c23cdd00964192bedc38af3e82463978aa611b4365bd33a0f1f4f3e97.svg" width="24"/></span>
+<span class="crayons-reaction__count" id="reaction_engagement_unicorn_count"> </span>
+</button> <button aria-label="Exploding Head" class="reaction_engagement_exploding_head hidden crayons-reaction crayons-reaction--exploding_head" data-category="exploding_head" type="button"><span class="crayons-reaction__icon crayons-reaction__icon--inactive p-1"><img height="24" src="../cdn/assets.dev.to/assets/exploding-head-daceb38d627e6ae9b730f36a1e390fca556a4289d5a41abb2c35068ad3e2c4b5.svg" width="24"/></span>
+<span class="crayons-reaction__count" id="reaction_engagement_exploding_head_count"> </span>
+</button> <button aria-label="Raised Hands" class="reaction_engagement_raised_hands hidden crayons-reaction crayons-reaction--raised_hands" data-category="raised_hands" type="button"><span class="crayons-reaction__icon crayons-reaction__icon--inactive p-1"><img height="24" src="../cdn/assets.dev.to/assets/raised-hands-74b2099fd66a39f2d7eed9305ee0f4553df0eb7b4f11b01b6b1b499973048fe5.svg" width="24"/></span>
+<span class="crayons-reaction__count" id="reaction_engagement_raised_hands_count"> </span>
+</button> <button aria-label="Fire" class="reaction_engagement_fire hidden crayons-reaction crayons-reaction--fire" data-category="fire" type="button"><span class="crayons-reaction__icon crayons-reaction__icon--inactive p-1"><img height="24" src="../cdn/assets.dev.to/assets/fire-f60e7a582391810302117f987b22a8ef04a2fe0df7e3258a5f49332df1cec71e.svg" width="24"/></span>
+<span class="crayons-reaction__count" id="reaction_engagement_fire_count"> </span>
+</button>
+</div>
+<h1 class="fs-3xl m:fs-4xl l:fs-5xl fw-bold s:fw-heavy lh-tight mb-2 long">
+                AWS S3 Files just made Transfer Family SFTP obsolete for most use cases
+              </h1>
+<div class="spec__tags flex flex-wrap">
+<a class="crayons-tag" href="../t/aws.html" style="
+        --tag-bg: rgba(33, 43, 58, 0.10);
+        --tag-prefix: #212b3a;
+        --tag-bg-hover: rgba(33, 43, 58, 0.10);
+        --tag-prefix-hover: #212b3a;
+      "><span class="crayons-tag__prefix">#</span>aws</a>
+<a class="crayons-tag" href="../t/s3files.html" style="
+        --tag-bg: rgba(64, 78, 211, 0.10);
+        --tag-prefix: #404ED3;
+        --tag-bg-hover: rgba(64, 78, 211, 0.10);
+        --tag-prefix-hover: #404ED3;
+      "><span class="crayons-tag__prefix">#</span>s3files</a>
+<a class="crayons-tag" href="../t/terraform.html" style="
+        --tag-bg: rgba(64, 78, 211, 0.10);
+        --tag-prefix: #404ED3;
+        --tag-bg-hover: rgba(64, 78, 211, 0.10);
+        --tag-prefix-hover: #404ED3;
+      "><span class="crayons-tag__prefix">#</span>terraform</a>
+<a class="crayons-tag" href="../t/sftp.html" style="
+        --tag-bg: rgba(64, 78, 211, 0.10);
+        --tag-prefix: #404ED3;
+        --tag-bg-hover: rgba(64, 78, 211, 0.10);
+        --tag-prefix-hover: #404ED3;
+      "><span class="crayons-tag__prefix">#</span>sftp</a>
+</div>
+</div>
+</header>
+<div class="crayons-article__main">
+<div class="crayons-article__body text-styles spec__body" data-article-id="3470259" id="article-body">
+<p>AWS just launched one of the most impactful storage features in years: <strong>S3 Files</strong>. It puts an EFS-compatible file system interface directly in front of your S3 buckets. When I was introduced to S3 Files (as part of <a href="https://www.linkedin.com/posts/coreystrausman_aws-s3-cloudcomputing-activity-7447375367155351552-Uuyo?utm_source=share&amp;utm_medium=member_desktop&amp;rcm=ACoAAAHqFuoBYjYsx4cq4zQ6SBklTKN3Pd_juYs" rel="noopener noreferrer" target="_blank">AWS Community Builder program</a>), I immediately thought of SFTP as the most obvious use case for my clients.</p>
+<p>If you're currently paying for AWS Transfer Family to give your partners SFTP access to S3, you should read this carefully. There's now a dramatically cheaper and more powerful alternative.</p>
+<h2>
+<a href="#what-is-s3-files" name="what-is-s3-files">
+</a>
+  What is S3 Files?
+</h2>
+<p>S3 Files creates a high-performance NFS file system backed by an S3 bucket. Think of it as an EFS-like layer that reads and writes directly to S3 objects, with automatic bidirectional synchronization. Any file written through the file system appears as an S3 object, and any object uploaded to S3 becomes visible through the file system.</p>
+<p>The key properties:</p>
+<ul>
+<li>
+<strong>Sub-millisecond latency</strong> for file operations</li>
+<li>
+<strong>Automatic sync</strong> between file system and S3 bucket (powered by EventBridge under the hood)</li>
+<li>
+<strong>Mountable on ECS Fargate</strong>, ECS Managed Instances, EKS, and EC2</li>
+<li>
+<strong>Standard NFS protocol</strong> — no special client needed on the compute side (ECS/EKS handle it natively)</li>
+<li>
+<strong>Access points</strong> with POSIX user/group enforcement</li>
+<li>
+<strong>S3 Versioning</strong> required and leveraged for consistency</li>
+</ul>
+<h2>
+<a href="#the-problem-with-aws-transfer-family" name="the-problem-with-aws-transfer-family">
+</a>
+  The Problem with AWS Transfer Family
+</h2>
+<p>AWS Transfer Family has been the "official" way to expose SFTP endpoints backed by S3. It works, but it comes with serious pain points:</p>
+<h3>
+<a href="#its-expensive" name="its-expensive">
+</a>
+  It's expensive
+</h3>
+<p>Transfer Family charges <strong>$0.30/hour</strong> just for the endpoint — that's <strong>~$216/month</strong> before you transfer a single byte. Add data transfer costs on top. For a service that many teams use for a handful of daily file drops, this is hard to justify.</p>
+<h3>
+<a href="#its-a-black-box" name="its-a-black-box">
+</a>
+  It's a black box
+</h3>
+<p>You get an SFTP endpoint, but you don't control the server. Custom authentication requires Lambda hooks. Logging is limited. You can't SSH in to debug. You can't customize the SFTP server behavior, add pre/post-processing scripts, or run anything alongside it.</p>
+<h2>
+<a href="#the-new-architecture-atmozsftp-s3-files-on-ecs-fargate" name="the-new-architecture-atmozsftp-s3-files-on-ecs-fargate">
+</a>
+  The New Architecture: atmoz/sftp + S3 Files on ECS Fargate
+</h2>
+<p>Here's what you could run instead:</p>
+<p><a class="article-body-image-wrapper" href="https://media2.dev.to/dynamic/image/width=800%2Cheight=%2Cfit=scale-down%2Cgravity=auto%2Cformat=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Farticles%2F1l55rvat4vr4vxk97vbs.png"><img alt=" " height="320" loading="lazy" src="../cdn/media2.dev.to/dynamic/image/width=800,height=,fit=scale-down,gravity=auto,format=auto/https___dev-to-uploads.s3.amazonaws.com_uploads_articles_1l55rvat4vr4vxk97vbs.png" width="800"/></a></p>
+<p>The components:</p>
+<ol>
+<li>
+<strong>S3 bucket</strong> with versioning enabled (required by S3 Files)</li>
+<li>
+<strong>S3 Files file system</strong> pointed at the bucket, with mount targets in your VPC</li>
+<li>
+<strong>EFS volume</strong> for persistent SSH host keys (stable fingerprint across restarts and scaling)</li>
+<li>
+<strong>ECS Fargate service</strong> running <a href="https://github.com/atmoz/sftp" rel="noopener noreferrer" target="_blank">atmoz/sftp</a> with the S3 Files volume mounted at <code>/home</code>
+</li>
+<li>
+<strong>Network Load Balancer</strong> exposing port 22</li>
+<li>
+<strong>DNS record</strong> for <code>sftp.yourdomain.com</code> (optional)</li>
+</ol>
+<p>Files uploaded via SFTP land on the S3 Files mount → appear in S3 within seconds → trigger S3 event notifications for downstream processing.</p>
+<h2>
+<a href="#cost-comparison" name="cost-comparison">
+</a>
+  Cost Comparison
+</h2>
+<div class="table-wrapper-paragraph"><table>
+<thead>
+<tr>
+<th>Component</th>
+<th>Transfer Family</th>
+<th>S3 Files + Fargate</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Base cost</td>
+<td>$0.30/hr (~$216/mo)</td>
+<td>NLB: ~$16/mo</td>
+</tr>
+<tr>
+<td>Compute</td>
+<td>Included</td>
+<td>Fargate 0.25 vCPU / 512MB: ~$9/mo</td>
+</tr>
+<tr>
+<td>Storage</td>
+<td>S3 pricing</td>
+<td>S3 pricing (same)</td>
+</tr>
+<tr>
+<td>Data transfer</td>
+<td>$0.04/GB over SFTP</td>
+<td>Standard NLB pricing</td>
+</tr>
+<tr>
+<td><strong>Monthly minimum</strong></td>
+<td><strong>~$216</strong></td>
+<td><strong>~$25</strong></td>
+</tr>
+</tbody>
+</table></div>
+<p>That's roughly <strong>8x cheaper</strong> at the base level. For low-to-medium traffic SFTP use cases (which is most of them), the savings are significant.</p>
+<h2>
+<a href="#why-this-is-better-than-efsbacked-sftp" name="why-this-is-better-than-efsbacked-sftp">
+</a>
+  Why This Is Better Than EFS-Backed SFTP
+</h2>
+<p>Before S3 Files, the common DIY approach was to mount EFS on Fargate and run atmoz/sftp. We did exactly this. It worked, but had a fundamental limitation: <strong>your files lived in EFS, not S3</strong>.</p>
+<p>That meant:</p>
+<ul>
+<li>No S3 event notifications when files arrived</li>
+<li>No S3 lifecycle policies</li>
+<li>No S3 cross-region replication</li>
+<li>No direct S3 API access to the files</li>
+<li>EFS pricing ($0.30/GB for Standard) vs S3 ($0.023/GB)</li>
+<li>Separate backup strategy needed</li>
+</ul>
+<p>With S3 Files, the data lives in S3. You get the full S3 feature set — notifications, lifecycle rules, replication, analytics, Glacier tiering — while still having a mountable file system for your SFTP server.</p>
+<h2>
+<a href="#eventdriven-file-processing" name="eventdriven-file-processing">
+</a>
+  Event-Driven File Processing
+</h2>
+<p>Both Transfer Family and our S3 Files approach write to S3, so you get the same event-driven capabilities either way:</p>
+<ul>
+<li>
+<strong>S3 Event Notifications → SQS/SNS/Lambda</strong> for immediate processing when a file arrives</li>
+<li>
+<strong>S3 Event Notifications → EventBridge</strong> for complex routing rules</li>
+<li>
+<strong>S3 Inventory</strong> for auditing</li>
+<li>
+<strong>S3 Object Lock</strong> for compliance</li>
+<li>
+<strong>S3 Replication</strong> to replicate uploaded files to another region or account</li>
+</ul>
+<p>The difference isn't in features — it's in cost. You get the exact same S3 event-driven pipeline for ~$25/mo instead of ~$216/mo.</p>
+<h2>
+<a href="#the-terraform-implementation" name="the-terraform-implementation">
+</a>
+  The Terraform Implementation
+</h2>
+<p>Since <code>aws_s3files_file_system</code> isn't in the Terraform AWS provider yet (<a href="https://github.com/hashicorp/terraform-provider-aws/pull/47325" rel="noopener noreferrer" target="_blank">PR #47325</a> is open and prioritized), we manage S3 Files resources through <code>terraform_data</code> with <code>local-exec</code> provisioners calling the AWS CLI.</p>
+<p>The key resources:<br/>
+</p>
+<div class="highlight js-code-highlight">
+<pre class="highlight hcl"><code><span class="c1"># S3 Files file system — created via AWS CLI</span>
+<span class="nx">resource</span> <span class="s2">"terraform_data"</span> <span class="s2">"s3files_file_system"</span> <span class="p">{</span>
+  <span class="nx">provisioner</span> <span class="s2">"local-exec"</span> <span class="p">{</span>
+    <span class="nx">command</span> <span class="p">=</span> <span class="o">&lt;&lt;-</span><span class="no">EOT</span><span class="sh">
+      aws s3files create-file-system \
+        --bucket "$BUCKET_ARN" \
+        --role-arn "$ROLE_ARN" \
+        --accept-bucket-warning \
+        --region "$REGION"
+</span><span class="no">    EOT
+</span>  <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="c1"># Mount targets in each private subnet</span>
+<span class="nx">resource</span> <span class="s2">"terraform_data"</span> <span class="s2">"s3files_mount_targets"</span> <span class="p">{</span>
+  <span class="nx">for_each</span> <span class="p">=</span> <span class="nx">toset</span><span class="p">(</span><span class="nx">var</span><span class="p">.</span><span class="nx">private_subnet_ids</span><span class="p">)</span>
+  <span class="nx">provisioner</span> <span class="s2">"local-exec"</span> <span class="p">{</span>
+    <span class="nx">command</span> <span class="p">=</span> <span class="o">&lt;&lt;-</span><span class="no">EOT</span><span class="sh">
+      aws s3files create-mount-target \
+        --file-system-id "$FS_ID" \
+        --subnet-id "${each.value}" \
+        --security-groups "$SG_ID"
+</span><span class="no">    EOT
+</span>  <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="c1"># ECS task definition uses s3filesVolumeConfiguration</span>
+<span class="nx">volume</span> <span class="err">=</span> <span class="p">{</span>
+  <span class="nx">sftp-home</span> <span class="p">=</span> <span class="p">{</span>
+    <span class="nx">s3files_volume_configuration</span> <span class="p">=</span> <span class="p">{</span>
+      <span class="nx">file_system_arn</span> <span class="p">=</span> <span class="nx">local</span><span class="p">.</span><span class="nx">s3files_fs_arn</span>
+      <span class="nx">root_directory</span>  <span class="p">=</span> <span class="s2">"/"</span>
+    <span class="p">}</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</code></pre>
+<div class="highlight__panel js-actions-panel">
+<div class="highlight__panel-action js-fullscreen-code-action">
+<svg class="highlight-action crayons-icon highlight-action--fullscreen-on" height="20px" viewbox="0 0 24 24" width="20px" xmlns="http://www.w3.org/2000/svg"><title>Enter fullscreen mode</title>
+<path d="M16 3h6v6h-2V5h-4V3zM2 3h6v2H4v4H2V3zm18 16v-4h2v6h-6v-2h4zM4 19h4v2H2v-6h2v4z"></path>
+</svg>
+<svg class="highlight-action crayons-icon highlight-action--fullscreen-off" height="20px" viewbox="0 0 24 24" width="20px" xmlns="http://www.w3.org/2000/svg"><title>Exit fullscreen mode</title>
+<path d="M18 7h4v2h-6V3h2v4zM8 9H2V7h4V3h2v6zm10 8v4h-2v-6h6v2h-4zM8 15v6H6v-4H2v-2h6z"></path>
+</svg>
+</div>
+</div>
+</div>
+<p>The full working Terraform code is available as a <a href="https://registry.terraform.io/modules/psantus/s3files-sftp/aws/latest" rel="noopener noreferrer" target="_blank">Terraform module</a>. The Terraform AWS provider doesn't support <code>aws_s3files_file_system</code> yet (<a href="https://github.com/hashicorp/terraform-provider-aws/pull/47325" rel="noopener noreferrer" target="_blank">PR #47325</a> is open and prioritized), so S3 Files resources are currently managed via <code>terraform_data</code> + AWS CLI. I pledge to update this module to use native Terraform resources as soon as the provider ships S3 Files support.</p>
+<h2>
+<a href="#iam-setup" name="iam-setup">
+</a>
+  IAM Setup
+</h2>
+<p>Two IAM roles are needed:</p>
+<ol>
+<li><p><strong>S3 Files service role</strong> — assumed by <code>elasticfilesystem.amazonaws.com</code> to sync between the file system and S3 bucket. Needs S3 read/write on the bucket + EventBridge permissions for change detection.</p></li>
+<li><p><strong>ECS task role</strong> — needs <code>s3files:ClientMount</code>, <code>s3files:ClientWrite</code>, and <code>s3:GetObject</code>/<code>s3:ListBucket</code> on the backing bucket for optimized reads.</p></li>
+</ol>
+<h2>
+<a href="#when-transfer-family-still-makes-sense" name="when-transfer-family-still-makes-sense">
+</a>
+  When Transfer Family Still Makes Sense
+</h2>
+<p>To be fair, Transfer Family isn't dead for every use case:</p>
+<ul>
+<li>
+<strong>Managed SFTP keys and user management</strong> — Transfer Family has built-in identity provider integration (AD, Lambda custom auth). With atmoz/sftp, you manage users via config.</li>
+<li>
+<strong>AS2 protocol support</strong> — if you need AS2, Transfer Family is still the only managed option.</li>
+<li>
+<strong>FTPS</strong> — Transfer Family supports FTPS natively.</li>
+<li>
+<strong>Zero ops tolerance</strong> — if you truly cannot manage a container, Transfer Family is fully managed.</li>
+</ul>
+<p>But for the vast majority of SFTP use cases — partners dropping files that need processing — the S3 Files approach is cheaper, more flexible, and gives you better observability.</p>
+<h2>
+<a href="#getting-started" name="getting-started">
+</a>
+  Getting Started
+</h2>
+<p><strong>Prerequisite:</strong> The <code>aws s3files</code> commands require AWS CLI v2.34.26 or later. You also need <a href="https://jqlang.github.io/jq/" rel="noopener noreferrer" target="_blank">jq</a> installed (used by the Terraform provisioner scripts). Update the CLI with <code>brew upgrade awscli</code> or see <a href="https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html" rel="noopener noreferrer" target="_blank">AWS CLI install guide</a>.</p>
+<ol>
+<li>Create an S3 bucket with versioning enabled</li>
+<li>Create an IAM role for S3 Files with the required trust and permissions policies</li>
+<li>Create an S3 Files file system via the console or <code>aws s3files create-file-system</code>
+</li>
+<li>Create mount targets in your VPC subnets</li>
+<li>Create an EFS for persistent SSH host keys</li>
+<li>Deploy an ECS Fargate service with atmoz/sftp, mounting S3 Files at <code>/home</code> and EFS at <code>/etc/ssh/</code>
+</li>
+<li>Put an NLB in front, point your DNS at it</li>
+<li>Set up S3 event notifications on the bucket for downstream processing</li>
+</ol>
+<p>Or just use the <a href="https://registry.terraform.io/modules/psantus/s3files-sftp/aws/latest" rel="noopener noreferrer" target="_blank">Terraform module</a> — the whole thing deploys in under 10 minutes.</p>
+<h2>
+<a href="#testing-it-endtoend" name="testing-it-endtoend">
+</a>
+  Testing it end-to-end
+</h2>
+<p>After <code>terraform apply</code>, the SFTP server is ready in about 8 minutes (most of the time is S3 Files mount targets becoming available). Here's a quick test:<br/>
+</p>
+<div class="highlight js-code-highlight">
+<pre class="highlight shell"><code><span class="c"># Upload a file</span>
+<span class="nb">echo</span> <span class="s2">"Hello from S3 Files SFTP!"</span> <span class="o">&gt;</span> test.txt
+sshpass <span class="nt">-p</span> demo sftp <span class="nt">-o</span> <span class="nv">StrictHostKeyChecking</span><span class="o">=</span>no <span class="nt">-P</span> 22 demo@&lt;sftp_endpoint&gt; <span class="o">&lt;&lt;</span><span class="no">EOF</span><span class="sh">
+cd upload
+put test.txt
+bye
+</span><span class="no">EOF
+
+</span><span class="c"># Verify it landed in S3 (wait ~30-60s for sync)</span>
+aws s3 <span class="nb">cp </span>s3://&lt;sftp_bucket_name&gt;/demo/upload/test.txt -
+<span class="c"># Output: Hello from S3 Files SFTP!</span>
+</code></pre>
+<div class="highlight__panel js-actions-panel">
+<div class="highlight__panel-action js-fullscreen-code-action">
+<svg class="highlight-action crayons-icon highlight-action--fullscreen-on" height="20px" viewbox="0 0 24 24" width="20px" xmlns="http://www.w3.org/2000/svg"><title>Enter fullscreen mode</title>
+<path d="M16 3h6v6h-2V5h-4V3zM2 3h6v2H4v4H2V3zm18 16v-4h2v6h-6v-2h4zM4 19h4v2H2v-6h2v4z"></path>
+</svg>
+<svg class="highlight-action crayons-icon highlight-action--fullscreen-off" height="20px" viewbox="0 0 24 24" width="20px" xmlns="http://www.w3.org/2000/svg"><title>Exit fullscreen mode</title>
+<path d="M18 7h4v2h-6V3h2v4zM8 9H2V7h4V3h2v6zm10 8v4h-2v-6h6v2h-4zM8 15v6H6v-4H2v-2h6z"></path>
+</svg>
+</div>
+</div>
+</div>
+<p>We also verified that SSH host keys persist across task restarts — the server fingerprint stays the same after a forced redeployment, thanks to the EFS volume mounted at <code>/etc/ssh/</code>.</p>
+<h2>
+<a href="#conclusion" name="conclusion">
+</a>
+  Conclusion
+</h2>
+<p>S3 Files bridges the gap between file system and object storage in a way that makes a lot of expensive AWS services feel redundant. For SFTP specifically, the combination of atmoz/sftp + S3 Files on Fargate gives you:</p>
+<ul>
+<li>
+<strong>~8x lower cost</strong> than Transfer Family</li>
+<li>
+<strong>Full control</strong> over the SFTP server</li>
+<li>
+<strong>Native S3 event notifications</strong> for event-driven processing</li>
+<li>
+<strong>S3 as the source of truth</strong> — lifecycle rules, replication, analytics all work</li>
+<li>
+<strong>Infrastructure as Code</strong> with Terraform (even before native provider support)</li>
+</ul>
+<p>The days of paying $216/month minimum for a managed SFTP endpoint are over for most teams. S3 Files is the missing piece that makes DIY SFTP on AWS not just viable, but ~8x cheaper.</p>
+</div>
+<div class="below-post-bb body-billboard-container" data-async-url="/aws-builders/aws-s3-files-just-made-transfer-family-sftp-obsolete-for-most-use-cases-4me/bmar11/post_body_bottom"></div>
+</div>
+<section class="text-padding mb-4 border-t-1 border-0 border-solid border-base-10" data-follow-button-container="true" data-updated-at="2026-05-05 08:19:01 UTC" id="comments">
+<header class="relative flex justify-between items-center mb-6">
+<div class="flex items-center">
+<h2 class="crayons-subtitle-1">
+          Top comments <span class="js-comments-count" data-comments-count="5">(5)</span>
+</h2>
+</div>
+<div class="print-hidden" id="comment-subscription">
+<div class="crayons-btn-group">
+<span class="crayons-btn crayons-btn--outlined">Subscribe</span>
+</div>
+</div>
+</header>
+<div id="billboard_delay_trigger"></div>
+<div data-commentable-id="3470259" data-commentable-type="Article" data-has-recent-comment-activity="false" data-testid="comments-container" id="comments-container">
+<div class="hidden" id="response-templates-data"></div>
+<form accept-charset="UTF-8" action="/comments" class="comment-form print-hidden" id="new_comment" method="post"><input autocomplete="off" name="utf8" type="hidden" value="✓"/>
+<input id="new_comment_authenticity_token" name="authenticity_token" type="hidden" value="NOTHING"/>
+<input autocomplete="off" id="comment_commentable_id" name="comment[commentable_id]" type="hidden" value="3470259">
+<input autocomplete="off" id="comment_commentable_type" name="comment[commentable_type]" type="hidden" value="Article"/>
+<span class="crayons-avatar m:crayons-avatar--l mr-2 shrink-0">
+<img alt="pic" class="crayons-avatar__image overflow-hidden" height="32" id="comment-primary-user-profile--avatar" loading="lazy" src="../cdn/media2.dev.to/dynamic/image/width=256,height=,fit=scale-down,gravity=auto,format=auto/https___dev-to-uploads.s3.amazonaws.com_uploads_articles_8j7kvp660rqzt99zui8e.png" width="32">
+</img></span>
+<div class="comment-form__inner">
+<div class="comment-form__field" data-tracking-name="comment_form_textfield">
+<textarea aria-label="Add a comment to the discussion" class="crayons-textfield comment-textarea crayons-textfield--ghost" id="text-area" name="comment[body_markdown]" onfocus="handleFocus(event)" oninput="handleChange(event)" onkeydown="handleKeyDown(event)" onkeyup="handleKeyUp(event)" placeholder="Add to the discussion" required="required">
+</textarea>
+</div>
+<div class="response-templates-container crayons-card crayons-card--secondary p-4 mb-4 comment-form__templates fs-base hidden">
+<header class="mb-3">
+<button class="crayons-btn personal-template-button active" data-form-id="new_comment" data-target-type="personal" type="button">Personal</button>
+<button class="crayons-btn moderator-template-button hidden" data-form-id="new_comment" data-target-type="moderator" type="button">Trusted User</button>
+</header>
+<div class="personal-responses-container">
+</div>
+<div class="moderator-responses-container hidden">
+</div>
+<a href="../settings/response-templates.html" rel="noopener nofollow" target="_blank">
+        Create template
+      </a>
+<p>Templates let you quickly answer FAQs or store snippets for re-use.</p>
+</div>
+<div class="comment-form__preview text-styles text-styles--secondary" id="preview-div"></div>
+<div class="comment-form__buttons mb-4">
+<button class="crayons-btn mr-2 js-btn-enable" data-tracking-name="comment_submit_button" disabled="" onclick="validateField(event)" type="submit">Submit</button>
+<button class="preview-toggle crayons-btn crayons-btn--secondary comment-action-preview js-btn-enable mr-2" data-tracking-name="comment_preview_button" disabled="" type="button">Preview</button>
+<a class="dismiss-edit-comment crayons-btn crayons-btn--ghost js-btn-dismiss hidden" href="../404.html">Dismiss</a>
+</div>
+</div>
+<div class="code-of-conduct" id="toggle-code-of-conduct-checkbox"></div>
+</input></form>
+<div class="comments" id="comment-trees-container">
+<details class="comment-wrapper js-comment-wrapper comment-wrapper--deep-0 root" open="">
+<summary aria-label="Toggle this comment (and replies)" data-tracking-name="expand_comment_toggle">
+<span class="m:mx-1 inline-block align-middle">
+<svg aria-labelledby="a4m21kmeodv9nbl1fb9mur9jbo72t8es" class="crayons-icon expanded" height="24" role="img" viewbox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><title id="a4m21kmeodv9nbl1fb9mur9jbo72t8es">Collapse</title>
+<path d="M12 10.677L8 6.935 9 6l3 2.807L15 6l1 .935-4 3.742zm0 4.517L9 18l-1-.935 4-3.742 4 3.742-1 .934-3-2.805z"></path>
+</svg>
+<svg aria-labelledby="afoulsp9oumott0g92tojeq3yfow203y" class="crayons-icon collapsed" height="24" role="img" viewbox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><title id="afoulsp9oumott0g92tojeq3yfow203y">Expand</title>
+<path d="M12 18l-4-3.771 1-.943 3 2.829 3-2.829 1 .943L12 18zm0-10.115l-3 2.829-1-.943L12 6l4 3.771-1 .942-3-2.828z"></path>
+</svg>
+</span>
+<span class="js-collapse-comment-content inline-block align-middle"></span>
+</summary>
+<div class="comment single-comment-node root comment--deep-0" data-comment-author-id="3882953" data-comment-id="1493531" data-content-user-id="3882953" data-path="/aws-builders/aws-s3-files-just-made-transfer-family-sftp-obsolete-for-most-use-cases-4me/comments/36p9d" id="comment-node-1493531">
+<a name="comment-36p9d" style="position: absolute; top: -8px;"> </a>
+<div class="comment__inner">
+<a class="shrink-0 crayons-avatar m:crayons-avatar--l mt-4 m:mt-3" href="../madhuadavi.html">
+<img alt="madhuadavi profile image" class="crayons-avatar__image" height="32" loading="lazy" src="../cdn/media2.dev.to/dynamic/image/width=50,height=50,fit=cover,gravity=auto,format=auto/https___dev-to-uploads.s3.amazonaws.com_uploads_user_profile_image_3882953_7c43cfb5-927d-439d-955c-cb74636a571f.jpeg" width="32"/>
+</a>
+<div class="inner-comment comment__details">
+<div class="comment__content crayons-card">
+<div class="comment__header">
+<a class="crayons-link crayons-link--secondary flex items-center fw-medium m:hidden" href="../madhuadavi.html">
+<span class="js-comment-username">
+      madhuadavi
+    </span>
+</a>
+<div class="profile-preview-card relative mb-4 s:mb-0 fw-medium hidden m:block">
+<button aria-controls="comment-profile-preview-content-1493531" aria-label="madhuadavi profile details" class="profile-preview-card__trigger p-1 -my-1 -ml-1 crayons-btn crayons-btn--ghost" id="comment-profile-preview-trigger-1493531">
+      madhuadavi
+      
+    </button>
+<div class="profile-preview-card__content p-4 pt-0 branded-7 crayons-dropdown" data-repositioning-dropdown="true" data-testid="profile-preview-card" id="comment-profile-preview-content-1493531" style="--card-color: #000000; border-top-color: var(--card-color);">
+<div class="gap-4 grid">
+<div class="-mt-4">
+<a class="flex" href="../madhuadavi.html">
+<span class="crayons-avatar crayons-avatar--xl mr-2 shrink-0">
+<img alt="" class="crayons-avatar__image" loading="lazy" src="../cdn/media2.dev.to/dynamic/image/width=90,height=90,fit=cover,gravity=auto,format=auto/https___dev-to-uploads.s3.amazonaws.com_uploads_user_profile_image_3882953_7c43cfb5-927d-439d-955c-cb74636a571f.jpeg"/>
+</span>
+<span class="crayons-link crayons-subtitle-2 mt-5">
+      madhuadavi
+      
+    </span>
+</a>
+</div>
+<div class="print-hidden">
+<button aria-label="Follow user: madhuadavi" aria-pressed="false" class="crayons-btn follow-action-button whitespace-nowrap w-100 follow-user" data-info='{"className":"User","style":"","id":3882953,"name":"madhuadavi"}' name="button" type="button">Follow</button>
+</div>
+<div class="user-metadata-details">
+<ul class="user-metadata-details-inner">
+<li>
+<div class="key">
+          Joined
+        </div>
+<div class="value">
+<time class="date" datetime="2026-04-16T17:32:39Z">Apr 16, 2026</time>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<span class="color-base-30 px-2 m:pl-0" role="presentation">•</span>
+<a class="comment-date crayons-link crayons-link--secondary fs-s" href="aws-s3-files-just-made-transfer-family-sftp-obsolete-for-most-use-cases-4me.html">
+<time class="date-no-year" datetime="2026-04-16T17:41:22Z">
+    Apr 16
+  </time>
+<span class="hidden m:inline-block">• Edited on <time class="date-no-year" datetime="2026-04-16T17:41:53Z">Apr 16</time></span>
+<span class="m:hidden">• Edited</span>
+</a>
+<div class="comment__dropdown" data-tracking-name="comment_dropdown">
+<button aria-controls="comment-dropdown-1493531" aria-expanded="false" aria-haspopup="true" aria-label="Toggle dropdown menu" class="dropbtn comment__dropdown-trigger crayons-btn crayons-btn--s crayons-btn--ghost crayons-btn--icon" id="comment-dropdown-trigger-1493531">
+<svg aria-labelledby="a9u1u8unw3er2f02gpgg6aidxl5ecxdy" class="crayons-icon pointer-events-none" height="24" role="img" viewbox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><title id="a9u1u8unw3er2f02gpgg6aidxl5ecxdy">Dropdown menu</title>
+<path clip-rule="evenodd" d="M8.25 12a1.5 1.5 0 11-3 0 1.5 1.5 0 013 0zm5.25 0a1.5 1.5 0 11-3 0 1.5 1.5 0 013 0zm3.75 1.5a1.5 1.5 0 100-3 1.5 1.5 0 000 3z" fill-rule="evenodd"></path>
+</svg>
+</button>
+<div class="crayons-dropdown right-1 s:right-0 s:left-auto fs-base dropdown" id="comment-dropdown-1493531">
+<ul class="m-0">
+<li><a aria-label="Copy link to madhuadavi's comment" class="crayons-link crayons-link--block permalink-copybtn" data-no-instant="" href="aws-s3-files-just-made-transfer-family-sftp-obsolete-for-most-use-cases-4me.html">Copy link</a></li>
+<li aria-label="Go to madhuadavi's comment settings" class="comment-actions hidden" data-action="settings-button" data-path="https://dev.to/madhuadavi/comment/36p9d/settings" data-user-id="3882953"></li>
+<li class="comment-actions hidden" data-action="hide-button" data-commentable-user-id="1338515" data-user-id="3882953">
+<button aria-label="Hide madhuadavi's comment" class="flex justify-between crayons-link crayons-link--block w-100 bg-transparent border-0 hide-comment" data-comment-id="1493531" data-comment-url="https://dev.to/madhuadavi/comment/36p9d" data-hide-type="hide">
+                Hide
+              </button>
+</li>
+<li aria-label="Moderate madhuadavi's comment" class="mod-actions hidden mod-actions-comment-button" data-path="https://dev.to/madhuadavi/comment/36p9d/mod"></li>
+<li aria-label="Report madhuadavi's comment as abusive or violating our code of conduct and/or terms and conditions" class="report-abuse-link-wrapper" data-path="/report-abuse?url=https://dev.to/madhuadavi/comment/36p9d"></li>
+<li class="current-user-actions"></li>
+</ul>
+</div>
+</div>
+</div>
+<div class="comment__body text-styles text-styles--secondary body">
+<p>Really interesting approach, nice to see how far you can push S3 plus containers.</p>
+<p>That said, I wouldn’t go as far as saying this replaces <strong>AWS Transfer Family</strong> for most use cases. It feels more like a classic DIY vs managed service trade-off.</p>
+<p>On pricing, totally fair point. If you’re running something lightweight with low traffic, the ECS or Fargate plus SFTP route will almost always be cheaper on paper compared to the roughly $0.30 per hour endpoint cost. No disagreement there.</p>
+<p>But that comparison is really just infrastructure cost, not the full picture. <strong>With the DIY setup, you are now owning scaling, patching, high availability, SSH key management, monitoring, and handling failures when things break.</strong> That is where the cost and risk quietly shifts to your team.</p>
+<p><strong>Where AWS Transfer Family still makes a lot of sense is when you need something production ready. Secure by default, multi AZ, integrated with IAM, audit ready, and supporting protocols beyond SFTP like AS2 for B2B or EDI use cases.</strong></p>
+<p><strong>So I would frame it more as</strong> <strong>Great option for simple, cost sensitive workloads</strong><br/>
+But <strong>managed services still win for enterprise, partner facing, and compliance heavy scenarios</strong></p>
+</div>
+</div>
+<script>
+</script>
+<footer class="comment__footer print-hidden">
+<button aria-label="like" class="crayons-tooltip__activator relative crayons-btn crayons-btn--ghost crayons-btn--icon-left crayons-btn--s mr-1 reaction-like inline-flex reaction-button" data-comment-id="1493531" data-tracking-name="comment_heart_button" id="button-for-comment-1493531">
+<svg aria-labelledby="a472wnauoz05spxn0k1eex7utq5t6cwo" class="crayons-icon reaction-icon not-reacted" height="24" role="img" width="24" xmlns="http://www.w3.org/2000/svg"><title id="a472wnauoz05spxn0k1eex7utq5t6cwo">Like comment: </title><path d="M18.884 12.595l.01.011L12 19.5l-6.894-6.894.01-.01A4.875 4.875 0 0112 5.73a4.875 4.875 0 016.884 6.865zM6.431 7.037a3.375 3.375 0 000 4.773L12 17.38l5.569-5.569a3.375 3.375 0 10-4.773-4.773L9.613 10.22l-1.06-1.062 2.371-2.372a3.375 3.375 0 00-4.492.25v.001z"></path></svg>
+<svg aria-labelledby="af4jmiveg06q14mjnohfnliedetk3l5i" class="crayons-icon crayons-icon reaction-icon--like reaction-icon reacted" height="24" role="img" viewbox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><title id="af4jmiveg06q14mjnohfnliedetk3l5i">Like comment: </title>
+<path d="M5.116 12.595a4.875 4.875 0 015.56-7.68h-.002L7.493 8.098l1.06 1.061 3.181-3.182a4.875 4.875 0 016.895 6.894L12 19.5l-6.894-6.894.01-.01z"></path>
+</svg>
+<span class="reactions-count">1</span><span class="reactions-label hidden m:inline-block"> like</span>
+<span class="crayons-tooltip__content" data-testid="tooltip">
+      Like
+    </span>
+</button>
+<button class="actions crayons-btn crayons-btn--ghost crayons-btn--s crayons-btn--icon-left toggle-reply-form mr-1 inline-flex" data-comment-id="1493531" data-path="/aws-builders/aws-s3-files-just-made-transfer-family-sftp-obsolete-for-most-use-cases-4me/comments/36p9d" data-testid="reply-button-1493531" data-tracking-name="comment_reply_button" rel="nofollow">
+<svg aria-labelledby="agzilvs935u5u6tjommwycrzf4vb3eqy" class="crayons-icon reaction-icon not-reacted" height="24" role="img" width="24" xmlns="http://www.w3.org/2000/svg"><title id="agzilvs935u5u6tjommwycrzf4vb3eqy">Comment button</title><path d="M10.5 5h3a6 6 0 110 12v2.625c-3.75-1.5-9-3.75-9-8.625a6 6 0 016-6zM12 15.5h1.5a4.501 4.501 0 001.722-8.657A4.5 4.5 0 0013.5 6.5h-3A4.5 4.5 0 006 11c0 2.707 1.846 4.475 6 6.36V15.5z"></path></svg>
+<span class="hidden m:inline-block">Reply</span>
+</button>
+</footer>
+</div>
+</div>
+</div>
+</details>
+<details class="comment-wrapper js-comment-wrapper comment-wrapper--deep-0 root" open="">
+<summary aria-label="Toggle this comment (and replies)" data-tracking-name="expand_comment_toggle">
+<span class="m:mx-1 inline-block align-middle">
+<svg aria-labelledby="al8k4mparwyw8r5bulbuffu4zl082ypg" class="crayons-icon expanded" height="24" role="img" viewbox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><title id="al8k4mparwyw8r5bulbuffu4zl082ypg">Collapse</title>
+<path d="M12 10.677L8 6.935 9 6l3 2.807L15 6l1 .935-4 3.742zm0 4.517L9 18l-1-.935 4-3.742 4 3.742-1 .934-3-2.805z"></path>
+</svg>
+<svg aria-labelledby="ame3oq7ia3tloy52ddub9ijegg7n6x0d" class="crayons-icon collapsed" height="24" role="img" viewbox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><title id="ame3oq7ia3tloy52ddub9ijegg7n6x0d">Expand</title>
+<path d="M12 18l-4-3.771 1-.943 3 2.829 3-2.829 1 .943L12 18zm0-10.115l-3 2.829-1-.943L12 6l4 3.771-1 .942-3-2.828z"></path>
+</svg>
+</span>
+<span class="js-collapse-comment-content inline-block align-middle"></span>
+</summary>
+<div class="comment single-comment-node root comment--deep-0" data-comment-author-id="1338515" data-comment-id="1493015" data-content-user-id="1338515" data-path="/aws-builders/aws-s3-files-just-made-transfer-family-sftp-obsolete-for-most-use-cases-4me/comments/36ofh" id="comment-node-1493015">
+<a name="comment-36ofh" style="position: absolute; top: -8px;"> </a>
+<div class="comment__inner">
+<a class="shrink-0 crayons-avatar m:crayons-avatar--l mt-4 m:mt-3" href="../psantus.html">
+<img alt="psantus profile image" class="crayons-avatar__image" height="32" loading="lazy" src="../cdn/media2.dev.to/dynamic/image/width=50,height=50,fit=cover,gravity=auto,format=auto/https___dev-to-uploads.s3.amazonaws.com_uploads_user_profile_image_1338515_8abdaf33-0c48-4f84-aa29-7a881090986e.jpeg" width="32"/>
+</a>
+<div class="inner-comment comment__details">
+<div class="comment__content crayons-card">
+<div class="comment__header">
+<a class="crayons-link crayons-link--secondary flex items-center fw-medium m:hidden" href="../psantus.html">
+<span class="js-comment-username">
+      Paul SANTUS
+        <span class="c-indicator c-indicator--subtle c-indicator--round c-indicator--relaxed p-1 px-2" title="Member of AWS Community Builders ">
+          AWS Community Builders 
+        </span>
+</span>
+<span class="crayons-hover-tooltip inline-block spec-op-author -mr-2" data-tooltip="Author">
+<svg class="crayons-icon" height="24" role="img" viewbox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+<path d="M12 8.25a6 6 0 110 12 6 6 0 010-12zm0 2.625l-.992 2.01-2.218.322 1.605 1.564-.379 2.21L12 15.937l1.984 1.043-.379-2.209 1.605-1.564-2.218-.323L12 10.875zm.75-6.376l3.75.001v2.25l-1.022.854a7.45 7.45 0 00-2.728-.817V4.5zm-1.5 0v2.288a7.451 7.451 0 00-2.727.816L7.5 6.75V4.5h3.75z"></path>
+</svg>
+</span>
+</a>
+<div class="profile-preview-card relative mb-4 s:mb-0 fw-medium hidden m:block">
+<button aria-controls="comment-profile-preview-content-1493015" aria-label="Paul SANTUS profile details" class="profile-preview-card__trigger p-1 -my-1 -ml-1 crayons-btn crayons-btn--ghost" id="comment-profile-preview-trigger-1493015">
+      Paul SANTUS
+        <span class="c-indicator c-indicator--subtle c-indicator--round c-indicator--relaxed p-1 px-2" title="Member of AWS Community Builders ">
+          AWS Community Builders 
+        </span>
+</button>
+<div class="profile-preview-card__content p-4 pt-0 branded-7 crayons-dropdown" data-repositioning-dropdown="true" data-testid="profile-preview-card" id="comment-profile-preview-content-1493015" style="--card-color: #d16e2b; border-top-color: var(--card-color);">
+<div class="gap-4 grid">
+<div class="-mt-4">
+<a class="flex" href="../psantus.html">
+<span class="crayons-avatar crayons-avatar--xl mr-2 shrink-0">
+<img alt="" class="crayons-avatar__image" loading="lazy" src="../cdn/media2.dev.to/dynamic/image/width=90,height=90,fit=cover,gravity=auto,format=auto/https___dev-to-uploads.s3.amazonaws.com_uploads_user_profile_image_1338515_8abdaf33-0c48-4f84-aa29-7a881090986e.jpeg"/>
+</span>
+<span class="crayons-link crayons-subtitle-2 mt-5">
+      Paul SANTUS
+      
+    </span>
+</a>
+</div>
+<div class="print-hidden">
+<button aria-label="Follow user: Paul SANTUS" aria-pressed="false" class="crayons-btn follow-action-button whitespace-nowrap w-100 follow-user" data-info='{"className":"User","style":"","id":1338515,"name":"Paul SANTUS"}' name="button" type="button">Follow</button>
+</div>
+<div class="color-base-70">
+    Independent consultant • AWS Cloud Architect • Software Architect • I love empowering IT Teams with Agile and DevOps :)
+  </div>
+<div class="user-metadata-details">
+<ul class="user-metadata-details-inner">
+<li>
+<div class="key">
+            Location
+          </div>
+<div class="value">
+            Poitiers, France
+          </div>
+</li>
+<li>
+<div class="key">
+              Work
+            </div>
+<div class="value">
+              Indépendant consultant on all things AWS
+            </div>
+</li>
+<li>
+<div class="key">
+          Joined
+        </div>
+<div class="value">
+<time class="date" datetime="2024-03-08T12:58:20Z">Mar 8, 2024</time>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<span class="crayons-hover-tooltip inline-block spec-op-author -ml-2" data-tooltip="Author">
+<svg class="crayons-icon" height="24" role="img" viewbox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+<path d="M12 8.25a6 6 0 110 12 6 6 0 010-12zm0 2.625l-.992 2.01-2.218.322 1.605 1.564-.379 2.21L12 15.937l1.984 1.043-.379-2.209 1.605-1.564-2.218-.323L12 10.875zm.75-6.376l3.75.001v2.25l-1.022.854a7.45 7.45 0 00-2.728-.817V4.5zm-1.5 0v2.288a7.451 7.451 0 00-2.727.816L7.5 6.75V4.5h3.75z"></path>
+</svg>
+</span>
+</div>
+<span class="color-base-30 px-2 m:pl-0" role="presentation">•</span>
+<a class="comment-date crayons-link crayons-link--secondary fs-s" href="aws-s3-files-just-made-transfer-family-sftp-obsolete-for-most-use-cases-4me.html">
+<time class="date-no-year" datetime="2026-04-15T21:50:54Z">
+    Apr 15
+  </time>
+</a>
+<div class="comment__dropdown" data-tracking-name="comment_dropdown">
+<button aria-controls="comment-dropdown-1493015" aria-expanded="false" aria-haspopup="true" aria-label="Toggle dropdown menu" class="dropbtn comment__dropdown-trigger crayons-btn crayons-btn--s crayons-btn--ghost crayons-btn--icon" id="comment-dropdown-trigger-1493015">
+<svg aria-labelledby="al98nj1qttd89msias82tb2e8bvum86p" class="crayons-icon pointer-events-none" height="24" role="img" viewbox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><title id="al98nj1qttd89msias82tb2e8bvum86p">Dropdown menu</title>
+<path clip-rule="evenodd" d="M8.25 12a1.5 1.5 0 11-3 0 1.5 1.5 0 013 0zm5.25 0a1.5 1.5 0 11-3 0 1.5 1.5 0 013 0zm3.75 1.5a1.5 1.5 0 100-3 1.5 1.5 0 000 3z" fill-rule="evenodd"></path>
+</svg>
+</button>
+<div class="crayons-dropdown right-1 s:right-0 s:left-auto fs-base dropdown" id="comment-dropdown-1493015">
+<ul class="m-0">
+<li><a aria-label="Copy link to Paul SANTUS's comment" class="crayons-link crayons-link--block permalink-copybtn" data-no-instant="" href="aws-s3-files-just-made-transfer-family-sftp-obsolete-for-most-use-cases-4me.html">Copy link</a></li>
+<li aria-label="Go to Paul SANTUS's comment settings" class="comment-actions hidden" data-action="settings-button" data-path="https://dev.to/psantus/comment/36ofh/settings" data-user-id="1338515"></li>
+<li class="comment-actions hidden" data-action="hide-button" data-commentable-user-id="1338515" data-user-id="1338515">
+<button aria-label="Hide Paul SANTUS's comment" class="flex justify-between crayons-link crayons-link--block w-100 bg-transparent border-0 hide-comment" data-comment-id="1493015" data-comment-url="https://dev.to/psantus/comment/36ofh" data-hide-type="hide">
+                Hide
+              </button>
+</li>
+<li aria-label="Moderate Paul SANTUS's comment" class="mod-actions hidden mod-actions-comment-button" data-path="https://dev.to/psantus/comment/36ofh/mod"></li>
+<li aria-label="Report Paul SANTUS's comment as abusive or violating our code of conduct and/or terms and conditions" class="report-abuse-link-wrapper" data-path="/report-abuse?url=https://dev.to/psantus/comment/36ofh"></li>
+<li class="current-user-actions"></li>
+</ul>
+</div>
+</div>
+</div>
+<div class="comment__body text-styles text-styles--secondary body">
+<p>Note: v0.4.0 of the terraform module is now terraform-only!</p>
+<p>No more terraform_data resources and local-exec provisioners </p>
+</div>
+</div>
+<script>
+</script>
+<footer class="comment__footer print-hidden">
+<button aria-label="like" class="crayons-tooltip__activator relative crayons-btn crayons-btn--ghost crayons-btn--icon-left crayons-btn--s mr-1 reaction-like inline-flex reaction-button" data-comment-id="1493015" data-tracking-name="comment_heart_button" id="button-for-comment-1493015">
+<svg aria-labelledby="ajofbz2x43dolf4g27sca6c35o8mf1q6" class="crayons-icon reaction-icon not-reacted" height="24" role="img" width="24" xmlns="http://www.w3.org/2000/svg"><title id="ajofbz2x43dolf4g27sca6c35o8mf1q6">Like comment: </title><path d="M18.884 12.595l.01.011L12 19.5l-6.894-6.894.01-.01A4.875 4.875 0 0112 5.73a4.875 4.875 0 016.884 6.865zM6.431 7.037a3.375 3.375 0 000 4.773L12 17.38l5.569-5.569a3.375 3.375 0 10-4.773-4.773L9.613 10.22l-1.06-1.062 2.371-2.372a3.375 3.375 0 00-4.492.25v.001z"></path></svg>
+<svg aria-labelledby="aeqw20s0w5ehd0ra1873qgun0hoc1mls" class="crayons-icon crayons-icon reaction-icon--like reaction-icon reacted" height="24" role="img" viewbox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><title id="aeqw20s0w5ehd0ra1873qgun0hoc1mls">Like comment: </title>
+<path d="M5.116 12.595a4.875 4.875 0 015.56-7.68h-.002L7.493 8.098l1.06 1.061 3.181-3.182a4.875 4.875 0 016.895 6.894L12 19.5l-6.894-6.894.01-.01z"></path>
+</svg>
+<span class="reactions-count">1</span><span class="reactions-label hidden m:inline-block"> like</span>
+<span class="crayons-tooltip__content" data-testid="tooltip">
+      Like
+    </span>
+</button>
+<button class="actions crayons-btn crayons-btn--ghost crayons-btn--s crayons-btn--icon-left toggle-reply-form mr-1 inline-flex" data-comment-id="1493015" data-path="/aws-builders/aws-s3-files-just-made-transfer-family-sftp-obsolete-for-most-use-cases-4me/comments/36ofh" data-testid="reply-button-1493015" data-tracking-name="comment_reply_button" rel="nofollow">
+<svg aria-labelledby="a492bnvmtmoftp0qoieabuqy9uwbcp2k" class="crayons-icon reaction-icon not-reacted" height="24" role="img" width="24" xmlns="http://www.w3.org/2000/svg"><title id="a492bnvmtmoftp0qoieabuqy9uwbcp2k">Comment button</title><path d="M10.5 5h3a6 6 0 110 12v2.625c-3.75-1.5-9-3.75-9-8.625a6 6 0 016-6zM12 15.5h1.5a4.501 4.501 0 001.722-8.657A4.5 4.5 0 0013.5 6.5h-3A4.5 4.5 0 006 11c0 2.707 1.846 4.475 6 6.36V15.5z"></path></svg>
+<span class="hidden m:inline-block">Reply</span>
+</button>
+</footer>
+</div>
+</div>
+</div>
+</details>
+<details class="comment-wrapper js-comment-wrapper comment-wrapper--deep-0 root" open="">
+<summary aria-label="Toggle this comment (and replies)" data-tracking-name="expand_comment_toggle">
+<span class="m:mx-1 inline-block align-middle">
+<svg aria-labelledby="a99d7h2hbto9lq5nlc52co28f8uc6p6e" class="crayons-icon expanded" height="24" role="img" viewbox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><title id="a99d7h2hbto9lq5nlc52co28f8uc6p6e">Collapse</title>
+<path d="M12 10.677L8 6.935 9 6l3 2.807L15 6l1 .935-4 3.742zm0 4.517L9 18l-1-.935 4-3.742 4 3.742-1 .934-3-2.805z"></path>
+</svg>
+<svg aria-labelledby="ar90s5f9i3be81imoyn29sclfubkto40" class="crayons-icon collapsed" height="24" role="img" viewbox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><title id="ar90s5f9i3be81imoyn29sclfubkto40">Expand</title>
+<path d="M12 18l-4-3.771 1-.943 3 2.829 3-2.829 1 .943L12 18zm0-10.115l-3 2.829-1-.943L12 6l4 3.771-1 .942-3-2.828z"></path>
+</svg>
+</span>
+<span class="js-collapse-comment-content inline-block align-middle"></span>
+</summary>
+<div class="comment single-comment-node root comment--deep-0" data-comment-author-id="3893099" data-comment-id="1497359" data-content-user-id="3893099" data-path="/aws-builders/aws-s3-files-just-made-transfer-family-sftp-obsolete-for-most-use-cases-4me/comments/3750j" id="comment-node-1497359">
+<a name="comment-3750j" style="position: absolute; top: -8px;"> </a>
+<div class="comment__inner">
+<a class="shrink-0 crayons-avatar m:crayons-avatar--l mt-4 m:mt-3" href="../thegeekboy.html">
+<img alt="thegeekboy profile image" class="crayons-avatar__image" height="32" loading="lazy" src="../cdn/media2.dev.to/dynamic/image/width=50,height=50,fit=cover,gravity=auto,format=auto/https___dev-to-uploads.s3.amazonaws.com_uploads_user_profile_image_3893099_3363ff72-4cdc-43f7-a016-d6a0afe67246.jpg" width="32"/>
+</a>
+<div class="inner-comment comment__details">
+<div class="comment__content crayons-card">
+<div class="comment__header">
+<a class="crayons-link crayons-link--secondary flex items-center fw-medium m:hidden" href="../thegeekboy.html">
+<span class="js-comment-username">
+      Varun Dalal
+    </span>
+</a>
+<div class="profile-preview-card relative mb-4 s:mb-0 fw-medium hidden m:block">
+<button aria-controls="comment-profile-preview-content-1497359" aria-label="Varun Dalal profile details" class="profile-preview-card__trigger p-1 -my-1 -ml-1 crayons-btn crayons-btn--ghost" id="comment-profile-preview-trigger-1497359">
+      Varun Dalal
+      
+    </button>
+<div class="profile-preview-card__content p-4 pt-0 branded-7 crayons-dropdown" data-repositioning-dropdown="true" data-testid="profile-preview-card" id="comment-profile-preview-content-1497359" style="--card-color: #000000; border-top-color: var(--card-color);">
+<div class="gap-4 grid">
+<div class="-mt-4">
+<a class="flex" href="../thegeekboy.html">
+<span class="crayons-avatar crayons-avatar--xl mr-2 shrink-0">
+<img alt="" class="crayons-avatar__image" loading="lazy" src="../cdn/media2.dev.to/dynamic/image/width=90,height=90,fit=cover,gravity=auto,format=auto/https___dev-to-uploads.s3.amazonaws.com_uploads_user_profile_image_3893099_3363ff72-4cdc-43f7-a016-d6a0afe67246.jpg"/>
+</span>
+<span class="crayons-link crayons-subtitle-2 mt-5">
+      Varun Dalal
+      
+    </span>
+</a>
+</div>
+<div class="print-hidden">
+<button aria-label="Follow user: Varun Dalal" aria-pressed="false" class="crayons-btn follow-action-button whitespace-nowrap w-100 follow-user" data-info='{"className":"User","style":"","id":3893099,"name":"Varun Dalal"}' name="button" type="button">Follow</button>
+</div>
+<div class="user-metadata-details">
+<ul class="user-metadata-details-inner">
+<li>
+<div class="key">
+          Joined
+        </div>
+<div class="value">
+<time class="date" datetime="2026-04-22T21:21:56Z">Apr 22, 2026</time>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<span class="color-base-30 px-2 m:pl-0" role="presentation">•</span>
+<a class="comment-date crayons-link crayons-link--secondary fs-s" href="aws-s3-files-just-made-transfer-family-sftp-obsolete-for-most-use-cases-4me.html">
+<time class="date-no-year" datetime="2026-04-22T21:30:49Z">
+    Apr 22
+  </time>
+</a>
+<div class="comment__dropdown" data-tracking-name="comment_dropdown">
+<button aria-controls="comment-dropdown-1497359" aria-expanded="false" aria-haspopup="true" aria-label="Toggle dropdown menu" class="dropbtn comment__dropdown-trigger crayons-btn crayons-btn--s crayons-btn--ghost crayons-btn--icon" id="comment-dropdown-trigger-1497359">
+<svg aria-labelledby="a1o9eegy7heizwfzjo78cy00irx0n8il" class="crayons-icon pointer-events-none" height="24" role="img" viewbox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><title id="a1o9eegy7heizwfzjo78cy00irx0n8il">Dropdown menu</title>
+<path clip-rule="evenodd" d="M8.25 12a1.5 1.5 0 11-3 0 1.5 1.5 0 013 0zm5.25 0a1.5 1.5 0 11-3 0 1.5 1.5 0 013 0zm3.75 1.5a1.5 1.5 0 100-3 1.5 1.5 0 000 3z" fill-rule="evenodd"></path>
+</svg>
+</button>
+<div class="crayons-dropdown right-1 s:right-0 s:left-auto fs-base dropdown" id="comment-dropdown-1497359">
+<ul class="m-0">
+<li><a aria-label="Copy link to Varun Dalal's comment" class="crayons-link crayons-link--block permalink-copybtn" data-no-instant="" href="aws-s3-files-just-made-transfer-family-sftp-obsolete-for-most-use-cases-4me.html">Copy link</a></li>
+<li aria-label="Go to Varun Dalal's comment settings" class="comment-actions hidden" data-action="settings-button" data-path="https://dev.to/thegeekboy/comment/3750j/settings" data-user-id="3893099"></li>
+<li class="comment-actions hidden" data-action="hide-button" data-commentable-user-id="1338515" data-user-id="3893099">
+<button aria-label="Hide Varun Dalal's comment" class="flex justify-between crayons-link crayons-link--block w-100 bg-transparent border-0 hide-comment" data-comment-id="1497359" data-comment-url="https://dev.to/thegeekboy/comment/3750j" data-hide-type="hide">
+                Hide
+              </button>
+</li>
+<li aria-label="Moderate Varun Dalal's comment" class="mod-actions hidden mod-actions-comment-button" data-path="https://dev.to/thegeekboy/comment/3750j/mod"></li>
+<li aria-label="Report Varun Dalal's comment as abusive or violating our code of conduct and/or terms and conditions" class="report-abuse-link-wrapper" data-path="/report-abuse?url=https://dev.to/thegeekboy/comment/3750j"></li>
+<li class="current-user-actions"></li>
+</ul>
+</div>
+</div>
+</div>
+<div class="comment__body text-styles text-styles--secondary body">
+<p>AWS S3 Files also has a high performance cache which it uses for each write which costs 0.06$ per GB. Also, syncing to S3 from this cache costs 0.03$ per GB. So we should also take these costs into account. </p>
+<p>There's a point (roughly 4320 GB) after which AWS Transfer Family is cheaper than S3 Files.</p>
+</div>
+</div>
+<script>
+</script>
+<footer class="comment__footer print-hidden">
+<button aria-label="like" class="crayons-tooltip__activator relative crayons-btn crayons-btn--ghost crayons-btn--icon-left crayons-btn--s mr-1 reaction-like inline-flex reaction-button" data-comment-id="1497359" data-tracking-name="comment_heart_button" id="button-for-comment-1497359">
+<svg aria-labelledby="a67bx6y9yrv7033rlu2z7oanryyreflx" class="crayons-icon reaction-icon not-reacted" height="24" role="img" width="24" xmlns="http://www.w3.org/2000/svg"><title id="a67bx6y9yrv7033rlu2z7oanryyreflx">Like comment: </title><path d="M18.884 12.595l.01.011L12 19.5l-6.894-6.894.01-.01A4.875 4.875 0 0112 5.73a4.875 4.875 0 016.884 6.865zM6.431 7.037a3.375 3.375 0 000 4.773L12 17.38l5.569-5.569a3.375 3.375 0 10-4.773-4.773L9.613 10.22l-1.06-1.062 2.371-2.372a3.375 3.375 0 00-4.492.25v.001z"></path></svg>
+<svg aria-labelledby="ar8vkxa1rlmkc54nw5emj8mfog4kuo5b" class="crayons-icon crayons-icon reaction-icon--like reaction-icon reacted" height="24" role="img" viewbox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><title id="ar8vkxa1rlmkc54nw5emj8mfog4kuo5b">Like comment: </title>
+<path d="M5.116 12.595a4.875 4.875 0 015.56-7.68h-.002L7.493 8.098l1.06 1.061 3.181-3.182a4.875 4.875 0 016.895 6.894L12 19.5l-6.894-6.894.01-.01z"></path>
+</svg>
+<span class="reactions-count">1</span><span class="reactions-label hidden m:inline-block"> like</span>
+<span class="crayons-tooltip__content" data-testid="tooltip">
+      Like
+    </span>
+</button>
+<button class="actions crayons-btn crayons-btn--ghost crayons-btn--s crayons-btn--icon-left toggle-reply-form mr-1 inline-flex" data-comment-id="1497359" data-path="/aws-builders/aws-s3-files-just-made-transfer-family-sftp-obsolete-for-most-use-cases-4me/comments/3750j" data-testid="reply-button-1497359" data-tracking-name="comment_reply_button" rel="nofollow">
+<svg aria-labelledby="adit3fcbnsky7g50ebahyunu7mr0njyd" class="crayons-icon reaction-icon not-reacted" height="24" role="img" width="24" xmlns="http://www.w3.org/2000/svg"><title id="adit3fcbnsky7g50ebahyunu7mr0njyd">Comment button</title><path d="M10.5 5h3a6 6 0 110 12v2.625c-3.75-1.5-9-3.75-9-8.625a6 6 0 016-6zM12 15.5h1.5a4.501 4.501 0 001.722-8.657A4.5 4.5 0 0013.5 6.5h-3A4.5 4.5 0 006 11c0 2.707 1.846 4.475 6 6.36V15.5z"></path></svg>
+<span class="hidden m:inline-block">Reply</span>
+</button>
+</footer>
+</div>
+</div>
+</div>
+</details>
+<details class="comment-wrapper js-comment-wrapper comment-wrapper--deep-0 root" open="">
+<summary aria-label="Toggle this comment (and replies)" data-tracking-name="expand_comment_toggle">
+<span class="m:mx-1 inline-block align-middle">
+<svg aria-labelledby="auuov7daxuewudahsg7rbez2aki8e15" class="crayons-icon expanded" height="24" role="img" viewbox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><title id="auuov7daxuewudahsg7rbez2aki8e15">Collapse</title>
+<path d="M12 10.677L8 6.935 9 6l3 2.807L15 6l1 .935-4 3.742zm0 4.517L9 18l-1-.935 4-3.742 4 3.742-1 .934-3-2.805z"></path>
+</svg>
+<svg aria-labelledby="a7stjb48o1icr2s1jk7n82nzrki75ob2" class="crayons-icon collapsed" height="24" role="img" viewbox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><title id="a7stjb48o1icr2s1jk7n82nzrki75ob2">Expand</title>
+<path d="M12 18l-4-3.771 1-.943 3 2.829 3-2.829 1 .943L12 18zm0-10.115l-3 2.829-1-.943L12 6l4 3.771-1 .942-3-2.828z"></path>
+</svg>
+</span>
+<span class="js-collapse-comment-content inline-block align-middle"></span>
+</summary>
+<div class="comment single-comment-node root comment--deep-0" data-comment-author-id="674584" data-comment-id="1490782" data-content-user-id="674584" data-path="/aws-builders/aws-s3-files-just-made-transfer-family-sftp-obsolete-for-most-use-cases-4me/comments/36l7k" id="comment-node-1490782">
+<a name="comment-36l7k" style="position: absolute; top: -8px;"> </a>
+<div class="comment__inner">
+<a class="shrink-0 crayons-avatar m:crayons-avatar--l mt-4 m:mt-3" href="../plutonium239.html">
+<img alt="plutonium239 profile image" class="crayons-avatar__image" height="32" loading="lazy" src="../cdn/media2.dev.to/dynamic/image/width=50,height=50,fit=cover,gravity=auto,format=auto/https___dev-to-uploads.s3.amazonaws.com_uploads_user_profile_image_674584_bea000d5-b74f-41a3-9f77-5d215b3a35a9.png" width="32"/>
+</a>
+<div class="inner-comment comment__details">
+<div class="comment__content crayons-card">
+<div class="comment__header">
+<a class="crayons-link crayons-link--secondary flex items-center fw-medium m:hidden" href="../plutonium239.html">
+<span class="js-comment-username">
+      plutonium239
+    </span>
+</a>
+<div class="profile-preview-card relative mb-4 s:mb-0 fw-medium hidden m:block">
+<button aria-controls="comment-profile-preview-content-1490782" aria-label="plutonium239 profile details" class="profile-preview-card__trigger p-1 -my-1 -ml-1 crayons-btn crayons-btn--ghost" id="comment-profile-preview-trigger-1490782">
+      plutonium239
+      
+    </button>
+<div class="profile-preview-card__content p-4 pt-0 branded-7 crayons-dropdown" data-repositioning-dropdown="true" data-testid="profile-preview-card" id="comment-profile-preview-content-1490782" style="--card-color: #e00069; border-top-color: var(--card-color);">
+<div class="gap-4 grid">
+<div class="-mt-4">
+<a class="flex" href="../plutonium239.html">
+<span class="crayons-avatar crayons-avatar--xl mr-2 shrink-0">
+<img alt="" class="crayons-avatar__image" loading="lazy" src="../cdn/media2.dev.to/dynamic/image/width=90,height=90,fit=cover,gravity=auto,format=auto/https___dev-to-uploads.s3.amazonaws.com_uploads_user_profile_image_674584_bea000d5-b74f-41a3-9f77-5d215b3a35a9.png"/>
+</span>
+<span class="crayons-link crayons-subtitle-2 mt-5">
+      plutonium239
+      
+    </span>
+</a>
+</div>
+<div class="print-hidden">
+<button aria-label="Follow user: plutonium239" aria-pressed="false" class="crayons-btn follow-action-button whitespace-nowrap w-100 follow-user" data-info='{"className":"User","style":"","id":674584,"name":"plutonium239"}' name="button" type="button">Follow</button>
+</div>
+<div class="user-metadata-details">
+<ul class="user-metadata-details-inner">
+<li>
+<div class="key">
+              Education
+            </div>
+<div class="value">
+              IIT Delhi
+            </div>
+</li>
+<li>
+<div class="key">
+              Work
+            </div>
+<div class="value">
+              ML Researcher
+            </div>
+</li>
+<li>
+<div class="key">
+          Joined
+        </div>
+<div class="value">
+<time class="date" datetime="2021-07-26T19:06:42Z">Jul 26, 2021</time>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<span class="color-base-30 px-2 m:pl-0" role="presentation">•</span>
+<a class="comment-date crayons-link crayons-link--secondary fs-s" href="aws-s3-files-just-made-transfer-family-sftp-obsolete-for-most-use-cases-4me.html">
+<time class="date-no-year" datetime="2026-04-12T14:36:47Z">
+    Apr 12
+  </time>
+</a>
+<div class="comment__dropdown" data-tracking-name="comment_dropdown">
+<button aria-controls="comment-dropdown-1490782" aria-expanded="false" aria-haspopup="true" aria-label="Toggle dropdown menu" class="dropbtn comment__dropdown-trigger crayons-btn crayons-btn--s crayons-btn--ghost crayons-btn--icon" id="comment-dropdown-trigger-1490782">
+<svg aria-labelledby="apr2kubleo1420p3uixvdbidy9p4ilh0" class="crayons-icon pointer-events-none" height="24" role="img" viewbox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><title id="apr2kubleo1420p3uixvdbidy9p4ilh0">Dropdown menu</title>
+<path clip-rule="evenodd" d="M8.25 12a1.5 1.5 0 11-3 0 1.5 1.5 0 013 0zm5.25 0a1.5 1.5 0 11-3 0 1.5 1.5 0 013 0zm3.75 1.5a1.5 1.5 0 100-3 1.5 1.5 0 000 3z" fill-rule="evenodd"></path>
+</svg>
+</button>
+<div class="crayons-dropdown right-1 s:right-0 s:left-auto fs-base dropdown" id="comment-dropdown-1490782">
+<ul class="m-0">
+<li><a aria-label="Copy link to plutonium239's comment" class="crayons-link crayons-link--block permalink-copybtn" data-no-instant="" href="aws-s3-files-just-made-transfer-family-sftp-obsolete-for-most-use-cases-4me.html">Copy link</a></li>
+<li aria-label="Go to plutonium239's comment settings" class="comment-actions hidden" data-action="settings-button" data-path="https://dev.to/plutonium239/comment/36l7k/settings" data-user-id="674584"></li>
+<li class="comment-actions hidden" data-action="hide-button" data-commentable-user-id="1338515" data-user-id="674584">
+<button aria-label="Hide plutonium239's comment" class="flex justify-between crayons-link crayons-link--block w-100 bg-transparent border-0 hide-comment" data-comment-id="1490782" data-comment-url="https://dev.to/plutonium239/comment/36l7k" data-hide-type="hide">
+                Hide
+              </button>
+</li>
+<li aria-label="Moderate plutonium239's comment" class="mod-actions hidden mod-actions-comment-button" data-path="https://dev.to/plutonium239/comment/36l7k/mod"></li>
+<li aria-label="Report plutonium239's comment as abusive or violating our code of conduct and/or terms and conditions" class="report-abuse-link-wrapper" data-path="/report-abuse?url=https://dev.to/plutonium239/comment/36l7k"></li>
+<li class="current-user-actions"></li>
+</ul>
+</div>
+</div>
+</div>
+<div class="comment__body text-styles text-styles--secondary body">
+<p>Why go through the trouble and complexity of NLB at $16 with ECS when the same instance in EC2 will cost the same compute and only need an elastic IP for $1?</p>
+</div>
+</div>
+<script>
+</script>
+<footer class="comment__footer print-hidden">
+<button aria-label="like" class="crayons-tooltip__activator relative crayons-btn crayons-btn--ghost crayons-btn--icon-left crayons-btn--s mr-1 reaction-like inline-flex reaction-button" data-comment-id="1490782" data-tracking-name="comment_heart_button" id="button-for-comment-1490782">
+<svg aria-labelledby="at9l2asxjrj1g5ibg4y7lsy1xny91iym" class="crayons-icon reaction-icon not-reacted" height="24" role="img" width="24" xmlns="http://www.w3.org/2000/svg"><title id="at9l2asxjrj1g5ibg4y7lsy1xny91iym">Like comment: </title><path d="M18.884 12.595l.01.011L12 19.5l-6.894-6.894.01-.01A4.875 4.875 0 0112 5.73a4.875 4.875 0 016.884 6.865zM6.431 7.037a3.375 3.375 0 000 4.773L12 17.38l5.569-5.569a3.375 3.375 0 10-4.773-4.773L9.613 10.22l-1.06-1.062 2.371-2.372a3.375 3.375 0 00-4.492.25v.001z"></path></svg>
+<svg aria-labelledby="aiu7rirt2cz47zq9f1sngmg69ttvn8rv" class="crayons-icon crayons-icon reaction-icon--like reaction-icon reacted" height="24" role="img" viewbox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><title id="aiu7rirt2cz47zq9f1sngmg69ttvn8rv">Like comment: </title>
+<path d="M5.116 12.595a4.875 4.875 0 015.56-7.68h-.002L7.493 8.098l1.06 1.061 3.181-3.182a4.875 4.875 0 016.895 6.894L12 19.5l-6.894-6.894.01-.01z"></path>
+</svg>
+<span class="reactions-count">1</span><span class="reactions-label hidden m:inline-block"> like</span>
+<span class="crayons-tooltip__content" data-testid="tooltip">
+      Like
+    </span>
+</button>
+<button class="actions crayons-btn crayons-btn--ghost crayons-btn--s crayons-btn--icon-left toggle-reply-form mr-1 inline-flex" data-comment-id="1490782" data-path="/aws-builders/aws-s3-files-just-made-transfer-family-sftp-obsolete-for-most-use-cases-4me/comments/36l7k" data-testid="reply-button-1490782" data-tracking-name="comment_reply_button" rel="nofollow">
+<svg aria-labelledby="aafbi9o9ahj0y5tzy1jpls4hgppg3bnf" class="crayons-icon reaction-icon not-reacted" height="24" role="img" width="24" xmlns="http://www.w3.org/2000/svg"><title id="aafbi9o9ahj0y5tzy1jpls4hgppg3bnf">Comment button</title><path d="M10.5 5h3a6 6 0 110 12v2.625c-3.75-1.5-9-3.75-9-8.625a6 6 0 016-6zM12 15.5h1.5a4.501 4.501 0 001.722-8.657A4.5 4.5 0 0013.5 6.5h-3A4.5 4.5 0 006 11c0 2.707 1.846 4.475 6 6.36V15.5z"></path></svg>
+<span class="hidden m:inline-block">Reply</span>
+</button>
+</footer>
+</div>
+</div>
+<details class="comment-wrapper js-comment-wrapper comment-wrapper--deep-1 child" open="">
+<summary aria-label="Toggle this comment (and replies)" data-tracking-name="expand_comment_toggle">
+<span class="mx-0 inline-block align-middle">
+<svg aria-labelledby="a61gjivo7rvcb2lhsauvprvbb9gvuzd5" class="crayons-icon expanded" height="24" role="img" viewbox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><title id="a61gjivo7rvcb2lhsauvprvbb9gvuzd5">Collapse</title>
+<path d="M12 10.677L8 6.935 9 6l3 2.807L15 6l1 .935-4 3.742zm0 4.517L9 18l-1-.935 4-3.742 4 3.742-1 .934-3-2.805z"></path>
+</svg>
+<svg aria-labelledby="af7d983hrblihehk7xcxl55xvtbqn3l6" class="crayons-icon collapsed" height="24" role="img" viewbox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><title id="af7d983hrblihehk7xcxl55xvtbqn3l6">Expand</title>
+<path d="M12 18l-4-3.771 1-.943 3 2.829 3-2.829 1 .943L12 18zm0-10.115l-3 2.829-1-.943L12 6l4 3.771-1 .942-3-2.828z"></path>
+</svg>
+</span>
+<span class="js-collapse-comment-content inline-block align-middle"></span>
+</summary>
+<div class="comment single-comment-node child comment--deep-1" data-comment-author-id="1338515" data-comment-id="1492264" data-content-user-id="1338515" data-path="/aws-builders/aws-s3-files-just-made-transfer-family-sftp-obsolete-for-most-use-cases-4me/comments/36nck" id="comment-node-1492264">
+<a name="comment-36nck" style="position: absolute; top: -8px;"> </a>
+<div class="comment__inner">
+<a class="shrink-0 crayons-avatar mt-4" href="../psantus.html">
+<img alt="psantus profile image" class="crayons-avatar__image" height="32" loading="lazy" src="../cdn/media2.dev.to/dynamic/image/width=50,height=50,fit=cover,gravity=auto,format=auto/https___dev-to-uploads.s3.amazonaws.com_uploads_user_profile_image_1338515_8abdaf33-0c48-4f84-aa29-7a881090986e.jpeg" width="32"/>
+</a>
+<div class="inner-comment comment__details">
+<div class="comment__content crayons-card">
+<div class="comment__header">
+<a class="crayons-link crayons-link--secondary flex items-center fw-medium m:hidden" href="../psantus.html">
+<span class="js-comment-username">
+      Paul SANTUS
+        <span class="c-indicator c-indicator--subtle c-indicator--round c-indicator--relaxed p-1 px-2" title="Member of AWS Community Builders ">
+          AWS Community Builders 
+        </span>
+</span>
+<span class="crayons-hover-tooltip inline-block spec-op-author -mr-2" data-tooltip="Author">
+<svg class="crayons-icon" height="24" role="img" viewbox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+<path d="M12 8.25a6 6 0 110 12 6 6 0 010-12zm0 2.625l-.992 2.01-2.218.322 1.605 1.564-.379 2.21L12 15.937l1.984 1.043-.379-2.209 1.605-1.564-2.218-.323L12 10.875zm.75-6.376l3.75.001v2.25l-1.022.854a7.45 7.45 0 00-2.728-.817V4.5zm-1.5 0v2.288a7.451 7.451 0 00-2.727.816L7.5 6.75V4.5h3.75z"></path>
+</svg>
+</span>
+</a>
+<div class="profile-preview-card relative mb-4 s:mb-0 fw-medium hidden m:block">
+<button aria-controls="comment-profile-preview-content-1492264" aria-label="Paul SANTUS profile details" class="profile-preview-card__trigger p-1 -my-1 -ml-1 crayons-btn crayons-btn--ghost" id="comment-profile-preview-trigger-1492264">
+      Paul SANTUS
+        <span class="c-indicator c-indicator--subtle c-indicator--round c-indicator--relaxed p-1 px-2" title="Member of AWS Community Builders ">
+          AWS Community Builders 
+        </span>
+</button>
+<div class="profile-preview-card__content p-4 pt-0 branded-7 crayons-dropdown" data-repositioning-dropdown="true" data-testid="profile-preview-card" id="comment-profile-preview-content-1492264" style="--card-color: #d16e2b; border-top-color: var(--card-color);">
+<div class="gap-4 grid">
+<div class="-mt-4">
+<a class="flex" href="../psantus.html">
+<span class="crayons-avatar crayons-avatar--xl mr-2 shrink-0">
+<img alt="" class="crayons-avatar__image" loading="lazy" src="../cdn/media2.dev.to/dynamic/image/width=90,height=90,fit=cover,gravity=auto,format=auto/https___dev-to-uploads.s3.amazonaws.com_uploads_user_profile_image_1338515_8abdaf33-0c48-4f84-aa29-7a881090986e.jpeg"/>
+</span>
+<span class="crayons-link crayons-subtitle-2 mt-5">
+      Paul SANTUS
+      
+    </span>
+</a>
+</div>
+<div class="print-hidden">
+<button aria-label="Follow user: Paul SANTUS" aria-pressed="false" class="crayons-btn follow-action-button whitespace-nowrap w-100 follow-user" data-info='{"className":"User","style":"","id":1338515,"name":"Paul SANTUS"}' name="button" type="button">Follow</button>
+</div>
+<div class="color-base-70">
+    Independent consultant • AWS Cloud Architect • Software Architect • I love empowering IT Teams with Agile and DevOps :)
+  </div>
+<div class="user-metadata-details">
+<ul class="user-metadata-details-inner">
+<li>
+<div class="key">
+            Location
+          </div>
+<div class="value">
+            Poitiers, France
+          </div>
+</li>
+<li>
+<div class="key">
+              Work
+            </div>
+<div class="value">
+              Indépendant consultant on all things AWS
+            </div>
+</li>
+<li>
+<div class="key">
+          Joined
+        </div>
+<div class="value">
+<time class="date" datetime="2024-03-08T12:58:20Z">Mar 8, 2024</time>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<span class="crayons-hover-tooltip inline-block spec-op-author -ml-2" data-tooltip="Author">
+<svg class="crayons-icon" height="24" role="img" viewbox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+<path d="M12 8.25a6 6 0 110 12 6 6 0 010-12zm0 2.625l-.992 2.01-2.218.322 1.605 1.564-.379 2.21L12 15.937l1.984 1.043-.379-2.209 1.605-1.564-2.218-.323L12 10.875zm.75-6.376l3.75.001v2.25l-1.022.854a7.45 7.45 0 00-2.728-.817V4.5zm-1.5 0v2.288a7.451 7.451 0 00-2.727.816L7.5 6.75V4.5h3.75z"></path>
+</svg>
+</span>
+</div>
+<span class="color-base-30 px-2 m:pl-0" role="presentation">•</span>
+<a class="comment-date crayons-link crayons-link--secondary fs-s" href="aws-s3-files-just-made-transfer-family-sftp-obsolete-for-most-use-cases-4me.html">
+<time class="date-no-year" datetime="2026-04-14T18:35:43Z">
+    Apr 14
+  </time>
+</a>
+<div class="comment__dropdown" data-tracking-name="comment_dropdown">
+<button aria-controls="comment-dropdown-1492264" aria-expanded="false" aria-haspopup="true" aria-label="Toggle dropdown menu" class="dropbtn comment__dropdown-trigger crayons-btn crayons-btn--s crayons-btn--ghost crayons-btn--icon" id="comment-dropdown-trigger-1492264">
+<svg aria-labelledby="agsgaxu4s0uwegjev5vfd3r6abokw6vm" class="crayons-icon pointer-events-none" height="24" role="img" viewbox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><title id="agsgaxu4s0uwegjev5vfd3r6abokw6vm">Dropdown menu</title>
+<path clip-rule="evenodd" d="M8.25 12a1.5 1.5 0 11-3 0 1.5 1.5 0 013 0zm5.25 0a1.5 1.5 0 11-3 0 1.5 1.5 0 013 0zm3.75 1.5a1.5 1.5 0 100-3 1.5 1.5 0 000 3z" fill-rule="evenodd"></path>
+</svg>
+</button>
+<div class="crayons-dropdown right-1 s:right-0 s:left-auto fs-base dropdown" id="comment-dropdown-1492264">
+<ul class="m-0">
+<li><a aria-label="Copy link to Paul SANTUS's comment" class="crayons-link crayons-link--block permalink-copybtn" data-no-instant="" href="aws-s3-files-just-made-transfer-family-sftp-obsolete-for-most-use-cases-4me.html">Copy link</a></li>
+<li aria-label="Go to Paul SANTUS's comment settings" class="comment-actions hidden" data-action="settings-button" data-path="https://dev.to/psantus/comment/36nck/settings" data-user-id="1338515"></li>
+<li class="comment-actions hidden" data-action="hide-button" data-commentable-user-id="1338515" data-user-id="1338515">
+<button aria-label="Hide Paul SANTUS's comment" class="flex justify-between crayons-link crayons-link--block w-100 bg-transparent border-0 hide-comment" data-comment-id="1492264" data-comment-url="https://dev.to/psantus/comment/36nck" data-hide-type="hide">
+                Hide
+              </button>
+</li>
+<li aria-label="Moderate Paul SANTUS's comment" class="mod-actions hidden mod-actions-comment-button" data-path="https://dev.to/psantus/comment/36nck/mod"></li>
+<li aria-label="Report Paul SANTUS's comment as abusive or violating our code of conduct and/or terms and conditions" class="report-abuse-link-wrapper" data-path="/report-abuse?url=https://dev.to/psantus/comment/36nck"></li>
+<li class="current-user-actions"></li>
+</ul>
+</div>
+</div>
+</div>
+<div class="comment__body text-styles text-styles--secondary body">
+<p>To provide easy horizontal scalability + replacement in case of crash.. </p>
+<p>If your use case doesn't require this, you can of course host on EC2. </p>
+<p>But that could be done before S3 Files (S3 mount / fuse drivers) so I'm not covering this use case, rather focusing on what couldn't be achieved earlier </p>
+</div>
+</div>
+<script>
+</script>
+<footer class="comment__footer print-hidden">
+<button aria-label="like" class="crayons-tooltip__activator relative crayons-btn crayons-btn--ghost crayons-btn--icon-left crayons-btn--s mr-1 reaction-like inline-flex reaction-button" data-comment-id="1492264" data-tracking-name="comment_heart_button" id="button-for-comment-1492264">
+<svg aria-labelledby="akk07hwqyfktbrxhx42mrbzga2a5iqd6" class="crayons-icon reaction-icon not-reacted" height="24" role="img" width="24" xmlns="http://www.w3.org/2000/svg"><title id="akk07hwqyfktbrxhx42mrbzga2a5iqd6">Like comment: </title><path d="M18.884 12.595l.01.011L12 19.5l-6.894-6.894.01-.01A4.875 4.875 0 0112 5.73a4.875 4.875 0 016.884 6.865zM6.431 7.037a3.375 3.375 0 000 4.773L12 17.38l5.569-5.569a3.375 3.375 0 10-4.773-4.773L9.613 10.22l-1.06-1.062 2.371-2.372a3.375 3.375 0 00-4.492.25v.001z"></path></svg>
+<svg aria-labelledby="aclxkc17r1cekgxv6dk4mgewl09zsx23" class="crayons-icon crayons-icon reaction-icon--like reaction-icon reacted" height="24" role="img" viewbox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><title id="aclxkc17r1cekgxv6dk4mgewl09zsx23">Like comment: </title>
+<path d="M5.116 12.595a4.875 4.875 0 015.56-7.68h-.002L7.493 8.098l1.06 1.061 3.181-3.182a4.875 4.875 0 016.895 6.894L12 19.5l-6.894-6.894.01-.01z"></path>
+</svg>
+<span class="reactions-count">1</span><span class="reactions-label hidden m:inline-block"> like</span>
+<span class="crayons-tooltip__content" data-testid="tooltip">
+      Like
+    </span>
+</button>
+<button class="actions crayons-btn crayons-btn--ghost crayons-btn--s crayons-btn--icon-left toggle-reply-form mr-1 inline-flex" data-comment-id="1492264" data-path="/aws-builders/aws-s3-files-just-made-transfer-family-sftp-obsolete-for-most-use-cases-4me/comments/36nck" data-testid="reply-button-1492264" data-tracking-name="comment_reply_button" rel="nofollow">
+<svg aria-labelledby="a1a18kjije6cngh97umfnoy89dwq05yx" class="crayons-icon reaction-icon not-reacted" height="24" role="img" width="24" xmlns="http://www.w3.org/2000/svg"><title id="a1a18kjije6cngh97umfnoy89dwq05yx">Comment button</title><path d="M10.5 5h3a6 6 0 110 12v2.625c-3.75-1.5-9-3.75-9-8.625a6 6 0 016-6zM12 15.5h1.5a4.501 4.501 0 001.722-8.657A4.5 4.5 0 0013.5 6.5h-3A4.5 4.5 0 006 11c0 2.707 1.846 4.475 6 6.36V15.5z"></path></svg>
+<span class="hidden m:inline-block">Reply</span>
+</button>
+</footer>
+</div>
+</div>
+</div>
+</details>
+</div>
+</details>
+</div>
+</div>
+<div class="align-center">
+<nav aria-label="Conduct controls" class="fs-s align-center block">
+<a class="crayons-link crayons-link--secondary" href="../code-of-conduct.html">Code of Conduct</a>
+<span class="opacity-25 px-2" role="presentation">•</span>
+<a class="crayons-link crayons-link--secondary" href="../report-abuse.html">Report abuse</a>
+</nav>
+</div>
+</section>
+<div class="hidden" id="hide-comments-modal">
+<form accept-charset="UTF-8" action="/comments/hide" class="hide-comments-modal__form" data-remote="true" data-type="json" id="hide-comments-modal__form" method="post"><input autocomplete="off" name="utf8" type="hidden" value="✓"/><input autocomplete="off" name="_method" type="hidden" value="patch"/><input autocomplete="off" name="authenticity_token" type="hidden" value="tmOIAaL8Ml-HaCuCw8ky8VZHP1QjtXoYmTWeHZZoKmtzbrGgZUCkl-61AVRxb6qNHoQyJXDoUNn5pDqb0ttqEg"/>
+<div class="hide-comments-modal__content">
+<p class="pb-2">
+        Are you sure you want to hide this comment? It will become hidden in your post, but will still be visible via the comment's <a href="#" id="hide-comments-modal__comment-permalink">permalink</a>.
+      </p>
+<label class="crayons-field crayons-field--checkbox my-2">
+<input autocomplete="off" name="hide_children" type="hidden" value="0"/><input class="hide_children crayons-checkbox" id="hide_children" name="hide_children" type="checkbox" value="1"/>
+<p class="crayons-field__label">Hide child comments as well</p>
+</label>
+<p class="pb-4 pt-2">
+<button class="crayons-btn" type="submit">
+          Confirm
+        </button>
+</p>
+</div>
+</form> <p class="fs-s color-base-60">For further actions, you may consider blocking this person and/or <a href="../report-abuse.html" id="hide-comments-modal__report-link">reporting abuse</a></p>
+</div>
+</article>
+<div class="pb-4 crayons-layout__comments-billboard">
+<div class="new-bb-container pb-4 crayons-layout__comments-billboard" data-async-url="/aws-builders/aws-s3-files-just-made-transfer-family-sftp-obsolete-for-most-use-cases-4me/bmar11/post_comments"></div>
+</div>
+<!-- Bottom content skipped via SKIP_BOTTOM_CONTENT config -->
+</div>
+</main>
+<aside aria-label="Author details" class="crayons-layout__sidebar-right">
+<div class="crayons-article-sticky grid gap-4 pb-4 break-word" id="article-show-primary-sticky-nav">
+<div class="crayons-card crayons-card--secondary branded-7 p-4 pt-0 gap-4 grid" style="border-top-color: #000;">
+<div class="-mt-4">
+<a class="flex" href="../aws-builders.html">
+<span class="crayons-logo crayons-logo--xl mr-2 shrink-0">
+<img alt="" class="crayons-logo__image" loading="lazy" src="../cdn/media2.dev.to/dynamic/image/width=90,height=90,fit=cover,gravity=auto,format=auto/https___dev-to-uploads.s3.amazonaws.com_uploads_organization_profile_image_2794_88da75b6-aadd-4ea1-8083-ae2dfca8be94.png"/>
+</span>
+<span class="crayons-link crayons-subtitle-2 mt-5">
+      AWS Community Builders 
+      
+    </span>
+</a>
+</div>
+<div class="print-hidden">
+<button aria-label="Follow organization: AWS Community Builders " aria-pressed="false" class="crayons-btn follow-action-button whitespace-nowrap w-100" data-info='{"className":"Organization","style":"","id":2794,"name":"AWS Community Builders "}' name="button" type="button">Follow</button>
+</div>
+<div class="color-base-70">
+    Build On!
+  </div>
+<div>
+<p>Would you like to become an AWS Community Builder? Learn more about the program and apply to join when applications are open next.</p>
+</div>
+<div>
+<a class="crayons-btn crayons-btn--outlined w-100" href="https://aws.amazon.com/developer/community/community-builders/">
+        Learn more
+      </a>
+</div>
+</div>
+<div class="crayons-card crayons-card--secondary">
+<header class="crayons-card__header">
+<h3 class="crayons-subtitle-2">
+            More from <a href="../aws-builders.html">AWS Community Builders </a>
+</h3>
+</header>
+<div>
+<a class="crayons-link crayons-link--contentful" href="cut-amazon-bedrock-costs-with-a-3-layer-caching-pipeline-on-aws-lambda-elasticache-1oi.html">
+              Cut Amazon Bedrock Costs with a 3-Layer Caching Pipeline on AWS Lambda + ElastiCache
+              <div class="crayons-link__secondary -ml-1">
+<span class="mr-1"><span class="opacity-50">#</span>ai</span>
+<span class="mr-1"><span class="opacity-50">#</span>aws</span>
+<span class="mr-1"><span class="opacity-50">#</span>awscommunitybuilder</span>
+</div>
+</a>
+<a class="crayons-link crayons-link--contentful" href="aws-agent-registry-a-private-catalog-to-stop-agent-sprawl-c91.html">
+              AWS Agent Registry: a private catalog to stop agent sprawl
+              <div class="crayons-link__secondary -ml-1">
+<span class="mr-1"><span class="opacity-50">#</span>aws</span>
+<span class="mr-1"><span class="opacity-50">#</span>bedrock</span>
+<span class="mr-1"><span class="opacity-50">#</span>agentcore</span>
+<span class="mr-1"><span class="opacity-50">#</span>registry</span>
+</div>
+</a>
+<a class="crayons-link crayons-link--contentful" href="develop-code-for-applications-hosted-on-aws-build-an-order-processing-system-38jc.html">
+              Develop Code for Applications Hosted on AWS | 🏗️ Build An Order Processing System
+              <div class="crayons-link__secondary -ml-1">
+<span class="mr-1"><span class="opacity-50">#</span>aws</span>
+<span class="mr-1"><span class="opacity-50">#</span>certification</span>
+<span class="mr-1"><span class="opacity-50">#</span>cloud</span>
+<span class="mr-1"><span class="opacity-50">#</span>developer</span>
+</div>
+</a>
+</div>
+</div>
+</div>
+<div class="crayons-article-sticky grid gap-4 break-word sidebar-bb" data-async-url="/aws-builders/aws-s3-files-just-made-transfer-family-sftp-obsolete-for-most-use-cases-4me/bmar11/post_sidebar"></div>
+</aside>
+</div>
+<div class="mod-actions-menu print-hidden"></div>
+<div class="unpublish-post-modal-container hidden" data-testid="unpublish-post-modal-container"></div>
+<div class="fullscreen-code js-fullscreen-code"></div>
+<script defer="defer" src="../cdn/assets.dev.to/assets/billboard-365f8f60fc3506e63bc54cc5b0a2e36f4c11024ff6a30dccd5462467f24b5215.js"></script>
+<script defer="defer" src="../cdn/assets.dev.to/assets/localizeArticleDates-70147c5c6bfe350b42e020ebb2a3dd37419d83978982b5a67b6389119bf162ac.js"></script>
+<script defer="defer" src="../cdn/assets.dev.to/assets/articleReactions-1f2220b03b8ee48f0e9196d07b123ad5c5d942328819c33728eab4a4ff83150b.js"></script>
+<script>
+    function activateRunkitTags() {
+  if (!areAnyRunkitTagsPresent())
+    return
+
+  var checkRunkit = setInterval(function() {
+    try {
+      dynamicallyLoadRunkitLibrary()
+
+      if (typeof(RunKit) === 'undefined') {
+        return
+      }
+
+      replaceTagContentsWithRunkitWidget()
+      clearInterval(checkRunkit);
+    } catch(e) {
+      console.error(e);
+      clearInterval(checkRunkit);
+    }
+  }, 200);
+}
+
+function isRunkitTagAlreadyActive(runkitTag) {
+  return runkitTag.querySelector("iframe") !== null;
+};
+
+function areAnyRunkitTagsPresent() {
+  var presentRunkitTags = document.getElementsByClassName("runkit-element");
+
+  return presentRunkitTags.length > 0
+}
+
+function replaceTagContentsWithRunkitWidget() {
+  var targets = document.getElementsByClassName("runkit-element");
+  for (var i = 0; i < targets.length; i++) {
+    if (isRunkitTagAlreadyActive(targets[i])) {
+      continue;
+    }
+
+    var wrapperContent = targets[i].textContent;
+    if (/^(<iframe src)/.test(wrapperContent) === false) {
+      if (targets[i].children.length > 0) {
+        var preamble = targets[i].children[0].textContent;
+        var content = targets[i].children[1].textContent;
+        targets[i].innerHTML = "";
+        var notebook = RunKit.createNotebook({
+          element: targets[i],
+          source: content,
+          preamble: preamble
+        });
+      }
+    }
+  }
+};
+
+function dynamicallyLoadRunkitLibrary() {
+  if (typeof(dynamicallyLoadScript) === "undefined")
+    return
+
+  dynamicallyLoadScript("//embed.runkit.com")
+}
+
+activateRunkitTags();
+
+  </script>
+<div class="js-billboard-container pb-4 crayons-layout__comments-billboard" data-async-url="/aws-builders/aws-s3-files-just-made-transfer-family-sftp-obsolete-for-most-use-cases-4me/bmar11/post_fixed_bottom"></div>
+<div id="runtime-banner-container"></div>
+<div data-translations="{&quot;en&quot;:{&quot;core&quot;:{&quot;add_comment&quot;:&quot;Add comment&quot;,&quot;beta&quot;:&quot;beta&quot;,&quot;comment&quot;:&quot;Comment&quot;,&quot;copy_link&quot;:&quot;Copy link&quot;,&quot;edit_profile&quot;:&quot;Edit profile&quot;,&quot;follow&quot;:&quot;Follow&quot;,&quot;follow_back&quot;:&quot;Follow back&quot;,&quot;following&quot;:&quot;Following&quot;,&quot;like&quot;:&quot;Like&quot;,&quot;loading&quot;:&quot;loading...&quot;,&quot;reaction&quot;:&quot;Reaction&quot;,&quot;report_abuse&quot;:&quot;Report abuse&quot;,&quot;search&quot;:&quot;Search&quot;,&quot;success_settings&quot;:&quot;Successfully updated settings.&quot;,&quot;search_placeholder&quot;:&quot;Search...&quot;,&quot;search_find_related_posts&quot;:&quot;Find related posts...&quot;,&quot;search_powered_by&quot;:&quot;Powered by Algolia&quot;,&quot;search_submit_search&quot;:&quot;Submit search for advanced filtering.&quot;,&quot;search_displaying_recommendations&quot;:&quot;Displaying Algolia Recommendations — Start typing to search&quot;,&quot;article_form_save_changes&quot;:&quot;Save changes&quot;,&quot;article_form_schedule&quot;:&quot;Schedule&quot;,&quot;article_form_publish&quot;:&quot;Publish&quot;,&quot;article_form_loading_preview&quot;:&quot;Loading preview&quot;,&quot;article_form_preview_loaded&quot;:&quot;Preview loaded&quot;,&quot;article_form_co_authors&quot;:&quot;Co-authors&quot;,&quot;article_form_co_authors_description&quot;:&quot;Add up to 4 co-authors from %{org_name}.&quot;,&quot;article_form_co_authors_placeholder&quot;:&quot;Add up to 4...&quot;,&quot;comments_preview&quot;:&quot;Preview&quot;,&quot;comments_continue_editing&quot;:&quot;Continue editing&quot;,&quot;survey_enter_response&quot;:&quot;Enter your response here...&quot;,&quot;survey_thank_you_response&quot;:&quot;Thank you for your response.&quot;,&quot;survey_thank_you_completing&quot;:&quot;Thank you for completing the survey!&quot;,&quot;dashboard_analytics_readers&quot;:&quot;Readers&quot;,&quot;dashboard_analytics_avg_read_time&quot;:&quot;avg. read time %{seconds}s&quot;,&quot;dashboard_analytics_comments&quot;:&quot;Comments&quot;,&quot;dashboard_analytics_reactions&quot;:&quot;Reactions&quot;,&quot;dashboard_analytics_unique_reactors&quot;:&quot;from %{count} unique users&quot;,&quot;dashboard_analytics_bookmarks&quot;:&quot;Bookmarks&quot;,&quot;dashboard_analytics_followers&quot;:&quot;New Followers&quot;,&quot;top_contributors_empty&quot;:&quot;No engagers found for this period.&quot;,&quot;top_contributors_reactions&quot;:&quot;reactions&quot;,&quot;top_contributors_comments&quot;:&quot;comments&quot;,&quot;top_contributors_weight_note&quot;:&quot;Comments carry more weight&quot;,&quot;follower_engagement_ratio&quot;:&quot;%{ratio}% of followers engaged&quot;,&quot;follower_engagement_detail&quot;:&quot;(%{engaged} of %{total})&quot;,&quot;dashboard_analytics_no_data&quot;:&quot;No data available for this period&quot;,&quot;dashboard_analytics_no_referrers&quot;:&quot;No traffic sources yet&quot;,&quot;stats_by&quot;:&quot;by&quot;,&quot;editor_new_title&quot;:&quot;New post title here...&quot;,&quot;editor_body_placeholder&quot;:&quot;Write your post content here...&quot;,&quot;tags_field_label&quot;:&quot;Add up to 4 tags&quot;,&quot;tags_field_placeholder&quot;:&quot;Add up to 4 tags...&quot;,&quot;counted_organization&quot;:{&quot;one&quot;:&quot;%{count} organization&quot;,&quot;other&quot;:&quot;%{count} organizations&quot;},&quot;counted_user&quot;:{&quot;one&quot;:&quot;%{count} person&quot;,&quot;other&quot;:&quot;%{count} people&quot;},&quot;not_following&quot;:&quot;You're not following anyone&quot;,&quot;following_everyone&quot;:&quot;You're following %{details} (everyone)&quot;,&quot;you_are_following&quot;:&quot;You're following&quot;,&quot;and&quot;:&quot;and&quot;}}}" id="i18n-translations"></div>
+</div>
+</div>
+<footer class="crayons-footer print-hidden" id="footer">
+<div class="crayons-footer__container" id="footer-container">
+<style>
+  .long-bb-body {
+    max-height: calc(100vh - 200px);
+    overflow: hidden;
+  }
+  .long-bb-bottom {
+    height: 180px;
+    background: linear-gradient(to top, var(--card-bg), transparent);
+    margin-top: -180px;
+    position:relative;
+    z-index: 5;
+  }
+</style>
+<div data-article-id="" data-category-click="click" data-category-impression="impression" data-context-type="home" data-display-unit="" data-id="146443" data-special="nothing" data-type-of="in_house" style="">
+<div class="crayons-card crayons-card--secondary crayons-bb bb-placement js-billboard" style="display: inline-flex; flex-direction: column; align-items: center; margin: 0 auto 2rem auto; width: fit-content; padding: 2rem;">
+<p style="font-weight: bold; margin: 0 0 1rem 0;">
+            💎 DEV Diamond Sponsors
+        </p>
+<p style="font-size: 0.8em; margin: 0 0 2rem 0;">
+            Thank you to our Diamond Sponsors for supporting the DEV Community
+        </p>
+<div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 2rem;">
+<div style="display: inline-block; max-width: 240px; font-size: 0.8em; font-style: italic; text-align: center; padding: 10px; background: #ffffff; border-radius: 5px; color: #404040;">
+<a href="https://aistudio.google.com/?utm_source=partner&amp;utm_medium=partner&amp;utm_campaign=FY25-Global-DEVpartnership-sponsorship-AIS&amp;utm_content=-&amp;utm_term=-&amp;bb=146443" rel="noopener noreferrer" style="display: flex; justify-content: center; align-items: center;" target="_blank">
+<img alt="Google AI - Official AI Model and Platform Partner" height="472" loading="lazy" src="../cdn/media2.dev.to/dynamic/image/width=880,height=,fit=scale-down,gravity=auto,format=auto/https___dev-to-uploads.s3.amazonaws.com_uploads_articles_xjlyhbdqehj3akhz166w.png" style="display: block; background: #ffffff; margin: 0 auto; width: auto; height: 54px; padding: 10px;" width="2048"/>
+</a>
+<p style="text-align: center;">Google AI is the official AI Model and Platform Partner of DEV</p>
+</div>
+<div style="display: inline-block; max-width: 240px; font-size: 0.8em; font-style: italic; text-align: center; padding: 10px; background: #ffffff; border-radius: 5px; color: #404040;">
+<a href="https://neon.tech/?ref=devto&amp;bb=146443" rel="noopener noreferrer" style="display: flex; justify-content: center; align-items: center;" target="_blank">
+<img alt="Neon - Official Database Partner" height="596" loading="lazy" src="../cdn/media2.dev.to/dynamic/image/width=880,height=,fit=scale-down,gravity=auto,format=auto/https___dev-to-uploads.s3.amazonaws.com_uploads_articles_bnl88cil6afxzmgwrgtt.png" style="display: block; background: #ffffff; margin: 0 auto; width: auto; height: 60px; padding: 10px;" width="2286"/>
+</a>
+<p style="text-align: center;">Neon is the official database partner of DEV</p>
+</div>
+<div style="display: inline-block; max-width: 240px; font-size: 0.8em; font-style: italic; text-align: center; padding: 10px; background: #ffffff; border-radius: 5px; color: #404040;">
+<a href="https://www.algolia.com/developers/?utm_source=devto&amp;utm_medium=referral&amp;bb=146443" rel="noopener noreferrer" style="display: flex; justify-content: center; align-items: center;" target="_blank">
+<img alt="Algolia - Official Search Partner" height="596" loading="lazy" src="../cdn/media2.dev.to/dynamic/image/width=880,height=,fit=scale-down,gravity=auto,format=auto/https___dev-to-uploads.s3.amazonaws.com_uploads_articles_v30ephnolfvnlwgwm0yz.png" style="display: block; background: #ffffff; margin: 0 auto; width: auto; height: 60px; padding: 10px;" width="2286"/>
+</a>
+<p style="text-align: center;">Algolia is the official search partner of DEV</p>
+</div>
+</div>
+</div>
+</div>
+<p class="fs-s crayons-footer__description">
+<a aria-label="DEV Community Home" class="c-link c-link--branded fw-medium" href="../index.html">DEV Community</a> — A space to discuss and keep up software development and manage your software career
+    </p>
+<ul class="footer__nav-links flex gap-2 justify-center flex-wrap fs-s p-0" style=""></ul>
+<li class="footer__nav-link flex items-center">
+<a href="../index.html">
+      Home
+    </a>
+<span class="dot ml-2"></span>
+</li>
+<li class="footer__nav-link flex items-center">
+<a href="../about.html">
+      About
+    </a>
+<span class="dot ml-2"></span>
+</li>
+<li class="footer__nav-link flex items-center">
+<a href="../contact.html">
+      Contact
+    </a>
+<span class="dot ml-2"></span>
+</li>
+<li class="footer__nav-link flex items-center">
+<a href="https://mlh.io/">
+      MLH
+    </a>
+<span class="dot ml-2"></span>
+</li>
+
+<ul class="footer__nav-links flex gap-2 justify-center flex-wrap fs-s p-0" style=""></ul>
+<li class="footer__nav-link flex items-center">
+<a href="../code-of-conduct.html">
+      Code of Conduct
+    </a>
+<span class="dot ml-2"></span>
+</li>
+<li class="footer__nav-link flex items-center">
+<a href="../privacy.html">
+      Privacy Policy
+    </a>
+<span class="dot ml-2"></span>
+</li>
+<li class="footer__nav-link flex items-center">
+<a href="../terms.html">
+      Terms of Use
+    </a>
+<span class="dot ml-2"></span>
+</li>
+
+<div class="fs-s">
+<p>Built on <a class="c-link c-link--branded" href="https://www.forem.com" rel="noopener" target="_blank">Forem</a> — the <a class="c-link c-link--branded" href="../t/opensource.html" rel="noopener" target="_blank">open source</a> software that powers <a class="c-link c-link--branded" href="../index.html" rel="noopener" target="_blank">DEV</a> and other inclusive communities.</p>
+<p>Made with love and <a class="c-link c-link--branded" href="../t/rails.html" rel="noopener" target="_blank">Ruby on Rails</a>. DEV Community <span title="copyright">©</span> 2016 - 2026.</p>
+</div>
+</div>
+</footer>
+<div id="snack-zone"></div>
+<div class="authentication-modal hidden" id="global-signup-modal">
+<div class="authentication-modal__container">
+<figure class="authentication-modal__image-container">
+<img alt="DEV Community" class="authentication-modal__image" loading="lazy" src="../cdn/media2.dev.to/dynamic/image/width=190,height=,fit=scale-down,gravity=auto,format=auto/https___dev-to-uploads.s3.amazonaws.com_uploads_articles_8j7kvp660rqzt99zui8e.png">
+</img></figure>
+<div class="authentication-modal__content">
+<p class="authentication-modal__description">
+          We're a place where coders share, stay up-to-date and grow their careers.
+      </p>
+</div>
+<div class="authentication-modal__actions">
+<a aria-label="Log in" class="crayons-btn" data-no-instant="" href="../enter-q7ffd52de7b.html">
+        Log in
+      </a>
+<a aria-label="Create new account" class="crayons-btn crayons-btn--ghost-brand js-global-signup-modal__create-account" data-no-instant="" href="../enter-qfc40b94913.html">
+        Create account
+      </a>
+</div>
+</div>
+</div>
+<script defer="defer" src="../cdn/assets.dev.to/assets/signupModalShortcuts-0b25469b985100a01e94cbd7fccaf7f0a4d776e129aac65c766aa32cb28ab29a.js"></script>
+<div id="cookie-consent"></div>
+<div aria-hidden="true" class="hidden" id="reaction-category-resources">
+<img data-name="Like" data-position="1" data-slug="like" height="18" src="../cdn/assets.dev.to/assets/sparkle-heart-5f9bee3767e18deb1bb725290cb151c25234768a0e9a2bd39370c382d02920cf.svg" width="18">
+<img data-name="Unicorn" data-position="2" data-slug="unicorn" height="18" src="../cdn/assets.dev.to/assets/multi-unicorn-b44d6f8c23cdd00964192bedc38af3e82463978aa611b4365bd33a0f1f4f3e97.svg" width="18">
+<img data-name="Exploding Head" data-position="3" data-slug="exploding_head" height="18" src="../cdn/assets.dev.to/assets/exploding-head-daceb38d627e6ae9b730f36a1e390fca556a4289d5a41abb2c35068ad3e2c4b5.svg" width="18"/>
+<img data-name="Raised Hands" data-position="4" data-slug="raised_hands" height="18" src="../cdn/assets.dev.to/assets/raised-hands-74b2099fd66a39f2d7eed9305ee0f4553df0eb7b4f11b01b6b1b499973048fe5.svg" width="18"/>
+<img data-name="Fire" data-position="5" data-slug="fire" height="18" src="../cdn/assets.dev.to/assets/fire-f60e7a582391810302117f987b22a8ef04a2fe0df7e3258a5f49332df1cec71e.svg" width="18"/>
+</img></img></div>
+<script>
+  var userSignedIn = false;
+  if (document.readyState === 'complete' || document.readyState === 'interactive') {
+    initAuth();
+  } else {
+    document.addEventListener('DOMContentLoaded', initAuth);
+  }
+
+  function initAuth() {
+    var paramToken = new URLSearchParams(window.location.search).get('jwt');
+
+    if (paramToken && !userSignedIn) {
+      authenticateUser(paramToken);
+    } else {
+      var iframe = document.createElement('iframe');
+      iframe.style.display = 'none';
+      iframe.src = 'https://forem.com/auth_pass/iframe';
+  
+      document.body.appendChild(iframe);
+  
+      window.addEventListener('message', function(event) {
+        if (event.origin !== 'https://forem.com' && event.origin !== window.location.origin) {
+          return;
+        }
+  
+        var data = event.data;
+  
+        if (data.authenticated && !userSignedIn) {
+          authenticateUser(data.token);
+        } else if(data.authenticated && window.ReactNativeWebView && window.ReactNativeWebView.postMessage) {
+          window.ReactNativeWebView.postMessage(JSON.stringify({
+            action: 'login',
+            token: data.token,
+          }));
+        }
+      });  
+    }
+
+    function authenticateUser(token) {
+      fetch('/auth_pass/token_login', {
+        method: 'POST',
+        credentials: 'include',
+        headers: {
+          'Content-Type': 'application/json',
+          'X-CSRF-Token': getMetaContent('csrf-token'),
+        },
+        body: JSON.stringify({ token: token }),
+      })
+      .then(function(response) {
+        return response.json();
+      })
+      .then(function(data) {
+        if (data.success) {
+          if (document.head.querySelector('meta[name="user-signed-in"][content="false"]')) {
+            // Reload the page to update the user's state
+            location.reload();
+          }
+        }
+      })
+      .catch(function(error) {
+        console.error('Error during authentication:', error);
+      });
+    }
+
+    function getMetaContent(name) {
+      var element = document.querySelector('meta[name="' + name + '"]');
+      return element ? element.getAttribute('content') : '';
+    }
+  }
+</script>
+</link></body>
+</html>

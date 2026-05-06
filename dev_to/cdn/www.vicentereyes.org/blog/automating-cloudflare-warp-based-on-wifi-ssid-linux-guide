@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+      <title>Automating Cloudflare WARP Based on WiFi SSID (Linux Guide)</title>
+      <meta name="description" content="Freelance Full-Stack Developer specializing in Django, React, and Shopify. Audio Engineer and Digital Creative based in the Philippines. Building digital experiences that SLAP.">
+      <meta property="og:title" content="Automating Cloudflare WARP Based on WiFi SSID (Linux Guide)">
+      <meta property="og:description" content="Freelance Full-Stack Developer specializing in Django, React, and Shopify. Audio Engineer and Digital Creative based in the Philippines. Building digital experiences that SLAP.">
+      <meta property="og:image" content="https://cdn.hashnode.com/uploads/covers/5f95116240346172a86c20c6/6bb7d31a-9f88-478b-84cb-9d94f8f51d5e.png">
+      <meta property="og:type" content="website">
+      <meta property="og:url" content="https://www.vicentereyes.org/blog/automating-cloudflare-warp-based-on-wifi-ssid-linux-guide">
+      <meta name="twitter:card" content="summary_large_image">
+      <meta name="twitter:title" content="Automating Cloudflare WARP Based on WiFi SSID (Linux Guide)">
+      <meta name="twitter:description" content="Freelance Full-Stack Developer specializing in Django, React, and Shopify. Audio Engineer and Digital Creative based in the Philippines. Building digital experiences that SLAP.">
+      <meta name="twitter:image" content="https://cdn.hashnode.com/uploads/covers/5f95116240346172a86c20c6/6bb7d31a-9f88-478b-84cb-9d94f8f51d5e.png">
+    
+  <meta charset="UTF-8" />
+  <link rel="icon" type="image/x-icon" href="/assets/favicon-B8fnmPTF.ico">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description"
+    content="Vicente Reyes - Freelance Full-Stack Developer specializing in Django, React, and Shopify. Audio Engineer and Digital Creative based in the Philippines. Building digital experiences that SLAP." />
+  <meta name="keywords"
+    content="Full-Stack Developer, Django, React, Shopify & WordPress Expert, Web Development, Audio Engineer, Philippines" />
+  <meta name="author" content="Vicente Reyes" />
+  <link rel="alternate" type="application/rss+xml" title="Vicente Reyes - Blog RSS Feed" href="/rss.xml" />
+
+  <!-- Open Graph / Social Media -->
+  
+  
+  <meta property="og:description"
+    content="Freelance Full-Stack Developer specializing in Django, React, and Shopify. Building digital experiences that SLAP." />
+  
+  
+
+  <!-- Twitter Card -->
+  
+  
+  <meta name="twitter:description"
+    content="Freelance Full-Stack Developer specializing in Django, React, and Shopify. Building digital experiences that SLAP." />
+  
+
+  
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;700&family=Syne:wght@400;700;800&display=swap"
+    rel="stylesheet">
+
+  <!-- Google Tag Manager -->
+  <script>(function (w, d, s, l, i) {
+      w[l] = w[l] || []; w[l].push({
+        'gtm.start':
+          new Date().getTime(), event: 'gtm.js'
+      }); var f = d.getElementsByTagName(s)[0],
+        j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
+          'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
+    })(window, document, 'script', 'dataLayer', 'GTM-NMXQHK45');</script>
+  <!-- End Google Tag Manager -->
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-VEM56ZPRFZ"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+    // Send_page_view: false because the React Router will handle route changes manually
+    gtag('config', 'G-VEM56ZPRFZ', { send_page_view: false });
+  </script>
+
+
+  <script type="importmap">
+{
+  "imports": {
+    "vite": "https://aistudiocdn.com/vite@^7.2.6",
+    "react-dom/": "https://aistudiocdn.com/react-dom@^19.2.0/",
+    "framer-motion": "https://aistudiocdn.com/framer-motion@^12.23.25",
+    "react-intersection-observer": "https://aistudiocdn.com/react-intersection-observer@^10.0.0",
+    "@vitejs/plugin-react": "https://aistudiocdn.com/@vitejs/plugin-react@^5.1.1",
+    "lucide-react": "https://aistudiocdn.com/lucide-react@^0.555.0",
+    "react/": "https://aistudiocdn.com/react@^19.2.0/",
+    "react": "https://aistudiocdn.com/react@^19.2.0",
+    "react-countup": "https://aistudiocdn.com/react-countup@^6.5.3",
+    "@google/genai": "https://esm.sh/@google/genai@^1.34.0"
+  }
+}
+</script>
+  <script type="module" crossorigin src="/assets/index-DNEDfItF.js"></script>
+  <link rel="stylesheet" crossorigin href="/assets/index-vQpVGvYi.css">
+</head>
+
+<body class="bg-neo-offwhite dark:bg-neo-black text-neo-black dark:text-neo-offwhite transition-colors duration-300">
+  <!-- Google Tag Manager (noscript) -->
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NMXQHK45" height="0" width="0"
+      style="display:none;visibility:hidden"></iframe></noscript>
+  <!-- End Google Tag Manager (noscript) -->
+  <div id="root"></div>
+</body>
+
+</html>

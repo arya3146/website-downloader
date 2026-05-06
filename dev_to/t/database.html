@@ -1,0 +1,2252 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<title>Database - DEV Community</title>
+<link href="https://dev.to/t/database" rel="canonical"/>
+<meta content="database content on DEV Community" name="description"/>
+<meta content="software development, engineering, database" name="keywords"/>
+<meta content="website" property="og:type">
+<meta content="https://dev.to/t/database" property="og:url">
+<meta content="Database" property="og:title">
+<meta content="Database content on DEV Community" property="og:description"/>
+<meta content="DEV Community" property="og:site_name"/>
+<meta content="@thepracticaldev" name="twitter:site"/>
+<meta content="@Database" name="twitter:creator"/>
+<meta content="Database" name="twitter:title"/>
+<meta content="Database content on DEV Community" name="twitter:description"/>
+<meta content="summary_large_image" name="twitter:card"/>
+<meta content="../cdn/dev-to-uploads.s3.amazonaws.com/uploads/articles/3otvb2z646ytpt1hl2rv.jpg" property="og:image"/>
+<meta content="../cdn/dev-to-uploads.s3.amazonaws.com/uploads/articles/3otvb2z646ytpt1hl2rv.jpg" name="twitter:image:src"/>
+<meta content="2026-05-06 15:37:05 UTC" name="last-updated"/>
+<meta content="false" name="user-signed-in"/>
+<meta content="1778081825" name="head-cached-at"/>
+<meta content="production" name="environment"/>
+<link href="../cdn/assets.dev.to/assets/minimal-2213124ac5505ccdbf3c4eb62fd70ecda26cb75ed6de931633992a7bac437c81.css" id="main-minimal-stylesheet" media="all" rel="stylesheet"/>
+<link href="../cdn/assets.dev.to/assets/views-0681ac17bf1546793c4b7ef7c615b2defec919060aefb3b9c287471e8cb77bf2.css" id="main-views-stylesheet" media="all" rel="stylesheet"/>
+<link href="../cdn/assets.dev.to/assets/crayons-d2b52af1d86a9ac9a8bc215ed34ffad7a94af68f4abd1cdcae2a8c1a4385cd23.css" id="main-crayons-stylesheet" media="all" rel="stylesheet"/>
+<script defer="defer" src="../cdn/assets.dev.to/assets/base-0c748bbcdc30041261c326ef2ce931fbce46c58bc3c488da881ae35c4750941d.js"></script>
+<script defer="defer" src="../cdn/assets.dev.to/assets/application-0b268684912bef9b0f23defff01cb608bfc5d5e5610287725e7b686139ae32d3.js"></script>
+<script defer="defer" src="../cdn/assets.dev.to/assets/baseInitializers-2f0777a6d67046056f9f42665560ce072de3801292674358ddbad6e135c1891d.js"></script>
+<script defer="defer" src="../cdn/assets.dev.to/assets/baseTracking-90c1c7b9b4f617aa0f900eadaf0ccbdbc2a002f12c1e1ada7da039c823601b14.js"></script>
+<script defer="defer" src="../cdn/assets.dev.to/assets/followButtons-e3595664847e9f43945a9b8a0445b32cda9a149f1f169f78b8fcc7714ccab45a.js"></script>
+<meta content="https://assets.dev.to/assets/Search-b977aea0f2d7a5818b4ebd97f7d4aba8548099f84f5db5761f8fa67be76abc54.js" name="search-script"/>
+<meta content="width=device-width, initial-scale=1.0, viewport-fit=cover" name="viewport"/>
+<link href="../cdn/media2.dev.to/dynamic/image/width=32,height=,fit=scale-down,gravity=auto,format=auto/https___dev-to-uploads.s3.amazonaws.com_uploads_articles_8j7kvp660rqzt99zui8e.png" rel="icon" type="image/x-icon"/>
+<link href="../cdn/media2.dev.to/dynamic/image/width=180,height=,fit=scale-down,gravity=auto,format=auto/https___dev-to-uploads.s3.amazonaws.com_uploads_articles_8j7kvp660rqzt99zui8e.png" rel="apple-touch-icon"/>
+<link href="../cdn/media2.dev.to/dynamic/image/width=152,height=,fit=scale-down,gravity=auto,format=auto/https___dev-to-uploads.s3.amazonaws.com_uploads_articles_8j7kvp660rqzt99zui8e.png" rel="apple-touch-icon" sizes="152x152"/>
+<link href="../cdn/media2.dev.to/dynamic/image/width=180,height=,fit=scale-down,gravity=auto,format=auto/https___dev-to-uploads.s3.amazonaws.com_uploads_articles_8j7kvp660rqzt99zui8e.png" rel="apple-touch-icon" sizes="180x180"/>
+<link href="../cdn/media2.dev.to/dynamic/image/width=167,height=,fit=scale-down,gravity=auto,format=auto/https___dev-to-uploads.s3.amazonaws.com_uploads_articles_8j7kvp660rqzt99zui8e.png" rel="apple-touch-icon" sizes="167x167"/>
+<link href="../cdn/media2.dev.to/dynamic/image/width=192,height=,fit=scale-down,gravity=auto,format=auto/https___dev-to-uploads.s3.amazonaws.com_uploads_articles_8j7kvp660rqzt99zui8e.png" rel="icon" sizes="192x192">
+<link href="../cdn/media2.dev.to/dynamic/image/width=128,height=,fit=scale-down,gravity=auto,format=auto/https___dev-to-uploads.s3.amazonaws.com_uploads_articles_8j7kvp660rqzt99zui8e.png" rel="icon" sizes="128x128">
+<meta content="dev.to" name="apple-mobile-web-app-title"/>
+<meta content="dev.to" name="application-name"/>
+<meta content="#ffffff" media="(prefers-color-scheme: light)" name="theme-color"/>
+<meta content="#000000" media="(prefers-color-scheme: dark)" name="theme-color"/>
+<link href="https://dev.to/open-search.xml" rel="search" title="DEV Community" type="application/opensearchdescription+xml">
+<meta content="DEV Community" property="forem:name">
+<meta content="https://media2.dev.to/dynamic/image/width=512,height=,fit=scale-down,gravity=auto,format=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Farticles%2F8j7kvp660rqzt99zui8e.png" property="forem:logo">
+<meta content="dev.to" property="forem:domain">
+<style>
+/* ==========================================================================
+   THE 418 CHALLENGE: THEME-AWARE RETRO EDITION
+   ========================================================================== */
+
+.articletag-418challenge {
+  font-family: "Comic Sans MS", "Chalkboard SE", "Marker Felt", sans-serif !important;
+  cursor: crosshair !important;
+}
+
+/* Destroy modern rounded corners and add brutal borders */
+.articletag-418challenge .crayons-card,
+.articletag-418challenge .crayons-article__main,
+.articletag-418challenge .crayons-article__header {
+  border-radius: 0 !important;
+  margin-bottom: 2rem !important;
+}
+
+/* Typography specifics */
+.articletag-418challenge h1,
+.articletag-418challenge h2,
+.articletag-418challenge h3 {
+  text-transform: uppercase !important;
+}
+
+/* Fake <marquee> effect for the main article title */
+.articletag-418challenge h1.fs-3xl {
+  animation: retro-slide 5s linear infinite alternate;
+  overflow: visible;
+}
+
+/* Spin those avatars */
+.articletag-418challenge .crayons-article__header__meta img {
+  border-radius: 0 !important; 
+  animation: retro-spin 5s linear infinite;
+}
+
+/* Obnoxious tags */
+.articletag-418challenge .crayons-tag {
+  border-radius: 0 !important;
+  font-weight: 900 !important;
+  transform: rotate(-3deg);
+  display: inline-block;
+}
+.articletag-418challenge .crayons-tag:nth-child(even) {
+  transform: rotate(3deg);
+}
+
+/* --------------------------------------------------------------------------
+   2. LIGHT THEME (Windows 95 / Office 97 Vibes)
+   -------------------------------------------------------------------------- */
+body:not(.dark-theme) .articletag-418challenge {
+  background-color: #008080 !important; /* Win95 Teal Desktop */
+}
+
+body:not(.dark-theme) .articletag-418challenge .crayons-card,
+body:not(.dark-theme) .articletag-418challenge .crayons-article__main,
+body:not(.dark-theme) .articletag-418challenge .crayons-article__header {
+  background-color: #c0c0c0 !important; /* Classic dialog gray */
+  color: #000000 !important;
+  border: 4px outset #ffffff !important;
+  box-shadow: 8px 8px 0px #000000 !important;
+}
+
+body:not(.dark-theme) .articletag-418challenge h1,
+body:not(.dark-theme) .articletag-418challenge h2,
+body:not(.dark-theme) .articletag-418challenge h3 {
+  color: #ff0000 !important;
+  text-shadow: 2px 2px 0px #ffff00 !important;
+  border-bottom: 3px dashed #0000ff !important;
+}
+
+body:not(.dark-theme) .articletag-418challenge a,
+body:not(.dark-theme) .articletag-418challenge .crayons-link {
+  color: #0000ff !important; /* Standard unvisited blue */
+  text-decoration: underline !important;
+  font-weight: bold !important;
+}
+
+body:not(.dark-theme) .articletag-418challenge a:hover,
+body:not(.dark-theme) .articletag-418challenge .crayons-link:hover {
+  background-color: #ffff00 !important;
+  color: #ff0000 !important;
+}
+
+body:not(.dark-theme) .articletag-418challenge .crayons-tag {
+  background: #ffff00 !important;
+  color: #ff0000 !important;
+  border: 2px dotted #0000ff !important;
+}
+
+/* --------------------------------------------------------------------------
+   3. DARK THEME (1999 Hacker / Deep GeoCities Vibes)
+   -------------------------------------------------------------------------- */
+body.dark-theme .articletag-418challenge {
+  background-color: #000000 !important;
+  /* Dumb CSS: A scrolling, eye-bleeding neon green hacker grid with CRT scanlines */
+  background-image: 
+    linear-gradient(transparent 50%, rgba(0, 255, 0, 0.25) 50%), 
+    linear-gradient(90deg, rgba(0, 255, 0, 0.5) 1px, transparent 1px), 
+    linear-gradient(rgba(0, 255, 0, 0.5) 1px, transparent 1px) !important;
+  background-size: 100% 4px, 20px 20px, 20px 20px !important;
+  animation: retro-pan 60s linear infinite !important;
+}
+
+body.dark-theme .articletag-418challenge .crayons-card,
+body.dark-theme .articletag-418challenge .crayons-article__main,
+body.dark-theme .articletag-418challenge .crayons-article__header {
+  background-color: #111111 !important;
+  color: #00ff00 !important; /* Terminal Green */
+  border: 4px outset #555555 !important;
+  box-shadow: 8px 8px 0px #ff00ff !important; /* Hot pink shadow */
+}
+
+body.dark-theme .articletag-418challenge h1,
+body.dark-theme .articletag-418challenge h2,
+body.dark-theme .articletag-418challenge h3 {
+  color: #ff00ff !important; /* Magenta headers */
+  text-shadow: 2px 2px 0px #00ffff !important; /* Cyan shadow */
+  border-bottom: 3px dashed #00ff00 !important;
+}
+
+body.dark-theme .articletag-418challenge a,
+body.dark-theme .articletag-418challenge .crayons-link {
+  color: #00ffff !important; /* Cyan links */
+  text-decoration: underline !important;
+  font-weight: bold !important;
+}
+
+body.dark-theme .articletag-418challenge a:hover,
+body.dark-theme .articletag-418challenge .crayons-link:hover {
+  background-color: #ff00ff !important;
+  color: #ffffff !important;
+}
+
+body.dark-theme .articletag-418challenge .crayons-tag {
+  background: #000000 !important;
+  color: #00ff00 !important;
+  border: 2px dotted #ff00ff !important;
+}
+
+/* --------------------------------------------------------------------------
+   4. ANIMATIONS
+   -------------------------------------------------------------------------- */
+@keyframes retro-spin {
+  100% { transform: rotate(360deg); }
+}
+
+@keyframes retro-slide {
+  0% { transform: translateX(-2%); }
+  100% { transform: translateX(2%); }
+}
+
+@keyframes retro-pan {
+  0% { background-position: 0 0, 0 0, 0 0; }
+  /* Numbers must be multiples of the background-size (4px and 20px) to loop perfectly */
+  100% { background-position: 0 100px, 40px 40px, 40px 40px; }
+}
+
+/* --------------------------------------------------------------------------
+   5. BONUS: CAUTION TAPE REACTION BAR
+   -------------------------------------------------------------------------- */
+.articletag-418challenge .crayons-article-actions {
+  background: repeating-linear-gradient(
+    45deg,
+    #ffff00,
+    #ffff00 10px,
+    #000000 10px,
+    #000000 20px
+  ) !important;
+  border: 4px solid #ff0000 !important;
+  border-radius: 0 !important;
+}
+
+.articletag-418challenge .crayons-article-actions button {
+  background:black;
+  color: #ff00ff !important;
+}
+
+.articletag-418challenge .crayons-article-actions .crayons-reaction__count {
+    color: #ff00ff !important;
+    font-weight: bold !important;
+}
+
+.articletag-418challenge .crayons-icon:not(.crayons-icon--default) * {
+    fill: #ffff00 !important;
+}
+
+.articletag-418challenge .c-embed .crayons-btn--primary {
+  color: #00ff00 !important;
+}
+
+.articletag-418challenge .popover-billboard {
+margin-bottom: 0 !important;
+}
+
+.crayons-story__contentpreview .ltag__link--embedded {
+margin-top: 0 !important;
+}
+
+.subscription-icon {
+    max-height: 16px !important;
+    display: inline-block !important;
+}
+
+@media screen and (min-width: 950px) {
+    .event-show-layout {
+        margin-top: 24px !important;
+    }
+}
+
+@media screen and (max-width: 949px) {
+    .event-show-layout {
+        padding: 11px !important;
+    }
+}
+
+
+</style>
+</meta></meta></meta></link></link></link></meta></meta></meta></head>
+<body class="sans-serif-article-body default-header" data-algolia-display="true" data-algolia-id="PRSOBFP46H" data-algolia-search-key="9aa7d31610cba78851c9b1f63776a9dd" data-community-name="DEV Community" data-cookie-banner-platform-context="off" data-cookie-banner-user-context="logged_out_only" data-deployed-at="2026-05-05T19:04:15Z" data-dynamic-url-component="bmar11" data-ga-tracking="UA-71991109-1" data-ga4-tracking-id="G-TYEM8Y3JN3" data-honeybadger-key="hbp_nqu4Y66HuEKlD6YRGssZuRQnPOjDm50J8Zkr" data-is-root-subforem="false" data-latest-commit-id="99141cc1f10837f83a0dcd05003c5e711ec877ac" data-locale="en" data-side-nav-visible="true" data-subforem-id="1" data-subscription-icon="https://assets.dev.to/assets/subscription-icon-805dfa7ac7dd660f07ed8d654877270825b07a92a03841aa99a1093bd00431b2.png" data-user-status="logged-out">
+<script>
+        if (navigator.userAgent === 'ForemWebView/1' || window.frameElement) {
+          document.body.classList.add("hidden-shell");
+        }
+          if (new Date() > new Date("2026-02-04T09:00:00-05:00")) {
+            document.body.dataset.sideNavVisible = "false";
+          } 
+      </script>
+<link href="../cdn/assets.dev.to/assets/minimal-2213124ac5505ccdbf3c4eb62fd70ecda26cb75ed6de931633992a7bac437c81.css" id="secondary-minimal-stylesheet" media="all" rel="stylesheet">
+<link href="../cdn/assets.dev.to/assets/views-0681ac17bf1546793c4b7ef7c615b2defec919060aefb3b9c287471e8cb77bf2.css" id="secondary-views-stylesheet" media="all" rel="stylesheet"/>
+<link href="../cdn/assets.dev.to/assets/crayons-d2b52af1d86a9ac9a8bc215ed34ffad7a94af68f4abd1cdcae2a8c1a4385cd23.css" id="secondary-crayons-stylesheet" media="all" rel="stylesheet"/>
+<div id="body-styles">
+<style>
+          :root {
+            --accent-brand-lighter-rgb: 86, 105, 285;
+            --accent-brand-rgb: 64, 78, 211;
+            --accent-brand-darker-rgb: 51, 62, 169;
+          }
+        </style>
+</div>
+<div data-podcast="" id="audiocontent">
+</div>
+<div class="navigation-progress" id="navigation-progress"></div>
+<header class="crayons-header topbar print-hidden" id="topbar">
+<span id="route-change-target" tabindex="-1"></span>
+<a class="skip-content-link" href="#main-content">Skip to content</a>
+<div class="crayons-header__container">
+<span class="inline-block m:hidden">
+<button class="c-btn c-btn--icon-alone js-hamburger-trigger mx-2">
+<svg aria-labelledby="ajptkv0d5t8v1q4ovv5d7bgond5zuopr" class="crayons-icon" height="24" role="img" viewbox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><title id="ajptkv0d5t8v1q4ovv5d7bgond5zuopr">Navigation menu</title>
+<path d="M3 4h18v2H3V4zm0 7h18v2H3v-2zm0 7h18v2H3v-2z"></path>
+</svg>
+</button>
+</span>
+<a aria-label="DEV Community Home" class="site-logo" href="../index.html">
+<img alt="DEV Community" class="site-logo__img" src="../cdn/media2.dev.to/dynamic/image/quality=100/https_/dev-to-uploads.s3.amazonaws.com/uploads/logos/resized_logo_UQww2soKuUsjaOGNB38o.png" style="aspect-ratio: 10 / 8"/>
+</a>
+<div class="crayons-header--search js-search-form" id="header-search">
+<form accept-charset="UTF-8" action="/search" method="get" role="search">
+<div class="crayons-fields crayons-fields--horizontal">
+<div class="crayons-field flex-1 relative">
+<input autocomplete="off" class="crayons-header--search-input crayons-textfield js-search-input" id="nav-search" name="q" placeholder="Search..." type="text"/>
+<button aria-label="Search" class="c-btn c-btn--icon-alone absolute inset-px right-auto mt-0 py-0" type="submit">
+<svg aria-hidden="true" aria-labelledby="aii7yjhtv79wctkwdt9p3kjw5tqdkniy" class="crayons-icon" height="24" role="img" viewbox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><title id="aii7yjhtv79wctkwdt9p3kjw5tqdkniy">Search</title>
+<path d="M18.031 16.617l4.283 4.282-1.415 1.415-4.282-4.283A8.96 8.96 0 0111 20c-4.968 0-9-4.032-9-9s4.032-9 9-9 9 4.032 9 9a8.96 8.96 0 01-1.969 5.617zm-2.006-.742A6.977 6.977 0 0018 11c0-3.868-3.133-7-7-7-3.868 0-7 3.132-7 7 0 3.867 3.132 7 7 7a6.977 6.977 0 004.875-1.975l.15-.15z"></path>
+</svg>
+</button>
+<a class="crayons-header--search-brand-indicator" href="https://www.algolia.com/developers/?utm_source=devto&amp;utm_medium=referral" rel="noopener noreferrer" target="_blank">
+                Powered by Algolia
+                <svg aria-hidden="true" aria-labelledby="a5gxrxw2ixpo3qmaomk393eex1p95gu3" class="crayons-icon" height="24" id="Layer_1" role="img" viewbox="0 0 500 500.34" width="24" xmlns="http://www.w3.org/2000/svg"><title id="a5gxrxw2ixpo3qmaomk393eex1p95gu3">Search</title>
+<defs></defs><path class="cls-1" d="M250,0C113.38,0,2,110.16,.03,246.32c-2,138.29,110.19,252.87,248.49,253.67,42.71,.25,83.85-10.2,120.38-30.05,3.56-1.93,4.11-6.83,1.08-9.52l-23.39-20.74c-4.75-4.22-11.52-5.41-17.37-2.92-25.5,10.85-53.21,16.39-81.76,16.04-111.75-1.37-202.04-94.35-200.26-206.1,1.76-110.33,92.06-199.55,202.8-199.55h202.83V407.68l-115.08-102.25c-3.72-3.31-9.43-2.66-12.43,1.31-18.47,24.46-48.56,39.67-81.98,37.36-46.36-3.2-83.92-40.52-87.4-86.86-4.15-55.28,39.65-101.58,94.07-101.58,49.21,0,89.74,37.88,93.97,86.01,.38,4.28,2.31,8.28,5.53,11.13l29.97,26.57c3.4,3.01,8.8,1.17,9.63-3.3,2.16-11.55,2.92-23.6,2.07-35.95-4.83-70.39-61.84-127.01-132.26-131.35-80.73-4.98-148.23,58.18-150.37,137.35-2.09,77.15,61.12,143.66,138.28,145.36,32.21,.71,62.07-9.42,86.2-26.97l150.36,133.29c6.45,5.71,16.62,1.14,16.62-7.48V9.49C500,4.25,495.75,0,490.51,0H250Z"></path>
+</svg>
+</a>
+</div>
+</div>
+</form>
+</div>
+<div class="flex items-center h-100 ml-auto">
+<div class="flex" id="authentication-top-nav-actions">
+<span class="hidden m:block">
+<a class="c-link c-link--block mr-2 whitespace-nowrap ml-auto" data-no-instant="" href="../enter-q7ffd52de7b.html">
+              Log in
+            </a>
+</span>
+<a class="c-cta c-cta--branded whitespace-nowrap mr-2" data-no-instant="" data-tracking-id="ca_top_nav" data-tracking-source="top_navbar" href="../enter-qfc40b94913.html">
+            Create account
+          </a>
+</div>
+</div>
+</div>
+</header>
+<div class="hamburger">
+<div class="hamburger__content">
+<header class="hamburger__content__header">
+<h2 class="fs-l fw-bold flex-1 break-word lh-tight">DEV Community</h2>
+<button aria-label="Close" class="c-btn c-btn--icon-alone js-hamburger-trigger shrink-0">
+<svg aria-hidden="true" aria-labelledby="alpgnp4wr0x4qm4ors6f2p6epi3twsjf" class="crayons-icon c-btn__icon" height="24" role="img" viewbox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><title id="alpgnp4wr0x4qm4ors6f2p6epi3twsjf">Close</title><path d="M12 10.586l4.95-4.95 1.414 1.414-4.95 4.95 4.95 4.95-1.414 1.414-4.95-4.95-4.95 4.95-1.414-1.414 4.95-4.95-4.95-4.95L7.05 5.636l4.95 4.95z"></path></svg>
+</button>
+</header>
+<div class="p-2 js-navigation-links-container" id="authentication-hamburger-actions">
+</div>
+</div>
+<div class="hamburger__overlay js-hamburger-trigger"></div>
+</div>
+<div class="broadcast-wrapper" id="active-broadcast"></div>
+<div class="wrapper tagged_articles tagged_articles-index" data-current-page="tagged_articles-index" id="page-content">
+<div data-internal-nav="false" data-viewable-id="" data-viewable-type="" id="page-content-inner">
+<div aria-atomic="true" aria-live="polite" class="screen-reader-only" id="page-route-change"></div>
+<div class="crayons-layout js-tag-card" data-tag-id="439" data-tag-name="database" id="tag-439">
+<header class="crayons-card branded-4 p-4 l:p-6 spec__tag-header" style="border-top-color: #ED1556 ">
+<div class="flex">
+<div class="flex flex-col w-100 justify-center">
+<div class="flex justify-between items-center">
+<h1 class="crayons-title">
+              Database
+          </h1>
+<div class="mt-auto flex items-end justify-between" id="tag-buttons-439">
+<div class="flex gap-2">
+<button aria-label="Follow tag: database" class="c-btn c-btn--primary js-follow-tag-button">
+                  Follow
+                </button>
+<button aria-label="Hide tag: database" class="c-btn js-hide-tag-button">
+                  Hide
+                </button>
+</div>
+</div>
+</div>
+<p class="max-w-100 m:max-w-75 pt-2 s:pt-4">
+            Posts on building, using, and learning about databases.
+          </p>
+</div>
+</div>
+</header>
+</div>
+<div class="home sub-home" data-articles-since="" data-disable-infinite-scroll="true" data-feed="base-feed" data-params='{"tag":"database","sort_by":"hotness_score","sort_direction":"desc"}' data-requires-approval="false" data-tag="database" data-which="" id="index-container">
+<div class="sidebar-wrapper sidebar-wrapper-left" id="sidebar-wrapper-left">
+<div class="sidebar-bg" id="sidebar-bg-left"></div>
+<aside class="side-bar fs-s">
+<div class="widget js-policy-article-create">
+<a class="crayons-btn crayons-btn--s" href="../new/database.html">
+            Create Post
+          </a>
+</div> <div class="widget">
+<header>
+<h4 class="fs-base fw-medium">submission guidelines</h4>
+</header>
+<div class="widget-body fs-s">
+<p>Articles should be related to database development, performance, scalability, optimisation or data analysis, or using sql to query data. </p>
+</div>
+</div>
+<div class="sidebar-data">
+<hr/>
+<div class="olderposts-header fs-base fw-medium">Older #database posts</div>
+<div class="olderposts-links">
+<span class="olderposts-pagenumber">1</span>
+<a class="olderposts-pagenumber" href="database/page/2.html">2</a>
+<a class="olderposts-pagenumber" href="database/page/3.html">3</a>
+<a class="olderposts-pagenumber" href="database/page/4.html">4</a>
+<a class="olderposts-pagenumber" href="database/page/5.html">5</a>
+<a class="olderposts-pagenumber" href="database/page/6.html">6</a>
+<a class="olderposts-pagenumber" href="database/page/7.html">7</a>
+<a class="olderposts-pagenumber" href="database/page/8.html">8</a>
+<a class="olderposts-pagenumber" href="database/page/9.html">9</a>
+<div>
+                …<a class="olderposts-pagenumber" href="database/page/75.html">75</a>
+                …<a class="olderposts-pagenumber" href="database/page/998.html">998</a>
+</div>
+</div>
+</div>
+</aside>
+</div>
+<main class="articles-list" data-follow-button-container="true" id="main-content">
+<header class="flex items-center p-2 m:p-0 m:pb-2" id="on-page-nav-controls">
+<h1 class="screen-reader-only">Posts</h1>
+<button aria-label="nav-button-left" class="crayons-btn crayons-btn--ghost crayons-btn--icon mr-2 inline-block m:hidden mb-auto" id="on-page-nav-butt-left" type="button">
+<div class="crayons-icon nav-icon">
+<svg aria-labelledby="an3500wrqvhde4l71ixgwj25wzizavuw" class="crayons-icon" height="24" role="img" viewbox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><title id="an3500wrqvhde4l71ixgwj25wzizavuw">Left menu</title>
+<path d="M3 4h18v2H3V4zm0 7h18v2H3v-2zm0 7h18v2H3v-2z"></path>
+</svg>
+</div>
+</button>
+<div class="flex-1 flex items-center justify-between">
+<div aria-live="polite" class="crayons-notice w-100">👋 <a href="../enter-q7ffd52de7b.html">Sign in</a> for the ability to sort posts by <strong>relevant</strong>, <strong>latest</strong>, or <strong>top</strong>.</div>
+</div>
+<button aria-label="nav-button-right" class="crayons-btn crayons-btn--ghost crayons-btn--icon ml-2 inline-block l:hidden mb-auto" id="on-page-nav-butt-right" type="button">
+<div class="crayons-icon nav-icon">
+<svg aria-labelledby="apaaxxae1oo5e2kj05owqyarcpkud7vv" class="crayons-icon" height="24" role="img" viewbox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><title id="apaaxxae1oo5e2kj05owqyarcpkud7vv">Right menu</title>
+<path d="M3 4h18v2H3V4zm0 7h18v2H3v-2zm0 7h18v2H3v-2z"></path>
+</svg>
+</div>
+</button>
+</header>
+<div class="substories" id="substories">
+<div class="crayons-story" data-content-user-id="288069" data-feed-content-id="3621786">
+<a aria-labelledby="article-link-3621786" class="crayons-story__hidden-navigation-link" href="../alexmercedcoder/performance-and-apache-icebergs-metadata-2eka.html">Performance and Apache Iceberg's Metadata</a>
+<div class="crayons-story__body crayons-story__body-full_post">
+<div class="crayons-story__top">
+<div class="crayons-story__meta">
+<div class="crayons-story__author-pic">
+<a class="crayons-avatar crayons-avatar--l" href="../alexmercedcoder.html">
+<img alt="alexmercedcoder profile" class="crayons-avatar__image" loading="lazy" src="../cdn/media2.dev.to/dynamic/image/width=90,height=90,fit=cover,gravity=auto,format=auto/https___dev-to-uploads.s3.amazonaws.com_uploads_user_profile_image_288069_b20116a9-b178-4ab1-bcb0-8aa28ed732b0.png">
+</img></a>
+</div>
+<div>
+<div>
+<a class="crayons-story__secondary fw-medium m:hidden" href="../alexmercedcoder.html">
+              Alex Merced
+            </a>
+<div class="profile-preview-card relative mb-4 s:mb-0 fw-medium hidden m:inline-block">
+<button aria-controls="story-author-preview-content-3621786" aria-label="Alex Merced profile details" class="profile-preview-card__trigger fs-s p-1 -ml-1 -my-2 crayons-btn crayons-btn--ghost" id="story-author-preview-trigger-3621786">
+                Alex Merced
+                
+              </button>
+<div class="profile-preview-card__content crayons-dropdown branded-7 p-4 pt-0" data-repositioning-dropdown="true" data-testid="profile-preview-card" id="story-author-preview-content-3621786" style="border-top-color: var(--card-color);">
+<div class="gap-4 grid">
+<div class="-mt-4">
+<a class="flex" href="../alexmercedcoder.html">
+<span class="crayons-avatar crayons-avatar--xl mr-2 shrink-0">
+<img alt="" class="crayons-avatar__image" loading="lazy" src="../cdn/media2.dev.to/dynamic/image/width=90,height=90,fit=cover,gravity=auto,format=auto/https___dev-to-uploads.s3.amazonaws.com_uploads_user_profile_image_288069_b20116a9-b178-4ab1-bcb0-8aa28ed732b0.png"/>
+</span>
+<span class="crayons-link crayons-subtitle-2 mt-5">Alex Merced</span>
+</a>
+</div>
+<div class="print-hidden">
+<button class="crayons-btn follow-action-button whitespace-nowrap follow-user w-100" data-info='{"style":"full","id":288069,"className":"User","name":"Alex Merced"}'>
+                      Follow
+                    </button>
+</div>
+<div class="author-preview-metadata-container" data-author-id="288069"></div>
+</div>
+</div>
+</div>
+</div>
+<a class="crayons-story__tertiary fs-xs" href="../alexmercedcoder/performance-and-apache-icebergs-metadata-2eka.html"><time datetime="2026-05-06T15:00:09Z">May 6</time><span class="time-ago-indicator-initial-placeholder" data-seconds="1778079609"></span></a>
+</div>
+</div>
+</div>
+<div class="crayons-story__indention">
+<h2 class="crayons-story__title crayons-story__title-full_post">
+<a data-preload-image="https://media2.dev.to/dynamic/image/width=1000,height=420,fit=cover,gravity=auto,format=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Farticles%2Fwq3mawywl6yf204ftksg.png" href="../alexmercedcoder/performance-and-apache-icebergs-metadata-2eka.html" id="article-link-3621786">
+          Performance and Apache Iceberg's Metadata
+        </a>
+</h2>
+<div class="crayons-story__tags">
+<a class="crayons-tag crayons-tag--monochrome" href="architecture.html" style="
+        --tag-bg: rgba(235, 223, 55, 0.10);
+        --tag-prefix: #ebdf37;
+        --tag-bg-hover: rgba(235, 223, 55, 0.10);
+        --tag-prefix-hover: #ebdf37;
+      "><span class="crayons-tag__prefix">#</span>architecture</a>
+<a class="crayons-tag crayons-tag--monochrome" href="database.html" style="
+        --tag-bg: rgba(237, 21, 86, 0.10);
+        --tag-prefix: #ED1556;
+        --tag-bg-hover: rgba(237, 21, 86, 0.10);
+        --tag-prefix-hover: #ED1556;
+      "><span class="crayons-tag__prefix">#</span>database</a>
+<a class="crayons-tag crayons-tag--monochrome" href="dataengineering.html" style="
+        --tag-bg: rgba(64, 78, 211, 0.10);
+        --tag-prefix: #404ED3;
+        --tag-bg-hover: rgba(64, 78, 211, 0.10);
+        --tag-prefix-hover: #404ED3;
+      "><span class="crayons-tag__prefix">#</span>dataengineering</a>
+<a class="crayons-tag crayons-tag--monochrome" href="performance.html" style="
+        --tag-bg: rgba(255, 163, 100, 0.10);
+        --tag-prefix: #ffa364;
+        --tag-bg-hover: rgba(255, 163, 100, 0.10);
+        --tag-prefix-hover: #ffa364;
+      "><span class="crayons-tag__prefix">#</span>performance</a>
+</div>
+<div class="crayons-story__bottom">
+<div class="crayons-story__details">
+<a aria-label="Add a comment to post - Performance and Apache Iceberg's Metadata" class="crayons-btn crayons-btn--s crayons-btn--ghost crayons-btn--icon-left flex items-center" href="../alexmercedcoder/performance-and-apache-icebergs-metadata-2eka.html">
+<svg aria-labelledby="adna0peu4n3ezgapt0f4ga46p0odi13" class="crayons-icon" height="24" role="img" width="24" xmlns="http://www.w3.org/2000/svg"><title id="adna0peu4n3ezgapt0f4ga46p0odi13">Comments</title><path d="M10.5 5h3a6 6 0 110 12v2.625c-3.75-1.5-9-3.75-9-8.625a6 6 0 016-6zM12 15.5h1.5a4.501 4.501 0 001.722-8.657A4.5 4.5 0 0013.5 6.5h-3A4.5 4.5 0 006 11c0 2.707 1.846 4.475 6 6.36V15.5z"></path></svg>
+<span class="hidden s:inline">Add Comment</span>
+</a>
+</div>
+<div class="crayons-story__save">
+<small class="crayons-story__tertiary fs-xs mr-2">
+            7 min read
+          </small>
+<button aria-label="Save post Performance and Apache Iceberg's Metadata to reading list" class="c-btn c-btn--icon-alone bookmark-button" data-article-author-id="288069" data-reactable-id="3621786" id="article-save-button-3621786" title="Save post Performance and Apache Iceberg's Metadata to reading list" type="button">
+<span class="bm-initial">
+<svg aria-hidden="true" height="24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M6.75 4.5h10.5a.75.75 0 01.75.75v14.357a.375.375 0 01-.575.318L12 16.523l-5.426 3.401A.375.375 0 016 19.607V5.25a.75.75 0 01.75-.75zM16.5 6h-9v11.574l4.5-2.82 4.5 2.82V6z"></path></svg>
+</span>
+<span class="bm-success">
+<svg aria-hidden="true" height="24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M6.75 4.5h10.5a.75.75 0 01.75.75v14.357a.375.375 0 01-.575.318L12 16.523l-5.426 3.401A.375.375 0 016 19.607V5.25a.75.75 0 01.75-.75z"></path></svg>
+</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="crayons-story" data-content-user-id="2690053" data-feed-content-id="3621533">
+<a aria-labelledby="article-link-3621533" class="crayons-story__hidden-navigation-link" href="../philip_mcclarence_2ef9475/postgresql-plan-signatures-quick-reference-pdk.html">PostgreSQL Plan Signatures: Quick Reference</a>
+<div class="crayons-story__body crayons-story__body-full_post">
+<div class="crayons-story__top">
+<div class="crayons-story__meta">
+<div class="crayons-story__author-pic">
+<a class="crayons-avatar crayons-avatar--l" href="../philip_mcclarence_2ef9475.html">
+<img alt="philip_mcclarence_2ef9475 profile" class="crayons-avatar__image" loading="lazy" src="../cdn/media2.dev.to/dynamic/image/width=90,height=90,fit=cover,gravity=auto,format=auto/https___dev-to-uploads.s3.amazonaws.com_uploads_user_profile_image_2690053_913499a1-620d-4487-a868-d677f1aca106.png"/>
+</a>
+</div>
+<div>
+<div>
+<a class="crayons-story__secondary fw-medium m:hidden" href="../philip_mcclarence_2ef9475.html">
+              Philip McClarence
+            </a>
+<div class="profile-preview-card relative mb-4 s:mb-0 fw-medium hidden m:inline-block">
+<button aria-controls="story-author-preview-content-3621533" aria-label="Philip McClarence profile details" class="profile-preview-card__trigger fs-s p-1 -ml-1 -my-2 crayons-btn crayons-btn--ghost" id="story-author-preview-trigger-3621533">
+                Philip McClarence
+                
+              </button>
+<div class="profile-preview-card__content crayons-dropdown branded-7 p-4 pt-0" data-repositioning-dropdown="true" data-testid="profile-preview-card" id="story-author-preview-content-3621533" style="border-top-color: var(--card-color);">
+<div class="gap-4 grid">
+<div class="-mt-4">
+<a class="flex" href="../philip_mcclarence_2ef9475.html">
+<span class="crayons-avatar crayons-avatar--xl mr-2 shrink-0">
+<img alt="" class="crayons-avatar__image" loading="lazy" src="../cdn/media2.dev.to/dynamic/image/width=90,height=90,fit=cover,gravity=auto,format=auto/https___dev-to-uploads.s3.amazonaws.com_uploads_user_profile_image_2690053_913499a1-620d-4487-a868-d677f1aca106.png"/>
+</span>
+<span class="crayons-link crayons-subtitle-2 mt-5">Philip McClarence</span>
+</a>
+</div>
+<div class="print-hidden">
+<button class="crayons-btn follow-action-button whitespace-nowrap follow-user w-100" data-info='{"style":"full","id":2690053,"className":"User","name":"Philip McClarence"}'>
+                      Follow
+                    </button>
+</div>
+<div class="author-preview-metadata-container" data-author-id="2690053"></div>
+</div>
+</div>
+</div>
+</div>
+<a class="crayons-story__tertiary fs-xs" href="../philip_mcclarence_2ef9475/postgresql-plan-signatures-quick-reference-pdk.html"><time datetime="2026-05-06T14:00:06Z">May 6</time><span class="time-ago-indicator-initial-placeholder" data-seconds="1778076006"></span></a>
+</div>
+</div>
+</div>
+<div class="crayons-story__indention">
+<h2 class="crayons-story__title crayons-story__title-full_post">
+<a data-preload-image="" href="../philip_mcclarence_2ef9475/postgresql-plan-signatures-quick-reference-pdk.html" id="article-link-3621533">
+          PostgreSQL Plan Signatures: Quick Reference
+        </a>
+</h2>
+<div class="crayons-story__tags">
+<a class="crayons-tag crayons-tag--monochrome" href="database.html" style="
+        --tag-bg: rgba(237, 21, 86, 0.10);
+        --tag-prefix: #ED1556;
+        --tag-bg-hover: rgba(237, 21, 86, 0.10);
+        --tag-prefix-hover: #ED1556;
+      "><span class="crayons-tag__prefix">#</span>database</a>
+<a class="crayons-tag crayons-tag--monochrome" href="performance.html" style="
+        --tag-bg: rgba(255, 163, 100, 0.10);
+        --tag-prefix: #ffa364;
+        --tag-bg-hover: rgba(255, 163, 100, 0.10);
+        --tag-prefix-hover: #ffa364;
+      "><span class="crayons-tag__prefix">#</span>performance</a>
+<a class="crayons-tag crayons-tag--monochrome" href="postgres.html" style="
+        --tag-bg: rgba(237, 21, 86, 0.10);
+        --tag-prefix: #ED1556;
+        --tag-bg-hover: rgba(237, 21, 86, 0.10);
+        --tag-prefix-hover: #ED1556;
+      "><span class="crayons-tag__prefix">#</span>postgres</a>
+<a class="crayons-tag crayons-tag--monochrome" href="sql.html" style="
+        --tag-bg: rgba(237, 21, 86, 0.10);
+        --tag-prefix: #ED1556;
+        --tag-bg-hover: rgba(237, 21, 86, 0.10);
+        --tag-prefix-hover: #ED1556;
+      "><span class="crayons-tag__prefix">#</span>sql</a>
+</div>
+<div class="crayons-story__bottom">
+<div class="crayons-story__details">
+<a aria-label="Add a comment to post - PostgreSQL Plan Signatures: Quick Reference" class="crayons-btn crayons-btn--s crayons-btn--ghost crayons-btn--icon-left flex items-center" href="../philip_mcclarence_2ef9475/postgresql-plan-signatures-quick-reference-pdk.html">
+<svg aria-labelledby="asi3h4p33bvoy9xf6b978bejs32yzh4" class="crayons-icon" height="24" role="img" width="24" xmlns="http://www.w3.org/2000/svg"><title id="asi3h4p33bvoy9xf6b978bejs32yzh4">Comments</title><path d="M10.5 5h3a6 6 0 110 12v2.625c-3.75-1.5-9-3.75-9-8.625a6 6 0 016-6zM12 15.5h1.5a4.501 4.501 0 001.722-8.657A4.5 4.5 0 0013.5 6.5h-3A4.5 4.5 0 006 11c0 2.707 1.846 4.475 6 6.36V15.5z"></path></svg>
+<span class="hidden s:inline">Add Comment</span>
+</a>
+</div>
+<div class="crayons-story__save">
+<small class="crayons-story__tertiary fs-xs mr-2">
+            7 min read
+          </small>
+<button aria-label="Save post PostgreSQL Plan Signatures: Quick Reference to reading list" class="c-btn c-btn--icon-alone bookmark-button" data-article-author-id="2690053" data-reactable-id="3621533" id="article-save-button-3621533" title="Save post PostgreSQL Plan Signatures: Quick Reference to reading list" type="button">
+<span class="bm-initial">
+<svg aria-hidden="true" height="24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M6.75 4.5h10.5a.75.75 0 01.75.75v14.357a.375.375 0 01-.575.318L12 16.523l-5.426 3.401A.375.375 0 016 19.607V5.25a.75.75 0 01.75-.75zM16.5 6h-9v11.574l4.5-2.82 4.5 2.82V6z"></path></svg>
+</span>
+<span class="bm-success">
+<svg aria-hidden="true" height="24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M6.75 4.5h10.5a.75.75 0 01.75.75v14.357a.375.375 0 01-.575.318L12 16.523l-5.426 3.401A.375.375 0 016 19.607V5.25a.75.75 0 01.75-.75z"></path></svg>
+</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="crayons-story" data-content-user-id="3228500" data-feed-content-id="3620351">
+<a aria-labelledby="article-link-3620351" class="crayons-story__hidden-navigation-link" href="../mohhddhassan/postgresql-restore-failures-it-wasnt-pgbackrest-it-was-my-recovery-logic-527d.html">PostgreSQL Restore Failures: It Wasn’t pgBackRest, It Was My Recovery Logic</a>
+<div class="crayons-story__body crayons-story__body-full_post">
+<div class="crayons-story__top">
+<div class="crayons-story__meta">
+<div class="crayons-story__author-pic">
+<a class="crayons-avatar crayons-avatar--l" href="../mohhddhassan.html">
+<img alt="mohhddhassan profile" class="crayons-avatar__image" loading="lazy" src="../cdn/media2.dev.to/dynamic/image/width=90,height=90,fit=cover,gravity=auto,format=auto/https___dev-to-uploads.s3.amazonaws.com_uploads_user_profile_image_3228500_c2e87a6e-70e3-4023-a3d3-5adddef072f2.jpeg"/>
+</a>
+</div>
+<div>
+<div>
+<a class="crayons-story__secondary fw-medium m:hidden" href="../mohhddhassan.html">
+              Mohamed Hussain S
+            </a>
+<div class="profile-preview-card relative mb-4 s:mb-0 fw-medium hidden m:inline-block">
+<button aria-controls="story-author-preview-content-3620351" aria-label="Mohamed Hussain S profile details" class="profile-preview-card__trigger fs-s p-1 -ml-1 -my-2 crayons-btn crayons-btn--ghost" id="story-author-preview-trigger-3620351">
+                Mohamed Hussain S
+                
+              </button>
+<div class="profile-preview-card__content crayons-dropdown branded-7 p-4 pt-0" data-repositioning-dropdown="true" data-testid="profile-preview-card" id="story-author-preview-content-3620351" style="border-top-color: var(--card-color);">
+<div class="gap-4 grid">
+<div class="-mt-4">
+<a class="flex" href="../mohhddhassan.html">
+<span class="crayons-avatar crayons-avatar--xl mr-2 shrink-0">
+<img alt="" class="crayons-avatar__image" loading="lazy" src="../cdn/media2.dev.to/dynamic/image/width=90,height=90,fit=cover,gravity=auto,format=auto/https___dev-to-uploads.s3.amazonaws.com_uploads_user_profile_image_3228500_c2e87a6e-70e3-4023-a3d3-5adddef072f2.jpeg"/>
+</span>
+<span class="crayons-link crayons-subtitle-2 mt-5">Mohamed Hussain S</span>
+</a>
+</div>
+<div class="print-hidden">
+<button class="crayons-btn follow-action-button whitespace-nowrap follow-user w-100" data-info='{"style":"full","id":3228500,"className":"User","name":"Mohamed Hussain S"}'>
+                      Follow
+                    </button>
+</div>
+<div class="author-preview-metadata-container" data-author-id="3228500"></div>
+</div>
+</div>
+</div>
+</div>
+<a class="crayons-story__tertiary fs-xs" href="../mohhddhassan/postgresql-restore-failures-it-wasnt-pgbackrest-it-was-my-recovery-logic-527d.html"><time datetime="2026-05-06T12:24:28Z">May 6</time><span class="time-ago-indicator-initial-placeholder" data-seconds="1778070268"></span></a>
+</div>
+</div>
+</div>
+<div class="crayons-story__indention">
+<h2 class="crayons-story__title crayons-story__title-full_post">
+<a data-preload-image="https://media2.dev.to/dynamic/image/width=1000,height=420,fit=cover,gravity=auto,format=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Farticles%2Ffx2259mh4mu2cu8hj6gq.png" href="../mohhddhassan/postgresql-restore-failures-it-wasnt-pgbackrest-it-was-my-recovery-logic-527d.html" id="article-link-3620351">
+          PostgreSQL Restore Failures: It Wasn’t pgBackRest, It Was My Recovery Logic
+        </a>
+</h2>
+<div class="crayons-story__tags">
+<a class="crayons-tag crayons-tag--monochrome" href="postgres.html" style="
+        --tag-bg: rgba(237, 21, 86, 0.10);
+        --tag-prefix: #ED1556;
+        --tag-bg-hover: rgba(237, 21, 86, 0.10);
+        --tag-prefix-hover: #ED1556;
+      "><span class="crayons-tag__prefix">#</span>postgres</a>
+<a class="crayons-tag crayons-tag--monochrome" href="database.html" style="
+        --tag-bg: rgba(237, 21, 86, 0.10);
+        --tag-prefix: #ED1556;
+        --tag-bg-hover: rgba(237, 21, 86, 0.10);
+        --tag-prefix-hover: #ED1556;
+      "><span class="crayons-tag__prefix">#</span>database</a>
+<a class="crayons-tag crayons-tag--monochrome" href="devops.html" style="
+        --tag-bg: rgba(6, 181, 0, 0.10);
+        --tag-prefix: #06B500;
+        --tag-bg-hover: rgba(6, 181, 0, 0.10);
+        --tag-prefix-hover: #06B500;
+      "><span class="crayons-tag__prefix">#</span>devops</a>
+<a class="crayons-tag crayons-tag--monochrome" href="opensource.html" style="
+        --tag-bg: rgba(38, 190, 0, 0.10);
+        --tag-prefix: #26BE00;
+        --tag-bg-hover: rgba(38, 190, 0, 0.10);
+        --tag-prefix-hover: #26BE00;
+      "><span class="crayons-tag__prefix">#</span>opensource</a>
+</div>
+<div class="crayons-story__bottom">
+<div class="crayons-story__details">
+<a aria-label="Add a comment to post - PostgreSQL Restore Failures: It Wasn’t pgBackRest, It Was My Recovery Logic" class="crayons-btn crayons-btn--s crayons-btn--ghost crayons-btn--icon-left flex items-center" href="../mohhddhassan/postgresql-restore-failures-it-wasnt-pgbackrest-it-was-my-recovery-logic-527d.html">
+<svg aria-labelledby="aikp350y5e2b8p7w0fvjjz6zthbxob0q" class="crayons-icon" height="24" role="img" width="24" xmlns="http://www.w3.org/2000/svg"><title id="aikp350y5e2b8p7w0fvjjz6zthbxob0q">Comments</title><path d="M10.5 5h3a6 6 0 110 12v2.625c-3.75-1.5-9-3.75-9-8.625a6 6 0 016-6zM12 15.5h1.5a4.501 4.501 0 001.722-8.657A4.5 4.5 0 0013.5 6.5h-3A4.5 4.5 0 006 11c0 2.707 1.846 4.475 6 6.36V15.5z"></path></svg>
+<span class="hidden s:inline">Add Comment</span>
+</a>
+</div>
+<div class="crayons-story__save">
+<small class="crayons-story__tertiary fs-xs mr-2">
+            6 min read
+          </small>
+<button aria-label="Save post PostgreSQL Restore Failures: It Wasn’t pgBackRest, It Was My Recovery Logic to reading list" class="c-btn c-btn--icon-alone bookmark-button" data-article-author-id="3228500" data-reactable-id="3620351" id="article-save-button-3620351" title="Save post PostgreSQL Restore Failures: It Wasn’t pgBackRest, It Was My Recovery Logic to reading list" type="button">
+<span class="bm-initial">
+<svg aria-hidden="true" height="24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M6.75 4.5h10.5a.75.75 0 01.75.75v14.357a.375.375 0 01-.575.318L12 16.523l-5.426 3.401A.375.375 0 016 19.607V5.25a.75.75 0 01.75-.75zM16.5 6h-9v11.574l4.5-2.82 4.5 2.82V6z"></path></svg>
+</span>
+<span class="bm-success">
+<svg aria-hidden="true" height="24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M6.75 4.5h10.5a.75.75 0 01.75.75v14.357a.375.375 0 01-.575.318L12 16.523l-5.426 3.401A.375.375 0 016 19.607V5.25a.75.75 0 01.75-.75z"></path></svg>
+</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="crayons-story" data-content-user-id="3255157" data-feed-content-id="3542689">
+<a aria-labelledby="article-link-3542689" class="crayons-story__hidden-navigation-link" href="../dev-arafat-alim/why-supavisor-10-is-written-in-elixir-and-why-thats-actually-a-brilliant-move-21nm.html">Why Supavisor 1.0 Is Written in Elixir (And Why That's Actually a Brilliant Move)</a>
+<div class="crayons-story__body crayons-story__body-full_post">
+<div class="crayons-story__top">
+<div class="crayons-story__meta">
+<div class="crayons-story__author-pic">
+<a class="crayons-avatar crayons-avatar--l" href="../dev-arafat-alim.html">
+<img alt="dev-arafat-alim profile" class="crayons-avatar__image" loading="lazy" src="../cdn/media2.dev.to/dynamic/image/width=90,height=90,fit=cover,gravity=auto,format=auto/https___dev-to-uploads.s3.amazonaws.com_uploads_user_profile_image_3255157_32b0c5c7-9770-4e3a-8c7b-34fc49bfed7d.gif"/>
+</a>
+</div>
+<div>
+<div>
+<a class="crayons-story__secondary fw-medium m:hidden" href="../dev-arafat-alim.html">
+              ARAFAT AMAN ALIM
+            </a>
+<div class="profile-preview-card relative mb-4 s:mb-0 fw-medium hidden m:inline-block">
+<button aria-controls="story-author-preview-content-3542689" aria-label="ARAFAT AMAN ALIM profile details" class="profile-preview-card__trigger fs-s p-1 -ml-1 -my-2 crayons-btn crayons-btn--ghost" id="story-author-preview-trigger-3542689">
+                ARAFAT AMAN ALIM
+                <a href="../++.html" style="display: inline;"><img alt="Subscriber" class="subscription-icon" src="../cdn/assets.dev.to/assets/subscription-icon-805dfa7ac7dd660f07ed8d654877270825b07a92a03841aa99a1093bd00431b2.png"/></a>
+</button>
+<div class="profile-preview-card__content crayons-dropdown branded-7 p-4 pt-0" data-repositioning-dropdown="true" data-testid="profile-preview-card" id="story-author-preview-content-3542689" style="border-top-color: var(--card-color);">
+<div class="gap-4 grid">
+<div class="-mt-4">
+<a class="flex" href="../dev-arafat-alim.html">
+<span class="crayons-avatar crayons-avatar--xl mr-2 shrink-0">
+<img alt="" class="crayons-avatar__image" loading="lazy" src="../cdn/media2.dev.to/dynamic/image/width=90,height=90,fit=cover,gravity=auto,format=auto/https___dev-to-uploads.s3.amazonaws.com_uploads_user_profile_image_3255157_32b0c5c7-9770-4e3a-8c7b-34fc49bfed7d.gif"/>
+</span>
+<span class="crayons-link crayons-subtitle-2 mt-5">ARAFAT AMAN ALIM</span>
+</a>
+</div>
+<div class="print-hidden">
+<button class="crayons-btn follow-action-button whitespace-nowrap follow-user w-100" data-info='{"style":"full","id":3255157,"className":"User","name":"ARAFAT AMAN ALIM"}'>
+                      Follow
+                    </button>
+</div>
+<div class="author-preview-metadata-container" data-author-id="3255157"></div>
+</div>
+</div>
+</div>
+</div>
+<a class="crayons-story__tertiary fs-xs" href="../dev-arafat-alim/why-supavisor-10-is-written-in-elixir-and-why-thats-actually-a-brilliant-move-21nm.html"><time datetime="2026-05-06T09:59:23Z">May 6</time><span class="time-ago-indicator-initial-placeholder" data-seconds="1778061563"></span></a>
+</div>
+</div>
+</div>
+<div class="crayons-story__indention">
+<h2 class="crayons-story__title crayons-story__title-full_post">
+<a data-preload-image="https://media2.dev.to/dynamic/image/width=1000,height=420,fit=cover,gravity=auto,format=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Farticles%2Febqcdf99rgbvpswp37cw.png" href="../dev-arafat-alim/why-supavisor-10-is-written-in-elixir-and-why-thats-actually-a-brilliant-move-21nm.html" id="article-link-3542689">
+          Why Supavisor 1.0 Is Written in Elixir (And Why That's Actually a Brilliant Move)
+        </a>
+</h2>
+<div class="crayons-story__tags">
+<a class="crayons-tag crayons-tag--monochrome" href="architecture.html" style="
+        --tag-bg: rgba(235, 223, 55, 0.10);
+        --tag-prefix: #ebdf37;
+        --tag-bg-hover: rgba(235, 223, 55, 0.10);
+        --tag-prefix-hover: #ebdf37;
+      "><span class="crayons-tag__prefix">#</span>architecture</a>
+<a class="crayons-tag crayons-tag--monochrome" href="database.html" style="
+        --tag-bg: rgba(237, 21, 86, 0.10);
+        --tag-prefix: #ED1556;
+        --tag-bg-hover: rgba(237, 21, 86, 0.10);
+        --tag-prefix-hover: #ED1556;
+      "><span class="crayons-tag__prefix">#</span>database</a>
+<a class="crayons-tag crayons-tag--monochrome" href="infrastructure.html" style="
+        --tag-bg: rgba(0, 0, 0, 0.10);
+        --tag-prefix: #000000;
+        --tag-bg-hover: rgba(0, 0, 0, 0.10);
+        --tag-prefix-hover: #000000;
+      "><span class="crayons-tag__prefix">#</span>infrastructure</a>
+<a class="crayons-tag crayons-tag--monochrome" href="postgres.html" style="
+        --tag-bg: rgba(237, 21, 86, 0.10);
+        --tag-prefix: #ED1556;
+        --tag-bg-hover: rgba(237, 21, 86, 0.10);
+        --tag-prefix-hover: #ED1556;
+      "><span class="crayons-tag__prefix">#</span>postgres</a>
+</div>
+<div class="crayons-story__bottom">
+<div class="crayons-story__details">
+<a aria-label="Add a comment to post - Why Supavisor 1.0 Is Written in Elixir (And Why That's Actually a Brilliant Move)" class="crayons-btn crayons-btn--s crayons-btn--ghost crayons-btn--icon-left flex items-center" href="../dev-arafat-alim/why-supavisor-10-is-written-in-elixir-and-why-thats-actually-a-brilliant-move-21nm.html">
+<svg aria-labelledby="acnf9z2s11gom59bw5136j3mvgq837se" class="crayons-icon" height="24" role="img" width="24" xmlns="http://www.w3.org/2000/svg"><title id="acnf9z2s11gom59bw5136j3mvgq837se">Comments</title><path d="M10.5 5h3a6 6 0 110 12v2.625c-3.75-1.5-9-3.75-9-8.625a6 6 0 016-6zM12 15.5h1.5a4.501 4.501 0 001.722-8.657A4.5 4.5 0 0013.5 6.5h-3A4.5 4.5 0 006 11c0 2.707 1.846 4.475 6 6.36V15.5z"></path></svg>
+<span class="hidden s:inline">Add Comment</span>
+</a>
+</div>
+<div class="crayons-story__save">
+<small class="crayons-story__tertiary fs-xs mr-2">
+            9 min read
+          </small>
+<button aria-label="Save post Why Supavisor 1.0 Is Written in Elixir (And Why That's Actually a Brilliant Move) to reading list" class="c-btn c-btn--icon-alone bookmark-button" data-article-author-id="3255157" data-reactable-id="3542689" id="article-save-button-3542689" title="Save post Why Supavisor 1.0 Is Written in Elixir (And Why That's Actually a Brilliant Move) to reading list" type="button">
+<span class="bm-initial">
+<svg aria-hidden="true" height="24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M6.75 4.5h10.5a.75.75 0 01.75.75v14.357a.375.375 0 01-.575.318L12 16.523l-5.426 3.401A.375.375 0 016 19.607V5.25a.75.75 0 01.75-.75zM16.5 6h-9v11.574l4.5-2.82 4.5 2.82V6z"></path></svg>
+</span>
+<span class="bm-success">
+<svg aria-hidden="true" height="24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M6.75 4.5h10.5a.75.75 0 01.75.75v14.357a.375.375 0 01-.575.318L12 16.523l-5.426 3.401A.375.375 0 016 19.607V5.25a.75.75 0 01.75-.75z"></path></svg>
+</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="crayons-story" data-content-user-id="3886467" data-feed-content-id="3621073">
+<a aria-labelledby="article-link-3621073" class="crayons-story__hidden-navigation-link" href="../sweepbase/three-months-of-running-a-nextjs-aggregator-on-a-csv-what-broke-and-what-did-not-e59.html">Three months of running a Next.js aggregator on a CSV: what broke and what did not,</a>
+<div class="crayons-story__body crayons-story__body-full_post">
+<div class="crayons-story__top">
+<div class="crayons-story__meta">
+<div class="crayons-story__author-pic">
+<a class="crayons-avatar crayons-avatar--l" href="../sweepbase.html">
+<img alt="sweepbase profile" class="crayons-avatar__image" loading="lazy" src="../cdn/media2.dev.to/dynamic/image/width=90,height=90,fit=cover,gravity=auto,format=auto/https___dev-to-uploads.s3.amazonaws.com_uploads_user_profile_image_3886467_93a893fd-d4b9-474b-a682-cf8587a48db0.png"/>
+</a>
+</div>
+<div>
+<div>
+<a class="crayons-story__secondary fw-medium m:hidden" href="../sweepbase.html">
+              SweepBase
+            </a>
+<div class="profile-preview-card relative mb-4 s:mb-0 fw-medium hidden m:inline-block">
+<button aria-controls="story-author-preview-content-3621073" aria-label="SweepBase profile details" class="profile-preview-card__trigger fs-s p-1 -ml-1 -my-2 crayons-btn crayons-btn--ghost" id="story-author-preview-trigger-3621073">
+                SweepBase
+                
+              </button>
+<div class="profile-preview-card__content crayons-dropdown branded-7 p-4 pt-0" data-repositioning-dropdown="true" data-testid="profile-preview-card" id="story-author-preview-content-3621073" style="border-top-color: var(--card-color);">
+<div class="gap-4 grid">
+<div class="-mt-4">
+<a class="flex" href="../sweepbase.html">
+<span class="crayons-avatar crayons-avatar--xl mr-2 shrink-0">
+<img alt="" class="crayons-avatar__image" loading="lazy" src="../cdn/media2.dev.to/dynamic/image/width=90,height=90,fit=cover,gravity=auto,format=auto/https___dev-to-uploads.s3.amazonaws.com_uploads_user_profile_image_3886467_93a893fd-d4b9-474b-a682-cf8587a48db0.png"/>
+</span>
+<span class="crayons-link crayons-subtitle-2 mt-5">SweepBase</span>
+</a>
+</div>
+<div class="print-hidden">
+<button class="crayons-btn follow-action-button whitespace-nowrap follow-user w-100" data-info='{"style":"full","id":3886467,"className":"User","name":"SweepBase"}'>
+                      Follow
+                    </button>
+</div>
+<div class="author-preview-metadata-container" data-author-id="3886467"></div>
+</div>
+</div>
+</div>
+</div>
+<a class="crayons-story__tertiary fs-xs" href="../sweepbase/three-months-of-running-a-nextjs-aggregator-on-a-csv-what-broke-and-what-did-not-e59.html"><time datetime="2026-05-06T12:22:11Z">May 6</time><span class="time-ago-indicator-initial-placeholder" data-seconds="1778070131"></span></a>
+</div>
+</div>
+</div>
+<div class="crayons-story__indention">
+<h2 class="crayons-story__title crayons-story__title-full_post">
+<a data-preload-image="" href="../sweepbase/three-months-of-running-a-nextjs-aggregator-on-a-csv-what-broke-and-what-did-not-e59.html" id="article-link-3621073">
+          Three months of running a Next.js aggregator on a CSV: what broke and what did not,
+        </a>
+</h2>
+<div class="crayons-story__tags">
+<a class="crayons-tag crayons-tag--monochrome" href="architecture.html" style="
+        --tag-bg: rgba(235, 223, 55, 0.10);
+        --tag-prefix: #ebdf37;
+        --tag-bg-hover: rgba(235, 223, 55, 0.10);
+        --tag-prefix-hover: #ebdf37;
+      "><span class="crayons-tag__prefix">#</span>architecture</a>
+<a class="crayons-tag crayons-tag--monochrome" href="database.html" style="
+        --tag-bg: rgba(237, 21, 86, 0.10);
+        --tag-prefix: #ED1556;
+        --tag-bg-hover: rgba(237, 21, 86, 0.10);
+        --tag-prefix-hover: #ED1556;
+      "><span class="crayons-tag__prefix">#</span>database</a>
+<a class="crayons-tag crayons-tag--monochrome" href="nextjs.html" style="
+        --tag-bg: rgba(0, 0, 0, 0.10);
+        --tag-prefix: #000000;
+        --tag-bg-hover: rgba(0, 0, 0, 0.10);
+        --tag-prefix-hover: #000000;
+      "><span class="crayons-tag__prefix">#</span>nextjs</a>
+<a class="crayons-tag crayons-tag--monochrome" href="sideprojects.html" style="
+        --tag-bg: rgba(64, 78, 211, 0.10);
+        --tag-prefix: #404ED3;
+        --tag-bg-hover: rgba(64, 78, 211, 0.10);
+        --tag-prefix-hover: #404ED3;
+      "><span class="crayons-tag__prefix">#</span>sideprojects</a>
+</div>
+<div class="crayons-story__bottom">
+<div class="crayons-story__details">
+<a aria-label="Add a comment to post - Three months of running a Next.js aggregator on a CSV: what broke and what did not," class="crayons-btn crayons-btn--s crayons-btn--ghost crayons-btn--icon-left flex items-center" href="../sweepbase/three-months-of-running-a-nextjs-aggregator-on-a-csv-what-broke-and-what-did-not-e59.html">
+<svg aria-labelledby="af8y8xhc1aw5qb5jfrwx8ip51vaxnekg" class="crayons-icon" height="24" role="img" width="24" xmlns="http://www.w3.org/2000/svg"><title id="af8y8xhc1aw5qb5jfrwx8ip51vaxnekg">Comments</title><path d="M10.5 5h3a6 6 0 110 12v2.625c-3.75-1.5-9-3.75-9-8.625a6 6 0 016-6zM12 15.5h1.5a4.501 4.501 0 001.722-8.657A4.5 4.5 0 0013.5 6.5h-3A4.5 4.5 0 006 11c0 2.707 1.846 4.475 6 6.36V15.5z"></path></svg>
+<span class="hidden s:inline">Add Comment</span>
+</a>
+</div>
+<div class="crayons-story__save">
+<small class="crayons-story__tertiary fs-xs mr-2">
+            3 min read
+          </small>
+<button aria-label="Save post Three months of running a Next.js aggregator on a CSV: what broke and what did not, to reading list" class="c-btn c-btn--icon-alone bookmark-button" data-article-author-id="3886467" data-reactable-id="3621073" id="article-save-button-3621073" title="Save post Three months of running a Next.js aggregator on a CSV: what broke and what did not, to reading list" type="button">
+<span class="bm-initial">
+<svg aria-hidden="true" height="24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M6.75 4.5h10.5a.75.75 0 01.75.75v14.357a.375.375 0 01-.575.318L12 16.523l-5.426 3.401A.375.375 0 016 19.607V5.25a.75.75 0 01.75-.75zM16.5 6h-9v11.574l4.5-2.82 4.5 2.82V6z"></path></svg>
+</span>
+<span class="bm-success">
+<svg aria-hidden="true" height="24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M6.75 4.5h10.5a.75.75 0 01.75.75v14.357a.375.375 0 01-.575.318L12 16.523l-5.426 3.401A.375.375 0 016 19.607V5.25a.75.75 0 01.75-.75z"></path></svg>
+</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="crayons-story" data-content-user-id="3915877" data-feed-content-id="3620941">
+<a aria-labelledby="article-link-3620941" class="crayons-story__hidden-navigation-link" href="../dattasble/stop-using-subqueries-3-advanced-sql-cte-patterns-that-saved-my-production-database-35h5.html">Stop Using Subqueries: 3 Advanced SQL CTE Patterns That Saved My Production Database</a>
+<div class="crayons-story__body crayons-story__body-full_post">
+<div class="crayons-story__top">
+<div class="crayons-story__meta">
+<div class="crayons-story__author-pic">
+<a class="crayons-avatar crayons-avatar--l" href="../dattasble.html">
+<img alt="dattasble profile" class="crayons-avatar__image" loading="lazy" src="../cdn/media2.dev.to/dynamic/image/width=90,height=90,fit=cover,gravity=auto,format=auto/https___dev-to-uploads.s3.amazonaws.com_uploads_user_profile_image_3915877_27fd436a-072e-4c02-a04d-45312bebbac4.jpg"/>
+</a>
+</div>
+<div>
+<div>
+<a class="crayons-story__secondary fw-medium m:hidden" href="../dattasble.html">
+              Datta Sable
+            </a>
+<div class="profile-preview-card relative mb-4 s:mb-0 fw-medium hidden m:inline-block">
+<button aria-controls="story-author-preview-content-3620941" aria-label="Datta Sable profile details" class="profile-preview-card__trigger fs-s p-1 -ml-1 -my-2 crayons-btn crayons-btn--ghost" id="story-author-preview-trigger-3620941">
+                Datta Sable
+                
+              </button>
+<div class="profile-preview-card__content crayons-dropdown branded-7 p-4 pt-0" data-repositioning-dropdown="true" data-testid="profile-preview-card" id="story-author-preview-content-3620941" style="border-top-color: var(--card-color);">
+<div class="gap-4 grid">
+<div class="-mt-4">
+<a class="flex" href="../dattasble.html">
+<span class="crayons-avatar crayons-avatar--xl mr-2 shrink-0">
+<img alt="" class="crayons-avatar__image" loading="lazy" src="../cdn/media2.dev.to/dynamic/image/width=90,height=90,fit=cover,gravity=auto,format=auto/https___dev-to-uploads.s3.amazonaws.com_uploads_user_profile_image_3915877_27fd436a-072e-4c02-a04d-45312bebbac4.jpg"/>
+</span>
+<span class="crayons-link crayons-subtitle-2 mt-5">Datta Sable</span>
+</a>
+</div>
+<div class="print-hidden">
+<button class="crayons-btn follow-action-button whitespace-nowrap follow-user w-100" data-info='{"style":"full","id":3915877,"className":"User","name":"Datta Sable"}'>
+                      Follow
+                    </button>
+</div>
+<div class="author-preview-metadata-container" data-author-id="3915877"></div>
+</div>
+</div>
+</div>
+</div>
+<a class="crayons-story__tertiary fs-xs" href="../dattasble/stop-using-subqueries-3-advanced-sql-cte-patterns-that-saved-my-production-database-35h5.html"><time datetime="2026-05-06T12:04:23Z">May 6</time><span class="time-ago-indicator-initial-placeholder" data-seconds="1778069063"></span></a>
+</div>
+</div>
+</div>
+<div class="crayons-story__indention">
+<h2 class="crayons-story__title crayons-story__title-full_post">
+<a data-preload-image="https://media2.dev.to/dynamic/image/width=1000,height=420,fit=cover,gravity=auto,format=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Farticles%2Fiw8lsja4n1mcchpedl9j.png" href="../dattasble/stop-using-subqueries-3-advanced-sql-cte-patterns-that-saved-my-production-database-35h5.html" id="article-link-3620941">
+          Stop Using Subqueries: 3 Advanced SQL CTE Patterns That Saved My Production Database
+        </a>
+</h2>
+<div class="crayons-story__tags">
+<a class="crayons-tag crayons-tag--monochrome" href="sql.html" style="
+        --tag-bg: rgba(237, 21, 86, 0.10);
+        --tag-prefix: #ED1556;
+        --tag-bg-hover: rgba(237, 21, 86, 0.10);
+        --tag-prefix-hover: #ED1556;
+      "><span class="crayons-tag__prefix">#</span>sql</a>
+<a class="crayons-tag crayons-tag--monochrome" href="database.html" style="
+        --tag-bg: rgba(237, 21, 86, 0.10);
+        --tag-prefix: #ED1556;
+        --tag-bg-hover: rgba(237, 21, 86, 0.10);
+        --tag-prefix-hover: #ED1556;
+      "><span class="crayons-tag__prefix">#</span>database</a>
+<a class="crayons-tag crayons-tag--monochrome" href="dataengineering.html" style="
+        --tag-bg: rgba(64, 78, 211, 0.10);
+        --tag-prefix: #404ED3;
+        --tag-bg-hover: rgba(64, 78, 211, 0.10);
+        --tag-prefix-hover: #404ED3;
+      "><span class="crayons-tag__prefix">#</span>dataengineering</a>
+<a class="crayons-tag crayons-tag--monochrome" href="programming.html" style="
+        --tag-bg: rgba(137, 6, 6, 0.10);
+        --tag-prefix: #890606;
+        --tag-bg-hover: rgba(137, 6, 6, 0.10);
+        --tag-prefix-hover: #890606;
+      "><span class="crayons-tag__prefix">#</span>programming</a>
+</div>
+<div class="crayons-story__bottom">
+<div class="crayons-story__details">
+<a aria-label="Add a comment to post - Stop Using Subqueries: 3 Advanced SQL CTE Patterns That Saved My Production Database" class="crayons-btn crayons-btn--s crayons-btn--ghost crayons-btn--icon-left flex items-center" href="../dattasble/stop-using-subqueries-3-advanced-sql-cte-patterns-that-saved-my-production-database-35h5.html">
+<svg aria-labelledby="ata807mptr931sc791pkdrg4ky5ziyqz" class="crayons-icon" height="24" role="img" width="24" xmlns="http://www.w3.org/2000/svg"><title id="ata807mptr931sc791pkdrg4ky5ziyqz">Comments</title><path d="M10.5 5h3a6 6 0 110 12v2.625c-3.75-1.5-9-3.75-9-8.625a6 6 0 016-6zM12 15.5h1.5a4.501 4.501 0 001.722-8.657A4.5 4.5 0 0013.5 6.5h-3A4.5 4.5 0 006 11c0 2.707 1.846 4.475 6 6.36V15.5z"></path></svg>
+
+              1<span class="hidden s:inline"> comment</span>
+</a>
+</div>
+<div class="crayons-story__save">
+<small class="crayons-story__tertiary fs-xs mr-2">
+            3 min read
+          </small>
+<button aria-label="Save post Stop Using Subqueries: 3 Advanced SQL CTE Patterns That Saved My Production Database to reading list" class="c-btn c-btn--icon-alone bookmark-button" data-article-author-id="3915877" data-reactable-id="3620941" id="article-save-button-3620941" title="Save post Stop Using Subqueries: 3 Advanced SQL CTE Patterns That Saved My Production Database to reading list" type="button">
+<span class="bm-initial">
+<svg aria-hidden="true" height="24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M6.75 4.5h10.5a.75.75 0 01.75.75v14.357a.375.375 0 01-.575.318L12 16.523l-5.426 3.401A.375.375 0 016 19.607V5.25a.75.75 0 01.75-.75zM16.5 6h-9v11.574l4.5-2.82 4.5 2.82V6z"></path></svg>
+</span>
+<span class="bm-success">
+<svg aria-hidden="true" height="24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M6.75 4.5h10.5a.75.75 0 01.75.75v14.357a.375.375 0 01-.575.318L12 16.523l-5.426 3.401A.375.375 0 016 19.607V5.25a.75.75 0 01.75-.75z"></path></svg>
+</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="crayons-story" data-content-user-id="363352" data-feed-content-id="3589557">
+<a aria-labelledby="article-link-3589557" class="crayons-story__hidden-navigation-link" href="../sanikolaev/build-a-searchable-catalog-with-filters-facets-and-semantic-search-24bm.html">Build a Searchable Catalog with Filters, Facets, and Semantic Search</a>
+<div class="crayons-story__body crayons-story__body-full_post">
+<div class="crayons-story__top">
+<div class="crayons-story__meta">
+<div class="crayons-story__author-pic">
+<a class="crayons-avatar crayons-avatar--l" href="../sanikolaev.html">
+<img alt="sanikolaev profile" class="crayons-avatar__image" loading="lazy" src="../cdn/media2.dev.to/dynamic/image/width=90,height=90,fit=cover,gravity=auto,format=auto/https___dev-to-uploads.s3.amazonaws.com_uploads_user_profile_image_363352_6f7a2da7-fa00-47f5-aaca-a007b1d43350.jpeg"/>
+</a>
+</div>
+<div>
+<div>
+<a class="crayons-story__secondary fw-medium m:hidden" href="../sanikolaev.html">
+              Sergey Nikolaev
+            </a>
+<div class="profile-preview-card relative mb-4 s:mb-0 fw-medium hidden m:inline-block">
+<button aria-controls="story-author-preview-content-3589557" aria-label="Sergey Nikolaev profile details" class="profile-preview-card__trigger fs-s p-1 -ml-1 -my-2 crayons-btn crayons-btn--ghost" id="story-author-preview-trigger-3589557">
+                Sergey Nikolaev
+                
+              </button>
+<div class="profile-preview-card__content crayons-dropdown branded-7 p-4 pt-0" data-repositioning-dropdown="true" data-testid="profile-preview-card" id="story-author-preview-content-3589557" style="border-top-color: var(--card-color);">
+<div class="gap-4 grid">
+<div class="-mt-4">
+<a class="flex" href="../sanikolaev.html">
+<span class="crayons-avatar crayons-avatar--xl mr-2 shrink-0">
+<img alt="" class="crayons-avatar__image" loading="lazy" src="../cdn/media2.dev.to/dynamic/image/width=90,height=90,fit=cover,gravity=auto,format=auto/https___dev-to-uploads.s3.amazonaws.com_uploads_user_profile_image_363352_6f7a2da7-fa00-47f5-aaca-a007b1d43350.jpeg"/>
+</span>
+<span class="crayons-link crayons-subtitle-2 mt-5">Sergey Nikolaev</span>
+</a>
+</div>
+<div class="print-hidden">
+<button class="crayons-btn follow-action-button whitespace-nowrap follow-user w-100" data-info='{"style":"full","id":363352,"className":"User","name":"Sergey Nikolaev"}'>
+                      Follow
+                    </button>
+</div>
+<div class="author-preview-metadata-container" data-author-id="363352"></div>
+</div>
+</div>
+</div>
+</div>
+<a class="crayons-story__tertiary fs-xs" href="../sanikolaev/build-a-searchable-catalog-with-filters-facets-and-semantic-search-24bm.html"><time datetime="2026-05-06T06:17:07Z">May 6</time><span class="time-ago-indicator-initial-placeholder" data-seconds="1778048227"></span></a>
+</div>
+</div>
+</div>
+<div class="crayons-story__indention">
+<h2 class="crayons-story__title crayons-story__title-full_post">
+<a data-preload-image="" href="../sanikolaev/build-a-searchable-catalog-with-filters-facets-and-semantic-search-24bm.html" id="article-link-3589557">
+          Build a Searchable Catalog with Filters, Facets, and Semantic Search
+        </a>
+</h2>
+<div class="crayons-story__tags">
+<a class="crayons-tag crayons-tag--filled" href="showdev.html" style="
+        --tag-bg: rgba(9, 27, 71, 0.10);
+        --tag-prefix: #091b47;
+        --tag-bg-hover: rgba(9, 27, 71, 0.10);
+        --tag-prefix-hover: #091b47;
+      "><span class="crayons-tag__prefix">#</span>showdev</a>
+<a class="crayons-tag crayons-tag--monochrome" href="ai.html" style="
+        --tag-bg: rgba(23, 253, 26, 0.10);
+        --tag-prefix: #17fd1a;
+        --tag-bg-hover: rgba(23, 253, 26, 0.10);
+        --tag-prefix-hover: #17fd1a;
+      "><span class="crayons-tag__prefix">#</span>ai</a>
+<a class="crayons-tag crayons-tag--monochrome" href="database.html" style="
+        --tag-bg: rgba(237, 21, 86, 0.10);
+        --tag-prefix: #ED1556;
+        --tag-bg-hover: rgba(237, 21, 86, 0.10);
+        --tag-prefix-hover: #ED1556;
+      "><span class="crayons-tag__prefix">#</span>database</a>
+<a class="crayons-tag crayons-tag--monochrome" href="tutorial.html" style="
+        --tag-bg: rgba(254, 255, 165, 0.10);
+        --tag-prefix: #FEFFA5;
+        --tag-bg-hover: rgba(254, 255, 165, 0.10);
+        --tag-prefix-hover: #FEFFA5;
+      "><span class="crayons-tag__prefix">#</span>tutorial</a>
+</div>
+<div class="crayons-story__bottom">
+<div class="crayons-story__details">
+<a aria-label="Add a comment to post - Build a Searchable Catalog with Filters, Facets, and Semantic Search" class="crayons-btn crayons-btn--s crayons-btn--ghost crayons-btn--icon-left flex items-center" href="../sanikolaev/build-a-searchable-catalog-with-filters-facets-and-semantic-search-24bm.html">
+<svg aria-labelledby="a1emaol1lwo3zpro9bdnjzm75qz3jzmu" class="crayons-icon" height="24" role="img" width="24" xmlns="http://www.w3.org/2000/svg"><title id="a1emaol1lwo3zpro9bdnjzm75qz3jzmu">Comments</title><path d="M10.5 5h3a6 6 0 110 12v2.625c-3.75-1.5-9-3.75-9-8.625a6 6 0 016-6zM12 15.5h1.5a4.501 4.501 0 001.722-8.657A4.5 4.5 0 0013.5 6.5h-3A4.5 4.5 0 006 11c0 2.707 1.846 4.475 6 6.36V15.5z"></path></svg>
+<span class="hidden s:inline">Add Comment</span>
+</a>
+</div>
+<div class="crayons-story__save">
+<small class="crayons-story__tertiary fs-xs mr-2">
+            6 min read
+          </small>
+<button aria-label="Save post Build a Searchable Catalog with Filters, Facets, and Semantic Search to reading list" class="c-btn c-btn--icon-alone bookmark-button" data-article-author-id="363352" data-reactable-id="3589557" id="article-save-button-3589557" title="Save post Build a Searchable Catalog with Filters, Facets, and Semantic Search to reading list" type="button">
+<span class="bm-initial">
+<svg aria-hidden="true" height="24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M6.75 4.5h10.5a.75.75 0 01.75.75v14.357a.375.375 0 01-.575.318L12 16.523l-5.426 3.401A.375.375 0 016 19.607V5.25a.75.75 0 01.75-.75zM16.5 6h-9v11.574l4.5-2.82 4.5 2.82V6z"></path></svg>
+</span>
+<span class="bm-success">
+<svg aria-hidden="true" height="24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M6.75 4.5h10.5a.75.75 0 01.75.75v14.357a.375.375 0 01-.575.318L12 16.523l-5.426 3.401A.375.375 0 016 19.607V5.25a.75.75 0 01.75-.75z"></path></svg>
+</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="crayons-story" data-content-user-id="3796148" data-feed-content-id="3620146">
+<a aria-labelledby="article-link-3620146" class="crayons-story__hidden-navigation-link" href="../mike_burgh/four-ways-to-use-ai-with-your-database-in-vs-code-3hkm.html">Four Ways to Use AI With Your Database in VS Code</a>
+<div class="crayons-story__body crayons-story__body-full_post">
+<div class="crayons-story__top">
+<div class="crayons-story__meta">
+<div class="crayons-story__author-pic">
+<a class="crayons-avatar crayons-avatar--l" href="../mike_burgh.html">
+<img alt="mike_burgh profile" class="crayons-avatar__image" loading="lazy" src="../cdn/media2.dev.to/dynamic/image/width=90,height=90,fit=cover,gravity=auto,format=auto/https___dev-to-uploads.s3.amazonaws.com_uploads_user_profile_image_3796148_fad7a1a3-fcf2-42d2-83f3-eb45b0815bac.png"/>
+</a>
+</div>
+<div>
+<div>
+<a class="crayons-story__secondary fw-medium m:hidden" href="../mike_burgh.html">
+              Mike Burgh
+            </a>
+<div class="profile-preview-card relative mb-4 s:mb-0 fw-medium hidden m:inline-block">
+<button aria-controls="story-author-preview-content-3620146" aria-label="Mike Burgh profile details" class="profile-preview-card__trigger fs-s p-1 -ml-1 -my-2 crayons-btn crayons-btn--ghost" id="story-author-preview-trigger-3620146">
+                Mike Burgh
+                
+              </button>
+<div class="profile-preview-card__content crayons-dropdown branded-7 p-4 pt-0" data-repositioning-dropdown="true" data-testid="profile-preview-card" id="story-author-preview-content-3620146" style="border-top-color: var(--card-color);">
+<div class="gap-4 grid">
+<div class="-mt-4">
+<a class="flex" href="../mike_burgh.html">
+<span class="crayons-avatar crayons-avatar--xl mr-2 shrink-0">
+<img alt="" class="crayons-avatar__image" loading="lazy" src="../cdn/media2.dev.to/dynamic/image/width=90,height=90,fit=cover,gravity=auto,format=auto/https___dev-to-uploads.s3.amazonaws.com_uploads_user_profile_image_3796148_fad7a1a3-fcf2-42d2-83f3-eb45b0815bac.png"/>
+</span>
+<span class="crayons-link crayons-subtitle-2 mt-5">Mike Burgh</span>
+</a>
+</div>
+<div class="print-hidden">
+<button class="crayons-btn follow-action-button whitespace-nowrap follow-user w-100" data-info='{"style":"full","id":3796148,"className":"User","name":"Mike Burgh"}'>
+                      Follow
+                    </button>
+</div>
+<div class="author-preview-metadata-container" data-author-id="3796148"></div>
+</div>
+</div>
+</div>
+</div>
+<a class="crayons-story__tertiary fs-xs" href="../mike_burgh/four-ways-to-use-ai-with-your-database-in-vs-code-3hkm.html"><time datetime="2026-05-06T10:00:05Z">May 6</time><span class="time-ago-indicator-initial-placeholder" data-seconds="1778061605"></span></a>
+</div>
+</div>
+</div>
+<div class="crayons-story__indention">
+<h2 class="crayons-story__title crayons-story__title-full_post">
+<a data-preload-image="" href="../mike_burgh/four-ways-to-use-ai-with-your-database-in-vs-code-3hkm.html" id="article-link-3620146">
+          Four Ways to Use AI With Your Database in VS Code
+        </a>
+</h2>
+<div class="crayons-story__tags">
+<a class="crayons-tag crayons-tag--monochrome" href="vscode.html" style="
+        --tag-bg: rgba(60, 165, 234, 0.10);
+        --tag-prefix: #3ca5ea;
+        --tag-bg-hover: rgba(60, 165, 234, 0.10);
+        --tag-prefix-hover: #3ca5ea;
+      "><span class="crayons-tag__prefix">#</span>vscode</a>
+<a class="crayons-tag crayons-tag--monochrome" href="database.html" style="
+        --tag-bg: rgba(237, 21, 86, 0.10);
+        --tag-prefix: #ED1556;
+        --tag-bg-hover: rgba(237, 21, 86, 0.10);
+        --tag-prefix-hover: #ED1556;
+      "><span class="crayons-tag__prefix">#</span>database</a>
+<a class="crayons-tag crayons-tag--monochrome" href="ai.html" style="
+        --tag-bg: rgba(23, 253, 26, 0.10);
+        --tag-prefix: #17fd1a;
+        --tag-bg-hover: rgba(23, 253, 26, 0.10);
+        --tag-prefix-hover: #17fd1a;
+      "><span class="crayons-tag__prefix">#</span>ai</a>
+<a class="crayons-tag crayons-tag--monochrome" href="sql.html" style="
+        --tag-bg: rgba(237, 21, 86, 0.10);
+        --tag-prefix: #ED1556;
+        --tag-bg-hover: rgba(237, 21, 86, 0.10);
+        --tag-prefix-hover: #ED1556;
+      "><span class="crayons-tag__prefix">#</span>sql</a>
+</div>
+<div class="crayons-story__bottom">
+<div class="crayons-story__details">
+<a aria-label="Add a comment to post - Four Ways to Use AI With Your Database in VS Code" class="crayons-btn crayons-btn--s crayons-btn--ghost crayons-btn--icon-left flex items-center" href="../mike_burgh/four-ways-to-use-ai-with-your-database-in-vs-code-3hkm.html">
+<svg aria-labelledby="afk9lgp1f02yv9q30lull35bhjn94cbn" class="crayons-icon" height="24" role="img" width="24" xmlns="http://www.w3.org/2000/svg"><title id="afk9lgp1f02yv9q30lull35bhjn94cbn">Comments</title><path d="M10.5 5h3a6 6 0 110 12v2.625c-3.75-1.5-9-3.75-9-8.625a6 6 0 016-6zM12 15.5h1.5a4.501 4.501 0 001.722-8.657A4.5 4.5 0 0013.5 6.5h-3A4.5 4.5 0 006 11c0 2.707 1.846 4.475 6 6.36V15.5z"></path></svg>
+<span class="hidden s:inline">Add Comment</span>
+</a>
+</div>
+<div class="crayons-story__save">
+<small class="crayons-story__tertiary fs-xs mr-2">
+            2 min read
+          </small>
+<button aria-label="Save post Four Ways to Use AI With Your Database in VS Code to reading list" class="c-btn c-btn--icon-alone bookmark-button" data-article-author-id="3796148" data-reactable-id="3620146" id="article-save-button-3620146" title="Save post Four Ways to Use AI With Your Database in VS Code to reading list" type="button">
+<span class="bm-initial">
+<svg aria-hidden="true" height="24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M6.75 4.5h10.5a.75.75 0 01.75.75v14.357a.375.375 0 01-.575.318L12 16.523l-5.426 3.401A.375.375 0 016 19.607V5.25a.75.75 0 01.75-.75zM16.5 6h-9v11.574l4.5-2.82 4.5 2.82V6z"></path></svg>
+</span>
+<span class="bm-success">
+<svg aria-hidden="true" height="24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M6.75 4.5h10.5a.75.75 0 01.75.75v14.357a.375.375 0 01-.575.318L12 16.523l-5.426 3.401A.375.375 0 016 19.607V5.25a.75.75 0 01.75-.75z"></path></svg>
+</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="crayons-story" data-content-user-id="3819431" data-feed-content-id="3619779">
+<a aria-labelledby="article-link-3619779" class="crayons-story__hidden-navigation-link" href="../suridevs_861b8a311a101be4/the-room-migration-mistake-that-crashed-every-users-app-3b40.html">The Room Migration Mistake That Crashed Every User's App</a>
+<div class="crayons-story__body crayons-story__body-full_post">
+<div class="crayons-story__top">
+<div class="crayons-story__meta">
+<div class="crayons-story__author-pic">
+<a class="crayons-avatar crayons-avatar--l" href="../suridevs_861b8a311a101be4.html">
+<img alt="suridevs_861b8a311a101be4 profile" class="crayons-avatar__image" loading="lazy" src="../cdn/media2.dev.to/dynamic/image/width=90,height=90,fit=cover,gravity=auto,format=auto/https___dev-to-uploads.s3.amazonaws.com_uploads_user_profile_image_3819431_af13e11d-7a7d-4dd2-90d1-c710d312f40e.png"/>
+</a>
+</div>
+<div>
+<div>
+<a class="crayons-story__secondary fw-medium m:hidden" href="../suridevs_861b8a311a101be4.html">
+              SuriDevs
+            </a>
+<div class="profile-preview-card relative mb-4 s:mb-0 fw-medium hidden m:inline-block">
+<button aria-controls="story-author-preview-content-3619779" aria-label="SuriDevs profile details" class="profile-preview-card__trigger fs-s p-1 -ml-1 -my-2 crayons-btn crayons-btn--ghost" id="story-author-preview-trigger-3619779">
+                SuriDevs
+                
+              </button>
+<div class="profile-preview-card__content crayons-dropdown branded-7 p-4 pt-0" data-repositioning-dropdown="true" data-testid="profile-preview-card" id="story-author-preview-content-3619779" style="border-top-color: var(--card-color);">
+<div class="gap-4 grid">
+<div class="-mt-4">
+<a class="flex" href="../suridevs_861b8a311a101be4.html">
+<span class="crayons-avatar crayons-avatar--xl mr-2 shrink-0">
+<img alt="" class="crayons-avatar__image" loading="lazy" src="../cdn/media2.dev.to/dynamic/image/width=90,height=90,fit=cover,gravity=auto,format=auto/https___dev-to-uploads.s3.amazonaws.com_uploads_user_profile_image_3819431_af13e11d-7a7d-4dd2-90d1-c710d312f40e.png"/>
+</span>
+<span class="crayons-link crayons-subtitle-2 mt-5">SuriDevs</span>
+</a>
+</div>
+<div class="print-hidden">
+<button class="crayons-btn follow-action-button whitespace-nowrap follow-user w-100" data-info='{"style":"full","id":3819431,"className":"User","name":"SuriDevs"}'>
+                      Follow
+                    </button>
+</div>
+<div class="author-preview-metadata-container" data-author-id="3819431"></div>
+</div>
+</div>
+</div>
+</div>
+<a class="crayons-story__tertiary fs-xs" href="../suridevs_861b8a311a101be4/the-room-migration-mistake-that-crashed-every-users-app-3b40.html"><time datetime="2026-05-06T08:57:35Z">May 6</time><span class="time-ago-indicator-initial-placeholder" data-seconds="1778057855"></span></a>
+</div>
+</div>
+</div>
+<div class="crayons-story__indention">
+<h2 class="crayons-story__title crayons-story__title-full_post">
+<a data-preload-image="https://media2.dev.to/dynamic/image/width=1000,height=420,fit=cover,gravity=auto,format=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Farticles%2Fh9gf7zw88isvkjugmqv3.webp" href="../suridevs_861b8a311a101be4/the-room-migration-mistake-that-crashed-every-users-app-3b40.html" id="article-link-3619779">
+          The Room Migration Mistake That Crashed Every User's App
+        </a>
+</h2>
+<div class="crayons-story__tags">
+<a class="crayons-tag crayons-tag--monochrome" href="android.html" style="
+        --tag-bg: rgba(86, 160, 54, 0.10);
+        --tag-prefix: #56a036;
+        --tag-bg-hover: rgba(86, 160, 54, 0.10);
+        --tag-prefix-hover: #56a036;
+      "><span class="crayons-tag__prefix">#</span>android</a>
+<a class="crayons-tag crayons-tag--monochrome" href="kotlin.html" style="
+        --tag-bg: rgba(27, 24, 101, 0.10);
+        --tag-prefix: #1b1865;
+        --tag-bg-hover: rgba(27, 24, 101, 0.10);
+        --tag-prefix-hover: #1b1865;
+      "><span class="crayons-tag__prefix">#</span>kotlin</a>
+<a class="crayons-tag crayons-tag--monochrome" href="room.html" style="
+        --tag-bg: rgba(64, 78, 211, 0.10);
+        --tag-prefix: #404ED3;
+        --tag-bg-hover: rgba(64, 78, 211, 0.10);
+        --tag-prefix-hover: #404ED3;
+      "><span class="crayons-tag__prefix">#</span>room</a>
+<a class="crayons-tag crayons-tag--monochrome" href="database.html" style="
+        --tag-bg: rgba(237, 21, 86, 0.10);
+        --tag-prefix: #ED1556;
+        --tag-bg-hover: rgba(237, 21, 86, 0.10);
+        --tag-prefix-hover: #ED1556;
+      "><span class="crayons-tag__prefix">#</span>database</a>
+</div>
+<div class="crayons-story__bottom">
+<div class="crayons-story__details">
+<a aria-label="Add a comment to post - The Room Migration Mistake That Crashed Every User's App" class="crayons-btn crayons-btn--s crayons-btn--ghost crayons-btn--icon-left flex items-center" href="../suridevs_861b8a311a101be4/the-room-migration-mistake-that-crashed-every-users-app-3b40.html">
+<svg aria-labelledby="abfwpxgwqgq6rrmc836yqs9ruw3ch5dw" class="crayons-icon" height="24" role="img" width="24" xmlns="http://www.w3.org/2000/svg"><title id="abfwpxgwqgq6rrmc836yqs9ruw3ch5dw">Comments</title><path d="M10.5 5h3a6 6 0 110 12v2.625c-3.75-1.5-9-3.75-9-8.625a6 6 0 016-6zM12 15.5h1.5a4.501 4.501 0 001.722-8.657A4.5 4.5 0 0013.5 6.5h-3A4.5 4.5 0 006 11c0 2.707 1.846 4.475 6 6.36V15.5z"></path></svg>
+<span class="hidden s:inline">Add Comment</span>
+</a>
+</div>
+<div class="crayons-story__save">
+<small class="crayons-story__tertiary fs-xs mr-2">
+            5 min read
+          </small>
+<button aria-label="Save post The Room Migration Mistake That Crashed Every User's App to reading list" class="c-btn c-btn--icon-alone bookmark-button" data-article-author-id="3819431" data-reactable-id="3619779" id="article-save-button-3619779" title="Save post The Room Migration Mistake That Crashed Every User's App to reading list" type="button">
+<span class="bm-initial">
+<svg aria-hidden="true" height="24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M6.75 4.5h10.5a.75.75 0 01.75.75v14.357a.375.375 0 01-.575.318L12 16.523l-5.426 3.401A.375.375 0 016 19.607V5.25a.75.75 0 01.75-.75zM16.5 6h-9v11.574l4.5-2.82 4.5 2.82V6z"></path></svg>
+</span>
+<span class="bm-success">
+<svg aria-hidden="true" height="24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M6.75 4.5h10.5a.75.75 0 01.75.75v14.357a.375.375 0 01-.575.318L12 16.523l-5.426 3.401A.375.375 0 016 19.607V5.25a.75.75 0 01.75-.75z"></path></svg>
+</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="crayons-story" data-content-user-id="3904661" data-feed-content-id="3587477">
+<a aria-labelledby="article-link-3587477" class="crayons-story__hidden-navigation-link" href="../gayathriabcde/video-search-with-mongodb-5a1p.html">Video Search with MongoDB</a>
+<div class="crayons-story__body crayons-story__body-full_post">
+<div class="crayons-story__top">
+<div class="crayons-story__meta">
+<div class="crayons-story__author-pic">
+<a class="crayons-avatar crayons-avatar--l" href="../gayathriabcde.html">
+<img alt="gayathriabcde profile" class="crayons-avatar__image" loading="lazy" src="../cdn/media2.dev.to/dynamic/image/width=90,height=90,fit=cover,gravity=auto,format=auto/https___dev-to-uploads.s3.amazonaws.com_uploads_user_profile_image_3904661_3ce4f423-ff5c-4ca3-89dc-0e65b7b78bdc.jpg"/>
+</a>
+</div>
+<div>
+<div>
+<a class="crayons-story__secondary fw-medium m:hidden" href="../gayathriabcde.html">
+              Gayathri Jetti
+            </a>
+<div class="profile-preview-card relative mb-4 s:mb-0 fw-medium hidden m:inline-block">
+<button aria-controls="story-author-preview-content-3587477" aria-label="Gayathri Jetti profile details" class="profile-preview-card__trigger fs-s p-1 -ml-1 -my-2 crayons-btn crayons-btn--ghost" id="story-author-preview-trigger-3587477">
+                Gayathri Jetti
+                
+              </button>
+<div class="profile-preview-card__content crayons-dropdown branded-7 p-4 pt-0" data-repositioning-dropdown="true" data-testid="profile-preview-card" id="story-author-preview-content-3587477" style="border-top-color: var(--card-color);">
+<div class="gap-4 grid">
+<div class="-mt-4">
+<a class="flex" href="../gayathriabcde.html">
+<span class="crayons-avatar crayons-avatar--xl mr-2 shrink-0">
+<img alt="" class="crayons-avatar__image" loading="lazy" src="../cdn/media2.dev.to/dynamic/image/width=90,height=90,fit=cover,gravity=auto,format=auto/https___dev-to-uploads.s3.amazonaws.com_uploads_user_profile_image_3904661_3ce4f423-ff5c-4ca3-89dc-0e65b7b78bdc.jpg"/>
+</span>
+<span class="crayons-link crayons-subtitle-2 mt-5">Gayathri Jetti</span>
+</a>
+</div>
+<div class="print-hidden">
+<button class="crayons-btn follow-action-button whitespace-nowrap follow-user w-100" data-info='{"style":"full","id":3904661,"className":"User","name":"Gayathri Jetti"}'>
+                      Follow
+                    </button>
+</div>
+<div class="author-preview-metadata-container" data-author-id="3904661"></div>
+</div>
+</div>
+</div>
+</div>
+<a class="crayons-story__tertiary fs-xs" href="../gayathriabcde/video-search-with-mongodb-5a1p.html"><time datetime="2026-05-06T07:17:48Z">May 6</time><span class="time-ago-indicator-initial-placeholder" data-seconds="1778051868"></span></a>
+</div>
+</div>
+</div>
+<div class="crayons-story__indention">
+<h2 class="crayons-story__title crayons-story__title-full_post">
+<a data-preload-image="https://media2.dev.to/dynamic/image/width=1000,height=420,fit=cover,gravity=auto,format=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Farticles%2Fl8kibuu8d00mlavwkgkj.png" href="../gayathriabcde/video-search-with-mongodb-5a1p.html" id="article-link-3587477">
+          Video Search with MongoDB
+        </a>
+</h2>
+<div class="crayons-story__tags">
+<a class="crayons-tag crayons-tag--monochrome" href="ai.html" style="
+        --tag-bg: rgba(23, 253, 26, 0.10);
+        --tag-prefix: #17fd1a;
+        --tag-bg-hover: rgba(23, 253, 26, 0.10);
+        --tag-prefix-hover: #17fd1a;
+      "><span class="crayons-tag__prefix">#</span>ai</a>
+<a class="crayons-tag crayons-tag--monochrome" href="database.html" style="
+        --tag-bg: rgba(237, 21, 86, 0.10);
+        --tag-prefix: #ED1556;
+        --tag-bg-hover: rgba(237, 21, 86, 0.10);
+        --tag-prefix-hover: #ED1556;
+      "><span class="crayons-tag__prefix">#</span>database</a>
+<a class="crayons-tag crayons-tag--monochrome" href="mongodb.html" style="
+        --tag-bg: rgba(123, 204, 124, 0.10);
+        --tag-prefix: #7bcc7c;
+        --tag-bg-hover: rgba(123, 204, 124, 0.10);
+        --tag-prefix-hover: #7bcc7c;
+      "><span class="crayons-tag__prefix">#</span>mongodb</a>
+<a class="crayons-tag crayons-tag--monochrome" href="rag.html" style="
+        --tag-bg: rgba(0, 0, 0, 0.10);
+        --tag-prefix: #000000;
+        --tag-bg-hover: rgba(0, 0, 0, 0.10);
+        --tag-prefix-hover: #000000;
+      "><span class="crayons-tag__prefix">#</span>rag</a>
+</div>
+<div class="crayons-story__bottom">
+<div class="crayons-story__details">
+<a aria-label="Add a comment to post - Video Search with MongoDB" class="crayons-btn crayons-btn--s crayons-btn--ghost crayons-btn--icon-left" data-reactable-id="3587477" data-reaction-count="" href="../gayathriabcde/video-search-with-mongodb-5a1p.html">
+<div class="multiple_reactions_aggregate">
+<span class="multiple_reactions_icons_container" dir="rtl">
+<span class="crayons_icon_container">
+<img height="18" src="../cdn/assets.dev.to/assets/sparkle-heart-5f9bee3767e18deb1bb725290cb151c25234768a0e9a2bd39370c382d02920cf.svg" width="18"/>
+</span>
+</span>
+<span class="aggregate_reactions_counter">2<span class="hidden s:inline"> reactions</span></span>
+</div>
+</a>
+<a aria-label="Add a comment to post - Video Search with MongoDB" class="crayons-btn crayons-btn--s crayons-btn--ghost crayons-btn--icon-left flex items-center" href="../gayathriabcde/video-search-with-mongodb-5a1p.html">
+<svg aria-labelledby="awyvo685ju0qwg4thdi99w80s6stjb2" class="crayons-icon" height="24" role="img" width="24" xmlns="http://www.w3.org/2000/svg"><title id="awyvo685ju0qwg4thdi99w80s6stjb2">Comments</title><path d="M10.5 5h3a6 6 0 110 12v2.625c-3.75-1.5-9-3.75-9-8.625a6 6 0 016-6zM12 15.5h1.5a4.501 4.501 0 001.722-8.657A4.5 4.5 0 0013.5 6.5h-3A4.5 4.5 0 006 11c0 2.707 1.846 4.475 6 6.36V15.5z"></path></svg>
+<span class="hidden s:inline">Add Comment</span>
+</a>
+</div>
+<div class="crayons-story__save">
+<small class="crayons-story__tertiary fs-xs mr-2">
+            4 min read
+          </small>
+<button aria-label="Save post Video Search with MongoDB to reading list" class="c-btn c-btn--icon-alone bookmark-button" data-article-author-id="3904661" data-reactable-id="3587477" id="article-save-button-3587477" title="Save post Video Search with MongoDB to reading list" type="button">
+<span class="bm-initial">
+<svg aria-hidden="true" height="24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M6.75 4.5h10.5a.75.75 0 01.75.75v14.357a.375.375 0 01-.575.318L12 16.523l-5.426 3.401A.375.375 0 016 19.607V5.25a.75.75 0 01.75-.75zM16.5 6h-9v11.574l4.5-2.82 4.5 2.82V6z"></path></svg>
+</span>
+<span class="bm-success">
+<svg aria-hidden="true" height="24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M6.75 4.5h10.5a.75.75 0 01.75.75v14.357a.375.375 0 01-.575.318L12 16.523l-5.426 3.401A.375.375 0 016 19.607V5.25a.75.75 0 01.75-.75z"></path></svg>
+</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="crayons-story" data-content-user-id="3830930" data-feed-content-id="3621840">
+<a aria-labelledby="article-link-3621840" class="crayons-story__hidden-navigation-link" href="../michaelfv/gbase-8s-user-management-mapping-os-users-and-internal-users-27np.html">GBase 8s User Management: Mapping OS Users and Internal Users</a>
+<div class="crayons-story__body crayons-story__body-full_post">
+<div class="crayons-story__top">
+<div class="crayons-story__meta">
+<div class="crayons-story__author-pic">
+<a class="crayons-avatar crayons-avatar--l" href="../michaelfv.html">
+<img alt="michaelfv profile" class="crayons-avatar__image" loading="lazy" src="../cdn/media2.dev.to/dynamic/image/width=90,height=90,fit=cover,gravity=auto,format=auto/https___dev-to-uploads.s3.amazonaws.com_uploads_user_profile_image_3830930_34d5c2f8-f162-4df3-865b-34a96a64ac17.png"/>
+</a>
+</div>
+<div>
+<div>
+<a class="crayons-story__secondary fw-medium m:hidden" href="../michaelfv.html">
+              Michael
+            </a>
+<div class="profile-preview-card relative mb-4 s:mb-0 fw-medium hidden m:inline-block">
+<button aria-controls="story-author-preview-content-3621840" aria-label="Michael profile details" class="profile-preview-card__trigger fs-s p-1 -ml-1 -my-2 crayons-btn crayons-btn--ghost" id="story-author-preview-trigger-3621840">
+                Michael
+                
+              </button>
+<div class="profile-preview-card__content crayons-dropdown branded-7 p-4 pt-0" data-repositioning-dropdown="true" data-testid="profile-preview-card" id="story-author-preview-content-3621840" style="border-top-color: var(--card-color);">
+<div class="gap-4 grid">
+<div class="-mt-4">
+<a class="flex" href="../michaelfv.html">
+<span class="crayons-avatar crayons-avatar--xl mr-2 shrink-0">
+<img alt="" class="crayons-avatar__image" loading="lazy" src="../cdn/media2.dev.to/dynamic/image/width=90,height=90,fit=cover,gravity=auto,format=auto/https___dev-to-uploads.s3.amazonaws.com_uploads_user_profile_image_3830930_34d5c2f8-f162-4df3-865b-34a96a64ac17.png"/>
+</span>
+<span class="crayons-link crayons-subtitle-2 mt-5">Michael</span>
+</a>
+</div>
+<div class="print-hidden">
+<button class="crayons-btn follow-action-button whitespace-nowrap follow-user w-100" data-info='{"style":"full","id":3830930,"className":"User","name":"Michael"}'>
+                      Follow
+                    </button>
+</div>
+<div class="author-preview-metadata-container" data-author-id="3830930"></div>
+</div>
+</div>
+</div>
+</div>
+<a class="crayons-story__tertiary fs-xs" href="../michaelfv/gbase-8s-user-management-mapping-os-users-and-internal-users-27np.html"><time datetime="2026-05-06T15:11:22Z">May 6</time><span class="time-ago-indicator-initial-placeholder" data-seconds="1778080282"></span></a>
+</div>
+</div>
+</div>
+<div class="crayons-story__indention">
+<h2 class="crayons-story__title crayons-story__title-full_post">
+<a data-preload-image="" href="../michaelfv/gbase-8s-user-management-mapping-os-users-and-internal-users-27np.html" id="article-link-3621840">
+          GBase 8s User Management: Mapping OS Users and Internal Users
+        </a>
+</h2>
+<div class="crayons-story__tags">
+<a class="crayons-tag crayons-tag--monochrome" href="gbase.html" style="
+        --tag-bg: rgba(64, 78, 211, 0.10);
+        --tag-prefix: #404ED3;
+        --tag-bg-hover: rgba(64, 78, 211, 0.10);
+        --tag-prefix-hover: #404ED3;
+      "><span class="crayons-tag__prefix">#</span>gbase</a>
+<a class="crayons-tag crayons-tag--monochrome" href="database.html" style="
+        --tag-bg: rgba(237, 21, 86, 0.10);
+        --tag-prefix: #ED1556;
+        --tag-bg-hover: rgba(237, 21, 86, 0.10);
+        --tag-prefix-hover: #ED1556;
+      "><span class="crayons-tag__prefix">#</span>database</a>
+<a class="crayons-tag crayons-tag--monochrome" href="数据库.html" style="
+        --tag-bg: rgba(64, 78, 211, 0.10);
+        --tag-prefix: #404ED3;
+        --tag-bg-hover: rgba(64, 78, 211, 0.10);
+        --tag-prefix-hover: #404ED3;
+      "><span class="crayons-tag__prefix">#</span>数据库</a>
+</div>
+<div class="crayons-story__bottom">
+<div class="crayons-story__details">
+<a aria-label="Add a comment to post - GBase 8s User Management: Mapping OS Users and Internal Users" class="crayons-btn crayons-btn--s crayons-btn--ghost crayons-btn--icon-left flex items-center" href="../michaelfv/gbase-8s-user-management-mapping-os-users-and-internal-users-27np.html">
+<svg aria-labelledby="a3yp6dgbea985133z54vvtdm3hq1t2qb" class="crayons-icon" height="24" role="img" width="24" xmlns="http://www.w3.org/2000/svg"><title id="a3yp6dgbea985133z54vvtdm3hq1t2qb">Comments</title><path d="M10.5 5h3a6 6 0 110 12v2.625c-3.75-1.5-9-3.75-9-8.625a6 6 0 016-6zM12 15.5h1.5a4.501 4.501 0 001.722-8.657A4.5 4.5 0 0013.5 6.5h-3A4.5 4.5 0 006 11c0 2.707 1.846 4.475 6 6.36V15.5z"></path></svg>
+<span class="hidden s:inline">Add Comment</span>
+</a>
+</div>
+<div class="crayons-story__save">
+<small class="crayons-story__tertiary fs-xs mr-2">
+            2 min read
+          </small>
+<button aria-label="Save post GBase 8s User Management: Mapping OS Users and Internal Users to reading list" class="c-btn c-btn--icon-alone bookmark-button" data-article-author-id="3830930" data-reactable-id="3621840" id="article-save-button-3621840" title="Save post GBase 8s User Management: Mapping OS Users and Internal Users to reading list" type="button">
+<span class="bm-initial">
+<svg aria-hidden="true" height="24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M6.75 4.5h10.5a.75.75 0 01.75.75v14.357a.375.375 0 01-.575.318L12 16.523l-5.426 3.401A.375.375 0 016 19.607V5.25a.75.75 0 01.75-.75zM16.5 6h-9v11.574l4.5-2.82 4.5 2.82V6z"></path></svg>
+</span>
+<span class="bm-success">
+<svg aria-hidden="true" height="24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M6.75 4.5h10.5a.75.75 0 01.75.75v14.357a.375.375 0 01-.575.318L12 16.523l-5.426 3.401A.375.375 0 016 19.607V5.25a.75.75 0 01.75-.75z"></path></svg>
+</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="crayons-story" data-content-user-id="3916238" data-feed-content-id="3621750">
+<a aria-labelledby="article-link-3621750" class="crayons-story__hidden-navigation-link" href="../vivek_pandey76/mongodb-full-course-2026-beginner-advanced-free-notes-code-n8p.html">🚀 MongoDB Full Course 2026 (Beginner Advanced) + Free Notes &amp; Code</a>
+<div class="crayons-story__body crayons-story__body-full_post">
+<div class="crayons-story__top">
+<div class="crayons-story__meta">
+<div class="crayons-story__author-pic">
+<a class="crayons-avatar crayons-avatar--l" href="../vivek_pandey76.html">
+<img alt="vivek_pandey76 profile" class="crayons-avatar__image" loading="lazy" src="../cdn/media2.dev.to/dynamic/image/width=90,height=90,fit=cover,gravity=auto,format=auto/https___dev-to-uploads.s3.amazonaws.com_uploads_user_profile_image_3916238_90a838da-de03-446a-a997-34f31a429555.jpg"/>
+</a>
+</div>
+<div>
+<div>
+<a class="crayons-story__secondary fw-medium m:hidden" href="../vivek_pandey76.html">
+              Vivek Pandey
+            </a>
+<div class="profile-preview-card relative mb-4 s:mb-0 fw-medium hidden m:inline-block">
+<button aria-controls="story-author-preview-content-3621750" aria-label="Vivek Pandey profile details" class="profile-preview-card__trigger fs-s p-1 -ml-1 -my-2 crayons-btn crayons-btn--ghost" id="story-author-preview-trigger-3621750">
+                Vivek Pandey
+                
+              </button>
+<div class="profile-preview-card__content crayons-dropdown branded-7 p-4 pt-0" data-repositioning-dropdown="true" data-testid="profile-preview-card" id="story-author-preview-content-3621750" style="border-top-color: var(--card-color);">
+<div class="gap-4 grid">
+<div class="-mt-4">
+<a class="flex" href="../vivek_pandey76.html">
+<span class="crayons-avatar crayons-avatar--xl mr-2 shrink-0">
+<img alt="" class="crayons-avatar__image" loading="lazy" src="../cdn/media2.dev.to/dynamic/image/width=90,height=90,fit=cover,gravity=auto,format=auto/https___dev-to-uploads.s3.amazonaws.com_uploads_user_profile_image_3916238_90a838da-de03-446a-a997-34f31a429555.jpg"/>
+</span>
+<span class="crayons-link crayons-subtitle-2 mt-5">Vivek Pandey</span>
+</a>
+</div>
+<div class="print-hidden">
+<button class="crayons-btn follow-action-button whitespace-nowrap follow-user w-100" data-info='{"style":"full","id":3916238,"className":"User","name":"Vivek Pandey"}'>
+                      Follow
+                    </button>
+</div>
+<div class="author-preview-metadata-container" data-author-id="3916238"></div>
+</div>
+</div>
+</div>
+</div>
+<a class="crayons-story__tertiary fs-xs" href="../vivek_pandey76/mongodb-full-course-2026-beginner-advanced-free-notes-code-n8p.html"><time datetime="2026-05-06T14:49:15Z">May 6</time><span class="time-ago-indicator-initial-placeholder" data-seconds="1778078955"></span></a>
+</div>
+</div>
+</div>
+<div class="crayons-story__indention">
+<h2 class="crayons-story__title crayons-story__title-full_post">
+<a data-preload-image="" href="../vivek_pandey76/mongodb-full-course-2026-beginner-advanced-free-notes-code-n8p.html" id="article-link-3621750">
+          🚀 MongoDB Full Course 2026 (Beginner Advanced) + Free Notes &amp; Code
+        </a>
+</h2>
+<div class="crayons-story__tags">
+<a class="crayons-tag crayons-tag--monochrome" href="mongodb.html" style="
+        --tag-bg: rgba(123, 204, 124, 0.10);
+        --tag-prefix: #7bcc7c;
+        --tag-bg-hover: rgba(123, 204, 124, 0.10);
+        --tag-prefix-hover: #7bcc7c;
+      "><span class="crayons-tag__prefix">#</span>mongodb</a>
+<a class="crayons-tag crayons-tag--monochrome" href="database.html" style="
+        --tag-bg: rgba(237, 21, 86, 0.10);
+        --tag-prefix: #ED1556;
+        --tag-bg-hover: rgba(237, 21, 86, 0.10);
+        --tag-prefix-hover: #ED1556;
+      "><span class="crayons-tag__prefix">#</span>database</a>
+<a class="crayons-tag crayons-tag--monochrome" href="webdev.html" style="
+        --tag-bg: rgba(86, 39, 101, 0.10);
+        --tag-prefix: #562765;
+        --tag-bg-hover: rgba(86, 39, 101, 0.10);
+        --tag-prefix-hover: #562765;
+      "><span class="crayons-tag__prefix">#</span>webdev</a>
+</div>
+<div class="crayons-story__bottom">
+<div class="crayons-story__details">
+<a aria-label="Add a comment to post - 🚀 MongoDB Full Course 2026 (Beginner Advanced) + Free Notes &amp; Code" class="crayons-btn crayons-btn--s crayons-btn--ghost crayons-btn--icon-left flex items-center" href="../vivek_pandey76/mongodb-full-course-2026-beginner-advanced-free-notes-code-n8p.html">
+<svg aria-labelledby="a7wp5nm6w2vx7d90y4qusossw8o74kl1" class="crayons-icon" height="24" role="img" width="24" xmlns="http://www.w3.org/2000/svg"><title id="a7wp5nm6w2vx7d90y4qusossw8o74kl1">Comments</title><path d="M10.5 5h3a6 6 0 110 12v2.625c-3.75-1.5-9-3.75-9-8.625a6 6 0 016-6zM12 15.5h1.5a4.501 4.501 0 001.722-8.657A4.5 4.5 0 0013.5 6.5h-3A4.5 4.5 0 006 11c0 2.707 1.846 4.475 6 6.36V15.5z"></path></svg>
+<span class="hidden s:inline">Add Comment</span>
+</a>
+</div>
+<div class="crayons-story__save">
+<small class="crayons-story__tertiary fs-xs mr-2">
+            1 min read
+          </small>
+<button aria-label="Save post 🚀 MongoDB Full Course 2026 (Beginner Advanced) + Free Notes &amp; Code to reading list" class="c-btn c-btn--icon-alone bookmark-button" data-article-author-id="3916238" data-reactable-id="3621750" id="article-save-button-3621750" title="Save post 🚀 MongoDB Full Course 2026 (Beginner Advanced) + Free Notes &amp; Code to reading list" type="button">
+<span class="bm-initial">
+<svg aria-hidden="true" height="24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M6.75 4.5h10.5a.75.75 0 01.75.75v14.357a.375.375 0 01-.575.318L12 16.523l-5.426 3.401A.375.375 0 016 19.607V5.25a.75.75 0 01.75-.75zM16.5 6h-9v11.574l4.5-2.82 4.5 2.82V6z"></path></svg>
+</span>
+<span class="bm-success">
+<svg aria-hidden="true" height="24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M6.75 4.5h10.5a.75.75 0 01.75.75v14.357a.375.375 0 01-.575.318L12 16.523l-5.426 3.401A.375.375 0 016 19.607V5.25a.75.75 0 01.75-.75z"></path></svg>
+</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="crayons-story" data-content-user-id="3812665" data-feed-content-id="3617653">
+<a aria-labelledby="article-link-3617653" class="crayons-story__hidden-navigation-link" href="../soytuber/maybe-sqlite-is-still-better-than-duckdb-for-my-workloads-hli.html">Maybe SQLite Is Still Better Than DuckDB for My Workloads</a>
+<div class="crayons-story__body crayons-story__body-full_post">
+<div class="crayons-story__top">
+<div class="crayons-story__meta">
+<div class="crayons-story__author-pic">
+<a class="crayons-avatar crayons-avatar--l" href="../soytuber.html">
+<img alt="soytuber profile" class="crayons-avatar__image" loading="lazy" src="../cdn/media2.dev.to/dynamic/image/width=90,height=90,fit=cover,gravity=auto,format=auto/https___dev-to-uploads.s3.amazonaws.com_uploads_user_profile_image_3812665_761376f9-10b8-4c2c-b6cb-af00f9fa48ab.jpeg"/>
+</a>
+</div>
+<div>
+<div>
+<a class="crayons-story__secondary fw-medium m:hidden" href="../soytuber.html">
+              soy
+            </a>
+<div class="profile-preview-card relative mb-4 s:mb-0 fw-medium hidden m:inline-block">
+<button aria-controls="story-author-preview-content-3617653" aria-label="soy profile details" class="profile-preview-card__trigger fs-s p-1 -ml-1 -my-2 crayons-btn crayons-btn--ghost" id="story-author-preview-trigger-3617653">
+                soy
+                
+              </button>
+<div class="profile-preview-card__content crayons-dropdown branded-7 p-4 pt-0" data-repositioning-dropdown="true" data-testid="profile-preview-card" id="story-author-preview-content-3617653" style="border-top-color: var(--card-color);">
+<div class="gap-4 grid">
+<div class="-mt-4">
+<a class="flex" href="../soytuber.html">
+<span class="crayons-avatar crayons-avatar--xl mr-2 shrink-0">
+<img alt="" class="crayons-avatar__image" loading="lazy" src="../cdn/media2.dev.to/dynamic/image/width=90,height=90,fit=cover,gravity=auto,format=auto/https___dev-to-uploads.s3.amazonaws.com_uploads_user_profile_image_3812665_761376f9-10b8-4c2c-b6cb-af00f9fa48ab.jpeg"/>
+</span>
+<span class="crayons-link crayons-subtitle-2 mt-5">soy</span>
+</a>
+</div>
+<div class="print-hidden">
+<button class="crayons-btn follow-action-button whitespace-nowrap follow-user w-100" data-info='{"style":"full","id":3812665,"className":"User","name":"soy"}'>
+                      Follow
+                    </button>
+</div>
+<div class="author-preview-metadata-container" data-author-id="3812665"></div>
+</div>
+</div>
+</div>
+</div>
+<a class="crayons-story__tertiary fs-xs" href="../soytuber/maybe-sqlite-is-still-better-than-duckdb-for-my-workloads-hli.html"><time datetime="2026-05-06T00:18:40Z">May 6</time><span class="time-ago-indicator-initial-placeholder" data-seconds="1778026720"></span></a>
+</div>
+</div>
+</div>
+<div class="crayons-story__indention">
+<h2 class="crayons-story__title crayons-story__title-full_post">
+<a data-preload-image="" href="../soytuber/maybe-sqlite-is-still-better-than-duckdb-for-my-workloads-hli.html" id="article-link-3617653">
+          Maybe SQLite Is Still Better Than DuckDB for My Workloads
+        </a>
+</h2>
+<div class="crayons-story__tags">
+<a class="crayons-tag crayons-tag--monochrome" href="database.html" style="
+        --tag-bg: rgba(237, 21, 86, 0.10);
+        --tag-prefix: #ED1556;
+        --tag-bg-hover: rgba(237, 21, 86, 0.10);
+        --tag-prefix-hover: #ED1556;
+      "><span class="crayons-tag__prefix">#</span>database</a>
+<a class="crayons-tag crayons-tag--monochrome" href="sqlite.html" style="
+        --tag-bg: rgba(64, 78, 211, 0.10);
+        --tag-prefix: #404ED3;
+        --tag-bg-hover: rgba(64, 78, 211, 0.10);
+        --tag-prefix-hover: #404ED3;
+      "><span class="crayons-tag__prefix">#</span>sqlite</a>
+<a class="crayons-tag crayons-tag--monochrome" href="duckdb.html" style="
+        --tag-bg: rgba(64, 78, 211, 0.10);
+        --tag-prefix: #404ED3;
+        --tag-bg-hover: rgba(64, 78, 211, 0.10);
+        --tag-prefix-hover: #404ED3;
+      "><span class="crayons-tag__prefix">#</span>duckdb</a>
+<a class="crayons-tag crayons-tag--monochrome" href="sql.html" style="
+        --tag-bg: rgba(237, 21, 86, 0.10);
+        --tag-prefix: #ED1556;
+        --tag-bg-hover: rgba(237, 21, 86, 0.10);
+        --tag-prefix-hover: #ED1556;
+      "><span class="crayons-tag__prefix">#</span>sql</a>
+</div>
+<div class="crayons-story__bottom">
+<div class="crayons-story__details">
+<a aria-label="Add a comment to post - Maybe SQLite Is Still Better Than DuckDB for My Workloads" class="crayons-btn crayons-btn--s crayons-btn--ghost crayons-btn--icon-left flex items-center" href="../soytuber/maybe-sqlite-is-still-better-than-duckdb-for-my-workloads-hli.html">
+<svg aria-labelledby="a54x6ai9sz4gop58ftzfe0xrmtl2icc7" class="crayons-icon" height="24" role="img" width="24" xmlns="http://www.w3.org/2000/svg"><title id="a54x6ai9sz4gop58ftzfe0xrmtl2icc7">Comments</title><path d="M10.5 5h3a6 6 0 110 12v2.625c-3.75-1.5-9-3.75-9-8.625a6 6 0 016-6zM12 15.5h1.5a4.501 4.501 0 001.722-8.657A4.5 4.5 0 0013.5 6.5h-3A4.5 4.5 0 006 11c0 2.707 1.846 4.475 6 6.36V15.5z"></path></svg>
+<span class="hidden s:inline">Add Comment</span>
+</a>
+</div>
+<div class="crayons-story__save">
+<small class="crayons-story__tertiary fs-xs mr-2">
+            8 min read
+          </small>
+<button aria-label="Save post Maybe SQLite Is Still Better Than DuckDB for My Workloads to reading list" class="c-btn c-btn--icon-alone bookmark-button" data-article-author-id="3812665" data-reactable-id="3617653" id="article-save-button-3617653" title="Save post Maybe SQLite Is Still Better Than DuckDB for My Workloads to reading list" type="button">
+<span class="bm-initial">
+<svg aria-hidden="true" height="24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M6.75 4.5h10.5a.75.75 0 01.75.75v14.357a.375.375 0 01-.575.318L12 16.523l-5.426 3.401A.375.375 0 016 19.607V5.25a.75.75 0 01.75-.75zM16.5 6h-9v11.574l4.5-2.82 4.5 2.82V6z"></path></svg>
+</span>
+<span class="bm-success">
+<svg aria-hidden="true" height="24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M6.75 4.5h10.5a.75.75 0 01.75.75v14.357a.375.375 0 01-.575.318L12 16.523l-5.426 3.401A.375.375 0 016 19.607V5.25a.75.75 0 01.75-.75z"></path></svg>
+</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="crayons-story" data-content-user-id="3900225" data-feed-content-id="3620826">
+<a aria-labelledby="article-link-3620826" class="crayons-story__hidden-navigation-link" href="../johalputt/the-ultimate-which-no-code-database-review-1bfg.html">The Ultimate Which No-Code Database Review</a>
+<div class="crayons-story__body crayons-story__body-full_post">
+<div class="crayons-story__top">
+<div class="crayons-story__meta">
+<div class="crayons-story__author-pic">
+<a class="crayons-avatar crayons-avatar--l" href="../johalputt.html">
+<img alt="johalputt profile" class="crayons-avatar__image" loading="lazy" src="../cdn/media2.dev.to/dynamic/image/width=90,height=90,fit=cover,gravity=auto,format=auto/https___dev-to-uploads.s3.amazonaws.com_uploads_user_profile_image_3900225_22802772-0488-478d-8833-af97d80457c2.png"/>
+</a>
+</div>
+<div>
+<div>
+<a class="crayons-story__secondary fw-medium m:hidden" href="../johalputt.html">
+              ANKUSH CHOUDHARY JOHAL
+            </a>
+<div class="profile-preview-card relative mb-4 s:mb-0 fw-medium hidden m:inline-block">
+<button aria-controls="story-author-preview-content-3620826" aria-label="ANKUSH CHOUDHARY JOHAL profile details" class="profile-preview-card__trigger fs-s p-1 -ml-1 -my-2 crayons-btn crayons-btn--ghost" id="story-author-preview-trigger-3620826">
+                ANKUSH CHOUDHARY JOHAL
+                
+              </button>
+<div class="profile-preview-card__content crayons-dropdown branded-7 p-4 pt-0" data-repositioning-dropdown="true" data-testid="profile-preview-card" id="story-author-preview-content-3620826" style="border-top-color: var(--card-color);">
+<div class="gap-4 grid">
+<div class="-mt-4">
+<a class="flex" href="../johalputt.html">
+<span class="crayons-avatar crayons-avatar--xl mr-2 shrink-0">
+<img alt="" class="crayons-avatar__image" loading="lazy" src="../cdn/media2.dev.to/dynamic/image/width=90,height=90,fit=cover,gravity=auto,format=auto/https___dev-to-uploads.s3.amazonaws.com_uploads_user_profile_image_3900225_22802772-0488-478d-8833-af97d80457c2.png"/>
+</span>
+<span class="crayons-link crayons-subtitle-2 mt-5">ANKUSH CHOUDHARY JOHAL</span>
+</a>
+</div>
+<div class="print-hidden">
+<button class="crayons-btn follow-action-button whitespace-nowrap follow-user w-100" data-info='{"style":"full","id":3900225,"className":"User","name":"ANKUSH CHOUDHARY JOHAL"}'>
+                      Follow
+                    </button>
+</div>
+<div class="author-preview-metadata-container" data-author-id="3900225"></div>
+</div>
+</div>
+</div>
+</div>
+<a class="crayons-story__tertiary fs-xs" href="../johalputt/the-ultimate-which-no-code-database-review-1bfg.html"><time datetime="2026-05-06T11:48:09Z">May 6</time><span class="time-ago-indicator-initial-placeholder" data-seconds="1778068089"></span></a>
+</div>
+</div>
+</div>
+<div class="crayons-story__indention">
+<h2 class="crayons-story__title crayons-story__title-full_post">
+<a data-preload-image="" href="../johalputt/the-ultimate-which-no-code-database-review-1bfg.html" id="article-link-3620826">
+          The Ultimate Which No-Code Database Review
+        </a>
+</h2>
+<div class="crayons-story__tags">
+<a class="crayons-tag crayons-tag--monochrome" href="ultimate.html" style="
+        --tag-bg: rgba(64, 78, 211, 0.10);
+        --tag-prefix: #404ED3;
+        --tag-bg-hover: rgba(64, 78, 211, 0.10);
+        --tag-prefix-hover: #404ED3;
+      "><span class="crayons-tag__prefix">#</span>ultimate</a>
+<a class="crayons-tag crayons-tag--monochrome" href="which.html" style="
+        --tag-bg: rgba(64, 78, 211, 0.10);
+        --tag-prefix: #404ED3;
+        --tag-bg-hover: rgba(64, 78, 211, 0.10);
+        --tag-prefix-hover: #404ED3;
+      "><span class="crayons-tag__prefix">#</span>which</a>
+<a class="crayons-tag crayons-tag--monochrome" href="nocode.html" style="
+        --tag-bg: rgba(64, 78, 211, 0.10);
+        --tag-prefix: #404ED3;
+        --tag-bg-hover: rgba(64, 78, 211, 0.10);
+        --tag-prefix-hover: #404ED3;
+      "><span class="crayons-tag__prefix">#</span>nocode</a>
+<a class="crayons-tag crayons-tag--monochrome" href="database.html" style="
+        --tag-bg: rgba(237, 21, 86, 0.10);
+        --tag-prefix: #ED1556;
+        --tag-bg-hover: rgba(237, 21, 86, 0.10);
+        --tag-prefix-hover: #ED1556;
+      "><span class="crayons-tag__prefix">#</span>database</a>
+</div>
+<div class="crayons-story__bottom">
+<div class="crayons-story__details">
+<a aria-label="Add a comment to post - The Ultimate Which No-Code Database Review" class="crayons-btn crayons-btn--s crayons-btn--ghost crayons-btn--icon-left flex items-center" href="../johalputt/the-ultimate-which-no-code-database-review-1bfg.html">
+<svg aria-labelledby="a87mw0wz29d9yy8y9jj45q24cdi2g53z" class="crayons-icon" height="24" role="img" width="24" xmlns="http://www.w3.org/2000/svg"><title id="a87mw0wz29d9yy8y9jj45q24cdi2g53z">Comments</title><path d="M10.5 5h3a6 6 0 110 12v2.625c-3.75-1.5-9-3.75-9-8.625a6 6 0 016-6zM12 15.5h1.5a4.501 4.501 0 001.722-8.657A4.5 4.5 0 0013.5 6.5h-3A4.5 4.5 0 006 11c0 2.707 1.846 4.475 6 6.36V15.5z"></path></svg>
+<span class="hidden s:inline">Add Comment</span>
+</a>
+</div>
+<div class="crayons-story__save">
+<small class="crayons-story__tertiary fs-xs mr-2">
+            12 min read
+          </small>
+<button aria-label="Save post The Ultimate Which No-Code Database Review to reading list" class="c-btn c-btn--icon-alone bookmark-button" data-article-author-id="3900225" data-reactable-id="3620826" id="article-save-button-3620826" title="Save post The Ultimate Which No-Code Database Review to reading list" type="button">
+<span class="bm-initial">
+<svg aria-hidden="true" height="24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M6.75 4.5h10.5a.75.75 0 01.75.75v14.357a.375.375 0 01-.575.318L12 16.523l-5.426 3.401A.375.375 0 016 19.607V5.25a.75.75 0 01.75-.75zM16.5 6h-9v11.574l4.5-2.82 4.5 2.82V6z"></path></svg>
+</span>
+<span class="bm-success">
+<svg aria-hidden="true" height="24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M6.75 4.5h10.5a.75.75 0 01.75.75v14.357a.375.375 0 01-.575.318L12 16.523l-5.426 3.401A.375.375 0 016 19.607V5.25a.75.75 0 01.75-.75z"></path></svg>
+</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="crayons-story" data-content-user-id="3900225" data-feed-content-id="3620233">
+<a aria-labelledby="article-link-3620233" class="crayons-story__hidden-navigation-link" href="../johalputt/database-which-no-code-the-honest-truth-n12.html">Database Which No-Code: The Honest Truth</a>
+<div class="crayons-story__body crayons-story__body-full_post">
+<div class="crayons-story__top">
+<div class="crayons-story__meta">
+<div class="crayons-story__author-pic">
+<a class="crayons-avatar crayons-avatar--l" href="../johalputt.html">
+<img alt="johalputt profile" class="crayons-avatar__image" loading="lazy" src="../cdn/media2.dev.to/dynamic/image/width=90,height=90,fit=cover,gravity=auto,format=auto/https___dev-to-uploads.s3.amazonaws.com_uploads_user_profile_image_3900225_22802772-0488-478d-8833-af97d80457c2.png"/>
+</a>
+</div>
+<div>
+<div>
+<a class="crayons-story__secondary fw-medium m:hidden" href="../johalputt.html">
+              ANKUSH CHOUDHARY JOHAL
+            </a>
+<div class="profile-preview-card relative mb-4 s:mb-0 fw-medium hidden m:inline-block">
+<button aria-controls="story-author-preview-content-3620233" aria-label="ANKUSH CHOUDHARY JOHAL profile details" class="profile-preview-card__trigger fs-s p-1 -ml-1 -my-2 crayons-btn crayons-btn--ghost" id="story-author-preview-trigger-3620233">
+                ANKUSH CHOUDHARY JOHAL
+                
+              </button>
+<div class="profile-preview-card__content crayons-dropdown branded-7 p-4 pt-0" data-repositioning-dropdown="true" data-testid="profile-preview-card" id="story-author-preview-content-3620233" style="border-top-color: var(--card-color);">
+<div class="gap-4 grid">
+<div class="-mt-4">
+<a class="flex" href="../johalputt.html">
+<span class="crayons-avatar crayons-avatar--xl mr-2 shrink-0">
+<img alt="" class="crayons-avatar__image" loading="lazy" src="../cdn/media2.dev.to/dynamic/image/width=90,height=90,fit=cover,gravity=auto,format=auto/https___dev-to-uploads.s3.amazonaws.com_uploads_user_profile_image_3900225_22802772-0488-478d-8833-af97d80457c2.png"/>
+</span>
+<span class="crayons-link crayons-subtitle-2 mt-5">ANKUSH CHOUDHARY JOHAL</span>
+</a>
+</div>
+<div class="print-hidden">
+<button class="crayons-btn follow-action-button whitespace-nowrap follow-user w-100" data-info='{"style":"full","id":3900225,"className":"User","name":"ANKUSH CHOUDHARY JOHAL"}'>
+                      Follow
+                    </button>
+</div>
+<div class="author-preview-metadata-container" data-author-id="3900225"></div>
+</div>
+</div>
+</div>
+</div>
+<a class="crayons-story__tertiary fs-xs" href="../johalputt/database-which-no-code-the-honest-truth-n12.html"><time datetime="2026-05-06T10:10:51Z">May 6</time><span class="time-ago-indicator-initial-placeholder" data-seconds="1778062251"></span></a>
+</div>
+</div>
+</div>
+<div class="crayons-story__indention">
+<h2 class="crayons-story__title crayons-story__title-full_post">
+<a data-preload-image="" href="../johalputt/database-which-no-code-the-honest-truth-n12.html" id="article-link-3620233">
+          Database Which No-Code: The Honest Truth
+        </a>
+</h2>
+<div class="crayons-story__tags">
+<a class="crayons-tag crayons-tag--monochrome" href="database.html" style="
+        --tag-bg: rgba(237, 21, 86, 0.10);
+        --tag-prefix: #ED1556;
+        --tag-bg-hover: rgba(237, 21, 86, 0.10);
+        --tag-prefix-hover: #ED1556;
+      "><span class="crayons-tag__prefix">#</span>database</a>
+<a class="crayons-tag crayons-tag--monochrome" href="which.html" style="
+        --tag-bg: rgba(64, 78, 211, 0.10);
+        --tag-prefix: #404ED3;
+        --tag-bg-hover: rgba(64, 78, 211, 0.10);
+        --tag-prefix-hover: #404ED3;
+      "><span class="crayons-tag__prefix">#</span>which</a>
+<a class="crayons-tag crayons-tag--monochrome" href="nocode.html" style="
+        --tag-bg: rgba(64, 78, 211, 0.10);
+        --tag-prefix: #404ED3;
+        --tag-bg-hover: rgba(64, 78, 211, 0.10);
+        --tag-prefix-hover: #404ED3;
+      "><span class="crayons-tag__prefix">#</span>nocode</a>
+<a class="crayons-tag crayons-tag--monochrome" href="honest.html" style="
+        --tag-bg: rgba(64, 78, 211, 0.10);
+        --tag-prefix: #404ED3;
+        --tag-bg-hover: rgba(64, 78, 211, 0.10);
+        --tag-prefix-hover: #404ED3;
+      "><span class="crayons-tag__prefix">#</span>honest</a>
+</div>
+<div class="crayons-story__bottom">
+<div class="crayons-story__details">
+<a aria-label="Add a comment to post - Database Which No-Code: The Honest Truth" class="crayons-btn crayons-btn--s crayons-btn--ghost crayons-btn--icon-left flex items-center" href="../johalputt/database-which-no-code-the-honest-truth-n12.html">
+<svg aria-labelledby="a4e10dy5jnq0joxtpnortrgmlxc9ezwx" class="crayons-icon" height="24" role="img" width="24" xmlns="http://www.w3.org/2000/svg"><title id="a4e10dy5jnq0joxtpnortrgmlxc9ezwx">Comments</title><path d="M10.5 5h3a6 6 0 110 12v2.625c-3.75-1.5-9-3.75-9-8.625a6 6 0 016-6zM12 15.5h1.5a4.501 4.501 0 001.722-8.657A4.5 4.5 0 0013.5 6.5h-3A4.5 4.5 0 006 11c0 2.707 1.846 4.475 6 6.36V15.5z"></path></svg>
+<span class="hidden s:inline">Add Comment</span>
+</a>
+</div>
+<div class="crayons-story__save">
+<small class="crayons-story__tertiary fs-xs mr-2">
+            17 min read
+          </small>
+<button aria-label="Save post Database Which No-Code: The Honest Truth to reading list" class="c-btn c-btn--icon-alone bookmark-button" data-article-author-id="3900225" data-reactable-id="3620233" id="article-save-button-3620233" title="Save post Database Which No-Code: The Honest Truth to reading list" type="button">
+<span class="bm-initial">
+<svg aria-hidden="true" height="24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M6.75 4.5h10.5a.75.75 0 01.75.75v14.357a.375.375 0 01-.575.318L12 16.523l-5.426 3.401A.375.375 0 016 19.607V5.25a.75.75 0 01.75-.75zM16.5 6h-9v11.574l4.5-2.82 4.5 2.82V6z"></path></svg>
+</span>
+<span class="bm-success">
+<svg aria-hidden="true" height="24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M6.75 4.5h10.5a.75.75 0 01.75.75v14.357a.375.375 0 01-.575.318L12 16.523l-5.426 3.401A.375.375 0 016 19.607V5.25a.75.75 0 01.75-.75z"></path></svg>
+</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="placeholder-div"></div>
+<div class="single-article-small-pic" id="article-index-hidden-div" style="display:none"></div>
+</div>
+<div aria-live="polite" class="crayons-notice mt-4">
+        👋 <a href="../enter-q7ffd52de7b.html">Sign in</a> for the ability to sort posts by <strong>relevant</strong>, <strong>latest</strong>, or <strong>top</strong>.
+      </div>
+</main>
+<div class="sidebar-wrapper sidebar-wrapper-right" id="sidebar-wrapper-right">
+<div class="sidebar-bg" id="sidebar-bg-right"></div>
+<aside class="side-bar sidebar-additional showing fs-s" id="sidebar-additional">
+<div class="widget">
+<header>
+<h4 class="fs-base fw-medium">trending guides/resources</h4>
+</header>
+<div class="widget-body fs-s">
+<div class="widget-link-list">
+<a class="crayons-link crayons-link--contentful" href="../philip_mcclarence_2ef9475/timescaledb-compression-a-complete-guide-to-95-storage-reduction-2mo4.html">
+  TimescaleDB Compression: A Complete Guide to 95%+ Storage Reduction
+</a>
+<a class="crayons-link crayons-link--contentful" href="../alexmercedcoder/data-vault-modeling-hubs-links-and-satellites-1e1h.html">
+  Data Vault Modeling: Hubs, Links, and Satellites
+</a>
+<a class="crayons-link crayons-link--contentful" href="../haikasatryan/postgresql-write-performance-what-the-benchmarks-wont-tell-you-mm7.html">
+  PostgreSQL Write Performance: What the Benchmarks Won't Tell You
+</a>
+<a class="crayons-link crayons-link--contentful" href="../zenstack/prisma-vs-drizzle-vs-zenstack-choosing-a-typescript-orm-in-2026-5cba.html">
+  Prisma vs Drizzle vs ZenStack: Choosing a TypeScript ORM in 2026
+</a>
+<a class="crayons-link crayons-link--contentful" href="../mohhddhassan/how-postgresql-wal-actually-works-and-why-everything-depends-on-it-2g81.html">
+  How PostgreSQL WAL Actually Works (And Why Everything Depends On It)
+</a>
+<a class="crayons-link crayons-link--contentful" href="../aws-builders/i-benchmarked-timescaledb-vs-clickhouse-vs-mongodb-for-observability-data-the-results-surprised-me-3d7d.html">
+  I Benchmarked TimescaleDB vs ClickHouse vs MongoDB for Observability Data - The Results Surprised Me
+</a>
+<a class="crayons-link crayons-link--contentful" href="../manojsatna31/master-hikaricp-in-spring-boot-3x-complete-guide-to-high-performance-database-connection-pooling-3i5n.html">
+  Master HikariCP in Spring Boot 3.x: Complete Guide to High-Performance Database Connection Pooling
+</a>
+<a class="crayons-link crayons-link--contentful" href="../mohhddhassan/managing-large-postgresql-tables-with-native-partitioning-and-pgpartman-59ak.html">
+  Managing Large PostgreSQL Tables with Native Partitioning and pg_partman
+</a>
+<a class="crayons-link crayons-link--contentful" href="../jones_charles_ad50858dbc0/sqlx-your-go-to-database-toolkit-for-go-developers-53n8.html">
+  SQLx: Your Go-To Database Toolkit for Go Developers
+</a>
+<a class="crayons-link crayons-link--contentful" href="../philip_mcclarence_2ef9475/best-postgresql-hosting-in-2026-rds-vs-supabase-vs-neon-vs-self-hosted-5fkp.html">
+  Best PostgreSQL Hosting in 2026: RDS vs Supabase vs Neon vs Self-Hosted
+</a>
+<a class="crayons-link crayons-link--contentful" href="../giuliopanda/eav-a-fascinating-but-often-dangerous-pattern-200j.html">
+  EAV: a fascinating, but often dangerous pattern
+</a>
+<a class="crayons-link crayons-link--contentful" href="../paschalogu/how-i-self-host-metabase-why-your-team-should-too-1a6l.html">
+  How I Self-Host Metabase &amp; Why Your Team Should Too
+</a>
+<a class="crayons-link crayons-link--contentful" href="../philip_mcclarence_2ef9475/why-your-timescaledb-compression-ratio-is-bad-and-how-to-fix-it-lb1.html">
+  Why Your TimescaleDB Compression Ratio Is Bad (And How to Fix It)
+</a>
+<a class="crayons-link crayons-link--contentful" href="../alexmercedcoder/denormalization-when-and-why-to-flatten-your-data-g0g.html">
+  Denormalization: When and Why to Flatten Your Data
+</a>
+<a class="crayons-link crayons-link--contentful" href="../philip_mcclarence_2ef9475/understanding-timescaledb-background-workers-and-jobs-3mlc.html">
+  Understanding TimescaleDB Background Workers and Jobs
+</a>
+<a class="crayons-link crayons-link--contentful" href="../ankitdevcode/jpa-mapping-with-hibernate-one-to-one-relationship-g41.html">
+  JPA Mapping with Hibernate-One-to-One Relationship
+</a>
+<a class="crayons-link crayons-link--contentful" href="../philip_mcclarence_2ef9475/postgresql-high-availability-patroni-replication-and-failover-patterns-4f6k.html">
+  PostgreSQL High Availability: Patroni, Replication and Failover Patterns
+</a>
+<a class="crayons-link crayons-link--contentful" href="../philip_mcclarence_2ef9475/how-timescaledb-chunks-actually-work-and-why-size-matters-3hl5.html">
+  How TimescaleDB Chunks Actually Work (And Why Size Matters)
+</a>
+<a class="crayons-link crayons-link--contentful" href="../mickelsamuel/how-to-safely-add-a-column-with-a-default-value-in-postgresql-9f2.html">
+  How to Safely Add a Column with a Default Value in PostgreSQL
+</a>
+<a class="crayons-link crayons-link--contentful" href="../aws-builders/postgresql-vs-mongodb-for-json-the-internal-trade-offs-they-dont-tell-you-in-the-docs-40oe.html">
+  PostgreSQL vs. MongoDB for JSON: The Internal Trade-offs They Don't Tell You in the Docs
+</a>
+<a class="crayons-link crayons-link--contentful" href="../young_gao/multi-tenant-architecture-database-per-tenant-vs-shared-schema-1n2e.html">
+  Multi-Tenant Architecture: Database Per Tenant vs Shared Schema — Pros and Cons (2026)
+</a>
+<a class="crayons-link crayons-link--contentful" href="../pbouillon/managing-database-schema-changes-in-net-from-theory-to-fluentmigrator-1dl4.html">
+  Managing database schema changes in .NET From theory to FluentMigrator
+</a>
+<a class="crayons-link crayons-link--contentful" href="../adamthedeveloper/no-redis-no-kafka-just-postgres-i-built-chat-28ie.html">
+  No Redis. No Kafka. Just Postgres. I Built Chat.
+</a>
+<a class="crayons-link crayons-link--contentful" href="../philip_mcclarence_2ef9475/timescaledb-memory-tuning-sharedbuffers-workmem-and-chunk-sizing-3fem.html">
+  TimescaleDB Memory Tuning: shared_buffers, work_mem, and Chunk Sizing
+</a>
+<a class="crayons-link crayons-link--contentful" href="../morningman/how-hard-is-it-to-add-an-index-to-an-open-format-lessons-from-the-apache-iceberg-community-5gcf.html">
+  How Hard Is It to Add an Index to an Open Format? Lessons from the Apache Iceberg Community
+</a>
+</div>
+</div>
+</div>
+</aside>
+</div>
+</div>
+<script defer="defer" src="../cdn/assets.dev.to/assets/storiesList-b9c50cbd898a3a64258a3a49db1c531651b0a4a11937be35ed4651111802b5b5.js"></script>
+<script defer="defer" src="../cdn/assets.dev.to/assets/tagFollows-07a4928c795d6d74427628f275723d9c29def9bb2706cc45ccbb95c0054465fe.js"></script>
+<script defer="defer" src="../cdn/assets.dev.to/assets/feedPreviewCards-8d16b0b656456a28c0a290f756cf6e21e19833111c4796f48c631bfea8323d51.js"></script>
+<script defer="defer" src="../cdn/assets.dev.to/assets/hideBookmarkButtons-a5d5527593e7fcba1cba72db457b57f49f94bf2266c62db454b2c8a00e751d33.js"></script>
+<script defer="defer" src="../cdn/assets.dev.to/assets/drawerSliders-823098a874684cfb50f32368b8dd1c7854954b83a588b8b6cfaef1e8fd30d858.js"></script>
+<script defer="defer" src="../cdn/assets.dev.to/assets/localizeArticleDates-70147c5c6bfe350b42e020ebb2a3dd37419d83978982b5a67b6389119bf162ac.js"></script>
+<div id="runtime-banner-container"></div>
+<div data-translations="{&quot;en&quot;:{&quot;core&quot;:{&quot;add_comment&quot;:&quot;Add comment&quot;,&quot;beta&quot;:&quot;beta&quot;,&quot;comment&quot;:&quot;Comment&quot;,&quot;copy_link&quot;:&quot;Copy link&quot;,&quot;edit_profile&quot;:&quot;Edit profile&quot;,&quot;follow&quot;:&quot;Follow&quot;,&quot;follow_back&quot;:&quot;Follow back&quot;,&quot;following&quot;:&quot;Following&quot;,&quot;like&quot;:&quot;Like&quot;,&quot;loading&quot;:&quot;loading...&quot;,&quot;reaction&quot;:&quot;Reaction&quot;,&quot;report_abuse&quot;:&quot;Report abuse&quot;,&quot;search&quot;:&quot;Search&quot;,&quot;success_settings&quot;:&quot;Successfully updated settings.&quot;,&quot;search_placeholder&quot;:&quot;Search...&quot;,&quot;search_find_related_posts&quot;:&quot;Find related posts...&quot;,&quot;search_powered_by&quot;:&quot;Powered by Algolia&quot;,&quot;search_submit_search&quot;:&quot;Submit search for advanced filtering.&quot;,&quot;search_displaying_recommendations&quot;:&quot;Displaying Algolia Recommendations — Start typing to search&quot;,&quot;article_form_save_changes&quot;:&quot;Save changes&quot;,&quot;article_form_schedule&quot;:&quot;Schedule&quot;,&quot;article_form_publish&quot;:&quot;Publish&quot;,&quot;article_form_loading_preview&quot;:&quot;Loading preview&quot;,&quot;article_form_preview_loaded&quot;:&quot;Preview loaded&quot;,&quot;article_form_co_authors&quot;:&quot;Co-authors&quot;,&quot;article_form_co_authors_description&quot;:&quot;Add up to 4 co-authors from %{org_name}.&quot;,&quot;article_form_co_authors_placeholder&quot;:&quot;Add up to 4...&quot;,&quot;comments_preview&quot;:&quot;Preview&quot;,&quot;comments_continue_editing&quot;:&quot;Continue editing&quot;,&quot;survey_enter_response&quot;:&quot;Enter your response here...&quot;,&quot;survey_thank_you_response&quot;:&quot;Thank you for your response.&quot;,&quot;survey_thank_you_completing&quot;:&quot;Thank you for completing the survey!&quot;,&quot;dashboard_analytics_readers&quot;:&quot;Readers&quot;,&quot;dashboard_analytics_avg_read_time&quot;:&quot;avg. read time %{seconds}s&quot;,&quot;dashboard_analytics_comments&quot;:&quot;Comments&quot;,&quot;dashboard_analytics_reactions&quot;:&quot;Reactions&quot;,&quot;dashboard_analytics_unique_reactors&quot;:&quot;from %{count} unique users&quot;,&quot;dashboard_analytics_bookmarks&quot;:&quot;Bookmarks&quot;,&quot;dashboard_analytics_followers&quot;:&quot;New Followers&quot;,&quot;top_contributors_empty&quot;:&quot;No engagers found for this period.&quot;,&quot;top_contributors_reactions&quot;:&quot;reactions&quot;,&quot;top_contributors_comments&quot;:&quot;comments&quot;,&quot;top_contributors_weight_note&quot;:&quot;Comments carry more weight&quot;,&quot;follower_engagement_ratio&quot;:&quot;%{ratio}% of followers engaged&quot;,&quot;follower_engagement_detail&quot;:&quot;(%{engaged} of %{total})&quot;,&quot;dashboard_analytics_no_data&quot;:&quot;No data available for this period&quot;,&quot;dashboard_analytics_no_referrers&quot;:&quot;No traffic sources yet&quot;,&quot;stats_by&quot;:&quot;by&quot;,&quot;editor_new_title&quot;:&quot;New post title here...&quot;,&quot;editor_body_placeholder&quot;:&quot;Write your post content here...&quot;,&quot;tags_field_label&quot;:&quot;Add up to 4 tags&quot;,&quot;tags_field_placeholder&quot;:&quot;Add up to 4 tags...&quot;,&quot;counted_organization&quot;:{&quot;one&quot;:&quot;%{count} organization&quot;,&quot;other&quot;:&quot;%{count} organizations&quot;},&quot;counted_user&quot;:{&quot;one&quot;:&quot;%{count} person&quot;,&quot;other&quot;:&quot;%{count} people&quot;},&quot;not_following&quot;:&quot;You're not following anyone&quot;,&quot;following_everyone&quot;:&quot;You're following %{details} (everyone)&quot;,&quot;you_are_following&quot;:&quot;You're following&quot;,&quot;and&quot;:&quot;and&quot;}}}" id="i18n-translations"></div>
+</div>
+</div>
+<footer class="crayons-footer print-hidden" id="footer">
+<div class="crayons-footer__container" id="footer-container">
+<style>
+  .long-bb-body {
+    max-height: calc(100vh - 200px);
+    overflow: hidden;
+  }
+  .long-bb-bottom {
+    height: 180px;
+    background: linear-gradient(to top, var(--card-bg), transparent);
+    margin-top: -180px;
+    position:relative;
+    z-index: 5;
+  }
+</style>
+<div data-article-id="" data-category-click="click" data-category-impression="impression" data-context-type="home" data-display-unit="" data-id="146443" data-special="nothing" data-type-of="in_house" style="">
+<div class="crayons-card crayons-card--secondary crayons-bb bb-placement js-billboard" style="display: inline-flex; flex-direction: column; align-items: center; margin: 0 auto 2rem auto; width: fit-content; padding: 2rem;">
+<p style="font-weight: bold; margin: 0 0 1rem 0;">
+            💎 DEV Diamond Sponsors
+        </p>
+<p style="font-size: 0.8em; margin: 0 0 2rem 0;">
+            Thank you to our Diamond Sponsors for supporting the DEV Community
+        </p>
+<div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 2rem;">
+<div style="display: inline-block; max-width: 240px; font-size: 0.8em; font-style: italic; text-align: center; padding: 10px; background: #ffffff; border-radius: 5px; color: #404040;">
+<a href="https://aistudio.google.com/?utm_source=partner&amp;utm_medium=partner&amp;utm_campaign=FY25-Global-DEVpartnership-sponsorship-AIS&amp;utm_content=-&amp;utm_term=-&amp;bb=146443" rel="noopener noreferrer" style="display: flex; justify-content: center; align-items: center;" target="_blank">
+<img alt="Google AI - Official AI Model and Platform Partner" height="472" loading="lazy" src="../cdn/media2.dev.to/dynamic/image/width=880,height=,fit=scale-down,gravity=auto,format=auto/https___dev-to-uploads.s3.amazonaws.com_uploads_articles_xjlyhbdqehj3akhz166w.png" style="display: block; background: #ffffff; margin: 0 auto; width: auto; height: 54px; padding: 10px;" width="2048"/>
+</a>
+<p style="text-align: center;">Google AI is the official AI Model and Platform Partner of DEV</p>
+</div>
+<div style="display: inline-block; max-width: 240px; font-size: 0.8em; font-style: italic; text-align: center; padding: 10px; background: #ffffff; border-radius: 5px; color: #404040;">
+<a href="https://neon.tech/?ref=devto&amp;bb=146443" rel="noopener noreferrer" style="display: flex; justify-content: center; align-items: center;" target="_blank">
+<img alt="Neon - Official Database Partner" height="596" loading="lazy" src="../cdn/media2.dev.to/dynamic/image/width=880,height=,fit=scale-down,gravity=auto,format=auto/https___dev-to-uploads.s3.amazonaws.com_uploads_articles_bnl88cil6afxzmgwrgtt.png" style="display: block; background: #ffffff; margin: 0 auto; width: auto; height: 60px; padding: 10px;" width="2286"/>
+</a>
+<p style="text-align: center;">Neon is the official database partner of DEV</p>
+</div>
+<div style="display: inline-block; max-width: 240px; font-size: 0.8em; font-style: italic; text-align: center; padding: 10px; background: #ffffff; border-radius: 5px; color: #404040;">
+<a href="https://www.algolia.com/developers/?utm_source=devto&amp;utm_medium=referral&amp;bb=146443" rel="noopener noreferrer" style="display: flex; justify-content: center; align-items: center;" target="_blank">
+<img alt="Algolia - Official Search Partner" height="596" loading="lazy" src="../cdn/media2.dev.to/dynamic/image/width=880,height=,fit=scale-down,gravity=auto,format=auto/https___dev-to-uploads.s3.amazonaws.com_uploads_articles_v30ephnolfvnlwgwm0yz.png" style="display: block; background: #ffffff; margin: 0 auto; width: auto; height: 60px; padding: 10px;" width="2286"/>
+</a>
+<p style="text-align: center;">Algolia is the official search partner of DEV</p>
+</div>
+</div>
+</div>
+</div>
+<p class="fs-s crayons-footer__description">
+<a aria-label="DEV Community Home" class="c-link c-link--branded fw-medium" href="../index.html">DEV Community</a> — A space to discuss and keep up software development and manage your software career
+    </p>
+<ul class="footer__nav-links flex gap-2 justify-center flex-wrap fs-s p-0" style=""></ul>
+<li class="footer__nav-link flex items-center">
+<a href="../index.html">
+      Home
+    </a>
+<span class="dot ml-2"></span>
+</li>
+<li class="footer__nav-link flex items-center">
+<a href="../about.html">
+      About
+    </a>
+<span class="dot ml-2"></span>
+</li>
+<li class="footer__nav-link flex items-center">
+<a href="../contact.html">
+      Contact
+    </a>
+<span class="dot ml-2"></span>
+</li>
+<li class="footer__nav-link flex items-center">
+<a href="https://mlh.io/">
+      MLH
+    </a>
+<span class="dot ml-2"></span>
+</li>
+
+<ul class="footer__nav-links flex gap-2 justify-center flex-wrap fs-s p-0" style=""></ul>
+<li class="footer__nav-link flex items-center">
+<a href="../code-of-conduct.html">
+      Code of Conduct
+    </a>
+<span class="dot ml-2"></span>
+</li>
+<li class="footer__nav-link flex items-center">
+<a href="../privacy.html">
+      Privacy Policy
+    </a>
+<span class="dot ml-2"></span>
+</li>
+<li class="footer__nav-link flex items-center">
+<a href="../terms.html">
+      Terms of Use
+    </a>
+<span class="dot ml-2"></span>
+</li>
+
+<div class="fs-s">
+<p>Built on <a class="c-link c-link--branded" href="https://www.forem.com" rel="noopener" target="_blank">Forem</a> — the <a class="c-link c-link--branded" href="opensource.html" rel="noopener" target="_blank">open source</a> software that powers <a class="c-link c-link--branded" href="../index.html" rel="noopener" target="_blank">DEV</a> and other inclusive communities.</p>
+<p>Made with love and <a class="c-link c-link--branded" href="rails.html" rel="noopener" target="_blank">Ruby on Rails</a>. DEV Community <span title="copyright">©</span> 2016 - 2026.</p>
+</div>
+</div>
+</footer>
+<div id="snack-zone"></div>
+<div class="authentication-modal hidden" id="global-signup-modal">
+<div class="authentication-modal__container">
+<figure class="authentication-modal__image-container">
+<img alt="DEV Community" class="authentication-modal__image" loading="lazy" src="../cdn/media2.dev.to/dynamic/image/width=190,height=,fit=scale-down,gravity=auto,format=auto/https___dev-to-uploads.s3.amazonaws.com_uploads_articles_8j7kvp660rqzt99zui8e.png">
+</img></figure>
+<div class="authentication-modal__content">
+<p class="authentication-modal__description">
+          We're a place where coders share, stay up-to-date and grow their careers.
+      </p>
+</div>
+<div class="authentication-modal__actions">
+<a aria-label="Log in" class="crayons-btn" data-no-instant="" href="../enter-q7ffd52de7b.html">
+        Log in
+      </a>
+<a aria-label="Create new account" class="crayons-btn crayons-btn--ghost-brand js-global-signup-modal__create-account" data-no-instant="" href="../enter-qfc40b94913.html">
+        Create account
+      </a>
+</div>
+</div>
+</div>
+<script defer="defer" src="../cdn/assets.dev.to/assets/signupModalShortcuts-0b25469b985100a01e94cbd7fccaf7f0a4d776e129aac65c766aa32cb28ab29a.js"></script>
+<div id="cookie-consent"></div>
+<div aria-hidden="true" class="hidden" id="reaction-category-resources">
+<img data-name="Like" data-position="1" data-slug="like" height="18" src="../cdn/assets.dev.to/assets/sparkle-heart-5f9bee3767e18deb1bb725290cb151c25234768a0e9a2bd39370c382d02920cf.svg" width="18">
+<img data-name="Unicorn" data-position="2" data-slug="unicorn" height="18" src="../cdn/assets.dev.to/assets/multi-unicorn-b44d6f8c23cdd00964192bedc38af3e82463978aa611b4365bd33a0f1f4f3e97.svg" width="18">
+<img data-name="Exploding Head" data-position="3" data-slug="exploding_head" height="18" src="../cdn/assets.dev.to/assets/exploding-head-daceb38d627e6ae9b730f36a1e390fca556a4289d5a41abb2c35068ad3e2c4b5.svg" width="18"/>
+<img data-name="Raised Hands" data-position="4" data-slug="raised_hands" height="18" src="../cdn/assets.dev.to/assets/raised-hands-74b2099fd66a39f2d7eed9305ee0f4553df0eb7b4f11b01b6b1b499973048fe5.svg" width="18"/>
+<img data-name="Fire" data-position="5" data-slug="fire" height="18" src="../cdn/assets.dev.to/assets/fire-f60e7a582391810302117f987b22a8ef04a2fe0df7e3258a5f49332df1cec71e.svg" width="18"/>
+</img></img></div>
+<script>
+  var userSignedIn = false;
+  if (document.readyState === 'complete' || document.readyState === 'interactive') {
+    initAuth();
+  } else {
+    document.addEventListener('DOMContentLoaded', initAuth);
+  }
+
+  function initAuth() {
+    var paramToken = new URLSearchParams(window.location.search).get('jwt');
+
+    if (paramToken && !userSignedIn) {
+      authenticateUser(paramToken);
+    } else {
+      var iframe = document.createElement('iframe');
+      iframe.style.display = 'none';
+      iframe.src = 'https://forem.com/auth_pass/iframe';
+  
+      document.body.appendChild(iframe);
+  
+      window.addEventListener('message', function(event) {
+        if (event.origin !== 'https://forem.com' && event.origin !== window.location.origin) {
+          return;
+        }
+  
+        var data = event.data;
+  
+        if (data.authenticated && !userSignedIn) {
+          authenticateUser(data.token);
+        } else if(data.authenticated && window.ReactNativeWebView && window.ReactNativeWebView.postMessage) {
+          window.ReactNativeWebView.postMessage(JSON.stringify({
+            action: 'login',
+            token: data.token,
+          }));
+        }
+      });  
+    }
+
+    function authenticateUser(token) {
+      fetch('/auth_pass/token_login', {
+        method: 'POST',
+        credentials: 'include',
+        headers: {
+          'Content-Type': 'application/json',
+          'X-CSRF-Token': getMetaContent('csrf-token'),
+        },
+        body: JSON.stringify({ token: token }),
+      })
+      .then(function(response) {
+        return response.json();
+      })
+      .then(function(data) {
+        if (data.success) {
+          if (document.head.querySelector('meta[name="user-signed-in"][content="false"]')) {
+            // Reload the page to update the user's state
+            location.reload();
+          }
+        }
+      })
+      .catch(function(error) {
+        console.error('Error during authentication:', error);
+      });
+    }
+
+    function getMetaContent(name) {
+      var element = document.querySelector('meta[name="' + name + '"]');
+      return element ? element.getAttribute('content') : '';
+    }
+  }
+</script>
+</link></body>
+</html>

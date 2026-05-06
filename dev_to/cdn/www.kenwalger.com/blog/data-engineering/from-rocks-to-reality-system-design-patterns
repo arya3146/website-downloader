@@ -1,0 +1,1347 @@
+<!DOCTYPE html>
+<html lang="en" prefix="og: http://ogp.me/ns#" class="no-js">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="profile" href="https://gmpg.org/xfn/11">
+		<link rel="pingback" href="https://www.kenwalger.com/blog/xmlrpc.php">
+		
+
+
+
+
+
+
+
+<script>
+(function(html){html.className = html.className.replace(/\bno-js\b/,'js')})(document.documentElement);
+//# sourceURL=twentysixteen_javascript_detection
+</script>
+<title>The Backyard Quarry, Part 8: From Rocks to Reality | Blog of Ken W. Alger</title>
+<meta name='robots' content='max-image-preview:large' />
+<!-- Jetpack Site Verification Tags -->
+<meta name="google-site-verification" content="CHdV3hX5arnalkEftwzgEFJt15wz_vI8HExkBJ6vrlI" />
+<meta name="msvalidate.01" content="2B755624165D99501959B8BEAACE30A6" />
+
+<!-- This site is optimized with the Yoast SEO Premium plugin v9.2.1 - https://yoast.com/wordpress/plugins/seo/ -->
+<link rel="canonical" href="https://www.kenwalger.com/blog/data-engineering/from-rocks-to-reality-system-design-patterns/" />
+<meta property="og:locale" content="en_US" />
+<meta property="og:type" content="article" />
+<meta property="og:title" content="The Backyard Quarry, Part 8: From Rocks to Reality | Blog of Ken W. Alger" />
+<meta property="og:description" content="At the beginning of this series, the problem seemed simple. There were a lot of rocks in the yard. Some were small. Some were large. A few were firmly in what I’ve been calling Engine Block Class. The original idea was straightforward: catalog them, maybe sell a few, and build a small system around the &hellip; Continue reading &quot;The Backyard Quarry, Part 8: From Rocks to Reality&quot;" />
+<meta property="og:url" content="https://www.kenwalger.com/blog/data-engineering/from-rocks-to-reality-system-design-patterns/" />
+<meta property="og:site_name" content="Blog of Ken W. Alger" />
+<meta property="article:publisher" content="https://www.facebook.com/ken.alger.12" />
+<meta property="article:tag" content="Data Platforms" />
+<meta property="article:tag" content="Digital Twins" />
+<meta property="article:tag" content="Software Engineering" />
+<meta property="article:tag" content="System Architecture" />
+<meta property="article:tag" content="Systems Thinking" />
+<meta property="article:section" content="Data Engineering" />
+<meta property="article:published_time" content="2026-05-05T14:13:29-07:00" />
+<meta property="article:modified_time" content="2026-05-05T14:13:33-07:00" />
+<meta property="og:updated_time" content="2026-05-05T14:13:33-07:00" />
+<meta property="og:image" content="https://www.kenwalger.com/blog/wp-content/uploads/2026/04/blog-of-ken-w.-alger-69ea2cd5d8eb2.png" />
+<meta property="og:image:secure_url" content="https://www.kenwalger.com/blog/wp-content/uploads/2026/04/blog-of-ken-w.-alger-69ea2cd5d8eb2.png" />
+<meta property="og:image:width" content="1376" />
+<meta property="og:image:height" content="768" />
+<meta property="og:image:alt" content="Stone sculpture of a muscular figure holding a large rock in an industrial workshop" />
+<!-- / Yoast SEO Premium plugin. -->
+
+<link rel='dns-prefetch' href='//secure.gravatar.com' />
+<link rel='dns-prefetch' href='//ws.sharethis.com' />
+<link rel='dns-prefetch' href='//stats.wp.com' />
+<link rel='dns-prefetch' href='//v0.wordpress.com' />
+<link rel="alternate" type="application/rss+xml" title="Blog of Ken W. Alger &raquo; Feed" href="https://www.kenwalger.com/blog/feed/" />
+<link rel="alternate" type="application/rss+xml" title="Blog of Ken W. Alger &raquo; Comments Feed" href="https://www.kenwalger.com/blog/comments/feed/" />
+<link rel="alternate" type="application/rss+xml" title="Blog of Ken W. Alger &raquo; The Backyard Quarry, Part 8: From Rocks to Reality Comments Feed" href="https://www.kenwalger.com/blog/data-engineering/from-rocks-to-reality-system-design-patterns/feed/" />
+<link rel="alternate" title="oEmbed (JSON)" type="application/json+oembed" href="https://www.kenwalger.com/blog/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fwww.kenwalger.com%2Fblog%2Fdata-engineering%2Ffrom-rocks-to-reality-system-design-patterns%2F" />
+<link rel="alternate" title="oEmbed (XML)" type="text/xml+oembed" href="https://www.kenwalger.com/blog/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fwww.kenwalger.com%2Fblog%2Fdata-engineering%2Ffrom-rocks-to-reality-system-design-patterns%2F&#038;format=xml" />
+<script data-cfasync="false" data-wpfc-render="false">
+		(function () {
+			window.dataLayer = window.dataLayer || [];function gtag(){dataLayer.push(arguments);}
+
+			// Set the developer ID.
+			gtag('set', 'developer_id.dMmRkYz', true);
+
+			// Set default consent state based on plugin settings.
+			gtag('consent', 'default', {
+				'ad_storage': 'denied',
+				'analytics_storage': 'denied',
+				'ad_user_data': 'denied',
+				'ad_personalization': 'denied',
+				'security_storage': 'granted',
+				'functionality_storage': 'granted',
+				'wait_for_update': 500,
+			});
+		})();
+	</script>		<!-- This site uses the Google Analytics by MonsterInsights plugin v10.1.3 - Using Analytics tracking - https://www.monsterinsights.com/ -->
+							<script src="//www.googletagmanager.com/gtag/js?id=G-JTKEY0G5XK"  data-cfasync="false" data-wpfc-render="false" async></script>
+			<script data-cfasync="false" data-wpfc-render="false">
+				var mi_version = '10.1.3';
+				var mi_track_user = true;
+				var mi_no_track_reason = '';
+								var MonsterInsightsDefaultLocations = {"page_location":"https:\/\/www.kenwalger.com\/blog\/data-engineering\/from-rocks-to-reality-system-design-patterns\/"};
+								if ( typeof MonsterInsightsPrivacyGuardFilter === 'function' ) {
+					var MonsterInsightsLocations = (typeof MonsterInsightsExcludeQuery === 'object') ? MonsterInsightsPrivacyGuardFilter( MonsterInsightsExcludeQuery ) : MonsterInsightsPrivacyGuardFilter( MonsterInsightsDefaultLocations );
+				} else {
+					var MonsterInsightsLocations = (typeof MonsterInsightsExcludeQuery === 'object') ? MonsterInsightsExcludeQuery : MonsterInsightsDefaultLocations;
+				}
+
+								var disableStrs = [
+										'ga-disable-G-JTKEY0G5XK',
+									];
+
+				/* Function to detect opted out users */
+				function __gtagTrackerIsOptedOut() {
+					for (var index = 0; index < disableStrs.length; index++) {
+						if (document.cookie.indexOf(disableStrs[index] + '=true') > -1) {
+							return true;
+						}
+					}
+
+					return false;
+				}
+
+				/* Disable tracking if the opt-out cookie exists. */
+				if (__gtagTrackerIsOptedOut()) {
+					for (var index = 0; index < disableStrs.length; index++) {
+						window[disableStrs[index]] = true;
+					}
+				}
+
+				/* Opt-out function */
+				function __gtagTrackerOptout() {
+					for (var index = 0; index < disableStrs.length; index++) {
+						document.cookie = disableStrs[index] + '=true; expires=Thu, 31 Dec 2099 23:59:59 UTC; path=/';
+						window[disableStrs[index]] = true;
+					}
+				}
+
+				if ('undefined' === typeof gaOptout) {
+					function gaOptout() {
+						__gtagTrackerOptout();
+					}
+				}
+								window.dataLayer = window.dataLayer || [];
+
+				window.MonsterInsightsDualTracker = {
+					helpers: {},
+					trackers: {},
+				};
+				if (mi_track_user) {
+					function __gtagDataLayer() {
+						dataLayer.push(arguments);
+					}
+
+					function __gtagTracker(type, name, parameters) {
+						if (!parameters) {
+							parameters = {};
+						}
+
+						if (parameters.send_to) {
+							__gtagDataLayer.apply(null, arguments);
+							return;
+						}
+
+						if (type === 'event') {
+														parameters.send_to = monsterinsights_frontend.v4_id;
+							var hookName = name;
+							if (typeof parameters['event_category'] !== 'undefined') {
+								hookName = parameters['event_category'] + ':' + name;
+							}
+
+							if (typeof MonsterInsightsDualTracker.trackers[hookName] !== 'undefined') {
+								MonsterInsightsDualTracker.trackers[hookName](parameters);
+							} else {
+								__gtagDataLayer('event', name, parameters);
+							}
+							
+						} else {
+							__gtagDataLayer.apply(null, arguments);
+						}
+					}
+
+					__gtagTracker('js', new Date());
+					__gtagTracker('set', {
+						'developer_id.dZGIzZG': true,
+											});
+					if ( MonsterInsightsLocations.page_location ) {
+						__gtagTracker('set', MonsterInsightsLocations);
+					}
+										__gtagTracker('config', 'G-JTKEY0G5XK', {"forceSSL":"true"} );
+										window.gtag = __gtagTracker;										(function () {
+						/* https://developers.google.com/analytics/devguides/collection/analyticsjs/ */
+						/* ga and __gaTracker compatibility shim. */
+						var noopfn = function () {
+							return null;
+						};
+						var newtracker = function () {
+							return new Tracker();
+						};
+						var Tracker = function () {
+							return null;
+						};
+						var p = Tracker.prototype;
+						p.get = noopfn;
+						p.set = noopfn;
+						p.send = function () {
+							var args = Array.prototype.slice.call(arguments);
+							args.unshift('send');
+							__gaTracker.apply(null, args);
+						};
+						var __gaTracker = function () {
+							var len = arguments.length;
+							if (len === 0) {
+								return;
+							}
+							var f = arguments[len - 1];
+							if (typeof f !== 'object' || f === null || typeof f.hitCallback !== 'function') {
+								if ('send' === arguments[0]) {
+									var hitConverted, hitObject = false, action;
+									if ('event' === arguments[1]) {
+										if ('undefined' !== typeof arguments[3]) {
+											hitObject = {
+												'eventAction': arguments[3],
+												'eventCategory': arguments[2],
+												'eventLabel': arguments[4],
+												'value': arguments[5] ? arguments[5] : 1,
+											}
+										}
+									}
+									if ('pageview' === arguments[1]) {
+										if ('undefined' !== typeof arguments[2]) {
+											hitObject = {
+												'eventAction': 'page_view',
+												'page_path': arguments[2],
+											}
+										}
+									}
+									if (typeof arguments[2] === 'object') {
+										hitObject = arguments[2];
+									}
+									if (typeof arguments[5] === 'object') {
+										Object.assign(hitObject, arguments[5]);
+									}
+									if ('undefined' !== typeof arguments[1].hitType) {
+										hitObject = arguments[1];
+										if ('pageview' === hitObject.hitType) {
+											hitObject.eventAction = 'page_view';
+										}
+									}
+									if (hitObject) {
+										action = 'timing' === arguments[1].hitType ? 'timing_complete' : hitObject.eventAction;
+										hitConverted = mapArgs(hitObject);
+										__gtagTracker('event', action, hitConverted);
+									}
+								}
+								return;
+							}
+
+							function mapArgs(args) {
+								var arg, hit = {};
+								var gaMap = {
+									'eventCategory': 'event_category',
+									'eventAction': 'event_action',
+									'eventLabel': 'event_label',
+									'eventValue': 'event_value',
+									'nonInteraction': 'non_interaction',
+									'timingCategory': 'event_category',
+									'timingVar': 'name',
+									'timingValue': 'value',
+									'timingLabel': 'event_label',
+									'page': 'page_path',
+									'location': 'page_location',
+									'title': 'page_title',
+									'referrer' : 'page_referrer',
+								};
+								for (arg in args) {
+																		if (!(!args.hasOwnProperty(arg) || !gaMap.hasOwnProperty(arg))) {
+										hit[gaMap[arg]] = args[arg];
+									} else {
+										hit[arg] = args[arg];
+									}
+								}
+								return hit;
+							}
+
+							try {
+								f.hitCallback();
+							} catch (ex) {
+							}
+						};
+						__gaTracker.create = newtracker;
+						__gaTracker.getByName = newtracker;
+						__gaTracker.getAll = function () {
+							return [];
+						};
+						__gaTracker.remove = noopfn;
+						__gaTracker.loaded = true;
+						window['__gaTracker'] = __gaTracker;
+					})();
+									} else {
+										console.log("");
+					(function () {
+						function __gtagTracker() {
+							return null;
+						}
+
+						window['__gtagTracker'] = __gtagTracker;
+						window['gtag'] = __gtagTracker;
+					})();
+									}
+			</script>
+							<!-- / Google Analytics by MonsterInsights -->
+		<style id='wp-img-auto-sizes-contain-inline-css'>
+img:is([sizes=auto i],[sizes^="auto," i]){contain-intrinsic-size:3000px 1500px}
+/*# sourceURL=wp-img-auto-sizes-contain-inline-css */
+</style>
+
+<link rel='stylesheet' id='twentysixteen-jetpack-css' href='https://www.kenwalger.com/blog/wp-content/plugins/jetpack/modules/theme-tools/compat/twentysixteen.css?ver=15.7.1' media='all' />
+<link rel='stylesheet' id='jetpack_related-posts-css' href='https://www.kenwalger.com/blog/wp-content/plugins/jetpack/modules/related-posts/related-posts.css?ver=20240116' media='all' />
+<style id='wp-emoji-styles-inline-css'>
+
+	img.wp-smiley, img.emoji {
+		display: inline !important;
+		border: none !important;
+		box-shadow: none !important;
+		height: 1em !important;
+		width: 1em !important;
+		margin: 0 0.07em !important;
+		vertical-align: -0.1em !important;
+		background: none !important;
+		padding: 0 !important;
+	}
+/*# sourceURL=wp-emoji-styles-inline-css */
+</style>
+<link rel='stylesheet' id='wp-block-library-css' href='https://www.kenwalger.com/blog/wp-includes/css/dist/block-library/style.min.css?ver=6.9.4' media='all' />
+
+<style id='classic-theme-styles-inline-css'>
+/*! This file is auto-generated */
+.wp-block-button__link{color:#fff;background-color:#32373c;border-radius:9999px;box-shadow:none;text-decoration:none;padding:calc(.667em + 2px) calc(1.333em + 2px);font-size:1.125em}.wp-block-file__button{background:#32373c;color:#fff;text-decoration:none}
+/*# sourceURL=/wp-includes/css/classic-themes.min.css */
+</style>
+<style id='global-styles-inline-css'>
+:root{--wp--preset--aspect-ratio--square: 1;--wp--preset--aspect-ratio--4-3: 4/3;--wp--preset--aspect-ratio--3-4: 3/4;--wp--preset--aspect-ratio--3-2: 3/2;--wp--preset--aspect-ratio--2-3: 2/3;--wp--preset--aspect-ratio--16-9: 16/9;--wp--preset--aspect-ratio--9-16: 9/16;--wp--preset--color--black: #000000;--wp--preset--color--cyan-bluish-gray: #abb8c3;--wp--preset--color--white: #fff;--wp--preset--color--pale-pink: #f78da7;--wp--preset--color--vivid-red: #cf2e2e;--wp--preset--color--luminous-vivid-orange: #ff6900;--wp--preset--color--luminous-vivid-amber: #fcb900;--wp--preset--color--light-green-cyan: #7bdcb5;--wp--preset--color--vivid-green-cyan: #00d084;--wp--preset--color--pale-cyan-blue: #8ed1fc;--wp--preset--color--vivid-cyan-blue: #0693e3;--wp--preset--color--vivid-purple: #9b51e0;--wp--preset--color--dark-gray: #1a1a1a;--wp--preset--color--medium-gray: #686868;--wp--preset--color--light-gray: #e5e5e5;--wp--preset--color--blue-gray: #4d545c;--wp--preset--color--bright-blue: #007acc;--wp--preset--color--light-blue: #9adffd;--wp--preset--color--dark-brown: #402b30;--wp--preset--color--medium-brown: #774e24;--wp--preset--color--dark-red: #640c1f;--wp--preset--color--bright-red: #ff675f;--wp--preset--color--yellow: #ffef8e;--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple: linear-gradient(135deg,rgb(6,147,227) 0%,rgb(155,81,224) 100%);--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan: linear-gradient(135deg,rgb(122,220,180) 0%,rgb(0,208,130) 100%);--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange: linear-gradient(135deg,rgb(252,185,0) 0%,rgb(255,105,0) 100%);--wp--preset--gradient--luminous-vivid-orange-to-vivid-red: linear-gradient(135deg,rgb(255,105,0) 0%,rgb(207,46,46) 100%);--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray: linear-gradient(135deg,rgb(238,238,238) 0%,rgb(169,184,195) 100%);--wp--preset--gradient--cool-to-warm-spectrum: linear-gradient(135deg,rgb(74,234,220) 0%,rgb(151,120,209) 20%,rgb(207,42,186) 40%,rgb(238,44,130) 60%,rgb(251,105,98) 80%,rgb(254,248,76) 100%);--wp--preset--gradient--blush-light-purple: linear-gradient(135deg,rgb(255,206,236) 0%,rgb(152,150,240) 100%);--wp--preset--gradient--blush-bordeaux: linear-gradient(135deg,rgb(254,205,165) 0%,rgb(254,45,45) 50%,rgb(107,0,62) 100%);--wp--preset--gradient--luminous-dusk: linear-gradient(135deg,rgb(255,203,112) 0%,rgb(199,81,192) 50%,rgb(65,88,208) 100%);--wp--preset--gradient--pale-ocean: linear-gradient(135deg,rgb(255,245,203) 0%,rgb(182,227,212) 50%,rgb(51,167,181) 100%);--wp--preset--gradient--electric-grass: linear-gradient(135deg,rgb(202,248,128) 0%,rgb(113,206,126) 100%);--wp--preset--gradient--midnight: linear-gradient(135deg,rgb(2,3,129) 0%,rgb(40,116,252) 100%);--wp--preset--font-size--small: 13px;--wp--preset--font-size--medium: 20px;--wp--preset--font-size--large: 36px;--wp--preset--font-size--x-large: 42px;--wp--preset--spacing--20: 0.44rem;--wp--preset--spacing--30: 0.67rem;--wp--preset--spacing--40: 1rem;--wp--preset--spacing--50: 1.5rem;--wp--preset--spacing--60: 2.25rem;--wp--preset--spacing--70: 3.38rem;--wp--preset--spacing--80: 5.06rem;--wp--preset--shadow--natural: 6px 6px 9px rgba(0, 0, 0, 0.2);--wp--preset--shadow--deep: 12px 12px 50px rgba(0, 0, 0, 0.4);--wp--preset--shadow--sharp: 6px 6px 0px rgba(0, 0, 0, 0.2);--wp--preset--shadow--outlined: 6px 6px 0px -3px rgb(255, 255, 255), 6px 6px rgb(0, 0, 0);--wp--preset--shadow--crisp: 6px 6px 0px rgb(0, 0, 0);}:where(.is-layout-flex){gap: 0.5em;}:where(.is-layout-grid){gap: 0.5em;}body .is-layout-flex{display: flex;}.is-layout-flex{flex-wrap: wrap;align-items: center;}.is-layout-flex > :is(*, div){margin: 0;}body .is-layout-grid{display: grid;}.is-layout-grid > :is(*, div){margin: 0;}:where(.wp-block-columns.is-layout-flex){gap: 2em;}:where(.wp-block-columns.is-layout-grid){gap: 2em;}:where(.wp-block-post-template.is-layout-flex){gap: 1.25em;}:where(.wp-block-post-template.is-layout-grid){gap: 1.25em;}.has-black-color{color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-color{color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-color{color: var(--wp--preset--color--white) !important;}.has-pale-pink-color{color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-color{color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-color{color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-color{color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-color{color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-color{color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-color{color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-color{color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-color{color: var(--wp--preset--color--vivid-purple) !important;}.has-black-background-color{background-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-background-color{background-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-background-color{background-color: var(--wp--preset--color--white) !important;}.has-pale-pink-background-color{background-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-background-color{background-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-background-color{background-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-background-color{background-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-background-color{background-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-background-color{background-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-background-color{background-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-background-color{background-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-background-color{background-color: var(--wp--preset--color--vivid-purple) !important;}.has-black-border-color{border-color: var(--wp--preset--color--black) !important;}.has-cyan-bluish-gray-border-color{border-color: var(--wp--preset--color--cyan-bluish-gray) !important;}.has-white-border-color{border-color: var(--wp--preset--color--white) !important;}.has-pale-pink-border-color{border-color: var(--wp--preset--color--pale-pink) !important;}.has-vivid-red-border-color{border-color: var(--wp--preset--color--vivid-red) !important;}.has-luminous-vivid-orange-border-color{border-color: var(--wp--preset--color--luminous-vivid-orange) !important;}.has-luminous-vivid-amber-border-color{border-color: var(--wp--preset--color--luminous-vivid-amber) !important;}.has-light-green-cyan-border-color{border-color: var(--wp--preset--color--light-green-cyan) !important;}.has-vivid-green-cyan-border-color{border-color: var(--wp--preset--color--vivid-green-cyan) !important;}.has-pale-cyan-blue-border-color{border-color: var(--wp--preset--color--pale-cyan-blue) !important;}.has-vivid-cyan-blue-border-color{border-color: var(--wp--preset--color--vivid-cyan-blue) !important;}.has-vivid-purple-border-color{border-color: var(--wp--preset--color--vivid-purple) !important;}.has-vivid-cyan-blue-to-vivid-purple-gradient-background{background: var(--wp--preset--gradient--vivid-cyan-blue-to-vivid-purple) !important;}.has-light-green-cyan-to-vivid-green-cyan-gradient-background{background: var(--wp--preset--gradient--light-green-cyan-to-vivid-green-cyan) !important;}.has-luminous-vivid-amber-to-luminous-vivid-orange-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-amber-to-luminous-vivid-orange) !important;}.has-luminous-vivid-orange-to-vivid-red-gradient-background{background: var(--wp--preset--gradient--luminous-vivid-orange-to-vivid-red) !important;}.has-very-light-gray-to-cyan-bluish-gray-gradient-background{background: var(--wp--preset--gradient--very-light-gray-to-cyan-bluish-gray) !important;}.has-cool-to-warm-spectrum-gradient-background{background: var(--wp--preset--gradient--cool-to-warm-spectrum) !important;}.has-blush-light-purple-gradient-background{background: var(--wp--preset--gradient--blush-light-purple) !important;}.has-blush-bordeaux-gradient-background{background: var(--wp--preset--gradient--blush-bordeaux) !important;}.has-luminous-dusk-gradient-background{background: var(--wp--preset--gradient--luminous-dusk) !important;}.has-pale-ocean-gradient-background{background: var(--wp--preset--gradient--pale-ocean) !important;}.has-electric-grass-gradient-background{background: var(--wp--preset--gradient--electric-grass) !important;}.has-midnight-gradient-background{background: var(--wp--preset--gradient--midnight) !important;}.has-small-font-size{font-size: var(--wp--preset--font-size--small) !important;}.has-medium-font-size{font-size: var(--wp--preset--font-size--medium) !important;}.has-large-font-size{font-size: var(--wp--preset--font-size--large) !important;}.has-x-large-font-size{font-size: var(--wp--preset--font-size--x-large) !important;}
+/*# sourceURL=global-styles-inline-css */
+</style>
+
+<link rel='stylesheet' id='f13github-style-css' href='https://www.kenwalger.com/blog/wp-content/plugins/f13-github-repo-shortcode/wp-github-repo-shortcode.css?ver=6.9.4' media='all' />
+<link rel='stylesheet' id='github-embed-css' href='https://www.kenwalger.com/blog/wp-content/plugins/github-embed/css/github-embed.css?ver=6.9.4' media='all' />
+<link rel='stylesheet' id='pmpro_frontend_base-css' href='https://www.kenwalger.com/blog/wp-content/plugins/paid-memberships-pro/css/frontend/base.css?ver=3.7.2' media='all' />
+<link rel='stylesheet' id='pmpro_frontend_variation_1-css' href='https://www.kenwalger.com/blog/wp-content/plugins/paid-memberships-pro/css/frontend/variation_1.css?ver=3.7.2' media='all' />
+<link rel='stylesheet' id='pmprorh_frontend-css' href='https://www.kenwalger.com/blog/wp-content/plugins/pmpro-mailchimp/css/pmpromc.css?ver=6.9.4' media='all' />
+<link rel='stylesheet' id='twentysixteen-fonts-css' href='https://www.kenwalger.com/blog/wp-content/themes/twentysixteen/fonts/merriweather-plus-montserrat-plus-inconsolata.css?ver=20230328' media='all' />
+<link rel='stylesheet' id='genericons-css' href='https://www.kenwalger.com/blog/wp-content/plugins/jetpack/_inc/genericons/genericons/genericons.css?ver=3.1' media='all' />
+<link rel='stylesheet' id='twentysixteen-style-css' href='https://www.kenwalger.com/blog/wp-content/themes/twentysixteen/style.css?ver=20251202' media='all' />
+<style id='twentysixteen-style-inline-css'>
+
+		/* Custom Page Background Color */
+		.site {
+			background-color: #f7ffff;
+		}
+
+		mark,
+		ins,
+		button,
+		button[disabled]:hover,
+		button[disabled]:focus,
+		input[type="button"],
+		input[type="button"][disabled]:hover,
+		input[type="button"][disabled]:focus,
+		input[type="reset"],
+		input[type="reset"][disabled]:hover,
+		input[type="reset"][disabled]:focus,
+		input[type="submit"],
+		input[type="submit"][disabled]:hover,
+		input[type="submit"][disabled]:focus,
+		.menu-toggle.toggled-on,
+		.menu-toggle.toggled-on:hover,
+		.menu-toggle.toggled-on:focus,
+		.pagination .prev,
+		.pagination .next,
+		.pagination .prev:hover,
+		.pagination .prev:focus,
+		.pagination .next:hover,
+		.pagination .next:focus,
+		.pagination .nav-links:before,
+		.pagination .nav-links:after,
+		.widget_calendar tbody a,
+		.widget_calendar tbody a:hover,
+		.widget_calendar tbody a:focus,
+		.page-links a,
+		.page-links a:hover,
+		.page-links a:focus {
+			color: #f7ffff;
+		}
+
+		@media screen and (min-width: 56.875em) {
+			.main-navigation ul ul li {
+				background-color: #f7ffff;
+			}
+
+			.main-navigation ul ul:after {
+				border-top-color: #f7ffff;
+				border-bottom-color: #f7ffff;
+			}
+		}
+	
+
+		/* Custom Link Color */
+		.menu-toggle:hover,
+		.menu-toggle:focus,
+		a,
+		.main-navigation a:hover,
+		.main-navigation a:focus,
+		.dropdown-toggle:hover,
+		.dropdown-toggle:focus,
+		.social-navigation a:hover:before,
+		.social-navigation a:focus:before,
+		.post-navigation a:hover .post-title,
+		.post-navigation a:focus .post-title,
+		.tagcloud a:hover,
+		.tagcloud a:focus,
+		.site-branding .site-title a:hover,
+		.site-branding .site-title a:focus,
+		.entry-title a:hover,
+		.entry-title a:focus,
+		.entry-footer a:hover,
+		.entry-footer a:focus,
+		.comment-metadata a:hover,
+		.comment-metadata a:focus,
+		.pingback .comment-edit-link:hover,
+		.pingback .comment-edit-link:focus,
+		.comment-reply-link,
+		.comment-reply-link:hover,
+		.comment-reply-link:focus,
+		.required,
+		.site-info a:hover,
+		.site-info a:focus {
+			color: #5e8eb7;
+		}
+
+		mark,
+		ins,
+		button:hover,
+		button:focus,
+		input[type="button"]:hover,
+		input[type="button"]:focus,
+		input[type="reset"]:hover,
+		input[type="reset"]:focus,
+		input[type="submit"]:hover,
+		input[type="submit"]:focus,
+		.pagination .prev:hover,
+		.pagination .prev:focus,
+		.pagination .next:hover,
+		.pagination .next:focus,
+		.widget_calendar tbody a,
+		.page-links a:hover,
+		.page-links a:focus {
+			background-color: #5e8eb7;
+		}
+
+		input[type="date"]:focus,
+		input[type="time"]:focus,
+		input[type="datetime-local"]:focus,
+		input[type="week"]:focus,
+		input[type="month"]:focus,
+		input[type="text"]:focus,
+		input[type="email"]:focus,
+		input[type="url"]:focus,
+		input[type="password"]:focus,
+		input[type="search"]:focus,
+		input[type="tel"]:focus,
+		input[type="number"]:focus,
+		textarea:focus,
+		.tagcloud a:hover,
+		.tagcloud a:focus,
+		.menu-toggle:hover,
+		.menu-toggle:focus {
+			border-color: #5e8eb7;
+		}
+
+		@media screen and (min-width: 56.875em) {
+			.main-navigation li:hover > a,
+			.main-navigation li.focus > a {
+				color: #5e8eb7;
+			}
+		}
+	
+
+		/* Custom Secondary Text Color */
+
+		/**
+		 * IE8 and earlier will drop any block with CSS3 selectors.
+		 * Do not combine these styles with the next block.
+		 */
+		body:not(.search-results) .entry-summary {
+			color: #008cba;
+		}
+
+		blockquote,
+		.post-password-form label,
+		a:hover,
+		a:focus,
+		a:active,
+		.post-navigation .meta-nav,
+		.image-navigation,
+		.comment-navigation,
+		.widget_recent_entries .post-date,
+		.widget_rss .rss-date,
+		.widget_rss cite,
+		.site-description,
+		.author-bio,
+		.entry-footer,
+		.entry-footer a,
+		.sticky-post,
+		.taxonomy-description,
+		.entry-caption,
+		.comment-metadata,
+		.pingback .edit-link,
+		.comment-metadata a,
+		.pingback .comment-edit-link,
+		.comment-form label,
+		.comment-notes,
+		.comment-awaiting-moderation,
+		.logged-in-as,
+		.form-allowed-tags,
+		.site-info,
+		.site-info a,
+		.wp-caption .wp-caption-text,
+		.gallery-caption,
+		.widecolumn label,
+		.widecolumn .mu_register label {
+			color: #008cba;
+		}
+
+		.widget_calendar tbody a:hover,
+		.widget_calendar tbody a:focus {
+			background-color: #008cba;
+		}
+	
+/*# sourceURL=twentysixteen-style-inline-css */
+</style>
+<link rel='stylesheet' id='twentysixteen-block-style-css' href='https://www.kenwalger.com/blog/wp-content/themes/twentysixteen/css/blocks.css?ver=20240817' media='all' />
+<link rel='stylesheet' id='jetpack-newsletter-reader-link-css' href='https://www.kenwalger.com/blog/wp-content/plugins/jetpack/jetpack_vendor/automattic/jetpack-newsletter/src/../build/reader-link.css?ver=6569e23e23e0349e92b7' media='all' />
+<link rel='stylesheet' id='sharedaddy-css' href='https://www.kenwalger.com/blog/wp-content/plugins/jetpack/modules/sharedaddy/sharing.css?ver=15.7.1' media='all' />
+<link rel='stylesheet' id='social-logos-css' href='https://www.kenwalger.com/blog/wp-content/plugins/jetpack/_inc/build/social-logos/social-logos.css?ver=15.7.1' media='all' />
+<script id="jetpack_related-posts-js-extra">
+var related_posts_js_options = {"post_heading":"h4"};
+//# sourceURL=jetpack_related-posts-js-extra
+</script>
+<script src="https://www.kenwalger.com/blog/wp-content/plugins/jetpack/_inc/build/related-posts/related-posts.min.js?ver=20240116" id="jetpack_related-posts-js"></script>
+<script src="https://www.kenwalger.com/blog/wp-content/plugins/google-analytics-for-wordpress/assets/js/frontend-gtag.min.js?ver=10.1.3" id="monsterinsights-frontend-script-js" async data-wp-strategy="async"></script>
+<script data-cfasync="false" data-wpfc-render="false" id='monsterinsights-frontend-script-js-extra'>var monsterinsights_frontend = {"js_events_tracking":"true","download_extensions":"doc,pdf,ppt,zip,xls,docx,pptx,xlsx","inbound_paths":"[]","home_url":"https:\/\/www.kenwalger.com\/blog","hash_tracking":"false","v4_id":"G-JTKEY0G5XK"};</script>
+<script src="https://www.kenwalger.com/blog/wp-includes/js/jquery/jquery.min.js?ver=3.7.1" id="jquery-core-js"></script>
+<script src="https://www.kenwalger.com/blog/wp-includes/js/jquery/jquery-migrate.min.js?ver=3.4.1" id="jquery-migrate-js"></script>
+<script id="twentysixteen-script-js-extra">
+var screenReaderText = {"expand":"expand child menu","collapse":"collapse child menu"};
+//# sourceURL=twentysixteen-script-js-extra
+</script>
+<script src="https://www.kenwalger.com/blog/wp-content/themes/twentysixteen/js/functions.js?ver=20230629" id="twentysixteen-script-js" defer data-wp-strategy="defer"></script>
+<script id='st_insights_js' src="https://ws.sharethis.com/button/st_insights.js?publisher=eba0f3ba-f9ab-408c-bc68-c28af5afe749&amp;product=feather&amp;ver=1776883973"></script>
+<link rel="https://api.w.org/" href="https://www.kenwalger.com/blog/wp-json/" /><link rel="alternate" title="JSON" type="application/json" href="https://www.kenwalger.com/blog/wp-json/wp/v2/posts/1370" /><link rel="EditURI" type="application/rsd+xml" title="RSD" href="https://www.kenwalger.com/blog/xmlrpc.php?rsd" />
+<meta name="generator" content="WordPress 6.9.4" />
+<link rel='shortlink' href='https://wp.me/p8lx70-m6' />
+<style id="pmpro_colors">:root {
+	--pmpro--color--base: #ffffff;
+	--pmpro--color--contrast: #222222;
+	--pmpro--color--accent: #0c3d54;
+	--pmpro--color--accent--variation: hsl( 199,75%,28.5% );
+	--pmpro--color--border--variation: hsl( 0,0%,91% );
+}</style>	<style>img#wpstats{display:none}</style>
+		<style>.recentcomments a{display:inline !important;padding:0 !important;margin:0 !important;}</style>
+<style type="text/css"></style>
+<style id="custom-background-css">
+body.custom-background { background-color: #2b5b84; }
+</style>
+	<style>
+.synved-social-resolution-single {
+display: inline-block;
+}
+.synved-social-resolution-normal {
+display: inline-block;
+}
+.synved-social-resolution-hidef {
+display: none;
+}
+
+@media only screen and (min--moz-device-pixel-ratio: 2),
+only screen and (-o-min-device-pixel-ratio: 2/1),
+only screen and (-webkit-min-device-pixel-ratio: 2),
+only screen and (min-device-pixel-ratio: 2),
+only screen and (min-resolution: 2dppx),
+only screen and (min-resolution: 192dpi) {
+	.synved-social-resolution-normal {
+	display: none;
+	}
+	.synved-social-resolution-hidef {
+	display: inline-block;
+	}
+}
+</style><link rel="icon" href="https://www.kenwalger.com/blog/wp-content/uploads/2017/01/cropped-logo-3-32x32.png" sizes="32x32" />
+<link rel="icon" href="https://www.kenwalger.com/blog/wp-content/uploads/2017/01/cropped-logo-3-192x192.png" sizes="192x192" />
+<link rel="apple-touch-icon" href="https://www.kenwalger.com/blog/wp-content/uploads/2017/01/cropped-logo-3-180x180.png" />
+<meta name="msapplication-TileImage" content="https://www.kenwalger.com/blog/wp-content/uploads/2017/01/cropped-logo-3-270x270.png" />
+<!-- Piwik -->
+<script type="text/javascript">
+  var _paq = _paq || [];
+  _paq.push(['trackPageView']);
+  _paq.push(['enableLinkTracking']);
+  (function() {
+    var u="//www.kenwalger.com/blog/piwik/";
+    _paq.push(['setTrackerUrl', u+'piwik.php']);
+    _paq.push(['setSiteId', '1']);
+    var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+    g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'piwik.js'; s.parentNode.insertBefore(g,s);
+  })();
+</script>
+<noscript><p><img src="//www.kenwalger.com/blog/piwik/piwik.php?idsite=1" style="border:0;" alt="" /></p></noscript>
+<!-- End Piwik Code -->
+
+
+
+
+
+
+
+<link rel='stylesheet' id='jetpack-swiper-library-css' href='https://www.kenwalger.com/blog/wp-content/plugins/jetpack/_inc/blocks/swiper.css?ver=15.7.1' media='all' />
+<link rel='stylesheet' id='jetpack-carousel-css' href='https://www.kenwalger.com/blog/wp-content/plugins/jetpack/modules/carousel/jetpack-carousel.css?ver=15.7.1' media='all' />
+<link rel='stylesheet' id='eu-cookie-law-style-css' href='https://www.kenwalger.com/blog/wp-content/plugins/jetpack/modules/widgets/eu-cookie-law/style.css?ver=15.7.1' media='all' />
+
+</head>
+
+<body class="pmpro-variation_1 wp-singular post-template-default single single-post postid-1370 single-format-standard custom-background wp-embed-responsive wp-theme-twentysixteen pmpro-body-has-access group-blog">
+<div id="page" class="site">
+	<div class="site-inner">
+		<a class="skip-link screen-reader-text" href="#content">
+			Skip to content		</a>
+
+		<header id="masthead" class="site-header">
+			<div class="site-header-main">
+				<div class="site-branding">
+											<p class="site-title"><a href="https://www.kenwalger.com/blog/" rel="home" >Blog of Ken W. Alger</a></p>
+												<p class="site-description">Just another Tech Blog</p>
+									</div><!-- .site-branding -->
+
+							</div><!-- .site-header-main -->
+
+											<div class="header-image">
+					<a href="https://www.kenwalger.com/blog/" rel="home" >
+						<img src="https://www.kenwalger.com/blog/wp-content/uploads/2017/01/cropped-BlogHeaderLogo.png" width="1200" height="280" alt="Blog of Ken W. Alger" sizes="(max-width: 709px) 85vw, (max-width: 909px) 81vw, (max-width: 1362px) 88vw, 1200px" srcset="https://www.kenwalger.com/blog/wp-content/uploads/2017/01/cropped-BlogHeaderLogo.png 1200w, https://www.kenwalger.com/blog/wp-content/uploads/2017/01/cropped-BlogHeaderLogo-300x70.png 300w, https://www.kenwalger.com/blog/wp-content/uploads/2017/01/cropped-BlogHeaderLogo-768x179.png 768w, https://www.kenwalger.com/blog/wp-content/uploads/2017/01/cropped-BlogHeaderLogo-1024x239.png 1024w" decoding="async" fetchpriority="high" />					</a>
+				</div><!-- .header-image -->
+					</header><!-- .site-header -->
+
+		<div id="content" class="site-content">
+
+<div id="primary" class="content-area">
+	<main id="main" class="site-main">
+		
+<article id="post-1370" class="post-1370 post type-post status-publish format-standard has-post-thumbnail hentry category-data-engineering category-software-engineering tag-data-platforms tag-digital-twins tag-software-engineering tag-system-architecture tag-systems-thinking pmpro-has-access">
+	<header class="entry-header">
+		<h1 class="entry-title">The Backyard Quarry, Part 8: From Rocks to Reality</h1>	</header><!-- .entry-header -->
+
+	
+	
+		<div class="post-thumbnail">
+			<img width="1200" height="670" src="https://www.kenwalger.com/blog/wp-content/uploads/2026/04/blog-of-ken-w.-alger-69ea2cd5d8eb2-1200x670.png" class="attachment-post-thumbnail size-post-thumbnail wp-post-image" alt="Stone sculpture of a muscular figure holding a large rock in an industrial workshop" decoding="async" srcset="https://www.kenwalger.com/blog/wp-content/uploads/2026/04/blog-of-ken-w.-alger-69ea2cd5d8eb2-1200x670.png 1200w, https://www.kenwalger.com/blog/wp-content/uploads/2026/04/blog-of-ken-w.-alger-69ea2cd5d8eb2-300x167.png 300w, https://www.kenwalger.com/blog/wp-content/uploads/2026/04/blog-of-ken-w.-alger-69ea2cd5d8eb2-1024x572.png 1024w, https://www.kenwalger.com/blog/wp-content/uploads/2026/04/blog-of-ken-w.-alger-69ea2cd5d8eb2-768x429.png 768w, https://www.kenwalger.com/blog/wp-content/uploads/2026/04/blog-of-ken-w.-alger-69ea2cd5d8eb2.png 1376w" sizes="(max-width: 709px) 85vw, (max-width: 909px) 67vw, (max-width: 984px) 60vw, (max-width: 1362px) 62vw, 840px" data-attachment-id="1495" data-permalink="https://www.kenwalger.com/blog/blog-of-ken-w-alger-69ea2cd5d8eb2/" data-orig-file="https://www.kenwalger.com/blog/wp-content/uploads/2026/04/blog-of-ken-w.-alger-69ea2cd5d8eb2.png" data-orig-size="1376,768" data-comments-opened="1" data-image-meta="{&quot;aperture&quot;:&quot;0&quot;,&quot;credit&quot;:&quot;&quot;,&quot;camera&quot;:&quot;&quot;,&quot;caption&quot;:&quot;&quot;,&quot;created_timestamp&quot;:&quot;0&quot;,&quot;copyright&quot;:&quot;&quot;,&quot;focal_length&quot;:&quot;0&quot;,&quot;iso&quot;:&quot;0&quot;,&quot;shutter_speed&quot;:&quot;0&quot;,&quot;title&quot;:&quot;&quot;,&quot;orientation&quot;:&quot;0&quot;}" data-image-title="Industrial stone carving workshop sculpture" data-image-description="&lt;p&gt;The image shows a large, detailed stone sculpture resembling a muscular humanoid figure holding a large rock above its head, positioned prominently in the center of an industrial stone carving workshop. The workshop is a spacious structure with a metal roof and beams, filled with various machinery, tools, and stone slabs scattered around. In the background, several workers wearing helmets are engaged in tasks, adding a sense of activity and scale to the scene. Dust and natural light filter into the space, creating a gritty, industrious atmosphere.&lt;/p&gt;" data-image-caption="&lt;p&gt;A striking stone sculpture in the center of a busy workshop with workers in the background&lt;/p&gt;" data-large-file="https://www.kenwalger.com/blog/wp-content/uploads/2026/04/blog-of-ken-w.-alger-69ea2cd5d8eb2-1024x572.png" />	</div><!-- .post-thumbnail -->
+
+	
+	<div class="entry-content">
+		<p>At the beginning of this series, the problem seemed simple.</p>
+<p>There were a lot of rocks in the yard.</p>
+<p>Some were small.</p>
+<p>Some were large.</p>
+<p>A few were firmly in what I’ve been calling Engine Block Class.</p>
+<p>The original idea was straightforward: catalog them, maybe sell a few, and build a small system around the process.</p>
+<p>Along the way, the project grew.</p>
+<h2>What We Built</h2>
+<p>Across the previous posts, the Backyard Quarry gradually evolved into something more structured.</p>
+<p>We explored:</p>
+<ul>
+<li>designing a schema for physical objects</li>
+<li>capturing images and measurements</li>
+<li>building ingestion pipelines</li>
+<li>indexing and searching the dataset</li>
+<li>representing objects as digital twins</li>
+<li>scaling the system as the dataset grows</li>
+</ul>
+<p>None of these ideas are particularly new on their own.</p>
+<p>But when combined, they form a recognizable structure.</p>
+<h2>The Pattern Behind the Project</h2>
+<p>What the Quarry experiment revealed is that many modern systems share the same underlying architecture.</p>
+<p>It doesn’t matter whether the input is:</p>
+<ul>
+<li>rocks in a backyard</li>
+<li>industrial machine parts</li>
+<li>museum artifacts</li>
+<li>scanned environments</li>
+<li>sensor data</li>
+<li>documents or images</li>
+</ul>
+<p>The pattern remains surprisingly consistent.</p>
+<p>We start with the physical world.</p>
+<p>We capture information from it.</p>
+<p>We transform that information into structured data.</p>
+<p>Then we build systems on top of that structure.</p>
+<h2>The Signature Architecture</h2>
+<p>At a high level, the pattern looks like this:</p>
+<figure id="attachment_1373" aria-describedby="caption-attachment-1373" style="width: 840px" class="wp-caption aligncenter"><img decoding="async" data-attachment-id="1373" data-permalink="https://www.kenwalger.com/blog/data-engineering/from-rocks-to-reality-system-design-patterns/attachment/physical-world-to-data-platform-architecture/" data-orig-file="https://www.kenwalger.com/blog/wp-content/uploads/2026/05/physical-world-to-data-platform-architecture.png" data-orig-size="1439,1643" data-comments-opened="1" data-image-meta="{&quot;aperture&quot;:&quot;0&quot;,&quot;credit&quot;:&quot;&quot;,&quot;camera&quot;:&quot;&quot;,&quot;caption&quot;:&quot;&quot;,&quot;created_timestamp&quot;:&quot;0&quot;,&quot;copyright&quot;:&quot;&quot;,&quot;focal_length&quot;:&quot;0&quot;,&quot;iso&quot;:&quot;0&quot;,&quot;shutter_speed&quot;:&quot;0&quot;,&quot;title&quot;:&quot;&quot;,&quot;orientation&quot;:&quot;0&quot;}" data-image-title="physical-world-to-data-platform-architecture" data-image-description="" data-image-caption="&lt;p&gt;A common architecture pattern for systems that transform real-world inputs into usable digital platforms.&lt;/p&gt;" data-large-file="https://www.kenwalger.com/blog/wp-content/uploads/2026/05/physical-world-to-data-platform-architecture-897x1024.png" class="size-large wp-image-1373" src="https://www.kenwalger.com/blog/wp-content/uploads/2026/05/physical-world-to-data-platform-architecture-897x1024.png" alt="Diagram showing a system architecture where physical world inputs flow through capture, ingestion, processing, storage, indexing, and application layers." width="840" height="959" srcset="https://www.kenwalger.com/blog/wp-content/uploads/2026/05/physical-world-to-data-platform-architecture-897x1024.png 897w, https://www.kenwalger.com/blog/wp-content/uploads/2026/05/physical-world-to-data-platform-architecture-263x300.png 263w, https://www.kenwalger.com/blog/wp-content/uploads/2026/05/physical-world-to-data-platform-architecture-768x877.png 768w, https://www.kenwalger.com/blog/wp-content/uploads/2026/05/physical-world-to-data-platform-architecture-1345x1536.png 1345w, https://www.kenwalger.com/blog/wp-content/uploads/2026/05/physical-world-to-data-platform-architecture-1200x1370.png 1200w, https://www.kenwalger.com/blog/wp-content/uploads/2026/05/physical-world-to-data-platform-architecture.png 1439w" sizes="(max-width: 709px) 85vw, (max-width: 909px) 67vw, (max-width: 1362px) 62vw, 840px" /><figcaption id="caption-attachment-1373" class="wp-caption-text">A common architecture pattern for systems that transform real-world inputs into usable digital platforms.</figcaption></figure>
+<p>Each layer has a role:</p>
+<h3>Capture Layer</h3>
+<p>The interface between the real world and the system.</p>
+<p>Examples:</p>
+<ul>
+<li>cameras</li>
+<li>sensors</li>
+<li>manual input</li>
+<li>scanning systems</li>
+</ul>
+<h3>Ingestion Pipeline</h3>
+<p>Raw inputs enter the system.</p>
+<p>Queues and ingestion services buffer incoming data.</p>
+<p>This stage provides resilience and scalability.</p>
+<h3>Processing &amp; Transformation</h3>
+<p>Raw inputs are converted into usable forms.</p>
+<p>Examples:</p>
+<ul>
+<li>metadata extraction</li>
+<li>photogrammetry</li>
+<li>feature generation</li>
+<li>classification</li>
+</ul>
+<h3>Structured Data + Assets</h3>
+<p>The system stores both:</p>
+<ul>
+<li>structured records</li>
+<li>unstructured assets</li>
+</ul>
+<p>This is where digital twins live.</p>
+<h3>Indexing &amp; Search</h3>
+<p>Data becomes usable.</p>
+<p>Indexes, embeddings, and search systems allow retrieval and exploration.</p>
+<h3>Applications</h3>
+<p>Finally, systems are built on top of the data:</p>
+<ul>
+<li>dashboards</li>
+<li>analytics</li>
+<li>automation</li>
+<li>AI systems</li>
+</ul>
+<h2>Recognizing Systems</h2>
+<p>One of the more interesting outcomes of the Quarry project is how quickly the pattern became recognizable.</p>
+<p>Once you see it, it’s hard to miss.</p>
+<p>Manufacturing systems follow this structure.</p>
+<p>Archival systems follow this structure.</p>
+<p>Many modern AI systems follow this structure.</p>
+<p>Even systems designed to analyze motion or sensor data follow this structure.</p>
+<p>Different inputs.</p>
+<p>Same architecture.</p>
+<h2>Systems Thinking</h2>
+<p>The biggest shift in perspective comes when you stop thinking about individual objects and start thinking about the system as a whole.</p>
+<p>Instead of asking:</p>
+<ul>
+<li><em>How do we catalog this rock?</em></li>
+</ul>
+<p>You start asking:</p>
+<ul>
+<li><em>How does the system handle many objects over time?</em></li>
+</ul>
+<p>This change in perspective leads to different kinds of decisions:</p>
+<ul>
+<li>how pipelines are structured</li>
+<li>how data flows through the system</li>
+<li>how failures are handled</li>
+<li>how the system evolves</li>
+</ul>
+<p>At that point, the problem is no longer about objects.</p>
+<p>It’s about systems.</p>
+<h2>A Small Experiment</h2>
+<p>The <strong>Backyard Quarry</strong> began as a small experiment.</p>
+<p>A dataset that happened to be available.</p>
+<p>A problem that seemed simple.</p>
+<p>But small experiments are often useful.</p>
+<p>They allow ideas to emerge in a manageable setting.</p>
+<p>The same architectural questions that appear in large organizations also appear here — just at a smaller scale.</p>
+<h2>The Real Takeaway</h2>
+<p>The real lesson from the Quarry isn’t about rocks.</p>
+<p>It’s about recognizing patterns.</p>
+<p>Modern systems often share common structures.</p>
+<p>Once you understand those structures, it becomes easier to design new systems.</p>
+<p>You start to see the same ideas appearing in different places.</p>
+<p>And that recognition becomes a powerful tool.</p>
+<h2>One Last Observation</h2>
+<p>Some engineering lessons come from large projects.</p>
+<p>Others come from experiments.</p>
+<p>Occasionally, they come from a pile of rocks in the backyard.</p>
+<p>And if you happen to need a carefully documented specimen from the <strong>Backyard Quarry</strong>, inventory may still be available.</p>
+<p>Shipping, however, remains an unsolved optimization problem.</p>
+<h3>The Rock Quarry Series</h3>
+<ul>
+<li><a href="https://www.kenwalger.com/blog/software-engineering/the-backyard-quarry-turning-rocks-into-data">Turning Rocks into Data</a></li>
+<li><a href="https://www.kenwalger.com/blog/data-engineering/designing-a-schema-for-physical-objects">Designing a Schema for Physical Objects</a></li>
+<li><a href="https://www.kenwalger.com/blog/data-engineering/capturing-physical-objects-data-pipeline">Capturing the Physical World</a></li>
+<li><a href="https://www.kenwalger.com/blog/data-engineering/searching-physical-objects-data-indexing">Searching a Pile of Rocks</a></li>
+<li><a href="https://www.kenwalger.com/blog/data-engineering/digital-twins-physical-objects-explained">Digital Twins for Physical Objects</a></li>
+<li><a href="https://www.kenwalger.com/blog/data-engineering/scaling-data-pipelines-physical-objects">Scaling the Quarry</a></li>
+<li><a href="https://www.kenwalger.com/blog/data-engineering/system-design-patterns-real-world-data-platforms">Systems Beyond the Backyard</a></li>
+<li><a href="https://www.kenwalger.com/blog/data-engineering/from-rocks-to-reality-system-design-patterns">From Rocks to Reality</a> &#8211; <em>This Post</em></li>
+</ul>
+<a class="synved-social-button synved-social-button-share synved-social-size-48 synved-social-resolution-single synved-social-provider-facebook nolightbox" data-provider="facebook" target="_blank" rel="nofollow" title="Share on Facebook" href="https://www.facebook.com/sharer.php?u=https%3A%2F%2Fwww.kenwalger.com%2Fblog%2Fdata-engineering%2Ffrom-rocks-to-reality-system-design-patterns%2F&#038;t=The%20Backyard%20Quarry%2C%20Part%208%3A%20From%20Rocks%20to%20Reality&#038;s=100&#038;p&#091;url&#093;=https%3A%2F%2Fwww.kenwalger.com%2Fblog%2Fdata-engineering%2Ffrom-rocks-to-reality-system-design-patterns%2F&#038;p&#091;images&#093;&#091;0&#093;=https%3A%2F%2Fwww.kenwalger.com%2Fblog%2Fwp-content%2Fuploads%2F2026%2F04%2Fblog-of-ken-w.-alger-69ea2cd5d8eb2.png&#038;p&#091;title&#093;=The%20Backyard%20Quarry%2C%20Part%208%3A%20From%20Rocks%20to%20Reality" style="font-size: 0px;width:48px;height:48px;margin:0;margin-bottom:5px;margin-right:5px"><img loading="lazy" decoding="async" alt="Facebook" title="Share on Facebook" class="synved-share-image synved-social-image synved-social-image-share" width="48" height="48" style="display: inline;width:48px;height:48px;margin: 0;padding: 0;border: none;box-shadow: none" src="https://www.kenwalger.com/blog/wp-content/plugins/social-media-feather/synved-social/image/social/regular/96x96/facebook.png" /></a><a class="synved-social-button synved-social-button-share synved-social-size-48 synved-social-resolution-single synved-social-provider-twitter nolightbox" data-provider="twitter" target="_blank" rel="nofollow" title="Share on Twitter" href="https://twitter.com/intent/tweet?url=https%3A%2F%2Fwww.kenwalger.com%2Fblog%2Fdata-engineering%2Ffrom-rocks-to-reality-system-design-patterns%2F&#038;text=Hey%20check%20this%20out" style="font-size: 0px;width:48px;height:48px;margin:0;margin-bottom:5px;margin-right:5px"><img loading="lazy" decoding="async" alt="twitter" title="Share on Twitter" class="synved-share-image synved-social-image synved-social-image-share" width="48" height="48" style="display: inline;width:48px;height:48px;margin: 0;padding: 0;border: none;box-shadow: none" src="https://www.kenwalger.com/blog/wp-content/plugins/social-media-feather/synved-social/image/social/regular/96x96/twitter.png" /></a><a class="synved-social-button synved-social-button-share synved-social-size-48 synved-social-resolution-single synved-social-provider-reddit nolightbox" data-provider="reddit" target="_blank" rel="nofollow" title="Share on Reddit" href="https://www.reddit.com/submit?url=https%3A%2F%2Fwww.kenwalger.com%2Fblog%2Fdata-engineering%2Ffrom-rocks-to-reality-system-design-patterns%2F&#038;title=The%20Backyard%20Quarry%2C%20Part%208%3A%20From%20Rocks%20to%20Reality" style="font-size: 0px;width:48px;height:48px;margin:0;margin-bottom:5px;margin-right:5px"><img loading="lazy" decoding="async" alt="reddit" title="Share on Reddit" class="synved-share-image synved-social-image synved-social-image-share" width="48" height="48" style="display: inline;width:48px;height:48px;margin: 0;padding: 0;border: none;box-shadow: none" src="https://www.kenwalger.com/blog/wp-content/plugins/social-media-feather/synved-social/image/social/regular/96x96/reddit.png" /></a><a class="synved-social-button synved-social-button-share synved-social-size-48 synved-social-resolution-single synved-social-provider-linkedin nolightbox" data-provider="linkedin" target="_blank" rel="nofollow" title="Share on Linkedin" href="https://www.linkedin.com/shareArticle?mini=true&#038;url=https%3A%2F%2Fwww.kenwalger.com%2Fblog%2Fdata-engineering%2Ffrom-rocks-to-reality-system-design-patterns%2F&#038;title=The%20Backyard%20Quarry%2C%20Part%208%3A%20From%20Rocks%20to%20Reality" style="font-size: 0px;width:48px;height:48px;margin:0;margin-bottom:5px;margin-right:5px"><img loading="lazy" decoding="async" alt="linkedin" title="Share on Linkedin" class="synved-share-image synved-social-image synved-social-image-share" width="48" height="48" style="display: inline;width:48px;height:48px;margin: 0;padding: 0;border: none;box-shadow: none" src="https://www.kenwalger.com/blog/wp-content/plugins/social-media-feather/synved-social/image/social/regular/96x96/linkedin.png" /></a><a class="synved-social-button synved-social-button-share synved-social-size-48 synved-social-resolution-single synved-social-provider-mail nolightbox" data-provider="mail" rel="nofollow" title="Share by email" href="mailto:?subject=The%20Backyard%20Quarry%2C%20Part%208%3A%20From%20Rocks%20to%20Reality&#038;body=Hey%20check%20this%20out:%20https%3A%2F%2Fwww.kenwalger.com%2Fblog%2Fdata-engineering%2Ffrom-rocks-to-reality-system-design-patterns%2F" style="font-size: 0px;width:48px;height:48px;margin:0;margin-bottom:5px"><img loading="lazy" decoding="async" alt="mail" title="Share by email" class="synved-share-image synved-social-image synved-social-image-share" width="48" height="48" style="display: inline;width:48px;height:48px;margin: 0;padding: 0;border: none;box-shadow: none" src="https://www.kenwalger.com/blog/wp-content/plugins/social-media-feather/synved-social/image/social/regular/96x96/mail.png" /></a><div class="sharedaddy sd-sharing-enabled"><div class="robots-nocontent sd-block sd-social sd-social-icon sd-sharing"><h3 class="sd-title">Share this:</h3><div class="sd-content"><ul><li class="share-linkedin"><a rel="nofollow noopener noreferrer"
+				data-shared="sharing-linkedin-1370"
+				class="share-linkedin sd-button share-icon no-text"
+				href="https://www.kenwalger.com/blog/data-engineering/from-rocks-to-reality-system-design-patterns/?share=linkedin"
+				target="_blank"
+				aria-labelledby="sharing-linkedin-1370"
+				>
+				<span id="sharing-linkedin-1370" hidden>Share on LinkedIn (Opens in new window)</span>
+				<span>LinkedIn</span>
+			</a></li><li class="share-email"><a rel="nofollow noopener noreferrer"
+				data-shared="sharing-email-1370"
+				class="share-email sd-button share-icon no-text"
+				href="mailto:?subject=%5BShared%20Post%5D%20The%20Backyard%20Quarry%2C%20Part%208%3A%20From%20Rocks%20to%20Reality&#038;body=https%3A%2F%2Fwww.kenwalger.com%2Fblog%2Fdata-engineering%2Ffrom-rocks-to-reality-system-design-patterns%2F&#038;share=email"
+				target="_blank"
+				aria-labelledby="sharing-email-1370"
+				data-email-share-error-title="Do you have email set up?" data-email-share-error-text="If you&#039;re having problems sharing via email, you might not have email set up for your browser. You may need to create a new email yourself." data-email-share-nonce="0320d2e8fb" data-email-share-track-url="https://www.kenwalger.com/blog/data-engineering/from-rocks-to-reality-system-design-patterns/?share=email">
+				<span id="sharing-email-1370" hidden>Email a link to a friend (Opens in new window)</span>
+				<span>Email</span>
+			</a></li><li class="share-print"><a rel="nofollow noopener noreferrer"
+				data-shared="sharing-print-1370"
+				class="share-print sd-button share-icon no-text"
+				href="https://www.kenwalger.com/blog/data-engineering/from-rocks-to-reality-system-design-patterns/#print?share=print"
+				target="_blank"
+				aria-labelledby="sharing-print-1370"
+				>
+				<span id="sharing-print-1370" hidden>Print (Opens in new window)</span>
+				<span>Print</span>
+			</a></li><li class="share-end"></li></ul></div></div></div>
+<div id='jp-relatedposts' class='jp-relatedposts' >
+	<h3 class="jp-relatedposts-headline"><em>Related</em></h3>
+</div>	</div><!-- .entry-content -->
+
+	<footer class="entry-footer">
+		<span class="byline"><img alt='' src='https://secure.gravatar.com/avatar/9c895084eccddd4abc8e34fe4d97caa4edbeea8a9b372a762ec23dc60aacbb64?s=49&#038;d=mm&#038;r=g' srcset='https://secure.gravatar.com/avatar/9c895084eccddd4abc8e34fe4d97caa4edbeea8a9b372a762ec23dc60aacbb64?s=98&#038;d=mm&#038;r=g 2x' class='avatar avatar-49 photo' height='49' width='49' loading='lazy' decoding='async'/><span class="screen-reader-text">Author </span><span class="author vcard"><a class="url fn n" href="https://www.kenwalger.com/blog/author/admin/">admin</a></span></span><span class="posted-on"><span class="screen-reader-text">Posted on </span><a href="https://www.kenwalger.com/blog/data-engineering/from-rocks-to-reality-system-design-patterns/" rel="bookmark"><time class="entry-date published" datetime="2026-05-05T07:13:29-07:00">May 5, 2026</time><time class="updated" datetime="2026-05-05T07:13:33-07:00">May 5, 2026</time></a></span><span class="cat-links"><span class="screen-reader-text">Categories </span><a href="https://www.kenwalger.com/blog/category/data-engineering/" rel="category tag">Data Engineering</a>, <a href="https://www.kenwalger.com/blog/category/software-engineering/" rel="category tag">Software Engineering</a></span><span class="tags-links"><span class="screen-reader-text">Tags </span><a href="https://www.kenwalger.com/blog/tag/data-platforms/" rel="tag">Data Platforms</a>, <a href="https://www.kenwalger.com/blog/tag/digital-twins/" rel="tag">Digital Twins</a>, <a href="https://www.kenwalger.com/blog/tag/software-engineering/" rel="tag">Software Engineering</a>, <a href="https://www.kenwalger.com/blog/tag/system-architecture/" rel="tag">System Architecture</a>, <a href="https://www.kenwalger.com/blog/tag/systems-thinking/" rel="tag">Systems Thinking</a></span>			</footer><!-- .entry-footer -->
+</article><!-- #post-1370 -->
+
+<div id="comments" class="comments-area">
+
+	
+	
+		<div id="respond" class="comment-respond">
+		<h2 id="reply-title" class="comment-reply-title">Leave a Reply <small><a rel="nofollow" id="cancel-comment-reply-link" href="/blog/data-engineering/from-rocks-to-reality-system-design-patterns/#respond" style="display:none;">Cancel reply</a></small></h2><form action="https://www.kenwalger.com/blog/wp-comments-post.php" method="post" id="commentform" class="comment-form"><p class="comment-notes"><span id="email-notes">Your email address will not be published.</span> <span class="required-field-message">Required fields are marked <span class="required">*</span></span></p><p class="comment-form-comment"><label for="comment">Comment <span class="required">*</span></label> <textarea id="comment" name="comment" cols="45" rows="8" maxlength="65525" required></textarea></p><p class="comment-form-author"><label for="author">Name <span class="required">*</span></label> <input id="author" name="author" type="text" value="" size="30" maxlength="245" autocomplete="name" required /></p>
+<p class="comment-form-email"><label for="email">Email <span class="required">*</span></label> <input id="email" name="email" type="email" value="" size="30" maxlength="100" aria-describedby="email-notes" autocomplete="email" required /></p>
+<p class="comment-form-url"><label for="url">Website</label> <input id="url" name="url" type="url" value="" size="30" maxlength="200" autocomplete="url" /></p>
+<p class="comment-subscription-form"><input type="checkbox" name="subscribe_comments" id="subscribe_comments" value="subscribe" style="width: auto; -moz-appearance: checkbox; -webkit-appearance: checkbox;" /> <label class="subscribe-label" id="subscribe-label" for="subscribe_comments">Notify me of follow-up comments by email.</label></p><p class="comment-subscription-form"><input type="checkbox" name="subscribe_blog" id="subscribe_blog" value="subscribe" style="width: auto; -moz-appearance: checkbox; -webkit-appearance: checkbox;" /> <label class="subscribe-label" id="subscribe-blog-label" for="subscribe_blog">Notify me of new posts by email.</label></p><p class="form-submit"><input name="submit" type="submit" id="submit" class="submit" value="Post Comment" /> <input type='hidden' name='comment_post_ID' value='1370' id='comment_post_ID' />
+<input type='hidden' name='comment_parent' id='comment_parent' value='0' />
+</p><p style="display: none;"><input type="hidden" id="akismet_comment_nonce" name="akismet_comment_nonce" value="89af872ece" /></p><p style="display: none !important;" class="akismet-fields-container" data-prefix="ak_"><label>&#916;<textarea name="ak_hp_textarea" cols="45" rows="8" maxlength="100"></textarea></label><input type="hidden" id="ak_js_1" name="ak_js" value="70"/><script>
+document.getElementById( "ak_js_1" ).setAttribute( "value", ( new Date() ).getTime() );
+</script>
+</p></form>	</div><!-- #respond -->
+	<p class="akismet_comment_form_privacy_notice">This site uses Akismet to reduce spam. <a href="https://akismet.com/privacy/" target="_blank" rel="nofollow noopener">Learn how your comment data is processed.</a></p>
+</div><!-- .comments-area -->
+
+	<nav class="navigation post-navigation" aria-label="Posts">
+		<h2 class="screen-reader-text">Post navigation</h2>
+		<div class="nav-links"><div class="nav-previous"><a href="https://www.kenwalger.com/blog/ai/ai-agent-governance-human-in-the-loop-hitl/" rel="prev"><span class="meta-nav" aria-hidden="true">Previous</span> <span class="screen-reader-text">Previous post:</span> <span class="post-title">The Guardian: Human-in-the-Loop AI Governance</span></a></div><div class="nav-next"><a href="https://www.kenwalger.com/blog/ai/when-your-ai-pipeline-grows-up-infrastructure-thinking-for-real-time-inference-at-scale/" rel="next"><span class="meta-nav" aria-hidden="true">Next</span> <span class="screen-reader-text">Next post:</span> <span class="post-title">When Your AI Pipeline Grows Up: Infrastructure Thinking for Real-Time Inference at Scale</span></a></div></div>
+	</nav>
+	</main><!-- .site-main -->
+
+	<aside id="content-bottom-widgets" class="content-bottom-widgets">
+	
+			<div class="widget-area">
+			<section id="eu_cookie_law_widget-2" class="widget widget_eu_cookie_law_widget">
+<div
+	class="hide-on-button"
+	data-hide-timeout="30"
+	data-consent-expiration="180"
+	id="eu-cookie-law"
+>
+	<form method="post" id="jetpack-eu-cookie-law-form">
+		<input type="submit" value="Close and accept" class="accept" />
+	</form>
+
+	Privacy &amp; Cookies: This site uses cookies. By continuing to use this website, you agree to their use.<br />
+<br />
+To find out more, including how to control cookies, see here:
+		<a href="https://automattic.com/cookies/" rel="nofollow">
+		Cookie Policy	</a>
+</div>
+</section>		</div><!-- .widget-area -->
+	</aside><!-- .content-bottom-widgets -->
+
+</div><!-- .content-area -->
+
+
+	<aside id="secondary" class="sidebar widget-area">
+		
+		<section id="recent-posts-4" class="widget widget_recent_entries">
+		<h2 class="widget-title">Recent Posts</h2><nav aria-label="Recent Posts">
+		<ul>
+											<li>
+					<a href="https://www.kenwalger.com/blog/ai/when-your-ai-pipeline-grows-up-infrastructure-thinking-for-real-time-inference-at-scale/">When Your AI Pipeline Grows Up: Infrastructure Thinking for Real-Time Inference at Scale</a>
+									</li>
+											<li>
+					<a href="https://www.kenwalger.com/blog/data-engineering/from-rocks-to-reality-system-design-patterns/" aria-current="page">The Backyard Quarry, Part 8: From Rocks to Reality</a>
+									</li>
+											<li>
+					<a href="https://www.kenwalger.com/blog/ai/ai-agent-governance-human-in-the-loop-hitl/">The Guardian: Human-in-the-Loop AI Governance</a>
+									</li>
+											<li>
+					<a href="https://www.kenwalger.com/blog/ai/what-ive-been-building-systems-ai-and-real-world-data/">What I’ve Been Building: Systems, AI, and Real-World Data</a>
+									</li>
+											<li>
+					<a href="https://www.kenwalger.com/blog/data-engineering/system-design-patterns-real-world-data-platforms/">The Backyard Quarry, Part 7: Systems Beyond the Backyard</a>
+									</li>
+					</ul>
+
+		</nav></section><section id="custom_html-3" class="widget_text widget widget_custom_html"><h2 class="widget-title">Help Support the Site</h2><div class="textwidget custom-html-widget">If you enjoy reading my blog and would like to help offset the costs of hosting and maintenance, I would be honored to accept your donations.
+
+[dntplgn recurring_amt1="10" recurring_amt2="25" recurring_amt3="50" item_name="Ken W. Alger's Blog support" paypal_email="kenalger@comcast.net"]</div></section><section id="search-3" class="widget widget_search"><h2 class="widget-title">Search</h2>
+<form role="search" method="get" class="search-form" action="https://www.kenwalger.com/blog/">
+	<label>
+		<span class="screen-reader-text">
+			Search for:		</span>
+		<input type="search" class="search-field" placeholder="Search &hellip;" value="" name="s" />
+	</label>
+	<button type="submit" class="search-submit"><span class="screen-reader-text">
+		Search	</span></button>
+</form>
+</section><section id="categories-3" class="widget widget_categories"><h2 class="widget-title">Categories</h2><form action="https://www.kenwalger.com/blog" method="get"><label class="screen-reader-text" for="cat">Categories</label><select  name='cat' id='cat' class='postform'>
+	<option value='-1'>Select Category</option>
+	<option class="level-0" value="1669">AI&nbsp;&nbsp;(10)</option>
+	<option class="level-0" value="1170">Book Review&nbsp;&nbsp;(1)</option>
+	<option class="level-0" value="19">Bottle Framework&nbsp;&nbsp;(1)</option>
+	<option class="level-0" value="16">Career&nbsp;&nbsp;(2)</option>
+	<option class="level-0" value="9">CSS&nbsp;&nbsp;(1)</option>
+	<option class="level-0" value="1739">Data Engineering&nbsp;&nbsp;(9)</option>
+	<option class="level-0" value="17">Data Visualization&nbsp;&nbsp;(4)</option>
+	<option class="level-0" value="77">Flask&nbsp;&nbsp;(1)</option>
+	<option class="level-0" value="27">IoT&nbsp;&nbsp;(8)</option>
+	<option class="level-0" value="5">Java&nbsp;&nbsp;(2)</option>
+	<option class="level-0" value="6">JavaScript&nbsp;&nbsp;(1)</option>
+	<option class="level-0" value="1670">MCP&nbsp;&nbsp;(8)</option>
+	<option class="level-0" value="42">Meetup&nbsp;&nbsp;(1)</option>
+	<option class="level-0" value="28">MicroPython&nbsp;&nbsp;(8)</option>
+	<option class="level-0" value="1225">Mobile Development&nbsp;&nbsp;(1)</option>
+	<option class="level-0" value="4">MongoDB&nbsp;&nbsp;(49)</option>
+	<option class="level-0" value="3">NoSQL&nbsp;&nbsp;(12)</option>
+	<option class="level-0" value="7">Python&nbsp;&nbsp;(6)</option>
+	<option class="level-0" value="1188">R Language&nbsp;&nbsp;(2)</option>
+	<option class="level-0" value="1738">Software Engineering&nbsp;&nbsp;(8)</option>
+	<option class="level-0" value="1">Uncategorized&nbsp;&nbsp;(1)</option>
+</select>
+</form><script>
+( ( dropdownId ) => {
+	const dropdown = document.getElementById( dropdownId );
+	function onSelectChange() {
+		setTimeout( () => {
+			if ( 'escape' === dropdown.dataset.lastkey ) {
+				return;
+			}
+			if ( dropdown.value && parseInt( dropdown.value ) > 0 && dropdown instanceof HTMLSelectElement ) {
+				dropdown.parentElement.submit();
+			}
+		}, 250 );
+	}
+	function onKeyUp( event ) {
+		if ( 'Escape' === event.key ) {
+			dropdown.dataset.lastkey = 'escape';
+		} else {
+			delete dropdown.dataset.lastkey;
+		}
+	}
+	function onClick() {
+		delete dropdown.dataset.lastkey;
+	}
+	dropdown.addEventListener( 'keyup', onKeyUp );
+	dropdown.addEventListener( 'click', onClick );
+	dropdown.addEventListener( 'change', onSelectChange );
+})( "cat" );
+
+//# sourceURL=WP_Widget_Categories%3A%3Awidget
+</script>
+</section><section id="calendar-2" class="widget widget_calendar"><h2 class="widget-title">Calendar of Posts</h2><div id="calendar_wrap" class="calendar_wrap"><table id="wp-calendar" class="wp-calendar-table">
+	<caption>May 2026</caption>
+	<thead>
+	<tr>
+		<th scope="col" aria-label="Monday">M</th>
+		<th scope="col" aria-label="Tuesday">T</th>
+		<th scope="col" aria-label="Wednesday">W</th>
+		<th scope="col" aria-label="Thursday">T</th>
+		<th scope="col" aria-label="Friday">F</th>
+		<th scope="col" aria-label="Saturday">S</th>
+		<th scope="col" aria-label="Sunday">S</th>
+	</tr>
+	</thead>
+	<tbody>
+	<tr>
+		<td colspan="4" class="pad">&nbsp;</td><td>1</td><td>2</td><td>3</td>
+	</tr>
+	<tr>
+		<td>4</td><td><a href="https://www.kenwalger.com/blog/2026/05/05/" aria-label="Posts published on May 5, 2026">5</a></td><td id="today"><a href="https://www.kenwalger.com/blog/2026/05/06/" aria-label="Posts published on May 6, 2026">6</a></td><td>7</td><td>8</td><td>9</td><td>10</td>
+	</tr>
+	<tr>
+		<td>11</td><td>12</td><td>13</td><td>14</td><td>15</td><td>16</td><td>17</td>
+	</tr>
+	<tr>
+		<td>18</td><td>19</td><td>20</td><td>21</td><td>22</td><td>23</td><td>24</td>
+	</tr>
+	<tr>
+		<td>25</td><td>26</td><td>27</td><td>28</td><td>29</td><td>30</td><td>31</td>
+	</tr>
+	</tbody>
+	</table><nav aria-label="Previous and next months" class="wp-calendar-nav">
+		<span class="wp-calendar-nav-prev"><a href="https://www.kenwalger.com/blog/2026/04/">&laquo; Apr</a></span>
+		<span class="pad">&nbsp;</span>
+		<span class="wp-calendar-nav-next">&nbsp;</span>
+	</nav></div></section><section id="archives-4" class="widget widget_archive"><h2 class="widget-title">Archives</h2><nav aria-label="Archives">
+			<ul>
+					<li><a href='https://www.kenwalger.com/blog/2026/05/'>May 2026</a></li>
+	<li><a href='https://www.kenwalger.com/blog/2026/04/'>April 2026</a></li>
+	<li><a href='https://www.kenwalger.com/blog/2026/03/'>March 2026</a></li>
+	<li><a href='https://www.kenwalger.com/blog/2023/02/'>February 2023</a></li>
+	<li><a href='https://www.kenwalger.com/blog/2019/05/'>May 2019</a></li>
+	<li><a href='https://www.kenwalger.com/blog/2019/04/'>April 2019</a></li>
+	<li><a href='https://www.kenwalger.com/blog/2019/03/'>March 2019</a></li>
+	<li><a href='https://www.kenwalger.com/blog/2019/02/'>February 2019</a></li>
+	<li><a href='https://www.kenwalger.com/blog/2019/01/'>January 2019</a></li>
+	<li><a href='https://www.kenwalger.com/blog/2018/11/'>November 2018</a></li>
+	<li><a href='https://www.kenwalger.com/blog/2018/07/'>July 2018</a></li>
+	<li><a href='https://www.kenwalger.com/blog/2018/01/'>January 2018</a></li>
+	<li><a href='https://www.kenwalger.com/blog/2017/12/'>December 2017</a></li>
+	<li><a href='https://www.kenwalger.com/blog/2017/11/'>November 2017</a></li>
+	<li><a href='https://www.kenwalger.com/blog/2017/10/'>October 2017</a></li>
+	<li><a href='https://www.kenwalger.com/blog/2017/08/'>August 2017</a></li>
+	<li><a href='https://www.kenwalger.com/blog/2017/07/'>July 2017</a></li>
+	<li><a href='https://www.kenwalger.com/blog/2017/06/'>June 2017</a></li>
+	<li><a href='https://www.kenwalger.com/blog/2017/05/'>May 2017</a></li>
+	<li><a href='https://www.kenwalger.com/blog/2017/04/'>April 2017</a></li>
+	<li><a href='https://www.kenwalger.com/blog/2017/03/'>March 2017</a></li>
+	<li><a href='https://www.kenwalger.com/blog/2017/02/'>February 2017</a></li>
+	<li><a href='https://www.kenwalger.com/blog/2017/01/'>January 2017</a></li>
+	<li><a href='https://www.kenwalger.com/blog/2016/01/'>January 2016</a></li>
+	<li><a href='https://www.kenwalger.com/blog/2015/12/'>December 2015</a></li>
+			</ul>
+
+			</nav></section>	</aside><!-- .sidebar .widget-area -->
+
+		</div><!-- .site-content -->
+
+		<footer id="colophon" class="site-footer">
+			
+			
+			<div class="site-info">
+								<span class="site-title"><a href="https://www.kenwalger.com/blog/" rel="home">Blog of Ken W. Alger</a></span>
+				<a class="privacy-policy-link" href="https://www.kenwalger.com/blog/privacy-policy/" rel="privacy-policy">Privacy Policy</a><span role="separator" aria-hidden="true"></span>				<a href="https://wordpress.org/" class="imprint">
+					Proudly powered by WordPress				</a>
+			</div><!-- .site-info -->
+		</footer><!-- .site-footer -->
+	</div><!-- .site-inner -->
+</div><!-- .site -->
+
+
+
+
+
+
+
+
+
+<script type="speculationrules">
+{"prefetch":[{"source":"document","where":{"and":[{"href_matches":"/blog/*"},{"not":{"href_matches":["/blog/wp-*.php","/blog/wp-admin/*","/blog/wp-content/uploads/*","/blog/wp-content/*","/blog/wp-content/plugins/*","/blog/wp-content/themes/twentysixteen/*","/blog/*\\?(.+)"]}},{"not":{"selector_matches":"a[rel~=\"nofollow\"]"}},{"not":{"selector_matches":".no-prefetch, .no-prefetch a"}}]},"eagerness":"conservative"}]}
+</script>
+<!-- Drip Code -->
+<script type="text/javascript">
+  var _dcq = _dcq || [];
+  var _dcs = _dcs || {}; 
+  _dcs.account = '1414896';
+  
+  (function() {
+    var dc = document.createElement('script');
+    dc.type = 'text/javascript'; dc.async = true; 
+    dc.src = '//tag.getdrip.com/1414896.js';
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(dc, s);
+  })();
+</script>		<!-- Memberships powered by Paid Memberships Pro v3.7.2. -->
+	<div id="wpconsent-root" style="--wpconsent-z-index: 900000; --wpconsent-background: #04194e; --wpconsent-text: #ffffff; --wpconsent-outline-color: rgba(255, 255, 255, 0.2); --wpconsent-accept-bg: #ffcd2a; --wpconsent-cancel-bg: #ffffff; --wpconsent-preferences-bg: #ffffff; --wpconsent-accept-color: #000000; --wpconsent-cancel-color: #000000; --wpconsent-preferences-color: #000000; --wpconsent-font-size: 16px;"><div id="wpconsent-container" style="display: none;"></div><template id="wpconsent-template"><div class="wpconsent-banner-holder wpconsent-banner-long wpconsent-banner-long-bottom" id="wpconsent-banner-holder" tabindex="-1" role="dialog" aria-labelledby="wpconsent-banner-title"><div class="wpconsent-banner" part="wpconsent-banner"><div class="wpconsent-banner-body" part="wpconsent-banner-body"><h2 id="wpconsent-banner-title" class="screen-reader-text">Cookie Consent</h2><div class="wpconsent-banner-message" tabindex="0"><p>We use cookies to improve your experience on our site. By using our site, you consent to cookies.</p>
+</div></div><div class="wpconsent-banner-footer wpconsent-button-size-small wpconsent-button-corner-slightly-rounded wpconsent-button-type-filled" part="wpconsent-banner-footer"><button type="button" id="wpconsent-preferences-all" class="wpconsent-preferences-cookies wpconsent-banner-button wpconsent-preferences-all" part="wpconsent-button-preferences">Preferences</button><button type="button" id="wpconsent-cancel-all" class="wpconsent-cancel-cookies wpconsent-banner-button wpconsent-cancel-all" part="wpconsent-button-cancel">Reject</button><button type="button" id="wpconsent-accept-all" class="wpconsent-accept-cookies wpconsent-banner-button wpconsent-accept-all" part="wpconsent-button-accept">Accept All</button></div><div class="wpconsent-powered-by"><a style="color: #ffffff" href="https://wpconsent.com/powered-by/?utm_source=liteplugin&#038;utm_medium=poweredby&#038;utm_campaign" target="_blank" rel="nofollow noopener noreferrer"><span class="wpconsent-powered-by-text">Powered by</span> <svg class="wpconsent-icon wpconsent-icon-logo-mono" width="80" height="12" viewBox="0 0 57 9" xmlns="http://www.w3.org/2000/svg"><g clip-path="url(#a)" fill="#ffffff"><path d="M4.84 1.006a.34.34 0 0 0-.333-.34H2.564a.336.336 0 0 0-.292.172L.735 3.566a.336.336 0 0 0 .293.501h1.94a.342.342 0 0 0 .292-.173l1.531-2.713H4.79a.333.333 0 0 0 .05-.175ZM11.628 4.545a.33.33 0 0 0-.048-.171L9.76 1.144 8.403 3.547l.474.84a.33.33 0 0 1 .003.314L7.09 7.88a.341.341 0 0 0 .272.539h1.937a.336.336 0 0 0 .292-.17l2.005-3.558-.003-.002a.34.34 0 0 0 .034-.145h.002Z" /><path d="M9.76 1.144 9.493.667 8.17 2.994l-.038.066-.294.518a.34.34 0 0 1 .569-.03L9.76 1.144ZM6.995.667h-.012a.336.336 0 0 0-.303.19l-2.636 4.66a.345.345 0 0 1-.299.175.348.348 0 0 1-.303-.183l-.447-.792a.337.337 0 0 0-.294-.171l-1.936.006a.336.336 0 0 0-.293.5l1.802 3.199c.06.105.171.17.293.17h2.314c.129 0 .239-.071.297-.178L6.832 5.34l1.002-1.762.294-.518.038-.066L9.49.667H6.995ZM13.896 1.921c0-.148.053-.274.157-.378a.518.518 0 0 1 .38-.155c.136 0 .247.038.334.114.087.077.144.161.17.253l1.065 3.843 1.041-3.825a.48.48 0 0 1 .188-.28.516.516 0 0 1 .627.002c.096.072.16.167.188.285l1.041 3.825 1.076-3.856a.523.523 0 0 1 .501-.36.51.51 0 0 1 .37.151.508.508 0 0 1 .154.374.505.505 0 0 1-.027.163L19.596 7.32a.518.518 0 0 1-.488.375.47.47 0 0 1-.31-.11.546.546 0 0 1-.182-.285l-1.057-3.747-1.053 3.749a.525.525 0 0 1-.19.283.51.51 0 0 1-.325.11.514.514 0 0 1-.315-.102.5.5 0 0 1-.19-.264l-1.564-5.242a.514.514 0 0 1-.027-.165h.002ZM21.94 7.167V1.992c0-.146.05-.27.154-.374a.514.514 0 0 1 .377-.154h1.745c.566 0 1.026.159 1.383.478.357.318.536.785.536 1.399s-.177 1.077-.533 1.398c-.355.321-.817.484-1.385.484H23v1.943a.512.512 0 0 1-.152.375c-.1.1-.226.151-.375.151a.514.514 0 0 1-.378-.154.506.506 0 0 1-.155-.374v.003Zm1.059-2.896h1.134c.287 0 .509-.08.668-.243.16-.162.239-.392.239-.686 0-.294-.081-.526-.242-.685-.16-.16-.382-.239-.666-.239h-1.135v1.855L23 4.27ZM26.842 4.549c0-1.064.249-1.866.749-2.404.5-.539 1.202-.81 2.107-.81.432 0 .828.088 1.191.26.362.173.651.41.869.712.042.06.063.123.063.192a.287.287 0 0 1-.29.295.303.303 0 0 1-.241-.12 1.81 1.81 0 0 0-.671-.553 2.018 2.018 0 0 0-.92-.215c-.714 0-1.264.22-1.645.662-.38.441-.571 1.103-.571 1.984 0 .88.187 1.593.56 2.01.375.418.927.626 1.656.626.318 0 .62-.063.905-.19.285-.128.513-.314.686-.562a.276.276 0 0 1 .241-.12c.084 0 .153.029.207.086a.287.287 0 0 1 .083.21c0 .063-.018.12-.054.174-.2.293-.49.527-.869.704-.38.177-.78.265-1.2.265-.919 0-1.623-.26-2.116-.781-.494-.521-.74-1.328-.74-2.422v-.003ZM33.042 7.19c-.337-.37-.507-.92-.507-1.654 0-.734.168-1.281.504-1.646.336-.365.809-.548 1.417-.548.607 0 1.083.183 1.42.548.334.365.502.914.502 1.646 0 .732-.168 1.285-.503 1.654-.334.369-.809.553-1.42.553-.61 0-1.075-.184-1.413-.553Zm.087-1.654c0 1.118.443 1.676 1.327 1.676.884 0 1.326-.558 1.326-1.676 0-1.118-.442-1.667-1.326-1.667-.884 0-1.327.555-1.327 1.667ZM37.29 7.404V3.686c0-.084.029-.153.086-.207a.293.293 0 0 1 .21-.083c.084 0 .153.027.207.083a.286.286 0 0 1 .083.207v.294c.093-.185.247-.338.465-.458.217-.12.47-.181.755-.181.271 0 .508.031.712.096.204.064.366.147.488.247.121.101.218.226.293.371.075.146.124.291.15.434.025.142.037.3.037.47v2.444a.276.276 0 0 1-.082.207.286.286 0 0 1-.207.082.29.29 0 0 1-.21-.082.277.277 0 0 1-.086-.207V5.078c0-.193-.015-.36-.047-.498a1.104 1.104 0 0 0-.165-.38.718.718 0 0 0-.337-.256 1.503 1.503 0 0 0-.545-.085c-.813 0-1.22.427-1.22 1.282v2.262a.276.276 0 0 1-.083.207.286.286 0 0 1-.206.082.29.29 0 0 1-.21-.082.277.277 0 0 1-.086-.207l-.002.001ZM41.584 6.899c0-.075.025-.137.076-.188a.254.254 0 0 1 .188-.076c.075 0 .14.03.2.09.3.3.69.451 1.162.451.287 0 .52-.052.7-.159.18-.106.27-.27.27-.493a.463.463 0 0 0-.104-.3.747.747 0 0 0-.273-.21 3.832 3.832 0 0 0-.387-.155c-.144-.05-.291-.1-.44-.153a3.603 3.603 0 0 1-.44-.186 2.328 2.328 0 0 1-.387-.242.974.974 0 0 1-.273-.344 1.08 1.08 0 0 1-.102-.48c0-.363.13-.638.392-.824.26-.186.597-.279 1.008-.279.635 0 1.099.195 1.39.586.045.06.067.118.067.174a.25.25 0 0 1-.078.187.263.263 0 0 1-.19.077.26.26 0 0 1-.193-.081 1.426 1.426 0 0 0-.43-.288 1.46 1.46 0 0 0-.566-.096c-.236 0-.43.043-.584.129-.153.087-.23.228-.23.424 0 .116.035.218.103.31a.749.749 0 0 0 .27.221c.113.057.242.113.387.164l.44.155c.147.052.294.114.44.186.145.072.274.15.388.232a.915.915 0 0 1 .275.33c.069.137.103.291.103.464 0 .269-.07.495-.21.681-.14.186-.324.321-.554.405-.23.083-.493.125-.79.125-.346 0-.66-.068-.938-.201-.28-.134-.49-.288-.626-.46a.303.303 0 0 1-.063-.175l-.002-.001ZM45.48 5.536c0-.7.166-1.24.496-1.622.33-.381.794-.572 1.39-.572.235 0 .446.029.635.087.19.059.346.138.47.239.123.1.23.211.317.33.088.119.154.25.2.389.044.14.076.268.095.387a2.447 2.447 0 0 1 .023.558 1.02 1.02 0 0 1-.038.177.26.26 0 0 1-.11.152.396.396 0 0 1-.21.05h-2.673c0 .455.123.817.369 1.087s.584.405 1.013.405c.238 0 .44-.034.607-.105.167-.07.33-.166.493-.288a.307.307 0 0 1 .165-.058.25.25 0 0 1 .187.078.263.263 0 0 1 .077.19.294.294 0 0 1-.1.21 1.61 1.61 0 0 1-.25.2 2.02 2.02 0 0 1-.48.207c-.22.072-.452.106-.7.106-.628 0-1.114-.181-1.458-.543-.343-.361-.516-.917-.516-1.664h-.002Zm.595-.339h2.462c0-.179-.018-.34-.054-.488a1.413 1.413 0 0 0-.177-.417.83.83 0 0 0-.362-.31 1.352 1.352 0 0 0-.579-.112c-.39 0-.696.118-.918.353-.222.236-.347.56-.374.974h.002ZM50.017 7.404V3.686c0-.084.028-.153.085-.207a.293.293 0 0 1 .21-.083c.085 0 .154.027.208.083a.287.287 0 0 1 .082.207v.294c.093-.185.248-.338.465-.458.218-.12.47-.181.755-.181.272 0 .509.031.713.096.204.064.366.147.488.247.121.101.217.226.292.371.075.146.125.291.15.434.026.142.038.3.038.47v2.444a.276.276 0 0 1-.083.207.287.287 0 0 1-.207.082.29.29 0 0 1-.21-.082.277.277 0 0 1-.085-.207V5.078c0-.193-.015-.36-.047-.498a1.106 1.106 0 0 0-.165-.38.718.718 0 0 0-.338-.256 1.504 1.504 0 0 0-.544-.085c-.814 0-1.22.427-1.22 1.282v2.262a.276.276 0 0 1-.083.207.287.287 0 0 1-.207.082.29.29 0 0 1-.21-.082.277.277 0 0 1-.085-.207l-.002.001ZM54.277 3.938a.263.263 0 0 1-.078-.195.27.27 0 0 1 .078-.196.26.26 0 0 1 .194-.081h.357v-.96a.27.27 0 0 1 .09-.203.284.284 0 0 1 .205-.087c.078 0 .149.028.206.085a.279.279 0 0 1 .085.206v.96h.6c.077 0 .142.027.193.081a.276.276 0 0 1 .078.197.264.264 0 0 1-.078.195.262.262 0 0 1-.194.078h-.599v2.525c0 .194.048.344.146.45.096.106.225.158.387.158.081 0 .149.026.204.078a.256.256 0 0 1 .083.195.251.251 0 0 1-.083.194.284.284 0 0 1-.204.078c-.354 0-.629-.105-.824-.317-.195-.211-.292-.49-.292-.836V4.018h-.357a.258.258 0 0 1-.194-.078l-.003-.002Z" /></g><defs><path fill="#ffffff" d="M0 0h55.857v7.753H0z" /></defs></svg><span class="screen-reader-text"> (opens in a new window)</span></a></div></div></div><div id="wpconsent-preferences-modal" class="wpconsent-preferences-modal" style="display:none;" tabindex="-1" role="dialog" aria-modal="true" aria-labelledby="wpconsent-preferences-title" part="wpconsent-preferences-modal"><div class="wpconsent-preferences-content" part="wpconsent-preferences-content"><div class="wpconsent-preferences-header" part="wpconsent-preferences-header"><h2 id="wpconsent-preferences-title" tabindex="0" part="wpconsent-preferences-title">Cookie Preferences</h2><div class="wpconsent-preferences-header-right"><button class="wpconsent-preferences-header-close" id="wpconsent-preferences-close" aria-label="Close" part="wpconsent-preferences-close">&times;</button></div></div><div class="wpconsent-preferences-body"><div class="wpconsent_preferences_panel_description" part="wpconsent-preferences-description"><p>Manage your cookie preferences below:</p>
+</div><div class="wpconsent-preference-cookies wpconsent-preferences-accordion" part="wpconsent-preferences-accordion"><div class="wpconsent-preferences-accordion-item wpconsent-cookie-category wpconsent-cookie-category-essential" part="wpconsent-accordion-item wpconsent-category-essential"><div class="wpconsent-preferences-accordion-header" part="wpconsent-accordion-header"><div class="wpconsent-cookie-category-text"><button class="wpconsent-preferences-accordion-toggle" aria-expanded="false" part="wpconsent-accordion-toggle"><span class="wpconsent-preferences-accordion-arrow" aria-hidden="true"></span><span class="screen-reader-text">Toggle Essential</span></button><label for="cookie-category-essential">Essential</label></div><div class="wpconsent-cookie-category-checkbox"><label class="wpconsent-preferences-checkbox-toggle wpconsent-preferences-checkbox-toggle-disabled" part="wpconsent-checkbox-toggle wpconsent-checkbox-toggle-disabled"><input type="checkbox" id="cookie-category-essential" checked disabled><span class="wpconsent-preferences-checkbox-toggle-slider"></span></label></div></div><div class="wpconsent-preferences-accordion-content" part="wpconsent-accordion-content"><p class="wpconsent-category-description" tabindex="0">Essential cookies enable basic functions and are necessary for the proper function of the website.</p><div class="wpconsent-preferences-cookies-list" part="wpconsent-cookies-list"><div class="wpconsent-preferences-list-header" part="wpconsent-cookies-list-header"><div class="cookie-name">Name</div><div class="cookie-desc">Description</div><div class="cookie-duration">Duration</div></div><div class="wpconsent-preferences-list-item" data-cookie-id="1389" part="wpconsent-cookies-list-item"><div class="cookie-name">Cookie Preferences</div><div class="cookie-desc">This cookie is used to store the user's cookie consent preferences.</div><div class="cookie-duration">30 days</div></div></div><div class="wpconsent-preferences-accordion-item wpconsent-cookie-service" part="wpconsent-accordion-item wpconsent-service-comments"><div class="wpconsent-preferences-accordion-header" part="wpconsent-accordion-header"><div class="wpconsent-cookie-category-text"><button class="wpconsent-preferences-accordion-toggle" aria-expanded="false" part="wpconsent-accordion-toggle"><span class="wpconsent-preferences-accordion-arrow" aria-hidden="true"></span><span class="screen-reader-text">Toggle Comments</span></button><label>Comments</label></div><div class="wpconsent-cookie-category-checkbox"></div></div><div class="wpconsent-preferences-accordion-content" part="wpconsent-accordion-content"><p class="wpconsent-service-description" tabindex="0">These cookies are needed for adding comments on this website.</p><div class="wpconsent-preferences-cookies-list" part="wpconsent-cookies-list"><div class="wpconsent-preferences-list-header" part="wpconsent-cookies-list-header"><div class="cookie-name">Name</div><div class="cookie-desc">Description</div><div class="cookie-duration">Duration</div></div><div class="wpconsent-preferences-list-item" data-cookie-id="1393" part="wpconsent-cookies-list-item"><div class="cookie-name">comment_author</div><div class="cookie-desc">Used to track the user across multiple sessions.</div><div class="cookie-duration">Session</div></div><div class="wpconsent-preferences-list-item" data-cookie-id="1394" part="wpconsent-cookies-list-item"><div class="cookie-name">comment_author_email</div><div class="cookie-desc">Used to track the user across multiple sessions.</div><div class="cookie-duration">Session</div></div><div class="wpconsent-preferences-list-item" data-cookie-id="1395" part="wpconsent-cookies-list-item"><div class="cookie-name">comment_author_url</div><div class="cookie-desc">Used to track the user across multiple sessions.</div><div class="cookie-duration">Session</div></div></div></div></div><div class="wpconsent-preferences-accordion-item wpconsent-cookie-service" part="wpconsent-accordion-item wpconsent-service-google-recaptcha"><div class="wpconsent-preferences-accordion-header" part="wpconsent-accordion-header"><div class="wpconsent-cookie-category-text"><button class="wpconsent-preferences-accordion-toggle" aria-expanded="false" part="wpconsent-accordion-toggle"><span class="wpconsent-preferences-accordion-arrow" aria-hidden="true"></span><span class="screen-reader-text">Toggle Google reCAPTCHA</span></button><label>Google reCAPTCHA</label></div><div class="wpconsent-cookie-category-checkbox"></div></div><div class="wpconsent-preferences-accordion-content" part="wpconsent-accordion-content"><p class="wpconsent-service-description" tabindex="0">Google reCAPTCHA helps protect websites from spam and abuse by verifying user interactions through challenges.</p><div class="wpconsent-preferences-cookies-list" part="wpconsent-cookies-list"><div class="wpconsent-preferences-list-header" part="wpconsent-cookies-list-header"><div class="cookie-name">Name</div><div class="cookie-desc">Description</div><div class="cookie-duration">Duration</div></div><div class="wpconsent-preferences-list-item" data-cookie-id="1412" part="wpconsent-cookies-list-item"><div class="cookie-name">_GRECAPTCHA</div><div class="cookie-desc">Google reCAPTCHA sets a necessary cookie (_GRECAPTCHA) when executed for the purpose of providing its risk analysis.</div><div class="cookie-duration">179 days</div></div></div></div></div><div class="wpconsent-preferences-accordion-item wpconsent-cookie-service" part="wpconsent-accordion-item wpconsent-service-login"><div class="wpconsent-preferences-accordion-header" part="wpconsent-accordion-header"><div class="wpconsent-cookie-category-text"><button class="wpconsent-preferences-accordion-toggle" aria-expanded="false" part="wpconsent-accordion-toggle"><span class="wpconsent-preferences-accordion-arrow" aria-hidden="true"></span><span class="screen-reader-text">Toggle Login</span></button><label>Login</label></div><div class="wpconsent-cookie-category-checkbox"></div></div><div class="wpconsent-preferences-accordion-content" part="wpconsent-accordion-content"><p class="wpconsent-service-description" tabindex="0">These cookies are used for managing login functionality on this website.</p><div class="wpconsent-preferences-cookies-list" part="wpconsent-cookies-list"><div class="wpconsent-preferences-list-header" part="wpconsent-cookies-list-header"><div class="cookie-name">Name</div><div class="cookie-desc">Description</div><div class="cookie-duration">Duration</div></div><div class="wpconsent-preferences-list-item" data-cookie-id="1391" part="wpconsent-cookies-list-item"><div class="cookie-name">wordpress_sec</div><div class="cookie-desc">Used to track the user across multiple sessions.</div><div class="cookie-duration">15 days</div></div><div class="wpconsent-preferences-list-item" data-cookie-id="1392" part="wpconsent-cookies-list-item"><div class="cookie-name">wordpress_test_cookie</div><div class="cookie-desc">Used to determine if cookies are enabled.</div><div class="cookie-duration">Session</div></div><div class="wpconsent-preferences-list-item" data-cookie-id="1390" part="wpconsent-cookies-list-item"><div class="cookie-name">wordpress_logged_in</div><div class="cookie-desc">Used to store logged-in users.</div><div class="cookie-duration">Persistent</div></div></div></div></div></div></div><div class="wpconsent-preferences-accordion-item wpconsent-cookie-category wpconsent-cookie-category-statistics" part="wpconsent-accordion-item wpconsent-category-statistics"><div class="wpconsent-preferences-accordion-header" part="wpconsent-accordion-header"><div class="wpconsent-cookie-category-text"><button class="wpconsent-preferences-accordion-toggle" aria-expanded="false" part="wpconsent-accordion-toggle"><span class="wpconsent-preferences-accordion-arrow" aria-hidden="true"></span><span class="screen-reader-text">Toggle Statistics</span></button><label for="cookie-category-statistics">Statistics</label></div><div class="wpconsent-cookie-category-checkbox"><label class="wpconsent-preferences-checkbox-toggle" part="wpconsent-checkbox-toggle"><input type="checkbox" id="cookie-category-statistics" name="wpconsent_cookie[]" value="statistics" ><span class="wpconsent-preferences-checkbox-toggle-slider"></span></label></div></div><div class="wpconsent-preferences-accordion-content" part="wpconsent-accordion-content"><p class="wpconsent-category-description" tabindex="0">Statistics cookies collect information anonymously. This information helps us understand how visitors use our website.</p><div class="wpconsent-preferences-accordion-item wpconsent-cookie-service" part="wpconsent-accordion-item wpconsent-service-google-analytics"><div class="wpconsent-preferences-accordion-header" part="wpconsent-accordion-header"><div class="wpconsent-cookie-category-text"><button class="wpconsent-preferences-accordion-toggle" aria-expanded="false" part="wpconsent-accordion-toggle"><span class="wpconsent-preferences-accordion-arrow" aria-hidden="true"></span><span class="screen-reader-text">Toggle Google Analytics</span></button><label>Google Analytics</label></div><div class="wpconsent-cookie-category-checkbox"></div></div><div class="wpconsent-preferences-accordion-content" part="wpconsent-accordion-content"><p class="wpconsent-service-description" tabindex="0">Google Analytics is a powerful tool that tracks and analyzes website traffic for informed marketing decisions.</p><p tabindex="0" class="wpconsent-service-url">Service URL: <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer">policies.google.com<span class="screen-reader-text"> (opens in a new window)</span></a></p><div class="wpconsent-preferences-cookies-list" part="wpconsent-cookies-list"><div class="wpconsent-preferences-list-header" part="wpconsent-cookies-list-header"><div class="cookie-name">Name</div><div class="cookie-desc">Description</div><div class="cookie-duration">Duration</div></div><div class="wpconsent-preferences-list-item" data-cookie-id="1401" part="wpconsent-cookies-list-item"><div class="cookie-name">__utmz</div><div class="cookie-desc">Contains information about the traffic source or campaign that directed user to the website. The cookie is set when the GA.js javascript is loaded and updated when data is sent to the Google Anaytics server</div><div class="cookie-duration">6 months after last activity</div></div><div class="wpconsent-preferences-list-item" data-cookie-id="1402" part="wpconsent-cookies-list-item"><div class="cookie-name">__utmv</div><div class="cookie-desc">Contains custom information set by the web developer via the _setCustomVar method in Google Analytics. This cookie is updated every time new data is sent to the Google Analytics server.</div><div class="cookie-duration">2 years after last activity</div></div><div class="wpconsent-preferences-list-item" data-cookie-id="1403" part="wpconsent-cookies-list-item"><div class="cookie-name">__utmx</div><div class="cookie-desc">Used to determine whether a user is included in an A / B or Multivariate test.</div><div class="cookie-duration">18 months</div></div><div class="wpconsent-preferences-list-item" data-cookie-id="1404" part="wpconsent-cookies-list-item"><div class="cookie-name">_ga</div><div class="cookie-desc">ID used to identify users</div><div class="cookie-duration">2 years</div></div><div class="wpconsent-preferences-list-item" data-cookie-id="1405" part="wpconsent-cookies-list-item"><div class="cookie-name">_gali</div><div class="cookie-desc">Used by Google Analytics to determine which links on a page are being clicked</div><div class="cookie-duration">30 seconds</div></div><div class="wpconsent-preferences-list-item" data-cookie-id="1406" part="wpconsent-cookies-list-item"><div class="cookie-name">_ga_</div><div class="cookie-desc">ID used to identify users</div><div class="cookie-duration">2 years</div></div><div class="wpconsent-preferences-list-item" data-cookie-id="1407" part="wpconsent-cookies-list-item"><div class="cookie-name">_gid</div><div class="cookie-desc">ID used to identify users for 24 hours after last activity</div><div class="cookie-duration">24 hours</div></div><div class="wpconsent-preferences-list-item" data-cookie-id="1408" part="wpconsent-cookies-list-item"><div class="cookie-name">_gat</div><div class="cookie-desc">Used to monitor number of Google Analytics server requests when using Google Tag Manager</div><div class="cookie-duration">1 minute</div></div><div class="wpconsent-preferences-list-item" data-cookie-id="1396" part="wpconsent-cookies-list-item"><div class="cookie-name">_gac_</div><div class="cookie-desc">Contains information related to marketing campaigns of the user. These are shared with Google AdWords / Google Ads when the Google Ads and Google Analytics accounts are linked together.</div><div class="cookie-duration">90 days</div></div><div class="wpconsent-preferences-list-item" data-cookie-id="1397" part="wpconsent-cookies-list-item"><div class="cookie-name">__utma</div><div class="cookie-desc">ID used to identify users and sessions</div><div class="cookie-duration">2 years after last activity</div></div><div class="wpconsent-preferences-list-item" data-cookie-id="1398" part="wpconsent-cookies-list-item"><div class="cookie-name">__utmt</div><div class="cookie-desc">Used to monitor number of Google Analytics server requests</div><div class="cookie-duration">10 minutes</div></div><div class="wpconsent-preferences-list-item" data-cookie-id="1399" part="wpconsent-cookies-list-item"><div class="cookie-name">__utmb</div><div class="cookie-desc">Used to distinguish new sessions and visits. This cookie is set when the GA.js javascript library is loaded and there is no existing __utmb cookie. The cookie is updated every time data is sent to the Google Analytics server.</div><div class="cookie-duration">30 minutes after last activity</div></div><div class="wpconsent-preferences-list-item" data-cookie-id="1400" part="wpconsent-cookies-list-item"><div class="cookie-name">__utmc</div><div class="cookie-desc">Used only with old Urchin versions of Google Analytics and not with GA.js. Was used to distinguish between new sessions and visits at the end of a session.</div><div class="cookie-duration">End of session (browser)</div></div></div></div></div></div></div><div class="wpconsent-preferences-accordion-item wpconsent-cookie-category wpconsent-cookie-category-marketing" part="wpconsent-accordion-item wpconsent-category-marketing"><div class="wpconsent-preferences-accordion-header" part="wpconsent-accordion-header"><div class="wpconsent-cookie-category-text"><button class="wpconsent-preferences-accordion-toggle" aria-expanded="false" part="wpconsent-accordion-toggle"><span class="wpconsent-preferences-accordion-arrow" aria-hidden="true"></span><span class="screen-reader-text">Toggle Marketing</span></button><label for="cookie-category-marketing">Marketing</label></div><div class="wpconsent-cookie-category-checkbox"><label class="wpconsent-preferences-checkbox-toggle" part="wpconsent-checkbox-toggle"><input type="checkbox" id="cookie-category-marketing" name="wpconsent_cookie[]" value="marketing" ><span class="wpconsent-preferences-checkbox-toggle-slider"></span></label></div></div><div class="wpconsent-preferences-accordion-content" part="wpconsent-accordion-content"><p class="wpconsent-category-description" tabindex="0">Marketing cookies are used to follow visitors to websites. The intention is to show ads that are relevant and engaging to the individual user.</p><div class="wpconsent-preferences-accordion-item wpconsent-cookie-service" part="wpconsent-accordion-item wpconsent-service-x-formerly-twitter-pixel"><div class="wpconsent-preferences-accordion-header" part="wpconsent-accordion-header"><div class="wpconsent-cookie-category-text"><button class="wpconsent-preferences-accordion-toggle" aria-expanded="false" part="wpconsent-accordion-toggle"><span class="wpconsent-preferences-accordion-arrow" aria-hidden="true"></span><span class="screen-reader-text">Toggle X (formerly Twitter) Pixel</span></button><label>X (formerly Twitter) Pixel</label></div><div class="wpconsent-cookie-category-checkbox"></div></div><div class="wpconsent-preferences-accordion-content" part="wpconsent-accordion-content"><p class="wpconsent-service-description" tabindex="0">X Pixel enables businesses to track user interactions and optimize ad performance on the X platform effectively.</p><p tabindex="0" class="wpconsent-service-url">Service URL: <a href="https://x.com/en/privacy" target="_blank" rel="noopener noreferrer">x.com<span class="screen-reader-text"> (opens in a new window)</span></a></p><div class="wpconsent-preferences-cookies-list" part="wpconsent-cookies-list"><div class="wpconsent-preferences-list-header" part="wpconsent-cookies-list-header"><div class="cookie-name">Name</div><div class="cookie-desc">Description</div><div class="cookie-duration">Duration</div></div><div class="wpconsent-preferences-list-item" data-cookie-id="1409" part="wpconsent-cookies-list-item"><div class="cookie-name">guest_id</div><div class="cookie-desc">This cookie is set by X to identify and track the website visitor. Registers if a users is signed in the X platform and collects information about ad preferences.</div><div class="cookie-duration">2 years</div></div><div class="wpconsent-preferences-list-item" data-cookie-id="1410" part="wpconsent-cookies-list-item"><div class="cookie-name">personalization_id</div><div class="cookie-desc">Unique value with which users can be identified by X. Collected information is used to be personalize X services, including X trends, stories, ads and suggestions.</div><div class="cookie-duration">2 years</div></div><div class="wpconsent-preferences-list-item" data-cookie-id="1411" part="wpconsent-cookies-list-item"><div class="cookie-name">external_referer</div><div class="cookie-desc">Our Website uses X buttons to allow our visitors to follow our promotional X feeds, and sometimes embed feeds on our Website.</div><div class="cookie-duration">2 years</div></div></div></div></div></div></div><div class="wpconsent-preferences-accordion-item wpconsent-cookie-category" part="wpconsent-accordion-item wpconsent-cookie-policy-item"><div class="wpconsent-preferences-accordion-header" part="wpconsent-accordion-header"><div class="wpconsent-cookie-category-text"><button class="wpconsent-preferences-accordion-toggle" aria-expanded="false" part="wpconsent-accordion-toggle"><span class="wpconsent-preferences-accordion-arrow" aria-hidden="true"></span><span class="screen-reader-text">Toggle Cookie Policy</span></button><label class="wpconsent-cookie-policy-title">Cookie Policy</label></div></div><div class="wpconsent-preferences-accordion-content" part="wpconsent-accordion-content"><p tabindex="0" class="wpconsent-cookie-policy-text">You can find more information in our <a href="https://www.kenwalger.com/blog/cookie-policy/">Cookie Policy</a> and <a href="https://www.kenwalger.com/blog/privacy-policy/">Privacy Policy</a>.</p></div></div></div></div><div class="wpconsent-preferences-actions" part="wpconsent-preferences-actions"><div class="wpconsent-preferences-buttons wpconsent-button-size-small wpconsent-button-corner-slightly-rounded wpconsent-button-type-filled" part="wpconsent-preferences-buttons"><div class="wpconsent-preferences-buttons-left" part="wpconsent-preferences-buttons-left"><button class="wpconsent-accept-all wpconsent-banner-button" part="wpconsent-preferences-accept-button">Accept All</button><button class="wpconsent-close-preferences wpconsent-banner-button" part="wpconsent-preferences-cancel-button">Close</button></div><button class="wpconsent-save-preferences wpconsent-banner-button" part="wpconsent-preferences-save-button">Save and Close</button></div></div><div class="wpconsent-preferences-powered-by"><div class="wpconsent-powered-by"><a style="color: #ffffff" href="https://wpconsent.com/powered-by/?utm_source=liteplugin&#038;utm_medium=poweredby&#038;utm_campaign" target="_blank" rel="nofollow noopener noreferrer"><span class="wpconsent-powered-by-text">Powered by</span> <svg class="wpconsent-icon wpconsent-icon-logo-mono" width="80" height="12" viewBox="0 0 57 9" fill="none" xmlns="http://www.w3.org/2000/svg"><g clip-path="url(#a)" fill="#ffffff"><path d="M4.84 1.006a.34.34 0 0 0-.333-.34H2.564a.336.336 0 0 0-.292.172L.735 3.566a.336.336 0 0 0 .293.501h1.94a.342.342 0 0 0 .292-.173l1.531-2.713H4.79a.333.333 0 0 0 .05-.175ZM11.628 4.545a.33.33 0 0 0-.048-.171L9.76 1.144 8.403 3.547l.474.84a.33.33 0 0 1 .003.314L7.09 7.88a.341.341 0 0 0 .272.539h1.937a.336.336 0 0 0 .292-.17l2.005-3.558-.003-.002a.34.34 0 0 0 .034-.145h.002Z"/><path d="M9.76 1.144 9.493.667 8.17 2.994l-.038.066-.294.518a.34.34 0 0 1 .569-.03L9.76 1.144ZM6.995.667h-.012a.336.336 0 0 0-.303.19l-2.636 4.66a.345.345 0 0 1-.299.175.348.348 0 0 1-.303-.183l-.447-.792a.337.337 0 0 0-.294-.171l-1.936.006a.336.336 0 0 0-.293.5l1.802 3.199c.06.105.171.17.293.17h2.314c.129 0 .239-.071.297-.178L6.832 5.34l1.002-1.762.294-.518.038-.066L9.49.667H6.995ZM13.896 1.921c0-.148.053-.274.157-.378a.518.518 0 0 1 .38-.155c.136 0 .247.038.334.114.087.077.144.161.17.253l1.065 3.843 1.041-3.825a.48.48 0 0 1 .188-.28.516.516 0 0 1 .627.002c.096.072.16.167.188.285l1.041 3.825 1.076-3.856a.523.523 0 0 1 .501-.36.51.51 0 0 1 .37.151.508.508 0 0 1 .154.374.505.505 0 0 1-.027.163L19.596 7.32a.518.518 0 0 1-.488.375.47.47 0 0 1-.31-.11.546.546 0 0 1-.182-.285l-1.057-3.747-1.053 3.749a.525.525 0 0 1-.19.283.51.51 0 0 1-.325.11.514.514 0 0 1-.315-.102.5.5 0 0 1-.19-.264l-1.564-5.242a.514.514 0 0 1-.027-.165h.002ZM21.94 7.167V1.992c0-.146.05-.27.154-.374a.514.514 0 0 1 .377-.154h1.745c.566 0 1.026.159 1.383.478.357.318.536.785.536 1.399s-.177 1.077-.533 1.398c-.355.321-.817.484-1.385.484H23v1.943a.512.512 0 0 1-.152.375c-.1.1-.226.151-.375.151a.514.514 0 0 1-.378-.154.506.506 0 0 1-.155-.374v.003Zm1.059-2.896h1.134c.287 0 .509-.08.668-.243.16-.162.239-.392.239-.686 0-.294-.081-.526-.242-.685-.16-.16-.382-.239-.666-.239h-1.135v1.855L23 4.27ZM26.842 4.549c0-1.064.249-1.866.749-2.404.5-.539 1.202-.81 2.107-.81.432 0 .828.088 1.191.26.362.173.651.41.869.712.042.06.063.123.063.192a.287.287 0 0 1-.29.295.303.303 0 0 1-.241-.12 1.81 1.81 0 0 0-.671-.553 2.018 2.018 0 0 0-.92-.215c-.714 0-1.264.22-1.645.662-.38.441-.571 1.103-.571 1.984 0 .88.187 1.593.56 2.01.375.418.927.626 1.656.626.318 0 .62-.063.905-.19.285-.128.513-.314.686-.562a.276.276 0 0 1 .241-.12c.084 0 .153.029.207.086a.287.287 0 0 1 .083.21c0 .063-.018.12-.054.174-.2.293-.49.527-.869.704-.38.177-.78.265-1.2.265-.919 0-1.623-.26-2.116-.781-.494-.521-.74-1.328-.74-2.422v-.003ZM33.042 7.19c-.337-.37-.507-.92-.507-1.654 0-.734.168-1.281.504-1.646.336-.365.809-.548 1.417-.548.607 0 1.083.183 1.42.548.334.365.502.914.502 1.646 0 .732-.168 1.285-.503 1.654-.334.369-.809.553-1.42.553-.61 0-1.075-.184-1.413-.553Zm.087-1.654c0 1.118.443 1.676 1.327 1.676.884 0 1.326-.558 1.326-1.676 0-1.118-.442-1.667-1.326-1.667-.884 0-1.327.555-1.327 1.667ZM37.29 7.404V3.686c0-.084.029-.153.086-.207a.293.293 0 0 1 .21-.083c.084 0 .153.027.207.083a.286.286 0 0 1 .083.207v.294c.093-.185.247-.338.465-.458.217-.12.47-.181.755-.181.271 0 .508.031.712.096.204.064.366.147.488.247.121.101.218.226.293.371.075.146.124.291.15.434.025.142.037.3.037.47v2.444a.276.276 0 0 1-.082.207.286.286 0 0 1-.207.082.29.29 0 0 1-.21-.082.277.277 0 0 1-.086-.207V5.078c0-.193-.015-.36-.047-.498a1.104 1.104 0 0 0-.165-.38.718.718 0 0 0-.337-.256 1.503 1.503 0 0 0-.545-.085c-.813 0-1.22.427-1.22 1.282v2.262a.276.276 0 0 1-.083.207.286.286 0 0 1-.206.082.29.29 0 0 1-.21-.082.277.277 0 0 1-.086-.207l-.002.001ZM41.584 6.899c0-.075.025-.137.076-.188a.254.254 0 0 1 .188-.076c.075 0 .14.03.2.09.3.3.69.451 1.162.451.287 0 .52-.052.7-.159.18-.106.27-.27.27-.493a.463.463 0 0 0-.104-.3.747.747 0 0 0-.273-.21 3.832 3.832 0 0 0-.387-.155c-.144-.05-.291-.1-.44-.153a3.603 3.603 0 0 1-.44-.186 2.328 2.328 0 0 1-.387-.242.974.974 0 0 1-.273-.344 1.08 1.08 0 0 1-.102-.48c0-.363.13-.638.392-.824.26-.186.597-.279 1.008-.279.635 0 1.099.195 1.39.586.045.06.067.118.067.174a.25.25 0 0 1-.078.187.263.263 0 0 1-.19.077.26.26 0 0 1-.193-.081 1.426 1.426 0 0 0-.43-.288 1.46 1.46 0 0 0-.566-.096c-.236 0-.43.043-.584.129-.153.087-.23.228-.23.424 0 .116.035.218.103.31a.749.749 0 0 0 .27.221c.113.057.242.113.387.164l.44.155c.147.052.294.114.44.186.145.072.274.15.388.232a.915.915 0 0 1 .275.33c.069.137.103.291.103.464 0 .269-.07.495-.21.681-.14.186-.324.321-.554.405-.23.083-.493.125-.79.125-.346 0-.66-.068-.938-.201-.28-.134-.49-.288-.626-.46a.303.303 0 0 1-.063-.175l-.002-.001ZM45.48 5.536c0-.7.166-1.24.496-1.622.33-.381.794-.572 1.39-.572.235 0 .446.029.635.087.19.059.346.138.47.239.123.1.23.211.317.33.088.119.154.25.2.389.044.14.076.268.095.387a2.447 2.447 0 0 1 .023.558 1.02 1.02 0 0 1-.038.177.26.26 0 0 1-.11.152.396.396 0 0 1-.21.05h-2.673c0 .455.123.817.369 1.087s.584.405 1.013.405c.238 0 .44-.034.607-.105.167-.07.33-.166.493-.288a.307.307 0 0 1 .165-.058.25.25 0 0 1 .187.078.263.263 0 0 1 .077.19.294.294 0 0 1-.1.21 1.61 1.61 0 0 1-.25.2 2.02 2.02 0 0 1-.48.207c-.22.072-.452.106-.7.106-.628 0-1.114-.181-1.458-.543-.343-.361-.516-.917-.516-1.664h-.002Zm.595-.339h2.462c0-.179-.018-.34-.054-.488a1.413 1.413 0 0 0-.177-.417.83.83 0 0 0-.362-.31 1.352 1.352 0 0 0-.579-.112c-.39 0-.696.118-.918.353-.222.236-.347.56-.374.974h.002ZM50.017 7.404V3.686c0-.084.028-.153.085-.207a.293.293 0 0 1 .21-.083c.085 0 .154.027.208.083a.287.287 0 0 1 .082.207v.294c.093-.185.248-.338.465-.458.218-.12.47-.181.755-.181.272 0 .509.031.713.096.204.064.366.147.488.247.121.101.217.226.292.371.075.146.125.291.15.434.026.142.038.3.038.47v2.444a.276.276 0 0 1-.083.207.287.287 0 0 1-.207.082.29.29 0 0 1-.21-.082.277.277 0 0 1-.085-.207V5.078c0-.193-.015-.36-.047-.498a1.106 1.106 0 0 0-.165-.38.718.718 0 0 0-.338-.256 1.504 1.504 0 0 0-.544-.085c-.814 0-1.22.427-1.22 1.282v2.262a.276.276 0 0 1-.083.207.287.287 0 0 1-.207.082.29.29 0 0 1-.21-.082.277.277 0 0 1-.085-.207l-.002.001ZM54.277 3.938a.263.263 0 0 1-.078-.195.27.27 0 0 1 .078-.196.26.26 0 0 1 .194-.081h.357v-.96a.27.27 0 0 1 .09-.203.284.284 0 0 1 .205-.087c.078 0 .149.028.206.085a.279.279 0 0 1 .085.206v.96h.6c.077 0 .142.027.193.081a.276.276 0 0 1 .078.197.264.264 0 0 1-.078.195.262.262 0 0 1-.194.078h-.599v2.525c0 .194.048.344.146.45.096.106.225.158.387.158.081 0 .149.026.204.078a.256.256 0 0 1 .083.195.251.251 0 0 1-.083.194.284.284 0 0 1-.204.078c-.354 0-.629-.105-.824-.317-.195-.211-.292-.49-.292-.836V4.018h-.357a.258.258 0 0 1-.194-.078l-.003-.002Z"/></g><defs><clipPath id="a"><path fill="#ffffff" transform="translate(.429 .667)" d="M0 0h55.857v7.753H0z"/></clipPath></defs></svg><span class="screen-reader-text"> (opens in a new window)</span></a></div></div></div></div><button id="wpconsent-consent-floating" class="wpconsent-consent-floating-button" part="wpconsent-settings-button" style="background-color: #04194e; color: #ffffff;" aria-label="Cookie Preferences"><svg class="wpconsent-icon wpconsent-icon-preferences" width="24" height="24" viewBox="0 -960 960 960" xmlns="http://www.w3.org/2000/svg"><path d="m370-80-16-128q-13-5-24.5-12T307-235l-119 50L78-375l103-78q-1-7-1-13.5v-27q0-6.5 1-13.5L78-585l110-190 119 50q11-8 23-15t24-12l16-128h220l16 128q13 5 24.5 12t22.5 15l119-50 110 190-103 78q1 7 1 13.5v27q0 6.5-2 13.5l103 78-110 190-118-50q-11 8-23 15t-24 12L590-80H370Zm70-80h79l14-106q31-8 57.5-23.5T639-327l99 41 39-68-86-65q5-14 7-29.5t2-31.5q0-16-2-31.5t-7-29.5l86-65-39-68-99 42q-22-23-48.5-38.5T533-694l-13-106h-79l-14 106q-31 8-57.5 23.5T321-633l-99-41-39 68 86 64q-5 15-7 30t-2 32q0 16 2 31t7 30l-86 65 39 68 99-42q22 23 48.5 38.5T427-266l13 106Zm42-180q58 0 99-41t41-99q0-58-41-99t-99-41q-59 0-99.5 41T342-480q0 58 40.5 99t99.5 41Zm-2-140Z" fill="#ffffff" /></svg></button></template></div>	<div style="display:none">
+			<div class="grofile-hash-map-cf2cad7e6e37acacfa5201068856ed3d">
+		</div>
+		</div>
+				<div id="jp-carousel-loading-overlay">
+			<div id="jp-carousel-loading-wrapper">
+				<span id="jp-carousel-library-loading">&nbsp;</span>
+			</div>
+		</div>
+		<div class="jp-carousel-overlay" style="display: none;">
+
+		<div class="jp-carousel-container">
+			<!-- The Carousel Swiper -->
+			<div
+				class="jp-carousel-wrap swiper jp-carousel-swiper-container jp-carousel-transitions"
+				itemscope
+				itemtype="https://schema.org/ImageGallery">
+				<div class="jp-carousel swiper-wrapper"></div>
+				<div class="jp-swiper-button-prev swiper-button-prev">
+					<svg width="25" height="24" viewBox="0 0 25 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+						<mask id="maskPrev" mask-type="alpha" maskUnits="userSpaceOnUse" x="8" y="6" width="9" height="12">
+							<path d="M16.2072 16.59L11.6496 12L16.2072 7.41L14.8041 6L8.8335 12L14.8041 18L16.2072 16.59Z" fill="white"/>
+						</mask>
+						<g mask="url(#maskPrev)">
+							<rect x="0.579102" width="23.8823" height="24" fill="#FFFFFF"/>
+						</g>
+					</svg>
+				</div>
+				<div class="jp-swiper-button-next swiper-button-next">
+					<svg width="25" height="24" viewBox="0 0 25 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+						<mask id="maskNext" mask-type="alpha" maskUnits="userSpaceOnUse" x="8" y="6" width="8" height="12">
+							<path d="M8.59814 16.59L13.1557 12L8.59814 7.41L10.0012 6L15.9718 12L10.0012 18L8.59814 16.59Z" fill="white"/>
+						</mask>
+						<g mask="url(#maskNext)">
+							<rect x="0.34375" width="23.8822" height="24" fill="#FFFFFF"/>
+						</g>
+					</svg>
+				</div>
+			</div>
+			<!-- The main close buton -->
+			<div class="jp-carousel-close-hint">
+				<svg width="25" height="24" viewBox="0 0 25 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+					<mask id="maskClose" mask-type="alpha" maskUnits="userSpaceOnUse" x="5" y="5" width="15" height="14">
+						<path d="M19.3166 6.41L17.9135 5L12.3509 10.59L6.78834 5L5.38525 6.41L10.9478 12L5.38525 17.59L6.78834 19L12.3509 13.41L17.9135 19L19.3166 17.59L13.754 12L19.3166 6.41Z" fill="white"/>
+					</mask>
+					<g mask="url(#maskClose)">
+						<rect x="0.409668" width="23.8823" height="24" fill="#FFFFFF"/>
+					</g>
+				</svg>
+			</div>
+			<!-- Image info, comments and meta -->
+			<div class="jp-carousel-info">
+				<div class="jp-carousel-info-footer">
+					<div class="jp-carousel-pagination-container">
+						<div class="jp-swiper-pagination swiper-pagination"></div>
+						<div class="jp-carousel-pagination"></div>
+					</div>
+					<div class="jp-carousel-photo-title-container">
+						<h2 class="jp-carousel-photo-caption"></h2>
+					</div>
+					<div class="jp-carousel-photo-icons-container">
+						<a href="#" class="jp-carousel-icon-btn jp-carousel-icon-info" aria-label="Toggle photo metadata visibility">
+							<span class="jp-carousel-icon">
+								<svg width="25" height="24" viewBox="0 0 25 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+									<mask id="maskInfo" mask-type="alpha" maskUnits="userSpaceOnUse" x="2" y="2" width="21" height="20">
+										<path fill-rule="evenodd" clip-rule="evenodd" d="M12.7537 2C7.26076 2 2.80273 6.48 2.80273 12C2.80273 17.52 7.26076 22 12.7537 22C18.2466 22 22.7046 17.52 22.7046 12C22.7046 6.48 18.2466 2 12.7537 2ZM11.7586 7V9H13.7488V7H11.7586ZM11.7586 11V17H13.7488V11H11.7586ZM4.79292 12C4.79292 16.41 8.36531 20 12.7537 20C17.142 20 20.7144 16.41 20.7144 12C20.7144 7.59 17.142 4 12.7537 4C8.36531 4 4.79292 7.59 4.79292 12Z" fill="white"/>
+									</mask>
+									<g mask="url(#maskInfo)">
+										<rect x="0.8125" width="23.8823" height="24" fill="#FFFFFF"/>
+									</g>
+								</svg>
+							</span>
+						</a>
+												<a href="#" class="jp-carousel-icon-btn jp-carousel-icon-comments" aria-label="Toggle photo comments visibility">
+							<span class="jp-carousel-icon">
+								<svg width="25" height="24" viewBox="0 0 25 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+									<mask id="maskComments" mask-type="alpha" maskUnits="userSpaceOnUse" x="2" y="2" width="21" height="20">
+										<path fill-rule="evenodd" clip-rule="evenodd" d="M4.3271 2H20.2486C21.3432 2 22.2388 2.9 22.2388 4V16C22.2388 17.1 21.3432 18 20.2486 18H6.31729L2.33691 22V4C2.33691 2.9 3.2325 2 4.3271 2ZM6.31729 16H20.2486V4H4.3271V18L6.31729 16Z" fill="white"/>
+									</mask>
+									<g mask="url(#maskComments)">
+										<rect x="0.34668" width="23.8823" height="24" fill="#FFFFFF"/>
+									</g>
+								</svg>
+
+								<span class="jp-carousel-has-comments-indicator" aria-label="This image has comments."></span>
+							</span>
+						</a>
+											</div>
+				</div>
+				<div class="jp-carousel-info-extra">
+					<div class="jp-carousel-info-content-wrapper">
+						<div class="jp-carousel-photo-title-container">
+							<h2 class="jp-carousel-photo-title"></h2>
+						</div>
+						<div class="jp-carousel-comments-wrapper">
+															<div id="jp-carousel-comments-loading">
+									<span>Loading Comments...</span>
+								</div>
+								<div class="jp-carousel-comments"></div>
+								<div id="jp-carousel-comment-form-container">
+									<span id="jp-carousel-comment-form-spinner">&nbsp;</span>
+									<div id="jp-carousel-comment-post-results"></div>
+																														<form id="jp-carousel-comment-form">
+												<label for="jp-carousel-comment-form-comment-field" class="screen-reader-text">Write a Comment...</label>
+												<textarea
+													name="comment"
+													class="jp-carousel-comment-form-field jp-carousel-comment-form-textarea"
+													id="jp-carousel-comment-form-comment-field"
+													placeholder="Write a Comment..."
+												></textarea>
+												<div id="jp-carousel-comment-form-submit-and-info-wrapper">
+													<div id="jp-carousel-comment-form-commenting-as">
+																													<fieldset>
+																<label for="jp-carousel-comment-form-email-field">Email (Required)</label>
+																<input type="text" name="email" class="jp-carousel-comment-form-field jp-carousel-comment-form-text-field" id="jp-carousel-comment-form-email-field" />
+															</fieldset>
+															<fieldset>
+																<label for="jp-carousel-comment-form-author-field">Name (Required)</label>
+																<input type="text" name="author" class="jp-carousel-comment-form-field jp-carousel-comment-form-text-field" id="jp-carousel-comment-form-author-field" />
+															</fieldset>
+															<fieldset>
+																<label for="jp-carousel-comment-form-url-field">Website</label>
+																<input type="text" name="url" class="jp-carousel-comment-form-field jp-carousel-comment-form-text-field" id="jp-carousel-comment-form-url-field" />
+															</fieldset>
+																											</div>
+													<input
+														type="submit"
+														name="submit"
+														class="jp-carousel-comment-form-button"
+														id="jp-carousel-comment-form-button-submit"
+														value="Post Comment" />
+												</div>
+											</form>
+																											</div>
+													</div>
+						<div class="jp-carousel-image-meta">
+							<div class="jp-carousel-title-and-caption">
+								<div class="jp-carousel-photo-info">
+									<h3 class="jp-carousel-caption" itemprop="caption description"></h3>
+								</div>
+
+								<div class="jp-carousel-photo-description"></div>
+							</div>
+							<ul class="jp-carousel-image-exif" style="display: none;"></ul>
+							<a class="jp-carousel-image-download" href="#" target="_blank" style="display: none;">
+								<svg width="25" height="24" viewBox="0 0 25 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+									<mask id="mask0" mask-type="alpha" maskUnits="userSpaceOnUse" x="3" y="3" width="19" height="18">
+										<path fill-rule="evenodd" clip-rule="evenodd" d="M5.84615 5V19H19.7775V12H21.7677V19C21.7677 20.1 20.8721 21 19.7775 21H5.84615C4.74159 21 3.85596 20.1 3.85596 19V5C3.85596 3.9 4.74159 3 5.84615 3H12.8118V5H5.84615ZM14.802 5V3H21.7677V10H19.7775V6.41L9.99569 16.24L8.59261 14.83L18.3744 5H14.802Z" fill="white"/>
+									</mask>
+									<g mask="url(#mask0)">
+										<rect x="0.870605" width="23.8823" height="24" fill="#FFFFFF"/>
+									</g>
+								</svg>
+								<span class="jp-carousel-download-text"></span>
+							</a>
+							<div class="jp-carousel-image-map" style="display: none;"></div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		</div>
+		
+	<script type="text/javascript">
+		window.WPCOM_sharing_counts = {"https://www.kenwalger.com/blog/data-engineering/from-rocks-to-reality-system-design-patterns/":1370};
+	</script>
+				<script id="wpconsent-frontend-js-js-extra">
+var wpconsent = {"consent_duration":"30","css_url":"https://www.kenwalger.com/blog/wp-content/plugins/wpconsent-cookies-banner-privacy-suite/build/frontend.css","css_version":"d55abb9de77669626d2a","default_allow":"","consent_type":"optin","manual_toggle_services":"","slugs":["essential","statistics","marketing"],"enable_consent_banner":"1","enable_script_blocking":"1","enable_content_blocking":"0","enable_consent_floating":"","enable_shared_consent":"","cookie_domain":"","accept_button_enabled":"1","cancel_button_enabled":"1","preferences_button_enabled":"1","respect_gpc":"","gpc_toast_message":"GPC Signal Honored","gpc_toast_duration":"10000","gpc_toast_enabled":"1"};
+//# sourceURL=wpconsent-frontend-js-js-extra
+</script>
+<script src="https://www.kenwalger.com/blog/wp-content/plugins/wpconsent-cookies-banner-privacy-suite/build/frontend.js?ver=d55abb9de77669626d2a" id="wpconsent-frontend-js-js"></script>
+<script src="https://www.kenwalger.com/blog/wp-includes/js/comment-reply.min.js?ver=6.9.4" id="comment-reply-js" async data-wp-strategy="async" fetchpriority="low"></script>
+<script src="https://secure.gravatar.com/js/gprofiles.js?ver=202619" id="grofiles-cards-js"></script>
+<script id="wpgroho-js-extra">
+var WPGroHo = {"my_hash":""};
+//# sourceURL=wpgroho-js-extra
+</script>
+<script src="https://www.kenwalger.com/blog/wp-content/plugins/jetpack/modules/wpgroho.js?ver=15.7.1" id="wpgroho-js"></script>
+<script id="jetpack-stats-js-before">
+_stq = window._stq || [];
+_stq.push([ "view", {"v":"ext","blog":"123342862","post":"1370","tz":"-7","srv":"www.kenwalger.com","j":"1:15.7.1"} ]);
+_stq.push([ "clickTrackerInit", "123342862", "1370" ]);
+//# sourceURL=jetpack-stats-js-before
+</script>
+<script src="https://stats.wp.com/e-202619.js" id="jetpack-stats-js" defer data-wp-strategy="defer"></script>
+<script id="jetpack-carousel-js-extra">
+var jetpackSwiperLibraryPath = {"url":"https://www.kenwalger.com/blog/wp-content/plugins/jetpack/_inc/blocks/swiper.js"};
+var jetpackCarouselStrings = {"widths":[370,700,1000,1200,1400,2000],"is_logged_in":"","lang":"en","ajaxurl":"https://www.kenwalger.com/blog/wp-admin/admin-ajax.php","nonce":"454741632b","display_exif":"1","display_comments":"1","single_image_gallery":"1","single_image_gallery_media_file":"","background_color":"black","comment":"Comment","post_comment":"Post Comment","write_comment":"Write a Comment...","loading_comments":"Loading Comments...","image_label":"Open image in full-screen.","download_original":"View full size \u003Cspan class=\"photo-size\"\u003E{0}\u003Cspan class=\"photo-size-times\"\u003E\u00d7\u003C/span\u003E{1}\u003C/span\u003E","no_comment_text":"Please be sure to submit some text with your comment.","no_comment_email":"Please provide an email address to comment.","no_comment_author":"Please provide your name to comment.","comment_post_error":"Sorry, but there was an error posting your comment. Please try again later.","comment_approved":"Your comment was approved.","comment_unapproved":"Your comment is in moderation.","camera":"Camera","aperture":"Aperture","shutter_speed":"Shutter Speed","focal_length":"Focal Length","copyright":"Copyright","comment_registration":"0","require_name_email":"1","login_url":"https://www.kenwalger.com/blog/wp-login.php?redirect_to=https%3A%2F%2Fwww.kenwalger.com%2Fblog%2Fdata-engineering%2Ffrom-rocks-to-reality-system-design-patterns%2F","blog_id":"1","meta_data":["camera","aperture","shutter_speed","focal_length","copyright"]};
+//# sourceURL=jetpack-carousel-js-extra
+</script>
+<script src="https://www.kenwalger.com/blog/wp-content/plugins/jetpack/_inc/build/carousel/jetpack-carousel.min.js?ver=15.7.1" id="jetpack-carousel-js"></script>
+<script defer src="https://www.kenwalger.com/blog/wp-content/plugins/akismet/_inc/akismet-frontend.js?ver=1777496754" id="akismet-frontend-js"></script>
+<script src="https://www.kenwalger.com/blog/wp-content/plugins/jetpack/_inc/build/widgets/eu-cookie-law/eu-cookie-law.min.js?ver=20180522" id="eu-cookie-law-script-js"></script>
+<script id="sharing-js-js-extra">
+var sharing_js_options = {"lang":"en","counts":"1","is_stats_active":"1"};
+//# sourceURL=sharing-js-js-extra
+</script>
+<script src="https://www.kenwalger.com/blog/wp-content/plugins/jetpack/_inc/build/sharedaddy/sharing.min.js?ver=15.7.1" id="sharing-js-js"></script>
+<script id="sharing-js-js-after">
+var windowOpen;
+			( function () {
+				function matches( el, sel ) {
+					return !! (
+						el.matches && el.matches( sel ) ||
+						el.msMatchesSelector && el.msMatchesSelector( sel )
+					);
+				}
+
+				document.body.addEventListener( 'click', function ( event ) {
+					if ( ! event.target ) {
+						return;
+					}
+
+					var el;
+					if ( matches( event.target, 'a.share-linkedin' ) ) {
+						el = event.target;
+					} else if ( event.target.parentNode && matches( event.target.parentNode, 'a.share-linkedin' ) ) {
+						el = event.target.parentNode;
+					}
+
+					if ( el ) {
+						event.preventDefault();
+
+						// If there's another sharing window open, close it.
+						if ( typeof windowOpen !== 'undefined' ) {
+							windowOpen.close();
+						}
+						windowOpen = window.open( el.getAttribute( 'href' ), 'wpcomlinkedin', 'menubar=1,resizable=1,width=580,height=450' );
+						return false;
+					}
+				} );
+			} )();
+//# sourceURL=sharing-js-js-after
+</script>
+<script id="wp-emoji-settings" type="application/json">
+{"baseUrl":"https://s.w.org/images/core/emoji/17.0.2/72x72/","ext":".png","svgUrl":"https://s.w.org/images/core/emoji/17.0.2/svg/","svgExt":".svg","source":{"concatemoji":"https://www.kenwalger.com/blog/wp-includes/js/wp-emoji-release.min.js?ver=6.9.4"}}
+</script>
+<script type="module">
+/*! This file is auto-generated */
+const a=JSON.parse(document.getElementById("wp-emoji-settings").textContent),o=(window._wpemojiSettings=a,"wpEmojiSettingsSupports"),s=["flag","emoji"];function i(e){try{var t={supportTests:e,timestamp:(new Date).valueOf()};sessionStorage.setItem(o,JSON.stringify(t))}catch(e){}}function c(e,t,n){e.clearRect(0,0,e.canvas.width,e.canvas.height),e.fillText(t,0,0);t=new Uint32Array(e.getImageData(0,0,e.canvas.width,e.canvas.height).data);e.clearRect(0,0,e.canvas.width,e.canvas.height),e.fillText(n,0,0);const a=new Uint32Array(e.getImageData(0,0,e.canvas.width,e.canvas.height).data);return t.every((e,t)=>e===a[t])}function p(e,t){e.clearRect(0,0,e.canvas.width,e.canvas.height),e.fillText(t,0,0);var n=e.getImageData(16,16,1,1);for(let e=0;e<n.data.length;e++)if(0!==n.data[e])return!1;return!0}function u(e,t,n,a){switch(t){case"flag":return n(e,"\ud83c\udff3\ufe0f\u200d\u26a7\ufe0f","\ud83c\udff3\ufe0f\u200b\u26a7\ufe0f")?!1:!n(e,"\ud83c\udde8\ud83c\uddf6","\ud83c\udde8\u200b\ud83c\uddf6")&&!n(e,"\ud83c\udff4\udb40\udc67\udb40\udc62\udb40\udc65\udb40\udc6e\udb40\udc67\udb40\udc7f","\ud83c\udff4\u200b\udb40\udc67\u200b\udb40\udc62\u200b\udb40\udc65\u200b\udb40\udc6e\u200b\udb40\udc67\u200b\udb40\udc7f");case"emoji":return!a(e,"\ud83e\u1fac8")}return!1}function f(e,t,n,a){let r;const o=(r="undefined"!=typeof WorkerGlobalScope&&self instanceof WorkerGlobalScope?new OffscreenCanvas(300,150):document.createElement("canvas")).getContext("2d",{willReadFrequently:!0}),s=(o.textBaseline="top",o.font="600 32px Arial",{});return e.forEach(e=>{s[e]=t(o,e,n,a)}),s}function r(e){var t=document.createElement("script");t.src=e,t.defer=!0,document.head.appendChild(t)}a.supports={everything:!0,everythingExceptFlag:!0},new Promise(t=>{let n=function(){try{var e=JSON.parse(sessionStorage.getItem(o));if("object"==typeof e&&"number"==typeof e.timestamp&&(new Date).valueOf()<e.timestamp+604800&&"object"==typeof e.supportTests)return e.supportTests}catch(e){}return null}();if(!n){if("undefined"!=typeof Worker&&"undefined"!=typeof OffscreenCanvas&&"undefined"!=typeof URL&&URL.createObjectURL&&"undefined"!=typeof Blob)try{var e="postMessage("+f.toString()+"("+[JSON.stringify(s),u.toString(),c.toString(),p.toString()].join(",")+"));",a=new Blob([e],{type:"text/javascript"});const r=new Worker(URL.createObjectURL(a),{name:"wpTestEmojiSupports"});return void(r.onmessage=e=>{i(n=e.data),r.terminate(),t(n)})}catch(e){}i(n=f(s,u,c,p))}t(n)}).then(e=>{for(const n in e)a.supports[n]=e[n],a.supports.everything=a.supports.everything&&a.supports[n],"flag"!==n&&(a.supports.everythingExceptFlag=a.supports.everythingExceptFlag&&a.supports[n]);var t;a.supports.everythingExceptFlag=a.supports.everythingExceptFlag&&!a.supports.flag,a.supports.everything||((t=a.source||{}).concatemoji?r(t.concatemoji):t.wpemoji&&t.twemoji&&(r(t.twemoji),r(t.wpemoji)))});
+//# sourceURL=https://www.kenwalger.com/blog/wp-includes/js/wp-emoji-loader.min.js
+</script>
+        <!-- Twitter universal website tag code -->
+        <script type="text/plain" data-wpconsent-name="twitter-pixel" data-wpconsent-category="marketing">
+        !function(e,t,n,s,u,a){e.twq||(s=e.twq=function(){s.exe?s.exe.apply(s,arguments):s.queue.push(arguments);
+        },s.version='1.1',s.queue=[],u=t.createElement(n),u.async=!0,u.src='//static.ads-twitter.com/uwt.js',
+        a=t.getElementsByTagName(n)[0],a.parentNode.insertBefore(u,a))}(window,document,'script');
+        // Insert Twitter Pixel ID and Standard Event data below
+        twq('init','nw35l');
+        twq('track','PageView');
+        </script>
+        <!-- End Twitter universal website tag code -->
+
+<!-- Google Analytics Tag -->
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-90761365-2', 'auto');
+  ga('send', 'pageview');
+
+</script>
+<!-- End Google Analytics Tag -->
+
+<!-- Amazon Affiliate Script -->
+<script src="//z-na.amazon-adsystem.com/widgets/onejs?MarketPlace=US&adInstanceId=f45c242e-29c2-4f36-911a-d6e8d3b902bd"></script>
+<!-- End Amazon Affiliate Script -->
+
+
+
+
+
+</body>
+</html>
+
+<!-- Page supported by LiteSpeed Cache 7.8.1 on 2026-05-06 09:29:14 -->

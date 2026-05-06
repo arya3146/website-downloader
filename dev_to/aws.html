@@ -1,0 +1,1953 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<title>AWS - DEV Community</title>
+<link href="https://dev.to/aws" rel="canonical"/>
+<meta content="Collection of articles by AWS Developer Advocates" name="description"/>
+<meta content="software development, engineering, rails, javascript, ruby" name="keywords"/>
+<meta content="website" property="og:type">
+<meta content="https://dev.to/aws" property="og:url">
+<meta content="AWS — DEV Community Profile" property="og:title">
+<meta content="cdn/dev-to-uploads.s3.amazonaws.com/uploads/articles/3otvb2z646ytpt1hl2rv.jpg" property="og:image"/>
+<meta content="Collection of articles by AWS Developer Advocates" property="og:description"/>
+<meta content="DEV Community" property="og:site_name"/>
+<meta content="summary_large_image" name="twitter:card"/>
+<meta content="@thepracticaldev" name="twitter:site"/>
+<meta content="@awscloud" name="twitter:creator"/>
+<meta content="AWS — DEV Community Profile" name="twitter:title"/>
+<meta content="Collection of articles by AWS Developer Advocates" name="twitter:description"/>
+<meta content="cdn/dev-to-uploads.s3.amazonaws.com/uploads/articles/3otvb2z646ytpt1hl2rv.jpg" name="twitter:image:src">
+<link href="https://dev.to/feed/aws" rel="alternate" title="DEV Community RSS Feed" type="application/rss+xml"/>
+<meta content="2026-05-06 16:15:53 UTC" name="last-updated"/>
+<meta content="false" name="user-signed-in"/>
+<meta content="1778084153" name="head-cached-at"/>
+<meta content="production" name="environment"/>
+<link href="cdn/assets.dev.to/assets/minimal-2213124ac5505ccdbf3c4eb62fd70ecda26cb75ed6de931633992a7bac437c81.css" id="main-minimal-stylesheet" media="all" rel="stylesheet"/>
+<link href="cdn/assets.dev.to/assets/views-0681ac17bf1546793c4b7ef7c615b2defec919060aefb3b9c287471e8cb77bf2.css" id="main-views-stylesheet" media="all" rel="stylesheet"/>
+<link href="cdn/assets.dev.to/assets/crayons-d2b52af1d86a9ac9a8bc215ed34ffad7a94af68f4abd1cdcae2a8c1a4385cd23.css" id="main-crayons-stylesheet" media="all" rel="stylesheet"/>
+<script defer="defer" src="cdn/assets.dev.to/assets/base-0c748bbcdc30041261c326ef2ce931fbce46c58bc3c488da881ae35c4750941d.js"></script>
+<script defer="defer" src="cdn/assets.dev.to/assets/application-0b268684912bef9b0f23defff01cb608bfc5d5e5610287725e7b686139ae32d3.js"></script>
+<script defer="defer" src="cdn/assets.dev.to/assets/baseInitializers-2f0777a6d67046056f9f42665560ce072de3801292674358ddbad6e135c1891d.js"></script>
+<script defer="defer" src="cdn/assets.dev.to/assets/baseTracking-90c1c7b9b4f617aa0f900eadaf0ccbdbc2a002f12c1e1ada7da039c823601b14.js"></script>
+<script defer="defer" src="cdn/assets.dev.to/assets/followButtons-e3595664847e9f43945a9b8a0445b32cda9a149f1f169f78b8fcc7714ccab45a.js"></script>
+<meta content="https://assets.dev.to/assets/Search-b977aea0f2d7a5818b4ebd97f7d4aba8548099f84f5db5761f8fa67be76abc54.js" name="search-script"/>
+<meta content="width=device-width, initial-scale=1.0, viewport-fit=cover" name="viewport"/>
+<link href="cdn/media2.dev.to/dynamic/image/width=32,height=,fit=scale-down,gravity=auto,format=auto/https___dev-to-uploads.s3.amazonaws.com_uploads_articles_8j7kvp660rqzt99zui8e.png" rel="icon" type="image/x-icon"/>
+<link href="cdn/media2.dev.to/dynamic/image/width=180,height=,fit=scale-down,gravity=auto,format=auto/https___dev-to-uploads.s3.amazonaws.com_uploads_articles_8j7kvp660rqzt99zui8e.png" rel="apple-touch-icon"/>
+<link href="cdn/media2.dev.to/dynamic/image/width=152,height=,fit=scale-down,gravity=auto,format=auto/https___dev-to-uploads.s3.amazonaws.com_uploads_articles_8j7kvp660rqzt99zui8e.png" rel="apple-touch-icon" sizes="152x152"/>
+<link href="cdn/media2.dev.to/dynamic/image/width=180,height=,fit=scale-down,gravity=auto,format=auto/https___dev-to-uploads.s3.amazonaws.com_uploads_articles_8j7kvp660rqzt99zui8e.png" rel="apple-touch-icon" sizes="180x180"/>
+<link href="cdn/media2.dev.to/dynamic/image/width=167,height=,fit=scale-down,gravity=auto,format=auto/https___dev-to-uploads.s3.amazonaws.com_uploads_articles_8j7kvp660rqzt99zui8e.png" rel="apple-touch-icon" sizes="167x167"/>
+<link href="cdn/media2.dev.to/dynamic/image/width=192,height=,fit=scale-down,gravity=auto,format=auto/https___dev-to-uploads.s3.amazonaws.com_uploads_articles_8j7kvp660rqzt99zui8e.png" rel="icon" sizes="192x192">
+<link href="cdn/media2.dev.to/dynamic/image/width=128,height=,fit=scale-down,gravity=auto,format=auto/https___dev-to-uploads.s3.amazonaws.com_uploads_articles_8j7kvp660rqzt99zui8e.png" rel="icon" sizes="128x128">
+<meta content="dev.to" name="apple-mobile-web-app-title"/>
+<meta content="dev.to" name="application-name"/>
+<meta content="#ffffff" media="(prefers-color-scheme: light)" name="theme-color"/>
+<meta content="#000000" media="(prefers-color-scheme: dark)" name="theme-color"/>
+<link href="https://dev.to/open-search.xml" rel="search" title="DEV Community" type="application/opensearchdescription+xml">
+<meta content="DEV Community" property="forem:name">
+<meta content="https://media2.dev.to/dynamic/image/width=512,height=,fit=scale-down,gravity=auto,format=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Farticles%2F8j7kvp660rqzt99zui8e.png" property="forem:logo">
+<meta content="dev.to" property="forem:domain">
+<style>
+/* ==========================================================================
+   THE 418 CHALLENGE: THEME-AWARE RETRO EDITION
+   ========================================================================== */
+
+.articletag-418challenge {
+  font-family: "Comic Sans MS", "Chalkboard SE", "Marker Felt", sans-serif !important;
+  cursor: crosshair !important;
+}
+
+/* Destroy modern rounded corners and add brutal borders */
+.articletag-418challenge .crayons-card,
+.articletag-418challenge .crayons-article__main,
+.articletag-418challenge .crayons-article__header {
+  border-radius: 0 !important;
+  margin-bottom: 2rem !important;
+}
+
+/* Typography specifics */
+.articletag-418challenge h1,
+.articletag-418challenge h2,
+.articletag-418challenge h3 {
+  text-transform: uppercase !important;
+}
+
+/* Fake <marquee> effect for the main article title */
+.articletag-418challenge h1.fs-3xl {
+  animation: retro-slide 5s linear infinite alternate;
+  overflow: visible;
+}
+
+/* Spin those avatars */
+.articletag-418challenge .crayons-article__header__meta img {
+  border-radius: 0 !important; 
+  animation: retro-spin 5s linear infinite;
+}
+
+/* Obnoxious tags */
+.articletag-418challenge .crayons-tag {
+  border-radius: 0 !important;
+  font-weight: 900 !important;
+  transform: rotate(-3deg);
+  display: inline-block;
+}
+.articletag-418challenge .crayons-tag:nth-child(even) {
+  transform: rotate(3deg);
+}
+
+/* --------------------------------------------------------------------------
+   2. LIGHT THEME (Windows 95 / Office 97 Vibes)
+   -------------------------------------------------------------------------- */
+body:not(.dark-theme) .articletag-418challenge {
+  background-color: #008080 !important; /* Win95 Teal Desktop */
+}
+
+body:not(.dark-theme) .articletag-418challenge .crayons-card,
+body:not(.dark-theme) .articletag-418challenge .crayons-article__main,
+body:not(.dark-theme) .articletag-418challenge .crayons-article__header {
+  background-color: #c0c0c0 !important; /* Classic dialog gray */
+  color: #000000 !important;
+  border: 4px outset #ffffff !important;
+  box-shadow: 8px 8px 0px #000000 !important;
+}
+
+body:not(.dark-theme) .articletag-418challenge h1,
+body:not(.dark-theme) .articletag-418challenge h2,
+body:not(.dark-theme) .articletag-418challenge h3 {
+  color: #ff0000 !important;
+  text-shadow: 2px 2px 0px #ffff00 !important;
+  border-bottom: 3px dashed #0000ff !important;
+}
+
+body:not(.dark-theme) .articletag-418challenge a,
+body:not(.dark-theme) .articletag-418challenge .crayons-link {
+  color: #0000ff !important; /* Standard unvisited blue */
+  text-decoration: underline !important;
+  font-weight: bold !important;
+}
+
+body:not(.dark-theme) .articletag-418challenge a:hover,
+body:not(.dark-theme) .articletag-418challenge .crayons-link:hover {
+  background-color: #ffff00 !important;
+  color: #ff0000 !important;
+}
+
+body:not(.dark-theme) .articletag-418challenge .crayons-tag {
+  background: #ffff00 !important;
+  color: #ff0000 !important;
+  border: 2px dotted #0000ff !important;
+}
+
+/* --------------------------------------------------------------------------
+   3. DARK THEME (1999 Hacker / Deep GeoCities Vibes)
+   -------------------------------------------------------------------------- */
+body.dark-theme .articletag-418challenge {
+  background-color: #000000 !important;
+  /* Dumb CSS: A scrolling, eye-bleeding neon green hacker grid with CRT scanlines */
+  background-image: 
+    linear-gradient(transparent 50%, rgba(0, 255, 0, 0.25) 50%), 
+    linear-gradient(90deg, rgba(0, 255, 0, 0.5) 1px, transparent 1px), 
+    linear-gradient(rgba(0, 255, 0, 0.5) 1px, transparent 1px) !important;
+  background-size: 100% 4px, 20px 20px, 20px 20px !important;
+  animation: retro-pan 60s linear infinite !important;
+}
+
+body.dark-theme .articletag-418challenge .crayons-card,
+body.dark-theme .articletag-418challenge .crayons-article__main,
+body.dark-theme .articletag-418challenge .crayons-article__header {
+  background-color: #111111 !important;
+  color: #00ff00 !important; /* Terminal Green */
+  border: 4px outset #555555 !important;
+  box-shadow: 8px 8px 0px #ff00ff !important; /* Hot pink shadow */
+}
+
+body.dark-theme .articletag-418challenge h1,
+body.dark-theme .articletag-418challenge h2,
+body.dark-theme .articletag-418challenge h3 {
+  color: #ff00ff !important; /* Magenta headers */
+  text-shadow: 2px 2px 0px #00ffff !important; /* Cyan shadow */
+  border-bottom: 3px dashed #00ff00 !important;
+}
+
+body.dark-theme .articletag-418challenge a,
+body.dark-theme .articletag-418challenge .crayons-link {
+  color: #00ffff !important; /* Cyan links */
+  text-decoration: underline !important;
+  font-weight: bold !important;
+}
+
+body.dark-theme .articletag-418challenge a:hover,
+body.dark-theme .articletag-418challenge .crayons-link:hover {
+  background-color: #ff00ff !important;
+  color: #ffffff !important;
+}
+
+body.dark-theme .articletag-418challenge .crayons-tag {
+  background: #000000 !important;
+  color: #00ff00 !important;
+  border: 2px dotted #ff00ff !important;
+}
+
+/* --------------------------------------------------------------------------
+   4. ANIMATIONS
+   -------------------------------------------------------------------------- */
+@keyframes retro-spin {
+  100% { transform: rotate(360deg); }
+}
+
+@keyframes retro-slide {
+  0% { transform: translateX(-2%); }
+  100% { transform: translateX(2%); }
+}
+
+@keyframes retro-pan {
+  0% { background-position: 0 0, 0 0, 0 0; }
+  /* Numbers must be multiples of the background-size (4px and 20px) to loop perfectly */
+  100% { background-position: 0 100px, 40px 40px, 40px 40px; }
+}
+
+/* --------------------------------------------------------------------------
+   5. BONUS: CAUTION TAPE REACTION BAR
+   -------------------------------------------------------------------------- */
+.articletag-418challenge .crayons-article-actions {
+  background: repeating-linear-gradient(
+    45deg,
+    #ffff00,
+    #ffff00 10px,
+    #000000 10px,
+    #000000 20px
+  ) !important;
+  border: 4px solid #ff0000 !important;
+  border-radius: 0 !important;
+}
+
+.articletag-418challenge .crayons-article-actions button {
+  background:black;
+  color: #ff00ff !important;
+}
+
+.articletag-418challenge .crayons-article-actions .crayons-reaction__count {
+    color: #ff00ff !important;
+    font-weight: bold !important;
+}
+
+.articletag-418challenge .crayons-icon:not(.crayons-icon--default) * {
+    fill: #ffff00 !important;
+}
+
+.articletag-418challenge .c-embed .crayons-btn--primary {
+  color: #00ff00 !important;
+}
+
+.articletag-418challenge .popover-billboard {
+margin-bottom: 0 !important;
+}
+
+.crayons-story__contentpreview .ltag__link--embedded {
+margin-top: 0 !important;
+}
+
+.subscription-icon {
+    max-height: 16px !important;
+    display: inline-block !important;
+}
+
+@media screen and (min-width: 950px) {
+    .event-show-layout {
+        margin-top: 24px !important;
+    }
+}
+
+@media screen and (max-width: 949px) {
+    .event-show-layout {
+        padding: 11px !important;
+    }
+}
+
+
+</style>
+</meta></meta></meta></link></link></link></meta></meta></meta></meta></head>
+<body class="sans-serif-article-body default-header" data-algolia-display="true" data-algolia-id="PRSOBFP46H" data-algolia-search-key="9aa7d31610cba78851c9b1f63776a9dd" data-community-name="DEV Community" data-cookie-banner-platform-context="off" data-cookie-banner-user-context="logged_out_only" data-deployed-at="2026-05-05T19:04:15Z" data-dynamic-url-component="bmar11" data-ga-tracking="UA-71991109-1" data-ga4-tracking-id="G-TYEM8Y3JN3" data-honeybadger-key="hbp_nqu4Y66HuEKlD6YRGssZuRQnPOjDm50J8Zkr" data-is-root-subforem="false" data-latest-commit-id="99141cc1f10837f83a0dcd05003c5e711ec877ac" data-locale="en" data-side-nav-visible="true" data-subforem-id="1" data-subscription-icon="https://assets.dev.to/assets/subscription-icon-805dfa7ac7dd660f07ed8d654877270825b07a92a03841aa99a1093bd00431b2.png" data-user-status="logged-out">
+<script>
+        if (navigator.userAgent === 'ForemWebView/1' || window.frameElement) {
+          document.body.classList.add("hidden-shell");
+        }
+          if (new Date() > new Date("2026-02-04T09:00:00-05:00")) {
+            document.body.dataset.sideNavVisible = "false";
+          } 
+      </script>
+<link href="cdn/assets.dev.to/assets/minimal-2213124ac5505ccdbf3c4eb62fd70ecda26cb75ed6de931633992a7bac437c81.css" id="secondary-minimal-stylesheet" media="all" rel="stylesheet">
+<link href="cdn/assets.dev.to/assets/views-0681ac17bf1546793c4b7ef7c615b2defec919060aefb3b9c287471e8cb77bf2.css" id="secondary-views-stylesheet" media="all" rel="stylesheet"/>
+<link href="cdn/assets.dev.to/assets/crayons-d2b52af1d86a9ac9a8bc215ed34ffad7a94af68f4abd1cdcae2a8c1a4385cd23.css" id="secondary-crayons-stylesheet" media="all" rel="stylesheet"/>
+<div id="body-styles">
+<style>
+          :root {
+            --accent-brand-lighter-rgb: 86, 105, 285;
+            --accent-brand-rgb: 64, 78, 211;
+            --accent-brand-darker-rgb: 51, 62, 169;
+          }
+        </style>
+</div>
+<div data-podcast="" id="audiocontent">
+</div>
+<div class="navigation-progress" id="navigation-progress"></div>
+<header class="crayons-header topbar print-hidden" id="topbar">
+<span id="route-change-target" tabindex="-1"></span>
+<a class="skip-content-link" href="#main-content">Skip to content</a>
+<div class="crayons-header__container">
+<span class="inline-block m:hidden">
+<button class="c-btn c-btn--icon-alone js-hamburger-trigger mx-2">
+<svg aria-labelledby="at6tq43vnb1d0zc9ukph30cysq2ryagf" class="crayons-icon" height="24" role="img" viewbox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><title id="at6tq43vnb1d0zc9ukph30cysq2ryagf">Navigation menu</title>
+<path d="M3 4h18v2H3V4zm0 7h18v2H3v-2zm0 7h18v2H3v-2z"></path>
+</svg>
+</button>
+</span>
+<a aria-label="DEV Community Home" class="site-logo" href="index.html">
+<img alt="DEV Community" class="site-logo__img" src="cdn/media2.dev.to/dynamic/image/quality=100/https_/dev-to-uploads.s3.amazonaws.com/uploads/logos/resized_logo_UQww2soKuUsjaOGNB38o.png" style="aspect-ratio: 10 / 8"/>
+</a>
+<div class="crayons-header--search js-search-form" id="header-search">
+<form accept-charset="UTF-8" action="/search" method="get" role="search">
+<div class="crayons-fields crayons-fields--horizontal">
+<div class="crayons-field flex-1 relative">
+<input autocomplete="off" class="crayons-header--search-input crayons-textfield js-search-input" id="nav-search" name="q" placeholder="Search..." type="text"/>
+<button aria-label="Search" class="c-btn c-btn--icon-alone absolute inset-px right-auto mt-0 py-0" type="submit">
+<svg aria-hidden="true" aria-labelledby="a1g5xus4t6nu5vmz40ai7hhl1g0l9sbr" class="crayons-icon" height="24" role="img" viewbox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><title id="a1g5xus4t6nu5vmz40ai7hhl1g0l9sbr">Search</title>
+<path d="M18.031 16.617l4.283 4.282-1.415 1.415-4.282-4.283A8.96 8.96 0 0111 20c-4.968 0-9-4.032-9-9s4.032-9 9-9 9 4.032 9 9a8.96 8.96 0 01-1.969 5.617zm-2.006-.742A6.977 6.977 0 0018 11c0-3.868-3.133-7-7-7-3.868 0-7 3.132-7 7 0 3.867 3.132 7 7 7a6.977 6.977 0 004.875-1.975l.15-.15z"></path>
+</svg>
+</button>
+<a class="crayons-header--search-brand-indicator" href="https://www.algolia.com/developers/?utm_source=devto&amp;utm_medium=referral" rel="noopener noreferrer" target="_blank">
+                Powered by Algolia
+                <svg aria-hidden="true" aria-labelledby="aj76vlqncinux2xoxb26t41ko53axnaj" class="crayons-icon" height="24" id="Layer_1" role="img" viewbox="0 0 500 500.34" width="24" xmlns="http://www.w3.org/2000/svg"><title id="aj76vlqncinux2xoxb26t41ko53axnaj">Search</title>
+<defs></defs><path class="cls-1" d="M250,0C113.38,0,2,110.16,.03,246.32c-2,138.29,110.19,252.87,248.49,253.67,42.71,.25,83.85-10.2,120.38-30.05,3.56-1.93,4.11-6.83,1.08-9.52l-23.39-20.74c-4.75-4.22-11.52-5.41-17.37-2.92-25.5,10.85-53.21,16.39-81.76,16.04-111.75-1.37-202.04-94.35-200.26-206.1,1.76-110.33,92.06-199.55,202.8-199.55h202.83V407.68l-115.08-102.25c-3.72-3.31-9.43-2.66-12.43,1.31-18.47,24.46-48.56,39.67-81.98,37.36-46.36-3.2-83.92-40.52-87.4-86.86-4.15-55.28,39.65-101.58,94.07-101.58,49.21,0,89.74,37.88,93.97,86.01,.38,4.28,2.31,8.28,5.53,11.13l29.97,26.57c3.4,3.01,8.8,1.17,9.63-3.3,2.16-11.55,2.92-23.6,2.07-35.95-4.83-70.39-61.84-127.01-132.26-131.35-80.73-4.98-148.23,58.18-150.37,137.35-2.09,77.15,61.12,143.66,138.28,145.36,32.21,.71,62.07-9.42,86.2-26.97l150.36,133.29c6.45,5.71,16.62,1.14,16.62-7.48V9.49C500,4.25,495.75,0,490.51,0H250Z"></path>
+</svg>
+</a>
+</div>
+</div>
+</form>
+</div>
+<div class="flex items-center h-100 ml-auto">
+<div class="flex" id="authentication-top-nav-actions">
+<span class="hidden m:block">
+<a class="c-link c-link--block mr-2 whitespace-nowrap ml-auto" data-no-instant="" href="enter-q7ffd52de7b.html">
+              Log in
+            </a>
+</span>
+<a class="c-cta c-cta--branded whitespace-nowrap mr-2" data-no-instant="" data-tracking-id="ca_top_nav" data-tracking-source="top_navbar" href="enter-qfc40b94913.html">
+            Create account
+          </a>
+</div>
+</div>
+</div>
+</header>
+<div class="hamburger">
+<div class="hamburger__content">
+<header class="hamburger__content__header">
+<h2 class="fs-l fw-bold flex-1 break-word lh-tight">DEV Community</h2>
+<button aria-label="Close" class="c-btn c-btn--icon-alone js-hamburger-trigger shrink-0">
+<svg aria-hidden="true" aria-labelledby="a5y0wh57ypy9qf4ic7ll84qf56rxh5x9" class="crayons-icon c-btn__icon" height="24" role="img" viewbox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><title id="a5y0wh57ypy9qf4ic7ll84qf56rxh5x9">Close</title><path d="M12 10.586l4.95-4.95 1.414 1.414-4.95 4.95 4.95 4.95-1.414 1.414-4.95-4.95-4.95 4.95-1.414-1.414 4.95-4.95-4.95-4.95L7.05 5.636l4.95 4.95z"></path></svg>
+</button>
+</header>
+<div class="p-2 js-navigation-links-container" id="authentication-hamburger-actions">
+</div>
+</div>
+<div class="hamburger__overlay js-hamburger-trigger"></div>
+</div>
+<div class="broadcast-wrapper" id="active-broadcast"></div>
+<div class="wrapper stories stories-index" data-current-page="stories-index" id="page-content">
+<div data-internal-nav="false" data-viewable-id="1726" data-viewable-type="Organization" id="page-content-inner">
+<div aria-atomic="true" aria-live="polite" class="screen-reader-only" id="page-route-change"></div>
+<script type="application/ld+json">
+    {"@context":"http://schema.org","@type":"Organization","mainEntityOfPage":{"@type":"WebPage","@id":"https://dev.to/aws"},"url":"https://dev.to/aws","image":"https://media2.dev.to/dynamic/image/width=320,height=320,fit=cover,gravity=auto,format=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Forganization%2Fprofile_image%2F1726%2F2a73f1e6-7995-4348-ae37-44b064274c59.png","name":"AWS","description":"Articles written by current and past AWS Developer Advocates to help people interested in building on AWS. Opinions are each author's own."}
+  </script>
+<style>
+  :root {
+    --profile-brand-color: #00ca72;
+  }
+  /* === COMPACT MODE (brand color bar) === */
+  .org-header-cover {
+    background: var(--profile-brand-color);
+    height: 4px;
+  }
+  .org-header-main {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: var(--su-3);
+    padding: var(--su-4);
+  }
+  .org-header-logo {
+    width: 56px;
+    height: 56px;
+    border-radius: var(--radius);
+    overflow: hidden;
+    border: 1px solid rgba(0,0,0,0.1);
+    background-color: var(--card-bg);
+    flex-shrink: 0;
+  }
+  @media (min-width: 768px) {
+    .org-header-logo {
+      width: 80px;
+      height: 80px;
+    }
+  }
+  .org-header-logo img {
+    border-radius: var(--radius);
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+  }
+  .org-header-text {
+    flex: 1;
+    min-width: 0;
+  }
+  .org-header-text h1 {
+    font-size: var(--fs-2xl);
+    line-height: 1.2;
+  }
+  .org-header-actions {
+    flex-shrink: 0;
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: var(--su-1);
+    max-width: 100%;
+  }
+  @media (min-width: 768px) {
+    .org-header-actions {
+      width: auto;
+    }
+  }
+  .org-header-brand-line {
+    height: 3px;
+    background: var(--profile-brand-color);
+  }
+</style>
+<div class="org-header-cover"></div>
+<div class="org-header-brand-line"></div>
+<div class="crayons-layout crayons-layout--limited-l">
+<div class="org-header-main">
+<span class="org-header-logo">
+<img alt="AWS logo" src="cdn/media2.dev.to/dynamic/image/width=320,height=320,fit=cover,gravity=auto,format=auto/https___dev-to-uploads.s3.amazonaws.com_uploads_organization_profile_image_1726_2a73f1e6-7995-4348-ae37-44b064274c59.png" title="AWS profile picture"/>
+</span>
+<div class="org-header-text">
+<h1 class="crayons-title fw-heavy">
+        AWS
+      </h1>
+<p class="fs-base color-base-70 mt-1">Collection of articles by AWS Developer Advocates</p>
+</div>
+<div class="org-header-actions flex items-center">
+<button class="crayons-btn whitespace-nowrap follow-action-button" data-info='{"id":1726,"className":"Organization","name":"AWS"}' id="user-follow-butt">
+        Follow
+      </button>
+<style id="org-buttons-style">
+        #org-settings-btn, #org-admin-btn { display: none !important; }
+      </style>
+<script>
+        try {
+          var userStr = localStorage.getItem('current_user');
+          if (userStr) {
+            var currentUser = JSON.parse(userStr);
+            var orgId = 1726;
+            var css = '';
+            if (currentUser.admin_organization_ids && currentUser.admin_organization_ids.includes(orgId)) {
+              css += '#org-settings-btn { display: inline-flex !important; } ';
+            }
+            if (currentUser.admin) {
+              css += '#org-admin-btn { display: inline-flex !important; } ';
+            }
+            if (css) {
+              document.getElementById('org-buttons-style').innerHTML += css;
+            }
+          }
+        } catch (e) {
+          // ignore
+        }
+      </script>
+<a class="crayons-btn crayons-btn--ghost-dimmed crayons-btn--icon ml-1" data-org-id="1726" href="aws/settings.html" id="org-settings-btn" title="Organization Settings">
+<svg aria-labelledby="aiowwxgqd2rtfpzfbynwhkojn1cru0md" class="crayons-icon" height="24" role="img" viewbox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><title id="aiowwxgqd2rtfpzfbynwhkojn1cru0md">Organization Settings</title>
+<path d="M12 1l9.5 5.5v11L12 23l-9.5-5.5v-11L12 1zm0 2.311L4.5 7.653v8.694l7.5 4.342 7.5-4.342V7.653L12 3.311zM12 16a4 4 0 110-8 4 4 0 010 8zm0-2a2 2 0 100-4 2 2 0 000 4z"></path>
+</svg>
+</a>
+<a class="crayons-btn crayons-btn--ghost-dimmed crayons-btn--icon ml-1" data-no-instant="" href="admin/content_manager/organizations/1726.html" id="org-admin-btn" title="Admin">
+<svg aria-labelledby="a133y4ahhwc0bklol82zgudguhn2gyru" class="crayons-icon" height="24" role="img" viewbox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><title id="a133y4ahhwc0bklol82zgudguhn2gyru">Admin</title><path d="M5.33 3.271a3.5 3.5 0 0 1 4.254 4.963l10.709 10.71-1.414 1.414-10.71-10.71a3.502 3.502 0 0 1-4.962-4.255L5.444 7.63a1.5 1.5 0 1 0 2.121-2.121L5.329 3.27zm10.367 1.884l3.182-1.768 1.414 1.414-1.768 3.182-1.768.354-2.12 2.121-1.415-1.414 2.121-2.121.354-1.768zm-6.718 8.132l1.414 1.414-5.303 5.303a1 1 0 0 1-1.492-1.327l.078-.087 5.303-5.303z"></path></svg>
+</a>
+<div class="profile-dropdown ml-1 relative" data-organizationname="AWS">
+<button aria-controls="organization-profile-dropdownmenu" aria-expanded="false" aria-haspopup="true" class="crayons-btn crayons-btn--ghost-dimmed crayons-btn--icon" id="organization-profile-dropdown">
+<svg aria-labelledby="anp25anuhs1zq7ifbhzubdetmtdn2mfx" class="crayons-icon dropdown-icon" height="24" role="img" width="24" xmlns="http://www.w3.org/2000/svg"><title id="anp25anuhs1zq7ifbhzubdetmtdn2mfx">Organization actions</title><path clip-rule="evenodd" d="M7 12a2 2 0 11-4 0 2 2 0 014 0zm7 0a2 2 0 11-4 0 2 2 0 014 0zm5 2a2 2 0 100-4 2 2 0 000 4z" fill-rule="evenodd"></path></svg>
+</button>
+<div class="crayons-dropdown left-0 top-100 mt-1" id="organization-profile-dropdownmenu">
+<span class="report-abuse-link-wrapper" data-path="/report-abuse?url=https://dev.to/aws"></span>
+</div>
+</div>
+</div>
+</div>
+<div class="px-4 m:px-0 pb-4" style="overflow-wrap: anywhere;">
+<p class="fs-base color-base-90 mb-3">Articles written by current and past AWS Developer Advocates to help people interested in building on AWS. Opinions are each author's own.</p>
+<div class="fs-s color-base-60 flex flex-wrap items-center gap-y-1">
+<a class="mr-4 color-base-60 hover:color-base-90" href="https://aws.amazon.com/developer" rel="noopener noreferrer" target="_blank">
+            aws.amazon.com/developer
+          </a>
+<span class="flex items-center gap-1 mr-4">
+<a class="p-1 align-middle inline-block color-base-60 hover:color-base-90" href="https://twitter.com/awscloud" rel="noopener me" target="_blank">
+<svg aria-labelledby="a2dsxuu7sjmpuuvls11lyshbuicdizp" class="crayons-icon" fill="none" height="24" role="img" viewbox="-50 -50 620 620" width="24" xmlns="http://www.w3.org/2000/svg"><title id="a2dsxuu7sjmpuuvls11lyshbuicdizp">Twitter</title>
+<path d="M394.033.25h76.67L303.202 191.693l197.052 260.511h-154.29L225.118 294.205 86.844 452.204H10.127l179.16-204.77L.254.25H158.46l109.234 144.417zm-26.908 406.063h42.483L135.377 43.73h-45.59z" fill="#000"></path>
+</svg>
+</a>
+<a class="p-1 align-middle inline-block color-base-60 hover:color-base-90" href="https://github.com/aws" rel="noopener me" target="_blank">
+<svg aria-labelledby="agai6dk0p80xcypm27zdf6m2zvkr715g" class="crayons-icon" height="24" role="img" viewbox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><title id="agai6dk0p80xcypm27zdf6m2zvkr715g">GitHub</title>
+<path d="M12 2C6.475 2 2 6.475 2 12a9.994 9.994 0 006.838 9.488c.5.087.687-.213.687-.476 0-.237-.013-1.024-.013-1.862-2.512.463-3.162-.612-3.362-1.175-.113-.288-.6-1.175-1.025-1.413-.35-.187-.85-.65-.013-.662.788-.013 1.35.725 1.538 1.025.9 1.512 2.338 1.087 2.912.825.088-.65.35-1.087.638-1.337-2.225-.25-4.55-1.113-4.55-4.938 0-1.088.387-1.987 1.025-2.688-.1-.25-.45-1.275.1-2.65 0 0 .837-.262 2.75 1.026a9.28 9.28 0 012.5-.338c.85 0 1.7.112 2.5.337 1.912-1.3 2.75-1.024 2.75-1.024.55 1.375.2 2.4.1 2.65.637.7 1.025 1.587 1.025 2.687 0 3.838-2.337 4.688-4.562 4.938.362.312.675.912.675 1.85 0 1.337-.013 2.412-.013 2.75 0 .262.188.574.688.474A10.016 10.016 0 0022 12c0-5.525-4.475-10-10-10z"></path>
+</svg>
+</a>
+</span>
+<span class="flex items-center mr-4">
+<svg aria-labelledby="adskq6aoqunz5x1c2wshuosw5zbusmuo" class="crayons-icon mr-1 shrink-0" height="24" role="img" viewbox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><title id="adskq6aoqunz5x1c2wshuosw5zbusmuo">Joined</title>
+<path d="M8 6v3.999h3V6h2v3.999h3V6h2v3.999L19 10a3 3 0 012.995 2.824L22 13v1c0 1.014-.377 1.94-.999 2.645L21 21a1 1 0 01-1 1H4a1 1 0 01-1-1v-4.36a4.025 4.025 0 01-.972-2.182l-.022-.253L2 14v-1a3 3 0 012.824-2.995L5 10l1-.001V6h2zm11 6H5a1 1 0 00-.993.883L4 13v.971l.003.147a2 2 0 003.303 1.4c.363-.312.602-.744.674-1.218l.015-.153.005-.176c.036-1.248 1.827-1.293 1.989-.134l.01.134.004.147a2 2 0 003.992.031l.012-.282c.124-1.156 1.862-1.156 1.986 0l.012.282a2 2 0 003.99 0L20 14v-1a1 1 0 00-.883-.993L19 12zM7 1c1.32.871 1.663 2.088 1.449 2.888a1.5 1.5 0 11-2.898-.776C5.85 2.002 7 2.5 7 1zm5 0c1.32.871 1.663 2.088 1.449 2.888a1.5 1.5 0 01-2.898-.776C10.85 2.002 12 2.5 12 1zm5 0c1.32.871 1.663 2.088 1.449 2.888a1.5 1.5 0 01-2.898-.776C15.85 2.002 17 2.5 17 1z"></path>
+</svg>
+
+          Joined on <time class="date" datetime="2020-01-08T19:32:36Z">Jan 8, 2020</time>
+</span>
+</div>
+</div>
+</div>
+<script defer="defer" src="cdn/assets.dev.to/assets/organizationDropdown-d21cc2bfb11e5790e6a267115a681b57c5a4b76af2367e217ba7dd2ad625ace7.js"></script>
+<div class="crayons-layout crayons-layout--limited-l crayons-layout--2-cols crayons-layout--2-cols--1-2 pt-4 m:pt-0" data-articles-since="" data-feed="base-feed" data-params='{"organization_id":1726,"username":"aws","sort_by":"published_at","sort_direction":"desc"}' data-which="" id="index-container" style="--accent-brand: #00e582; --accent-brand-darker: #00b768; --accent-brand-lighter: #00135b0; --accent-brand-rgb: 0, 229, 130; --accent-brand-darker-rgb: 0, 183, 104; --accent-brand-lighter-rgb: 0, 309, 176; --button-primary-bg: #00e582; --button-primary-bg-hover: #00b768; --link-branded-color: #00e582; --link-branded-color-hover: #00b768;">
+<div class="crayons-layout__sidebar-left crayons-layout__content">
+<div class="m:gap-4 hidden m:grid js-user-info" id="sidebar-left">
+<div class="crayons-card crayons-card--secondary org-sidebar-widget">
+<header class="crayons-card__header">
+<h3 class="crayons-subtitle-3">
+          Meet the team
+        </h3>
+</header>
+<div class="org-sidebar-widget-body">
+<div class="org-sidebar-widget-user-pic">
+<a href="aspittel.html">
+<img alt="aspittel profile image" loading="lazy" src="cdn/media2.dev.to/dynamic/image/width=90,height=90,fit=cover,gravity=auto,format=auto/https___dev-to-uploads.s3.amazonaws.com_uploads_user_profile_image_38627_77a2a5e7-603e-41b4-afcc-f7aff468ae2f.jpg">
+</img></a>
+</div>
+<div class="org-sidebar-widget-user-pic">
+<a href="erikch.html">
+<img alt="erikch profile image" loading="lazy" src="cdn/media2.dev.to/dynamic/image/width=90,height=90,fit=cover,gravity=auto,format=auto/https___dev-to-uploads.s3.amazonaws.com_uploads_user_profile_image_1994_0j84YwMs.jpeg">
+</img></a>
+</div>
+<div class="org-sidebar-widget-user-pic">
+<a href="fromchiapasdev.html">
+<img alt="fromchiapasdev profile image" loading="lazy" src="cdn/media2.dev.to/dynamic/image/width=90,height=90,fit=cover,gravity=auto,format=auto/https___dev-to-uploads.s3.amazonaws.com_uploads_user_profile_image_186583_9cef57b1-206b-4316-9880-0fe5907f987f.jpeg"/>
+</a>
+</div>
+<div class="org-sidebar-widget-user-pic">
+<a href="darkosubotica.html">
+<img alt="darkosubotica profile image" loading="lazy" src="cdn/media2.dev.to/dynamic/image/width=90,height=90,fit=cover,gravity=auto,format=auto/https___dev-to-uploads.s3.amazonaws.com_uploads_user_profile_image_312143_a6b4bf45-f236-4de5-a50c-3642174aee81.png"/>
+</a>
+</div>
+<div class="org-sidebar-widget-user-pic">
+<a href="danilop.html">
+<img alt="danilop profile image" loading="lazy" src="cdn/media2.dev.to/dynamic/image/width=90,height=90,fit=cover,gravity=auto,format=auto/https___dev-to-uploads.s3.amazonaws.com_uploads_user_profile_image_420454_3500d738-0a72-47d9-8d87-1858f0edd5f2.JPG"/>
+</a>
+</div>
+<div class="org-sidebar-widget-user-pic">
+<a href="thenickwalsh.html">
+<img alt="thenickwalsh profile image" loading="lazy" src="cdn/media2.dev.to/dynamic/image/width=90,height=90,fit=cover,gravity=auto,format=auto/https___dev-to-uploads.s3.amazonaws.com_uploads_user_profile_image_5741_10949c6d-9553-492d-96aa-d55ec7036497.jpg"/>
+</a>
+</div>
+<div class="org-sidebar-widget-user-pic">
+<a href="deekob.html">
+<img alt="deekob profile image" loading="lazy" src="cdn/media2.dev.to/dynamic/image/width=90,height=90,fit=cover,gravity=auto,format=auto/https___dev-to-uploads.s3.amazonaws.com_uploads_user_profile_image_372078_faefa940-f3bd-4582-a8e9-8660dc2a650f.jpg"/>
+</a>
+</div>
+<div class="org-sidebar-widget-user-pic">
+<a href="mhausenblas.html">
+<img alt="mhausenblas profile image" loading="lazy" src="cdn/media2.dev.to/dynamic/image/width=90,height=90,fit=cover,gravity=auto,format=auto/https___dev-to-uploads.s3.amazonaws.com_uploads_user_profile_image_1464_9b408466-4e0e-44b5-8ad6-94b062e3354f.jpg"/>
+</a>
+</div>
+<div class="org-sidebar-widget-user-pic">
+<a href="ymotongpoo.html">
+<img alt="ymotongpoo profile image" loading="lazy" src="cdn/media2.dev.to/dynamic/image/width=90,height=90,fit=cover,gravity=auto,format=auto/https___dev-to-uploads.s3.amazonaws.com_uploads_user_profile_image_41338_7bdd9396-78d8-4811-90cd-a0d9e0967738.jpg"/>
+</a>
+</div>
+<div class="org-sidebar-widget-user-pic">
+<a href="pymia.html">
+<img alt="pymia profile image" loading="lazy" src="cdn/media2.dev.to/dynamic/image/width=90,height=90,fit=cover,gravity=auto,format=auto/https___dev-to-uploads.s3.amazonaws.com_uploads_user_profile_image_46208_cc4a8165-a23b-497a-bad0-cf650ddd2c7f.png"/>
+</a>
+</div>
+<div class="org-sidebar-widget-user-pic">
+<a href="rohini_gaonkar.html">
+<img alt="rohini_gaonkar profile image" loading="lazy" src="cdn/media2.dev.to/dynamic/image/width=90,height=90,fit=cover,gravity=auto,format=auto/https___dev-to-uploads.s3.amazonaws.com_uploads_user_profile_image_376787_8af3bcfb-d567-4de1-9b33-b6becfe6d85b.jpeg"/>
+</a>
+</div>
+<div class="org-sidebar-widget-user-pic">
+<a href="memodoring.html">
+<img alt="memodoring profile image" loading="lazy" src="cdn/media2.dev.to/dynamic/image/width=90,height=90,fit=cover,gravity=auto,format=auto/https___dev-to-uploads.s3.amazonaws.com_uploads_user_profile_image_74450_730c2005-891b-4f58-a278-dad9cdfb712f.jpeg"/>
+</a>
+</div>
+<div class="org-sidebar-widget-user-pic">
+<a href="recursivecodes.html">
+<img alt="recursivecodes profile image" loading="lazy" src="cdn/media2.dev.to/dynamic/image/width=90,height=90,fit=cover,gravity=auto,format=auto/https___dev-to-uploads.s3.amazonaws.com_uploads_user_profile_image_895331_59774920-1938-4c2e-b293-efa14fe46948.jpg"/>
+</a>
+</div>
+<div class="org-sidebar-widget-user-pic">
+<a href="vel12171.html">
+<img alt="vel12171 profile image" loading="lazy" src="cdn/media2.dev.to/dynamic/image/width=90,height=90,fit=cover,gravity=auto,format=auto/https___dev-to-uploads.s3.amazonaws.com_uploads_user_profile_image_173716_d7079eb3-3d89-41ce-b5de-81c4af292e7e.jpg"/>
+</a>
+</div>
+<div class="org-sidebar-widget-user-pic">
+<a href="channy.html">
+<img alt="channy profile image" loading="lazy" src="cdn/media2.dev.to/dynamic/image/width=90,height=90,fit=cover,gravity=auto,format=auto/https___dev-to-uploads.s3.amazonaws.com_uploads_user_profile_image_180841_4fbbcb96-f429-48fb-ad5b-b34279cfc49a.jpeg"/>
+</a>
+</div>
+<div class="org-sidebar-widget-user-pic">
+<a href="anacunha.html">
+<img alt="anacunha profile image" loading="lazy" src="cdn/media2.dev.to/dynamic/image/width=90,height=90,fit=cover,gravity=auto,format=auto/https___dev-to-uploads.s3.amazonaws.com_uploads_user_profile_image_195731_35466f74-4705-4682-8dc3-524130bfc09e.jpg"/>
+</a>
+</div>
+<div class="org-sidebar-widget-user-pic">
+<a href="cobusbernard.html">
+<img alt="cobusbernard profile image" loading="lazy" src="cdn/media2.dev.to/dynamic/image/width=90,height=90,fit=cover,gravity=auto,format=auto/https___dev-to-uploads.s3.amazonaws.com_uploads_user_profile_image_307972_7753b07e-0a65-49f2-80c1-10e6354661a2.jpg"/>
+</a>
+</div>
+<div class="org-sidebar-widget-user-pic">
+<a href="tonyv00.html">
+<img alt="tonyv00 profile image" loading="lazy" src="cdn/media2.dev.to/dynamic/image/width=90,height=90,fit=cover,gravity=auto,format=auto/https___dev-to-uploads.s3.amazonaws.com_uploads_user_profile_image_339770_cdfb785c-2420-4d77-899b-6054be134063.png"/>
+</a>
+</div>
+<div class="org-sidebar-widget-user-pic">
+<a href="hernangarcia.html">
+<img alt="hernangarcia profile image" loading="lazy" src="cdn/media2.dev.to/dynamic/image/width=90,height=90,fit=cover,gravity=auto,format=auto/https___dev-to-uploads.s3.amazonaws.com_uploads_user_profile_image_351447_6d2b68d0-44b8-401d-a8f4-d39460af8621.jpg"/>
+</a>
+</div>
+<div class="org-sidebar-widget-user-pic">
+<a href="dennistraub.html">
+<img alt="dennistraub profile image" loading="lazy" src="cdn/media2.dev.to/dynamic/image/width=90,height=90,fit=cover,gravity=auto,format=auto/https___dev-to-uploads.s3.amazonaws.com_uploads_user_profile_image_752988_ea2b8598-0758-4ffa-b8d7-d904360f46e4.png"/>
+</a>
+</div>
+<div class="org-sidebar-widget-user-pic">
+<a href="hacksore.html">
+<img alt="hacksore profile image" loading="lazy" src="cdn/media2.dev.to/dynamic/image/width=90,height=90,fit=cover,gravity=auto,format=auto/https___dev-to-uploads.s3.amazonaws.com_uploads_user_profile_image_828306_bf0bbed7-7874-4a26-8137-bb761a4b7f23.png"/>
+</a>
+</div>
+<div class="org-sidebar-widget-user-pic">
+<a href="sahays.html">
+<img alt="sahays profile image" loading="lazy" src="cdn/media2.dev.to/dynamic/image/width=90,height=90,fit=cover,gravity=auto,format=auto/https___dev-to-uploads.s3.amazonaws.com_uploads_user_profile_image_387007_5b1b8bc7-87ff-4507-b515-83e7bc1b52a9.jpeg"/>
+</a>
+</div>
+<div class="org-sidebar-widget-user-pic">
+<a href="andrewtownhill.html">
+<img alt="andrewtownhill profile image" loading="lazy" src="cdn/media2.dev.to/dynamic/image/width=90,height=90,fit=cover,gravity=auto,format=auto/https___dev-to-uploads.s3.amazonaws.com_uploads_user_profile_image_503376_522eb855-38ff-4218-bdac-a71c7ef971cf.jpg"/>
+</a>
+</div>
+<div class="org-sidebar-widget-user-pic">
+<a href="elizabethfuentes12.html">
+<img alt="elizabethfuentes12 profile image" loading="lazy" src="cdn/media2.dev.to/dynamic/image/width=90,height=90,fit=cover,gravity=auto,format=auto/https___dev-to-uploads.s3.amazonaws.com_uploads_user_profile_image_717518_b550b165-b8b9-405d-acfb-e5dc846765b0.png"/>
+</a>
+</div>
+<div class="org-sidebar-widget-user-pic">
+<a href="brooke_jamieson.html">
+<img alt="brooke_jamieson profile image" loading="lazy" src="cdn/media2.dev.to/dynamic/image/width=90,height=90,fit=cover,gravity=auto,format=auto/https___dev-to-uploads.s3.amazonaws.com_uploads_user_profile_image_735825_6ede452c-440e-4a66-af2f-7ef5ab91eaa2.jpeg"/>
+</a>
+</div>
+<div class="org-sidebar-widget-user-pic">
+<a href="ashita.html">
+<img alt="ashita profile image" loading="lazy" src="cdn/media2.dev.to/dynamic/image/width=90,height=90,fit=cover,gravity=auto,format=auto/https___dev-to-uploads.s3.amazonaws.com_uploads_user_profile_image_850613_b2250c8e-3ebf-48c5-a975-cce5ec391d4c.jpg"/>
+</a>
+</div>
+<div class="org-sidebar-widget-user-pic">
+<a href="marshmellow77.html">
+<img alt="marshmellow77 profile image" loading="lazy" src="cdn/media2.dev.to/dynamic/image/width=90,height=90,fit=cover,gravity=auto,format=auto/https___dev-to-uploads.s3.amazonaws.com_uploads_user_profile_image_696551_37b2b50c-9139-4400-b145-2ecb3acd09d6.jpeg"/>
+</a>
+</div>
+<div class="org-sidebar-widget-user-pic">
+<a href="joaopcm1996.html">
+<img alt="joaopcm1996 profile image" loading="lazy" src="cdn/media2.dev.to/dynamic/image/width=90,height=90,fit=cover,gravity=auto,format=auto/https___dev-to-uploads.s3.amazonaws.com_uploads_user_profile_image_715601_c83e3628-a143-4af7-987f-c477e8530aaf.jpeg"/>
+</a>
+</div>
+<div class="org-sidebar-widget-user-pic">
+<a href="eitansela.html">
+<img alt="eitansela profile image" loading="lazy" src="cdn/media2.dev.to/dynamic/image/width=90,height=90,fit=cover,gravity=auto,format=auto/https___dev-to-uploads.s3.amazonaws.com_uploads_user_profile_image_760576_e322fc6f-50ab-4b95-a9c9-caa436a0c897.jpeg"/>
+</a>
+</div>
+<div class="org-sidebar-widget-user-pic">
+<a href="wongvw1.html">
+<img alt="wongvw1 profile image" loading="lazy" src="cdn/media2.dev.to/dynamic/image/width=90,height=90,fit=cover,gravity=auto,format=auto/https___dev-to-uploads.s3.amazonaws.com_uploads_user_profile_image_827514_e68d5fe4-4136-4ebf-8c17-1307626b8b6c.png"/>
+</a>
+</div>
+<div class="org-sidebar-widget-user-pic">
+<a href="famestad.html">
+<img alt="famestad profile image" loading="lazy" src="cdn/media2.dev.to/dynamic/image/width=90,height=90,fit=cover,gravity=auto,format=auto/https___dev-to-uploads.s3.amazonaws.com_uploads_user_profile_image_846948_7d5581ae-3202-4783-a20f-c9eee0d8d3c4.png"/>
+</a>
+</div>
+<div class="org-sidebar-widget-user-pic">
+<a href="hsaenzg.html">
+<img alt="hsaenzg profile image" loading="lazy" src="cdn/media2.dev.to/dynamic/image/width=90,height=90,fit=cover,gravity=auto,format=auto/https___dev-to-uploads.s3.amazonaws.com_uploads_user_profile_image_852908_a3a10986-307b-4a35-8adf-eeb9a583e6a9.jpg"/>
+</a>
+</div>
+<div class="org-sidebar-widget-user-pic">
+<a href="guoyuecn.html">
+<img alt="guoyuecn profile image" loading="lazy" src="cdn/media2.dev.to/dynamic/image/width=90,height=90,fit=cover,gravity=auto,format=auto/https___dev-to-uploads.s3.amazonaws.com_uploads_user_profile_image_879749_0bce2c84-de06-45b3-bafd-1d977ac24bcb.jpg"/>
+</a>
+</div>
+<div class="org-sidebar-widget-user-pic">
+<a href="morganwilliscloud.html">
+<img alt="morganwilliscloud profile image" loading="lazy" src="cdn/media2.dev.to/dynamic/image/width=90,height=90,fit=cover,gravity=auto,format=auto/https___dev-to-uploads.s3.amazonaws.com_uploads_user_profile_image_3618325_470cf6d0-e54c-4ddf-8d83-e3db9f829f2b.jpg"/>
+</a>
+</div>
+<div class="org-sidebar-widget-user-pic">
+<a href="salihgueler.html">
+<img alt="salihgueler profile image" loading="lazy" src="cdn/media2.dev.to/dynamic/image/width=90,height=90,fit=cover,gravity=auto,format=auto/https___dev-to-uploads.s3.amazonaws.com_uploads_user_profile_image_889077_7ff4338f-ff35-452c-aa19-b2634a2d8ade.jpg"/>
+</a>
+</div>
+<div class="org-sidebar-widget-user-pic">
+<a href="ioanfr.html">
+<img alt="ioanfr profile image" loading="lazy" src="cdn/media2.dev.to/dynamic/image/width=90,height=90,fit=cover,gravity=auto,format=auto/https___dev-to-uploads.s3.amazonaws.com_uploads_user_profile_image_932031_d0579aec-1275-4d5a-b945-2ae62f42a1f6.jpeg"/>
+</a>
+</div>
+<div class="org-sidebar-widget-user-pic">
+<a href="fay_ette.html">
+<img alt="fay_ette profile image" loading="lazy" src="cdn/media2.dev.to/dynamic/image/width=90,height=90,fit=cover,gravity=auto,format=auto/https___dev-to-uploads.s3.amazonaws.com_uploads_user_profile_image_934452_c6e04565-b2d8-4af5-9f35-32989d5e7b88.jpg"/>
+</a>
+</div>
+<div class="org-sidebar-widget-user-pic">
+<a href="praneetaprakash.html">
+<img alt="praneetaprakash profile image" loading="lazy" src="cdn/media2.dev.to/dynamic/image/width=90,height=90,fit=cover,gravity=auto,format=auto/https___dev-to-uploads.s3.amazonaws.com_uploads_user_profile_image_985752_6af16862-5e91-41f7-bedb-de0234e3ab3c.jpg"/>
+</a>
+</div>
+<div class="org-sidebar-widget-user-pic">
+<a href="kevineady.html">
+<img alt="kevineady profile image" loading="lazy" src="cdn/media2.dev.to/dynamic/image/width=90,height=90,fit=cover,gravity=auto,format=auto/https___dev-to-uploads.s3.amazonaws.com_uploads_user_profile_image_1001784_7f91240e-66ea-4126-aaac-1869df832512.jpeg"/>
+</a>
+</div>
+<div class="org-sidebar-widget-user-pic">
+<a href="junpyeongkim.html">
+<img alt="junpyeongkim profile image" loading="lazy" src="cdn/media2.dev.to/dynamic/image/width=90,height=90,fit=cover,gravity=auto,format=auto/https___dev-to-uploads.s3.amazonaws.com_uploads_user_profile_image_1010299_e08057fd-42b2-4802-989e-79f8f62998be.jpg"/>
+</a>
+</div>
+<div class="org-sidebar-widget-user-pic">
+<a href="redmancodes.html">
+<img alt="redmancodes profile image" loading="lazy" src="cdn/media2.dev.to/dynamic/image/width=90,height=90,fit=cover,gravity=auto,format=auto/https___dev-to-uploads.s3.amazonaws.com_uploads_user_profile_image_1011303_ed2e2682-2310-4bd2-8b9c-a534f6af21e3.jpeg"/>
+</a>
+</div>
+<div class="org-sidebar-widget-user-pic">
+<a href="iaasgeek.html">
+<img alt="iaasgeek profile image" loading="lazy" src="cdn/media2.dev.to/dynamic/image/width=90,height=90,fit=cover,gravity=auto,format=auto/https___dev-to-uploads.s3.amazonaws.com_uploads_user_profile_image_1132359_59db5365-b9c8-45c3-acf3-cd946739c03f.jpg"/>
+</a>
+</div>
+<div class="org-sidebar-widget-user-pic">
+<a href="ifeanyiro.html">
+<img alt="ifeanyiro profile image" loading="lazy" src="cdn/media2.dev.to/dynamic/image/width=90,height=90,fit=cover,gravity=auto,format=auto/https___dev-to-uploads.s3.amazonaws.com_uploads_user_profile_image_1228459_d99a6804-bbdc-45d0-bf2a-e118d31c7b19.jpeg"/>
+</a>
+</div>
+<div class="org-sidebar-widget-user-pic">
+<a href="lausalin.html">
+<img alt="lausalin profile image" loading="lazy" src="cdn/media2.dev.to/dynamic/image/width=90,height=90,fit=cover,gravity=auto,format=auto/https___dev-to-uploads.s3.amazonaws.com_uploads_user_profile_image_2961139_1ef5780a-c649-4402-9b4f-d5f5be866b63.jpg"/>
+</a>
+</div>
+<div class="org-sidebar-widget-user-pic">
+<a href="sdkfriend.html">
+<img alt="sdkfriend profile image" loading="lazy" src="cdn/media2.dev.to/dynamic/image/width=90,height=90,fit=cover,gravity=auto,format=auto/https___dev-to-uploads.s3.amazonaws.com_uploads_user_profile_image_913564_04e90063-0790-455c-a078-b05d47606b19.png"/>
+</a>
+</div>
+<div class="org-sidebar-widget-user-pic">
+<a href="aaronshunter.html">
+<img alt="aaronshunter profile image" loading="lazy" src="cdn/media2.dev.to/dynamic/image/width=90,height=90,fit=cover,gravity=auto,format=auto/https___dev-to-uploads.s3.amazonaws.com_uploads_user_profile_image_976687_6e370c87-c048-451f-adc5-6e71f436f45b.jpeg"/>
+</a>
+</div>
+<div class="org-sidebar-widget-user-pic">
+<a href="codingmatheus.html">
+<img alt="codingmatheus profile image" loading="lazy" src="cdn/media2.dev.to/dynamic/image/width=90,height=90,fit=cover,gravity=auto,format=auto/https___dev-to-uploads.s3.amazonaws.com_uploads_user_profile_image_990373_5f1141d9-e882-4507-8115-0c05f2abab07.png"/>
+</a>
+</div>
+<div class="org-sidebar-widget-user-pic">
+<a href="mwvaughn.html">
+<img alt="mwvaughn profile image" loading="lazy" src="cdn/media2.dev.to/dynamic/image/width=90,height=90,fit=cover,gravity=auto,format=auto/https___dev-to-uploads.s3.amazonaws.com_uploads_user_profile_image_1001283_9b370f53-53e0-486c-9397-e108c6d043be.jpeg"/>
+</a>
+</div>
+<div class="org-sidebar-widget-user-pic">
+<a href="acbellini.html">
+<img alt="acbellini profile image" loading="lazy" src="cdn/media2.dev.to/dynamic/image/width=90,height=90,fit=cover,gravity=auto,format=auto/https___dev-to-uploads.s3.amazonaws.com_uploads_user_profile_image_1203950_78d39046-fd96-43cb-af83-f9f919e3a256.jpeg"/>
+</a>
+</div>
+<div class="org-sidebar-widget-user-pic">
+<a href="thatcloudexpert.html">
+<img alt="thatcloudexpert profile image" loading="lazy" src="cdn/media2.dev.to/dynamic/image/width=90,height=90,fit=cover,gravity=auto,format=auto/https___dev-to-uploads.s3.amazonaws.com_uploads_user_profile_image_1861728_e18461be-a333-4988-9bfe-6440b6a7050d.png"/>
+</a>
+</div>
+</div>
+<a class="c-cta ml-5 mt-1 mr-5 mb-5" onclick="location.href='/aws/members'">
+          See All Members
+        </a>
+</div>
+<div class="crayons-card crayons-card--secondary p-4">
+<div class="flex items-center mb-4">
+<svg aria-labelledby="ajnwy4stk4grhm5ep2j2ulqxqtbuull0" class="crayons-icon mr-3 color-base" height="24" role="img" viewbox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><title id="ajnwy4stk4grhm5ep2j2ulqxqtbuull0">Post</title>
+<path d="M19 22H5a3 3 0 01-3-3V3a1 1 0 011-1h14a1 1 0 011 1v12h4v4a3 3 0 01-3 3zm-1-5v2a1 1 0 002 0v-2h-2zm-2 3V4H4v15a1 1 0 001 1h11zM6 7h8v2H6V7zm0 4h8v2H6v-2zm0 4h5v2H6v-2z"></path>
+</svg>
+
+        946 posts published
+      </div>
+<div class="flex items-center">
+<svg aria-labelledby="a7fowjnx4b80yewo1r6o0fufjm7ztxgu" class="crayons-icon mr-3 color-base" height="24" role="img" viewbox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg"><title id="a7fowjnx4b80yewo1r6o0fufjm7ztxgu">Member</title>
+<path d="M10 19.748V16.4c0-1.283.995-2.292 2.467-2.868A8.482 8.482 0 0 0 9.5 13c-1.89 0-3.636.617-5.047 1.66A8.018 8.018 0 0 0 10 19.748Zm8.88-3.662C18.485 15.553 17.17 15 15.5 15c-2.006 0-3.5.797-3.5 1.4V20a7.995 7.995 0 0 0 6.88-3.914ZM9.55 11.5a2.25 2.25 0 1 0 0-4.5 2.25 2.25 0 0 0 0 4.5Zm5.95 1a2 2 0 1 0 0-4 2 2 0 0 0 0 4ZM12 22C6.477 22 2 17.523 2 12S6.477 2 12 2s10 4.477 10 10-4.477 10-10 10Z"></path>
+</svg>
+
+        66 members
+      </div>
+</div>
+</div>
+</div>
+<main class="crayons-layout__content articles-list" id="articles-list">
+<div class="substories" id="substories">
+<div id="organization-article-index"></div>
+<div class="crayons-story" data-content-user-id="1994" data-feed-content-id="3617519">
+<a aria-labelledby="article-link-3617519" class="crayons-story__hidden-navigation-link" href="aws/build-your-own-ai-butler-a-scheduled-agent-that-runs-itself-3dmk.html">Build Your Own AI Butler - A Scheduled Agent That Runs Itself!</a>
+<div class="crayons-story__body crayons-story__body-full_post">
+<div class="crayons-story__top">
+<div class="crayons-story__meta">
+<div class="crayons-story__author-pic">
+<a class="crayons-avatar crayons-avatar--l" href="erikch.html">
+<img alt="erikch profile" class="crayons-avatar__image" loading="lazy" src="cdn/media2.dev.to/dynamic/image/width=90,height=90,fit=cover,gravity=auto,format=auto/https___dev-to-uploads.s3.amazonaws.com_uploads_user_profile_image_1994_0j84YwMs.jpeg"/>
+</a>
+</div>
+<div>
+<div>
+<a class="crayons-story__secondary fw-medium m:hidden" href="erikch.html">
+              Erik Hanchett
+            </a>
+<div class="profile-preview-card relative mb-4 s:mb-0 fw-medium hidden m:inline-block">
+<button aria-controls="story-author-preview-content-3617519" aria-label="Erik Hanchett profile details" class="profile-preview-card__trigger fs-s p-1 -ml-1 -my-2 crayons-btn crayons-btn--ghost" id="story-author-preview-trigger-3617519">
+                Erik Hanchett
+                
+              </button>
+<div class="profile-preview-card__content crayons-dropdown branded-7 p-4 pt-0" data-repositioning-dropdown="true" data-testid="profile-preview-card" id="story-author-preview-content-3617519" style="border-top-color: var(--card-color);">
+<div class="gap-4 grid">
+<div class="-mt-4">
+<a class="flex" href="erikch.html">
+<span class="crayons-avatar crayons-avatar--xl mr-2 shrink-0">
+<img alt="" class="crayons-avatar__image" loading="lazy" src="cdn/media2.dev.to/dynamic/image/width=90,height=90,fit=cover,gravity=auto,format=auto/https___dev-to-uploads.s3.amazonaws.com_uploads_user_profile_image_1994_0j84YwMs.jpeg"/>
+</span>
+<span class="crayons-link crayons-subtitle-2 mt-5">Erik Hanchett</span>
+</a>
+</div>
+<div class="print-hidden">
+<button class="crayons-btn follow-action-button whitespace-nowrap follow-user w-100" data-info='{"style":"full","id":1994,"className":"User","name":"Erik Hanchett"}'>
+                      Follow
+                    </button>
+</div>
+<div class="author-preview-metadata-container" data-author-id="1994"></div>
+</div>
+</div>
+</div>
+</div>
+<a class="crayons-story__tertiary fs-xs" href="aws/build-your-own-ai-butler-a-scheduled-agent-that-runs-itself-3dmk.html"><time datetime="2026-05-06T16:00:47Z">May 6</time><span class="time-ago-indicator-initial-placeholder" data-seconds="1778083247"></span></a>
+</div>
+</div>
+</div>
+<div class="crayons-story__indention">
+<h2 class="crayons-story__title crayons-story__title-full_post">
+<a data-preload-image="https://media2.dev.to/dynamic/image/width=1000,height=420,fit=cover,gravity=auto,format=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Farticles%2Fisv0pjm1cco5aiy51rqa.png" href="aws/build-your-own-ai-butler-a-scheduled-agent-that-runs-itself-3dmk.html" id="article-link-3617519">
+          Build Your Own AI Butler - A Scheduled Agent That Runs Itself!
+        </a>
+</h2>
+<div class="crayons-story__tags">
+<a class="crayons-tag crayons-tag--monochrome" href="t/aws.html" style="
+        --tag-bg: rgba(33, 43, 58, 0.10);
+        --tag-prefix: #212b3a;
+        --tag-bg-hover: rgba(33, 43, 58, 0.10);
+        --tag-prefix-hover: #212b3a;
+      "><span class="crayons-tag__prefix">#</span>aws</a>
+<a class="crayons-tag crayons-tag--monochrome" href="t/ai.html" style="
+        --tag-bg: rgba(23, 253, 26, 0.10);
+        --tag-prefix: #17fd1a;
+        --tag-bg-hover: rgba(23, 253, 26, 0.10);
+        --tag-prefix-hover: #17fd1a;
+      "><span class="crayons-tag__prefix">#</span>ai</a>
+<a class="crayons-tag crayons-tag--monochrome" href="t/agents.html" style="
+        --tag-bg: rgba(11, 226, 245, 0.10);
+        --tag-prefix: #0be2f5;
+        --tag-bg-hover: rgba(11, 226, 245, 0.10);
+        --tag-prefix-hover: #0be2f5;
+      "><span class="crayons-tag__prefix">#</span>agents</a>
+<a class="crayons-tag crayons-tag--monochrome" href="t/tutorial.html" style="
+        --tag-bg: rgba(254, 255, 165, 0.10);
+        --tag-prefix: #FEFFA5;
+        --tag-bg-hover: rgba(254, 255, 165, 0.10);
+        --tag-prefix-hover: #FEFFA5;
+      "><span class="crayons-tag__prefix">#</span>tutorial</a>
+</div>
+<div class="crayons-story__bottom">
+<div class="crayons-story__details">
+<a aria-label="Add a comment to post - Build Your Own AI Butler - A Scheduled Agent That Runs Itself!" class="crayons-btn crayons-btn--s crayons-btn--ghost crayons-btn--icon-left" data-reactable-id="3617519" data-reaction-count="" href="aws/build-your-own-ai-butler-a-scheduled-agent-that-runs-itself-3dmk.html">
+<div class="multiple_reactions_aggregate">
+<span class="multiple_reactions_icons_container" dir="rtl">
+<span class="crayons_icon_container">
+<img height="18" src="cdn/assets.dev.to/assets/multi-unicorn-b44d6f8c23cdd00964192bedc38af3e82463978aa611b4365bd33a0f1f4f3e97.svg" width="18"/>
+</span>
+<span class="crayons_icon_container">
+<img height="18" src="cdn/assets.dev.to/assets/exploding-head-daceb38d627e6ae9b730f36a1e390fca556a4289d5a41abb2c35068ad3e2c4b5.svg" width="18"/>
+</span>
+<span class="crayons_icon_container">
+<img height="18" src="cdn/assets.dev.to/assets/sparkle-heart-5f9bee3767e18deb1bb725290cb151c25234768a0e9a2bd39370c382d02920cf.svg" width="18"/>
+</span>
+</span>
+<span class="aggregate_reactions_counter">7<span class="hidden s:inline"> reactions</span></span>
+</div>
+</a>
+<a aria-label="Add a comment to post - Build Your Own AI Butler - A Scheduled Agent That Runs Itself!" class="crayons-btn crayons-btn--s crayons-btn--ghost crayons-btn--icon-left flex items-center" href="aws/build-your-own-ai-butler-a-scheduled-agent-that-runs-itself-3dmk.html">
+<svg aria-labelledby="a4hr2b5893xlw6chkbug9a6bgzehy45j" class="crayons-icon" height="24" role="img" width="24" xmlns="http://www.w3.org/2000/svg"><title id="a4hr2b5893xlw6chkbug9a6bgzehy45j">Comments</title><path d="M10.5 5h3a6 6 0 110 12v2.625c-3.75-1.5-9-3.75-9-8.625a6 6 0 016-6zM12 15.5h1.5a4.501 4.501 0 001.722-8.657A4.5 4.5 0 0013.5 6.5h-3A4.5 4.5 0 006 11c0 2.707 1.846 4.475 6 6.36V15.5z"></path></svg>
+<span class="hidden s:inline">Add Comment</span>
+</a>
+</div>
+<div class="crayons-story__save">
+<small class="crayons-story__tertiary fs-xs mr-2">
+            18 min read
+          </small>
+<button aria-label="Save post Build Your Own AI Butler - A Scheduled Agent That Runs Itself! to reading list" class="c-btn c-btn--icon-alone bookmark-button" data-article-author-id="1994" data-reactable-id="3617519" id="article-save-button-3617519" title="Save post Build Your Own AI Butler - A Scheduled Agent That Runs Itself! to reading list" type="button">
+<span class="bm-initial">
+<svg aria-hidden="true" height="24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M6.75 4.5h10.5a.75.75 0 01.75.75v14.357a.375.375 0 01-.575.318L12 16.523l-5.426 3.401A.375.375 0 016 19.607V5.25a.75.75 0 01.75-.75zM16.5 6h-9v11.574l4.5-2.82 4.5 2.82V6z"></path></svg>
+</span>
+<span class="bm-success">
+<svg aria-hidden="true" height="24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M6.75 4.5h10.5a.75.75 0 01.75.75v14.357a.375.375 0 01-.575.318L12 16.523l-5.426 3.401A.375.375 0 016 19.607V5.25a.75.75 0 01.75-.75z"></path></svg>
+</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="crayons-story" data-content-user-id="376787" data-feed-content-id="3616786">
+<a aria-labelledby="article-link-3616786" class="crayons-story__hidden-navigation-link" href="aws/what-even-is-ai-i-took-a-break-had-to-relearn-everything-3dpj.html">What Even Is AI? (I Took a Break &amp; Had to Relearn Everything)</a>
+<div class="crayons-article__cover crayons-article__cover__image__feed" style="width: 100%; aspect-ratio: 16 / 9; position: relative;">
+<iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="true" src="cdn/www.youtube.com/embed/ly3P-NpLni0" style="border: 0px; position: absolute; top: 0px; left: 0px; width: 100%; height: 100%;" title="What Even Is AI? (I Took a Break &amp; Had to Relearn Everything)"></iframe>
+</div>
+<div class="crayons-story__body crayons-story__body-full_post">
+<a class="crayons-article__context-note crayons-article__context-note__feed" href="aws/what-even-is-ai-i-took-a-break-had-to-relearn-everything-3dpj.html"><p>AI mental models from first principles</p>
+</a>
+<div class="crayons-story__top">
+<div class="crayons-story__meta">
+<div class="crayons-story__author-pic">
+<a class="crayons-avatar crayons-avatar--l" href="rohini_gaonkar.html">
+<img alt="rohini_gaonkar profile" class="crayons-avatar__image" loading="lazy" src="cdn/media2.dev.to/dynamic/image/width=90,height=90,fit=cover,gravity=auto,format=auto/https___dev-to-uploads.s3.amazonaws.com_uploads_user_profile_image_376787_8af3bcfb-d567-4de1-9b33-b6becfe6d85b.jpeg"/>
+</a>
+</div>
+<div>
+<div>
+<a class="crayons-story__secondary fw-medium m:hidden" href="rohini_gaonkar.html">
+              Rohini Gaonkar
+            </a>
+<div class="profile-preview-card relative mb-4 s:mb-0 fw-medium hidden m:inline-block">
+<button aria-controls="story-author-preview-content-3616786" aria-label="Rohini Gaonkar profile details" class="profile-preview-card__trigger fs-s p-1 -ml-1 -my-2 crayons-btn crayons-btn--ghost" id="story-author-preview-trigger-3616786">
+                Rohini Gaonkar
+                
+              </button>
+<div class="profile-preview-card__content crayons-dropdown branded-7 p-4 pt-0" data-repositioning-dropdown="true" data-testid="profile-preview-card" id="story-author-preview-content-3616786" style="border-top-color: var(--card-color);">
+<div class="gap-4 grid">
+<div class="-mt-4">
+<a class="flex" href="rohini_gaonkar.html">
+<span class="crayons-avatar crayons-avatar--xl mr-2 shrink-0">
+<img alt="" class="crayons-avatar__image" loading="lazy" src="cdn/media2.dev.to/dynamic/image/width=90,height=90,fit=cover,gravity=auto,format=auto/https___dev-to-uploads.s3.amazonaws.com_uploads_user_profile_image_376787_8af3bcfb-d567-4de1-9b33-b6becfe6d85b.jpeg"/>
+</span>
+<span class="crayons-link crayons-subtitle-2 mt-5">Rohini Gaonkar</span>
+</a>
+</div>
+<div class="print-hidden">
+<button class="crayons-btn follow-action-button whitespace-nowrap follow-user w-100" data-info='{"style":"full","id":376787,"className":"User","name":"Rohini Gaonkar"}'>
+                      Follow
+                    </button>
+</div>
+<div class="author-preview-metadata-container" data-author-id="376787"></div>
+</div>
+</div>
+</div>
+</div>
+<a class="crayons-story__tertiary fs-xs" href="aws/what-even-is-ai-i-took-a-break-had-to-relearn-everything-3dpj.html"><time datetime="2026-05-05T18:38:06Z">May 5</time><span class="time-ago-indicator-initial-placeholder" data-seconds="1778006286"></span></a>
+</div>
+</div>
+</div>
+<div class="crayons-story__indention">
+<h2 class="crayons-story__title crayons-story__title-full_post">
+<a data-preload-image="" href="aws/what-even-is-ai-i-took-a-break-had-to-relearn-everything-3dpj.html" id="article-link-3616786">
+          What Even Is AI? (I Took a Break &amp; Had to Relearn Everything)
+        </a>
+</h2>
+<div class="crayons-story__tags">
+<a class="crayons-tag crayons-tag--monochrome" href="t/ai.html" style="
+        --tag-bg: rgba(23, 253, 26, 0.10);
+        --tag-prefix: #17fd1a;
+        --tag-bg-hover: rgba(23, 253, 26, 0.10);
+        --tag-prefix-hover: #17fd1a;
+      "><span class="crayons-tag__prefix">#</span>ai</a>
+<a class="crayons-tag crayons-tag--monochrome" href="t/beginners.html" style="
+        --tag-bg: rgba(0, 131, 53, 0.10);
+        --tag-prefix: #008335;
+        --tag-bg-hover: rgba(0, 131, 53, 0.10);
+        --tag-prefix-hover: #008335;
+      "><span class="crayons-tag__prefix">#</span>beginners</a>
+<a class="crayons-tag crayons-tag--monochrome" href="t/aws.html" style="
+        --tag-bg: rgba(33, 43, 58, 0.10);
+        --tag-prefix: #212b3a;
+        --tag-bg-hover: rgba(33, 43, 58, 0.10);
+        --tag-prefix-hover: #212b3a;
+      "><span class="crayons-tag__prefix">#</span>aws</a>
+<a class="crayons-tag crayons-tag--monochrome" href="t/learning.html" style="
+        --tag-bg: rgba(255, 102, 237, 0.10);
+        --tag-prefix: #ff66ed;
+        --tag-bg-hover: rgba(255, 102, 237, 0.10);
+        --tag-prefix-hover: #ff66ed;
+      "><span class="crayons-tag__prefix">#</span>learning</a>
+</div>
+<div class="crayons-story__bottom">
+<div class="crayons-story__details">
+<a aria-label="Add a comment to post - What Even Is AI? (I Took a Break &amp; Had to Relearn Everything)" class="crayons-btn crayons-btn--s crayons-btn--ghost crayons-btn--icon-left" data-reactable-id="3616786" data-reaction-count="" href="aws/what-even-is-ai-i-took-a-break-had-to-relearn-everything-3dpj.html">
+<div class="multiple_reactions_aggregate">
+<span class="multiple_reactions_icons_container" dir="rtl">
+<span class="crayons_icon_container">
+<img height="18" src="cdn/assets.dev.to/assets/exploding-head-daceb38d627e6ae9b730f36a1e390fca556a4289d5a41abb2c35068ad3e2c4b5.svg" width="18"/>
+</span>
+<span class="crayons_icon_container">
+<img height="18" src="cdn/assets.dev.to/assets/raised-hands-74b2099fd66a39f2d7eed9305ee0f4553df0eb7b4f11b01b6b1b499973048fe5.svg" width="18"/>
+</span>
+<span class="crayons_icon_container">
+<img height="18" src="cdn/assets.dev.to/assets/sparkle-heart-5f9bee3767e18deb1bb725290cb151c25234768a0e9a2bd39370c382d02920cf.svg" width="18"/>
+</span>
+</span>
+<span class="aggregate_reactions_counter">39<span class="hidden s:inline"> reactions</span></span>
+</div>
+</a>
+<a aria-label="Add a comment to post - What Even Is AI? (I Took a Break &amp; Had to Relearn Everything)" class="crayons-btn crayons-btn--s crayons-btn--ghost crayons-btn--icon-left flex items-center" href="aws/what-even-is-ai-i-took-a-break-had-to-relearn-everything-3dpj.html">
+<svg aria-labelledby="a6oy0r2l4llzfym620m3394bdf000pua" class="crayons-icon" height="24" role="img" width="24" xmlns="http://www.w3.org/2000/svg"><title id="a6oy0r2l4llzfym620m3394bdf000pua">Comments</title><path d="M10.5 5h3a6 6 0 110 12v2.625c-3.75-1.5-9-3.75-9-8.625a6 6 0 016-6zM12 15.5h1.5a4.501 4.501 0 001.722-8.657A4.5 4.5 0 0013.5 6.5h-3A4.5 4.5 0 006 11c0 2.707 1.846 4.475 6 6.36V15.5z"></path></svg>
+
+              5<span class="hidden s:inline"> comments</span>
+</a>
+</div>
+<div class="crayons-story__save">
+<small class="crayons-story__tertiary fs-xs mr-2">
+            5 min read
+          </small>
+<button aria-label="Save post What Even Is AI? (I Took a Break &amp; Had to Relearn Everything) to reading list" class="c-btn c-btn--icon-alone bookmark-button" data-article-author-id="376787" data-reactable-id="3616786" id="article-save-button-3616786" title="Save post What Even Is AI? (I Took a Break &amp; Had to Relearn Everything) to reading list" type="button">
+<span class="bm-initial">
+<svg aria-hidden="true" height="24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M6.75 4.5h10.5a.75.75 0 01.75.75v14.357a.375.375 0 01-.575.318L12 16.523l-5.426 3.401A.375.375 0 016 19.607V5.25a.75.75 0 01.75-.75zM16.5 6h-9v11.574l4.5-2.82 4.5 2.82V6z"></path></svg>
+</span>
+<span class="bm-success">
+<svg aria-hidden="true" height="24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M6.75 4.5h10.5a.75.75 0 01.75.75v14.357a.375.375 0 01-.575.318L12 16.523l-5.426 3.401A.375.375 0 016 19.607V5.25a.75.75 0 01.75-.75z"></path></svg>
+</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="crayons-story" data-content-user-id="2745619" data-feed-content-id="3616737">
+<a aria-labelledby="article-link-3616737" class="crayons-story__hidden-navigation-link" href="aws/modern-container-builds-and-websocket-apis-come-to-aws-sam-8gm.html">Modern Container Builds and WebSocket APIs Come to AWS SAM</a>
+<div class="crayons-story__body crayons-story__body-full_post">
+<div class="crayons-story__top">
+<div class="crayons-story__meta">
+<div class="crayons-story__author-pic">
+<a class="crayons-avatar crayons-avatar--l" href="edjgeek.html">
+<img alt="edjgeek profile" class="crayons-avatar__image" loading="lazy" src="cdn/media2.dev.to/dynamic/image/width=90,height=90,fit=cover,gravity=auto,format=auto/https___dev-to-uploads.s3.amazonaws.com_uploads_user_profile_image_2745619_51d975f9-b5eb-4ca5-897d-239f41bffb39.jpg"/>
+</a>
+</div>
+<div>
+<div>
+<a class="crayons-story__secondary fw-medium m:hidden" href="edjgeek.html">
+              Eric D Johnson
+            </a>
+<div class="profile-preview-card relative mb-4 s:mb-0 fw-medium hidden m:inline-block">
+<button aria-controls="story-author-preview-content-3616737" aria-label="Eric D Johnson profile details" class="profile-preview-card__trigger fs-s p-1 -ml-1 -my-2 crayons-btn crayons-btn--ghost" id="story-author-preview-trigger-3616737">
+                Eric D Johnson
+                
+              </button>
+<div class="profile-preview-card__content crayons-dropdown branded-7 p-4 pt-0" data-repositioning-dropdown="true" data-testid="profile-preview-card" id="story-author-preview-content-3616737" style="border-top-color: var(--card-color);">
+<div class="gap-4 grid">
+<div class="-mt-4">
+<a class="flex" href="edjgeek.html">
+<span class="crayons-avatar crayons-avatar--xl mr-2 shrink-0">
+<img alt="" class="crayons-avatar__image" loading="lazy" src="cdn/media2.dev.to/dynamic/image/width=90,height=90,fit=cover,gravity=auto,format=auto/https___dev-to-uploads.s3.amazonaws.com_uploads_user_profile_image_2745619_51d975f9-b5eb-4ca5-897d-239f41bffb39.jpg"/>
+</span>
+<span class="crayons-link crayons-subtitle-2 mt-5">Eric D Johnson</span>
+</a>
+</div>
+<div class="print-hidden">
+<button class="crayons-btn follow-action-button whitespace-nowrap follow-user w-100" data-info='{"style":"full","id":2745619,"className":"User","name":"Eric D Johnson"}'>
+                      Follow
+                    </button>
+</div>
+<div class="author-preview-metadata-container" data-author-id="2745619"></div>
+</div>
+</div>
+</div>
+</div>
+<a class="crayons-story__tertiary fs-xs" href="aws/modern-container-builds-and-websocket-apis-come-to-aws-sam-8gm.html"><time datetime="2026-05-05T18:09:06Z">May 5</time><span class="time-ago-indicator-initial-placeholder" data-seconds="1778004546"></span></a>
+</div>
+</div>
+</div>
+<div class="crayons-story__indention">
+<h2 class="crayons-story__title crayons-story__title-full_post">
+<a data-preload-image="https://media2.dev.to/dynamic/image/width=1000,height=420,fit=cover,gravity=auto,format=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Farticles%2Flt0slv0pngqa10miw7zm.png" href="aws/modern-container-builds-and-websocket-apis-come-to-aws-sam-8gm.html" id="article-link-3616737">
+          Modern Container Builds and WebSocket APIs Come to AWS SAM
+        </a>
+</h2>
+<div class="crayons-story__tags">
+<a class="crayons-tag crayons-tag--monochrome" href="t/awssam.html" style="
+        --tag-bg: rgba(64, 78, 211, 0.10);
+        --tag-prefix: #404ED3;
+        --tag-bg-hover: rgba(64, 78, 211, 0.10);
+        --tag-prefix-hover: #404ED3;
+      "><span class="crayons-tag__prefix">#</span>awssam</a>
+<a class="crayons-tag crayons-tag--monochrome" href="t/apigateway.html" style="
+        --tag-bg: rgba(64, 78, 211, 0.10);
+        --tag-prefix: #404ED3;
+        --tag-bg-hover: rgba(64, 78, 211, 0.10);
+        --tag-prefix-hover: #404ED3;
+      "><span class="crayons-tag__prefix">#</span>apigateway</a>
+<a class="crayons-tag crayons-tag--monochrome" href="t/websockets.html" style="
+        --tag-bg: rgba(64, 78, 211, 0.10);
+        --tag-prefix: #404ED3;
+        --tag-bg-hover: rgba(64, 78, 211, 0.10);
+        --tag-prefix-hover: #404ED3;
+      "><span class="crayons-tag__prefix">#</span>websockets</a>
+<a class="crayons-tag crayons-tag--monochrome" href="t/docker.html" style="
+        --tag-bg: rgba(29, 99, 237, 0.10);
+        --tag-prefix: #1D63ED;
+        --tag-bg-hover: rgba(29, 99, 237, 0.10);
+        --tag-prefix-hover: #1D63ED;
+      "><span class="crayons-tag__prefix">#</span>docker</a>
+</div>
+<div class="crayons-story__bottom">
+<div class="crayons-story__details">
+<a aria-label="Add a comment to post - Modern Container Builds and WebSocket APIs Come to AWS SAM" class="crayons-btn crayons-btn--s crayons-btn--ghost crayons-btn--icon-left" data-reactable-id="3616737" data-reaction-count="" href="aws/modern-container-builds-and-websocket-apis-come-to-aws-sam-8gm.html">
+<div class="multiple_reactions_aggregate">
+<span class="multiple_reactions_icons_container" dir="rtl">
+<span class="crayons_icon_container">
+<img height="18" src="cdn/assets.dev.to/assets/sparkle-heart-5f9bee3767e18deb1bb725290cb151c25234768a0e9a2bd39370c382d02920cf.svg" width="18"/>
+</span>
+</span>
+<span class="aggregate_reactions_counter">2<span class="hidden s:inline"> reactions</span></span>
+</div>
+</a>
+<a aria-label="Add a comment to post - Modern Container Builds and WebSocket APIs Come to AWS SAM" class="crayons-btn crayons-btn--s crayons-btn--ghost crayons-btn--icon-left flex items-center" href="aws/modern-container-builds-and-websocket-apis-come-to-aws-sam-8gm.html">
+<svg aria-labelledby="a49yyumeykf4zlu2ssr9tcujcen1c1s3" class="crayons-icon" height="24" role="img" width="24" xmlns="http://www.w3.org/2000/svg"><title id="a49yyumeykf4zlu2ssr9tcujcen1c1s3">Comments</title><path d="M10.5 5h3a6 6 0 110 12v2.625c-3.75-1.5-9-3.75-9-8.625a6 6 0 016-6zM12 15.5h1.5a4.501 4.501 0 001.722-8.657A4.5 4.5 0 0013.5 6.5h-3A4.5 4.5 0 006 11c0 2.707 1.846 4.475 6 6.36V15.5z"></path></svg>
+<span class="hidden s:inline">Add Comment</span>
+</a>
+</div>
+<div class="crayons-story__save">
+<small class="crayons-story__tertiary fs-xs mr-2">
+            7 min read
+          </small>
+<button aria-label="Save post Modern Container Builds and WebSocket APIs Come to AWS SAM to reading list" class="c-btn c-btn--icon-alone bookmark-button" data-article-author-id="2745619" data-reactable-id="3616737" id="article-save-button-3616737" title="Save post Modern Container Builds and WebSocket APIs Come to AWS SAM to reading list" type="button">
+<span class="bm-initial">
+<svg aria-hidden="true" height="24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M6.75 4.5h10.5a.75.75 0 01.75.75v14.357a.375.375 0 01-.575.318L12 16.523l-5.426 3.401A.375.375 0 016 19.607V5.25a.75.75 0 01.75-.75zM16.5 6h-9v11.574l4.5-2.82 4.5 2.82V6z"></path></svg>
+</span>
+<span class="bm-success">
+<svg aria-hidden="true" height="24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M6.75 4.5h10.5a.75.75 0 01.75.75v14.357a.375.375 0 01-.575.318L12 16.523l-5.426 3.401A.375.375 0 016 19.607V5.25a.75.75 0 01.75-.75z"></path></svg>
+</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="crayons-story" data-content-user-id="3096323" data-feed-content-id="3615670">
+<a aria-labelledby="article-link-3615670" class="crayons-story__hidden-navigation-link" href="aws/the-next-casualty-of-the-genai-revolution-3in7.html">The Next Casualty of the GenAI Revolution</a>
+<div class="crayons-story__body crayons-story__body-full_post">
+<a class="crayons-article__context-note crayons-article__context-note__feed" href="aws/the-next-casualty-of-the-genai-revolution-3in7.html"><p>AI agents making personal hardware obsolete</p>
+</a>
+<div class="crayons-story__top">
+<div class="crayons-story__meta">
+<div class="crayons-story__author-pic">
+<a class="crayons-avatar crayons-avatar--l" href="maishsk.html">
+<img alt="maishsk profile" class="crayons-avatar__image" loading="lazy" src="cdn/media2.dev.to/dynamic/image/width=90,height=90,fit=cover,gravity=auto,format=auto/https___dev-to-uploads.s3.amazonaws.com_uploads_user_profile_image_3096323_cc5368dd-0f18-4545-ab1d-91efa020aa9d.jpg"/>
+</a>
+</div>
+<div>
+<div>
+<a class="crayons-story__secondary fw-medium m:hidden" href="maishsk.html">
+              Maish Saidel-Keesing
+            </a>
+<div class="profile-preview-card relative mb-4 s:mb-0 fw-medium hidden m:inline-block">
+<button aria-controls="story-author-preview-content-3615670" aria-label="Maish Saidel-Keesing profile details" class="profile-preview-card__trigger fs-s p-1 -ml-1 -my-2 crayons-btn crayons-btn--ghost" id="story-author-preview-trigger-3615670">
+                Maish Saidel-Keesing
+                
+              </button>
+<div class="profile-preview-card__content crayons-dropdown branded-7 p-4 pt-0" data-repositioning-dropdown="true" data-testid="profile-preview-card" id="story-author-preview-content-3615670" style="border-top-color: var(--card-color);">
+<div class="gap-4 grid">
+<div class="-mt-4">
+<a class="flex" href="maishsk.html">
+<span class="crayons-avatar crayons-avatar--xl mr-2 shrink-0">
+<img alt="" class="crayons-avatar__image" loading="lazy" src="cdn/media2.dev.to/dynamic/image/width=90,height=90,fit=cover,gravity=auto,format=auto/https___dev-to-uploads.s3.amazonaws.com_uploads_user_profile_image_3096323_cc5368dd-0f18-4545-ab1d-91efa020aa9d.jpg"/>
+</span>
+<span class="crayons-link crayons-subtitle-2 mt-5">Maish Saidel-Keesing</span>
+</a>
+</div>
+<div class="print-hidden">
+<button class="crayons-btn follow-action-button whitespace-nowrap follow-user w-100" data-info='{"style":"full","id":3096323,"className":"User","name":"Maish Saidel-Keesing"}'>
+                      Follow
+                    </button>
+</div>
+<div class="author-preview-metadata-container" data-author-id="3096323"></div>
+</div>
+</div>
+</div>
+</div>
+<a class="crayons-story__tertiary fs-xs" href="aws/the-next-casualty-of-the-genai-revolution-3in7.html"><time datetime="2026-05-05T13:25:34Z">May 5</time><span class="time-ago-indicator-initial-placeholder" data-seconds="1777987534"></span></a>
+</div>
+</div>
+</div>
+<div class="crayons-story__indention">
+<h2 class="crayons-story__title crayons-story__title-full_post">
+<a data-preload-image="https://media2.dev.to/dynamic/image/width=1000,height=420,fit=cover,gravity=auto,format=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Farticles%2Fh2gjqk37ziii4p84gp02.jpg" href="aws/the-next-casualty-of-the-genai-revolution-3in7.html" id="article-link-3615670">
+          The Next Casualty of the GenAI Revolution
+        </a>
+</h2>
+<div class="crayons-story__tags">
+<a class="crayons-tag crayons-tag--monochrome" href="t/ai.html" style="
+        --tag-bg: rgba(23, 253, 26, 0.10);
+        --tag-prefix: #17fd1a;
+        --tag-bg-hover: rgba(23, 253, 26, 0.10);
+        --tag-prefix-hover: #17fd1a;
+      "><span class="crayons-tag__prefix">#</span>ai</a>
+<a class="crayons-tag crayons-tag--monochrome" href="t/cloud.html" style="
+        --tag-bg: rgba(255, 153, 0, 0.10);
+        --tag-prefix: #FF9900;
+        --tag-bg-hover: rgba(255, 153, 0, 0.10);
+        --tag-prefix-hover: #FF9900;
+      "><span class="crayons-tag__prefix">#</span>cloud</a>
+<a class="crayons-tag crayons-tag--monochrome" href="t/aws.html" style="
+        --tag-bg: rgba(33, 43, 58, 0.10);
+        --tag-prefix: #212b3a;
+        --tag-bg-hover: rgba(33, 43, 58, 0.10);
+        --tag-prefix-hover: #212b3a;
+      "><span class="crayons-tag__prefix">#</span>aws</a>
+<a class="crayons-tag crayons-tag--monochrome" href="t/genai.html" style="
+        --tag-bg: rgba(64, 78, 211, 0.10);
+        --tag-prefix: #404ED3;
+        --tag-bg-hover: rgba(64, 78, 211, 0.10);
+        --tag-prefix-hover: #404ED3;
+      "><span class="crayons-tag__prefix">#</span>genai</a>
+</div>
+<div class="crayons-story__bottom">
+<div class="crayons-story__details">
+<a aria-label="Add a comment to post - The Next Casualty of the GenAI Revolution" class="crayons-btn crayons-btn--s crayons-btn--ghost crayons-btn--icon-left" data-reactable-id="3615670" data-reaction-count="" href="aws/the-next-casualty-of-the-genai-revolution-3in7.html">
+<div class="multiple_reactions_aggregate">
+<span class="multiple_reactions_icons_container" dir="rtl">
+<span class="crayons_icon_container">
+<img height="18" src="cdn/assets.dev.to/assets/multi-unicorn-b44d6f8c23cdd00964192bedc38af3e82463978aa611b4365bd33a0f1f4f3e97.svg" width="18"/>
+</span>
+<span class="crayons_icon_container">
+<img height="18" src="cdn/assets.dev.to/assets/raised-hands-74b2099fd66a39f2d7eed9305ee0f4553df0eb7b4f11b01b6b1b499973048fe5.svg" width="18"/>
+</span>
+<span class="crayons_icon_container">
+<img height="18" src="cdn/assets.dev.to/assets/sparkle-heart-5f9bee3767e18deb1bb725290cb151c25234768a0e9a2bd39370c382d02920cf.svg" width="18"/>
+</span>
+</span>
+<span class="aggregate_reactions_counter">39<span class="hidden s:inline"> reactions</span></span>
+</div>
+</a>
+<a aria-label="Add a comment to post - The Next Casualty of the GenAI Revolution" class="crayons-btn crayons-btn--s crayons-btn--ghost crayons-btn--icon-left flex items-center" href="aws/the-next-casualty-of-the-genai-revolution-3in7.html">
+<svg aria-labelledby="aaxaa3ym6dq80vupbxkoyo194nayylvb" class="crayons-icon" height="24" role="img" width="24" xmlns="http://www.w3.org/2000/svg"><title id="aaxaa3ym6dq80vupbxkoyo194nayylvb">Comments</title><path d="M10.5 5h3a6 6 0 110 12v2.625c-3.75-1.5-9-3.75-9-8.625a6 6 0 016-6zM12 15.5h1.5a4.501 4.501 0 001.722-8.657A4.5 4.5 0 0013.5 6.5h-3A4.5 4.5 0 006 11c0 2.707 1.846 4.475 6 6.36V15.5z"></path></svg>
+
+              5<span class="hidden s:inline"> comments</span>
+</a>
+</div>
+<div class="crayons-story__save">
+<small class="crayons-story__tertiary fs-xs mr-2">
+            7 min read
+          </small>
+<button aria-label="Save post The Next Casualty of the GenAI Revolution to reading list" class="c-btn c-btn--icon-alone bookmark-button" data-article-author-id="3096323" data-reactable-id="3615670" id="article-save-button-3615670" title="Save post The Next Casualty of the GenAI Revolution to reading list" type="button">
+<span class="bm-initial">
+<svg aria-hidden="true" height="24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M6.75 4.5h10.5a.75.75 0 01.75.75v14.357a.375.375 0 01-.575.318L12 16.523l-5.426 3.401A.375.375 0 016 19.607V5.25a.75.75 0 01.75-.75zM16.5 6h-9v11.574l4.5-2.82 4.5 2.82V6z"></path></svg>
+</span>
+<span class="bm-success">
+<svg aria-hidden="true" height="24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M6.75 4.5h10.5a.75.75 0 01.75.75v14.357a.375.375 0 01-.575.318L12 16.523l-5.426 3.401A.375.375 0 016 19.607V5.25a.75.75 0 01.75-.75z"></path></svg>
+</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="crayons-story" data-content-user-id="717518" data-feed-content-id="3593545">
+<a aria-labelledby="article-link-3593545" class="crayons-story__hidden-navigation-link" href="aws/how-to-prevent-ai-agent-reasoning-loops-from-wasting-tokens-2652.html">How to Prevent AI Agent Reasoning Loops from Wasting Tokens</a>
+<div class="crayons-story__body crayons-story__body-full_post">
+<div class="crayons-story__top">
+<div class="crayons-story__meta">
+<div class="crayons-story__author-pic">
+<a class="crayons-avatar crayons-avatar--l" href="elizabethfuentes12.html">
+<img alt="elizabethfuentes12 profile" class="crayons-avatar__image" loading="lazy" src="cdn/media2.dev.to/dynamic/image/width=90,height=90,fit=cover,gravity=auto,format=auto/https___dev-to-uploads.s3.amazonaws.com_uploads_user_profile_image_717518_b550b165-b8b9-405d-acfb-e5dc846765b0.png"/>
+</a>
+</div>
+<div>
+<div>
+<a class="crayons-story__secondary fw-medium m:hidden" href="elizabethfuentes12.html">
+              Elizabeth Fuentes L
+            </a>
+<div class="profile-preview-card relative mb-4 s:mb-0 fw-medium hidden m:inline-block">
+<button aria-controls="story-author-preview-content-3593545" aria-label="Elizabeth Fuentes L profile details" class="profile-preview-card__trigger fs-s p-1 -ml-1 -my-2 crayons-btn crayons-btn--ghost" id="story-author-preview-trigger-3593545">
+                Elizabeth Fuentes L
+                
+              </button>
+<div class="profile-preview-card__content crayons-dropdown branded-7 p-4 pt-0" data-repositioning-dropdown="true" data-testid="profile-preview-card" id="story-author-preview-content-3593545" style="border-top-color: var(--card-color);">
+<div class="gap-4 grid">
+<div class="-mt-4">
+<a class="flex" href="elizabethfuentes12.html">
+<span class="crayons-avatar crayons-avatar--xl mr-2 shrink-0">
+<img alt="" class="crayons-avatar__image" loading="lazy" src="cdn/media2.dev.to/dynamic/image/width=90,height=90,fit=cover,gravity=auto,format=auto/https___dev-to-uploads.s3.amazonaws.com_uploads_user_profile_image_717518_b550b165-b8b9-405d-acfb-e5dc846765b0.png"/>
+</span>
+<span class="crayons-link crayons-subtitle-2 mt-5">Elizabeth Fuentes L</span>
+</a>
+</div>
+<div class="print-hidden">
+<button class="crayons-btn follow-action-button whitespace-nowrap follow-user w-100" data-info='{"style":"full","id":717518,"className":"User","name":"Elizabeth Fuentes L"}'>
+                      Follow
+                    </button>
+</div>
+<div class="author-preview-metadata-container" data-author-id="717518"></div>
+</div>
+</div>
+</div>
+</div>
+<a class="crayons-story__tertiary fs-xs" href="aws/how-to-prevent-ai-agent-reasoning-loops-from-wasting-tokens-2652.html"><time datetime="2026-05-04T23:00:00Z">May 4</time><span class="time-ago-indicator-initial-placeholder" data-seconds="1777935600"></span></a>
+</div>
+</div>
+</div>
+<div class="crayons-story__indention">
+<h2 class="crayons-story__title crayons-story__title-full_post">
+<a data-preload-image="https://media2.dev.to/dynamic/image/width=1000,height=420,fit=cover,gravity=auto,format=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Farticles%2Fkoz96ncn3mrqo6yd0xps.png" href="aws/how-to-prevent-ai-agent-reasoning-loops-from-wasting-tokens-2652.html" id="article-link-3593545">
+          How to Prevent AI Agent Reasoning Loops from Wasting Tokens
+        </a>
+</h2>
+<div class="crayons-story__tags">
+<a class="crayons-tag crayons-tag--monochrome" href="t/ai.html" style="
+        --tag-bg: rgba(23, 253, 26, 0.10);
+        --tag-prefix: #17fd1a;
+        --tag-bg-hover: rgba(23, 253, 26, 0.10);
+        --tag-prefix-hover: #17fd1a;
+      "><span class="crayons-tag__prefix">#</span>ai</a>
+<a class="crayons-tag crayons-tag--monochrome" href="t/tutorial.html" style="
+        --tag-bg: rgba(254, 255, 165, 0.10);
+        --tag-prefix: #FEFFA5;
+        --tag-bg-hover: rgba(254, 255, 165, 0.10);
+        --tag-prefix-hover: #FEFFA5;
+      "><span class="crayons-tag__prefix">#</span>tutorial</a>
+<a class="crayons-tag crayons-tag--monochrome" href="t/python.html" style="
+        --tag-bg: rgba(30, 56, 187, 0.10);
+        --tag-prefix: #1E38BB;
+        --tag-bg-hover: rgba(30, 56, 187, 0.10);
+        --tag-prefix-hover: #1E38BB;
+      "><span class="crayons-tag__prefix">#</span>python</a>
+<a class="crayons-tag crayons-tag--monochrome" href="t/aws.html" style="
+        --tag-bg: rgba(33, 43, 58, 0.10);
+        --tag-prefix: #212b3a;
+        --tag-bg-hover: rgba(33, 43, 58, 0.10);
+        --tag-prefix-hover: #212b3a;
+      "><span class="crayons-tag__prefix">#</span>aws</a>
+</div>
+<div class="crayons-story__bottom">
+<div class="crayons-story__details">
+<a aria-label="Add a comment to post - How to Prevent AI Agent Reasoning Loops from Wasting Tokens" class="crayons-btn crayons-btn--s crayons-btn--ghost crayons-btn--icon-left" data-reactable-id="3593545" data-reaction-count="" href="aws/how-to-prevent-ai-agent-reasoning-loops-from-wasting-tokens-2652.html">
+<div class="multiple_reactions_aggregate">
+<span class="multiple_reactions_icons_container" dir="rtl">
+<span class="crayons_icon_container">
+<img height="18" src="cdn/assets.dev.to/assets/exploding-head-daceb38d627e6ae9b730f36a1e390fca556a4289d5a41abb2c35068ad3e2c4b5.svg" width="18"/>
+</span>
+<span class="crayons_icon_container">
+<img height="18" src="cdn/assets.dev.to/assets/multi-unicorn-b44d6f8c23cdd00964192bedc38af3e82463978aa611b4365bd33a0f1f4f3e97.svg" width="18"/>
+</span>
+<span class="crayons_icon_container">
+<img height="18" src="cdn/assets.dev.to/assets/sparkle-heart-5f9bee3767e18deb1bb725290cb151c25234768a0e9a2bd39370c382d02920cf.svg" width="18"/>
+</span>
+</span>
+<span class="aggregate_reactions_counter">11<span class="hidden s:inline"> reactions</span></span>
+</div>
+</a>
+<a aria-label="Add a comment to post - How to Prevent AI Agent Reasoning Loops from Wasting Tokens" class="crayons-btn crayons-btn--s crayons-btn--ghost crayons-btn--icon-left flex items-center" href="aws/how-to-prevent-ai-agent-reasoning-loops-from-wasting-tokens-2652.html">
+<svg aria-labelledby="aoywucs1k6enc135mx17kwvg2o4h8u8y" class="crayons-icon" height="24" role="img" width="24" xmlns="http://www.w3.org/2000/svg"><title id="aoywucs1k6enc135mx17kwvg2o4h8u8y">Comments</title><path d="M10.5 5h3a6 6 0 110 12v2.625c-3.75-1.5-9-3.75-9-8.625a6 6 0 016-6zM12 15.5h1.5a4.501 4.501 0 001.722-8.657A4.5 4.5 0 0013.5 6.5h-3A4.5 4.5 0 006 11c0 2.707 1.846 4.475 6 6.36V15.5z"></path></svg>
+
+              2<span class="hidden s:inline"> comments</span>
+</a>
+</div>
+<div class="crayons-story__save">
+<small class="crayons-story__tertiary fs-xs mr-2">
+            8 min read
+          </small>
+<button aria-label="Save post How to Prevent AI Agent Reasoning Loops from Wasting Tokens to reading list" class="c-btn c-btn--icon-alone bookmark-button" data-article-author-id="717518" data-reactable-id="3593545" id="article-save-button-3593545" title="Save post How to Prevent AI Agent Reasoning Loops from Wasting Tokens to reading list" type="button">
+<span class="bm-initial">
+<svg aria-hidden="true" height="24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M6.75 4.5h10.5a.75.75 0 01.75.75v14.357a.375.375 0 01-.575.318L12 16.523l-5.426 3.401A.375.375 0 016 19.607V5.25a.75.75 0 01.75-.75zM16.5 6h-9v11.574l4.5-2.82 4.5 2.82V6z"></path></svg>
+</span>
+<span class="bm-success">
+<svg aria-hidden="true" height="24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M6.75 4.5h10.5a.75.75 0 01.75.75v14.357a.375.375 0 01-.575.318L12 16.523l-5.426 3.401A.375.375 0 016 19.607V5.25a.75.75 0 01.75-.75z"></path></svg>
+</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="crayons-story" data-content-user-id="1994" data-feed-content-id="3610948">
+<a aria-labelledby="article-link-3610948" class="crayons-story__hidden-navigation-link" href="aws/stop-reaching-for-python-strands-agents-typescript-sdk-just-hit-10-4lk6.html">Stop Reaching for Python: Strands Agents TypeScript SDK Just Hit 1.0</a>
+<div class="crayons-story__body crayons-story__body-full_post">
+<div class="crayons-story__top">
+<div class="crayons-story__meta">
+<div class="crayons-story__author-pic">
+<a class="crayons-avatar crayons-avatar--l" href="erikch.html">
+<img alt="erikch profile" class="crayons-avatar__image" loading="lazy" src="cdn/media2.dev.to/dynamic/image/width=90,height=90,fit=cover,gravity=auto,format=auto/https___dev-to-uploads.s3.amazonaws.com_uploads_user_profile_image_1994_0j84YwMs.jpeg"/>
+</a>
+</div>
+<div>
+<div>
+<a class="crayons-story__secondary fw-medium m:hidden" href="erikch.html">
+              Erik Hanchett
+            </a>
+<div class="profile-preview-card relative mb-4 s:mb-0 fw-medium hidden m:inline-block">
+<button aria-controls="story-author-preview-content-3610948" aria-label="Erik Hanchett profile details" class="profile-preview-card__trigger fs-s p-1 -ml-1 -my-2 crayons-btn crayons-btn--ghost" id="story-author-preview-trigger-3610948">
+                Erik Hanchett
+                
+              </button>
+<div class="profile-preview-card__content crayons-dropdown branded-7 p-4 pt-0" data-repositioning-dropdown="true" data-testid="profile-preview-card" id="story-author-preview-content-3610948" style="border-top-color: var(--card-color);">
+<div class="gap-4 grid">
+<div class="-mt-4">
+<a class="flex" href="erikch.html">
+<span class="crayons-avatar crayons-avatar--xl mr-2 shrink-0">
+<img alt="" class="crayons-avatar__image" loading="lazy" src="cdn/media2.dev.to/dynamic/image/width=90,height=90,fit=cover,gravity=auto,format=auto/https___dev-to-uploads.s3.amazonaws.com_uploads_user_profile_image_1994_0j84YwMs.jpeg"/>
+</span>
+<span class="crayons-link crayons-subtitle-2 mt-5">Erik Hanchett</span>
+</a>
+</div>
+<div class="print-hidden">
+<button class="crayons-btn follow-action-button whitespace-nowrap follow-user w-100" data-info='{"style":"full","id":1994,"className":"User","name":"Erik Hanchett"}'>
+                      Follow
+                    </button>
+</div>
+<div class="author-preview-metadata-container" data-author-id="1994"></div>
+</div>
+</div>
+</div>
+</div>
+<a class="crayons-story__tertiary fs-xs" href="aws/stop-reaching-for-python-strands-agents-typescript-sdk-just-hit-10-4lk6.html"><time datetime="2026-05-04T20:11:08Z">May 4</time><span class="time-ago-indicator-initial-placeholder" data-seconds="1777925468"></span></a>
+</div>
+</div>
+</div>
+<div class="crayons-story__indention">
+<h2 class="crayons-story__title crayons-story__title-full_post">
+<a data-preload-image="https://media2.dev.to/dynamic/image/width=1000,height=420,fit=cover,gravity=auto,format=auto/https%3A%2F%2Fstorage.ghost.io%2Fc%2Ff0%2Fef%2Ff0ef7042-4f18-43a4-8fc3-034133d9598b%2Fcontent%2Fimages%2F2026%2F05%2Fstrands-cover-image-3.png" href="aws/stop-reaching-for-python-strands-agents-typescript-sdk-just-hit-10-4lk6.html" id="article-link-3610948">
+          Stop Reaching for Python: Strands Agents TypeScript SDK Just Hit 1.0
+        </a>
+</h2>
+<div class="crayons-story__tags">
+<a class="crayons-tag crayons-tag--monochrome" href="t/typescript.html" style="
+        --tag-bg: rgba(35, 74, 132, 0.10);
+        --tag-prefix: #234A84;
+        --tag-bg-hover: rgba(35, 74, 132, 0.10);
+        --tag-prefix-hover: #234A84;
+      "><span class="crayons-tag__prefix">#</span>typescript</a>
+<a class="crayons-tag crayons-tag--monochrome" href="t/ai.html" style="
+        --tag-bg: rgba(23, 253, 26, 0.10);
+        --tag-prefix: #17fd1a;
+        --tag-bg-hover: rgba(23, 253, 26, 0.10);
+        --tag-prefix-hover: #17fd1a;
+      "><span class="crayons-tag__prefix">#</span>ai</a>
+<a class="crayons-tag crayons-tag--monochrome" href="t/aws.html" style="
+        --tag-bg: rgba(33, 43, 58, 0.10);
+        --tag-prefix: #212b3a;
+        --tag-bg-hover: rgba(33, 43, 58, 0.10);
+        --tag-prefix-hover: #212b3a;
+      "><span class="crayons-tag__prefix">#</span>aws</a>
+<a class="crayons-tag crayons-tag--monochrome" href="t/agents.html" style="
+        --tag-bg: rgba(11, 226, 245, 0.10);
+        --tag-prefix: #0be2f5;
+        --tag-bg-hover: rgba(11, 226, 245, 0.10);
+        --tag-prefix-hover: #0be2f5;
+      "><span class="crayons-tag__prefix">#</span>agents</a>
+</div>
+<div class="crayons-story__bottom">
+<div class="crayons-story__details">
+<a aria-label="Add a comment to post - Stop Reaching for Python: Strands Agents TypeScript SDK Just Hit 1.0" class="crayons-btn crayons-btn--s crayons-btn--ghost crayons-btn--icon-left" data-reactable-id="3610948" data-reaction-count="" href="aws/stop-reaching-for-python-strands-agents-typescript-sdk-just-hit-10-4lk6.html">
+<div class="multiple_reactions_aggregate">
+<span class="multiple_reactions_icons_container" dir="rtl">
+<span class="crayons_icon_container">
+<img height="18" src="cdn/assets.dev.to/assets/multi-unicorn-b44d6f8c23cdd00964192bedc38af3e82463978aa611b4365bd33a0f1f4f3e97.svg" width="18"/>
+</span>
+<span class="crayons_icon_container">
+<img height="18" src="cdn/assets.dev.to/assets/raised-hands-74b2099fd66a39f2d7eed9305ee0f4553df0eb7b4f11b01b6b1b499973048fe5.svg" width="18"/>
+</span>
+<span class="crayons_icon_container">
+<img height="18" src="cdn/assets.dev.to/assets/sparkle-heart-5f9bee3767e18deb1bb725290cb151c25234768a0e9a2bd39370c382d02920cf.svg" width="18"/>
+</span>
+</span>
+<span class="aggregate_reactions_counter">13<span class="hidden s:inline"> reactions</span></span>
+</div>
+</a>
+<a aria-label="Add a comment to post - Stop Reaching for Python: Strands Agents TypeScript SDK Just Hit 1.0" class="crayons-btn crayons-btn--s crayons-btn--ghost crayons-btn--icon-left flex items-center" href="aws/stop-reaching-for-python-strands-agents-typescript-sdk-just-hit-10-4lk6.html">
+<svg aria-labelledby="aaiq2zt3gqcn38kb34cva13vrjtz1bw0" class="crayons-icon" height="24" role="img" width="24" xmlns="http://www.w3.org/2000/svg"><title id="aaiq2zt3gqcn38kb34cva13vrjtz1bw0">Comments</title><path d="M10.5 5h3a6 6 0 110 12v2.625c-3.75-1.5-9-3.75-9-8.625a6 6 0 016-6zM12 15.5h1.5a4.501 4.501 0 001.722-8.657A4.5 4.5 0 0013.5 6.5h-3A4.5 4.5 0 006 11c0 2.707 1.846 4.475 6 6.36V15.5z"></path></svg>
+
+              1<span class="hidden s:inline"> comment</span>
+</a>
+</div>
+<div class="crayons-story__save">
+<small class="crayons-story__tertiary fs-xs mr-2">
+            8 min read
+          </small>
+<button aria-label="Save post Stop Reaching for Python: Strands Agents TypeScript SDK Just Hit 1.0 to reading list" class="c-btn c-btn--icon-alone bookmark-button" data-article-author-id="1994" data-reactable-id="3610948" id="article-save-button-3610948" title="Save post Stop Reaching for Python: Strands Agents TypeScript SDK Just Hit 1.0 to reading list" type="button">
+<span class="bm-initial">
+<svg aria-hidden="true" height="24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M6.75 4.5h10.5a.75.75 0 01.75.75v14.357a.375.375 0 01-.575.318L12 16.523l-5.426 3.401A.375.375 0 016 19.607V5.25a.75.75 0 01.75-.75zM16.5 6h-9v11.574l4.5-2.82 4.5 2.82V6z"></path></svg>
+</span>
+<span class="bm-success">
+<svg aria-hidden="true" height="24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M6.75 4.5h10.5a.75.75 0 01.75.75v14.357a.375.375 0 01-.575.318L12 16.523l-5.426 3.401A.375.375 0 016 19.607V5.25a.75.75 0 01.75-.75z"></path></svg>
+</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="crayons-story" data-content-user-id="1228459" data-feed-content-id="3303397">
+<a aria-labelledby="article-link-3303397" class="crayons-story__hidden-navigation-link" href="aws/how-to-survive-your-first-90-days-as-a-developer-1ean.html">How to Survive Your First 90 Days as a Developer</a>
+<div class="crayons-story__body crayons-story__body-full_post">
+<div class="crayons-story__top">
+<div class="crayons-story__meta">
+<div class="crayons-story__author-pic">
+<a class="crayons-avatar crayons-avatar--l" href="ifeanyiro.html">
+<img alt="ifeanyiro profile" class="crayons-avatar__image" loading="lazy" src="cdn/media2.dev.to/dynamic/image/width=90,height=90,fit=cover,gravity=auto,format=auto/https___dev-to-uploads.s3.amazonaws.com_uploads_user_profile_image_1228459_d99a6804-bbdc-45d0-bf2a-e118d31c7b19.jpeg"/>
+</a>
+</div>
+<div>
+<div>
+<a class="crayons-story__secondary fw-medium m:hidden" href="ifeanyiro.html">
+              Ifeanyi O.
+            </a>
+<div class="profile-preview-card relative mb-4 s:mb-0 fw-medium hidden m:inline-block">
+<button aria-controls="story-author-preview-content-3303397" aria-label="Ifeanyi O. profile details" class="profile-preview-card__trigger fs-s p-1 -ml-1 -my-2 crayons-btn crayons-btn--ghost" id="story-author-preview-trigger-3303397">
+                Ifeanyi O.
+                
+              </button>
+<div class="profile-preview-card__content crayons-dropdown branded-7 p-4 pt-0" data-repositioning-dropdown="true" data-testid="profile-preview-card" id="story-author-preview-content-3303397" style="border-top-color: var(--card-color);">
+<div class="gap-4 grid">
+<div class="-mt-4">
+<a class="flex" href="ifeanyiro.html">
+<span class="crayons-avatar crayons-avatar--xl mr-2 shrink-0">
+<img alt="" class="crayons-avatar__image" loading="lazy" src="cdn/media2.dev.to/dynamic/image/width=90,height=90,fit=cover,gravity=auto,format=auto/https___dev-to-uploads.s3.amazonaws.com_uploads_user_profile_image_1228459_d99a6804-bbdc-45d0-bf2a-e118d31c7b19.jpeg"/>
+</span>
+<span class="crayons-link crayons-subtitle-2 mt-5">Ifeanyi O.</span>
+</a>
+</div>
+<div class="print-hidden">
+<button class="crayons-btn follow-action-button whitespace-nowrap follow-user w-100" data-info='{"style":"full","id":1228459,"className":"User","name":"Ifeanyi O."}'>
+                      Follow
+                    </button>
+</div>
+<div class="author-preview-metadata-container" data-author-id="1228459"></div>
+</div>
+</div>
+</div>
+</div>
+<a class="crayons-story__tertiary fs-xs" href="aws/how-to-survive-your-first-90-days-as-a-developer-1ean.html"><time datetime="2026-05-04T05:00:00Z">May 4</time><span class="time-ago-indicator-initial-placeholder" data-seconds="1777870800"></span></a>
+</div>
+</div>
+</div>
+<div class="crayons-story__indention">
+<h2 class="crayons-story__title crayons-story__title-full_post">
+<a data-preload-image="https://media2.dev.to/dynamic/image/width=1000,height=420,fit=cover,gravity=auto,format=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Farticles%2Ffdlfx5xfko82j1yb11td.png" href="aws/how-to-survive-your-first-90-days-as-a-developer-1ean.html" id="article-link-3303397">
+          How to Survive Your First 90 Days as a Developer
+        </a>
+</h2>
+<div class="crayons-story__tags">
+<a class="crayons-tag crayons-tag--monochrome" href="t/beginners.html" style="
+        --tag-bg: rgba(0, 131, 53, 0.10);
+        --tag-prefix: #008335;
+        --tag-bg-hover: rgba(0, 131, 53, 0.10);
+        --tag-prefix-hover: #008335;
+      "><span class="crayons-tag__prefix">#</span>beginners</a>
+<a class="crayons-tag crayons-tag--monochrome" href="t/career.html" style="
+        --tag-bg: rgba(42, 37, 102, 0.10);
+        --tag-prefix: #2A2566;
+        --tag-bg-hover: rgba(42, 37, 102, 0.10);
+        --tag-prefix-hover: #2A2566;
+      "><span class="crayons-tag__prefix">#</span>career</a>
+<a class="crayons-tag crayons-tag--monochrome" href="t/codenewbie.html" style="
+        --tag-bg: rgba(197, 152, 255, 0.10);
+        --tag-prefix: #C598FF;
+        --tag-bg-hover: rgba(197, 152, 255, 0.10);
+        --tag-prefix-hover: #C598FF;
+      "><span class="crayons-tag__prefix">#</span>codenewbie</a>
+<a class="crayons-tag crayons-tag--monochrome" href="t/productivity.html" style="
+        --tag-bg: rgba(42, 7, 152, 0.10);
+        --tag-prefix: #2A0798;
+        --tag-bg-hover: rgba(42, 7, 152, 0.10);
+        --tag-prefix-hover: #2A0798;
+      "><span class="crayons-tag__prefix">#</span>productivity</a>
+</div>
+<div class="crayons-story__bottom">
+<div class="crayons-story__details">
+<a aria-label="Add a comment to post - How to Survive Your First 90 Days as a Developer" class="crayons-btn crayons-btn--s crayons-btn--ghost crayons-btn--icon-left" data-reactable-id="3303397" data-reaction-count="" href="aws/how-to-survive-your-first-90-days-as-a-developer-1ean.html">
+<div class="multiple_reactions_aggregate">
+<span class="multiple_reactions_icons_container" dir="rtl">
+<span class="crayons_icon_container">
+<img height="18" src="cdn/assets.dev.to/assets/exploding-head-daceb38d627e6ae9b730f36a1e390fca556a4289d5a41abb2c35068ad3e2c4b5.svg" width="18"/>
+</span>
+<span class="crayons_icon_container">
+<img height="18" src="cdn/assets.dev.to/assets/multi-unicorn-b44d6f8c23cdd00964192bedc38af3e82463978aa611b4365bd33a0f1f4f3e97.svg" width="18"/>
+</span>
+<span class="crayons_icon_container">
+<img height="18" src="cdn/assets.dev.to/assets/sparkle-heart-5f9bee3767e18deb1bb725290cb151c25234768a0e9a2bd39370c382d02920cf.svg" width="18"/>
+</span>
+</span>
+<span class="aggregate_reactions_counter">10<span class="hidden s:inline"> reactions</span></span>
+</div>
+</a>
+<a aria-label="Add a comment to post - How to Survive Your First 90 Days as a Developer" class="crayons-btn crayons-btn--s crayons-btn--ghost crayons-btn--icon-left flex items-center" href="aws/how-to-survive-your-first-90-days-as-a-developer-1ean.html">
+<svg aria-labelledby="aao1shvf6awwc2pxbnqdnrymqds4qend" class="crayons-icon" height="24" role="img" width="24" xmlns="http://www.w3.org/2000/svg"><title id="aao1shvf6awwc2pxbnqdnrymqds4qend">Comments</title><path d="M10.5 5h3a6 6 0 110 12v2.625c-3.75-1.5-9-3.75-9-8.625a6 6 0 016-6zM12 15.5h1.5a4.501 4.501 0 001.722-8.657A4.5 4.5 0 0013.5 6.5h-3A4.5 4.5 0 006 11c0 2.707 1.846 4.475 6 6.36V15.5z"></path></svg>
+
+              2<span class="hidden s:inline"> comments</span>
+</a>
+</div>
+<div class="crayons-story__save">
+<small class="crayons-story__tertiary fs-xs mr-2">
+            18 min read
+          </small>
+<button aria-label="Save post How to Survive Your First 90 Days as a Developer to reading list" class="c-btn c-btn--icon-alone bookmark-button" data-article-author-id="1228459" data-reactable-id="3303397" id="article-save-button-3303397" title="Save post How to Survive Your First 90 Days as a Developer to reading list" type="button">
+<span class="bm-initial">
+<svg aria-hidden="true" height="24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M6.75 4.5h10.5a.75.75 0 01.75.75v14.357a.375.375 0 01-.575.318L12 16.523l-5.426 3.401A.375.375 0 016 19.607V5.25a.75.75 0 01.75-.75zM16.5 6h-9v11.574l4.5-2.82 4.5 2.82V6z"></path></svg>
+</span>
+<span class="bm-success">
+<svg aria-hidden="true" height="24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M6.75 4.5h10.5a.75.75 0 01.75.75v14.357a.375.375 0 01-.575.318L12 16.523l-5.426 3.401A.375.375 0 016 19.607V5.25a.75.75 0 01.75-.75z"></path></svg>
+</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="crayons-story" data-content-user-id="717518" data-feed-content-id="3593291">
+<a aria-labelledby="article-link-3593291" class="crayons-story__hidden-navigation-link" href="aws/fix-mcp-timeouts-async-handleid-pattern-8ek.html">Fix MCP Timeouts: Async HandleId Pattern</a>
+<div class="crayons-story__body crayons-story__body-full_post">
+<div class="crayons-story__top">
+<div class="crayons-story__meta">
+<div class="crayons-story__author-pic">
+<a class="crayons-avatar crayons-avatar--l" href="elizabethfuentes12.html">
+<img alt="elizabethfuentes12 profile" class="crayons-avatar__image" loading="lazy" src="cdn/media2.dev.to/dynamic/image/width=90,height=90,fit=cover,gravity=auto,format=auto/https___dev-to-uploads.s3.amazonaws.com_uploads_user_profile_image_717518_b550b165-b8b9-405d-acfb-e5dc846765b0.png"/>
+</a>
+</div>
+<div>
+<div>
+<a class="crayons-story__secondary fw-medium m:hidden" href="elizabethfuentes12.html">
+              Elizabeth Fuentes L
+            </a>
+<div class="profile-preview-card relative mb-4 s:mb-0 fw-medium hidden m:inline-block">
+<button aria-controls="story-author-preview-content-3593291" aria-label="Elizabeth Fuentes L profile details" class="profile-preview-card__trigger fs-s p-1 -ml-1 -my-2 crayons-btn crayons-btn--ghost" id="story-author-preview-trigger-3593291">
+                Elizabeth Fuentes L
+                
+              </button>
+<div class="profile-preview-card__content crayons-dropdown branded-7 p-4 pt-0" data-repositioning-dropdown="true" data-testid="profile-preview-card" id="story-author-preview-content-3593291" style="border-top-color: var(--card-color);">
+<div class="gap-4 grid">
+<div class="-mt-4">
+<a class="flex" href="elizabethfuentes12.html">
+<span class="crayons-avatar crayons-avatar--xl mr-2 shrink-0">
+<img alt="" class="crayons-avatar__image" loading="lazy" src="cdn/media2.dev.to/dynamic/image/width=90,height=90,fit=cover,gravity=auto,format=auto/https___dev-to-uploads.s3.amazonaws.com_uploads_user_profile_image_717518_b550b165-b8b9-405d-acfb-e5dc846765b0.png"/>
+</span>
+<span class="crayons-link crayons-subtitle-2 mt-5">Elizabeth Fuentes L</span>
+</a>
+</div>
+<div class="print-hidden">
+<button class="crayons-btn follow-action-button whitespace-nowrap follow-user w-100" data-info='{"style":"full","id":717518,"className":"User","name":"Elizabeth Fuentes L"}'>
+                      Follow
+                    </button>
+</div>
+<div class="author-preview-metadata-container" data-author-id="717518"></div>
+</div>
+</div>
+</div>
+</div>
+<a class="crayons-story__tertiary fs-xs" href="aws/fix-mcp-timeouts-async-handleid-pattern-8ek.html"><time datetime="2026-04-30T19:28:53Z">Apr 30</time><span class="time-ago-indicator-initial-placeholder" data-seconds="1777577333"></span></a>
+</div>
+</div>
+</div>
+<div class="crayons-story__indention">
+<h2 class="crayons-story__title crayons-story__title-full_post">
+<a data-preload-image="https://media2.dev.to/dynamic/image/width=1000,height=420,fit=cover,gravity=auto,format=auto/https%3A%2F%2Fdev-to-uploads.s3.amazonaws.com%2Fuploads%2Farticles%2Ftwo3tjzek610zj4619l5.png" href="aws/fix-mcp-timeouts-async-handleid-pattern-8ek.html" id="article-link-3593291">
+          Fix MCP Timeouts: Async HandleId Pattern
+        </a>
+</h2>
+<div class="crayons-story__tags">
+<a class="crayons-tag crayons-tag--monochrome" href="t/ai.html" style="
+        --tag-bg: rgba(23, 253, 26, 0.10);
+        --tag-prefix: #17fd1a;
+        --tag-bg-hover: rgba(23, 253, 26, 0.10);
+        --tag-prefix-hover: #17fd1a;
+      "><span class="crayons-tag__prefix">#</span>ai</a>
+<a class="crayons-tag crayons-tag--monochrome" href="t/tutorial.html" style="
+        --tag-bg: rgba(254, 255, 165, 0.10);
+        --tag-prefix: #FEFFA5;
+        --tag-bg-hover: rgba(254, 255, 165, 0.10);
+        --tag-prefix-hover: #FEFFA5;
+      "><span class="crayons-tag__prefix">#</span>tutorial</a>
+<a class="crayons-tag crayons-tag--monochrome" href="t/python.html" style="
+        --tag-bg: rgba(30, 56, 187, 0.10);
+        --tag-prefix: #1E38BB;
+        --tag-bg-hover: rgba(30, 56, 187, 0.10);
+        --tag-prefix-hover: #1E38BB;
+      "><span class="crayons-tag__prefix">#</span>python</a>
+<a class="crayons-tag crayons-tag--monochrome" href="t/llm.html" style="
+        --tag-bg: rgba(64, 78, 211, 0.10);
+        --tag-prefix: #404ED3;
+        --tag-bg-hover: rgba(64, 78, 211, 0.10);
+        --tag-prefix-hover: #404ED3;
+      "><span class="crayons-tag__prefix">#</span>llm</a>
+</div>
+<div class="crayons-story__bottom">
+<div class="crayons-story__details">
+<a aria-label="Add a comment to post - Fix MCP Timeouts: Async HandleId Pattern" class="crayons-btn crayons-btn--s crayons-btn--ghost crayons-btn--icon-left" data-reactable-id="3593291" data-reaction-count="" href="aws/fix-mcp-timeouts-async-handleid-pattern-8ek.html">
+<div class="multiple_reactions_aggregate">
+<span class="multiple_reactions_icons_container" dir="rtl">
+<span class="crayons_icon_container">
+<img height="18" src="cdn/assets.dev.to/assets/exploding-head-daceb38d627e6ae9b730f36a1e390fca556a4289d5a41abb2c35068ad3e2c4b5.svg" width="18"/>
+</span>
+<span class="crayons_icon_container">
+<img height="18" src="cdn/assets.dev.to/assets/multi-unicorn-b44d6f8c23cdd00964192bedc38af3e82463978aa611b4365bd33a0f1f4f3e97.svg" width="18"/>
+</span>
+<span class="crayons_icon_container">
+<img height="18" src="cdn/assets.dev.to/assets/sparkle-heart-5f9bee3767e18deb1bb725290cb151c25234768a0e9a2bd39370c382d02920cf.svg" width="18"/>
+</span>
+</span>
+<span class="aggregate_reactions_counter">22<span class="hidden s:inline"> reactions</span></span>
+</div>
+</a>
+<a aria-label="Add a comment to post - Fix MCP Timeouts: Async HandleId Pattern" class="crayons-btn crayons-btn--s crayons-btn--ghost crayons-btn--icon-left flex items-center" href="aws/fix-mcp-timeouts-async-handleid-pattern-8ek.html">
+<svg aria-labelledby="a4tfpz9vx4g1mdzmii5f1fh7lswrsndo" class="crayons-icon" height="24" role="img" width="24" xmlns="http://www.w3.org/2000/svg"><title id="a4tfpz9vx4g1mdzmii5f1fh7lswrsndo">Comments</title><path d="M10.5 5h3a6 6 0 110 12v2.625c-3.75-1.5-9-3.75-9-8.625a6 6 0 016-6zM12 15.5h1.5a4.501 4.501 0 001.722-8.657A4.5 4.5 0 0013.5 6.5h-3A4.5 4.5 0 006 11c0 2.707 1.846 4.475 6 6.36V15.5z"></path></svg>
+
+              1<span class="hidden s:inline"> comment</span>
+</a>
+</div>
+<div class="crayons-story__save">
+<small class="crayons-story__tertiary fs-xs mr-2">
+            7 min read
+          </small>
+<button aria-label="Save post Fix MCP Timeouts: Async HandleId Pattern to reading list" class="c-btn c-btn--icon-alone bookmark-button" data-article-author-id="717518" data-reactable-id="3593291" id="article-save-button-3593291" title="Save post Fix MCP Timeouts: Async HandleId Pattern to reading list" type="button">
+<span class="bm-initial">
+<svg aria-hidden="true" height="24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M6.75 4.5h10.5a.75.75 0 01.75.75v14.357a.375.375 0 01-.575.318L12 16.523l-5.426 3.401A.375.375 0 016 19.607V5.25a.75.75 0 01.75-.75zM16.5 6h-9v11.574l4.5-2.82 4.5 2.82V6z"></path></svg>
+</span>
+<span class="bm-success">
+<svg aria-hidden="true" height="24" width="24" xmlns="http://www.w3.org/2000/svg"><path d="M6.75 4.5h10.5a.75.75 0 01.75.75v14.357a.375.375 0 01-.575.318L12 16.523l-5.426 3.401A.375.375 0 016 19.607V5.25a.75.75 0 01.75-.75z"></path></svg>
+</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="placeholder-div"></div>
+<div class="single-article-small-pic" id="article-index-hidden-div" style="display:none"></div>
+</div>
+<div class="loading-articles" id="loading-articles">
+      loading...
+    </div>
+</main>
+</div>
+<script defer="defer" src="cdn/assets.dev.to/assets/storiesList-b9c50cbd898a3a64258a3a49db1c531651b0a4a11937be35ed4651111802b5b5.js"></script>
+<script defer="defer" src="cdn/assets.dev.to/assets/hideBookmarkButtons-a5d5527593e7fcba1cba72db457b57f49f94bf2266c62db454b2c8a00e751d33.js"></script>
+<script defer="defer" src="cdn/assets.dev.to/assets/localizeArticleDates-70147c5c6bfe350b42e020ebb2a3dd37419d83978982b5a67b6389119bf162ac.js"></script>
+<div id="runtime-banner-container"></div>
+<div data-translations="{&quot;en&quot;:{&quot;core&quot;:{&quot;add_comment&quot;:&quot;Add comment&quot;,&quot;beta&quot;:&quot;beta&quot;,&quot;comment&quot;:&quot;Comment&quot;,&quot;copy_link&quot;:&quot;Copy link&quot;,&quot;edit_profile&quot;:&quot;Edit profile&quot;,&quot;follow&quot;:&quot;Follow&quot;,&quot;follow_back&quot;:&quot;Follow back&quot;,&quot;following&quot;:&quot;Following&quot;,&quot;like&quot;:&quot;Like&quot;,&quot;loading&quot;:&quot;loading...&quot;,&quot;reaction&quot;:&quot;Reaction&quot;,&quot;report_abuse&quot;:&quot;Report abuse&quot;,&quot;search&quot;:&quot;Search&quot;,&quot;success_settings&quot;:&quot;Successfully updated settings.&quot;,&quot;search_placeholder&quot;:&quot;Search...&quot;,&quot;search_find_related_posts&quot;:&quot;Find related posts...&quot;,&quot;search_powered_by&quot;:&quot;Powered by Algolia&quot;,&quot;search_submit_search&quot;:&quot;Submit search for advanced filtering.&quot;,&quot;search_displaying_recommendations&quot;:&quot;Displaying Algolia Recommendations — Start typing to search&quot;,&quot;article_form_save_changes&quot;:&quot;Save changes&quot;,&quot;article_form_schedule&quot;:&quot;Schedule&quot;,&quot;article_form_publish&quot;:&quot;Publish&quot;,&quot;article_form_loading_preview&quot;:&quot;Loading preview&quot;,&quot;article_form_preview_loaded&quot;:&quot;Preview loaded&quot;,&quot;article_form_co_authors&quot;:&quot;Co-authors&quot;,&quot;article_form_co_authors_description&quot;:&quot;Add up to 4 co-authors from %{org_name}.&quot;,&quot;article_form_co_authors_placeholder&quot;:&quot;Add up to 4...&quot;,&quot;comments_preview&quot;:&quot;Preview&quot;,&quot;comments_continue_editing&quot;:&quot;Continue editing&quot;,&quot;survey_enter_response&quot;:&quot;Enter your response here...&quot;,&quot;survey_thank_you_response&quot;:&quot;Thank you for your response.&quot;,&quot;survey_thank_you_completing&quot;:&quot;Thank you for completing the survey!&quot;,&quot;dashboard_analytics_readers&quot;:&quot;Readers&quot;,&quot;dashboard_analytics_avg_read_time&quot;:&quot;avg. read time %{seconds}s&quot;,&quot;dashboard_analytics_comments&quot;:&quot;Comments&quot;,&quot;dashboard_analytics_reactions&quot;:&quot;Reactions&quot;,&quot;dashboard_analytics_unique_reactors&quot;:&quot;from %{count} unique users&quot;,&quot;dashboard_analytics_bookmarks&quot;:&quot;Bookmarks&quot;,&quot;dashboard_analytics_followers&quot;:&quot;New Followers&quot;,&quot;top_contributors_empty&quot;:&quot;No engagers found for this period.&quot;,&quot;top_contributors_reactions&quot;:&quot;reactions&quot;,&quot;top_contributors_comments&quot;:&quot;comments&quot;,&quot;top_contributors_weight_note&quot;:&quot;Comments carry more weight&quot;,&quot;follower_engagement_ratio&quot;:&quot;%{ratio}% of followers engaged&quot;,&quot;follower_engagement_detail&quot;:&quot;(%{engaged} of %{total})&quot;,&quot;dashboard_analytics_no_data&quot;:&quot;No data available for this period&quot;,&quot;dashboard_analytics_no_referrers&quot;:&quot;No traffic sources yet&quot;,&quot;stats_by&quot;:&quot;by&quot;,&quot;editor_new_title&quot;:&quot;New post title here...&quot;,&quot;editor_body_placeholder&quot;:&quot;Write your post content here...&quot;,&quot;tags_field_label&quot;:&quot;Add up to 4 tags&quot;,&quot;tags_field_placeholder&quot;:&quot;Add up to 4 tags...&quot;,&quot;counted_organization&quot;:{&quot;one&quot;:&quot;%{count} organization&quot;,&quot;other&quot;:&quot;%{count} organizations&quot;},&quot;counted_user&quot;:{&quot;one&quot;:&quot;%{count} person&quot;,&quot;other&quot;:&quot;%{count} people&quot;},&quot;not_following&quot;:&quot;You're not following anyone&quot;,&quot;following_everyone&quot;:&quot;You're following %{details} (everyone)&quot;,&quot;you_are_following&quot;:&quot;You're following&quot;,&quot;and&quot;:&quot;and&quot;}}}" id="i18n-translations"></div>
+</div>
+</div>
+<footer class="crayons-footer print-hidden" id="footer">
+<div class="crayons-footer__container" id="footer-container">
+<style>
+  .long-bb-body {
+    max-height: calc(100vh - 200px);
+    overflow: hidden;
+  }
+  .long-bb-bottom {
+    height: 180px;
+    background: linear-gradient(to top, var(--card-bg), transparent);
+    margin-top: -180px;
+    position:relative;
+    z-index: 5;
+  }
+</style>
+<div data-article-id="" data-category-click="click" data-category-impression="impression" data-context-type="home" data-display-unit="" data-id="146443" data-special="nothing" data-type-of="in_house" style="">
+<div class="crayons-card crayons-card--secondary crayons-bb bb-placement js-billboard" style="display: inline-flex; flex-direction: column; align-items: center; margin: 0 auto 2rem auto; width: fit-content; padding: 2rem;">
+<p style="font-weight: bold; margin: 0 0 1rem 0;">
+            💎 DEV Diamond Sponsors
+        </p>
+<p style="font-size: 0.8em; margin: 0 0 2rem 0;">
+            Thank you to our Diamond Sponsors for supporting the DEV Community
+        </p>
+<div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 2rem;">
+<div style="display: inline-block; max-width: 240px; font-size: 0.8em; font-style: italic; text-align: center; padding: 10px; background: #ffffff; border-radius: 5px; color: #404040;">
+<a href="https://aistudio.google.com/?utm_source=partner&amp;utm_medium=partner&amp;utm_campaign=FY25-Global-DEVpartnership-sponsorship-AIS&amp;utm_content=-&amp;utm_term=-&amp;bb=146443" rel="noopener noreferrer" style="display: flex; justify-content: center; align-items: center;" target="_blank">
+<img alt="Google AI - Official AI Model and Platform Partner" height="472" loading="lazy" src="cdn/media2.dev.to/dynamic/image/width=880,height=,fit=scale-down,gravity=auto,format=auto/https___dev-to-uploads.s3.amazonaws.com_uploads_articles_xjlyhbdqehj3akhz166w.png" style="display: block; background: #ffffff; margin: 0 auto; width: auto; height: 54px; padding: 10px;" width="2048"/>
+</a>
+<p style="text-align: center;">Google AI is the official AI Model and Platform Partner of DEV</p>
+</div>
+<div style="display: inline-block; max-width: 240px; font-size: 0.8em; font-style: italic; text-align: center; padding: 10px; background: #ffffff; border-radius: 5px; color: #404040;">
+<a href="https://neon.tech/?ref=devto&amp;bb=146443" rel="noopener noreferrer" style="display: flex; justify-content: center; align-items: center;" target="_blank">
+<img alt="Neon - Official Database Partner" height="596" loading="lazy" src="cdn/media2.dev.to/dynamic/image/width=880,height=,fit=scale-down,gravity=auto,format=auto/https___dev-to-uploads.s3.amazonaws.com_uploads_articles_bnl88cil6afxzmgwrgtt.png" style="display: block; background: #ffffff; margin: 0 auto; width: auto; height: 60px; padding: 10px;" width="2286"/>
+</a>
+<p style="text-align: center;">Neon is the official database partner of DEV</p>
+</div>
+<div style="display: inline-block; max-width: 240px; font-size: 0.8em; font-style: italic; text-align: center; padding: 10px; background: #ffffff; border-radius: 5px; color: #404040;">
+<a href="https://www.algolia.com/developers/?utm_source=devto&amp;utm_medium=referral&amp;bb=146443" rel="noopener noreferrer" style="display: flex; justify-content: center; align-items: center;" target="_blank">
+<img alt="Algolia - Official Search Partner" height="596" loading="lazy" src="cdn/media2.dev.to/dynamic/image/width=880,height=,fit=scale-down,gravity=auto,format=auto/https___dev-to-uploads.s3.amazonaws.com_uploads_articles_v30ephnolfvnlwgwm0yz.png" style="display: block; background: #ffffff; margin: 0 auto; width: auto; height: 60px; padding: 10px;" width="2286"/>
+</a>
+<p style="text-align: center;">Algolia is the official search partner of DEV</p>
+</div>
+</div>
+</div>
+</div>
+<p class="fs-s crayons-footer__description">
+<a aria-label="DEV Community Home" class="c-link c-link--branded fw-medium" href="index.html">DEV Community</a> — A space to discuss and keep up software development and manage your software career
+    </p>
+<ul class="footer__nav-links flex gap-2 justify-center flex-wrap fs-s p-0" style=""></ul>
+<li class="footer__nav-link flex items-center">
+<a href="index.html">
+      Home
+    </a>
+<span class="dot ml-2"></span>
+</li>
+<li class="footer__nav-link flex items-center">
+<a href="about.html">
+      About
+    </a>
+<span class="dot ml-2"></span>
+</li>
+<li class="footer__nav-link flex items-center">
+<a href="contact.html">
+      Contact
+    </a>
+<span class="dot ml-2"></span>
+</li>
+<li class="footer__nav-link flex items-center">
+<a href="https://mlh.io/">
+      MLH
+    </a>
+<span class="dot ml-2"></span>
+</li>
+
+<ul class="footer__nav-links flex gap-2 justify-center flex-wrap fs-s p-0" style=""></ul>
+<li class="footer__nav-link flex items-center">
+<a href="code-of-conduct.html">
+      Code of Conduct
+    </a>
+<span class="dot ml-2"></span>
+</li>
+<li class="footer__nav-link flex items-center">
+<a href="privacy.html">
+      Privacy Policy
+    </a>
+<span class="dot ml-2"></span>
+</li>
+<li class="footer__nav-link flex items-center">
+<a href="terms.html">
+      Terms of Use
+    </a>
+<span class="dot ml-2"></span>
+</li>
+
+<div class="fs-s">
+<p>Built on <a class="c-link c-link--branded" href="https://www.forem.com" rel="noopener" target="_blank">Forem</a> — the <a class="c-link c-link--branded" href="t/opensource.html" rel="noopener" target="_blank">open source</a> software that powers <a class="c-link c-link--branded" href="index.html" rel="noopener" target="_blank">DEV</a> and other inclusive communities.</p>
+<p>Made with love and <a class="c-link c-link--branded" href="t/rails.html" rel="noopener" target="_blank">Ruby on Rails</a>. DEV Community <span title="copyright">©</span> 2016 - 2026.</p>
+</div>
+</div>
+</footer>
+<div id="snack-zone"></div>
+<div class="authentication-modal hidden" id="global-signup-modal">
+<div class="authentication-modal__container">
+<figure class="authentication-modal__image-container">
+<img alt="DEV Community" class="authentication-modal__image" loading="lazy" src="cdn/media2.dev.to/dynamic/image/width=190,height=,fit=scale-down,gravity=auto,format=auto/https___dev-to-uploads.s3.amazonaws.com_uploads_articles_8j7kvp660rqzt99zui8e.png">
+</img></figure>
+<div class="authentication-modal__content">
+<p class="authentication-modal__description">
+          We're a place where coders share, stay up-to-date and grow their careers.
+      </p>
+</div>
+<div class="authentication-modal__actions">
+<a aria-label="Log in" class="crayons-btn" data-no-instant="" href="enter-q7ffd52de7b.html">
+        Log in
+      </a>
+<a aria-label="Create new account" class="crayons-btn crayons-btn--ghost-brand js-global-signup-modal__create-account" data-no-instant="" href="enter-qfc40b94913.html">
+        Create account
+      </a>
+</div>
+</div>
+</div>
+<script defer="defer" src="cdn/assets.dev.to/assets/signupModalShortcuts-0b25469b985100a01e94cbd7fccaf7f0a4d776e129aac65c766aa32cb28ab29a.js"></script>
+<div id="cookie-consent"></div>
+<div aria-hidden="true" class="hidden" id="reaction-category-resources">
+<img data-name="Like" data-position="1" data-slug="like" height="18" src="cdn/assets.dev.to/assets/sparkle-heart-5f9bee3767e18deb1bb725290cb151c25234768a0e9a2bd39370c382d02920cf.svg" width="18">
+<img data-name="Unicorn" data-position="2" data-slug="unicorn" height="18" src="cdn/assets.dev.to/assets/multi-unicorn-b44d6f8c23cdd00964192bedc38af3e82463978aa611b4365bd33a0f1f4f3e97.svg" width="18">
+<img data-name="Exploding Head" data-position="3" data-slug="exploding_head" height="18" src="cdn/assets.dev.to/assets/exploding-head-daceb38d627e6ae9b730f36a1e390fca556a4289d5a41abb2c35068ad3e2c4b5.svg" width="18"/>
+<img data-name="Raised Hands" data-position="4" data-slug="raised_hands" height="18" src="cdn/assets.dev.to/assets/raised-hands-74b2099fd66a39f2d7eed9305ee0f4553df0eb7b4f11b01b6b1b499973048fe5.svg" width="18"/>
+<img data-name="Fire" data-position="5" data-slug="fire" height="18" src="cdn/assets.dev.to/assets/fire-f60e7a582391810302117f987b22a8ef04a2fe0df7e3258a5f49332df1cec71e.svg" width="18"/>
+</img></img></div>
+<script>
+  var userSignedIn = false;
+  if (document.readyState === 'complete' || document.readyState === 'interactive') {
+    initAuth();
+  } else {
+    document.addEventListener('DOMContentLoaded', initAuth);
+  }
+
+  function initAuth() {
+    var paramToken = new URLSearchParams(window.location.search).get('jwt');
+
+    if (paramToken && !userSignedIn) {
+      authenticateUser(paramToken);
+    } else {
+      var iframe = document.createElement('iframe');
+      iframe.style.display = 'none';
+      iframe.src = 'https://forem.com/auth_pass/iframe';
+  
+      document.body.appendChild(iframe);
+  
+      window.addEventListener('message', function(event) {
+        if (event.origin !== 'https://forem.com' && event.origin !== window.location.origin) {
+          return;
+        }
+  
+        var data = event.data;
+  
+        if (data.authenticated && !userSignedIn) {
+          authenticateUser(data.token);
+        } else if(data.authenticated && window.ReactNativeWebView && window.ReactNativeWebView.postMessage) {
+          window.ReactNativeWebView.postMessage(JSON.stringify({
+            action: 'login',
+            token: data.token,
+          }));
+        }
+      });  
+    }
+
+    function authenticateUser(token) {
+      fetch('/auth_pass/token_login', {
+        method: 'POST',
+        credentials: 'include',
+        headers: {
+          'Content-Type': 'application/json',
+          'X-CSRF-Token': getMetaContent('csrf-token'),
+        },
+        body: JSON.stringify({ token: token }),
+      })
+      .then(function(response) {
+        return response.json();
+      })
+      .then(function(data) {
+        if (data.success) {
+          if (document.head.querySelector('meta[name="user-signed-in"][content="false"]')) {
+            // Reload the page to update the user's state
+            location.reload();
+          }
+        }
+      })
+      .catch(function(error) {
+        console.error('Error during authentication:', error);
+      });
+    }
+
+    function getMetaContent(name) {
+      var element = document.querySelector('meta[name="' + name + '"]');
+      return element ? element.getAttribute('content') : '';
+    }
+  }
+</script>
+</link></body>
+</html>
