@@ -150,6 +150,16 @@ jobs:
           echo "" >> $GITHUB_STEP_SUMMARY
 
           echo "_Workflow completed successfully._" >> $GITHUB_STEP_SUMMARY
+		  
+		  
+		  
+	  - name: Commit and Push to Repository
+	    run: |
+		  git config --global user.name "GitHub Action"
+		  git config --global user.email "action@github.com"
+		  git add */
+		  git commit -m "Update mirrored site files" || echo "No changes to commit"
+		  git push
 
       # -------------------------------------------------
       # Upload Artifact
@@ -163,3 +173,7 @@ jobs:
             !.github/
             !*.py
             !*.md
+
+
+
+
