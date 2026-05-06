@@ -1,1 +1,0 @@
-document.addEventListener("DOMContentLoaded",(()=>{let e=new URLSearchParams(window.location.search).get("signup_subforem");e&&localStorage.setItem("signup_subforem_id",e)}));
