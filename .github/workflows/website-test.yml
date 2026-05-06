@@ -28,8 +28,8 @@ on:
 
 permissions:
   contents: write
-	
-	
+
+
 jobs:
   mirror-test:
     name: 🧪 Run Downloader & Generate Report
