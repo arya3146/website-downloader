@@ -22,7 +22,14 @@ on:
         description: "Download CDN/external assets"
         required: false
         default: "true"
-
+ 
+  push:
+    branches: [ main ]
+	
+  permissions:
+    contents: write
+	
+	
 jobs:
   mirror-test:
     name: 🧪 Run Downloader & Generate Report
