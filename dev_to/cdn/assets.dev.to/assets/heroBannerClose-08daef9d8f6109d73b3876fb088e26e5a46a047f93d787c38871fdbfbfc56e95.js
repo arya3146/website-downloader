@@ -1,1 +1,0 @@
-(()=>{let e=document.getElementById("hero-html-wrapper"),t=document.getElementById("js-hero-banner__x");e&&t&&(t.setAttribute("aria-label","Close campaign banner"),t.addEventListener("click",(()=>{localStorage.setItem("exited_hero",e.dataset.name),e.style.display="none"})))})();
