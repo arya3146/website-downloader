@@ -6,7 +6,7 @@ on:
       target_url:
         description: "Target website URL"
         required: true
-        default: "https://dev.to/animmouse/hosting-a-socks5-proxy-on-github-actions-27mj"
+        default: "https://example.com"
 
       max_pages:
         description: "Maximum pages to crawl"
@@ -150,9 +150,9 @@ jobs:
           echo "" >> $GITHUB_STEP_SUMMARY
 
           echo "_Workflow completed successfully._" >> $GITHUB_STEP_SUMMARY
-		  
-		  
-		  
+
+
+
 	  - name: Commit and Push to Repository
 	    run: |
 		  git config --global user.name "GitHub Action"
